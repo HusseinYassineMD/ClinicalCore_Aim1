@@ -57,7 +57,7 @@ export default function DashboardAuthGate({
   if (authDisabledForLocalDev() || authed) {
     return (
       <>
-        {!authDisabledForLocalDev() && passwordHashConfigured() ? (
+        {!authDisabledForLocalDev() ? (
           <div className="fixed bottom-3 right-3 z-[100]">
             <button
               type="button"
