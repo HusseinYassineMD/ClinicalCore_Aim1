@@ -1,13 +1,18 @@
+import SectionScopeBracket from "@/components/SectionScopeBracket";
+import type { SectionScopeId } from "@/data/sectionReportingScope";
+
 interface SectionLabelProps {
   title: string;
   subtitle?: string;
   variant?: "priority" | "ondeck";
+  scopeSectionId?: SectionScopeId;
 }
 
 export default function SectionLabel({
   title,
   subtitle,
   variant = "priority",
+  scopeSectionId,
 }: SectionLabelProps) {
   return (
     <div className="flex items-center gap-3 mb-4">
@@ -19,6 +24,12 @@ export default function SectionLabel({
       <div>
         <h2 className="font-display text-xl font-semibold text-cpbh-navy">
           {title}
+          {scopeSectionId ? (
+            <>
+              {" "}
+              <SectionScopeBracket sectionId={scopeSectionId} />
+            </>
+          ) : null}
         </h2>
         {subtitle && (
           <p className="text-cpbh-navy/60 text-sm">{subtitle}</p>

@@ -1,6 +1,7 @@
 import type { RecMetrics, RecRosterData } from "@/types/aim1";
 import MetricCard from "./MetricCard";
 import RecRosterPanel from "./RecRosterPanel";
+import SectionScopeBracket from "@/components/SectionScopeBracket";
 
 interface RecSectionProps {
   data: RecMetrics;
@@ -12,7 +13,8 @@ export default function RecSection({ data, roster }: RecSectionProps) {
     <section className="space-y-8">
       <div>
         <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy">
-          REC
+          <span className="block">REC</span>
+          <SectionScopeBracket sectionId="rec" className="block mt-2" />
         </h2>
         <p className="text-cpbh-navy/60 text-sm mt-1">
           Research Education Component · speaker series, scholars, faculty, and

@@ -13,6 +13,7 @@ import BiofluidCollectionBlock from "./BiofluidCollectionBlock";
 import BiomarkerRenewalStickyNote from "./BiomarkerRenewalStickyNote";
 import BiomarkerResearchBlock from "./BiomarkerResearchBlock";
 import DataStatusStickyNote from "./DataStatusStickyNote";
+import SectionScopeBracket from "@/components/SectionScopeBracket";
 import StickyNoteRail, { SectionWithNotes } from "./StickyNoteRail";
 
 interface BiomarkersSectionProps {
@@ -81,7 +82,8 @@ export default function BiomarkersSection({
   return (
     <section className="space-y-6">
       <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy">
-        Biomarkers
+        <span className="block">Biomarkers</span>
+        <SectionScopeBracket sectionId="biomarkers" className="block mt-2" />
       </h2>
 
       <SectionWithNotes

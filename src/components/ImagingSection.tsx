@@ -16,6 +16,7 @@ import IdaUploadBlock from "./IdaUploadBlock";
 import DataStatusStickyNote from "./DataStatusStickyNote";
 import IdaUploadConfirmationStickyNote from "./IdaUploadConfirmationStickyNote";
 import StickyNoteRail, { SectionWithNotes } from "./StickyNoteRail";
+import SectionScopeBracket from "@/components/SectionScopeBracket";
 
 interface ImagingSectionProps {
   claritiScans: ClaritiScans;
@@ -39,7 +40,8 @@ export default function ImagingSection({
   return (
     <section className="space-y-6">
       <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy">
-        Imaging
+        <span className="block">Imaging</span>
+        <SectionScopeBracket sectionId="imaging" className="block mt-2" />
       </h2>
 
       <SectionWithNotes

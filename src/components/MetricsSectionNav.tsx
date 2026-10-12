@@ -1,16 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import {
+  SECTION_REPORTING_SCOPES,
+  type SectionScopeId,
+} from "@/data/sectionReportingScope";
 
-const SECTIONS = [
-  { id: "recruitment", label: "Recruitment" },
-  { id: "demographics", label: "Demographics" },
-  { id: "neuropathology", label: "Neuropathology" },
-  { id: "ore", label: "ORE" },
-  { id: "biomarkers", label: "Biomarkers" },
-  { id: "rec", label: "REC" },
-  { id: "imaging", label: "Imaging" },
-] as const;
+const SECTIONS = SECTION_REPORTING_SCOPES.map((s) => ({
+  id: s.id as SectionScopeId,
+  label: s.navLabel,
+  bracket: s.bracket,
+}));
 
 export default function MetricsSectionNav() {
   const [active, setActive] = useState<string>("recruitment");
@@ -57,6 +57,7 @@ export default function MetricsSectionNav() {
             <a
               key={section.id}
               href={`#${section.id}`}
+              title={section.bracket}
               className={`whitespace-nowrap rounded-lg px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors scroll-mt-28 ${
                 isActive
                   ? "bg-cpbh-purple text-white shadow-sm"

@@ -7,8 +7,12 @@ export default function SitePeriodStrip() {
   return (
     <div className="border-b border-cpbh-mist/80 bg-white">
       <p className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 text-center text-xs text-cpbh-navy/70">
-        <span className="font-medium text-cpbh-navy">Reporting window</span>{" "}
+        <span className="font-medium text-cpbh-navy">EAC count window</span>{" "}
         {siteReportingWindow.label}
+        <span className="text-cpbh-navy/50">
+          {" "}
+          (row dates may end earlier — see presenter key below)
+        </span>
         <span className="mx-2 text-cpbh-mist">|</span>
         <span className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5">
           <span>

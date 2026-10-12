@@ -25,7 +25,9 @@ import StickyNoteRail, {
 import OreOutreachBlock from "@/components/OreOutreachBlock";
 import { aim1MockData } from "@/data/aim1MockData";
 import SitePeriodStrip from "@/components/SitePeriodStrip";
+import DashboardPresenterScopePanel from "@/components/DashboardPresenterScopePanel";
 import MetricsSectionNav from "@/components/MetricsSectionNav";
+import SectionScopeBracket from "@/components/SectionScopeBracket";
 import ChartErrorBoundary from "@/components/ChartErrorBoundary";
 import { siteReportingWindow } from "@/data/siteReporting";
 
@@ -41,6 +43,7 @@ export default function DashboardPage() {
       />
       <DashboardNav />
       <SitePeriodStrip />
+      <DashboardPresenterScopePanel />
       <MetricsSectionNav />
 
       <main className="flex-1 mx-auto w-full min-w-0 max-w-[90rem] px-4 sm:px-6 lg:px-8 py-8 md:py-10 space-y-12">
@@ -48,7 +51,11 @@ export default function DashboardPage() {
         <section id="recruitment" className="scroll-mt-32 space-y-6">
           <div id="deck-section-recruitment" className="space-y-6 mx-auto w-full max-w-none">
           <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy text-center">
-            Recruitment
+            <span className="block">Recruitment</span>
+            <SectionScopeBracket
+              sectionId="recruitment"
+              className="block mt-2 max-w-3xl mx-auto"
+            />
           </h2>
           <div id="recruitment-charts" className="scroll-mt-32">
           <SectionWithNotes
@@ -95,8 +102,9 @@ export default function DashboardPage() {
             >
               <SectionLabel
                 title="Demographics"
-                subtitle={`Harmonized active cohort (N=569) · visit counts above are ${siteReportingWindow.label}`}
+                subtitle="Harmonized active cohort (N=569) · charts parse Table 1 cells · visit counts in Recruitment use the black YTD window above"
                 variant="priority"
+                scopeSectionId="demographics"
               />
               <DemographicsChartsHost
                 skeleton={
@@ -116,7 +124,11 @@ export default function DashboardPage() {
         {/* 2. Neuropathology */}
         <section id="neuropathology" className="scroll-mt-32 space-y-6">
           <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy text-center">
-            Neuropathology
+            <span className="block">Neuropathology</span>
+            <SectionScopeBracket
+              sectionId="neuropathology"
+              className="block mt-2 max-w-3xl mx-auto"
+            />
           </h2>
           <SectionWithNotes
             notes={
