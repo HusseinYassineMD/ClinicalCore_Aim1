@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "sourceRoot": "data/reference/rec/",
+    "sourceCsv": "data/reference/rec/meeting-attendance.csv",
+    "syncedAt": "2026-10-12T21:51:27Z",
+    "maintenance": "Edit meeting-attendance.csv then run: npm run sync:rec"
+  },
+  "sessions": [
+    {
+      "sessionDate": "2026-09-18",
+      "attendees": 48,
+      "reportedBy": "Sahar Nikkhah Bahrami",
+      "reportedAt": "2026-10-12"
+    },
+    {
+      "sessionDate": "2026-09-25",
+      "attendees": 51,
+      "reportedBy": "Sahar Nikkhah Bahrami",
+      "reportedAt": "2026-10-12"
+    },
+    {
+      "sessionDate": "2026-10-02",
+      "attendees": 38,
+      "reportedBy": "Sahar Nikkhah Bahrami",
+      "reportedAt": "2026-10-12"
+    },
+    {
+      "sessionDate": "2026-10-09",
+      "attendees": 28,
+      "reportedBy": "Sahar Nikkhah Bahrami",
+      "reportedAt": "2026-10-12"
+    }
+  ],
+  "summary": {
+    "sessionCount": 4,
+    "totalAttendees": 165,
+    "avgAttendees": 41.25
+  }
+}

@@ -4,6 +4,7 @@ import redcapSpecimenSharing from "@/data/redcapSpecimenSharing.json";
 import geneScreenYtd from "@/data/geneScreenYtd.json";
 import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
 import table1Demographics from "@/data/table1Demographics.json";
+import recMeetingAttendance from "@/data/recMeetingAttendance.json";
 import recRoster from "@/data/recRoster.json";
 import rpprMetrics from "@/data/rpprMetrics.json";
 import type { RpprDataPackage } from "@/types/dataPackage";
@@ -126,7 +127,7 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     bullets: [
       `Scholars / faculty / programs: data/reference/rec CSVs · last sync ${recRoster.meta.syncedAt.replace("T", " ").replace("Z", " UTC")}.`,
       `Speaker series completed/scheduled: recSpeakerSeries.json · counts through dashboard end ${formatScopeDate(siteReportingWindow.endDate)}.`,
-      `Attendee averages: not yet wired (0 on dashboard).`,
+      `Zoom attendance: meeting-attendance.csv · ${recMeetingAttendance.summary.sessionCount} sessions synced (avg ${recMeetingAttendance.summary.avgAttendees}).`,
     ],
   },
   {

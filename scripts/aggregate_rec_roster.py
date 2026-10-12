@@ -16,6 +16,8 @@ OUTPUT = SRC_DATA / "recRoster.json"
 SCHOLARS = REC_DIR / "scholars-trainees.csv"
 FACULTY = REC_DIR / "faculty.csv"
 PROGRAMS = REC_DIR / "training-programs.csv"
+ATTENDANCE = REC_DIR / "meeting-attendance.csv"
+OUTPUT_ATTENDANCE = SRC_DATA / "recMeetingAttendance.json"
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -93,6 +95,38 @@ def aggregate_faculty(rows: list[dict[str, str]]) -> dict:
     }
 
 
+def aggregate_attendance(rows: list[dict[str, str]]) -> dict:
+    sessions = []
+    for r in rows:
+        date = r.get("session_date", "").strip()
+        raw = r.get("attendees", "").strip()
+        if not date or not raw:
+            continue
+        try:
+            attendees = int(raw)
+        except ValueError as exc:
+            raise ValueError(f"Invalid attendees for {date}: {raw!r}") from exc
+        sessions.append(
+            {
+                "sessionDate": date,
+                "attendees": attendees,
+                "reportedBy": r.get("reported_by") or None,
+                "reportedAt": r.get("reported_at") or None,
+            }
+        )
+    sessions.sort(key=lambda s: s["sessionDate"])
+    total = sum(s["attendees"] for s in sessions)
+    count = len(sessions)
+    return {
+        "sessions": sessions,
+        "summary": {
+            "sessionCount": count,
+            "totalAttendees": total,
+            "avgAttendees": round(total / count, 2) if count else 0,
+        },
+    }
+
+
 def aggregate_programs(rows: list[dict[str, str]]) -> dict:
     return {
         "title": "USC training programs that include ADRD and minority scholars",
@@ -118,6 +152,7 @@ def main() -> None:
     scholars_rows = read_csv(SCHOLARS)
     faculty_rows = read_csv(FACULTY)
     program_rows = read_csv(PROGRAMS)
+    attendance_rows = read_csv(ATTENDANCE) if ATTENDANCE.is_file() else []
 
     payload = {
         "meta": {
@@ -126,6 +161,7 @@ def main() -> None:
                 "scholarsTrainees": str(SCHOLARS.relative_to(ROOT)),
                 "faculty": str(FACULTY.relative_to(ROOT)),
                 "trainingPrograms": str(PROGRAMS.relative_to(ROOT)),
+                "meetingAttendance": str(ATTENDANCE.relative_to(ROOT)),
             },
             "syncedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "maintenance": "Edit CSV files under data/reference/rec/ then run: npm run sync:rec",
@@ -137,6 +173,25 @@ def main() -> None:
 
     OUTPUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {OUTPUT.relative_to(ROOT)}")
+
+    attendance_payload = {
+        "meta": {
+            "sourceRoot": "data/reference/rec/",
+            "sourceCsv": str(ATTENDANCE.relative_to(ROOT)),
+            "syncedAt": payload["meta"]["syncedAt"],
+            "maintenance": "Edit meeting-attendance.csv then run: npm run sync:rec",
+        },
+        **aggregate_attendance(attendance_rows),
+    }
+    OUTPUT_ATTENDANCE.write_text(
+        json.dumps(attendance_payload, indent=2) + "\n", encoding="utf-8"
+    )
+    print(f"Wrote {OUTPUT_ATTENDANCE.relative_to(ROOT)}")
+    print(
+        f"  Meeting attendance: {attendance_payload['summary']['sessionCount']} sessions · "
+        f"avg {attendance_payload['summary']['avgAttendees']} · "
+        f"total {attendance_payload['summary']['totalAttendees']}"
+    )
     print(
         f"  Scholars/trainees: {payload['scholarsTrainees']['summary']['total']} "
         f"({payload['scholarsTrainees']['summary']['current']} current)"

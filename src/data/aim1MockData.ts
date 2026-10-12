@@ -8,6 +8,7 @@ import { METRIC_SOURCES, sourceLabel } from "@/data/metricSources";
 import { BUDGET_TARGETS } from "@/data/budgetTargets";
 import { REGISTRY_CHART_VIEWS } from "@/data/registryChartViews";
 import { latestTimestamp } from "@/lib/formatLastUpdated";
+import { getRecAttendanceTotals } from "@/lib/recAttendanceMetrics";
 import { getRecSessionCounts } from "@/lib/recSpeakerMetrics";
 import rpprDataPackageMeta from "@/data/rpprDataPackageMeta.json";
 import rpprDataPackage from "@/data/rpprDataPackage.json";
@@ -331,7 +332,7 @@ export const aim1MockData: Aim1DashboardData = {
       source: `${METRIC_SOURCES.recRoster} · RPPR Table 1a / faculty / training programs`,
       realFrom: `Scholars, faculty, programs · ${recRoster.meta.sources.scholarsTrainees}`,
       realFrom2: METRIC_SOURCES.recSpeakerSeries,
-      mockFrom: "Speaker series avg/total attendees not wired · schedule counts from speakers.json",
+      mockFrom: "Add rows to data/reference/rec/meeting-attendance.csv · npm run sync:rec",
       bulletGroups: [
         {
           title: "Roster tracking (black tables)",
@@ -345,7 +346,7 @@ export const aim1MockData: Aim1DashboardData = {
           title: "Speaker series",
           lines: [
             "Completed/scheduled from recSpeakerSeries.json",
-            "Attendee counts pending RedCap or sign-in export",
+            "Zoom attendance from meeting-attendance.csv (REC admin report)",
           ],
         },
       ],
@@ -795,13 +796,20 @@ export const aim1MockData: Aim1DashboardData = {
       ? new Date(`${siteReportingWindow.endDate}T12:00:00`)
       : new Date("2026-10-13T12:00:00");
     const sessions = getRecSessionCounts(recAsOf);
+    const attendance = getRecAttendanceTotals(recAsOf);
     return {
       completed: sessions.completed,
       scheduled: sessions.scheduled,
       seriesLabel: sessions.seriesLabel,
       asOfDate: sessions.asOfDate,
-      avgAttendees: 0,
-      totalAttendees: 0,
+      avgAttendees: attendance.avgAttendees,
+      totalAttendees: attendance.totalAttendees,
+      attendanceSessionCount: attendance.sessionCount,
+      attendanceSessions: attendance.sessions.map((s) => ({
+        sessionDate: s.sessionDate,
+        attendees: s.attendees,
+        reportedBy: s.reportedBy,
+      })),
     };
   })(),
 

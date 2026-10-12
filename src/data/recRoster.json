@@ -4,9 +4,10 @@
     "sources": {
       "scholarsTrainees": "data/reference/rec/scholars-trainees.csv",
       "faculty": "data/reference/rec/faculty.csv",
-      "trainingPrograms": "data/reference/rec/training-programs.csv"
+      "trainingPrograms": "data/reference/rec/training-programs.csv",
+      "meetingAttendance": "data/reference/rec/meeting-attendance.csv"
     },
-    "syncedAt": "2026-10-12T19:00:02Z",
+    "syncedAt": "2026-10-12T21:51:27Z",
     "maintenance": "Edit CSV files under data/reference/rec/ then run: npm run sync:rec"
   },
   "scholarsTrainees": {

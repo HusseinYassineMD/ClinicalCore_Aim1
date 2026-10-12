@@ -2,6 +2,7 @@ import type { RecMetrics, RecRosterData } from "@/types/aim1";
 import MetricCard from "./MetricCard";
 import RecRosterPanel from "./RecRosterPanel";
 import SectionScopeBracket from "@/components/SectionScopeBracket";
+import { formatScopeDate } from "@/lib/formatScopeDate";
 
 interface RecSectionProps {
   data: RecMetrics;
@@ -38,16 +39,50 @@ export default function RecSection({ data, roster }: RecSectionProps) {
             <MetricCard
               label="Avg No. Attendees"
               value={data.avgAttendees}
+              sublabel={
+                data.attendanceSessionCount
+                  ? `${data.attendanceSessionCount} sessions with attendance reported`
+                  : undefined
+              }
               accent="navy"
-              provenance="unknown"
+              provenance="ytd"
             />
             <MetricCard
               label="Total No. Attendees"
               value={data.totalAttendees}
               accent="sky"
-              provenance="unknown"
+              provenance="ytd"
             />
           </div>
+          {data.attendanceSessions.length > 0 ? (
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full text-sm text-left">
+                <thead>
+                  <tr className="text-xs uppercase tracking-wide text-cpbh-navy/50 border-b border-cpbh-mist">
+                    <th className="py-2 pr-4 font-semibold">Session date</th>
+                    <th className="py-2 text-right font-semibold tabular-nums">
+                      Zoom attendance
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.attendanceSessions.map((row) => (
+                    <tr
+                      key={row.sessionDate}
+                      className="border-b border-cpbh-mist/70 last:border-0"
+                    >
+                      <td className="py-2 pr-4 text-cpbh-navy/80">
+                        {formatScopeDate(row.sessionDate)}
+                      </td>
+                      <td className="py-2 text-right tabular-nums font-medium text-cpbh-navy">
+                        {row.attendees}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : null}
           <p className="text-xs text-cpbh-navy/45 mt-4 border-t border-cpbh-mist pt-3">
             Schedule from ADRC REC Speaker Series ·{" "}
             <span className="font-mono">{data.seriesLabel}</span> · sync via{" "}

@@ -291,6 +291,12 @@ export interface SpecimenSharingByPeriod {
   grantYear: SpecimenSharing;
 }
 
+export interface RecMeetingAttendanceRow {
+  sessionDate: string;
+  attendees: number;
+  reportedBy?: string | null;
+}
+
 export interface RecMetrics {
   completed: number;
   scheduled: number;
@@ -298,6 +304,8 @@ export interface RecMetrics {
   asOfDate: string;
   avgAttendees: number;
   totalAttendees: number;
+  attendanceSessionCount: number;
+  attendanceSessions: RecMeetingAttendanceRow[];
 }
 
 export interface RecScholarTraineeRow {
