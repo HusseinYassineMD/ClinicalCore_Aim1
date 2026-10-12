@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --usc-cardinal: #990000;
+    --usc-cardinal-dark: #7a0000;
+    --usc-gold: #ffcc00;
+  }
+  body { width: 1920px; height: 1080px; font-family: Calibri, "Segoe UI", Arial, sans-serif; background: #f7f8fa; overflow: hidden; color: #2d2d2d; }
+  .slide {
+    width: 1920px; height: 1080px;
+    display: grid;
+    grid-template-rows: 36px 116px 50px 118px 1fr 54px;
+    grid-template-areas: "gold" "hero" "nav" "kpis" "main" "foot";
+  }
+  .gold-bar { grid-area: gold; background: var(--usc-gold); }
+  .hero {
+    grid-area: hero;
+    background: var(--usc-cardinal);
+    color: #fff;
+    padding: 12px 48px 14px;
+    display: flex; justify-content: space-between; align-items: center; gap: 40px;
+  }
+  .hero-main {
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 5px; flex: 1; min-width: 0;
+  }
+  .hero-eyebrow {
+    font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--usc-gold); font-weight: 700; line-height: 1.2;
+  }
+  .hero h1 { font-size: 40px; font-weight: 700; line-height: 1.08; margin: 0; }
+  .hero .legend {
+    font-size: 17px; color: rgba(255, 255, 255, 0.9); margin: 0;
+    font-weight: 400; line-height: 1.35; padding-top: 4px;
+  }
+  .hero .legend .ytd { color: #fff; font-weight: 700; }
+  .hero .legend .prior { color: #c6f6d5; font-weight: 600; }
+  .hero-meta { display: flex; gap: 16px; flex-shrink: 0; align-items: stretch; }
+  .hero-meta div {
+    background: rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 204, 0, 0.5);
+    border-radius: 6px;
+    padding: 10px 18px;
+    text-align: right;
+    min-width: 220px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero-meta div span {
+    display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em;
+    color: var(--usc-gold); margin-bottom: 4px; font-weight: 700;
+  }
+  .hero-meta div strong { font-size: 20px; font-weight: 600; line-height: 1.25; color: #fff; }
+  .nav {
+    grid-area: nav; background: #fff; border-bottom: 1px solid #e2e8f0;
+    padding: 0 48px; display: flex; gap: 32px; align-items: center;
+  }
+  .nav-item { font-size: 18px; font-weight: 600; color: #94a3b8; padding: 12px 0; border-bottom: 3px solid transparent; margin-bottom: -1px; }
+  .nav-item.active { color: var(--usc-cardinal); border-bottom-color: var(--usc-cardinal); }
+  .kpi-strip {
+    grid-area: kpis;
+    padding: 12px 48px;
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px;
+    align-items: stretch;
+  }
+  .metric-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
+    padding: 14px 16px; border-left: 4px solid var(--usc-cardinal);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    display: flex; flex-direction: column; justify-content: space-between;
+    height: 100%;
+  }
+  .metric-card.prior-accent { border-left-color: #166534; }
+  .metric-card .label { font-size: 15px; font-weight: 600; color: #64748b; line-height: 1.28; flex: 1; }
+  .metric-card .value { font-size: 42px; font-weight: 700; color: #0f172a; margin-top: 4px; line-height: 1; }
+  .metric-card .value.prior { color: #166534; }
+  .metric-card .sub { font-size: 12px; color: #94a3b8; margin-top: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+  .main {
+    grid-area: main;
+    padding: 14px 48px 14px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    min-height: 0;
+    align-items: stretch;
+  }
+  .panel {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
+    padding: 20px 22px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    display: flex; flex-direction: column;
+    min-height: 0; height: 100%;
+  }
+  .panel h3 {
+    font-size: 22px; font-weight: 700; color: var(--usc-cardinal);
+    padding-bottom: 14px; margin-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+    flex-shrink: 0;
+  }
+  .chart-area {
+    flex: 1; min-height: 0; display: flex; flex-direction: column;
+    background: #f8fafc; border: 1px solid #eef2f7; border-radius: 6px;
+    padding: 16px 12px 12px;
+  }
+  .bars { display: flex; align-items: flex-end; gap: 24px; flex: 1; min-height: 0; }
+  .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; height: 100%; justify-content: flex-end; max-width: 33%; }
+  .bar { width: 76%; border-radius: 6px 6px 0 0; background: var(--usc-cardinal); min-height: 16px; }
+  .bar.alt { background: var(--usc-gold); }
+  .bar-label { font-size: 18px; font-weight: 600; color: #64748b; text-align: center; }
+  .bar-val { font-size: 32px; font-weight: 700; color: var(--usc-cardinal); }
+  .detail-grid {
+    flex: 1; min-height: 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+    align-items: stretch;
+  }
+  .table-block {
+    display: flex; flex-direction: column; min-height: 0; height: 100%;
+  }
+  .table-block h4 {
+    font-size: 16px; font-weight: 700; color: #64748b; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 10px; flex-shrink: 0;
+  }
+  .table-fill { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: space-evenly; }
+  table { width: 100%; border-collapse: collapse; font-size: 17px; }
+  th {
+    text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: #94a3b8; padding: 10px 8px; border-bottom: 2px solid var(--usc-cardinal); font-weight: 700;
+  }
+  td { padding: 11px 8px; border-bottom: 1px solid #f1f5f9; color: #334155; font-weight: 500; }
+  td.num { text-align: right; font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums; color: #0f172a; }
+  td.num.prior { color: #166534; }
+  .win-tag { font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 4px; background: #f1f5f9; color: #475569; }
+  .panel-meta {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid #f1f5f9;
+    font-size: 18px;
+    line-height: 1.45;
+    color: #64748b;
+    flex-shrink: 0;
+  }
+  .panel-meta strong { color: #475569; font-weight: 600; }
+  .foot {
+    grid-area: foot;
+    background: #fff; border-top: 1px solid #e2e8f0;
+    padding: 0 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 17px; color: #64748b;
+  }
+  .foot-right { text-align: right; color: var(--usc-cardinal); font-weight: 600; font-size: 18px; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <div class="gold-bar"></div>
+    <header class="hero">
+      <div class="hero-main">
+        <p class="hero-eyebrow">USC ADRC · Clinical Core</p>
+        <h1>ADRC Metrics — verified view</h1>
+        <p class="legend"><span class="ytd">Black</span> = year to date · <span class="prior">Green</span> = prior RPPR period</p>
+      </div>
+      <div class="hero-meta">
+        <div><span>Year to date</span><strong id="ytdLabel">—</strong></div>
+        <div><span>Grant period</span><strong id="grantPeriod">—</strong></div>
+      </div>
+    </header>
+    <nav class="nav">
+      <span class="nav-item active">Overview</span>
+      <span class="nav-item">Clinical</span>
+      <span class="nav-item">Biomarkers</span>
+      <span class="nav-item">Imaging</span>
+      <span class="nav-item">Data exports</span>
+    </nav>
+
+    <section class="kpi-strip">
+      <div class="metric-card"><div class="label">UDS participants</div><div class="value" id="mUds">—</div><div class="sub">YTD</div></div>
+      <div class="metric-card prior-accent"><div class="label">Clinical cohort</div><div class="value prior" id="mAdrc">—</div><div class="sub">RPPR</div></div>
+      <div class="metric-card prior-accent"><div class="label">GeneScreen</div><div class="value prior" id="mGs">—</div><div class="sub">RPPR</div></div>
+      <div class="metric-card"><div class="label">In-person F/U</div><div class="value" id="mInPerson">—</div><div class="sub">YTD</div></div>
+      <div class="metric-card"><div class="label">Plasma subjects</div><div class="value" id="mPlasma">—</div><div class="sub">YTD</div></div>
+      <div class="metric-card prior-accent"><div class="label">ORE attendees</div><div class="value prior" id="mOre">—</div><div class="sub">RPPR</div></div>
+    </section>
+
+    <div class="main">
+      <div class="panel">
+        <h3>Clinical visits · year to date</h3>
+        <div class="chart-area">
+          <div class="bars">
+            <div class="bar-col"><div class="bar-val" id="bInPerson">—</div><div class="bar" id="barInPerson"></div><div class="bar-label">In-person</div></div>
+            <div class="bar-col"><div class="bar-val" id="bRemote">—</div><div class="bar alt" id="barRemote"></div><div class="bar-label">Remote</div></div>
+            <div class="bar-col"><div class="bar-val" id="bInitial">—</div><div class="bar" id="barInitial"></div><div class="bar-label">Initial</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Reporting detail</h3>
+        <div class="detail-grid">
+          <div class="table-block">
+            <div class="table-fill">
+            <table>
+              <thead><tr><th>Metric</th><th>Window</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>UDS participants</td><td><span class="win-tag">YTD</span></td><td class="num" id="tUds">—</td></tr>
+                <tr><td>Remote follow-up</td><td><span class="win-tag">YTD</span></td><td class="num" id="tRemote">—</td></tr>
+                <tr><td>Initial evaluations</td><td><span class="win-tag">YTD</span></td><td class="num" id="tInitial">—</td></tr>
+                <tr><td>Plasma measurements</td><td><span class="win-tag">YTD</span></td><td class="num" id="tPlasmaRows">—</td></tr>
+                <tr><td>Specimen requests</td><td><span class="win-tag">YTD</span></td><td class="num" id="tSpec">—</td></tr>
+                <tr><td>BRS enrolled</td><td><span class="win-tag">RPPR</span></td><td class="num prior" id="tBrs">—</td></tr>
+                <tr><td>APOE ε4 carriers</td><td><span class="win-tag">RPPR</span></td><td class="num prior" id="tApoe">—</td></tr>
+                <tr><td>Autopsies performed</td><td><span class="win-tag">YTD</span></td><td class="num" id="tAutopsy">—</td></tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+          <div class="table-block">
+            <h4>Imaging &amp; export versions</h4>
+            <div class="table-fill">
+            <table>
+              <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+              <tbody>
+                <tr><td>SCAN MRI (YTD)</td><td class="num" id="iScanMri">—</td></tr>
+                <tr><td>CLARiTI MRI / Aβ / Tau</td><td class="num"><span id="iClarMri">—</span> / <span id="iClarAmy">—</span> / <span id="iClarTau">—</span></td></tr>
+                <tr><td>Harmonized UDS</td><td>v1.1.0</td></tr>
+                <tr><td>Integrated biomarkers</td><td>v1.0.5</td></tr>
+                <tr><td>Imaging availability</td><td>v1.5.2</td></tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+        <p class="panel-meta">
+          Data snapshot <strong id="pkgDate">—</strong>.
+          Data owners: <strong>James and Xinhui Wang</strong>.
+          Figures dual-verified (34 checks).
+        </p>
+      </div>
+    </div>
+
+    <span class="hidden" id="rpprWindow"></span>
+    <span class="hidden" id="mRemote"></span><span class="hidden" id="mInitial"></span><span class="hidden" id="mVisitRows"></span>
+    <span class="hidden" id="mApoe"></span><span class="hidden" id="mPlasmaRows"></span><span class="hidden" id="mGfap"></span>
+    <span class="hidden" id="mBrs"></span><span class="hidden" id="mAutConsent"></span><span class="hidden" id="mOreEv"></span>
+    <span class="hidden" id="tBio"></span><span class="hidden" id="tNeuro"></span><span class="hidden" id="tAliq"></span><span class="hidden" id="tOnline"></span><span class="hidden" id="tGs"></span>
+    <span class="hidden" id="iNaccScan"></span><span class="hidden" id="iNaccClar"></span><span class="hidden" id="iNaccAdrc"></span>
+
+    <footer class="foot">
+      <span id="verifyFoot">Sources: rpprMetrics · RedCap · ADRC core exports</span>
+      <span class="foot-right">Validated · 34 checks passed</span>
+    </footer>
+  </div>
+</body>
+</html>

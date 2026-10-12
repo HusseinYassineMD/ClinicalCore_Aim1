@@ -1,0 +1,14 @@
+Subject: GeneScreen deck — need ethnicity/APOE export
+
+Hi [Name],
+
+Draft GeneScreen slide attached (RPPR-verified headline stats, Jul–Dec 2025 through Dec 31, 2025):
+
+668 enrolled · +19 new · 188 APOE ε4 · 201 M / 467 F · 1,507 contacts · 39 online enrollments
+
+The stacked bar chart still needs the GeneScreen registry export (ethnicity × sex × APOE counts) — same format as the prior deck slide. Bar segments on the draft are placeholders until we have that file.
+
+Can you send the export (or portal access) by [deadline]?
+
+Thanks,
+Aishwarya

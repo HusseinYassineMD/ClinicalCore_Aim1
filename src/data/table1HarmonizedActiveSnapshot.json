@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "source": "James UDS harmonization · active ADRC participants",
+    "asOfDate": "2026-09-17",
+    "cohortDefinition": "Active ADRC participants as of harmonization date (not a visit-date YTD window)",
+    "participantCount": 569,
+    "workflowReference": "data/reference/nih/NIH_Enrollment_Table_preparation_workflow_RPPR.pdf",
+    "note": "Cohort 2-style cumulative/active snapshot per NIH RPPR enrollment workflow; differs from RPPR Table 1 (N=573, Jul–Dec 2025 period)."
+  },
+  "overall": {
+    "n": "569",
+    "ageMeanSD": "72.6 (10.4)",
+    "eduMedianIQR": "16 [14, 18]",
+    "male": "203 (35.7%)",
+    "mocaMeanSD": "25.5 (4.5)",
+    "cdr0": "296 (52%)",
+    "cdr05": "236 (41.5%)",
+    "cdrGe1": "37 (6.5%)",
+    "apoeE4Percent": "37.1%",
+    "followUpMeanSD": "5.0 (4.3)"
+  },
+  "hispanic": {
+    "n": "159 (27.9%)",
+    "ageMeanSD": "69.1 (11.6)",
+    "eduMedianIQR": "14 [10, 16]",
+    "male": "58 (36.5%)",
+    "mocaMeanSD": "24.4 (5.2)",
+    "cdr0": "71 (44.7%)",
+    "cdr05": "77 (48.4%)",
+    "cdrGe1": "11 (6.9%)",
+    "apoeE4Percent": "25.7%",
+    "followUpMeanSD": "4.1 (3.1)"
+  },
+  "white": {
+    "n": "213 (37.4%)",
+    "ageMeanSD": "75.3 (10.6)",
+    "eduMedianIQR": "17 [16, 18]",
+    "male": "85 (39.9%)",
+    "mocaMeanSD": "25.6 (4.6)",
+    "cdr0": "121 (56.8%)",
+    "cdr05": "74 (34.7%)",
+    "cdrGe1": "18 (8.5%)",
+    "apoeE4Percent": "44.7%",
+    "followUpMeanSD": "6.7 (4.9)"
+  },
+  "black": {
+    "n": "49 (8.6%)",
+    "ageMeanSD": "73.4 (8.1)",
+    "eduMedianIQR": "16 [14, 18]",
+    "male": "13 (26.5%)",
+    "mocaMeanSD": "26.1 (3.8)",
+    "cdr0": "23 (46.9%)",
+    "cdr05": "24 (49%)",
+    "cdrGe1": "2 (4.1%)",
+    "apoeE4Percent": "36.2%",
+    "followUpMeanSD": "4.7 (4.5)"
+  },
+  "asian": {
+    "n": "86 (15.1%)",
+    "ageMeanSD": "72.1 (6.4)",
+    "eduMedianIQR": "16 [16, 18]",
+    "male": "32 (37.2%)",
+    "mocaMeanSD": "26.7 (3.6)",
+    "cdr0": "46 (53.5%)",
+    "cdr05": "38 (44.2%)",
+    "cdrGe1": "2 (2.3%)",
+    "apoeE4Percent": "29%",
+    "followUpMeanSD": "3.4 (3.8)"
+  },
+  "otherUnknown": {
+    "n": "62 (10.9%)",
+    "ageMeanSD": "72.2 (9.8)",
+    "eduMedianIQR": "16 [14, 18]",
+    "male": "15 (24.2%)",
+    "mocaMeanSD": "25.9 (3.5)",
+    "cdr0": "35 (56.5%)",
+    "cdr05": "23 (37.1%)",
+    "cdrGe1": "4 (6.5%)",
+    "apoeE4Percent": "44.4%",
+    "followUpMeanSD": "4.0 (3.3)"
+  }
+}

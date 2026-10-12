@@ -1,0 +1,107 @@
+{
+  "supplementReceivedAt": "2026-10-09",
+  "dashboardUse": "James Wang email Oct 8\u20139 2026: BRS export, MAP dictionary, biospecimen inventory package \u2014 aggregated into rpprDataPackage.json and dashboard wiring.",
+  "files": [
+    {
+      "role": "brsCohort",
+      "path": "data/rppr-data-package/MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv"
+    },
+    {
+      "role": "mapDataDictionary",
+      "path": "data/rppr-data-package/MAPDatabase_DataDictionary_2026-10-09.csv"
+    },
+    {
+      "role": "biospecimenAvailability",
+      "path": "data/rppr-data-package/USC ADRC Biospecimen Availability/USC_ADRC_Biospecimen_Availability_Long_v1.0.1.csv"
+    },
+    {
+      "role": "biospecimenAvailability",
+      "path": "data/rppr-data-package/USC ADRC Biospecimen Availability/USC_ADRC_Biospecimen_Data_Dictionary_v1.0.1.csv"
+    },
+    {
+      "role": "biospecimenAvailability",
+      "path": "data/rppr-data-package/USC ADRC Biospecimen Availability/USC_ADRC_Biospecimen_Report_v1.0.1.html"
+    },
+    {
+      "role": "biospecimenAvailability",
+      "path": "data/rppr-data-package/USC ADRC Biospecimen Availability/USC_ADRC_Biospecimen_Subject_Summary_v1.0.1.csv"
+    }
+  ],
+  "metricsWired": {
+    "brsAutopsy": {
+      "sourceFile": "MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv",
+      "supplementReceivedAt": "2026-10-09",
+      "newAutopsyConsents": 5,
+      "autopsiesPerformed": 6,
+      "activeEnrolled": 231,
+      "withdrawalsYtd": 0,
+      "withAutopsyCaseNumber": 422,
+      "cumulativeAutopsiesFlagged": 424,
+      "definitions": {
+        "newAutopsyConsents": "Rows with autopsy_consent_date in period",
+        "autopsiesPerformed": "Rows with autopsy_performed_date in period",
+        "activeEnrolled": "Rows with subject_brs_status=1 (Active) in export snapshot \u2014 confirm RPPR cumulative enrollment definition with Neuropath Core",
+        "withdrawalsYtd": "Rows with date_of_termination in reporting period",
+        "withAutopsyCaseNumber": "Rows with non-blank autopsy_number",
+        "cumulativeAutopsiesFlagged": "Rows with autopsy_performed=1 (all time in export)"
+      }
+    },
+    "biospecimenInventory": {
+      "sourceFile": "USC_ADRC_Biospecimen_Availability_Long_v1.0.1.csv",
+      "supplementReceivedAt": "2026-10-09",
+      "dateFields": [
+        "collection_date",
+        "specimen_date"
+      ],
+      "byComponentYtd": {
+        "plasma": {
+          "participants": 183,
+          "aliquots": 2371,
+          "collectionRows": 198
+        },
+        "serum": {
+          "participants": 32,
+          "aliquots": 746,
+          "collectionRows": 33
+        },
+        "buffy_coat": {
+          "participants": 183,
+          "aliquots": 392,
+          "collectionRows": 198
+        },
+        "csf": {
+          "participants": 0,
+          "aliquots": 0,
+          "collectionRows": 0
+        }
+      },
+      "byComponentCumulative": {
+        "plasma": {
+          "participants": 1617,
+          "aliquots": 10982,
+          "collectionRows": 2473
+        },
+        "serum": {
+          "participants": 350,
+          "aliquots": 8546,
+          "collectionRows": 640
+        },
+        "buffy_coat": {
+          "participants": 1799,
+          "aliquots": 5227,
+          "collectionRows": 2673
+        },
+        "csf": {
+          "participants": 184,
+          "aliquots": 6705,
+          "collectionRows": 296
+        }
+      },
+      "definitions": {
+        "participants": "Unique uds_id with \u22651 collection row dated in reporting period",
+        "aliquots": "Sum of aliquot_count on in-period collection rows",
+        "note": "Specimen inventory pipeline \u2014 separate from Integrated_Biomarkers_Long assay availability."
+      }
+    }
+  }
+}

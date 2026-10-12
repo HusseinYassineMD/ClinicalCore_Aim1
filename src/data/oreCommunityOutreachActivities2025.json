@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "title": "Progress and Accomplishments — Community Outreach Activities 2025-26",
+    "source": "ORE Core · Progress and Accomplishments (Keck School of Medicine of USC)",
+    "reportingContext": "Detailed activity log by type · complements RPPR Table E1 headline totals",
+    "provenance": "prior",
+    "extractedAt": "2026-10-07T00:00:00Z"
+  },
+  "rows": [
+    {
+      "activityType": "Tabling at health fair, community fair/event, 5-K runs, etc.",
+      "events": 64,
+      "attendees": 12331
+    },
+    {
+      "activityType": "Workshop, seminar, panel presentation",
+      "events": 8,
+      "attendees": 1429
+    },
+    {
+      "activityType": "Conference tabling",
+      "events": 4,
+      "attendees": 675
+    },
+    {
+      "activityType": "Resource center",
+      "events": 23,
+      "attendees": 648
+    },
+    {
+      "activityType": "Food distribution events",
+      "events": 6,
+      "attendees": 582
+    },
+    {
+      "activityType": "Other (category)",
+      "events": 14,
+      "attendees": 360
+    },
+    {
+      "activityType": "Informational session",
+      "events": 8,
+      "attendees": 227
+    },
+    {
+      "activityType": "One-to-one solicitation",
+      "events": 91,
+      "attendees": 96
+    },
+    {
+      "activityType": "Distribution or posting of flyers (private settings)",
+      "events": 57,
+      "attendees": 57
+    },
+    {
+      "activityType": "Distribution or posting of flyers (public settings)",
+      "events": 31,
+      "attendees": 31
+    },
+    {
+      "activityType": "Caregiving studies",
+      "events": 3,
+      "attendees": 3
+    },
+    {
+      "activityType": "Caregiver support group",
+      "events": 1,
+      "attendees": 1
+    },
+    {
+      "activityType": "Participant registry",
+      "events": 1,
+      "attendees": 1
+    },
+    {
+      "activityType": "Follow-up emails",
+      "events": 1,
+      "attendees": 1
+    },
+    {
+      "activityType": "Radio/PSA announcement (# listeners unknown)",
+      "events": 5,
+      "attendees": null
+    },
+    {
+      "activityType": "Radio show (# listeners unknown)",
+      "events": 1,
+      "attendees": null
+    }
+  ],
+  "totals": {
+    "events": 318,
+    "attendees": 16442
+  }
+}

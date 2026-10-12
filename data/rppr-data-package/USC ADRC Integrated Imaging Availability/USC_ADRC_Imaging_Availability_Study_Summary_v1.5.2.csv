@@ -1,0 +1,14 @@
+study,unique_subjects,uds_ptid_linkable_subjects,nacc_registry_verified_subjects,imaging_records,image_level_records,session_availability_records,dated_subject_visits,mean_imaging_records_per_subject,subjects_with_mri,subjects_with_dti,subjects_with_fmri,subjects_with_amyloid_pet,subjects_with_tau_pet,subjects_with_other_pet
+A4,71,59,46,313,0,313,290,4.41,35,0,0,71,18,0
+ADNIDOD,311,0,0,7368,7368,0,964,23.69,274,272,224,275,131,0
+AIBL,1456,1,0,7557,7557,0,4016,5.19,762,0,0,1430,13,0
+CLARiTI,919,11,11,6522,6522,0,1934,7.1,688,96,6,726,635,298
+DVR,294,81,81,9188,8812,376,926,31.25,278,180,111,257,0,0
+Diverse VCID,26,26,26,29,0,29,29,1.12,26,0,0,0,0,0
+EEAJ,198,96,89,10426,10426,0,455,52.66,195,192,175,24,65,0
+PPG,504,197,171,31717,31717,0,1541,62.93,500,299,355,345,361,3
+SCAN,8485,58,58,43901,43901,0,15244,5.17,7335,494,24,3391,2592,1023
+USC ADRC,103,103,103,2639,2639,0,210,25.62,51,50,0,59,64,0
+VCD,206,203,184,14636,14636,0,369,71.05,205,198,202,0,0,0
+VCDPILOT,85,42,42,1135,1135,0,85,13.35,85,83,53,0,0,0
+VCID,771,166,109,29518,29518,0,933,38.29,771,736,474,0,0,0

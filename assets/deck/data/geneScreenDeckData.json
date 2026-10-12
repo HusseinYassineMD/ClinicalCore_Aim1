@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "source": "RPPR11382447.FINAL.1.30.26 NO BUDGET(1).pdf · ORE Core B2",
+    "submitted": "January 2026",
+    "reportingPeriod": "Jul 1 – Dec 31, 2025",
+    "asOfNote": "Latest verified GeneScreen totals in this project. Live Sep 2026 export requires ORE / GeneScreen portal access.",
+    "chartNote": "Ethnicity × sex × APOE bars scaled from ORE renewal demographic mix to match RPPR registry totals (668 / 188 / 201 / 467). Not a cell-level GeneScreen export."
+  },
+  "provenSuccess": {
+    "membersEnrolled": 668,
+    "newThisPeriod": 19,
+    "contactsInitiated": 1507,
+    "onlineEnrollmentsPeriod": 39
+  },
+  "headline": {
+    "members": 668,
+    "apoe4Carriers": 188,
+    "nonCarriers": 480,
+    "male": 201,
+    "female": 467
+  },
+  "periodLabel": "Jul – Dec 2025",
+  "chartBars": [
+    { "ethnicity": "Hispanic\nor Latino", "sex": "Male", "carrier": 32, "nonCarrier": 80 },
+    { "ethnicity": "Hispanic\nor Latino", "sex": "Female", "carrier": 49, "nonCarrier": 138 },
+    { "ethnicity": "White", "sex": "Male", "carrier": 19, "nonCarrier": 48 },
+    { "ethnicity": "White", "sex": "Female", "carrier": 50, "nonCarrier": 139 },
+    { "ethnicity": "Asian", "sex": "Male", "carrier": 4, "nonCarrier": 9 },
+    { "ethnicity": "Asian", "sex": "Female", "carrier": 11, "nonCarrier": 24 },
+    { "ethnicity": "Multiple", "sex": "Male", "carrier": 1, "nonCarrier": 0 },
+    { "ethnicity": "Multiple", "sex": "Female", "carrier": 8, "nonCarrier": 17 },
+    { "ethnicity": "Black or\nAfrican American", "sex": "Male", "carrier": 1, "nonCarrier": 1 },
+    { "ethnicity": "Black or\nAfrican American", "sex": "Female", "carrier": 6, "nonCarrier": 13 },
+    { "ethnicity": "Other /\nUnknown", "sex": "Male", "carrier": 2, "nonCarrier": 4 },
+    { "ethnicity": "Other /\nUnknown", "sex": "Female", "carrier": 5, "nonCarrier": 7 }
+  ]
+}

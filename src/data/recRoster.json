@@ -1,0 +1,417 @@
+{
+  "meta": {
+    "sourceRoot": "data/reference/rec/",
+    "sources": {
+      "scholarsTrainees": "data/reference/rec/scholars-trainees.csv",
+      "faculty": "data/reference/rec/faculty.csv",
+      "trainingPrograms": "data/reference/rec/training-programs.csv"
+    },
+    "syncedAt": "2026-10-12T19:00:02Z",
+    "maintenance": "Edit CSV files under data/reference/rec/ then run: npm run sync:rec"
+  },
+  "scholarsTrainees": {
+    "title": "Table 1a. Summary table of REC scholars and trainees",
+    "rows": [
+      {
+        "id": "1",
+        "name": "Yu, Kexin",
+        "currentOrPast": "Past",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "PhD candidate (MSW)",
+        "researchArea": "Longitudinal influence of physical and social environments on social isolation and cognitive health",
+        "progress": "F99/K00 funded Sept 2021",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "2",
+        "name": "Joe, Elizabeth",
+        "currentOrPast": "Current",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "MD",
+        "researchArea": "Dementia diagnoses in a safety net health system",
+        "progress": "CTSI KL2 Scholar",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "3",
+        "name": "Choupan, Jieran",
+        "currentOrPast": "Current",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "PhD",
+        "researchArea": "Volumetric changes of perivascular spaces in early cognitive impairment",
+        "progress": "Oral presentation at Spring National ADC meeting 2021",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "4",
+        "name": "Guzman, Sam",
+        "currentOrPast": "Past",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "MD",
+        "researchArea": "Neuropathology",
+        "progress": "Diversity Supplement",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "5",
+        "name": "Pachicano, MariCarmen",
+        "currentOrPast": "Current",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "PhD candidate",
+        "researchArea": "Neuropathology",
+        "progress": "Diversity Supplement",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "6",
+        "name": "Gutierrez, Angela",
+        "currentOrPast": "Past",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "PhD",
+        "researchArea": "Social Work / Recruitment Science",
+        "progress": "Post Doc Provost Scholar",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "7",
+        "name": "Asante, Isaac",
+        "currentOrPast": "Current",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "PhD",
+        "researchArea": "Omics, AD biomarkers",
+        "progress": "Assistant Professor; Diversity Supplement",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "8",
+        "name": "Christiansen, Amy",
+        "currentOrPast": "Current",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "PhD",
+        "researchArea": "AD mouse models, ketogenic diet",
+        "progress": "Assistant Professor",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "9",
+        "name": "Eremina, Olga",
+        "currentOrPast": "Current",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "PhD",
+        "researchArea": "Nanoparticle-based Raman imaging of AD neuropathology",
+        "progress": "K99 applicant",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "10",
+        "name": "Thorwald, Max Andrew",
+        "currentOrPast": "Current",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "PhD",
+        "researchArea": "APOE nuclear translocation in AD",
+        "progress": "K99 applicant",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "11",
+        "name": "Tureson, Kayla",
+        "currentOrPast": "Current",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "PhD student",
+        "researchArea": "Genetic and environmental contributions to dementia risk among Latinos",
+        "progress": "NRSA",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "12",
+        "name": "Ahuja, Ashim",
+        "currentOrPast": "Current",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "MD",
+        "researchArea": "Clinical and biochemical markers of Lewy Body disease",
+        "progress": "Clinical Fellow",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "13",
+        "name": "Lim, Aaron",
+        "currentOrPast": "Current",
+        "scholarOrTrainee": "Scholar",
+        "trainingLevel": "PhD",
+        "researchArea": "Alcohol and financial vulnerability in AD",
+        "progress": "K23 applicant (scored and resubmitted)",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "14",
+        "name": "Fenton, Laura",
+        "currentOrPast": "Current",
+        "scholarOrTrainee": "Trainee",
+        "trainingLevel": "PhD student",
+        "researchArea": "Neuroimaging and financial vulnerability in AD",
+        "progress": "Graduate student (planning F31)",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      },
+      {
+        "id": "15",
+        "name": "Noriega-Makarskyy, Daisy",
+        "currentOrPast": "Current",
+        "scholarOrTrainee": "Trainee",
+        "trainingLevel": "PhD student",
+        "researchArea": "Cognition and cognitive decline in Latinos",
+        "progress": "Graduate student (planning F31)",
+        "adrcAffiliated": true,
+        "adrdField": true,
+        "notes": null
+      }
+    ],
+    "summary": {
+      "total": 15,
+      "current": 12,
+      "past": 3,
+      "currentScholars": 10,
+      "currentTrainees": 2,
+      "allAdrcAffiliated": true,
+      "allAdrdField": true
+    }
+  },
+  "faculty": {
+    "title": "Participating REC faculty",
+    "footnote": "* Members of the executive committee",
+    "rows": [
+      {
+        "id": "1",
+        "lastName": "Yassine",
+        "firstName": "Hussein",
+        "title": "Associate Professor",
+        "institutionDepartment": "USC / Medicine",
+        "theme": "Lifestyle interventions",
+        "researchArea": "Obesity, diabetes, lipids and diet in AD",
+        "executiveCommittee": true
+      },
+      {
+        "id": "2",
+        "lastName": "Han",
+        "firstName": "Duke",
+        "title": "Professor",
+        "institutionDepartment": "USC / Psychology and Family Medicine",
+        "theme": "Cognitive aging and decision making",
+        "researchArea": "Financial decision making as an early neurocognitive marker of AD",
+        "executiveCommittee": true
+      },
+      {
+        "id": "3",
+        "lastName": "Aranda",
+        "firstName": "Maria",
+        "title": "Associate Professor",
+        "institutionDepartment": "USC / Social Work",
+        "theme": "Family based care",
+        "researchArea": "Family-based care in the elderly",
+        "executiveCommittee": true
+      },
+      {
+        "id": "4",
+        "lastName": "D'Orazio",
+        "firstName": "Lina",
+        "title": "Assistant Professor",
+        "institutionDepartment": "USC / Neurology",
+        "theme": "Cognitive outcomes",
+        "researchArea": "Cross-cultural neuropsychological assessment; Latinx populations and Spanish-speakers",
+        "executiveCommittee": true
+      },
+      {
+        "id": "5",
+        "lastName": "Chui",
+        "firstName": "Helena",
+        "title": "Professor",
+        "institutionDepartment": "USC / Neurology",
+        "theme": "Cognitive outcomes",
+        "researchArea": "Diabetes and AD",
+        "executiveCommittee": true
+      },
+      {
+        "id": "6",
+        "lastName": "Toga",
+        "firstName": "Arthur",
+        "title": "Professor",
+        "institutionDepartment": "USC / INI",
+        "theme": "Imaging biomarkers",
+        "researchArea": "Imaging biomarkers access in LONI database",
+        "executiveCommittee": true
+      },
+      {
+        "id": "7",
+        "lastName": "Raman",
+        "firstName": "Rema",
+        "title": "Professor",
+        "institutionDepartment": "USC / ATRI",
+        "theme": "Biostatistics / clinical trials",
+        "researchArea": "Clinical trial design, database management",
+        "executiveCommittee": true
+      },
+      {
+        "id": "8",
+        "lastName": "Schneider",
+        "firstName": "Lon",
+        "title": "Professor",
+        "institutionDepartment": "USC / Psychiatry",
+        "theme": "Clinical trials",
+        "researchArea": "Clinical trial simulation in AD",
+        "executiveCommittee": false
+      },
+      {
+        "id": "9",
+        "lastName": "Braskie",
+        "firstName": "Meredith",
+        "title": "Associate Professor",
+        "institutionDepartment": "USC / INI",
+        "theme": "Imaging biomarkers",
+        "researchArea": "Imaging the diabetes brain",
+        "executiveCommittee": false
+      },
+      {
+        "id": "10",
+        "lastName": "Pike",
+        "firstName": "Christian",
+        "title": "Professor",
+        "institutionDepartment": "USC / Gerontology",
+        "theme": "Lifestyle interventions",
+        "researchArea": "Animal models of obesity and AD risk",
+        "executiveCommittee": false
+      },
+      {
+        "id": "11",
+        "lastName": "Finch",
+        "firstName": "Caleb",
+        "title": "Professor",
+        "institutionDepartment": "USC / Gerontology",
+        "theme": "Gene by environment AD interactions",
+        "researchArea": "Animal models of AD risk and environmental risk factors",
+        "executiveCommittee": false
+      },
+      {
+        "id": "12",
+        "lastName": "Zissimopoulos",
+        "firstName": "Julie",
+        "title": "Professor",
+        "institutionDepartment": "USC / Policy School",
+        "theme": "Costs of dementia",
+        "researchArea": "Dementia risk; financial and health care implications of dementia",
+        "executiveCommittee": false
+      },
+      {
+        "id": "13",
+        "lastName": "Ringman",
+        "firstName": "John",
+        "title": "Professor",
+        "institutionDepartment": "USC / Neurology",
+        "theme": "Biomarkers, cognitive and behavioral outcomes",
+        "researchArea": "Genetics and clinical manifestations of ADRD in Latinx",
+        "executiveCommittee": false
+      }
+    ],
+    "summary": {
+      "total": 13,
+      "executiveCommittee": 7
+    }
+  },
+  "trainingPrograms": {
+    "title": "USC training programs that include ADRD and minority scholars",
+    "rows": [
+      {
+        "id": "1",
+        "program": "RCMAR",
+        "traineesPerYear": "20 post-doctoral fellows",
+        "minorityResearchers": "70%",
+        "focus": "Population research",
+        "preceptor": "Dana Goldman and Julie Zissimopoulos",
+        "notes": null
+      },
+      {
+        "id": "2",
+        "program": "T32 Gerontology",
+        "traineesPerYear": "5\u201310 post-doctoral fellows",
+        "minorityResearchers": "25%",
+        "focus": "Biodemography and population health; Alzheimer's disease coursework",
+        "preceptor": "Eileen Crimmins",
+        "notes": null
+      },
+      {
+        "id": "3",
+        "program": "T32 Multi-Modal Imaging",
+        "traineesPerYear": "2 post-doctoral fellows (program started 2018)",
+        "minorityResearchers": "New program",
+        "focus": "Imaging research",
+        "preceptor": "Arthur Toga",
+        "notes": null
+      },
+      {
+        "id": "4",
+        "program": "SC CTSI-KL2 and Institutional Scholars",
+        "traineesPerYear": "2 post-doctoral (junior faculty)",
+        "minorityResearchers": "15%",
+        "focus": "Clinical translational research",
+        "preceptor": "Cecilia Patino-Sutton, MD, MEd, PhD",
+        "notes": null
+      },
+      {
+        "id": "5",
+        "program": "Translational genomics U54",
+        "traineesPerYear": "Program initiated 2019",
+        "minorityResearchers": "New program; expected to train 120 minorities",
+        "focus": "Cancer research",
+        "preceptor": "Badour Salhia",
+        "notes": null
+      },
+      {
+        "id": "6",
+        "program": "ACTC IDEA-CT",
+        "traineesPerYear": "Post-doctoral scholars",
+        "minorityResearchers": "New program",
+        "focus": "Biostatistics\u2013clinical trials",
+        "preceptor": "Rema Raman",
+        "notes": null
+      },
+      {
+        "id": "7",
+        "program": "T32 Gerontology (aging track)",
+        "traineesPerYear": "Post-doctoral scholars",
+        "minorityResearchers": "11% minority",
+        "focus": "Aging research",
+        "preceptor": "Kelvin Davies",
+        "notes": "Second T32 Gerontology entry per RPPR table"
+      }
+    ],
+    "summary": {
+      "totalPrograms": 7
+    }
+  }
+}

@@ -1,0 +1,37 @@
+variable,description
+uds_id,USC ADRC UDS/PTID participant identifier used for cross-source linkage.
+collection_date,Specimen collection/blood-draw/CSF visit date in YYYY-MM-DD. Date provenance is retained separately.
+collection_date_raw,Original source collection-date value retained for provenance before date parsing/standardization; may be blank when the source provided no collection date.
+analysis_date,Laboratory analysis date when supplied by the source; currently populated primarily for NCRAD.
+batch_return_number,NCRAD return/batch number when supplied by the upstream NCRAD release; blank for non-NCRAD sources.
+batch_return_date,NCRAD Flywheel batch Last Updated date when available. Distinct from specimen collection_date and analysis_date.
+batch_date_provenance,"Provenance for batch_return_date, such as upstream NCRAD curated release or Flywheel Last Updated."
+specimen_type,"Specimen matrix, currently Plasma or CSF."
+biomarker,Harmonized analyte name. Same-name analytes from different protocols remain distinct via measurement_family_id/protocol_id.
+biomarker_value,Numeric biomarker measurement retained from the selected source record.
+biomarker_unit,"Source-supported measurement unit. For current NCRAD ABeta40, ABeta42, pTau217, NfL, and GFAP, missing upstream units are filled as pg/mL from the official NCRAD variable-description workbook. Values are not converted across units in v1.0.5."
+biomarker_unit_provenance,"Provenance of biomarker_unit, distinguishing upstream/source-provided units from temporary enrichment using the official NCRAD variable description."
+replicate_number,Within-source assay/technical replicate number when available; NCRAD replicates are preserved.
+source_family,"High-level source family such as NCRAD, VCS_REDCap, Legacy_CSF, or C2N."
+source_dataset,Specific imported dataset/instrument representation.
+measurement_family_id,Defines analytical comparability/deduplication family. Different protocols are intentionally kept separate.
+protocol_id,Protocol/assay grouping used to prevent inappropriate collapsing of non-interchangeable measurements.
+assay_method,"Assay method when supported by the source (e.g., C2N IP-MS)."
+assay_platform,Assay platform when supported by the source. Numeric NCRAD codes are decoded using the official NCRAD variable description (1=Quanterix Simoa; 2=Fujirebio Lumipulse).
+assay_platform_code,Original NCRAD assay-platform code when the upstream curated release supplied a coded value; blank for already-labeled/non-NCRAD sources.
+assay_name,Assay kit name when supported by the source. Numeric NCRAD assay-name codes are decoded using the official NCRAD variable description.
+assay_name_code,Original NCRAD assay-name code when the upstream curated release supplied a coded value; blank for already-labeled/non-NCRAD sources.
+assay_version,Assay version when supported by the source.
+assay_lot_no,Assay lot number when supported by the source.
+source_project,Study/project label supplied by the source.
+source_event,Source visit/event/timepoint label.
+source_generation,"Source-format generation, e.g. current_redcap, legacy_spreadsheet, fixed_c2n_file, or NCRAD source generation."
+qc_status,Measurement-level QC state. review_note means retained but accompanied by a source note requiring awareness.
+qc_note,Source note/QC text when available.
+source_priority,Internal precedence used only when selecting among overlapping representations of the same measurement family.
+source_file,Original source filename from which the measurement was imported.
+source_row,Original/source-derived row number where available.
+date_provenance,Source field used to derive collection_date.
+collection_date_suspect,TRUE when collection_date is retained for provenance but excluded from dated availability/range calculations because source evidence indicates a likely date-entry error.
+atnv_domain,Explicit operational availability grouping. A: A-beta38/40/42; T: p-tau181/217; N: total tau/NFL; V: sPDGFRB; Other: ancillary analytes such as GFAP/neurogranin. Not a positivity/diagnostic classification.
+canonical_selection_reason,Why this record was selected for the canonical Long release when overlapping representations existed.

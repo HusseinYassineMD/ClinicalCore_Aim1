@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cpbh-mist/40 text-cpbh-navy antialiased;
+  }
+}
+
+@layer components {
+  .dashboard-card {
+    @apply bg-white rounded-2xl p-6 shadow-lg shadow-cpbh-navy/5 border border-cpbh-mist;
+  }
+
+  /* Recharts: parent must have explicit height; min-width avoids 0-width SVG in grids */
+  .registry-chart-plot {
+    min-width: 12rem;
+    min-height: 6rem;
+    width: 100%;
+    position: relative;
+  }
+
+  .registry-chart-plot .recharts-responsive-container {
+    min-height: inherit;
+  }
+
+  .registry-chart-plot .recharts-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .demographics-chart-plot,
+  .demographics-chart-plot .recharts-wrapper,
+  .demographics-chart-plot .recharts-surface,
+  .registry-chart-plot .recharts-wrapper,
+  .registry-chart-plot .recharts-surface {
+    overflow: visible !important;
+  }
+
+  /* Bar/pie count labels set fill in SVG — avoid theme overriding to navy */
+  .registry-chart-plot .recharts-bar-label text,
+  .registry-chart-plot .recharts-pie-label text,
+  .demographics-chart-plot .recharts-bar-label text,
+  .demographics-chart-plot .recharts-label-list text,
+  .demographics-chart-plot .recharts-pie-label text {
+    paint-order: stroke fill;
+    fill: #1a2744 !important;
+  }
+
+  .registry-chart-plot .recharts-pie,
+  .registry-chart-plot .recharts-layer.recharts-pie {
+    overflow: visible;
+  }
+
+  .metric-card {
+    @apply bg-white rounded-xl p-5 shadow-md shadow-cpbh-navy/5 border border-cpbh-mist
+           hover:shadow-lg hover:shadow-cpbh-purple/10 transition-shadow duration-300;
+  }
+
+  .table-header {
+    @apply bg-cpbh-navy text-white text-sm font-medium px-4 py-3 text-left;
+  }
+
+  .table-cell {
+    @apply px-4 py-3 text-sm border-b border-cpbh-mist;
+  }
+
+  .table-row-alt {
+    @apply bg-cpbh-mist/30;
+  }
+
+  /* Black = Jan 1–date YTD · green = last RPPR period · red = no data */
+  .metric-value-ytd {
+    @apply text-neutral-950;
+  }
+
+  .metric-value-prior {
+    color: #15803d;
+    font-weight: 600;
+  }
+
+  .metric-value-unknown {
+    color: #dc2626;
+    font-weight: 600;
+  }
+}
+
+/** Playwright board-deck capture: larger type, desktop registry layout, no sticky chrome. */
+html.dashboard-capture nav.sticky,
+html.dashboard-capture [class*="sticky"] {
+  position: relative !important;
+  top: auto !important;
+}
+
+html.dashboard-capture aside[aria-label="Section notes"] {
+  visibility: hidden !important;
+}
+
+html.dashboard-capture .grid.xl\\:hidden {
+  display: none !important;
+}
+
+html.dashboard-capture .hidden.xl\\:flex {
+  display: flex !important;
+}
+
+html.dashboard-capture {
+  font-size: 18px;
+}
+
+html.dashboard-capture .metric-card .text-3xl,
+html.dashboard-capture .metric-card .text-4xl,
+html.dashboard-capture .metric-card p[class*="text-3xl"] {
+  font-size: 2.85rem !important;
+  line-height: 1.12 !important;
+}
+
+html.dashboard-capture .metric-value-ytd,
+html.dashboard-capture .metric-value-prior,
+html.dashboard-capture .metric-value-unknown {
+  font-weight: 700 !important;
+}
+
+html.dashboard-capture h2.font-display,
+html.dashboard-capture h3.font-display {
+  font-size: clamp(1.65rem, 2.2vw, 2.15rem) !important;
+}
+
+html.dashboard-capture .table-cell,
+html.dashboard-capture .table-header {
+  font-size: 1.08rem !important;
+  padding: 0.7rem 0.9rem !important;
+}
+
+html.dashboard-capture td.tabular-nums,
+html.dashboard-capture .tabular-nums {
+  font-size: 1.05em !important;
+}
+
+html.dashboard-capture .recharts-cartesian-axis-tick-value,
+html.dashboard-capture .recharts-label,
+html.dashboard-capture .recharts-legend-item-text {
+  font-size: 14px !important;
+}
+
+html.dashboard-capture .recharts-label-list text,
+html.dashboard-capture .recharts-text {
+  font-size: 15px !important;
+  font-weight: 600;
+}
+
+html.dashboard-capture .registry-chart-plot {
+  min-height: 7.25rem;
+}

@@ -1,0 +1,58 @@
+{
+  "lastUpdated": "2026-10-09",
+  "reportingPeriodLabel": "1/1/2026 \u2013 10/13/2026",
+  "startDate": "2026-01-01",
+  "endDate": "2026-10-13",
+  "sourceFile": "USCGeneScreenRegistr-USCGeneScreenRegistr_DATA_LABELS_2026-10-07_0842.csv",
+  "newMembersByConsentDate": 55,
+  "onlineEnrollmentsByMembershipTimestamp": 88,
+  "ethnicity": [
+    {
+      "label": "Hispanic",
+      "count": 14
+    },
+    {
+      "label": "White",
+      "count": 33
+    },
+    {
+      "label": "Black",
+      "count": 5
+    },
+    {
+      "label": "Asian",
+      "count": 2
+    },
+    {
+      "label": "Other",
+      "count": 1
+    }
+  ],
+  "gender": [
+    {
+      "label": "Male",
+      "count": 17
+    },
+    {
+      "label": "Female",
+      "count": 38
+    }
+  ],
+  "apoe4": [
+    {
+      "label": "APOE4 carrier",
+      "count": 31
+    },
+    {
+      "label": "Non-carrier",
+      "count": 24
+    }
+  ],
+  "registrySnapshot": {
+    "membersComplete": 739,
+    "males": 220,
+    "females": 519,
+    "apoe4Carriers": 229,
+    "note": "All Complete? records in source CSV (cumulative REDCap export, not RPPR 668)."
+  }
+}

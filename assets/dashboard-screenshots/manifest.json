@@ -1,0 +1,191 @@
+{
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "mode": "by-section",
+  "deckBuildId": "slide-center-v20",
+  "generatedAt": "2026-10-08T20:21:52.502Z",
+  "slides": [
+    {
+      "file": "01-recruitment-p01of02.png",
+      "caption": "Recruitment · GeneScreen, ADRC & BRS (1 of 2)",
+      "sectionId": "recruitment",
+      "sectionTitle": "Recruitment",
+      "sectionSubtitle": "GeneScreen, ADRC & BRS",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "file": "01-recruitment-p02of02.png",
+      "caption": "Recruitment · GeneScreen, ADRC & BRS (2 of 2)",
+      "sectionId": "recruitment",
+      "sectionTitle": "Recruitment",
+      "sectionSubtitle": "GeneScreen, ADRC & BRS",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "file": "02-demographics-p01of05.png",
+      "caption": "Demographics · Table 1 · charts & cohort (1 of 5)",
+      "sectionId": "demographics",
+      "sectionTitle": "Demographics",
+      "sectionSubtitle": "Table 1 · charts & cohort",
+      "part": 1,
+      "parts": 5
+    },
+    {
+      "file": "02-demographics-p02of05.png",
+      "caption": "Demographics · Table 1 · charts & cohort (2 of 5)",
+      "sectionId": "demographics",
+      "sectionTitle": "Demographics",
+      "sectionSubtitle": "Table 1 · charts & cohort",
+      "part": 2,
+      "parts": 5
+    },
+    {
+      "file": "02-demographics-p03of05.png",
+      "caption": "Demographics · Table 1 · charts & cohort (3 of 5)",
+      "sectionId": "demographics",
+      "sectionTitle": "Demographics",
+      "sectionSubtitle": "Table 1 · charts & cohort",
+      "part": 3,
+      "parts": 5
+    },
+    {
+      "file": "02-demographics-p04of05.png",
+      "caption": "Demographics · Table 1 · charts & cohort (4 of 5)",
+      "sectionId": "demographics",
+      "sectionTitle": "Demographics",
+      "sectionSubtitle": "Table 1 · charts & cohort",
+      "part": 4,
+      "parts": 5
+    },
+    {
+      "file": "02-demographics-p05of05.png",
+      "caption": "Demographics · Table 1 · charts & cohort (5 of 5)",
+      "sectionId": "demographics",
+      "sectionTitle": "Demographics",
+      "sectionSubtitle": "Table 1 · charts & cohort",
+      "part": 5,
+      "parts": 5
+    },
+    {
+      "file": "03-neuropathology-p01of02.png",
+      "caption": "Neuropathology · Autopsy metrics & tissue inquiries (1 of 2)",
+      "sectionId": "neuropathology",
+      "sectionTitle": "Neuropathology",
+      "sectionSubtitle": "Autopsy metrics & tissue inquiries",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "file": "03-neuropathology-p02of02.png",
+      "caption": "Neuropathology · Autopsy metrics & tissue inquiries (2 of 2)",
+      "sectionId": "neuropathology",
+      "sectionTitle": "Neuropathology",
+      "sectionSubtitle": "Autopsy metrics & tissue inquiries",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "file": "04-ore-p01of03.png",
+      "caption": "ORE · Outreach, recruitment & engagement (1 of 3)",
+      "sectionId": "ore",
+      "sectionTitle": "ORE",
+      "sectionSubtitle": "Outreach, recruitment & engagement",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "file": "04-ore-p02of03.png",
+      "caption": "ORE · Outreach, recruitment & engagement (2 of 3)",
+      "sectionId": "ore",
+      "sectionTitle": "ORE",
+      "sectionSubtitle": "Outreach, recruitment & engagement",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "file": "04-ore-p03of03.png",
+      "caption": "ORE · Outreach, recruitment & engagement (3 of 3)",
+      "sectionId": "ore",
+      "sectionTitle": "ORE",
+      "sectionSubtitle": "Outreach, recruitment & engagement",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "file": "05-biomarkers-p01of04.png",
+      "caption": "Biomarkers · Collection, NCRAD, biofluid inquiries (1 of 4)",
+      "sectionId": "biomarkers",
+      "sectionTitle": "Biomarkers",
+      "sectionSubtitle": "Collection, NCRAD, biofluid inquiries",
+      "part": 1,
+      "parts": 4
+    },
+    {
+      "file": "05-biomarkers-p02of04.png",
+      "caption": "Biomarkers · Collection, NCRAD, biofluid inquiries (2 of 4)",
+      "sectionId": "biomarkers",
+      "sectionTitle": "Biomarkers",
+      "sectionSubtitle": "Collection, NCRAD, biofluid inquiries",
+      "part": 2,
+      "parts": 4
+    },
+    {
+      "file": "05-biomarkers-p03of04.png",
+      "caption": "Biomarkers · Collection, NCRAD, biofluid inquiries (3 of 4)",
+      "sectionId": "biomarkers",
+      "sectionTitle": "Biomarkers",
+      "sectionSubtitle": "Collection, NCRAD, biofluid inquiries",
+      "part": 3,
+      "parts": 4
+    },
+    {
+      "file": "05-biomarkers-p04of04.png",
+      "caption": "Biomarkers · Collection, NCRAD, biofluid inquiries (4 of 4)",
+      "sectionId": "biomarkers",
+      "sectionTitle": "Biomarkers",
+      "sectionSubtitle": "Collection, NCRAD, biofluid inquiries",
+      "part": 4,
+      "parts": 4
+    },
+    {
+      "file": "06-rec-p01of01.png",
+      "caption": "REC · Research engagement coordinator",
+      "sectionId": "rec",
+      "sectionTitle": "REC",
+      "sectionSubtitle": "Research engagement coordinator",
+      "part": 1,
+      "parts": 1
+    },
+    {
+      "file": "07-imaging-p01of03.png",
+      "caption": "Imaging · SCAN, CLARiTI & IDA (1 of 3)",
+      "sectionId": "imaging",
+      "sectionTitle": "Imaging",
+      "sectionSubtitle": "SCAN, CLARiTI & IDA",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "file": "07-imaging-p02of03.png",
+      "caption": "Imaging · SCAN, CLARiTI & IDA (2 of 3)",
+      "sectionId": "imaging",
+      "sectionTitle": "Imaging",
+      "sectionSubtitle": "SCAN, CLARiTI & IDA",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "file": "07-imaging-p03of03.png",
+      "caption": "Imaging · SCAN, CLARiTI & IDA (3 of 3)",
+      "sectionId": "imaging",
+      "sectionTitle": "Imaging",
+      "sectionSubtitle": "SCAN, CLARiTI & IDA",
+      "part": 3,
+      "parts": 3
+    }
+  ]
+}

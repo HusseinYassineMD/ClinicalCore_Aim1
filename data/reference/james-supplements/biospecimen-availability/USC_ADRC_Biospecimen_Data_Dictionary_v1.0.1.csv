@@ -1,0 +1,43 @@
+File,Variable,Category,Description,Notes
+File 1,biospecimen_record_id,Key,Pipeline-generated unique record identifier.,Stable only within this release unless key logic remains unchanged.
+File 1,uds_id,Identity,USC ADRC UDS/PTID-style participant identifier as represented in source files.,No participant names are included in release outputs.
+File 1,specimen_date,Date,Best source date used to place the specimen record longitudinally.,Do not assume every specimen_date is a draw date; inspect specimen_date_type.
+File 1,specimen_date_type,Date,Meaning of specimen_date in the source.,collection_date for BST; source_date_labeled_received for NCRAD current.
+File 1,collection_date,Date,Explicit collection/draw date when available; otherwise missing.,Preferred for analyses requiring true collection timing.
+File 1,received_date,Date,Explicit received date when available.,May be identical to collection date for same-day receipt.
+File 1,component,Specimen,"Normalized component code: plasma, buffy_coat, serum, or csf.",Component types are not collapsed into a generic biofluid category.
+File 1,component_label,Specimen,Human-readable component label.,Convenience label only.
+File 1,aliquot_count,Quantity,Positive source-reported number of aliquots/tubes for this component.,Do not interpret as mL unless aliquot_volume_ml is populated.
+File 1,aliquot_volume_ml,Quantity,Per-aliquot volume in mL only when explicitly defined by the source header.,Legacy BST rows generally do not specify per-aliquot volume.
+File 1,storage_box,Storage,Normalized source-reported storage box/location.,Formatting such as 'Box ' is normalized away.
+File 1,study,Study,Source-reported study when available.,Not available in all historical sources.
+File 1,primary_source,Provenance,Source supplying the released record-level detail after source reconciliation.,Use when source context is relevant to interpretation.
+File 1,corroborated_by_ncrad,Provenance,Whether matching current NCRAD documentation also supports the released record.,Corroboration does not imply an independent collection.
+File 1,contributing_source_count,Provenance,Number of integrated primary-source records supporting the released record.,Currently 1 or 2 for integrated primary sources.
+File 1,date_interpretation,Interpretation,Interpretation note for the specimen date field.,Use this field when date semantics matter.
+File 2,uds_id,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,first_specimen_date,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,last_specimen_date,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,n_biospecimen_records,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,n_distinct_specimen_dates,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,n_components_available,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,has_plasma,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,n_plasma,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,n_dates_plasma,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,first_plasma,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,last_plasma,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,has_buffy_coat,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,n_buffy_coat,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,n_dates_buffy_coat,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,first_buffy_coat,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,last_buffy_coat,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,has_serum,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,n_serum,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,n_dates_serum,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,first_serum,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,last_serum,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,has_csf,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,n_csf,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,n_dates_csf,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,first_csf,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.
+File 2,last_csf,Subject summary,Subject-level convenience field derived from File 1.,See field name for component/date/count meaning.

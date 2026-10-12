@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "preparedBy": "Xinhui Wang · USC ADRC Data Core",
+    "emailDate": "2026-10-09",
+    "title": "Table 1. Brain Research Study (BRS)",
+    "windowLabel": "01/01/26 – 10/13/26",
+    "mapBrsDataPullDate": "2026-10-07",
+    "eacLock": {
+      "directedBy": "Dr. Chui",
+      "alignedWith": "EAC",
+      "reportingWindowEnd": "2026-10-13",
+      "dashboardYtdLabel": "1/1/2026 – 10/13/2026",
+      "note": "Clinical Core locks RPPR metrics to the EAC window through 10/13/2026. Table row counts reflect Data Core QC on the 10/7 MAP pull until Xinhui refreshes through 10/13."
+    },
+    "sources": [
+      "MAP BRS report downloaded 2026-10-07",
+      "James harmonized UDS / Milestones (Sep 16 package — may lag live MAP updates)",
+      "NP core (Carol) for one 2026 withdrawal not yet in MAP",
+      "EAC reporting lock 1/1/2026 – 10/13/2026 (Dr. Chui)"
+    ],
+    "percentDenominator": 226,
+    "percentDenominatorLabel": "Current enrollment (N=226)",
+    "referenceNote": "Percent column uses current enrollment as denominator (past RPPR algorithm)."
+  },
+  "currentEnrollmentDefinition": "Active participants with autopsy consent signed on or before the EAC lock date (10/13/2026) who remained active as of the Data Core QC snapshot (MAP pull 2026-10-07); excludes MAP-active subjects without finalized UDS packet (no Flywheel UDS/milestone data).",
+  "methodology": {
+    "cumulativeEnrollment": "Active or minimal contact in both MAP BRS and harmonized UDS/milestones as of data pull; MAP-only active without UDS packet removed from count.",
+    "newEnrollment": "autopsy_consent_date in reporting window (EAC: 01/01/26 – 10/13/26).",
+    "withdrawal": "date_of_termination with subject_brs_status = Withdraw; plus NP-reported withdrawal pending MAP entry (2026).",
+    "deathsWithAutopsy": "Cross-check date_of_death, autopsy_performed_date, autopsy_number; reconcile with der_status_adrc when MAP incomplete.",
+    "deathsWithoutAutopsy": "date_of_death in window without autopsy performed per QC rules."
+  },
+  "qcNotes": [
+    "MAP BRS and UDS milestones may lag death/autopsy data entry; CC/NP updates after James Sep 16 harmonized export will not appear in that package.",
+    "Five subjects active in MAP without finalized UDS were excluded from N=226 (would be N=231 if counted).",
+    "James package CSVs are snapshots (Sep 16 + Oct 9 supplements); activity after export delivery is not in harmonized files even when the EAC window extends to 10/13/2026."
+  ],
+  "rows": [
+    {
+      "id": "newEnrolled",
+      "label": "New participants enrolled",
+      "participants": 5,
+      "percentOfEnrollment": 2.21,
+      "female": 2,
+      "male": 3
+    },
+    {
+      "id": "withdrawal",
+      "label": "Participant withdrawal",
+      "participants": 1,
+      "percentOfEnrollment": 0.44,
+      "female": 1,
+      "male": 0
+    },
+    {
+      "id": "currentEnrollment",
+      "label": "Current enrollment",
+      "participants": 226,
+      "percentOfEnrollment": null,
+      "female": 143,
+      "male": 83,
+      "emphasis": true
+    },
+    {
+      "id": "diedWithAutopsy",
+      "label": "Participant died with autopsy",
+      "participants": 7,
+      "percentOfEnrollment": 3.1,
+      "female": 2,
+      "male": 5
+    },
+    {
+      "id": "diedWithoutAutopsy",
+      "label": "Participant died w/o autopsy",
+      "participants": 1,
+      "percentOfEnrollment": 0.44,
+      "female": 1,
+      "male": 0
+    }
+  ],
+  "comparisonJamesMapExportOct9": {
+    "sourceFile": "MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv",
+    "windowDashboardAggregate": "1/1/2026 – 10/13/2026",
+    "subject_brs_status_active": 231,
+    "newAutopsyConsentsInWindow": 5,
+    "autopsiesPerformedDateInWindow": 6,
+    "deathsDateOfDeathInWindow": 9
+  }
+}

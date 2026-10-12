@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --usc-cardinal: #990000;
+    --usc-gold: #ffcc00;
+  }
+  body {
+    width: 1920px; height: 1080px;
+    font-family: Calibri, "Segoe UI", Arial, sans-serif;
+    background: #f7f8fa; color: #2d2d2d; overflow: hidden;
+  }
+  .slide {
+    width: 1920px; height: 1080px;
+    display: grid;
+    grid-template-rows: 44px 188px 52px 128px 1fr 1fr 76px 46px;
+    grid-template-areas:
+      "gold" "head" "domains" "kpi" "main" "bottom" "flow" "foot";
+  }
+  .gold-bar { grid-area: gold; background: var(--usc-gold); }
+  .head {
+    grid-area: head;
+    padding: 12px 48px 0;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 36px;
+    overflow: hidden;
+  }
+  .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #64748b; }
+  h1 { font-size: 54px; font-weight: 700; line-height: 1.08; margin-top: 8px; color: var(--usc-cardinal); }
+  .subtitle { font-size: 24px; color: #475569; line-height: 1.35; margin-top: 12px; font-weight: 400; max-width: 920px; }
+  .dates { display: flex; flex-direction: column; gap: 8px; min-width: 340px; flex-shrink: 0; }
+  .dates div {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 6px;
+    padding: 10px 16px; font-size: 20px; font-weight: 600; color: var(--usc-cardinal);
+  }
+  .dates span { display: block; font-size: 12px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px; }
+  .domains {
+    grid-area: domains;
+    padding: 0 48px;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    font-size: 18px; color: #64748b; font-weight: 600;
+  }
+  .domains .label { color: #94a3b8; text-transform: uppercase; letter-spacing: 0.06em; font-size: 13px; margin-right: 10px; }
+  .domains .sep { color: #cbd5e1; }
+  .kpi-row {
+    grid-area: kpi;
+    padding: 0 48px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+  }
+  .kpi {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
+    padding: 18px 20px; border-left: 5px solid var(--usc-cardinal);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    display: flex; flex-direction: column; justify-content: center;
+    min-height: 100%;
+  }
+  .kpi .k { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; line-height: 1.25; }
+  .kpi .v { font-size: 48px; font-weight: 700; margin-top: 10px; color: #0f172a; line-height: 1; }
+  .kpi.prior .v { color: #166534; }
+  .kpi .w { font-size: 16px; margin-top: 8px; color: #94a3b8; font-weight: 500; }
+  .main-row, .bottom-row {
+    padding: 12px 48px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    min-height: 0;
+    align-items: stretch;
+  }
+  .main-row { grid-area: main; }
+  .bottom-row { grid-area: bottom; }
+  .panel {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
+    padding: 26px 28px; overflow: hidden;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+    height: 100%;
+    display: flex; flex-direction: column;
+  }
+  .panel h2 {
+    font-size: 24px; font-weight: 700; margin-bottom: 18px; color: var(--usc-cardinal);
+    padding-bottom: 12px; border-bottom: 1px solid #e2e8f0;
+    flex-shrink: 0;
+  }
+  ul { list-style: none; flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }
+  ul li {
+    font-size: 21px; line-height: 1.4; color: #334155;
+    padding-left: 18px; position: relative;
+  }
+  .bottom-row ul li { font-size: 24px; line-height: 1.48; }
+  .bottom-row .panel h2 { margin-bottom: 22px; }
+  ul li::before { content: "—"; position: absolute; left: 0; color: #94a3b8; font-weight: 400; }
+  ul li strong { color: var(--usc-cardinal); font-weight: 700; }
+  .purpose-block { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }
+  .crisp-line { font-size: 22px; line-height: 1.48; color: #334155; }
+  .main-row ul li { font-size: 22px; line-height: 1.42; }
+  .crisp-line strong { display: inline-block; min-width: 108px; color: var(--usc-cardinal); font-weight: 700; font-size: 19px; }
+  .muted { margin-top: auto; padding-top: 14px; border-top: 1px solid #f1f5f9; font-size: 17px; color: #64748b; line-height: 1.45; }
+  .flow {
+    grid-area: flow;
+    margin: 0 48px;
+    padding: 14px 0;
+    display: flex; align-items: center; gap: 20px;
+    border-top: 1px solid #e2e8f0;
+  }
+  .flow .lbl { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; width: 108px; }
+  .flow .steps { display: flex; flex: 1; gap: 0; align-items: center; }
+  .flow .s {
+    flex: 1; text-align: center; font-size: 18px; font-weight: 600; color: #475569;
+    padding: 10px 6px; position: relative;
+  }
+  .flow .s:not(:last-child)::after {
+    content: "→"; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+    color: #cbd5e1; font-weight: 400; font-size: 20px;
+  }
+  .foot {
+    grid-area: foot;
+    padding: 0 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 16px; color: #64748b; font-weight: 500;
+    border-top: 1px solid #e2e8f0; padding-top: 12px;
+  }
+  .foot em { font-style: normal; color: #94a3b8; font-size: 15px; }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <div class="gold-bar"></div>
+    <header class="head">
+      <div>
+        <p class="eyebrow">USC ADRC · Administrative Core</p>
+        <h1>ADRC Metrics Dashboard</h1>
+        <p class="subtitle">One trusted source for RPPR, carryforward, and EAC reporting.</p>
+      </div>
+      <div class="dates">
+        <div><span>Grant period</span><strong id="grantPeriod">—</strong></div>
+        <div><span>Year to date</span><strong id="ytdLabel">—</strong></div>
+        <div><span>RPPR window</span><strong id="rpprWindow">—</strong></div>
+      </div>
+    </header>
+
+    <div class="domains">
+      <span class="label">Coverage</span>
+      Registry <span class="sep">|</span> Clinical &amp; UDS <span class="sep">|</span> Biomarkers <span class="sep">|</span> Imaging <span class="sep">|</span> Specimens <span class="sep">|</span> Data exports
+    </div>
+
+    <section class="kpi-row">
+      <div class="kpi"><div class="k">UDS participants · YTD</div><div class="v" id="kUds">—</div><div class="w">Harmonized visits</div></div>
+      <div class="kpi prior"><div class="k">Clinical cohort N</div><div class="v" id="kAdrc">—</div><div class="w">RPPR Table 1</div></div>
+      <div class="kpi prior"><div class="k">GeneScreen enrolled</div><div class="v" id="kGs">—</div><div class="w">Registry total</div></div>
+      <div class="kpi prior"><div class="k">ORE attendees</div><div class="v" id="kOre">—</div><div class="w">Prior RPPR period</div></div>
+    </section>
+
+    <section class="main-row">
+      <article class="panel">
+        <h2>A. Progress and accomplishments</h2>
+        <ul>
+          <li><strong>Assessment.</strong> Core needs assessment completed (Year 7).</li>
+          <li><strong>Dashboard.</strong> Live metrics across registry, clinical, biomarkers, imaging, specimens, GeneScreen, and ORE.</li>
+          <li><strong>Data explorer.</strong> Harmonized UDS, biomarkers, and imaging — CSV and HTML exports.</li>
+          <li><strong>Data owners.</strong> James and Xinhui Wang.</li>
+          <li><strong>Quality.</strong> 34 automated checks before release; Year 6–7 carryforward submitted to NIA.</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h2>Purpose · Benefits · Process</h2>
+        <div class="purpose-block">
+          <p class="crisp-line"><strong>Purpose</strong> Single hub for NIA and advisory reporting.</p>
+          <p class="crisp-line"><strong>Benefits</strong> Board-ready views; reduced manual reconciliation.</p>
+          <p class="crisp-line"><strong>Process</strong> Sync RedCap and core exports → validate → review → publish.</p>
+        </div>
+        <p class="muted">Metric colors: black = year to date · green = prior RPPR period · red = placeholder (internal only).</p>
+      </article>
+    </section>
+
+    <section class="bottom-row">
+      <article class="panel">
+        <h2>B. Challenges and barriers</h2>
+        <ul>
+          <li>Calendar-year ORE and GeneScreen YTD fields still being wired to the dashboard.</li>
+          <li>Production hosting, SSO, and role-based access in progress.</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h2>C. Future milestones</h2>
+        <ul>
+          <li>Resolve placeholder metrics; scheduled refresh for Year 8 RPPR.</li>
+          <li>Standard EAC export from verified dashboard totals.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="flow">
+      <div class="lbl">Workflow</div>
+      <div class="steps">
+        <div class="s">Define metrics</div>
+        <div class="s">Validate</div>
+        <div class="s">Leadership review</div>
+        <div class="s">RPPR / EAC</div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span><strong>Specific Aim 2:</strong> Coordinate fiscal, operational, and regulatory functions across all cores.</span>
+      <em>Slide 2 · verified metrics view</em>
+    </footer>
+  </div>
+</body>
+</html>

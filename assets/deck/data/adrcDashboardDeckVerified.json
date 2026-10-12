@@ -1,0 +1,44 @@
+{
+  "verifiedAt": "2026-10-02T20:35:48.195689+00:00",
+  "grantPeriod": "4/1/2026 \u2013 2/28/2027",
+  "rpprReportingPeriod": "7/1/2025 \u2013 12/31/2025",
+  "ytdLabel": "1/1/2026 \u2013 9/30/2026",
+  "packageReceivedAt": "2026-09-16",
+  "ytd": {
+    "udsParticipantsWithVisit": 222,
+    "followUpInPerson": 181,
+    "followUpRemote": 17,
+    "initialEvaluations": 24,
+    "plasmaSubjects": 98,
+    "plasmaMeasurementRows": 778,
+    "autopsyConsents": 4,
+    "autopsiesPerformed": 5,
+    "biofluidRequests": 7,
+    "neurobankRequests": 24,
+    "plasmaAliquotsRequested": 568,
+    "ncradGfapMeasurements": 194,
+    "scanMriParticipants": 11,
+    "claritiMriParticipants": 8,
+    "claritiAmyloidPet": 9,
+    "claritiTauPet": 9,
+    "totalUdsVisitRows": 222
+  },
+  "imagingIntegratedNacc": {
+    "scan": 58,
+    "clariti": 11,
+    "uscAdrc": 103
+  },
+  "rpprHeadlines": {
+    "adrcCohortN": 573,
+    "brsEnrolled": 231,
+    "geneScreenEnrolled": 668,
+    "geneScreenApoe4": 188,
+    "oreCommunityEvents": 128,
+    "oreEventAttendees": 8243,
+    "oreOnlineEnrollments": 39
+  },
+  "verification": {
+    "pass1": "rpprMetrics.json cross-checked to geneScreenDeckData.json, rpprDataPackage.json, redcapSpecimenSharing.json",
+    "pass2": "scripts/validate_dashboard.py (34 dashboard checks)"
+  }
+}

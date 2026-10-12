@@ -1,0 +1,49 @@
+{
+  "asOfDate": "2026-10-09",
+  "scope": "CPBH Center PG/GF finance (not ADRC clinical core metric cards)",
+  "sourceFiles": {
+    "pgBudgetToActuals": "data/reference/finance/PG 10-09-2026_Budget_to_Actuals_2.0_-_Optimized (1).xlsx",
+    "gfSpendableBalance": "data/reference/finance/GF 10-09-2026_spendable balance.xlsx"
+  },
+  "pgBudgetSummary": {
+    "projects": [
+      {
+        "projectId": "PG1040966",
+        "budget": 882922.6,
+        "actuals": 225416.59000000003,
+        "obligations": 487223.49,
+        "balance": 170282.52
+      },
+      {
+        "projectId": "PG1040967",
+        "budget": 67580.64,
+        "actuals": 18178.210000000003,
+        "obligations": 5146.76,
+        "balance": 44255.670000000006
+      },
+      {
+        "projectId": "PG1040968",
+        "budget": 49504.8,
+        "actuals": 8976.61,
+        "obligations": 0.0,
+        "balance": 40528.19
+      }
+    ],
+    "grandTotal": {
+      "budget": 1000008.04,
+      "actuals": 252571.41000000003,
+      "obligations": 492370.25,
+      "balance": 255066.38
+    }
+  },
+  "gfSpendableTotals": {
+    "priorYearEndingBalance": -1956041.81,
+    "income": -67.5,
+    "budget": 1956109.31,
+    "expense": 73438.33,
+    "obligations": 286760.33,
+    "availableBalance": 1595910.65,
+    "remainingBalanceIncludingPayout": 1595910.65
+  },
+  "note": "USE THIS sheet: PG1040966\u2013968 budget vs actuals vs obligations. GF file: spendable gift balances for CPBH-related funds. Does not replace grant renewal targets on registry charts."
+}

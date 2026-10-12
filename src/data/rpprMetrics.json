@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "source": "RPPR11382447.FINAL.1.30.26 NO BUDGET(1).pdf",
+    "reportingPeriod": "7/1/2025 \u2013 12/31/2025",
+    "grantPeriod": "4/1/2026 \u2013 2/28/2027",
+    "extractedAt": "2026-09-01T19:37:46Z"
+  },
+  "recruitment": {
+    "adrcTotalParticipants": 573,
+    "adrcNewThisPeriod": 6,
+    "brsTotalEnrolled": 231,
+    "brsNewThisPeriod": 10
+  },
+  "oreOutreach": {
+    "communityEvents": 128,
+    "eventAttendees": 8243,
+    "communityGroupsContacted": 155,
+    "groupsCollaborating": 128,
+    "advisoryCommitteeMeetings": 1,
+    "newOnlineEnrollments": 39
+  },
+  "geneScreen": {
+    "membersAdded": 19,
+    "membersEnrolled": 668,
+    "males": 201,
+    "females": 467,
+    "apoe4Carriers": 188,
+    "leadsContactsInitiated": 1507
+  },
+  "clinicalAssessments": {
+    "followUpInPerson": 128,
+    "followUpRemote": 7,
+    "initialAssessments": 6
+  },
+  "samples": {
+    "pbmc": 331,
+    "buffyCoat": 348,
+    "plasma126": 126
+  },
+  "ncradBiomarkers": {
+    "ab40": 283,
+    "ab42": 272,
+    "gfap": 250,
+    "nfl": 250,
+    "ptau217": 270
+  },
+  "biofluidCollection": {
+    "plasmaParticipants": 143,
+    "plasmaAliquots": 770,
+    "wbcParticipants": 143,
+    "serumParticipants": 18,
+    "serumAliquots": 389,
+    "csfParticipants": 3,
+    "csfAliquots": 67
+  },
+  "biomarkerResearch": {
+    "csfSamplesAnalyzed": 450,
+    "apoeGenotypingDisplay": ">500",
+    "collaborationSamples": 115,
+    "recCsfSamples": 188,
+    "recPlasmaSamples": 188,
+    "plasmaSharedWithZandi": 50
+  },
+  "imagingQc": {
+    "amyloidPetQc": 114,
+    "tauPetQc": 75,
+    "structuralMriQc": 917,
+    "newRawPetDatasets": 14
+  },
+  "idaImagingUpload": {
+    "mrScans": 2618,
+    "mrParticipants": 2489,
+    "petScans": 1068,
+    "petParticipants": 1073
+  },
+  "neuropath": {
+    "brsNewlyConsented": 10,
+    "enrolledInAutopsyProgram": 231,
+    "withdrawals": 2,
+    "cohortDeaths": 9,
+    "autopsiesPerformed": 9,
+    "cumulativeAutopsies": 434,
+    "cumulativeDeaths": 530,
+    "cumulativePercent": 81.9
+  },
+  "scanTargets": {
+    "scanTarget": 24,
+    "claritiTarget": 36
+  }
+}

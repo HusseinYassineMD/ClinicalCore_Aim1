@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 1920px; height: 1080px;
+      font-family: Calibri, Arial, Helvetica, sans-serif;
+      background: #fff; color: #000; overflow: hidden;
+    }
+    .slide {
+      width: 1920px; height: 1080px;
+      padding: 52px 64px 40px;
+      display: flex; flex-direction: column;
+    }
+    .slide-title { font-size: 30px; font-weight: 700; margin-bottom: 22px; }
+    .proven-success { font-size: 26px; line-height: 1.42; margin-bottom: 28px; }
+    .icon-stats { display: flex; align-items: flex-end; gap: 72px; margin-bottom: 32px; padding-left: 4px; }
+    .icon-stat { display: flex; align-items: center; gap: 12px; }
+    .icon-stat .emoji { font-size: 44px; }
+    .icon-stat .val { font-size: 42px; font-weight: 700; }
+    .icon-stat .lbl { font-size: 24px; }
+    .icon-stat em { font-style: italic; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 48px;
+      flex: 1;
+      max-width: 1200px;
+    }
+    .stat-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      border-bottom: 2px solid #e5e5e5;
+      padding: 18px 0;
+      font-size: 28px;
+    }
+    .stat-row .label { color: #333; }
+    .stat-row .value { font-weight: 700; font-size: 36px; }
+    .period-box {
+      margin-top: 24px;
+      font-size: 54px;
+      font-weight: 700;
+    }
+    .bottom-stats { display: flex; align-items: center; gap: 64px; margin-top: 20px; }
+    .bottom-stat { display: flex; align-items: center; gap: 10px; font-size: 30px; }
+    .bottom-stat .emoji { font-size: 38px; }
+    .bottom-stat .val { font-weight: 700; }
+    .source-note { margin-top: 16px; font-size: 14px; color: #333; line-height: 1.5; max-width: 1700px; }
+    .verified {
+      display: inline-block; margin-top: 12px;
+      background: #ecfdf5; color: #047857;
+      padding: 8px 16px; border-radius: 999px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .chart-placeholder {
+      margin-top: 20px;
+      border: 2px dashed #999;
+      border-radius: 12px;
+      padding: 28px 32px;
+      font-size: 22px;
+      line-height: 1.5;
+      color: #444;
+      max-width: 1700px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="slide-title">Remote online process</div>
+
+    <p class="proven-success">
+      <strong>Proven Success:</strong>
+      <strong>668</strong> members enrolled;
+      <strong>+19</strong> new members this reporting period;
+      <strong>1,507</strong> contacts initiated since registry inception
+    </p>
+
+    <div class="icon-stats">
+      <div class="icon-stat">
+        <span class="emoji">👋</span>
+        <span class="val">668</span>
+        <span class="lbl">Members</span>
+      </div>
+      <div class="icon-stat">
+        <span class="emoji">🧬</span>
+        <span class="val">188</span>
+        <span class="lbl"><em>APOE</em> ε4</span>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-row"><span class="label">Total members enrolled</span><span class="value">668</span></div>
+      <div class="stat-row"><span class="label">New members (Jul–Dec 2025)</span><span class="value">19</span></div>
+      <div class="stat-row"><span class="label">APOE ε4 carriers</span><span class="value">188</span></div>
+      <div class="stat-row"><span class="label">Non-carriers (668 − 188)</span><span class="value">480</span></div>
+      <div class="stat-row"><span class="label">Male</span><span class="value">201</span></div>
+      <div class="stat-row"><span class="label">Female</span><span class="value">467</span></div>
+      <div class="stat-row"><span class="label">Contacts initiated (since inception)</span><span class="value">1,507</span></div>
+      <div class="stat-row"><span class="label">New online enrollments (Jul–Dec 2025)</span><span class="value">39</span></div>
+    </div>
+
+    <div class="period-box">Jul – Dec 2025</div>
+
+    <div class="bottom-stats">
+      <div class="bottom-stat"><span class="emoji">♂</span><span class="val">201</span><span>Male</span></div>
+      <div class="bottom-stat"><span class="emoji">♀</span><span class="val">467</span><span>Female</span></div>
+    </div>
+
+    <div class="chart-placeholder">
+      Ethnicity × sex × <em>APOE</em> stacked bar chart: <strong>not published in RPPR</strong>.
+      Request current GeneScreen export from ORE before adding to board deck.
+    </div>
+
+    <p class="source-note">
+      Source: RPPR11382447.FINAL.1.30.26 · ORE Core B2 (page 415) · Submitted January 2026 · Reporting period 7/1/2025–12/31/2025.
+      All figures above are verbatim or exact arithmetic from that narrative (480 = 668 − 188; 201 + 467 = 668).
+    </p>
+    <span class="verified">✓ RPPR verified — board safe</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "asOfDate": "2026-10-09",
+  "sourceFile": "data/reference/genescreen/USC_GeneScreen_Recruitment_Enrollment_Summary_2026-10-09.pdf",
+  "sourceSystem": "USC GeneScreen weekly export (biobetagenetest.usc.edu)",
+  "content": "Weekly operational pipeline: leads, kits, genotypes, members added per week",
+  "dashboardUse": "Clinical Core dashboard GeneScreen YTD headline remains USC REDCap (geneScreenYtd.json). This PDF is a cross-check for operations, not wired to black metric cards.",
+  "redcapYtdNewMembersForComparison": 55,
+  "reportingPeriodLabel": "1/1/2026 \u2013 10/13/2026"
+}

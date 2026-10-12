@@ -1,0 +1,53 @@
+{
+  "name": "clinical-core-aim1",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "WATCHPACK_POLLING=true next dev -p 3002",
+    "dev:clean": "rm -rf .next && WATCHPACK_POLLING=true next dev -p 3002",
+    "build": "next build",
+    "build:pages": "NEXT_OUTPUT=export next build",
+    "start": "next start",
+    "start:demo": "next start -p 3002",
+    "demo": "npm run build && npm run start:demo",
+    "lint": "next lint",
+    "sync:redcap": "python3 scripts/aggregate_specimen_sharing.py && python3 scripts/aggregate_genescreen_ytd.py",
+    "sync:rec": "python3 scripts/aggregate_rec_roster.py",
+    "sync:rec-speakers": "python3 scripts/aggregate_rec_speaker_series.py",
+    "sync:table1": "python3 scripts/aggregate_table1_demographics.py",
+    "sync:registry": "python3 scripts/aggregate_registry_data.py",
+    "sync:package": "python3 scripts/aggregate_specimen_sharing.py && python3 scripts/aggregate_table1_demographics.py && python3 scripts/aggregate_rppr_data_package.py && npm run sync:registry",
+    "sync:reference": ".venv-pdf/bin/python scripts/aggregate_reference_snapshots.py",
+    "sync:rppr": ".venv-pdf/bin/python scripts/parse_rppr_metrics.py",
+    "sync:all": "npm run sync:redcap && npm run sync:table1 && npm run sync:package && npm run sync:rppr",
+    "validate:dashboard": "python3 scripts/validate_dashboard.py",
+    "validate:all": "python3 scripts/validate_dashboard.py && python3 scripts/validate_data_package_coverage.py",
+    "generate:briefing-pdf": ".venv-pdf/bin/python scripts/generate_metrics_data_package_briefing_pdf.py",
+    "generate:comparison-pdf": ".venv-pdf/bin/python scripts/generate_metrics_data_package_comparison_pdf.py",
+    "generate:reports": "npm run generate:briefing-pdf && npm run generate:comparison-pdf",
+    "generate:provenance-pdf": ".venv-pdf/bin/python scripts/generate_dashboard_metric_provenance_pdf.py",
+    "generate:adrienne-table-pdf": ".venv-pdf/bin/python scripts/generate_dashboard_metric_provenance_pdf.py --adrienne-table-only",
+    "generate:board-deck": ".venv-pdf/bin/python scripts/generate_dashboard_narrative_deck.py",
+    "generate:provenance": "npm run generate:provenance-pdf && mkdir -p public/reports && cp reports/USC_ADRC_Dashboard_Metric_Provenance.csv reports/USC_ADRC_Dashboard_Metric_Provenance.pdf public/reports/"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "recharts": "^2.15.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.0",
+    "playwright": "^1.61.1",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.0.0"
+  }
+}

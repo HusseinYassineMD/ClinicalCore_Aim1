@@ -1,0 +1,42 @@
+source_family,source_dataset,specimen_type,measurement_family_id,protocol_id,biomarker,biomarker_unit,atnv_domain,n_measurements,n_subjects,n_dated_measurements,first_collection_date,latest_collection_date
+Legacy_CSF,Legacy_CSF_Analysis_Spreadsheet,CSF,VCS_CSF_ABeta38,Legacy CSF biomarker panel,ABeta38,pg/mL,A,23,22,23,2013-08-09,2022-05-20
+Legacy_CSF,Legacy_CSF_Analysis_Spreadsheet,CSF,VCS_CSF_ABeta40,Legacy CSF biomarker panel,ABeta40,pg/mL,A,23,22,23,2013-08-09,2022-05-20
+Legacy_CSF,Legacy_CSF_Analysis_Spreadsheet,CSF,VCS_CSF_ABeta42,Legacy CSF biomarker panel,ABeta42,pg/mL,A,26,25,26,2013-08-09,2022-05-20
+Legacy_CSF,Legacy_CSF_Analysis_Spreadsheet,CSF,VCS_CSF_Ptau181,Legacy CSF biomarker panel,Ptau181,pg/mL,T,26,25,26,2013-08-09,2022-05-20
+Legacy_CSF,Legacy_CSF_Analysis_Spreadsheet,CSF,VCS_CSF_TotalTau,Legacy CSF biomarker panel,TotalTau,pg/mL,N,20,20,20,2013-08-09,2018-03-29
+Legacy_CSF,Legacy_CSF_Analysis_Spreadsheet,CSF,VCS_CSF_sPDGFRB,Legacy CSF biomarker panel,sPDGFRB,ng/mL,V,26,26,26,2013-08-20,2022-06-22
+VCS_REDCap,VCS_REDCap_CSF,CSF,VCS_CSF_ABeta38,VCS CSF Biomarkers - assay provenance not specified in supplied dictionary,ABeta38,pg/mL,A,292,198,292,2011-09-24,2023-09-26
+VCS_REDCap,VCS_REDCap_CSF,CSF,VCS_CSF_ABeta40,VCS CSF Biomarkers - assay provenance not specified in supplied dictionary,ABeta40,pg/mL,A,292,198,292,2011-09-24,2023-09-26
+VCS_REDCap,VCS_REDCap_CSF,CSF,VCS_CSF_ABeta42,VCS CSF Biomarkers - assay provenance not specified in supplied dictionary,ABeta42,pg/mL,A,293,199,293,2011-09-24,2023-09-26
+VCS_REDCap,VCS_REDCap_CSF,CSF,VCS_CSF_Neurogranin,VCS CSF Biomarkers - assay provenance not specified in supplied dictionary,Neurogranin,pg/mL,Other,166,151,166,2013-09-30,2025-09-30
+VCS_REDCap,VCS_REDCap_CSF,CSF,VCS_CSF_Ptau181,VCS CSF Biomarkers - assay provenance not specified in supplied dictionary,Ptau181,pg/mL,T,352,230,351,2011-09-24,2025-09-30
+VCS_REDCap,VCS_REDCap_CSF,CSF,VCS_CSF_TotalTau,VCS CSF Biomarkers - assay provenance not specified in supplied dictionary,TotalTau,pg/mL,N,215,157,215,2011-09-24,2023-09-26
+VCS_REDCap,VCS_REDCap_CSF,CSF,VCS_CSF_sPDGFRB,VCS CSF Biomarkers - assay provenance not specified in supplied dictionary,sPDGFRB,ng/mL,V,141,141,124,2011-05-31,2020-09-21
+C2N,PPG_C2N_IPMS,Plasma,C2N_Plasma_IPMS_ABeta40,C2N Plasma IP-MS,ABeta40,pg/mL,A,74,72,74,2017-04-12,2021-11-08
+C2N,VCS_C2N_IPMS,Plasma,C2N_Plasma_IPMS_ABeta40,C2N Plasma IP-MS,ABeta40,pg/mL,A,92,91,92,2016-10-10,2021-09-15
+C2N,PPG_C2N_IPMS,Plasma,C2N_Plasma_IPMS_ABeta42,C2N Plasma IP-MS,ABeta42,pg/mL,A,74,72,74,2017-04-12,2021-11-08
+C2N,VCS_C2N_IPMS,Plasma,C2N_Plasma_IPMS_ABeta42,C2N Plasma IP-MS,ABeta42,pg/mL,A,92,91,92,2016-10-10,2021-09-15
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_ABeta40,NCRAD | Fujirebio Lumipulse G1200 | Lumipulse G B-Amyloid 1-40 Plasma,ABeta40,pg/mL,A,338,310,338,2017-01-02,2024-08-29
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_ABeta40,NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma,ABeta40,pg/mL,A,139,139,139,2025-06-23,2026-01-15
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_ABeta40,NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma v2,ABeta40,pg/mL,A,90,90,90,2026-01-14,2026-07-30
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_ABeta40,NCRAD | Lumipulse G1200 | Lumipulse G B-Amyloid 1-40 Plasma,ABeta40,pg/mL,A,251,231,251,2022-11-03,2025-06-23
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_ABeta40,NCRAD | Quanterix HD-X | N4PE,ABeta40,pg/mL,A,47,47,47,2018-05-15,2022-11-05
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_ABeta42,NCRAD | Fujirebio Lumipulse G1200 | Lumipulse G B-Amyloid 1-42 Plasma,ABeta42,pg/mL,A,337,309,337,2017-01-02,2024-08-29
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_ABeta42,NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma,ABeta42,pg/mL,A,139,139,139,2025-06-23,2026-01-15
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_ABeta42,NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma v2,ABeta42,pg/mL,A,90,90,90,2026-01-14,2026-07-30
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_ABeta42,NCRAD | Lumipulse G1200 | Lumipulse G B-Amyloid 1-42 Plasma,ABeta42,pg/mL,A,251,231,251,2022-11-03,2025-06-23
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_ABeta42,NCRAD | Quanterix HD-X | N4PE,ABeta42,pg/mL,A,47,47,47,2018-05-15,2022-11-05
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_GFAP,NCRAD | Quanterix HD-X | N2PB,GFAP,pg/mL,Other,569,476,569,2017-01-02,2025-05-28
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_GFAP,NCRAD | Quanterix HD-X | N2PB plus,GFAP,pg/mL,Other,20,20,20,2025-04-30,2025-06-23
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_GFAP,NCRAD | Quanterix HD-X | N4PE,GFAP,pg/mL,Other,47,47,47,2018-05-15,2022-11-05
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_GFAP,NCRAD | Quanterix Simoa | Neurology 2 Plex B Plus Advantage Kit,GFAP,pg/mL,Other,462,221,462,2025-03-11,2026-07-30
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_NFL,NCRAD | Quanterix HD-X | N2PB,NFL,pg/mL,N,569,476,569,2017-01-02,2025-05-28
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_NFL,NCRAD | Quanterix HD-X | N2PB plus,NFL,pg/mL,N,20,20,20,2025-04-30,2025-06-23
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_NFL,NCRAD | Quanterix HD-X | N4PE,NFL,pg/mL,N,47,47,47,2018-05-15,2022-11-05
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_NFL,NCRAD | Quanterix Simoa | Neurology 2 Plex B Plus Advantage Kit,NFL,pg/mL,N,462,221,462,2025-03-11,2026-07-30
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_Ptau181,NCRAD | Quanterix HD-X | Ptau 181 v2.1,Ptau181,pg/mL,T,34,34,34,2018-05-22,2022-11-05
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_Ptau217,NCRAD | Quanterix HD-X | pTau217,Ptau217,pg/mL,T,418,379,416,2017-01-02,2024-10-01
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_Ptau217,NCRAD | Quanterix HD-X | pTau217 plus,Ptau217,pg/mL,T,171,171,171,2024-09-16,2025-06-23
+NCRAD,NCRAD_Biomarkers_Long,Plasma,NCRAD_Plasma_Ptau217,NCRAD | Quanterix Simoa | AlzPath pTau217 Plus Advantage Kit,Ptau217,pg/mL,T,456,218,456,2024-12-03,2026-07-30
+VCS_REDCap,VCS_REDCap_Plasma,Plasma,VCS_Plasma_Ptau217,VCS Plasma Biomarkers - assay provenance not specified in supplied dictionary,Ptau217,pg/mL,T,157,154,157,2016-10-25,2020-12-01
+VCS_REDCap,VCS_REDCap_Plasma,Plasma,VCS_Plasma_sPDGFRB,VCS Plasma Biomarkers - assay provenance not specified in supplied dictionary,sPDGFRB,ng/mL,V,130,128,130,2016-10-25,2021-11-08

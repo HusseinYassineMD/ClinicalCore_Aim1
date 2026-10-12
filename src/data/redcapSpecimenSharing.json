@@ -1,0 +1,107 @@
+{
+  "lastUpdated": "2026-10-09",
+  "reportingPeriodLabel": "1/1/2026 \u2013 10/13/2026",
+  "grantYearLabel": "7/1/2025 \u2013 6/30/2026",
+  "sources": {
+    "biofluids": "USCADRCBiofluidReque-SubmittedRequests_DATA_LABELS_2026-10-07_0847.csv",
+    "neurobank": "USCADRCNeurobankRequ-SubmittedRequests_DATA_LABELS_2026-10-07_0846.csv"
+  },
+  "biofluids": {
+    "reportingPeriod": {
+      "requestsReceived": 8,
+      "requestsFulfilled": 0,
+      "requestorTypes": [
+        {
+          "label": "External",
+          "count": 3
+        },
+        {
+          "label": "Internal",
+          "count": 5
+        }
+      ],
+      "plasma": {
+        "requestsWithPlasma": 8,
+        "requestsFulfilled": 0,
+        "aliquotsRequested": 590,
+        "byDiagnosis": [
+          {
+            "label": "NCI",
+            "count": 231
+          },
+          {
+            "label": "MCI",
+            "count": 84
+          },
+          {
+            "label": "AD",
+            "count": 275
+          }
+        ]
+      }
+    },
+    "grantYear": {
+      "requestsReceived": 11,
+      "requestsFulfilled": 0,
+      "requestorTypes": [
+        {
+          "label": "External",
+          "count": 4
+        },
+        {
+          "label": "Internal",
+          "count": 7
+        }
+      ],
+      "plasma": {
+        "requestsWithPlasma": 10,
+        "requestsFulfilled": 0,
+        "aliquotsRequested": 1078,
+        "byDiagnosis": [
+          {
+            "label": "NCI",
+            "count": 399
+          },
+          {
+            "label": "MCI",
+            "count": 254
+          },
+          {
+            "label": "AD",
+            "count": 425
+          }
+        ]
+      }
+    }
+  },
+  "neurobank": {
+    "reportingPeriod": {
+      "requestsReceived": 35,
+      "requestsFulfilled": 6,
+      "requestorTypes": [
+        {
+          "label": "External",
+          "count": 7
+        },
+        {
+          "label": "Internal",
+          "count": 28
+        }
+      ]
+    },
+    "grantYear": {
+      "requestsReceived": 44,
+      "requestsFulfilled": 7,
+      "requestorTypes": [
+        {
+          "label": "External",
+          "count": 11
+        },
+        {
+          "label": "Internal",
+          "count": 33
+        }
+      ]
+    }
+  }
+}

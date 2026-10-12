@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "reportingPeriod": "7/1/2025 – 12/31/2025",
+    "newMembersN": 19,
+    "ethnicitySource": "ADRC Renewal application (Jun 2024) · ORE GeneScreen diverse pool (31% Hispanic, 41% White, 11% Black, 5% Asian) · applied to RPPR n=19 new members",
+    "ethnicityNote": "RPPR ORE B2 reports 19 new members but no period ethnicity breakdown — counts use renewal target mix (largest-remainder rounding to 19).",
+    "apoeSource": "RPPR · 188 APOE4 carriers / 668 total registry · applied to n=19 new members",
+    "genderSource": "RPPR · 201 M / 467 F full registry · applied to n=19 new members (RPPR binary fields only)"
+  },
+  "ethnicity": [
+    { "label": "Hispanic", "count": 6 },
+    { "label": "White", "count": 8 },
+    { "label": "Black", "count": 2 },
+    { "label": "Asian", "count": 1 },
+    { "label": "Other", "count": 2 }
+  ],
+  "apoe4": [
+    { "label": "APOE4 carrier", "count": 5 },
+    { "label": "Non-carrier", "count": 14 }
+  ],
+  "gender": [
+    { "label": "Male", "count": 6 },
+    { "label": "Female", "count": 13 }
+  ]
+}

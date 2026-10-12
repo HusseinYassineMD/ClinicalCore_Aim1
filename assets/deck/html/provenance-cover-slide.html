@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>USC ADRC Metric Provenance — cover</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 1920px;
+      height: 1080px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #282828;
+      padding: 72px 80px;
+    }
+    h1 {
+      font-size: 44px;
+      font-weight: 700;
+      color: #1a2744;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+    .intro {
+      font-size: 22px;
+      line-height: 1.45;
+      max-width: 1680px;
+      margin-bottom: 28px;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a2744;
+      margin: 24px 0 14px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      padding: 10px 14px;
+    }
+    .legend-item.black { background: #e6e6e6; }
+    .legend-item.green { background: #c6f6d5; }
+    .legend-item.red { background: #fecaca; }
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+    .swatch.black { background: #0a0a0a; }
+    .swatch.green { background: #16a34a; }
+    .swatch.red { background: #dc2626; }
+    .legend-title {
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .legend-title.black { color: #0a0a0a; }
+    .legend-title.green { color: #15803d; }
+    .legend-title.red { color: #b91c1c; }
+    .legend-detail {
+      font-size: 15px;
+      color: #3c3c3c;
+      margin-top: 4px;
+      line-height: 1.4;
+      padding-left: 26px;
+    }
+    .methods {
+      font-size: 17px;
+      line-height: 1.55;
+      max-width: 1680px;
+    }
+    .methods li { margin-left: 24px; margin-bottom: 6px; }
+    .footer {
+      position: absolute;
+      bottom: 56px;
+      left: 80px;
+      right: 80px;
+      font-size: 15px;
+      color: #505050;
+    }
+  </style>
+</head>
+<body>
+  <h1>USC ADRC Dashboard — Metric Provenance</h1>
+  <p class="intro" id="intro"></p>
+
+  <h2>Color-coded data lineage (matches dashboard)</h2>
+  <div id="legend"></div>
+
+  <h2>How to read the Method column</h2>
+  <ul class="methods" id="methods"></ul>
+
+  <p class="footer" id="footer"></p>
+  <script>
+    const period = new URLSearchParams(location.search).get("period") || "1/1/2026 – 9/30/2026";
+    const generated = new URLSearchParams(location.search).get("generated") || "";
+
+    document.getElementById("intro").textContent =
+      `Reporting window: ${period}. Each row lists the dashboard value, how it was counted, and the file or workbook it came from.`;
+
+    const items = [
+      ["black", "James & Xinhui Wang · Harmonized RPPR data package", "Direct row or participant counts from CSVs in data/rppr-data-package/ (calendar YTD window in rpprDataPackage.json)."],
+      ["black", "Derived from harmonized package (not hand-entered)", "Computed by scripts/aggregate_rppr_data_package.py (and validate_dashboard.py) from Xinhui Wang Data Core CSVs — not typed as literals in the UI."],
+      ["green", "Last RPPR reporting period (workbook / PDF — not James YTD slice)", "Clinical Core Table 1, Core Metrics workbooks, RPPR PDF → rpprMetrics.json / table1Demographics.json. Green on dashboard."],
+      ["black", "USC RedCap CSV (YTD — separate from James package folder)", "data/redcap/*.csv re-aggregated to redcapSpecimenSharing.json / geneScreenYtd.json for the same YTD window."],
+      ["red", "Not in export / placeholder / TBD", "Shown on dashboard but not sourced from harmonized CSV or RPPR extract yet."],
+    ];
+    const legend = document.getElementById("legend");
+    for (const [color, title, detail] of items) {
+      const row = document.createElement("div");
+      row.className = `legend-item ${color}`;
+      row.innerHTML = `<div class="swatch ${color}"></div><div><div class="legend-title ${color}">${color.toUpperCase()} — ${title}</div></div>`;
+      legend.appendChild(row);
+      const d = document.createElement("div");
+      d.className = "legend-detail";
+      d.textContent = detail;
+      legend.appendChild(d);
+    }
+
+    const methodLines = [
+      "YTD unique participants — distinct IDs with activity dated in the reporting window.",
+      "YTD direct row count — count CSV rows matching date and field rules (may exceed unique people).",
+      "RedCap aggregate — filter completed requests by request_timestamp in window.",
+      "Cumulative RPPR — from RPPR PDF / Core Metrics Excel via rpprMetrics.json (not calendar YTD).",
+      "Package snapshot — full export totals without calendar YTD filter (imaging Study_Summary).",
+      "Placeholder / TBD — shown on dashboard but not from a row-level export yet.",
+      "Derived ratio — calculated from two sourced counts (e.g. enrollment rate).",
+      "Grant target — renewal budget figure, not an observed count.",
+    ];
+    const ul = document.getElementById("methods");
+    for (const line of methodLines) {
+      const li = document.createElement("li");
+      li.textContent = line;
+      ul.appendChild(li);
+    }
+
+    document.getElementById("footer").textContent =
+      `${generated ? `Generated ${generated}. ` : ""}Data owners: James Wang & Xinhui Wang. Contact: xinhuiwa@usc.edu.`;
+  </script>
+</body>
+</html>

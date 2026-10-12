@@ -1,0 +1,416 @@
+{
+  "lastUpdated": "2026-10-09",
+  "categories": [
+    "ATN",
+    "BRS",
+    "UDS",
+    "Package"
+  ],
+  "complete": true,
+  "inventoryNote": "Summaries only \u2014 aggregated counts from confidential source files. Raw row data is not exposed in the dashboard.",
+  "fileInventory": [
+    "data/ATN UDS.csv",
+    "data/brs_data/BRS Cohort in UDS.csv",
+    "data/brs_data/m1.xlsx",
+    "data/uds_data/uds_data.csv",
+    "data/uds_data/uds_latest.csv",
+    "data/rppr-data-package/MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv",
+    "data/rppr-data-package/MAPDatabase-APOEGenotype_DATA_2026-09-16_1445.csv",
+    "data/rppr-data-package/USC ADRC UDS Harmonized/ADRC_subject_current_harmonized.csv",
+    "data/rppr-data-package/USC ADRC UDS Harmonized/UDS_longitudinal_harmonized.csv",
+    "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Subject_Summary_v1.0.5.csv",
+    "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarkers_Long_v1.0.5.csv",
+    "data/rppr-data-package/MAPDatabase_DataDictionary_2026-10-09.csv",
+    "data/rppr-data-package/USC ADRC Biospecimen Availability/USC_ADRC_Biospecimen_Availability_Long_v1.0.1.csv",
+    "data/rppr-data-package/USC ADRC Biospecimen Availability/USC_ADRC_Biospecimen_Subject_Summary_v1.0.1.csv"
+  ],
+  "totals": {
+    "datasets": 14,
+    "rows": 94555,
+    "maxColumns": 2140
+  },
+  "datasets": [
+    {
+      "id": "atn-atn-uds",
+      "category": "ATN",
+      "label": "ATN UDS",
+      "description": "ATN registry export linked to UDS participants.",
+      "sourceFile": "data/ATN UDS.csv",
+      "dataFile": "data/ATN UDS.csv",
+      "rowCount": 49316,
+      "columnCount": 26,
+      "fileSizeMb": 9.54,
+      "fileModified": "2026-01-26",
+      "summary": {
+        "uniqueParticipants": 2277,
+        "byDiagnosis": {
+          "Normal cognition": 22211,
+          "MCI": 11022,
+          "Demented": 7082,
+          "Cognitively impaired, not MCI": 4323,
+          "Normal": 4154,
+          "Impaired not MCI": 523,
+          "(blank)": 1
+        },
+        "bySex": {
+          "Female": 30924,
+          "Male": 18391,
+          "(blank)": 1
+        },
+        "byInBrs": {
+          "Yes": 6534,
+          "No": 42782
+        },
+        "topDataTypes": {
+          "MRI": 40976,
+          "NCRAD_ABeta40 Data (pg/mL)": 639,
+          "NCRAD_ABeta42 Data (pg/mL)": 639,
+          "NCRAD_NFL Conc (pg/mL)": 622,
+          "NCRAD_GFAP Conc (pg/mL)": 622,
+          "NCRAD_pTau217 Conc (pg/mL)": 592,
+          "BIOMK_abeta42 (6E_10) pg/mL": 501,
+          "BIOMK_tau181 (pg/mL)": 443,
+          "Amyloid PET": 436,
+          "BIOMK_abeta38 (6E_10) pg/mL": 431,
+          "BIOMK_abeta40 (6E_10) pg/mL": 426,
+          "Tau PET": 359,
+          "BIOMK_tau (pg/mL)": 338,
+          "C2N_ABETA40_PLASMA_IPMS pg/ml": 165,
+          "C2N_ABETA42_PLASMA_IPMS pg/ml": 165
+        },
+        "hasBiomarkerFlags": {
+          "has_BIOMK": 17583,
+          "has_NCRAD": 23137,
+          "has_C2N": 14302,
+          "has_IDA": 46719
+        }
+      }
+    },
+    {
+      "id": "brs-brs-cohort-in-uds",
+      "category": "BRS",
+      "label": "BRS Cohort in UDS",
+      "description": "BRS cohort / autopsy registry export.",
+      "sourceFile": "data/brs_data/BRS Cohort in UDS.csv",
+      "dataFile": "data/brs_data/BRS Cohort in UDS.csv",
+      "rowCount": 870,
+      "columnCount": 14,
+      "fileSizeMb": 0.07,
+      "fileModified": "2026-01-26",
+      "summary": {
+        "uniqueUdsIds": 870,
+        "byStatus": {
+          "3": 524,
+          "1": 235,
+          "4": 92,
+          "7": 2,
+          "6": 16,
+          "(blank)": 1
+        },
+        "autopsiesPerformed": 362,
+        "withConsentDate": 870,
+        "deceased": 526
+      }
+    },
+    {
+      "id": "brs-m1",
+      "category": "BRS",
+      "label": "M1",
+      "description": "BRS export from m1.xlsx (all sheets/rows converted to CSV).",
+      "sourceFile": "data/brs_data/m1.xlsx",
+      "dataFile": "data/brs_data/m1.csv",
+      "rowCount": 4082,
+      "columnCount": 59,
+      "fileSizeMb": 0.45,
+      "fileModified": "2026-10-09",
+      "summary": {
+        "uniqueParticipants": 1937,
+        "withAutopsyFlag": 310,
+        "deceased": 557,
+        "withConsent": 713,
+        "byVisit": {
+          "M1 ": 1931,
+          "M2 ": 999,
+          "M3 ": 559,
+          "M4 ": 297,
+          "M5 ": 151,
+          "M6 ": 73,
+          "M7 ": 27,
+          "(blank)": 21,
+          "M8 ": 13,
+          "M9 ": 7
+        }
+      }
+    },
+    {
+      "id": "uds-uds-data",
+      "category": "UDS",
+      "label": "Uds Data",
+      "description": "NACC UDS participant export.",
+      "sourceFile": "data/uds_data/uds_data.csv",
+      "dataFile": "data/uds_data/uds_data.csv",
+      "rowCount": 7766,
+      "columnCount": 1533,
+      "fileSizeMb": 16.29,
+      "fileModified": "2026-01-29",
+      "summary": {
+        "uniqueParticipants": 2285,
+        "topForms": {
+          "A1": 7755,
+          "(blank)": 11
+        },
+        "visitYears": {
+          "2024": 697,
+          "2019": 483,
+          "2023": 475,
+          "2008": 431,
+          "2018": 429,
+          "2014": 426,
+          "2009": 406,
+          "2007": 390
+        }
+      }
+    },
+    {
+      "id": "uds-uds-latest",
+      "category": "UDS",
+      "label": "Uds Latest",
+      "description": "NACC UDS participant export.",
+      "sourceFile": "data/uds_data/uds_latest.csv",
+      "dataFile": "data/uds_data/uds_latest.csv",
+      "rowCount": 2285,
+      "columnCount": 1594,
+      "fileSizeMb": 4.9,
+      "fileModified": "2026-01-29",
+      "summary": {
+        "uniqueParticipants": 2285,
+        "topForms": {
+          "A1": 2274,
+          "(blank)": 11
+        },
+        "visitYears": {
+          "2024": 341,
+          "2025": 205,
+          "2008": 142,
+          "2007": 137,
+          "2009": 132,
+          "2014": 131,
+          "2023": 115,
+          "2020": 109
+        }
+      }
+    },
+    {
+      "id": "package-mapdatabase-brscohort-data-2026-10-09-1005",
+      "category": "Package",
+      "label": "MAP BRS Cohort",
+      "description": "REDCap MAP BRS cohort export (latest dated export in package).",
+      "sourceFile": "data/rppr-data-package/MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv",
+      "dataFile": "data/rppr-data-package/MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv",
+      "rowCount": 952,
+      "columnCount": 22,
+      "fileSizeMb": 0.09,
+      "fileModified": "2026-10-09",
+      "summary": {
+        "uniqueUdsIds": 876,
+        "byStatus": {
+          "3": 601,
+          "1": 231,
+          "4": 99,
+          "7": 2,
+          "6": 17,
+          "(blank)": 2
+        },
+        "autopsiesPerformed": 421,
+        "withConsentDate": 951,
+        "deceased": 604
+      }
+    },
+    {
+      "id": "package-mapdatabase-apoegenotype-data-2026-09-16-1445",
+      "category": "Package",
+      "label": "MAP APOE Genotype",
+      "description": "REDCap MAP APOE genotype export.",
+      "sourceFile": "data/rppr-data-package/MAPDatabase-APOEGenotype_DATA_2026-09-16_1445.csv",
+      "dataFile": "data/rppr-data-package/MAPDatabase-APOEGenotype_DATA_2026-09-16_1445.csv",
+      "rowCount": 2173,
+      "columnCount": 13,
+      "fileSizeMb": 0.1,
+      "fileModified": "2026-09-18",
+      "summary": {
+        "uniqueParticipants": 2173,
+        "byGenotype": {
+          "e3/e3": 1128,
+          "e3/e4": 707,
+          "e4/e4": 156,
+          "e3/e2": 130,
+          "e4/e2": 46,
+          "e2/e2": 6
+        }
+      }
+    },
+    {
+      "id": "package-adrc-subject-current-harmonized",
+      "category": "Package",
+      "label": "UDS Subject Current",
+      "description": "Harmonized current UDS subject summary.",
+      "sourceFile": "data/rppr-data-package/USC ADRC UDS Harmonized/ADRC_subject_current_harmonized.csv",
+      "dataFile": "data/rppr-data-package/USC ADRC UDS Harmonized/ADRC_subject_current_harmonized.csv",
+      "rowCount": 2373,
+      "columnCount": 65,
+      "fileSizeMb": 1.27,
+      "fileModified": "2026-09-18",
+      "summary": {
+        "uniqueParticipants": 2373,
+        "presumedActive": 343,
+        "discontinued": 677,
+        "byStatusRedcap": {
+          "Discontinued": 677,
+          "Deceased": 565,
+          "Minimal contact": 541,
+          "Presumed active - no Milestones record; UDS within 24 months": 343,
+          "Annual in-person UDS follow-up": 213,
+          "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved": 21,
+          "Annual UDS follow-up by telephone": 13
+        }
+      }
+    },
+    {
+      "id": "package-uds-longitudinal-harmonized",
+      "category": "Package",
+      "label": "UDS Longitudinal",
+      "description": "Harmonized UDS visit rows.",
+      "sourceFile": "data/rppr-data-package/USC ADRC UDS Harmonized/UDS_longitudinal_harmonized.csv",
+      "dataFile": "data/rppr-data-package/USC ADRC UDS Harmonized/UDS_longitudinal_harmonized.csv",
+      "rowCount": 8178,
+      "columnCount": 2140,
+      "fileSizeMb": 23.46,
+      "fileModified": "2026-09-18",
+      "summary": {
+        "uniqueParticipants": 8178,
+        "presumedActive": 859,
+        "discontinued": 1530,
+        "byStatusRedcap": {
+          "Deceased": 2352,
+          "Minimal contact": 1727,
+          "Annual in-person UDS follow-up": 1573,
+          "Discontinued": 1530,
+          "Presumed active - no Milestones record; UDS within 24 months": 859,
+          "Annual UDS follow-up by telephone": 114,
+          "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved": 23
+        }
+      }
+    },
+    {
+      "id": "package-integrated-biomarker-subject-summary-v1-0-5",
+      "category": "Package",
+      "label": "Biomarker Subject Summary",
+      "description": "Integrated biomarker availability by subject.",
+      "sourceFile": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Subject_Summary_v1.0.5.csv",
+      "dataFile": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Subject_Summary_v1.0.5.csv",
+      "rowCount": 714,
+      "columnCount": 19,
+      "fileSizeMb": 0.1,
+      "fileModified": "2026-09-18",
+      "summary": {
+        "uniqueParticipants": 714,
+        "hasPlasma": 649,
+        "hasCsf": 268,
+        "hasNcrad": 576,
+        "hasBiomarkerFlags": {
+          "has_A": 682,
+          "has_T": 688,
+          "has_N": 651
+        }
+      }
+    },
+    {
+      "id": "package-integrated-biomarkers-long-v1-0-5",
+      "category": "Package",
+      "label": "Biomarkers Long",
+      "description": "Integrated biomarker measurements (assay availability).",
+      "sourceFile": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarkers_Long_v1.0.5.csv",
+      "dataFile": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarkers_Long_v1.0.5.csv",
+      "rowCount": 7518,
+      "columnCount": 36,
+      "fileSizeMb": 3.03,
+      "fileModified": "2026-09-18",
+      "summary": {
+        "uniqueParticipants": 0,
+        "topForms": {
+          "(blank)": 7518
+        },
+        "visitYears": {
+          "(blank)": 7518
+        }
+      }
+    },
+    {
+      "id": "package-mapdatabase-datadictionary-2026-10-09",
+      "category": "Package",
+      "label": "MAP Data Dictionary",
+      "description": "REDCap MAP field definitions (James supplement).",
+      "sourceFile": "data/rppr-data-package/MAPDatabase_DataDictionary_2026-10-09.csv",
+      "dataFile": "data/rppr-data-package/MAPDatabase_DataDictionary_2026-10-09.csv",
+      "rowCount": 395,
+      "columnCount": 18,
+      "fileSizeMb": 0.09,
+      "fileModified": "2026-10-09",
+      "summary": {
+        "uniqueParticipants": 0,
+        "topForms": {
+          "(blank)": 395
+        },
+        "visitYears": {
+          "(blank)": 395
+        }
+      }
+    },
+    {
+      "id": "package-usc-adrc-biospecimen-availability-long-v1-0-1",
+      "category": "Package",
+      "label": "Biospecimen Availability Long",
+      "description": "Specimen collection inventory (plasma, serum, buffy, CSF).",
+      "sourceFile": "data/rppr-data-package/USC ADRC Biospecimen Availability/USC_ADRC_Biospecimen_Availability_Long_v1.0.1.csv",
+      "dataFile": "data/rppr-data-package/USC ADRC Biospecimen Availability/USC_ADRC_Biospecimen_Availability_Long_v1.0.1.csv",
+      "rowCount": 6082,
+      "columnCount": 16,
+      "fileSizeMb": 0.99,
+      "fileModified": "2026-10-09",
+      "summary": {
+        "uniqueParticipants": 6082,
+        "hasPlasma": 0,
+        "hasCsf": 0,
+        "hasNcrad": 0,
+        "hasBiomarkerFlags": {
+          "has_A": 0,
+          "has_T": 0,
+          "has_N": 0
+        }
+      }
+    },
+    {
+      "id": "package-usc-adrc-biospecimen-subject-summary-v1-0-1",
+      "category": "Package",
+      "label": "Biospecimen Subject Summary",
+      "description": "Participant-level biospecimen flags and spans.",
+      "sourceFile": "data/rppr-data-package/USC ADRC Biospecimen Availability/USC_ADRC_Biospecimen_Subject_Summary_v1.0.1.csv",
+      "dataFile": "data/rppr-data-package/USC ADRC Biospecimen Availability/USC_ADRC_Biospecimen_Subject_Summary_v1.0.1.csv",
+      "rowCount": 1851,
+      "columnCount": 26,
+      "fileSizeMb": 0.22,
+      "fileModified": "2026-10-09",
+      "summary": {
+        "uniqueParticipants": 1851,
+        "hasPlasma": 1617,
+        "hasCsf": 184,
+        "hasNcrad": 0,
+        "hasBiomarkerFlags": {
+          "has_A": 0,
+          "has_T": 0,
+          "has_N": 0
+        }
+      }
+    }
+  ]
+}

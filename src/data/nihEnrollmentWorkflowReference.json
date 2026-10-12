@@ -1,0 +1,13 @@
+{
+  "sourceFile": "data/reference/nih/NIH_Enrollment_Table_preparation_workflow_RPPR.pdf",
+  "summary": {
+    "dataSources": [
+      "NACC Flywheel: UDS v4, UDS legacy, Subject Milestones"
+    ],
+    "cohort1NewEnrollment": "Initial UDS visit in the reporting time period (regardless of milestone status)",
+    "cohort2CumulativeEnrollment": "Active through the end of the reporting time period",
+    "dataQc": "Harmonize demographics across UDS versions; UDS v4 supersedes earlier versions",
+    "outputs": "NIH template race/ethnicity/sex table and participant-level demographics"
+  },
+  "dashboardUse": "Explains RPPR enrollment tables vs harmonized active snapshot (table1HarmonizedActiveSnapshot.json). EAC tables noted as separate in Clinical Core comms."
+}

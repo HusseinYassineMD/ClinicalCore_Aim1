@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "source": "RPPR Tables_Clinical Core_2025.2030.xlsx · Table 1",
+    "reportingPeriod": "7/1/2025 – 12/31/2025",
+    "cohortDefinition": "Clinical Core participant registry (N=573)",
+    "extractedAt": "2026-09-02T18:00:00Z",
+    "participantCount": 573,
+    "note": "RPPR Table 1 cohort (N=573). Visit-level YTD metrics are in the registry cards above; harmonized YTD Table 1 coming next."
+  },
+  "overall": {
+    "n": "573",
+    "ageMeanSD": "72.7 (11.3)",
+    "eduMedianIQR": "16 [14, 18]",
+    "male": "207 (36.1%)",
+    "mocaMeanSD": "25.4 (4.5)",
+    "cdr0": "317 (55.3%)",
+    "cdr05": "217 (37.9%)",
+    "cdrGe1": "39 (6.8%)",
+    "apoeE4Percent": "36.7%",
+    "followUpMeanSD": "5.0 (4.5)"
+  },
+  "hispanic": {
+    "n": "192 (33.5%)",
+    "ageMeanSD": "68.7 (13.2)",
+    "eduMedianIQR": "14 [11, 16]",
+    "male": "65 (33.9%)",
+    "mocaMeanSD": "24.9 (4.5)",
+    "cdr0": "95 (49.5%)",
+    "cdr05": "83 (43.2%)",
+    "cdrGe1": "14 (7.3%)",
+    "apoeE4Percent": "20.0%",
+    "followUpMeanSD": "4.1 (3.6)"
+  },
+  "white": {
+    "n": "242 (42.2%)",
+    "ageMeanSD": "76.1 (10.4)",
+    "eduMedianIQR": "17 [16, 18]",
+    "male": "99 (40.9%)",
+    "mocaMeanSD": "25.1 (4.7)",
+    "cdr0": "142 (58.7%)",
+    "cdr05": "79 (32.6%)",
+    "cdrGe1": "21 (8.7%)",
+    "apoeE4Percent": "42.8%",
+    "followUpMeanSD": "6.7 (4.9)"
+  },
+  "black": {
+    "n": "36 (6.3%)",
+    "ageMeanSD": "73.2 (8.7)",
+    "eduMedianIQR": "16 [14, 18]",
+    "male": "10 (27.8%)",
+    "mocaMeanSD": "26.6 (3.8)",
+    "cdr0": "22 (61.1%)",
+    "cdr05": "13 (36.1%)",
+    "cdrGe1": "1 (2.8%)",
+    "apoeE4Percent": "36.7%",
+    "followUpMeanSD": "4.2 (4.5)"
+  },
+  "asian": {
+    "n": "65 (11.3%)",
+    "ageMeanSD": "70.9 (6.8)",
+    "eduMedianIQR": "16 [16, 18]",
+    "male": "24 (36.9%)",
+    "mocaMeanSD": "26.5 (4.1)",
+    "cdr0": "38 (58.5%)",
+    "cdr05": "24 (36.9%)",
+    "cdrGe1": "3 (4.6%)",
+    "apoeE4Percent": "36.0%",
+    "followUpMeanSD": "3.1 (3.8)"
+  }
+}
