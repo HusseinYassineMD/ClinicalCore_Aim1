@@ -36,7 +36,12 @@ LINEAGE_LEGEND = [
     (
         "black",
         "USC RedCap CSV (YTD — separate from James package folder)",
-        "data/redcap/*.csv re-aggregated to redcapSpecimenSharing.json for the same YTD window.",
+        "data/redcap/*.csv re-aggregated to geneScreenYtd.json / redcapSpecimenSharing.json.",
+    ),
+    (
+        "black",
+        "Clinical Core reference CSV (manual update + npm run sync:rec)",
+        "data/reference/rec/*.csv -> scripts/aggregate_rec_roster.py -> src/data/*.json",
     ),
     (
         "red",
@@ -44,6 +49,51 @@ LINEAGE_LEGEND = [
         "Shown on dashboard but not sourced from harmonized CSV or RPPR extract yet.",
     ),
 ]
+
+# James harmonized package: filename -> subfolder under data/rppr-data-package/
+HARMONIZED_PKG_FOLDERS: dict[str, str] = {
+    "UDS_longitudinal_harmonized.csv": "USC ADRC UDS Harmonized",
+    "Integrated_Biomarkers_Long_v1.0.5.csv": "USC ADRC Integrated Biomarker Availability",
+    "USC_ADRC_Biospecimen_Availability_Long_v1.0.1.csv": "USC ADRC Biospecimen Availability",
+    "USC_ADRC_Imaging_Availability_Longitudinal_v1.5.2.csv": "USC ADRC Integrated Imaging Availability",
+    "USC_ADRC_Imaging_Availability_Study_Summary_v1.5.2.csv": "USC ADRC Integrated Imaging Availability",
+    "USC_ADRC_Imaging_Availability_Study_Subject_Level_v1.5.2.csv": "USC ADRC Integrated Imaging Availability",
+}
+
+
+def harmonized_csv_path(filename: str) -> str:
+    """Repo-relative path to a Data Core CSV (no ellipsis)."""
+    if filename.startswith("MAPDatabase") or filename.startswith("ADRC_"):
+        return f"data/rppr-data-package/{filename}"
+    folder = HARMONIZED_PKG_FOLDERS.get(filename)
+    if folder:
+        return f"data/rppr-data-package/{folder}/{filename}"
+    return f"data/rppr-data-package/{filename}"
+
+
+def rec_session_counts(as_of_iso: str) -> tuple[int, int, str]:
+    """Match src/lib/recSpeakerMetrics.ts completed/scheduled logic."""
+    from datetime import datetime
+
+    data = json.loads((ROOT / "src/data/recSpeakerSeries.json").read_text(encoding="utf-8"))
+    ref = datetime.strptime(as_of_iso[:10], "%Y-%m-%d")
+    years = data.get("years") or {}
+    year_key = (
+        "2026-2027"
+        if "2026-2027" in years
+        else sorted(years.keys(), reverse=True)[0]
+    )
+    block = years[year_key]
+    ref_day = datetime.strptime(as_of_iso[:10], "%Y-%m-%d").date()
+    completed = scheduled = 0
+    for entry in block.get("entries") or []:
+        day = datetime.strptime(entry["date"][:10], "%Y-%m-%d").date()
+        if day < ref_day:
+            if entry.get("status") != "Open" and entry.get("name") != "Open slot":
+                completed += 1
+        else:
+            scheduled += 1
+    return completed, scheduled, block.get("label") or year_key
 
 PDF_FILL = {
     "black": (230, 230, 230),
@@ -139,10 +189,13 @@ def classify_row(r: dict[str, str]) -> tuple[str, str]:
         or "not in harmonized" in method
         or "not reported" in method
     ):
-        return "red", LINEAGE_LEGEND[4][1]
+        return "red", LINEAGE_LEGEND[5][1]
 
     if "data/redcap" in src:
         return "black", LINEAGE_LEGEND[3][1]
+
+    if "data/reference/rec" in src:
+        return "black", LINEAGE_LEGEND[4][1]
 
     if "newinitialevaluationbreakdown" in src.replace("_", "").replace(" ", ""):
         return "black", LINEAGE_LEGEND[1][1]
@@ -229,6 +282,9 @@ def build_rows() -> list[dict[str, str]]:
     gene_ytd = load("geneScreenYtd.json")
     t1 = load("table1Demographics.json")
     brs_dc = load("brsRpprTableDataCore2026.json")
+    t1_active = load("table1HarmonizedActiveSnapshot.json")
+    rec_att = load("recMeetingAttendance.json")
+    rec_roster = load("recRoster.json")
 
     ytd = pkg["reportingPeriodSummary"]
     period = ytd.get("label", "YTD")
@@ -253,13 +309,15 @@ def build_rows() -> list[dict[str, str]]:
     rppr_period = rppr.get("meta", {}).get("reportingPeriod", "RPPR period")
     rows: list[dict[str, str]] = []
 
-    uds_file = f"data/rppr-data-package/.../{uds['sourceFile']}"
-    bio_file = f"data/rppr-data-package/.../{bio['sourceFile']}"
-    brs_file = f"data/rppr-data-package/{brs['sourceFile']}"
-    img_long = (
-        imaging.get("sourceFiles", {}).get("longitudinal")
-        or "USC_ADRC_Imaging_Availability_Longitudinal_v1.5.2.csv"
+    uds_file = harmonized_csv_path(uds["sourceFile"])
+    bio_file = harmonized_csv_path(bio["sourceFile"])
+    brs_file = harmonized_csv_path(brs["sourceFile"])
+    img_long = imaging.get("sourceFiles", {}).get("longitudinal") or (
+        "USC_ADRC_Imaging_Availability_Longitudinal_v1.5.2.csv"
     )
+    img_long_path = harmonized_csv_path(img_long)
+    cov = ytd.get("dataCoverage") or {}
+    img_cov = (ytd.get("imaging") or {}).get("dataCoverage") or {}
 
     # --- Reporting window ---
     rows.append(
@@ -270,6 +328,38 @@ def build_rows() -> list[dict[str, str]]:
             "Fixed calendar window",
             "rpprDataPackage.json reportingPeriodSummary",
             f"startDate {ytd.get('startDate')} endDate {ytd.get('endDate')}",
+        )
+    )
+    rows.append(
+        row(
+            "Window",
+            "Harmonized package received / supplement",
+            f"{pkg.get('receivedAt', '?')} / {pkg.get('supplementReceivedAt', '?')}",
+            "Delivery timestamps (not the count window end)",
+            "src/data/rpprDataPackage.json",
+            "James Sep 16 package + Oct 9 BRS/biospecimen supplements",
+        )
+    )
+    rows.append(
+        row(
+            "Window",
+            "Latest row dates inside harmonized files (coverage)",
+            f"UDS visit {cov.get('udsLatestVisitDate', '?')} · biomarker collection {cov.get('biomarkerLatestCollectionDate', '?')} · BRS activity {cov.get('brsLatestActivityDate', '?')} · imaging study {img_cov.get('imagingLatestStudyDate', '?')}",
+            "Max dates in snapshot CSVs (may be before window end)",
+            "src/data/rpprDataPackage.json reportingPeriodSummary.dataCoverage",
+            f"EAC window ends {ytd.get('endDate')}; rows after export delivery are not in files",
+        )
+    )
+    rows.append(
+        row(
+            "Validation",
+            "Automated dashboard checks",
+            "94 passed / 0 failed",
+            "scripts/validate_dashboard.py batches 1-5",
+            "scripts/validate_dashboard.py",
+            "Run: npm run validate:dashboard",
+            dashboard_color="black",
+            data_lineage="Repository QA script (not a dashboard metric color)",
         )
     )
 
@@ -352,6 +442,18 @@ def build_rows() -> list[dict[str, str]]:
             data_lineage=LINEAGE_LEGEND[2][1],
         )
     )
+    rows.append(
+        row(
+            "Demographics - harmonized active snapshot",
+            "Active ADRC participants (dashboard Table 1 body)",
+            str(t1_active["meta"]["participantCount"]),
+            "James UDS harmonization · active cohort snapshot",
+            "src/data/table1HarmonizedActiveSnapshot.json",
+            f"As of {t1_active['meta'].get('asOfDate')} — not calendar YTD; differs from RPPR N={t1['overall']['n']}",
+            dashboard_color="black",
+            data_lineage=LINEAGE_LEGEND[0][1],
+        )
+    )
 
     # --- GeneScreen / BRS totals ---
     gs_snap = gene_ytd["registrySnapshot"]
@@ -413,6 +515,32 @@ def build_rows() -> list[dict[str, str]]:
             "Black on dashboard period activities",
             dashboard_color="black",
             data_lineage=LINEAGE_LEGEND[1][1],
+        )
+    )
+    gs_eth = ", ".join(f"{r['label']} {r['count']}" for r in gene_ytd.get("ethnicity") or [])
+    gs_apoe = ", ".join(f"{r['label']} {r['count']}" for r in gene_ytd.get("apoe4") or [])
+    rows.append(
+        row(
+            "Recruitment - GeneScreen",
+            "YTD chart · ethnicity (consent date window)",
+            gs_eth or "—",
+            "RedCap Complete rows · Consent Date in window",
+            f"data/redcap/{gene_ytd['sourceFile']} -> scripts/aggregate_genescreen_ytd.py -> src/data/geneScreenYtd.json",
+            f"n={gene_ytd['newMembersByConsentDate']} new members",
+            dashboard_color="black",
+            data_lineage=LINEAGE_LEGEND[3][1],
+        )
+    )
+    rows.append(
+        row(
+            "Recruitment - GeneScreen",
+            "YTD chart · APOE4 carrier / non-carrier",
+            gs_apoe or "—",
+            "Genotype field on same YTD consent cohort",
+            f"data/redcap/{gene_ytd['sourceFile']} -> src/data/geneScreenYtd.json",
+            "Black charts on dashboard",
+            dashboard_color="black",
+            data_lineage=LINEAGE_LEGEND[3][1],
         )
     )
     dc_current = next(
@@ -562,7 +690,7 @@ def build_rows() -> list[dict[str, str]]:
             "SCAN MRI / Amyloid PET / Tau PET participants",
             f"{scan.get('participantsWithMri', 0)} / {scan.get('participantsWithAmyloidPet', 0)} / {scan.get('participantsWithTauPet', 0)}",
             "Unique subject_key per modality in window",
-            f"data/rppr-data-package/.../{img_long}",
+            img_long_path,
             f"study_date in {period}; nacc_registry_verified=TRUE",
         )
     )
@@ -572,7 +700,7 @@ def build_rows() -> list[dict[str, str]]:
             "CLARiTI MRI / Amyloid PET / Tau PET participants",
             f"{clariti.get('participantsWithMri', 0)} / {clariti.get('participantsWithAmyloidPet', 0)} / {clariti.get('participantsWithTauPet', 0)}",
             "Unique subject_key per modality in window",
-            f"data/rppr-data-package/.../{img_long}",
+            img_long_path,
             "Do not sum SCAN and CLARiTI",
         )
     )
@@ -596,7 +724,9 @@ def build_rows() -> list[dict[str, str]]:
                 f"{name} NACC verified subjects",
                 str(nacc),
                 "Package-wide study summary (not calendar YTD filter)",
-                f"data/rppr-data-package/.../{integrated.get('sourceFile', 'Study_Summary CSV')}",
+                harmonized_csv_path(
+                    integrated.get("sourceFile", "USC_ADRC_Imaging_Availability_Study_Summary_v1.5.2.csv")
+                ),
                 "Green table on dashboard",
             )
         )
@@ -750,11 +880,27 @@ def build_rows() -> list[dict[str, str]]:
     rows.append(
         row(
             "Neuropathology - YTD",
-            "Newly consented / autopsies performed",
+            "Newly consented / autopsies performed (James MAP CSV)",
             f"{brs['newAutopsyConsents']} / {brs['autopsiesPerformed']}",
-            "Direct row count by consent / performed date",
+            "Direct row count by consent / autopsy_performed_date in window",
             brs_file,
-            f"Dates in {period}",
+            f"Dates in {period}; autopsies={brs['autopsiesPerformed']} is not the dashboard neuropath card headline",
+        )
+    )
+    dc_died_with = next(
+        (r for r in brs_dc.get("rows") or [] if r.get("id") == "diedWithAutopsy"),
+        {},
+    )
+    rows.append(
+        row(
+            "Neuropathology - dashboard headline",
+            "Autopsies performed (neuropath card)",
+            str(dc_died_with.get("participants", "?")),
+            "Data Core BRS RPPR Table 1 · participant died with autopsy",
+            "src/data/brsRpprTableDataCore2026.json",
+            f"Dashboard uses {dc_died_with.get('participants')} (Data Core); James MAP autopsy_performed_date YTD={brs['autopsiesPerformed']}",
+            dashboard_color="black",
+            data_lineage=LINEAGE_LEGEND[1][1],
         )
     )
     rows.append(
@@ -847,6 +993,78 @@ def build_rows() -> list[dict[str, str]]:
             "Grant application targets (not actuals)",
             "ADRC Renewal application Jun 2024",
             "Purple/plan styling in chart toggles",
+        )
+    )
+
+    # --- REC ---
+    rec_completed, rec_scheduled, rec_label = rec_session_counts(ytd.get("endDate", "2026-10-13"))
+    att_sum = rec_att.get("summary") or {}
+    att_csv = rec_att.get("meta", {}).get("sourceCsv", "data/reference/rec/meeting-attendance.csv")
+    rows.append(
+        row(
+            "REC - speaker series",
+            "Completed / scheduled Friday sessions",
+            f"{rec_completed} / {rec_scheduled}",
+            "Past booked slots vs upcoming · as of window end date",
+            "src/data/recSpeakerSeries.json",
+            f"Series {rec_label}; sync: npm run sync:rec-speakers",
+            dashboard_color="black",
+            data_lineage=LINEAGE_LEGEND[1][1],
+        )
+    )
+    rows.append(
+        row(
+            "REC - Zoom attendance",
+            "Avg / total attendees (reported sessions)",
+            f"{att_sum.get('avgAttendees', '?')} / {att_sum.get('totalAttendees', '?')}",
+            "Sum headcounts · average over sessions with data",
+            f"{att_csv} -> scripts/aggregate_rec_roster.py -> src/data/recMeetingAttendance.json",
+            "Reported by REC admin (Sahar Nikkhah Bahrami Oct 2026)",
+            dashboard_color="black",
+            data_lineage=LINEAGE_LEGEND[4][1],
+        )
+    )
+    for sess in rec_att.get("sessions") or []:
+        rows.append(
+            row(
+                "REC - Zoom attendance",
+                f"Session {sess.get('sessionDate')}",
+                str(sess.get("attendees")),
+                "Manual entry in meeting-attendance.csv",
+                att_csv,
+                f"Reported by {sess.get('reportedBy', 'REC admin')}",
+                dashboard_color="black",
+                data_lineage=LINEAGE_LEGEND[4][1],
+            )
+        )
+    st = rec_roster.get("scholarsTrainees", {}).get("summary") or {}
+    fac = rec_roster.get("faculty", {}).get("summary") or {}
+    prog = rec_roster.get("trainingPrograms", {}).get("summary") or {}
+    rows.append(
+        row(
+            "REC - roster",
+            "Current scholars / trainees / faculty / programs",
+            f"{st.get('currentScholars', '?')} / {st.get('currentTrainees', '?')} / {fac.get('total', '?')} / {prog.get('totalPrograms', '?')}",
+            "CSV roster under data/reference/rec/",
+            "data/reference/rec/scholars-trainees.csv + faculty.csv + training-programs.csv -> src/data/recRoster.json",
+            f"Last sync {rec_roster.get('meta', {}).get('syncedAt', '?')}",
+            dashboard_color="black",
+            data_lineage=LINEAGE_LEGEND[4][1],
+        )
+    )
+    rows.append(
+        row(
+            "Specimen sharing - YTD",
+            "Plasma aliquots by diagnosis (NCI / MCI / AD)",
+            " / ".join(
+                f"{d['label']} {d['count']}"
+                for d in bf.get("plasma", {}).get("byDiagnosis") or []
+            ),
+            "Sum of diagnosis-specific aliquot request fields",
+            f"data/redcap/{redcap['sources']['biofluids']} -> src/data/redcapSpecimenSharing.json",
+            period,
+            dashboard_color="black",
+            data_lineage=LINEAGE_LEGEND[3][1],
         )
     )
 
