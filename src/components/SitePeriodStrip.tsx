@@ -11,7 +11,7 @@ export default function SitePeriodStrip() {
         {siteReportingWindow.label}
         <span className="text-cpbh-navy/50">
           {" "}
-          (row dates may end earlier — see presenter key below)
+          (row dates may end earlier — see Data sources)
         </span>
         <span className="mx-2 text-cpbh-mist">|</span>
         <span className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5">

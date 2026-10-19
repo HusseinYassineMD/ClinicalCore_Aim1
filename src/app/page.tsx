@@ -25,7 +25,6 @@ import StickyNoteRail, {
 import OreOutreachBlock from "@/components/OreOutreachBlock";
 import { aim1MockData } from "@/data/aim1MockData";
 import SitePeriodStrip from "@/components/SitePeriodStrip";
-import DashboardPresenterScopePanel from "@/components/DashboardPresenterScopePanel";
 import MetricsSectionNav from "@/components/MetricsSectionNav";
 import SectionScopeBracket from "@/components/SectionScopeBracket";
 import ChartErrorBoundary from "@/components/ChartErrorBoundary";
@@ -43,7 +42,6 @@ export default function DashboardPage() {
       />
       <DashboardNav />
       <SitePeriodStrip />
-      <DashboardPresenterScopePanel />
       <MetricsSectionNav />
 
       <main className="flex-1 mx-auto w-full min-w-0 max-w-[90rem] px-4 sm:px-6 lg:px-8 py-8 md:py-10 space-y-12">
