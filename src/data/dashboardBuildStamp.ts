@@ -1,2 +1,2 @@
 /** Bump when recruitment chart UI changes — visible on dashboard to confirm fresh bundle. */
-export const DASHBOARD_UI_STAMP = "eac-lock-2026-10-20-brs-tbd-boxes-v1";
+export const DASHBOARD_UI_STAMP = "eac-lock-2026-10-20-apoe-pie-ring-v1";

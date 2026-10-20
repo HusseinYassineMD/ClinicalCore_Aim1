@@ -217,8 +217,13 @@ function ApoePieChart({
     ...g,
     provenance: g.provenance ?? chartProvenance,
   }));
-  const chartData = sortPieSlicesAscending(allItems.filter((g) => g.count > 0));
+  const measured = sortPieSlicesAscending(allItems.filter((g) => g.count > 0));
   const legendItems = sortPieSlicesAscending(allItems);
+  /** Keep the donut visible when counts are TBD (equal placeholder slices, legend stays TBD). */
+  const pieSlices =
+    measured.length > 0
+      ? measured
+      : legendItems.map((g) => ({ ...g, count: 1 }));
 
   return (
     <ChartSlot tall>
@@ -235,18 +240,18 @@ function ApoePieChart({
         <ResponsiveContainer width="100%" height={PIE_RING_HEIGHT}>
           <PieChart margin={{ top: 4, right: 4, bottom: 4, left: 4 }}>
             <Pie
-              data={chartData}
+              data={pieSlices}
               cx="50%"
               cy="50%"
               innerRadius={REGISTRY_PIE_INNER}
               outerRadius={REGISTRY_PIE_OUTER}
-              paddingAngle={2}
+              paddingAngle={measured.length > 1 ? 2 : measured.length === 0 ? 3 : 0}
               dataKey="count"
               nameKey="label"
               isAnimationActive={false}
               {...PIE_START_AT_TWELVE}
             >
-              {chartData.map((entry, i) => (
+              {pieSlices.map((entry, i) => (
                 <Cell
                   key={i}
                   fill={pieSegmentFill(entry, i, chartProvenance)}
@@ -260,8 +265,8 @@ function ApoePieChart({
         data={legendItems}
         chartProvenance={chartProvenance}
         colorAt={(g, i) => {
-          const idx = chartData.findIndex((row) => row.label === g.label);
-          if (idx >= 0) return pieSegmentFill(chartData[idx], idx, chartProvenance);
+          const idx = pieSlices.findIndex((row) => row.label === g.label);
+          if (idx >= 0) return pieSegmentFill(pieSlices[idx], idx, chartProvenance);
           return pieSegmentFill(g, i, chartProvenance);
         }}
       />
