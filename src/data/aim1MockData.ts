@@ -7,6 +7,7 @@ import oreCommunityOutreachActivities from "@/data/oreCommunityOutreachActivitie
 import { METRIC_SOURCES, sourceLabel } from "@/data/metricSources";
 import { BUDGET_TARGETS } from "@/data/budgetTargets";
 import { REGISTRY_CHART_VIEWS } from "@/data/registryChartViews";
+import { DASHBOARD_LAST_PUBLISHED } from "@/data/dashboardBuildStamp";
 import { latestTimestamp } from "@/lib/formatLastUpdated";
 import { getRecAttendanceTotals } from "@/lib/recAttendanceMetrics";
 import { getRecSessionCounts } from "@/lib/recSpeakerMetrics";
@@ -101,6 +102,7 @@ export const aim1MockData: Aim1DashboardData = {
   reportingPeriod: siteReportingWindow.label,
   grantPeriod: r.meta.grantPeriod,
   lastUpdated: latestTimestamp(
+    DASHBOARD_LAST_PUBLISHED,
     r.meta.extractedAt,
     t1.meta.extractedAt,
     redcapSpecimenSharing.lastUpdated,
