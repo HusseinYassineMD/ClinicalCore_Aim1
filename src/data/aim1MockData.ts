@@ -38,6 +38,11 @@ import {
   ytdWindowPhrase,
 } from "@/data/dataProvenance";
 import { priorPeriodCaption } from "@/data/reportingPeriodLegend";
+import {
+  BRS_TBD_APOE,
+  BRS_TBD_ETHNICITY,
+  BRS_TBD_SEX,
+} from "@/data/recruitmentChartConstants";
 import brsRpprTableDataCore from "@/data/brsRpprTableDataCore2026.json";
 import recRosterJson from "@/data/recRoster.json";
 import type { RecRosterData } from "@/types/aim1";
@@ -542,7 +547,10 @@ export const aim1MockData: Aim1DashboardData = {
             nProvenance: "unknown",
             chartProvenance: "unknown",
             nCaption: `${PENDING_IN_HARMONIZED_EXPORT} · no ethnicity breakdown for Data Core N=${brsDcEnrollmentN ?? "—"}`,
-            items: [],
+            items: BRS_TBD_ETHNICITY.map((row) => ({
+              ...row,
+              provenance: "unknown" as const,
+            })),
           },
           {
             title: "APOE genotype",
@@ -551,7 +559,10 @@ export const aim1MockData: Aim1DashboardData = {
             nProvenance: "unknown",
             chartProvenance: "unknown",
             nCaption: `${PENDING_IN_HARMONIZED_EXPORT} · no APOE breakdown wired`,
-            items: [],
+            items: BRS_TBD_APOE.map((row) => ({
+              ...row,
+              provenance: "unknown" as const,
+            })),
           },
           {
             title: "Sex",
@@ -560,7 +571,10 @@ export const aim1MockData: Aim1DashboardData = {
             nProvenance: "unknown",
             chartProvenance: "unknown",
             nCaption: `${PENDING_IN_HARMONIZED_EXPORT} · sex breakdown not in harmonized export`,
-            items: [],
+            items: BRS_TBD_SEX.map((row) => ({
+              ...row,
+              provenance: "unknown" as const,
+            })),
           },
         ],
         catchmentDemos: [],

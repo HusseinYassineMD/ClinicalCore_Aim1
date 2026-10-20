@@ -89,6 +89,12 @@ export function chartCountDisplay(
   kind: DataProvenance | "real" | "mock" | undefined,
   value?: string | number | null,
 ): { text: string; fill: string } {
+  if (
+    normalizeProvenance(kind) === "unknown" &&
+    (isMissingChartCount(value) || value === 0)
+  ) {
+    return { text: "TBD", fill: METRIC_CHART_COLORS.unknown };
+  }
   if (isMissingChartCount(value)) {
     return { text: "TBD", fill: METRIC_CHART_COLORS.unknown };
   }

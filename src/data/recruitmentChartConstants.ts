@@ -24,6 +24,23 @@ export const BRS_LEGACY_APOE_PIE = [
   { label: "Other", count: 98 },
 ] as const;
 
+/** BRS column · labels only — counts show TBD (unknown provenance, count 0). */
+export const BRS_TBD_ETHNICITY = [
+  { label: "Hispanic", count: 0 },
+  { label: "Non-Hispanic", count: 0 },
+  { label: "Unknown", count: 0 },
+] as const;
+
+export const BRS_TBD_SEX = [
+  { label: "Male", count: 0 },
+  { label: "Female", count: 0 },
+] as const;
+
+export const BRS_TBD_APOE = [
+  { label: "APOE4 carrier", count: 0 },
+  { label: "Non-carrier", count: 0 },
+] as const;
+
 /** GeneScreen YTD ethnicity rows at 0 until export is wired. */
 export const GENESCREEN_YTD_LEGACY_ETHNICITY = [
   { label: "Hispanic", count: 0 },

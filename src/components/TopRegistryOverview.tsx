@@ -29,7 +29,9 @@ import {
 import { PIE_START_AT_TWELVE, sortPieSlicesAscending } from "@/lib/pieChartConfig";
 import TargetProgressLabel from "@/components/TargetProgressLabel";
 import {
-  BRS_LEGACY_APOE_PIE,
+  BRS_TBD_APOE,
+  BRS_TBD_ETHNICITY,
+  BRS_TBD_SEX,
   GENESCREEN_YTD_LEGACY_ETHNICITY,
   LEGACY_RED_CHART_CAPTION,
 } from "@/data/recruitmentChartConstants";
@@ -173,7 +175,7 @@ function ChartTitle({
   provenance = "unknown",
 }: {
   title: string;
-  n: number;
+  n?: number | null;
   nCaption?: string;
   provenance?: DataProvenance;
 }) {
@@ -206,7 +208,7 @@ function ApoePieChart({
 }: {
   genotypes: ChartCountItem[];
   title: string;
-  n: number;
+  n?: number | null;
   nCaption?: string;
   nProvenance?: DataProvenance;
   chartProvenance?: DataProvenance;
@@ -307,7 +309,7 @@ function MiniBarChart({
 }: {
   data: ChartCountItem[];
   title: string;
-  n: number;
+  n?: number | null;
   nCaption?: string;
   nProvenance?: DataProvenance;
   chartProvenance?: DataProvenance;
@@ -838,18 +840,41 @@ function legacyRedChartSlot(
   const red: DataProvenance = "unknown";
 
   if (column.id === "brs" && title.includes("apoe")) {
-    const n =
-      column.total ||
-      BRS_LEGACY_APOE_PIE.reduce((sum, row) => sum + row.count, 0);
     return {
       ...slot,
       type: "pie",
       provenance: red,
       nProvenance: red,
       chartProvenance: red,
-      n,
       nCaption: LEGACY_RED_CHART_CAPTION,
-      items: stampChartProvenance([...BRS_LEGACY_APOE_PIE], red),
+      items: stampChartProvenance([...BRS_TBD_APOE], red),
+    };
+  }
+
+  if (column.id === "brs" && title.includes("ethnicity")) {
+    return {
+      ...slot,
+      type: "bar",
+      provenance: red,
+      nProvenance: red,
+      chartProvenance: red,
+      nCaption: LEGACY_RED_CHART_CAPTION,
+      items: stampChartProvenance([...BRS_TBD_ETHNICITY], red),
+    };
+  }
+
+  if (
+    column.id === "brs" &&
+    (title.includes("sex") || title.includes("gender"))
+  ) {
+    return {
+      ...slot,
+      type: "bar",
+      provenance: red,
+      nProvenance: red,
+      chartProvenance: red,
+      nCaption: LEGACY_RED_CHART_CAPTION,
+      items: stampChartProvenance([...BRS_TBD_SEX], red),
     };
   }
 
@@ -926,8 +951,11 @@ function renderChartSlot(
     return <TbdBox key={index} tall={resolved.type === "pie"} />;
   }
 
-  const slotN = resolved.n ?? column.newThisPeriod;
   const slotProvenance = resolved.provenance ?? chartsProvenance;
+  const nProv = resolved.nProvenance ?? slotProvenance ?? chartsProvenance;
+  const slotN =
+    resolved.n ??
+    (nProv === "unknown" ? undefined : column.newThisPeriod);
   const nProvenance =
     resolved.nProvenance ?? slotProvenance ?? chartsProvenance;
   const chartProvenance =
