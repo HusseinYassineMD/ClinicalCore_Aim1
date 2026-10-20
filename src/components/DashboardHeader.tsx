@@ -17,7 +17,7 @@ export default function DashboardHeader({
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div>
             <p className="text-cpbh-soft text-xs font-medium tracking-wide uppercase mb-2">
-              USC ADRC · Clinical Core Aim 1
+              USC ADRC
             </p>
             <h1 className="font-display text-3xl md:text-4xl font-semibold mb-1 leading-tight">
               Metrics dashboard

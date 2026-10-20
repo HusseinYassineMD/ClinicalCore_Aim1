@@ -1,6 +1,5 @@
 import type { DataStatusInfo, SectionDataStatus } from "@/types/aim1";
 import { packageYtd } from "@/data/siteReporting";
-import { BRS_ACTIVE_COHORT } from "@/data/recruitmentChartConstants";
 import {
   HARMONIZED_FILES,
   PENDING_IN_HARMONIZED_EXPORT,
@@ -36,10 +35,10 @@ export function buildRecruitmentSectionNotes(): Pick<
         ],
       },
       {
-        title: "BRS (black YTD consents · green last RPPR enrollment total)",
+        title: "BRS (black · Data Core table headline)",
         lines: [
-          "231 enrolled (RPPR); 4 YTD consents · 5 autopsies · MAP BRS CSV.",
-          `Charts: Hispanic/sex from active rows (n=${BRS_ACTIVE_COHORT.activeRows}); APOE pie TBD.`,
+          `Current enrollment N=${brsYtd ? "see brsRpprTableDataCore2026.json" : "—"}; new consents YTD from Data Core / MAP cross-check.`,
+          "Ethnicity, sex, and APOE charts: TBD until harmonized participant-level breakdown (not MAP active-row proxy).",
         ],
       },
     ],

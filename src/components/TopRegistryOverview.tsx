@@ -719,6 +719,9 @@ function cumulativeFallbackForSlot(
   slot: RegistryChartSlot,
   column: RegistryColumn,
 ): RegistryChartSlot | null {
+  if (column.id === "brs") {
+    return null;
+  }
   if (column.id === "adrc" && (slot.nProvenance === "ytd" || slot.chartProvenance === "ytd")) {
     return null;
   }
@@ -1087,8 +1090,7 @@ function reportingPeriodChartSlots(
   column: RegistryColumn,
 ): [RegistryChartSlot, RegistryChartSlot, RegistryChartSlot] {
   if (
-    column.id === "genescreen" &&
-    column.chartsProvenance === "ytd" &&
+    (column.id === "genescreen" || column.id === "brs") &&
     column.chartSlots?.length
   ) {
     return yearToDateChartSlotsFromColumn(column);

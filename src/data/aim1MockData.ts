@@ -38,7 +38,6 @@ import {
   ytdWindowPhrase,
 } from "@/data/dataProvenance";
 import { priorPeriodCaption } from "@/data/reportingPeriodLegend";
-import { BRS_ACTIVE_COHORT } from "@/data/recruitmentChartConstants";
 import brsRpprTableDataCore from "@/data/brsRpprTableDataCore2026.json";
 import recRosterJson from "@/data/recRoster.json";
 import type { RecRosterData } from "@/types/aim1";
@@ -540,58 +539,33 @@ export const aim1MockData: Aim1DashboardData = {
             title: "Ethnicity",
             type: "bar",
             provenance: "unknown",
-            nProvenance: "ytd",
+            nProvenance: "unknown",
             chartProvenance: "unknown",
-            n: brsDcEnrollmentN ?? 0,
-            nCaption: `Hispanic/Latino · ${PENDING_IN_HARMONIZED_EXPORT} · RPPR table uses Data Core N=${brsDcEnrollmentN ?? "—"}`,
-            items: BRS_ACTIVE_COHORT.hispanicLatino.map(({ label, count }) => ({
-              label,
-              count,
-              provenance: "unknown" as const,
-            })),
+            nCaption: `${PENDING_IN_HARMONIZED_EXPORT} · no ethnicity breakdown for Data Core N=${brsDcEnrollmentN ?? "—"}`,
+            items: [],
           },
           {
             title: "APOE genotype",
             type: "pie",
             provenance: "unknown",
-            nProvenance: "ytd",
+            nProvenance: "unknown",
             chartProvenance: "unknown",
-            n: brsDcEnrollmentN ?? 0,
             nCaption: `${PENDING_IN_HARMONIZED_EXPORT} · no APOE breakdown wired`,
             items: [],
           },
           {
             title: "Sex",
             type: "bar",
-            provenance: "ytd",
-            nProvenance: "ytd",
-            chartProvenance: "ytd",
-            n: brsDcEnrollmentN ?? 0,
-            nCaption: `Data Core current enrollment · ${brsRpprTableDataCore.meta.windowLabel}`,
-            items: [
-              {
-                label: "Female",
-                count: brsDcCurrent?.female ?? 0,
-                provenance: "ytd" as const,
-              },
-              {
-                label: "Male",
-                count: brsDcCurrent?.male ?? 0,
-                provenance: "ytd" as const,
-              },
-            ],
+            provenance: "unknown",
+            nProvenance: "unknown",
+            chartProvenance: "unknown",
+            nCaption: `${PENDING_IN_HARMONIZED_EXPORT} · sex breakdown not in harmonized export`,
+            items: [],
           },
         ],
-        catchmentDemos: BRS_ACTIVE_COHORT.hispanicLatino.map(({ label, count }) => ({
-          label,
-          count,
-        })),
+        catchmentDemos: [],
         bySource: [],
         apoeGenotypes: [],
-        gender: {
-          male: brsDcCurrent?.male ?? 0,
-          female: brsDcCurrent?.female ?? 0,
-        },
         chartViews: REGISTRY_CHART_VIEWS.brs,
       },
     ],
