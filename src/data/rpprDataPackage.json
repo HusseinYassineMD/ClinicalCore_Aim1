@@ -4,9 +4,9 @@
   "supplementReceivedAt": "2026-10-09",
   "lastAggregated": "2026-10-09T20:32:59.091268+00:00",
   "reportingPeriodSummary": {
-    "label": "1/1/2026 \u2013 10/13/2026",
+    "label": "1/1/2026 \u2013 10/16/2026",
     "startDate": "2026-01-01",
-    "endDate": "2026-10-13",
+    "endDate": "2026-10-16",
     "periodKind": "year_to_date",
     "packageReceivedAt": "2026-09-16",
     "supplementReceivedAt": "2026-10-09",
@@ -307,9 +307,9 @@
     }
   },
   "reportingPeriodAdditional": {
-    "label": "1/1/2026 \u2013 10/13/2026",
+    "label": "1/1/2026 \u2013 10/16/2026",
     "startDate": "2026-01-01",
-    "endDate": "2026-10-13",
+    "endDate": "2026-10-16",
     "periodKind": "year_to_date",
     "packageReceivedAt": "2026-09-16",
     "supplementReceivedAt": "2026-10-09",
@@ -6187,7 +6187,7 @@
           },
           "raceEthnicityNote": "This REDCap export includes gender and subject_basic_hispanic only \u2014 not full race/ethnicity categories. See UDS harmonized subject file (der_current_race_ethnicity_summary) for complete race/ethnicity.",
           "reportingPeriod": {
-            "label": "1/1/2026 \u2013 10/13/2026",
+            "label": "1/1/2026 \u2013 10/16/2026",
             "newAutopsyConsents": 5,
             "autopsiesPerformed": 6,
             "deathsInPeriod": 9

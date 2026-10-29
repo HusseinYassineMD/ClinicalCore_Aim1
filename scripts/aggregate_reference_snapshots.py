@@ -96,7 +96,7 @@ def main() -> None:
             "(geneScreenYtd.json). This PDF is a cross-check for operations, not wired to black metric cards."
         ),
         "redcapYtdNewMembersForComparison": 55,
-        "reportingPeriodLabel": "1/1/2026 – 10/13/2026",
+        "reportingPeriodLabel": "1/1/2026 – 10/16/2026",
     }
     FIN_OUT.write_text(json.dumps(finance, indent=2) + "\n", encoding="utf-8")
     GS_OUT.write_text(json.dumps(genescreen, indent=2) + "\n", encoding="utf-8")

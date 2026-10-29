@@ -997,7 +997,7 @@ def build_rows() -> list[dict[str, str]]:
     )
 
     # --- REC ---
-    rec_completed, rec_scheduled, rec_label = rec_session_counts(ytd.get("endDate", "2026-10-13"))
+    rec_completed, rec_scheduled, rec_label = rec_session_counts(ytd.get("endDate", "2026-10-16"))
     att_sum = rec_att.get("summary") or {}
     att_csv = rec_att.get("meta", {}).get("sourceCsv", "data/reference/rec/meeting-attendance.csv")
     rows.append(

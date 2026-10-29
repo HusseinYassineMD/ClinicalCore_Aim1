@@ -111,7 +111,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     value: "55 (consent date)",
     tier: "verified",
     source: "USC GeneScreen REDCap · geneScreenYtd.json",
-    notes: "1/1/2026 – 10/13/2026 · EAC lock · Complete records · black on dashboard.",
+    notes: `${siteReportingWindow.label} · EAC lock · Complete records · black on dashboard.`,
   },
   {
     section: "Recruitment · GeneScreen",
@@ -255,7 +255,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   // Neuropath & specimens
   {
     section: "Neuropathology · BRS RPPR",
-    metric: "Data Core Table 1 · 01/01/26 – 10/13/26 (EAC lock)",
+    metric: "Data Core Table 1 · 01/01/26 – 10/16/26 (EAC lock)",
     value: "New 5 · withdrawal 1 · current 226 · died w/ autopsy 7 · w/o 1",
     tier: "verified",
     source: "brsRpprTableDataCore2026.json · Xinhui Wang · MAP pull 2026-10-07",

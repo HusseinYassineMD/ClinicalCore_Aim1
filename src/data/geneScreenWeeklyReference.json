@@ -5,5 +5,5 @@
   "content": "Weekly operational pipeline: leads, kits, genotypes, members added per week",
   "dashboardUse": "Clinical Core dashboard GeneScreen YTD headline remains USC REDCap (geneScreenYtd.json). This PDF is a cross-check for operations, not wired to black metric cards.",
   "redcapYtdNewMembersForComparison": 55,
-  "reportingPeriodLabel": "1/1/2026 \u2013 10/13/2026"
+  "reportingPeriodLabel": "1/1/2026 \u2013 10/16/2026"
 }

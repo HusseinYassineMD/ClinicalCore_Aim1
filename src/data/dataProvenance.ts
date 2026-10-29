@@ -24,7 +24,7 @@ export const HARMONIZED_FILES = {
 export const JAMES_SUPPLEMENT_RECEIVED_AT = "2026-10-09";
 
 /** RPPR / dashboard YTD locked with EAC (Dr. Chui). */
-export const EAC_RPPR_LOCK_LABEL = "1/1/2026 – 10/13/2026";
+export const EAC_RPPR_LOCK_LABEL = siteReportingWindow.label;
 
 /** Year-to-date window tied to aggregated JSON (Jan 1 → snapshot end). */
 export function ytdWindowPhrase(): string {

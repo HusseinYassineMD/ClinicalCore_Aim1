@@ -300,7 +300,7 @@ export const aim1MockData: Aim1DashboardData = {
             `Current enrollment N=${brsDcEnrollmentN ?? "—"} · new ${brsDcNew?.participants ?? "—"} · withdrawal ${brsDcWithdrawal?.participants ?? "—"}`,
             `Deaths: ${brsDcDiedWithAutopsy?.participants ?? "—"} with autopsy · ${brsDcDiedWithoutAutopsy?.participants ?? "—"} w/o autopsy`,
             brsRpprTableDataCore.currentEnrollmentDefinition,
-            `Pending: Tiffany confirmation of RPPR withdrawal window (1/1/2026–10/13/2026 proposed); Carol NP withdrawal may be missing from MAP.`,
+            `Pending: Tiffany confirmation of RPPR withdrawal window (1/1/2026–10/16/2026 proposed); Carol NP withdrawal may be missing from MAP.`,
           ],
         },
         {
@@ -784,7 +784,7 @@ export const aim1MockData: Aim1DashboardData = {
   rec: (() => {
     const recAsOf = siteReportingWindow.endDate
       ? new Date(`${siteReportingWindow.endDate}T12:00:00`)
-      : new Date("2026-10-13T12:00:00");
+      : new Date("2026-10-16T12:00:00");
     const sessions = getRecSessionCounts(recAsOf);
     const attendance = getRecAttendanceTotals(recAsOf);
     return {

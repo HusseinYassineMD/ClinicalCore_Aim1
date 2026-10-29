@@ -5,9 +5,9 @@ from __future__ import annotations
 from datetime import date, datetime
 
 # EAC-aligned RPPR lock (Dr. Chui · Clinical Core / dashboard YTD).
-EAC_YTD_AS_OF = datetime(2026, 10, 13)
+EAC_YTD_AS_OF = datetime(2026, 10, 16)
 EAC_YTD_END_DATE = EAC_YTD_AS_OF.date().isoformat()
-EAC_YTD_LABEL = "1/1/2026 – 10/13/2026"
+EAC_YTD_LABEL = "1/1/2026 – 10/16/2026"
 
 
 def ytd_datetime_bounds(as_of: datetime | None = None) -> tuple[datetime, datetime, str]:
