@@ -177,10 +177,7 @@ export default function DashboardPage() {
               </StickyNoteRail>
             }
           >
-            <OreOutreachBlock
-              outreach={data.oreOutreach}
-              engagement={data.oreEngagement}
-            />
+            <OreOutreachBlock outreach={data.oreOutreach} />
           </SectionWithNotes>
         </section>
 

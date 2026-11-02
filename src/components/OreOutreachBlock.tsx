@@ -1,13 +1,5 @@
-import type {
-  OreOutreachMetrics,
-  OreEngagementGoals,
-} from "@/types/aim1";
+import type { OreOutreachMetrics } from "@/types/aim1";
 import MetricCard from "./MetricCard";
-import ThermometerMetric from "./ThermometerMetric";
-import {
-  BUDGET_TARGETS,
-  reportingPeriodTargetNote,
-} from "@/data/budgetTargets";
 import { METRIC_SOURCES } from "@/data/metricSources";
 import { formatInteger } from "@/lib/formatNumber";
 import { LAST_RPPR_SOURCE } from "@/data/dataProvenance";
@@ -16,12 +8,10 @@ import SectionScopeBracket from "@/components/SectionScopeBracket";
 
 interface OreOutreachBlockProps {
   outreach: OreOutreachMetrics;
-  engagement: OreEngagementGoals;
 }
 
 export default function OreOutreachBlock({
   outreach,
-  engagement,
 }: OreOutreachBlockProps) {
   const outreachMetrics = [
     {
@@ -56,8 +46,6 @@ export default function OreOutreachBlock({
     },
   ];
 
-  const bh4mCurrent = engagement.brainHealth4MeEngaged ?? 0;
-
   return (
     <div className="space-y-6">
       <div>
@@ -66,7 +54,7 @@ export default function OreOutreachBlock({
           <SectionScopeBracket sectionId="ore" className="block mt-2" />
         </h2>
         <p className="text-cpbh-navy/60 text-sm mt-1">
-          ORE Core · community outreach, GeneScreen, and engagement goals
+          ORE Core · community outreach and GeneScreen
         </p>
       </div>
 
@@ -107,54 +95,6 @@ export default function OreOutreachBlock({
             />
           ))}
         </div>
-      </div>
-
-      <div
-        className="dashboard-card"
-        data-deck-slide="ore-engagement-goals"
-        data-deck-caption="ORE · engagement goal progress"
-      >
-        <div className="mb-4">
-          <h3 className="font-display text-lg font-semibold text-cpbh-navy">
-            Goal Progress
-          </h3>
-          <p className="text-cpbh-navy/60 text-sm mt-1">
-            Reporting-period progress vs. budget justification targets
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <ThermometerMetric
-            label="Community Advisory Boards"
-            current={engagement.communityAdvisoryBoardMeetings}
-            target={BUDGET_TARGETS.communityAdvisoryBoardMeetingsPerYear}
-            targetNote={`Budget ${BUDGET_TARGETS.communityAdvisoryBoardMeetingsPerYear}/yr · not in James data package`}
-            provenance="unknown"
-            accent="purple"
-          />
-          <ThermometerMetric
-            label="Brain Health 4 Me Engagement"
-            current={bh4mCurrent}
-            target={BUDGET_TARGETS.brainHealth4MeSubjects}
-            targetNote={`${METRIC_SOURCES.budgetJustification} · ${BUDGET_TARGETS.brainHealth4MeSubjects} subjects`}
-            provenance="unknown"
-            accent="navy"
-          />
-          <ThermometerMetric
-            label="GeneScreen Recruitment"
-            current={engagement.geneScreenNewMembers}
-            target={BUDGET_TARGETS.geneScreenRecruitmentReportingPeriod}
-            targetNote={`Year to date · budget 300/year · ${METRIC_SOURCES.oreCore} Aim 1 · counts not in harmonized export yet`}
-            provenance="unknown"
-            accent="teal"
-          />
-        </div>
-        <p className="text-xs text-cpbh-navy/50 mt-4 leading-snug">
-          Other budget denominators on file: CAB planning meetings (
-          {BUDGET_TARGETS.cabPlanningMeetingsPerYear}/year),{" "}
-          {BUDGET_TARGETS.cabParticipantsPerMeeting} CAB participants/meeting, BH4M{" "}
-          {BUDGET_TARGETS.brainHealth4MeDataPointsPerSubject} data points/subject
-          (baseline, T1, T2, T3).
-        </p>
       </div>
     </div>
   );
