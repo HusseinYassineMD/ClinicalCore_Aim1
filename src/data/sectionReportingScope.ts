@@ -136,12 +136,12 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     id: "imaging",
     navLabel: "Imaging",
     bracket: bracket([
-      "black YTD",
-      ytdLabel,
+      "green",
+      "source ends before 10/16/2026",
       `studies through ${formatScopeDate(imagingCov.imagingLatestStudyDate)}`,
     ]),
     bullets: [
-      `SCAN / CLARiTI YTD: Integrated Imaging longitudinal · study_date in ${ytdLabel} · latest study ${formatScopeDate(imagingCov.imagingLatestStudyDate)}.`,
+      `SCAN, CLARiTI, and the study-wide table are green: Integrated Imaging longitudinal · filter window ${ytdLabel} · latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}.`,
       `Integrated study summary (green / cumulative): package-wide NACC-verified subjects — not calendar YTD.`,
       `RPPR Imaging QC & IDA (green): ${rpprPeriod} · rpprMetrics.json.`,
     ],
