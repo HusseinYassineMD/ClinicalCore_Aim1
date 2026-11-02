@@ -364,7 +364,7 @@ export const aim1MockData: Aim1DashboardData = {
         {
           title: "Not the same as",
           lines: [
-            `ADRC registry card headline (${ytdParticipantsWithVisit}) — unique participants with UDS visit · ${siteReportingWindow.label} · black`,
+            `ADRC registry card headline (${ytdParticipantsWithVisit}) — unique participants with UDS visit · ${siteReportingWindow.label} · green because the file ends before 10/16/2026`,
             "Harmonized YTD Table 1 — planned in Data Core export",
           ],
         },

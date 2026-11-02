@@ -100,7 +100,7 @@ export default function DashboardPage() {
             >
               <SectionLabel
                 title="Demographics"
-                subtitle="Harmonized active cohort (N=569) · charts parse Table 1 cells · visit counts in Recruitment use the black YTD window above"
+                subtitle="Green · old RPPR Table 1 (N=569) · charts below use the same numbers · Recruitment visit counts above are a separate window"
                 variant="priority"
                 scopeSectionId="demographics"
               />

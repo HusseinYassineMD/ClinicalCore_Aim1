@@ -15,7 +15,7 @@ export default function DemographicsTableStickyNote() {
       aria-label="Demographics Table 1 display note"
     >
       <p className={`${STICKY_NOTE_TITLE} text-violet-900`}>
-        Table 1 · harmonized active cohort (black)
+        Table 1 · old RPPR cohort (green)
       </p>
       <ul className={`${STICKY_NOTE_BODY} list-disc pl-3 space-y-0.5`}>
         <li>

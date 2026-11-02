@@ -27,10 +27,10 @@ import {
   parsePercent,
   table1StrataKeys,
 } from "@/lib/table1Parse";
-import { metricValueClass } from "@/lib/metricValueClass";
+import { METRIC_CHART_COLORS, metricValueClass } from "@/lib/metricValueClass";
 import { PIE_START_AT_TWELVE, sortPieSlicesAscending } from "@/lib/pieChartConfig";
 
-/** Table 1 charts: CPBH strata hues (counts/labels stay black). */
+/** Table 1 charts: stratum hues stay; every count label is green (old RPPR cohort). */
 const TABLE1_OVERALL_FILL = "#1a2744";
 const TABLE1_STRATA_FILLS = [
   "#5b4b8a",
@@ -39,7 +39,7 @@ const TABLE1_STRATA_FILLS = [
   "#8b7cb8",
   "#6b9080",
 ] as const;
-const TABLE1_CHART_LABEL_FILL = "#1a2744";
+const TABLE1_CHART_LABEL_FILL = METRIC_CHART_COLORS.prior;
 
 function chartSliceFill(index: number): string {
   if (index === 0) return TABLE1_OVERALL_FILL;

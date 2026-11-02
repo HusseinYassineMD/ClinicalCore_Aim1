@@ -40,9 +40,9 @@ export default function DemographicsTableClient() {
           Table 1: Demographic and clinical characteristics of the clinical core
         </h2>
         <p className="text-cpbh-navy/60 text-sm mt-1 leading-snug">
-          Black · harmonized active ADRC cohort · as of {harmonized.meta.asOfDate} ·
-          N={harmonized.meta.participantCount} · EAC RPPR window{" "}
-          {siteReportingWindow.label}
+          Green · old RPPR · harmonized active ADRC cohort · as of{" "}
+          {harmonized.meta.asOfDate} · N={harmonized.meta.participantCount} · not
+          the {siteReportingWindow.label} visit window
         </p>
       </div>
 
@@ -54,7 +54,7 @@ export default function DemographicsTableClient() {
         <DemographicsTable
           data={harmonized}
           columnKeys={HARMONIZED_COLUMNS}
-          valueProvenance="ytd"
+          valueProvenance="prior"
         />
         <p className="mt-3 px-2 py-3 text-xs text-cpbh-navy/50 border-t border-cpbh-mist bg-cpbh-mist/20 rounded-xl">
           {harmonized.meta.cohortDefinition} NIH RPPR enrollment workflow: Cohort 2
@@ -66,11 +66,11 @@ export default function DemographicsTableClient() {
 
       <div className="border-t border-cpbh-mist/80 px-4 sm:px-6 pb-6 pt-5">
         <p className="text-xs text-cpbh-navy/55 mb-4">
-          Charts below parse the Table 1 cells above · bar colors by stratum · value
-          labels in navy/black (same source as table).
+          Charts below parse the Table 1 cells above · bar colors by stratum ·
+          numbers in green (same old RPPR source as the table).
         </p>
         <ChartErrorBoundary fallbackTitle="Demographics charts could not load">
-          <DemographicsVisuals data={harmonized} valueProvenance="ytd" />
+          <DemographicsVisuals data={harmonized} valueProvenance="prior" />
         </ChartErrorBoundary>
       </div>
     </div>

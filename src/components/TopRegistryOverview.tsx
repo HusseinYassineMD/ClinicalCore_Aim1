@@ -42,6 +42,20 @@ type ChartCountItem = {
   provenance?: DataProvenance;
 };
 
+/**
+ * ADRC visit counts and autopsy enrollment are not in a file that reaches
+ * the October 16 lock, so those numbers render green. Red placeholders stay red.
+ */
+function countProvenanceForColumn(
+  columnId: string,
+  provenance: DataProvenance,
+): DataProvenance {
+  if ((columnId === "adrc" || columnId === "brs") && provenance === "ytd") {
+    return "prior";
+  }
+  return provenance;
+}
+
 function segmentColor(
   item: ChartCountItem,
   index: number,
@@ -961,17 +975,26 @@ function renderChartSlot(
   const slotN =
     resolved.n ??
     (nProv === "unknown" ? undefined : column.newThisPeriod);
-  const nProvenance =
-    resolved.nProvenance ?? slotProvenance ?? chartsProvenance;
+  const nProvenance = countProvenanceForColumn(
+    column.id,
+    resolved.nProvenance ?? slotProvenance ?? chartsProvenance,
+  );
   const chartProvenance =
     resolved.chartProvenance ?? slotProvenance ?? chartsProvenance;
+  const paintedItems = resolved.items.map((item) => ({
+    ...item,
+    provenance: countProvenanceForColumn(
+      column.id,
+      item.provenance ?? chartProvenance,
+    ),
+  }));
 
   if (resolved.type === "pie") {
     return (
       <ApoePieChart
         key={`${index}-${resolved.title}-${slotN}`}
         title={resolved.title}
-        genotypes={resolved.items}
+        genotypes={paintedItems}
         n={slotN}
         nCaption={resolved.nCaption}
         nProvenance={nProvenance}
@@ -984,7 +1007,7 @@ function renderChartSlot(
     <MiniBarChart
       key={`${index}-${resolved.title}-${slotN}`}
       title={resolved.title}
-      data={resolved.items}
+      data={paintedItems}
       n={slotN}
       nCaption={resolved.nCaption}
       nProvenance={nProvenance}
@@ -1217,7 +1240,10 @@ function chartsProvenanceForColumn(column: RegistryColumn): DataProvenance {
 }
 
 function RegistryHeaderBlock({ column }: { column: RegistryColumn }) {
-  const totalsProvenance = column.totalsProvenance ?? "ytd";
+  const totalsProvenance = countProvenanceForColumn(
+    column.id,
+    column.totalsProvenance ?? "ytd",
+  );
   const valueClass = metricValueClass(totalsProvenance, column.total);
 
   return (
@@ -1228,6 +1254,11 @@ function RegistryHeaderBlock({ column }: { column: RegistryColumn }) {
       <p className={`text-4xl md:text-5xl font-semibold mt-1 leading-none ${valueClass}`}>
         {column.total}
       </p>
+      {column.id === "adrc" || column.id === "brs" ? (
+        <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
+          Green · source file ends before 10/16/2026
+        </p>
+      ) : null}
       {column.id === "genescreen" && column.totalsProvenance === "ytd" ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-0.5 leading-tight px-1">
           Black = GeneScreen REDCap export ({column.total} Complete? records). Last RPPR cited 668.
@@ -1238,7 +1269,10 @@ function RegistryHeaderBlock({ column }: { column: RegistryColumn }) {
           <>
             <span
               className={metricValueClass(
-                column.totalsProvenance ?? "unknown",
+                countProvenanceForColumn(
+                  column.id,
+                  column.totalsProvenance ?? "unknown",
+                ),
                 column.gender.male,
               )}
             >
@@ -1247,7 +1281,10 @@ function RegistryHeaderBlock({ column }: { column: RegistryColumn }) {
             <span className="text-cpbh-navy/45"> · </span>
             <span
               className={metricValueClass(
-                column.totalsProvenance ?? "unknown",
+                countProvenanceForColumn(
+                  column.id,
+                  column.totalsProvenance ?? "unknown",
+                ),
                 column.gender.female,
               )}
             >
@@ -1270,8 +1307,14 @@ function RegistryYtdBlock({ column }: { column: RegistryColumn }) {
     >
       {column.periodActivities ? (
         <ReportingPeriodPanel
-          items={column.periodActivities}
-          provenance="ytd"
+          items={column.periodActivities.map((item) => ({
+            ...item,
+            provenance: countProvenanceForColumn(
+              column.id,
+              item.provenance ?? "ytd",
+            ),
+          }))}
+          provenance={countProvenanceForColumn(column.id, "ytd")}
           footnote={column.periodTargetNote}
           accent={
             column.id === "adrc"
@@ -1285,7 +1328,7 @@ function RegistryYtdBlock({ column }: { column: RegistryColumn }) {
         <PeriodGoalProgress
           current={column.newThisPeriod}
           target={column.periodTarget}
-          provenance="ytd"
+          provenance={countProvenanceForColumn(column.id, "ytd")}
         />
       ) : (
         <ReportingPeriodPanel
@@ -1295,7 +1338,7 @@ function RegistryYtdBlock({ column }: { column: RegistryColumn }) {
               count: column.newThisPeriod,
             },
           ]}
-          provenance="ytd"
+          provenance={countProvenanceForColumn(column.id, "ytd")}
         />
       )}
     </div>

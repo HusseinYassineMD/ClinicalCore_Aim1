@@ -84,6 +84,12 @@
     font-weight: 600;
   }
 
+  /* Table 1 chart counts follow the old-RPPR green, including SVG labels. */
+  .demographics-chart-plot .recharts-label text,
+  .demographics-chart-plot .recharts-label-list text {
+    fill: #15803d !important;
+  }
+
   .metric-value-unknown {
     color: #dc2626;
     font-weight: 600;
