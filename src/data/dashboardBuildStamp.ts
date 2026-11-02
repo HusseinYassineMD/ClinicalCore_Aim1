@@ -2,4 +2,4 @@
 export const DASHBOARD_UI_STAMP = "eac-lock-2026-11-02-imaging-green";
 
 /** Shown in dashboard header “Last updated” (site publish / review date). */
-export const DASHBOARD_LAST_PUBLISHED = "2026-10-20";
+export const DASHBOARD_LAST_PUBLISHED = "2026-11-02";
