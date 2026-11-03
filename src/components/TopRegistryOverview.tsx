@@ -1460,7 +1460,7 @@ function RecruitmentPhaseToggle({
     phase === "ytd"
       ? "Year to date keeps the current colors. Black and green run through the last date in each file. Red means that count is not in the file."
       : phase === "grant"
-        ? "Active grant period is September 1, 2020 through the last date in each file. Pink means that count is in the file. Red means it is not."
+        ? "Active period for UDS visits is July 1, 2025 through the last visit in the file. Pink means that count is in the file. Red means it is not."
         : "Cumulative keeps a count pink only when the file supports the same rule as year to date. UDS visits in this export start in 2005. Red means that cut is not in the file.";
 
   return (

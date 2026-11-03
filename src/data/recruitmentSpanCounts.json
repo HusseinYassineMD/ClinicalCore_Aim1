@@ -1,6 +1,6 @@
 {
-  "grantStart": "2020-09-01",
-  "grantSource": "NIH P30 AG066530 project start",
+  "udsActiveStart": "2025-07-01",
+  "udsActiveRule": "UDS visit_date on or after 2025-07-01, through the last visit in the file",
   "builtFrom": {
     "uds": "UDS_longitudinal_harmonized.csv",
     "brs": "MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv",
@@ -373,14 +373,14 @@
     }
   },
   "grant": {
-    "phrase": "since 9/1/2020",
+    "phrase": "since 7/1/2025",
     "adrc": {
       "throughDate": "2026-09-03",
-      "fromDate": "2020-09-01",
-      "title": "Participants with a UDS visit \u00b7 since 9/1/2020",
-      "total": 1029,
+      "fromDate": "2025-07-01",
+      "title": "Participants with a UDS visit \u00b7 since 7/1/2025",
+      "total": 472,
       "totalAvailable": true,
-      "headerNote": "Pink \u00b7 UDS visits since 9/1/2020 \u00b7 2020-09-01 \u2013 2026-09-03",
+      "headerNote": "Pink \u00b7 UDS visits since 7/1/2025 \u00b7 2025-07-01 \u2013 2026-09-03",
       "banner": "Active grant period",
       "footnote": "In-person and remote are red: most follow-up visits in this file have no mode, so those totals are not available. Initial is packet I, the same field rule as year to date.",
       "activities": [
@@ -396,7 +396,7 @@
         },
         {
           "label": "Initial",
-          "count": 622,
+          "count": 51,
           "available": true
         }
       ],
@@ -404,112 +404,42 @@
         {
           "title": "Ethnicity",
           "type": "bar",
-          "n": 622,
+          "n": 51,
           "nAvailable": true,
-          "nCaption": "Initial evaluations (packet I) \u00b7 2020-09-01 \u2013 2026-09-03",
+          "nCaption": "Initial evaluations (packet I) \u00b7 2025-07-01 \u2013 2026-09-03",
           "items": [
             {
               "label": "White",
-              "count": 198,
-              "available": true
-            },
-            {
-              "label": "Hispanic",
-              "count": 95,
+              "count": 19,
               "available": true
             },
             {
               "label": "Asian",
-              "count": 91,
+              "count": 16,
+              "available": true
+            },
+            {
+              "label": "Hispanic",
+              "count": 9,
               "available": true
             },
             {
               "label": "Black",
-              "count": 88,
+              "count": 3,
               "available": true
             },
             {
               "label": "Hispanic or Latino; White",
-              "count": 58,
-              "available": true
-            },
-            {
-              "label": "Hispanic or Latino; Don't know",
-              "count": 49,
-              "available": true
-            },
-            {
-              "label": "American Indian or Alaska Native; Hispanic or Latino; White",
-              "count": 11,
-              "available": true
-            },
-            {
-              "label": "American Indian or Alaska Native; Hispanic or Latino",
-              "count": 7,
+              "count": 2,
               "available": true
             },
             {
               "label": "Asian; White",
-              "count": 4,
-              "available": true
-            },
-            {
-              "label": "White; Don't know",
-              "count": 3,
-              "available": true
-            },
-            {
-              "label": "Don't know",
-              "count": 3,
-              "available": true
-            },
-            {
-              "label": "American Indian or Alaska Native; White",
-              "count": 3,
-              "available": true
-            },
-            {
-              "label": "Native Hawaiian or Pacific Islander; White",
-              "count": 2,
-              "available": true
-            },
-            {
-              "label": "Hispanic or Latino; Native Hawaiian or Pacific Islander; White",
-              "count": 2,
+              "count": 1,
               "available": true
             },
             {
               "label": "Middle Eastern or North African",
-              "count": 2,
-              "available": true
-            },
-            {
-              "label": "Native Hawaiian or Pacific Islander",
-              "count": 1,
-              "available": true
-            },
-            {
-              "label": "Asian; Hispanic or Latino",
-              "count": 1,
-              "available": true
-            },
-            {
-              "label": "Other race (legacy category)",
-              "count": 1,
-              "available": true
-            },
-            {
-              "label": "Hispanic or Latino; Native Hawaiian or Pacific Islander",
-              "count": 1,
-              "available": true
-            },
-            {
-              "label": "Hispanic or Latino; White; Don't know",
-              "count": 1,
-              "available": true
-            },
-            {
-              "label": "American Indian or Alaska Native",
               "count": 1,
               "available": true
             }
@@ -518,43 +448,33 @@
         {
           "title": "APOE genotype",
           "type": "pie",
-          "n": 622,
+          "n": 51,
           "nAvailable": true,
-          "nCaption": "Initial evaluations (packet I) \u00b7 2020-09-01 \u2013 2026-09-03 \u00b7 red = genotype not in the MAP APOE file",
+          "nCaption": "Initial evaluations (packet I) \u00b7 2025-07-01 \u2013 2026-09-03 \u00b7 red = genotype not in the MAP APOE file",
           "items": [
             {
+              "label": "Genotype not in MAP APOE export",
+              "count": 35,
+              "available": false
+            },
+            {
               "label": "E3/E3",
-              "count": 263,
+              "count": 8,
               "available": true
             },
             {
               "label": "E3/E4",
-              "count": 137,
-              "available": true
-            },
-            {
-              "label": "Genotype not in MAP APOE export",
-              "count": 136,
-              "available": false
-            },
-            {
-              "label": "E4/E4",
-              "count": 37,
+              "count": 4,
               "available": true
             },
             {
               "label": "E3/E2",
-              "count": 35,
+              "count": 2,
               "available": true
             },
             {
-              "label": "E4/E2",
-              "count": 11,
-              "available": true
-            },
-            {
-              "label": "E2/E2",
-              "count": 3,
+              "label": "E4/E4",
+              "count": 2,
               "available": true
             }
           ]
@@ -562,48 +482,48 @@
         {
           "title": "Referral source (NACC A1)",
           "type": "bar",
-          "n": 622,
+          "n": 51,
           "nAvailable": true,
-          "nCaption": "Initial evaluations (packet I) \u00b7 2020-09-01 \u2013 2026-09-03",
+          "nCaption": "Initial evaluations (packet I) \u00b7 2025-07-01 \u2013 2026-09-03",
           "items": [
             {
+              "label": "Unknown referral source",
+              "count": 19,
+              "available": true
+            },
+            {
               "label": "ADRC clinician / staff",
-              "count": 222,
+              "count": 15,
               "available": true
             },
             {
               "label": "Prior ADRC participant",
-              "count": 156,
-              "available": true
-            },
-            {
-              "label": "Self-referral",
-              "count": 68,
-              "available": true
-            },
-            {
-              "label": "Non-professional contact",
-              "count": 46,
-              "available": true
-            },
-            {
-              "label": "Other referral source",
-              "count": 44,
-              "available": true
-            },
-            {
-              "label": "Other research study staff",
-              "count": 34,
+              "count": 6,
               "available": true
             },
             {
               "label": "Non-ADRC healthcare professional",
-              "count": 28,
+              "count": 4,
               "available": true
             },
             {
-              "label": "Unknown referral source",
-              "count": 24,
+              "label": "Self-referral",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "Non-professional contact",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "Other referral source",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Other research study staff",
+              "count": 1,
               "available": true
             }
           ]
@@ -661,7 +581,7 @@
     "brs": {
       "throughDate": null,
       "fromDate": null,
-      "title": "Total enrolled \u00b7 Autopsy program \u00b7 since 9/1/2020",
+      "title": "Total enrolled \u00b7 Autopsy program \u00b7 since 7/1/2025",
       "total": 0,
       "totalAvailable": false,
       "headerNote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",

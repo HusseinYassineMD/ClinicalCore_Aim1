@@ -37,8 +37,8 @@ from redcap_csv_utils import parse_timestamp  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / "src" / "data" / "recruitmentSpanCounts.json"
 
-# NIH P30 AG066530 project start (RePORTER).
-GRANT_START = datetime(2020, 9, 1)
+# UDS "active" toggle: visits on or after this date, through the last visit in the file.
+UDS_ACTIVE_START = datetime(2025, 7, 1)
 FAR_FUTURE = datetime(9999, 12, 31)
 FAR_PAST = datetime(1, 1, 1)
 
@@ -404,11 +404,11 @@ def main() -> None:
 
     phases = {
         "cumulative": (FAR_PAST, FAR_FUTURE, "all years in the file"),
-        "grant": (GRANT_START, FAR_FUTURE, "since 9/1/2020"),
+        "grant": (UDS_ACTIVE_START, FAR_FUTURE, "since 7/1/2025"),
     }
     payload: dict = {
-        "grantStart": "2020-09-01",
-        "grantSource": "NIH P30 AG066530 project start",
+        "udsActiveStart": "2025-07-01",
+        "udsActiveRule": "UDS visit_date on or after 2025-07-01, through the last visit in the file",
         "builtFrom": {
             "uds": "UDS_longitudinal_harmonized.csv",
             "brs": brs_path.name,
@@ -420,7 +420,7 @@ def main() -> None:
         gs_headline = (
             "Total members · GeneScreen · all Complete records"
             if key == "cumulative"
-            else "GeneScreen members · since 9/1/2020"
+            else "GeneScreen members · active period"
         )
         payload[key] = {
             "phrase": phrase,
