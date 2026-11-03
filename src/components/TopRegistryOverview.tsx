@@ -1525,9 +1525,8 @@ function RegistryAlignedDesktop({
 }
 
 const RECRUITMENT_PHASES: { id: RecruitmentPhase; label: string }[] = [
-  { id: "cumulative", label: "Cumulative · all time" },
-  { id: "grant", label: "Active with UDS · since 7/1/2025" },
-  { id: "ytd", label: "Year to date" },
+  { id: "cumulative", label: "Cumulative" },
+  { id: "grant", label: "Active" },
 ];
 
 function RecruitmentPhaseToggle({
@@ -1543,10 +1542,10 @@ function RecruitmentPhaseToggle({
 }) {
   const windowCaption =
     phase === "ytd"
-      ? "Active and year to date stay together in the UDS header. Year to date keeps the current colors. Black and green run through the last date in each file. Red means that count is not in the file."
+      ? "Cumulative is every UDS visit in this file, from 2005. Active is visits since July 1, 2025. Year to date stays in the UDS box. Black and green run through the last date in each file. Red means that count is not in the file."
       : phase === "grant"
-        ? "Active and year to date stay together in the UDS header. This button shows the active-period breakdown underneath. Pink means that count is in the file. Red means it is not."
-        : "Cumulative · all time is every UDS visit in this export. Those visits start in 2005. Pink means the count is in the file. Red means that cut is not in the file.";
+        ? "Active is visits on or after July 1, 2025. Year to date stays in the UDS box beside it. Pink means that count is in the file. Red means it is not."
+        : "Cumulative is every UDS visit in this export. Those visits start in 2005. Pink means the count is in the file. Red means that cut is not in the file.";
   const aliveCaption = alive
     ? " Alive is on. The UDS column shows people in this window who are not listed as Deceased. GeneScreen and autopsy stay on the window above."
     : "";
