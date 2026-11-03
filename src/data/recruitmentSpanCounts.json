@@ -17,17 +17,17 @@
       "totalAvailable": true,
       "headerNote": "Pink \u00b7 UDS visits all years in the file \u00b7 2005-09-09 \u2013 2026-09-03",
       "banner": "Cumulative",
-      "footnote": "In-person and remote count only visits with mode filled in. 5362 follow-up visits in this window have no mode, so they are not in those two cards. Initial is packet I, the same rule as year to date.",
+      "footnote": "In-person and remote are red: most follow-up visits in this file have no mode, so those totals are not available. Initial is packet I, the same field rule as year to date.",
       "activities": [
         {
           "label": "In-person follow-ups",
-          "count": 421,
-          "available": true
+          "count": 0,
+          "available": false
         },
         {
           "label": "Remote follow-ups",
-          "count": 28,
-          "available": true
+          "count": 0,
+          "available": false
         },
         {
           "label": "Initial",
@@ -49,13 +49,8 @@
               "available": true
             },
             {
-              "label": "Hispanic",
-              "count": 694,
-              "available": true
-            },
-            {
-              "label": "Asian",
-              "count": 204,
+              "label": "Hispanic or Latino; White",
+              "count": 416,
               "available": true
             },
             {
@@ -64,18 +59,53 @@
               "available": true
             },
             {
+              "label": "Asian",
+              "count": 193,
+              "available": true
+            },
+            {
+              "label": "Hispanic",
+              "count": 118,
+              "available": true
+            },
+            {
+              "label": "Hispanic or Latino; Don't know",
+              "count": 85,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native; Hispanic or Latino; White",
+              "count": 49,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native; White",
+              "count": 17,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native; Hispanic or Latino",
+              "count": 15,
+              "available": true
+            },
+            {
+              "label": "White; Don't know",
+              "count": 9,
+              "available": true
+            },
+            {
+              "label": "Asian; White",
+              "count": 6,
+              "available": true
+            },
+            {
+              "label": "Don't know",
+              "count": 5,
+              "available": true
+            },
+            {
               "label": "American Indian or Alaska Native",
-              "count": 22,
-              "available": true
-            },
-            {
-              "label": "Unknown / not reported",
-              "count": 14,
-              "available": true
-            },
-            {
-              "label": "Native Hawaiian or Pacific Islander",
-              "count": 7,
+              "count": 5,
               "available": true
             },
             {
@@ -84,12 +114,67 @@
               "available": true
             },
             {
+              "label": "Native Hawaiian or Pacific Islander; White",
+              "count": 4,
+              "available": true
+            },
+            {
+              "label": "Hispanic or Latino; Native Hawaiian or Pacific Islander; White",
+              "count": 4,
+              "available": true
+            },
+            {
+              "label": "Asian; Hispanic or Latino",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "Native Hawaiian or Pacific Islander",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "Asian; Native Hawaiian or Pacific Islander; White",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "Asian; Native Hawaiian or Pacific Islander",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native; Hispanic or Latino; White; Don't know",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Asian; Hispanic or Latino; White",
+              "count": 1,
+              "available": true
+            },
+            {
               "label": "Other race (legacy category)",
               "count": 1,
               "available": true
             },
             {
+              "label": "Hispanic or Latino; Native Hawaiian or Pacific Islander",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Hispanic or Latino; White; Don't know",
+              "count": 1,
+              "available": true
+            },
+            {
               "label": "Middle Eastern or North African; White",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native; Asian; White",
               "count": 1,
               "available": true
             }
@@ -302,138 +387,45 @@
       ]
     },
     "brs": {
-      "throughDate": "2026-10-05",
-      "fromDate": "1984-12-13",
-      "title": "Autopsy consents \u00b7 all years in the file",
-      "total": 939,
-      "totalAvailable": true,
-      "headerNote": "Pink \u00b7 MAP BRS consents \u00b7 Autopsy consents \u00b7 1984-12-13 \u2013 2026-10-05. Not the Data Core current-enrollment snapshot.",
+      "throughDate": null,
+      "fromDate": null,
+      "title": "Total enrolled \u00b7 Autopsy program \u00b7 all years in the file",
+      "total": 0,
+      "totalAvailable": false,
+      "headerNote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",
       "banner": "Cumulative",
-      "footnote": "Counts a yes consent, or a consent date whose yes/no flag is blank. Not the Data Core current-enrollment figure of 226.",
-      "gender": {
-        "male": 395,
-        "female": 544,
-        "available": true
-      },
+      "footnote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",
       "activities": [
         {
-          "label": "Autopsy consents",
-          "count": 939,
-          "available": true
+          "label": "New autopsy consents",
+          "count": 0,
+          "available": false
         }
       ],
       "charts": [
         {
           "title": "Ethnicity",
           "type": "bar",
-          "n": 939,
-          "nAvailable": true,
-          "nCaption": "Autopsy consents \u00b7 1984-12-13 \u2013 2026-10-05",
-          "items": [
-            {
-              "label": "White",
-              "count": 655,
-              "available": true
-            },
-            {
-              "label": "Hispanic",
-              "count": 173,
-              "available": true
-            },
-            {
-              "label": "Asian",
-              "count": 37,
-              "available": true
-            },
-            {
-              "label": "Black or African American",
-              "count": 27,
-              "available": true
-            },
-            {
-              "label": "Unknown or not reported",
-              "count": 23,
-              "available": true
-            },
-            {
-              "label": "More than one race",
-              "count": 21,
-              "available": true
-            },
-            {
-              "label": "Native Hawaiian or Pacific Islander",
-              "count": 2,
-              "available": true
-            },
-            {
-              "label": "American Indian or Alaska Native",
-              "count": 1,
-              "available": true
-            }
-          ]
+          "n": 0,
+          "nAvailable": false,
+          "nCaption": "No Data Core enrollment table for this window",
+          "items": []
         },
         {
           "title": "APOE genotype",
           "type": "pie",
-          "n": 939,
-          "nAvailable": true,
-          "nCaption": "Autopsy consents \u00b7 1984-12-13 \u2013 2026-10-05 \u00b7 red = genotype not in the MAP APOE file",
-          "items": [
-            {
-              "label": "Genotype not in MAP APOE export",
-              "count": 331,
-              "available": false
-            },
-            {
-              "label": "E3/E3",
-              "count": 323,
-              "available": true
-            },
-            {
-              "label": "E3/E4",
-              "count": 186,
-              "available": true
-            },
-            {
-              "label": "E3/E2",
-              "count": 47,
-              "available": true
-            },
-            {
-              "label": "E4/E4",
-              "count": 35,
-              "available": true
-            },
-            {
-              "label": "E4/E2",
-              "count": 15,
-              "available": true
-            },
-            {
-              "label": "E2/E2",
-              "count": 2,
-              "available": true
-            }
-          ]
+          "n": 0,
+          "nAvailable": false,
+          "nCaption": "No Data Core enrollment table for this window",
+          "items": []
         },
         {
           "title": "Sex",
           "type": "bar",
-          "n": 939,
-          "nAvailable": true,
-          "nCaption": "Autopsy consents \u00b7 1984-12-13 \u2013 2026-10-05 \u00b7 map_subject_gender",
-          "items": [
-            {
-              "label": "Female",
-              "count": 544,
-              "available": true
-            },
-            {
-              "label": "Male",
-              "count": 395,
-              "available": true
-            }
-          ]
+          "n": 0,
+          "nAvailable": false,
+          "nCaption": "No Data Core enrollment table for this window",
+          "items": []
         }
       ]
     }
@@ -448,17 +440,17 @@
       "totalAvailable": true,
       "headerNote": "Pink \u00b7 UDS visits since 9/1/2020 \u00b7 2020-09-01 \u2013 2026-09-03",
       "banner": "Active grant period",
-      "footnote": "In-person and remote count only visits with mode filled in. 1623 follow-up visits in this window have no mode, so they are not in those two cards. Initial is packet I, the same rule as year to date.",
+      "footnote": "In-person and remote are red: most follow-up visits in this file have no mode, so those totals are not available. Initial is packet I, the same field rule as year to date.",
       "activities": [
         {
           "label": "In-person follow-ups",
-          "count": 421,
-          "available": true
+          "count": 0,
+          "available": false
         },
         {
           "label": "Remote follow-ups",
-          "count": 28,
-          "available": true
+          "count": 0,
+          "available": false
         },
         {
           "label": "Initial",
@@ -475,18 +467,18 @@
           "nCaption": "Initial evaluations (packet I) \u00b7 2020-09-01 \u2013 2026-09-03",
           "items": [
             {
-              "label": "Hispanic",
-              "count": 225,
-              "available": true
-            },
-            {
               "label": "White",
               "count": 198,
               "available": true
             },
             {
-              "label": "Asian",
+              "label": "Hispanic",
               "count": 95,
+              "available": true
+            },
+            {
+              "label": "Asian",
+              "count": 91,
               "available": true
             },
             {
@@ -495,18 +487,53 @@
               "available": true
             },
             {
-              "label": "Unknown / not reported",
-              "count": 6,
+              "label": "Hispanic or Latino; White",
+              "count": 58,
               "available": true
             },
             {
-              "label": "American Indian or Alaska Native",
+              "label": "Hispanic or Latino; Don't know",
+              "count": 49,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native; Hispanic or Latino; White",
+              "count": 11,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native; Hispanic or Latino",
+              "count": 7,
+              "available": true
+            },
+            {
+              "label": "Asian; White",
               "count": 4,
               "available": true
             },
             {
-              "label": "Native Hawaiian or Pacific Islander",
+              "label": "White; Don't know",
               "count": 3,
+              "available": true
+            },
+            {
+              "label": "Don't know",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native; White",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "Native Hawaiian or Pacific Islander; White",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "Hispanic or Latino; Native Hawaiian or Pacific Islander; White",
+              "count": 2,
               "available": true
             },
             {
@@ -515,7 +542,32 @@
               "available": true
             },
             {
+              "label": "Native Hawaiian or Pacific Islander",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Asian; Hispanic or Latino",
+              "count": 1,
+              "available": true
+            },
+            {
               "label": "Other race (legacy category)",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Hispanic or Latino; Native Hawaiian or Pacific Islander",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Hispanic or Latino; White; Don't know",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native",
               "count": 1,
               "available": true
             }
@@ -723,118 +775,45 @@
       ]
     },
     "brs": {
-      "throughDate": "2026-10-05",
-      "fromDate": "2020-12-08",
-      "title": "Autopsy consents \u00b7 since 9/1/2020",
-      "total": 70,
-      "totalAvailable": true,
-      "headerNote": "Pink \u00b7 MAP BRS consents \u00b7 Autopsy consents \u00b7 2020-12-08 \u2013 2026-10-05. Not the Data Core current-enrollment snapshot.",
+      "throughDate": null,
+      "fromDate": null,
+      "title": "Total enrolled \u00b7 Autopsy program \u00b7 since 9/1/2020",
+      "total": 0,
+      "totalAvailable": false,
+      "headerNote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",
       "banner": "Active grant period",
-      "footnote": "Counts a yes consent, or a consent date whose yes/no flag is blank. Not the Data Core current-enrollment figure of 226.",
-      "gender": {
-        "male": 40,
-        "female": 30,
-        "available": true
-      },
+      "footnote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",
       "activities": [
         {
-          "label": "Autopsy consents",
-          "count": 70,
-          "available": true
+          "label": "New autopsy consents",
+          "count": 0,
+          "available": false
         }
       ],
       "charts": [
         {
           "title": "Ethnicity",
           "type": "bar",
-          "n": 70,
-          "nAvailable": true,
-          "nCaption": "Autopsy consents \u00b7 2020-12-08 \u2013 2026-10-05",
-          "items": [
-            {
-              "label": "White",
-              "count": 46,
-              "available": true
-            },
-            {
-              "label": "Hispanic",
-              "count": 16,
-              "available": true
-            },
-            {
-              "label": "Unknown or not reported",
-              "count": 5,
-              "available": true
-            },
-            {
-              "label": "Black or African American",
-              "count": 2,
-              "available": true
-            },
-            {
-              "label": "Native Hawaiian or Pacific Islander",
-              "count": 1,
-              "available": true
-            }
-          ]
+          "n": 0,
+          "nAvailable": false,
+          "nCaption": "No Data Core enrollment table for this window",
+          "items": []
         },
         {
           "title": "APOE genotype",
           "type": "pie",
-          "n": 70,
-          "nAvailable": true,
-          "nCaption": "Autopsy consents \u00b7 2020-12-08 \u2013 2026-10-05 \u00b7 red = genotype not in the MAP APOE file",
-          "items": [
-            {
-              "label": "E3/E3",
-              "count": 29,
-              "available": true
-            },
-            {
-              "label": "E3/E4",
-              "count": 18,
-              "available": true
-            },
-            {
-              "label": "Genotype not in MAP APOE export",
-              "count": 13,
-              "available": false
-            },
-            {
-              "label": "E3/E2",
-              "count": 4,
-              "available": true
-            },
-            {
-              "label": "E4/E4",
-              "count": 4,
-              "available": true
-            },
-            {
-              "label": "E4/E2",
-              "count": 2,
-              "available": true
-            }
-          ]
+          "n": 0,
+          "nAvailable": false,
+          "nCaption": "No Data Core enrollment table for this window",
+          "items": []
         },
         {
           "title": "Sex",
           "type": "bar",
-          "n": 70,
-          "nAvailable": true,
-          "nCaption": "Autopsy consents \u00b7 2020-12-08 \u2013 2026-10-05 \u00b7 map_subject_gender",
-          "items": [
-            {
-              "label": "Male",
-              "count": 40,
-              "available": true
-            },
-            {
-              "label": "Female",
-              "count": 30,
-              "available": true
-            }
-          ]
+          "n": 0,
+          "nAvailable": false,
+          "nCaption": "No Data Core enrollment table for this window",
+          "items": []
         }
       ]
     }

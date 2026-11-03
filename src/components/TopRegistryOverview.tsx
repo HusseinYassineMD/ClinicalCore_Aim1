@@ -566,7 +566,8 @@ function PeriodActivityCard({
   accent?: "navy" | "purple" | "teal";
 }) {
   const valueClass = metricValueClass(provenance, count);
-  const hasTarget = target != null && target > 0;
+  const missing = provenance === "unknown";
+  const hasTarget = !missing && target != null && target > 0;
   const pct = hasTarget
     ? Math.min(Math.round((count / target) * 100), 100)
     : 0;
@@ -588,7 +589,7 @@ function PeriodActivityCard({
         <div
           className={`flex h-5 w-full items-baseline justify-center gap-0.5 whitespace-nowrap tabular-nums text-sm sm:text-base font-semibold leading-none ${valueClass}`}
         >
-          <span>{count}</span>
+          <span>{missing ? "TBD" : count}</span>
           {hasTarget ? (
             <span className="font-normal opacity-45">/ {target}</span>
           ) : null}
@@ -1259,7 +1260,7 @@ function RegistryHeaderBlock({ column }: { column: RegistryColumn }) {
         {column.title}
       </p>
       <p className={`text-4xl md:text-5xl font-semibold mt-1 leading-none ${valueClass}`}>
-        {column.total}
+        {totalsProvenance === "unknown" ? "TBD" : column.total}
       </p>
       {column.headerNote ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
@@ -1460,7 +1461,7 @@ function RecruitmentPhaseToggle({
       ? "Year to date keeps the current colors. Black and green run through the last date in each file. Red means that count is not in the file."
       : phase === "grant"
         ? "Active grant period is September 1, 2020 through the last date in each file. Pink means that count is in the file. Red means it is not."
-        : "Cumulative is every record in the current files. UDS visits start in 2005. Autopsy consents start in 1984. Pink means that count is in the file. Red means it is not.";
+        : "Cumulative keeps a count pink only when the file supports the same rule as year to date. UDS visits in this export start in 2005. Red means that cut is not in the file.";
 
   return (
     <div className="flex flex-col items-center gap-2 px-2">

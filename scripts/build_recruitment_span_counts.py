@@ -42,16 +42,6 @@ GRANT_START = datetime(2020, 9, 1)
 FAR_FUTURE = datetime(9999, 12, 31)
 FAR_PAST = datetime(1, 1, 1)
 
-BRS_RACE = {
-    "1": "White",
-    "2": "Black or African American",
-    "3": "American Indian or Alaska Native",
-    "4": "Native Hawaiian or Pacific Islander",
-    "5": "Asian",
-    "6": "More than one race",
-    "99": "Unknown or not reported",
-}
-BRS_SEX = {"1": "Male", "2": "Female"}
 APOE_GAP = "Genotype not in MAP APOE export"
 
 
@@ -91,25 +81,6 @@ def uds_visit_date(row: dict[str, str]) -> datetime | None:
     return parse_row_date(row.get("visit_date")) or parse_row_date(row.get("visitdate"))
 
 
-def adrc_chart_race(summary: str | None) -> str:
-    """Short bars. Combined harmonized labels that mention Hispanic count as Hispanic."""
-    label = race_chart_label(summary)
-    if label in {"White", "Hispanic", "Asian", "Black", "Unknown / not reported"}:
-        return label
-    lower = label.lower()
-    if "hispanic" in lower or "latino" in lower:
-        return "Hispanic"
-    if "black" in lower or "african american" in lower:
-        return "Black"
-    if "asian" in lower:
-        return "Asian"
-    if "american indian" in lower or "alaska" in lower:
-        return "American Indian or Alaska Native"
-    if "hawaiian" in lower or "pacific" in lower:
-        return "Native Hawaiian or Pacific Islander"
-    if "don't know" in lower or "unknown" in lower or not label.strip():
-        return "Unknown / not reported"
-    return label
 
 
 def summarize_uds(
@@ -120,6 +91,7 @@ def summarize_uds(
     start: datetime,
     end: datetime,
     phrase: str,
+    publish_follow_up_mode: bool = False,
 ) -> dict:
     chosen = []
     dates: list[datetime] = []
@@ -145,7 +117,7 @@ def summarize_uds(
     referral: Counter[str] = Counter()
     for visit in initial:
         subject = subject_by_naccid.get((visit.get("naccid") or "").strip(), {})
-        race[adrc_chart_race(subject.get("der_current_race_ethnicity_summary"))] += 1
+        race[race_chart_label(subject.get("der_current_race_ethnicity_summary"))] += 1
         ptid = (visit.get("ptid") or subject.get("ptid") or "").strip()
         comb = apoe_by_ptid.get(ptid)
         if comb:
@@ -158,13 +130,9 @@ def summarize_uds(
     first = min(dates).strftime("%Y-%m-%d") if dates else None
     last = max(dates).strftime("%Y-%m-%d") if dates else None
     caption = span_caption("Initial evaluations (packet I)", first, last)
-    blank_mode = sum(
-        1 for row in follow if (row.get("modea1") or "").strip() not in {"1", "2", "3"}
-    )
     footnote = (
-        f"In-person and remote count only visits with mode filled in. "
-        f"{blank_mode} follow-up visits in this window have no mode, so they are not in those two cards. "
-        f"Initial is packet I, the same rule as year to date."
+        "In-person and remote are red: most follow-up visits in this file have no mode, "
+        "so those totals are not available. Initial is packet I, the same field rule as year to date."
     )
     return {
         "throughDate": last,
@@ -176,8 +144,16 @@ def summarize_uds(
         "banner": "Cumulative" if start == FAR_PAST else "Active grant period",
         "footnote": footnote,
         "activities": [
-            {"label": "In-person follow-ups", "count": len(in_person), "available": True},
-            {"label": "Remote follow-ups", "count": len(remote), "available": True},
+            {
+                "label": "In-person follow-ups",
+                "count": len(in_person) if publish_follow_up_mode else 0,
+                "available": publish_follow_up_mode,
+            },
+            {
+                "label": "Remote follow-ups",
+                "count": len(remote) if publish_follow_up_mode else 0,
+                "available": publish_follow_up_mode,
+            },
             {"label": "Initial", "count": len(initial), "available": True},
         ],
         "charts": [
@@ -320,16 +296,6 @@ def summarize_genescreen(
     }
 
 
-def brs_ethnicity(row: dict[str, str]) -> str:
-    hispanic = (row.get("subject_basic_hispanic") or "").strip()
-    if hispanic == "1":
-        return "Hispanic"
-    race = (row.get("subject_basic_race") or "").strip()
-    if not race or race == "99" or hispanic == "9":
-        return "Unknown or not reported"
-    return BRS_RACE.get(race, "Unknown or not reported")
-
-
 def summarize_brs(
     rows: list[dict[str, str]],
     apoe_by_ptid: dict[str, str],
@@ -338,83 +304,42 @@ def summarize_brs(
     end: datetime,
     phrase: str,
 ) -> dict:
-    chosen = []
-    dates: list[datetime] = []
-    for row in rows:
-        flag = (row.get("autopsy_consent") or "").strip()
-        if flag in {"2", "9"}:
-            continue
-        when = parse_row_date(row.get("autopsy_consent_date"))
-        consented = flag == "1" or when is not None
-        if not consented:
-            continue
-        if start == FAR_PAST:
-            chosen.append(row)
-            if when:
-                dates.append(when)
-            continue
-        if dated(when, start, end):
-            chosen.append(row)
-            dates.append(when)  # type: ignore[arg-type]
+    """Year-to-date 226 is Data Core current enrollment, not a date-filtered consent count.
 
-    sex: Counter[str] = Counter()
-    eth: Counter[str] = Counter()
-    apoe: Counter[str] = Counter()
-    for row in chosen:
-        sex[BRS_SEX.get((row.get("map_subject_gender") or "").strip(), "Unknown")] += 1
-        eth[brs_ethnicity(row)] += 1
-        comb = apoe_by_ptid.get((row.get("uds_id") or "").strip())
-        if comb:
-            apoe[format_apoe_genotype_label(comb)] += 1
-        else:
-            apoe[APOE_GAP] += 1
-
-    first = min(dates).strftime("%Y-%m-%d") if dates else None
-    last = max(dates).strftime("%Y-%m-%d") if dates else None
-    caption = span_caption("Autopsy consents", first, last)
-    male = sex.get("Male", 0)
-    female = sex.get("Female", 0)
+    The MAP export has consent dates, but it does not contain an enrollment total
+    for 'since 9/1/2020' or for all years that uses the Data Core rule. Leave the
+    column red rather than show a different count in that slot.
+    """
+    del rows, apoe_by_ptid, start, end
+    banner = "Cumulative" if phrase.startswith("all years") else "Active grant period"
+    note = (
+        "Red · year-to-date 226 is Data Core current enrollment. "
+        "This export has no matching enrollment total for this window."
+    )
+    empty = {
+        "title": "",
+        "type": "bar",
+        "n": 0,
+        "nAvailable": False,
+        "nCaption": "No Data Core enrollment table for this window",
+        "items": [],
+    }
     return {
-        "throughDate": last,
-        "fromDate": first,
-        "title": f"Autopsy consents · {phrase}",
-        "total": len(chosen),
-        "totalAvailable": True,
-        "headerNote": f"Pink · MAP BRS consents · {caption}. Not the Data Core current-enrollment snapshot.",
-        "banner": "Cumulative" if start == FAR_PAST else "Active grant period",
-        "footnote": (
-            "Counts a yes consent, or a consent date whose yes/no flag is blank. "
-            "Not the Data Core current-enrollment figure of 226."
-        ),
-        "gender": {"male": male, "female": female, "available": True},
+        "throughDate": None,
+        "fromDate": None,
+        "title": f"Total enrolled · Autopsy program · {phrase}",
+        "total": 0,
+        "totalAvailable": False,
+        "headerNote": note,
+        "banner": banner,
+        "footnote": note,
         "activities": [
-            {"label": "Autopsy consents", "count": len(chosen), "available": True},
+            {"label": "New autopsy consents", "count": 0, "available": False},
         ],
         "charts": [
-            {
-                "title": "Ethnicity",
-                "type": "bar",
-                "n": len(chosen),
-                "nAvailable": True,
-                "nCaption": caption,
-                "items": chart_items(eth),
-            },
-            {
-                "title": "APOE genotype",
-                "type": "pie",
-                "n": len(chosen),
-                "nAvailable": True,
-                "nCaption": f"{caption} · red = genotype not in the MAP APOE file",
-                "items": chart_items(apoe, gap_label=APOE_GAP),
-            },
-            {
-                "title": "Sex",
-                "type": "bar",
-                "n": len(chosen),
-                "nAvailable": True,
-                "nCaption": f"{caption} · map_subject_gender",
-                "items": chart_items(sex),
-            },
+            {**empty, "title": "Ethnicity", "type": "bar"},
+            {**empty, "title": "APOE genotype", "type": "pie"},
+            {**empty, "title": "Sex", "type": "bar"},
         ],
     }
 
@@ -495,6 +420,7 @@ def main() -> None:
         start=datetime(2026, 1, 1),
         end=datetime(2026, 10, 16, 23, 59, 59),
         phrase="year to date",
+        publish_follow_up_mode=True,
     )
     payload["ytdCheck"] = {
         "uniqueParticipants": ytd["total"],
