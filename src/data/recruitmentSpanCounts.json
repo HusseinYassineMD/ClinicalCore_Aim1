@@ -281,108 +281,50 @@
       ]
     },
     "genescreen": {
-      "throughDate": "2026-09-06",
-      "fromDate": "2023-05-10",
-      "title": "Total members \u00b7 GeneScreen \u00b7 all Complete records",
-      "total": 739,
-      "totalAvailable": true,
-      "headerNote": "Pink \u00b7 GeneScreen REDCap \u00b7 all years in the file \u00b7 2023-05-10 \u2013 2026-09-06",
+      "throughDate": null,
+      "fromDate": null,
+      "title": "Total members \u00b7 GeneScreen",
+      "total": 0,
+      "totalAvailable": false,
+      "headerNote": "Red \u00b7 this export does not give a separate total for this window. The year-to-date GeneScreen figures stay on Year to date.",
       "banner": "Cumulative",
-      "footnote": "All Complete records. Consent dates in this export run 2023-05-10 \u2013 2026-09-06.",
-      "gender": {
-        "male": 220,
-        "female": 519,
-        "available": true
-      },
+      "footnote": "Red \u00b7 this export does not give a separate total for this window. The year-to-date GeneScreen figures stay on Year to date.",
       "activities": [
         {
           "label": "Online enrollments",
-          "count": 739,
-          "available": true
+          "count": 0,
+          "available": false
         },
         {
           "label": "New members",
-          "count": 739,
-          "available": true
+          "count": 0,
+          "available": false
         }
       ],
       "charts": [
         {
           "title": "Ethnicity",
           "type": "bar",
-          "n": 739,
-          "nAvailable": true,
-          "nCaption": "Consent dates \u00b7 2023-05-10 \u2013 2026-09-06",
-          "items": [
-            {
-              "label": "Hispanic",
-              "count": 324,
-              "available": true
-            },
-            {
-              "label": "White",
-              "count": 285,
-              "available": true
-            },
-            {
-              "label": "Asian",
-              "count": 56,
-              "available": true
-            },
-            {
-              "label": "Black",
-              "count": 39,
-              "available": true
-            },
-            {
-              "label": "Unknown",
-              "count": 18,
-              "available": true
-            },
-            {
-              "label": "Other",
-              "count": 17,
-              "available": true
-            }
-          ]
+          "n": 0,
+          "nAvailable": false,
+          "nCaption": "Not a separate total in this REDCap export",
+          "items": []
         },
         {
           "title": "APOE4",
           "type": "pie",
-          "n": 739,
-          "nAvailable": true,
-          "nCaption": "Consent dates \u00b7 2023-05-10 \u2013 2026-09-06 \u00b7 red = genotype blank in the REDCap export",
-          "items": [
-            {
-              "label": "APOE4 carrier",
-              "count": 229,
-              "available": true
-            },
-            {
-              "label": "Non-carrier",
-              "count": 510,
-              "available": true
-            }
-          ]
+          "n": 0,
+          "nAvailable": false,
+          "nCaption": "Not a separate total in this REDCap export",
+          "items": []
         },
         {
           "title": "Gender",
           "type": "bar",
-          "n": 739,
-          "nAvailable": true,
-          "nCaption": "Consent dates \u00b7 2023-05-10 \u2013 2026-09-06",
-          "items": [
-            {
-              "label": "Female",
-              "count": 519,
-              "available": true
-            },
-            {
-              "label": "Male",
-              "count": 220,
-              "available": true
-            }
-          ]
+          "n": 0,
+          "nAvailable": false,
+          "nCaption": "Not a separate total in this REDCap export",
+          "items": []
         }
       ]
     },
@@ -669,108 +611,50 @@
       ]
     },
     "genescreen": {
-      "throughDate": "2026-09-06",
-      "fromDate": "2023-05-10",
-      "title": "GeneScreen members \u00b7 since 9/1/2020",
-      "total": 739,
-      "totalAvailable": true,
-      "headerNote": "Pink \u00b7 GeneScreen REDCap \u00b7 since 9/1/2020 \u00b7 2023-05-10 \u2013 2026-09-06",
+      "throughDate": null,
+      "fromDate": null,
+      "title": "Total members \u00b7 GeneScreen",
+      "total": 0,
+      "totalAvailable": false,
+      "headerNote": "Red \u00b7 this export does not give a separate total for this window. The year-to-date GeneScreen figures stay on Year to date.",
       "banner": "Active grant period",
-      "footnote": "Every Complete GeneScreen record in this export consented on or after 2023-05-10, which is after the grant start, so this column matches the all-years count.",
-      "gender": {
-        "male": 220,
-        "female": 519,
-        "available": true
-      },
+      "footnote": "Red \u00b7 this export does not give a separate total for this window. The year-to-date GeneScreen figures stay on Year to date.",
       "activities": [
         {
           "label": "Online enrollments",
-          "count": 739,
-          "available": true
+          "count": 0,
+          "available": false
         },
         {
           "label": "New members",
-          "count": 739,
-          "available": true
+          "count": 0,
+          "available": false
         }
       ],
       "charts": [
         {
           "title": "Ethnicity",
           "type": "bar",
-          "n": 739,
-          "nAvailable": true,
-          "nCaption": "Consent dates \u00b7 2023-05-10 \u2013 2026-09-06",
-          "items": [
-            {
-              "label": "Hispanic",
-              "count": 324,
-              "available": true
-            },
-            {
-              "label": "White",
-              "count": 285,
-              "available": true
-            },
-            {
-              "label": "Asian",
-              "count": 56,
-              "available": true
-            },
-            {
-              "label": "Black",
-              "count": 39,
-              "available": true
-            },
-            {
-              "label": "Unknown",
-              "count": 18,
-              "available": true
-            },
-            {
-              "label": "Other",
-              "count": 17,
-              "available": true
-            }
-          ]
+          "n": 0,
+          "nAvailable": false,
+          "nCaption": "Not a separate total in this REDCap export",
+          "items": []
         },
         {
           "title": "APOE4",
           "type": "pie",
-          "n": 739,
-          "nAvailable": true,
-          "nCaption": "Consent dates \u00b7 2023-05-10 \u2013 2026-09-06 \u00b7 red = genotype blank in the REDCap export",
-          "items": [
-            {
-              "label": "APOE4 carrier",
-              "count": 229,
-              "available": true
-            },
-            {
-              "label": "Non-carrier",
-              "count": 510,
-              "available": true
-            }
-          ]
+          "n": 0,
+          "nAvailable": false,
+          "nCaption": "Not a separate total in this REDCap export",
+          "items": []
         },
         {
           "title": "Gender",
           "type": "bar",
-          "n": 739,
-          "nAvailable": true,
-          "nCaption": "Consent dates \u00b7 2023-05-10 \u2013 2026-09-06",
-          "items": [
-            {
-              "label": "Female",
-              "count": 519,
-              "available": true
-            },
-            {
-              "label": "Male",
-              "count": 220,
-              "available": true
-            }
-          ]
+          "n": 0,
+          "nAvailable": false,
+          "nCaption": "Not a separate total in this REDCap export",
+          "items": []
         }
       ]
     },

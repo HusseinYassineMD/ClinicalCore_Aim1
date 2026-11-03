@@ -197,6 +197,42 @@ def summarize_genescreen(
     phrase: str,
     headline: str,
 ) -> dict:
+    # 739 Complete rows span May 2023–September 2026. That is not the 2026
+    # window, and this CSV does not contain REDCap's 730 record count.
+    # Leave cumulative and grant-period GeneScreen red.
+    banner = "Cumulative" if phrase.startswith("all years") else "Active grant period"
+    del rows, start, end, phrase, headline
+    note = (
+        "Red · this export does not give a separate total for this window. "
+        "The year-to-date GeneScreen figures stay on Year to date."
+    )
+    empty = {
+        "title": "",
+        "type": "bar",
+        "n": 0,
+        "nAvailable": False,
+        "nCaption": "Not a separate total in this REDCap export",
+        "items": [],
+    }
+    return {
+        "throughDate": None,
+        "fromDate": None,
+        "title": "Total members · GeneScreen",
+        "total": 0,
+        "totalAvailable": False,
+        "headerNote": note,
+        "banner": banner,
+        "footnote": note,
+        "activities": [
+            {"label": "Online enrollments", "count": 0, "available": False},
+            {"label": "New members", "count": 0, "available": False},
+        ],
+        "charts": [
+            {**empty, "title": "Ethnicity", "type": "bar"},
+            {**empty, "title": "APOE4", "type": "pie"},
+            {**empty, "title": "Gender", "type": "bar"},
+        ],
+    }
     def consent_at(row: dict[str, str]) -> datetime | None:
         return parse_timestamp(row.get("Consent Date"))
 

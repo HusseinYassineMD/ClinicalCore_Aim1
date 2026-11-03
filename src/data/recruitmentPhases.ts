@@ -62,11 +62,12 @@ export function columnForPhase(
     };
   }) as [RegistryChartSlot, RegistryChartSlot, RegistryChartSlot];
 
+  const available = span.totalAvailable;
   return {
     ...column,
     title: span.title,
     total: span.total,
-    totalsProvenance: provenanceFor(span.totalAvailable),
+    totalsProvenance: provenanceFor(available),
     newThisPeriod: span.activities.at(-1)?.count ?? span.total,
     periodActivities: span.activities.map((item) => ({
       label: item.label,
@@ -78,10 +79,13 @@ export function columnForPhase(
     periodBanner: span.banner,
     headerNote: span.headerNote,
     gender:
-      span.gender && span.gender.available
+      available && span.gender && span.gender.available
         ? { male: span.gender.male, female: span.gender.female }
         : undefined,
-    chartsProvenance: "span",
+    apoeGenotypes: available ? column.apoeGenotypes : [],
+    catchmentDemos: available ? column.catchmentDemos : [],
+    bySource: available ? column.bySource : [],
+    chartsProvenance: available ? "span" : "unknown",
     chartSlots: charts,
   };
 }
