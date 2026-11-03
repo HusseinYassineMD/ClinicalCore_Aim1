@@ -89,6 +89,35 @@ function applySpan(column: RegistryColumn, span: SpanColumn): RegistryColumn {
   };
 }
 
+export type UdsPeriodBox = {
+  id: "grant" | "ytd";
+  label: string;
+  detail: string;
+  total: number;
+  provenance: DataProvenance;
+};
+
+/** Active and year to date, shown together in the UDS header. */
+export function udsPeriodBoxes(alive: boolean, ytdTotal: number): UdsPeriodBox[] {
+  const active = alive ? SPAN.grant.adrcAlive : SPAN.grant.adrc;
+  return [
+    {
+      id: "grant",
+      label: "Active with UDS",
+      detail: alive ? "since 7/1/2025 · alive" : "since 7/1/2025",
+      total: active.total,
+      provenance: "span",
+    },
+    {
+      id: "ytd",
+      label: "Year to date",
+      detail: alive ? "alive" : "through last visit",
+      total: alive ? SPAN.ytd.adrcAlive.total : ytdTotal,
+      provenance: alive ? "span" : "prior",
+    },
+  ];
+}
+
 /** Year to date is the current column. The other two phases swap in file counts. */
 export function columnForPhase(
   column: RegistryColumn,

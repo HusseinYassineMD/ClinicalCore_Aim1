@@ -38,7 +38,9 @@ import {
 } from "@/data/recruitmentChartConstants";
 import {
   columnForPhase,
+  udsPeriodBoxes,
   type RecruitmentPhase,
+  type UdsPeriodBox,
 } from "@/data/recruitmentPhases";
 
 type ChartCountItem = {
@@ -1247,22 +1249,71 @@ function chartsProvenanceForColumn(column: RegistryColumn): DataProvenance {
   return column.chartsProvenance ?? column.totalsProvenance ?? "unknown";
 }
 
-function RegistryHeaderBlock({ column }: { column: RegistryColumn }) {
+function RegistryHeaderBlock({
+  column,
+  udsBoxes,
+  phase,
+  onSelectPhase,
+}: {
+  column: RegistryColumn;
+  udsBoxes?: UdsPeriodBox[];
+  phase?: RecruitmentPhase;
+  onSelectPhase?: (phase: RecruitmentPhase) => void;
+}) {
   const totalsProvenance = countProvenanceForColumn(
     column.id,
     column.totalsProvenance ?? "ytd",
   );
   const valueClass = metricValueClass(totalsProvenance, column.total);
+  const showUdsBoxes = column.id === "adrc" && udsBoxes && udsBoxes.length > 0;
 
   return (
     <div className="text-center rounded-2xl border-2 border-cpbh-purple/25 bg-cpbh-mist/30 px-4 py-3 shadow-sm flex flex-col items-center justify-center min-h-[7.5rem] h-full">
       <p className="text-sm font-medium text-cpbh-purple uppercase tracking-wide leading-snug px-1 line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
-        {column.title}
+        {showUdsBoxes ? "Participants with a UDS visit" : column.title}
       </p>
+      {showUdsBoxes ? (
+        <div className="mt-2 grid w-full grid-cols-2 gap-2">
+          {udsBoxes.map((box) => {
+            const selected = phase === box.id;
+            return (
+              <button
+                key={box.id}
+                type="button"
+                onClick={() => onSelectPhase?.(box.id)}
+                className={`rounded-lg border bg-white px-2 py-2 text-center shadow-sm ${
+                  selected
+                    ? "border-cpbh-navy ring-2 ring-cpbh-navy/25"
+                    : "border-cpbh-mist hover:border-cpbh-navy/30"
+                }`}
+              >
+                <p className="text-[10px] font-medium uppercase tracking-wide text-cpbh-navy/70 leading-tight">
+                  {box.label}
+                </p>
+                <p className="text-[9px] text-cpbh-navy/50 leading-tight">
+                  {box.detail}
+                </p>
+                <p
+                  className={`mt-1 text-3xl font-semibold leading-none ${metricValueClass(box.provenance, box.total)}`}
+                >
+                  {box.total}
+                </p>
+              </button>
+            );
+          })}
+        </div>
+      ) : (
       <p className={`text-4xl md:text-5xl font-semibold mt-1 leading-none ${valueClass}`}>
         {totalsProvenance === "unknown" ? "TBD" : column.total}
       </p>
-      {column.headerNote ? (
+      )}
+      {showUdsBoxes ? (
+        <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
+          {udsBoxes.some((box) => box.detail.includes("alive"))
+            ? "Alive counts exclude people listed as Deceased. The outlined box matches the breakdown below."
+            : "Active is pink. Year to date stays green because the file ends before 10/16/2026. The outlined box matches the breakdown below."}
+        </p>
+      ) : column.headerNote ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
           {column.headerNote}
         </p>
@@ -1359,7 +1410,17 @@ function RegistryYtdBlock({ column }: { column: RegistryColumn }) {
 }
 
 /** Stacked column (mobile / tablet). */
-function RegistryColumnCard({ column }: { column: RegistryColumn }) {
+function RegistryColumnCard({
+  column,
+  udsBoxes,
+  phase,
+  onSelectPhase,
+}: {
+  column: RegistryColumn;
+  udsBoxes?: UdsPeriodBox[];
+  phase?: RecruitmentPhase;
+  onSelectPhase?: (phase: RecruitmentPhase) => void;
+}) {
   const chartsProvenance = chartsProvenanceForColumn(column);
   const slots = activeChartSlotsForColumn(column);
 
@@ -1367,7 +1428,12 @@ function RegistryColumnCard({ column }: { column: RegistryColumn }) {
     <div
       className={`dashboard-card border-t-4 ${columnAccentBorder(column)} flex flex-col gap-3 h-auto min-w-[14rem] w-full`}
     >
-      <RegistryHeaderBlock column={column} />
+      <RegistryHeaderBlock
+        column={column}
+        udsBoxes={udsBoxes}
+        phase={phase}
+        onSelectPhase={onSelectPhase}
+      />
       <RegistryYtdBlock column={column} />
       <div className="flex flex-col gap-2.5 shrink-0 w-full min-w-0">
         {slots.map((slot, index) =>
@@ -1382,7 +1448,17 @@ const REGISTRY_ROW_GRID =
   "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-x-6 xl:gap-y-5 items-stretch";
 
 /** Desktop: each horizontal band aligns across GeneScreen · ADRC · BRS. */
-function RegistryAlignedDesktop({ columns }: { columns: RegistryColumn[] }) {
+function RegistryAlignedDesktop({
+  columns,
+  udsBoxes,
+  phase,
+  onSelectPhase,
+}: {
+  columns: RegistryColumn[];
+  udsBoxes?: UdsPeriodBox[];
+  phase?: RecruitmentPhase;
+  onSelectPhase?: (phase: RecruitmentPhase) => void;
+}) {
   return (
     <div className="hidden xl:flex xl:flex-col xl:gap-3 w-full mx-auto">
       <div
@@ -1395,7 +1471,12 @@ function RegistryAlignedDesktop({ columns }: { columns: RegistryColumn[] }) {
             key={`head-${col.id}`}
             className={`dashboard-card border-t-4 ${columnAccentBorder(col)} p-4 h-full`}
           >
-            <RegistryHeaderBlock column={col} />
+            <RegistryHeaderBlock
+              column={col}
+              udsBoxes={udsBoxes}
+              phase={phase}
+              onSelectPhase={onSelectPhase}
+            />
           </div>
         ))}
       </div>
@@ -1462,9 +1543,9 @@ function RecruitmentPhaseToggle({
 }) {
   const windowCaption =
     phase === "ytd"
-      ? "Year to date keeps the current colors. Black and green run through the last date in each file. Red means that count is not in the file."
+      ? "Active and year to date stay together in the UDS header. Year to date keeps the current colors. Black and green run through the last date in each file. Red means that count is not in the file."
       : phase === "grant"
-        ? "Active with UDS is visits on or after July 1, 2025, the start of the current five-year period, through the last visit in the file. Pink means that count is in the file. Red means it is not."
+        ? "Active and year to date stay together in the UDS header. This button shows the active-period breakdown underneath. Pink means that count is in the file. Red means it is not."
         : "Cumulative · all time is every UDS visit in this export. Those visits start in 2005. Pink means the count is in the file. Red means that cut is not in the file.";
   const aliveCaption = alive
     ? " Alive is on. The UDS column shows people in this window who are not listed as Deceased. GeneScreen and autopsy stay on the window above."
@@ -1522,6 +1603,11 @@ export default function TopRegistryOverview({
   const columns = data.columns.map((column) =>
     columnForPhase(column, phase, alive),
   );
+  const ytdAdrc = data.columns.find((column) => column.id === "adrc");
+  const udsBoxes =
+    phase === "cumulative" || !ytdAdrc
+      ? undefined
+      : udsPeriodBoxes(alive, ytdAdrc.total);
 
   return (
     <section className="relative z-[1] space-y-6 w-full mx-auto max-w-[90rem]">
@@ -1531,10 +1617,21 @@ export default function TopRegistryOverview({
         onChange={setPhase}
         onAliveChange={setAlive}
       />
-      <RegistryAlignedDesktop columns={columns} />
+      <RegistryAlignedDesktop
+        columns={columns}
+        udsBoxes={udsBoxes}
+        phase={phase}
+        onSelectPhase={setPhase}
+      />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xl:hidden">
         {columns.map((col) => (
-          <RegistryColumnCard key={col.id} column={col} />
+          <RegistryColumnCard
+            key={col.id}
+            column={col}
+            udsBoxes={udsBoxes}
+            phase={phase}
+            onSelectPhase={setPhase}
+          />
         ))}
       </div>
     </section>
