@@ -118,13 +118,19 @@ export function udsPeriodBoxes(alive: boolean, ytdTotal: number): UdsPeriodBox[]
   ];
 }
 
-/** Cumulative and Active change the UDS column only. GeneScreen and autopsy stay on year to date. */
+/**
+ * Cumulative: UDS is all-time, and GeneScreen and autopsy are red TBD.
+ * Active: only UDS changes. GeneScreen and autopsy stay on year to date.
+ */
 export function columnForPhase(
   column: RegistryColumn,
   phase: RecruitmentPhase,
   alive = false,
 ): RegistryColumn {
-  if (column.id !== "adrc") return column;
+  if (column.id === "genescreen" || column.id === "brs") {
+    if (phase === "cumulative") return applySpan(column, SPAN.cumulative[column.id]);
+    return column;
+  }
   if (alive) return applySpan(column, SPAN[phase].adrcAlive);
   if (phase === "ytd") return column;
   return applySpan(column, SPAN[phase].adrc);
