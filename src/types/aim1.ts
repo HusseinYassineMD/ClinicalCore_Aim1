@@ -79,6 +79,10 @@ export interface RegistryColumn {
   /** Budget-goal thermometer for reporting-period recruitment (GeneScreen column) */
   periodTarget?: number;
   periodTargetNote?: string;
+  /** Replaces the “+ year to date” label when a recruitment phase is selected. */
+  periodBanner?: string;
+  /** Replaces the green/black header caption for cumulative and grant-period counts. */
+  headerNote?: string;
   /** Three chart slots — titles and metrics differ by registry (ADRC vs GeneScreen vs BRS) */
   chartSlots?: [RegistryChartSlot, RegistryChartSlot, RegistryChartSlot];
   /** Reporting-period vs 5-yr grant chart views (toggle above pictographs) */
@@ -405,7 +409,7 @@ export interface NeuropathMetrics {
 }
 
 /** Value color: YTD Jan 1–date (black), last RPPR period (green), no data (red; pie slices stay slate). */
-export type DataProvenance = "ytd" | "prior" | "unknown";
+export type DataProvenance = "ytd" | "prior" | "unknown" | "span";
 
 export interface DataStatusBulletGroup {
   title: string;

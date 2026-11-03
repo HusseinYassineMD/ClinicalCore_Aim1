@@ -74,13 +74,18 @@
     @apply bg-cpbh-mist/30;
   }
 
-  /* Black = Jan 1–date YTD · green = last RPPR period · red = no data */
+  /* Black = Jan 1–date YTD · green = last RPPR period · pink = recruitment cumulative/grant · red = no data */
   .metric-value-ytd {
     @apply text-neutral-950;
   }
 
   .metric-value-prior {
     color: #15803d;
+    font-weight: 600;
+  }
+
+  .metric-value-span {
+    color: #db2777;
     font-weight: 600;
   }
 
@@ -128,6 +133,7 @@ html.dashboard-capture .metric-card p[class*="text-3xl"] {
 
 html.dashboard-capture .metric-value-ytd,
 html.dashboard-capture .metric-value-prior,
+html.dashboard-capture .metric-value-span,
 html.dashboard-capture .metric-value-unknown {
   font-weight: 700 !important;
 }

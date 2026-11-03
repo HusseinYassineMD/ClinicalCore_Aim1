@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   BarChart,
   Bar,
@@ -35,6 +36,10 @@ import {
   GENESCREEN_YTD_LEGACY_ETHNICITY,
   LEGACY_RED_CHART_CAPTION,
 } from "@/data/recruitmentChartConstants";
+import {
+  columnForPhase,
+  type RecruitmentPhase,
+} from "@/data/recruitmentPhases";
 
 type ChartCountItem = {
   label: string;
@@ -638,6 +643,7 @@ function ReportingPeriodPanel({
   items,
   provenance,
   footnote,
+  banner = "+ year to date",
   accent = "teal",
 }: {
   items: {
@@ -648,6 +654,7 @@ function ReportingPeriodPanel({
   }[];
   provenance: DataProvenance;
   footnote?: string;
+  banner?: string;
   accent?: "navy" | "purple" | "teal";
 }) {
   const cardProps = (item: (typeof items)[number]) => ({
@@ -663,7 +670,7 @@ function ReportingPeriodPanel({
   return (
     <div className="flex w-full flex-col gap-2">
       <p className="text-sm text-cpbh-navy/60 text-center leading-none">
-        + year to date
+        {banner}
       </p>
       {items.length === 2 ? (
         <div className="flex justify-center gap-2 items-stretch">
@@ -1254,12 +1261,16 @@ function RegistryHeaderBlock({ column }: { column: RegistryColumn }) {
       <p className={`text-4xl md:text-5xl font-semibold mt-1 leading-none ${valueClass}`}>
         {column.total}
       </p>
-      {column.id === "adrc" || column.id === "brs" ? (
+      {column.headerNote ? (
+        <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
+          {column.headerNote}
+        </p>
+      ) : column.id === "adrc" || column.id === "brs" ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
           Green · source file ends before 10/16/2026
         </p>
       ) : null}
-      {column.id === "genescreen" && column.totalsProvenance === "ytd" ? (
+      {column.id === "genescreen" && column.totalsProvenance === "ytd" && !column.headerNote ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-0.5 leading-tight px-1">
           Black = GeneScreen REDCap export ({column.total} Complete? records). Last RPPR cited 668.
         </p>
@@ -1316,6 +1327,7 @@ function RegistryYtdBlock({ column }: { column: RegistryColumn }) {
           }))}
           provenance={countProvenanceForColumn(column.id, "ytd")}
           footnote={column.periodTargetNote}
+          banner={column.periodBanner}
           accent={
             column.id === "adrc"
               ? "navy"
@@ -1430,14 +1442,72 @@ function RegistryAlignedDesktop({ columns }: { columns: RegistryColumn[] }) {
   );
 }
 
+const RECRUITMENT_PHASES: { id: RecruitmentPhase; label: string }[] = [
+  { id: "cumulative", label: "Cumulative" },
+  { id: "grant", label: "Active grant period" },
+  { id: "ytd", label: "Year to date" },
+];
+
+function RecruitmentPhaseToggle({
+  phase,
+  onChange,
+}: {
+  phase: RecruitmentPhase;
+  onChange: (phase: RecruitmentPhase) => void;
+}) {
+  const caption =
+    phase === "ytd"
+      ? "Year to date keeps the current colors. Black and green run through the last date in each file. Red means that count is not in the file."
+      : phase === "grant"
+        ? "Active grant period is September 1, 2020 through the last date in each file. Pink means that count is in the file. Red means it is not."
+        : "Cumulative is every record in the current files. UDS visits start in 2005. Autopsy consents start in 1984. Pink means that count is in the file. Red means it is not.";
+
+  return (
+    <div className="flex flex-col items-center gap-2 px-2">
+      <div
+        role="radiogroup"
+        aria-label="Recruitment time window"
+        className="inline-flex flex-wrap justify-center gap-1 rounded-full border border-cpbh-mist bg-white p-1 shadow-sm"
+      >
+        {RECRUITMENT_PHASES.map((option) => {
+          const selected = phase === option.id;
+          return (
+            <button
+              key={option.id}
+              type="button"
+              role="radio"
+              aria-checked={selected}
+              onClick={() => onChange(option.id)}
+              className={`rounded-full px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors ${
+                selected
+                  ? "bg-cpbh-navy text-white"
+                  : "text-cpbh-navy/70 hover:bg-cpbh-mist/60"
+              }`}
+            >
+              {option.label}
+            </button>
+          );
+        })}
+      </div>
+      <p className="max-w-3xl text-center text-[11px] leading-snug text-cpbh-navy/60">
+        {caption}
+      </p>
+    </div>
+  );
+}
+
 export default function TopRegistryOverview({
   data,
 }: TopRegistryOverviewProps) {
+  const [phase, setPhase] = useState<RecruitmentPhase>("ytd");
+  const columns = data.columns.map((column) => columnForPhase(column, phase));
+
   return (
     <section className="relative z-[1] space-y-6 w-full mx-auto max-w-[90rem]">
-      <RegistryAlignedDesktop columns={data.columns} />
+      <RecruitmentPhaseToggle phase={phase} onChange={setPhase} />
+      <RegistryAlignedDesktop columns={columns} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xl:hidden">
-        {data.columns.map((col) => (
+        {columns.map((col) => (
           <RegistryColumnCard key={col.id} column={col} />
         ))}
       </div>

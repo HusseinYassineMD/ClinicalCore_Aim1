@@ -4,7 +4,9 @@ import type { DataProvenance } from "@/types/aim1";
 export function normalizeProvenance(
   kind: DataProvenance | "real" | "mock" | "mixed" | undefined,
 ): DataProvenance {
-  if (kind === "ytd" || kind === "prior" || kind === "unknown") return kind;
+  if (kind === "ytd" || kind === "prior" || kind === "unknown" || kind === "span") {
+    return kind;
+  }
   if (kind === "real") return "ytd";
   if (kind === "mock") return "unknown";
   return "unknown";
@@ -28,6 +30,7 @@ export function isMissingChartCount(
 /**
  * Black (ytd) = Jan 1 – date · harmonized data package + RedCap YTD.
  * Green (prior) = Last RPPR reporting period (rpprMetrics / Table 1 workbook).
+ * Pink (span) = Recruitment cumulative or active grant period, counted from the current files.
  * Red (unknown) = No data / placeholder (text, bars, labels — not pie slice fill).
  */
 export function metricValueClass(
@@ -39,6 +42,7 @@ export function metricValueClass(
     return "metric-value-unknown";
   }
   if (normalized === "prior") return "metric-value-prior";
+  if (normalized === "span") return "metric-value-span";
   if (normalized === "unknown") return "metric-value-unknown";
   return "metric-value-ytd";
 }
@@ -46,6 +50,7 @@ export function metricValueClass(
 export const METRIC_CHART_COLORS = {
   ytd: "#0a0a0a",
   prior: "#15803d",
+  span: "#db2777",
   unknown: "#dc2626",
 } as const;
 
@@ -67,6 +72,7 @@ const BAR_UNKNOWN_PALETTE = [
 const BAR_PALETTES: Record<DataProvenance, readonly string[]> = {
   ytd: ["#0a0a0a", "#262626", "#404040", "#525252"],
   prior: ["#15803d", "#16a34a", "#059669", "#047857"],
+  span: ["#db2777", "#be185d", "#ec4899", "#9d174d"],
   unknown: BAR_UNKNOWN_PALETTE,
 };
 
@@ -80,6 +86,7 @@ export function metricChartLabelFill(
     return METRIC_CHART_COLORS.unknown;
   }
   if (normalized === "prior") return METRIC_CHART_COLORS.prior;
+  if (normalized === "span") return METRIC_CHART_COLORS.span;
   if (normalized === "unknown") return METRIC_CHART_COLORS.unknown;
   return METRIC_CHART_COLORS.ytd;
 }

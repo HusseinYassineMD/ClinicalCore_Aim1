@@ -1,0 +1,842 @@
+{
+  "grantStart": "2020-09-01",
+  "grantSource": "NIH P30 AG066530 project start",
+  "builtFrom": {
+    "uds": "UDS_longitudinal_harmonized.csv",
+    "brs": "MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv",
+    "apoe": "MAPDatabase-APOEGenotype_DATA_2026-09-16_1445.csv",
+    "genescreen": "USCGeneScreenRegistr-USCGeneScreenRegistr_DATA_LABELS_2026-10-07_0842.csv"
+  },
+  "cumulative": {
+    "phrase": "all years in the file",
+    "adrc": {
+      "throughDate": "2026-09-03",
+      "fromDate": "2005-09-09",
+      "title": "Participants with a UDS visit \u00b7 all years in the file",
+      "total": 2373,
+      "totalAvailable": true,
+      "headerNote": "Pink \u00b7 UDS visits all years in the file \u00b7 2005-09-09 \u2013 2026-09-03",
+      "banner": "Cumulative",
+      "footnote": "In-person and remote count only visits with mode filled in. 5362 follow-up visits in this window have no mode, so they are not in those two cards. Initial is packet I, the same rule as year to date.",
+      "activities": [
+        {
+          "label": "In-person follow-ups",
+          "count": 421,
+          "available": true
+        },
+        {
+          "label": "Remote follow-ups",
+          "count": 28,
+          "available": true
+        },
+        {
+          "label": "Initial",
+          "count": 2367,
+          "available": true
+        }
+      ],
+      "charts": [
+        {
+          "title": "Ethnicity",
+          "type": "bar",
+          "n": 2367,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2005-09-09 \u2013 2026-09-03",
+          "items": [
+            {
+              "label": "White",
+              "count": 1218,
+              "available": true
+            },
+            {
+              "label": "Hispanic",
+              "count": 694,
+              "available": true
+            },
+            {
+              "label": "Asian",
+              "count": 204,
+              "available": true
+            },
+            {
+              "label": "Black",
+              "count": 201,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native",
+              "count": 22,
+              "available": true
+            },
+            {
+              "label": "Unknown / not reported",
+              "count": 14,
+              "available": true
+            },
+            {
+              "label": "Native Hawaiian or Pacific Islander",
+              "count": 7,
+              "available": true
+            },
+            {
+              "label": "Middle Eastern or North African",
+              "count": 5,
+              "available": true
+            },
+            {
+              "label": "Other race (legacy category)",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Middle Eastern or North African; White",
+              "count": 1,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "APOE genotype",
+          "type": "pie",
+          "n": 2367,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2005-09-09 \u2013 2026-09-03 \u00b7 red = genotype not in the MAP APOE file",
+          "items": [
+            {
+              "label": "E3/E3",
+              "count": 952,
+              "available": true
+            },
+            {
+              "label": "Genotype not in MAP APOE export",
+              "count": 586,
+              "available": false
+            },
+            {
+              "label": "E3/E4",
+              "count": 542,
+              "available": true
+            },
+            {
+              "label": "E4/E4",
+              "count": 126,
+              "available": true
+            },
+            {
+              "label": "E3/E2",
+              "count": 116,
+              "available": true
+            },
+            {
+              "label": "E4/E2",
+              "count": 40,
+              "available": true
+            },
+            {
+              "label": "E2/E2",
+              "count": 5,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "Referral source (NACC A1)",
+          "type": "bar",
+          "n": 2367,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2005-09-09 \u2013 2026-09-03",
+          "items": [
+            {
+              "label": "refersc=blank",
+              "count": 1264,
+              "available": true
+            },
+            {
+              "label": "ADRC clinician / staff",
+              "count": 351,
+              "available": true
+            },
+            {
+              "label": "Prior ADRC participant",
+              "count": 198,
+              "available": true
+            },
+            {
+              "label": "Self-referral",
+              "count": 172,
+              "available": true
+            },
+            {
+              "label": "Non-professional contact",
+              "count": 123,
+              "available": true
+            },
+            {
+              "label": "Other research study staff",
+              "count": 83,
+              "available": true
+            },
+            {
+              "label": "Other referral source",
+              "count": 82,
+              "available": true
+            },
+            {
+              "label": "Non-ADRC healthcare professional",
+              "count": 67,
+              "available": true
+            },
+            {
+              "label": "Unknown referral source",
+              "count": 27,
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    "genescreen": {
+      "throughDate": "2026-09-06",
+      "fromDate": "2023-05-10",
+      "title": "Total members \u00b7 GeneScreen \u00b7 all Complete records",
+      "total": 739,
+      "totalAvailable": true,
+      "headerNote": "Pink \u00b7 GeneScreen REDCap \u00b7 all years in the file \u00b7 2023-05-10 \u2013 2026-09-06",
+      "banner": "Cumulative",
+      "footnote": "All Complete records. Consent dates in this export run 2023-05-10 \u2013 2026-09-06.",
+      "gender": {
+        "male": 220,
+        "female": 519,
+        "available": true
+      },
+      "activities": [
+        {
+          "label": "Online enrollments",
+          "count": 739,
+          "available": true
+        },
+        {
+          "label": "New members",
+          "count": 739,
+          "available": true
+        }
+      ],
+      "charts": [
+        {
+          "title": "Ethnicity",
+          "type": "bar",
+          "n": 739,
+          "nAvailable": true,
+          "nCaption": "Consent dates \u00b7 2023-05-10 \u2013 2026-09-06",
+          "items": [
+            {
+              "label": "Hispanic",
+              "count": 324,
+              "available": true
+            },
+            {
+              "label": "White",
+              "count": 285,
+              "available": true
+            },
+            {
+              "label": "Asian",
+              "count": 56,
+              "available": true
+            },
+            {
+              "label": "Black",
+              "count": 39,
+              "available": true
+            },
+            {
+              "label": "Unknown",
+              "count": 18,
+              "available": true
+            },
+            {
+              "label": "Other",
+              "count": 17,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "APOE4",
+          "type": "pie",
+          "n": 739,
+          "nAvailable": true,
+          "nCaption": "Consent dates \u00b7 2023-05-10 \u2013 2026-09-06 \u00b7 red = genotype blank in the REDCap export",
+          "items": [
+            {
+              "label": "APOE4 carrier",
+              "count": 229,
+              "available": true
+            },
+            {
+              "label": "Non-carrier",
+              "count": 510,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "Gender",
+          "type": "bar",
+          "n": 739,
+          "nAvailable": true,
+          "nCaption": "Consent dates \u00b7 2023-05-10 \u2013 2026-09-06",
+          "items": [
+            {
+              "label": "Female",
+              "count": 519,
+              "available": true
+            },
+            {
+              "label": "Male",
+              "count": 220,
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    "brs": {
+      "throughDate": "2026-10-05",
+      "fromDate": "1984-12-13",
+      "title": "Autopsy consents \u00b7 all years in the file",
+      "total": 939,
+      "totalAvailable": true,
+      "headerNote": "Pink \u00b7 MAP BRS consents \u00b7 Autopsy consents \u00b7 1984-12-13 \u2013 2026-10-05. Not the Data Core current-enrollment snapshot.",
+      "banner": "Cumulative",
+      "footnote": "Counts a yes consent, or a consent date whose yes/no flag is blank. Not the Data Core current-enrollment figure of 226.",
+      "gender": {
+        "male": 395,
+        "female": 544,
+        "available": true
+      },
+      "activities": [
+        {
+          "label": "Autopsy consents",
+          "count": 939,
+          "available": true
+        }
+      ],
+      "charts": [
+        {
+          "title": "Ethnicity",
+          "type": "bar",
+          "n": 939,
+          "nAvailable": true,
+          "nCaption": "Autopsy consents \u00b7 1984-12-13 \u2013 2026-10-05",
+          "items": [
+            {
+              "label": "White",
+              "count": 655,
+              "available": true
+            },
+            {
+              "label": "Hispanic",
+              "count": 173,
+              "available": true
+            },
+            {
+              "label": "Asian",
+              "count": 37,
+              "available": true
+            },
+            {
+              "label": "Black or African American",
+              "count": 27,
+              "available": true
+            },
+            {
+              "label": "Unknown or not reported",
+              "count": 23,
+              "available": true
+            },
+            {
+              "label": "More than one race",
+              "count": 21,
+              "available": true
+            },
+            {
+              "label": "Native Hawaiian or Pacific Islander",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native",
+              "count": 1,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "APOE genotype",
+          "type": "pie",
+          "n": 939,
+          "nAvailable": true,
+          "nCaption": "Autopsy consents \u00b7 1984-12-13 \u2013 2026-10-05 \u00b7 red = genotype not in the MAP APOE file",
+          "items": [
+            {
+              "label": "Genotype not in MAP APOE export",
+              "count": 331,
+              "available": false
+            },
+            {
+              "label": "E3/E3",
+              "count": 323,
+              "available": true
+            },
+            {
+              "label": "E3/E4",
+              "count": 186,
+              "available": true
+            },
+            {
+              "label": "E3/E2",
+              "count": 47,
+              "available": true
+            },
+            {
+              "label": "E4/E4",
+              "count": 35,
+              "available": true
+            },
+            {
+              "label": "E4/E2",
+              "count": 15,
+              "available": true
+            },
+            {
+              "label": "E2/E2",
+              "count": 2,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "Sex",
+          "type": "bar",
+          "n": 939,
+          "nAvailable": true,
+          "nCaption": "Autopsy consents \u00b7 1984-12-13 \u2013 2026-10-05 \u00b7 map_subject_gender",
+          "items": [
+            {
+              "label": "Female",
+              "count": 544,
+              "available": true
+            },
+            {
+              "label": "Male",
+              "count": 395,
+              "available": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "grant": {
+    "phrase": "since 9/1/2020",
+    "adrc": {
+      "throughDate": "2026-09-03",
+      "fromDate": "2020-09-01",
+      "title": "Participants with a UDS visit \u00b7 since 9/1/2020",
+      "total": 1029,
+      "totalAvailable": true,
+      "headerNote": "Pink \u00b7 UDS visits since 9/1/2020 \u00b7 2020-09-01 \u2013 2026-09-03",
+      "banner": "Active grant period",
+      "footnote": "In-person and remote count only visits with mode filled in. 1623 follow-up visits in this window have no mode, so they are not in those two cards. Initial is packet I, the same rule as year to date.",
+      "activities": [
+        {
+          "label": "In-person follow-ups",
+          "count": 421,
+          "available": true
+        },
+        {
+          "label": "Remote follow-ups",
+          "count": 28,
+          "available": true
+        },
+        {
+          "label": "Initial",
+          "count": 622,
+          "available": true
+        }
+      ],
+      "charts": [
+        {
+          "title": "Ethnicity",
+          "type": "bar",
+          "n": 622,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2020-09-01 \u2013 2026-09-03",
+          "items": [
+            {
+              "label": "Hispanic",
+              "count": 225,
+              "available": true
+            },
+            {
+              "label": "White",
+              "count": 198,
+              "available": true
+            },
+            {
+              "label": "Asian",
+              "count": 95,
+              "available": true
+            },
+            {
+              "label": "Black",
+              "count": 88,
+              "available": true
+            },
+            {
+              "label": "Unknown / not reported",
+              "count": 6,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native",
+              "count": 4,
+              "available": true
+            },
+            {
+              "label": "Native Hawaiian or Pacific Islander",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "Middle Eastern or North African",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "Other race (legacy category)",
+              "count": 1,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "APOE genotype",
+          "type": "pie",
+          "n": 622,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2020-09-01 \u2013 2026-09-03 \u00b7 red = genotype not in the MAP APOE file",
+          "items": [
+            {
+              "label": "E3/E3",
+              "count": 263,
+              "available": true
+            },
+            {
+              "label": "E3/E4",
+              "count": 137,
+              "available": true
+            },
+            {
+              "label": "Genotype not in MAP APOE export",
+              "count": 136,
+              "available": false
+            },
+            {
+              "label": "E4/E4",
+              "count": 37,
+              "available": true
+            },
+            {
+              "label": "E3/E2",
+              "count": 35,
+              "available": true
+            },
+            {
+              "label": "E4/E2",
+              "count": 11,
+              "available": true
+            },
+            {
+              "label": "E2/E2",
+              "count": 3,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "Referral source (NACC A1)",
+          "type": "bar",
+          "n": 622,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2020-09-01 \u2013 2026-09-03",
+          "items": [
+            {
+              "label": "ADRC clinician / staff",
+              "count": 222,
+              "available": true
+            },
+            {
+              "label": "Prior ADRC participant",
+              "count": 156,
+              "available": true
+            },
+            {
+              "label": "Self-referral",
+              "count": 68,
+              "available": true
+            },
+            {
+              "label": "Non-professional contact",
+              "count": 46,
+              "available": true
+            },
+            {
+              "label": "Other referral source",
+              "count": 44,
+              "available": true
+            },
+            {
+              "label": "Other research study staff",
+              "count": 34,
+              "available": true
+            },
+            {
+              "label": "Non-ADRC healthcare professional",
+              "count": 28,
+              "available": true
+            },
+            {
+              "label": "Unknown referral source",
+              "count": 24,
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    "genescreen": {
+      "throughDate": "2026-09-06",
+      "fromDate": "2023-05-10",
+      "title": "GeneScreen members \u00b7 since 9/1/2020",
+      "total": 739,
+      "totalAvailable": true,
+      "headerNote": "Pink \u00b7 GeneScreen REDCap \u00b7 since 9/1/2020 \u00b7 2023-05-10 \u2013 2026-09-06",
+      "banner": "Active grant period",
+      "footnote": "Every Complete GeneScreen record in this export consented on or after 2023-05-10, which is after the grant start, so this column matches the all-years count.",
+      "gender": {
+        "male": 220,
+        "female": 519,
+        "available": true
+      },
+      "activities": [
+        {
+          "label": "Online enrollments",
+          "count": 739,
+          "available": true
+        },
+        {
+          "label": "New members",
+          "count": 739,
+          "available": true
+        }
+      ],
+      "charts": [
+        {
+          "title": "Ethnicity",
+          "type": "bar",
+          "n": 739,
+          "nAvailable": true,
+          "nCaption": "Consent dates \u00b7 2023-05-10 \u2013 2026-09-06",
+          "items": [
+            {
+              "label": "Hispanic",
+              "count": 324,
+              "available": true
+            },
+            {
+              "label": "White",
+              "count": 285,
+              "available": true
+            },
+            {
+              "label": "Asian",
+              "count": 56,
+              "available": true
+            },
+            {
+              "label": "Black",
+              "count": 39,
+              "available": true
+            },
+            {
+              "label": "Unknown",
+              "count": 18,
+              "available": true
+            },
+            {
+              "label": "Other",
+              "count": 17,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "APOE4",
+          "type": "pie",
+          "n": 739,
+          "nAvailable": true,
+          "nCaption": "Consent dates \u00b7 2023-05-10 \u2013 2026-09-06 \u00b7 red = genotype blank in the REDCap export",
+          "items": [
+            {
+              "label": "APOE4 carrier",
+              "count": 229,
+              "available": true
+            },
+            {
+              "label": "Non-carrier",
+              "count": 510,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "Gender",
+          "type": "bar",
+          "n": 739,
+          "nAvailable": true,
+          "nCaption": "Consent dates \u00b7 2023-05-10 \u2013 2026-09-06",
+          "items": [
+            {
+              "label": "Female",
+              "count": 519,
+              "available": true
+            },
+            {
+              "label": "Male",
+              "count": 220,
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    "brs": {
+      "throughDate": "2026-10-05",
+      "fromDate": "2020-12-08",
+      "title": "Autopsy consents \u00b7 since 9/1/2020",
+      "total": 70,
+      "totalAvailable": true,
+      "headerNote": "Pink \u00b7 MAP BRS consents \u00b7 Autopsy consents \u00b7 2020-12-08 \u2013 2026-10-05. Not the Data Core current-enrollment snapshot.",
+      "banner": "Active grant period",
+      "footnote": "Counts a yes consent, or a consent date whose yes/no flag is blank. Not the Data Core current-enrollment figure of 226.",
+      "gender": {
+        "male": 40,
+        "female": 30,
+        "available": true
+      },
+      "activities": [
+        {
+          "label": "Autopsy consents",
+          "count": 70,
+          "available": true
+        }
+      ],
+      "charts": [
+        {
+          "title": "Ethnicity",
+          "type": "bar",
+          "n": 70,
+          "nAvailable": true,
+          "nCaption": "Autopsy consents \u00b7 2020-12-08 \u2013 2026-10-05",
+          "items": [
+            {
+              "label": "White",
+              "count": 46,
+              "available": true
+            },
+            {
+              "label": "Hispanic",
+              "count": 16,
+              "available": true
+            },
+            {
+              "label": "Unknown or not reported",
+              "count": 5,
+              "available": true
+            },
+            {
+              "label": "Black or African American",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "Native Hawaiian or Pacific Islander",
+              "count": 1,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "APOE genotype",
+          "type": "pie",
+          "n": 70,
+          "nAvailable": true,
+          "nCaption": "Autopsy consents \u00b7 2020-12-08 \u2013 2026-10-05 \u00b7 red = genotype not in the MAP APOE file",
+          "items": [
+            {
+              "label": "E3/E3",
+              "count": 29,
+              "available": true
+            },
+            {
+              "label": "E3/E4",
+              "count": 18,
+              "available": true
+            },
+            {
+              "label": "Genotype not in MAP APOE export",
+              "count": 13,
+              "available": false
+            },
+            {
+              "label": "E3/E2",
+              "count": 4,
+              "available": true
+            },
+            {
+              "label": "E4/E4",
+              "count": 4,
+              "available": true
+            },
+            {
+              "label": "E4/E2",
+              "count": 2,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "Sex",
+          "type": "bar",
+          "n": 70,
+          "nAvailable": true,
+          "nCaption": "Autopsy consents \u00b7 2020-12-08 \u2013 2026-10-05 \u00b7 map_subject_gender",
+          "items": [
+            {
+              "label": "Male",
+              "count": 40,
+              "available": true
+            },
+            {
+              "label": "Female",
+              "count": 30,
+              "available": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
