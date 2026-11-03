@@ -28,22 +28,21 @@ type SpanColumn = {
   charts: SpanChart[];
 };
 
+type PhaseColumns = Record<"adrc" | "genescreen" | "brs", SpanColumn> & {
+  adrcAlive: SpanColumn;
+};
+
 const SPAN = spanCounts as {
-  cumulative: Record<"adrc" | "genescreen" | "brs", SpanColumn>;
-  grant: Record<"adrc" | "genescreen" | "brs", SpanColumn>;
+  cumulative: PhaseColumns;
+  grant: PhaseColumns;
+  ytd: { adrcAlive: SpanColumn };
 };
 
 function provenanceFor(available: boolean): DataProvenance {
   return available ? "span" : "unknown";
 }
 
-/** Year to date is the current column. The other two phases swap in file counts. */
-export function columnForPhase(
-  column: RegistryColumn,
-  phase: RecruitmentPhase,
-): RegistryColumn {
-  if (phase === "ytd") return column;
-  const span = SPAN[phase][column.id];
+function applySpan(column: RegistryColumn, span: SpanColumn): RegistryColumn {
   const charts = span.charts.map((chart) => {
     const nProvenance = provenanceFor(chart.nAvailable);
     return {
@@ -88,4 +87,17 @@ export function columnForPhase(
     chartsProvenance: available ? "span" : "unknown",
     chartSlots: charts,
   };
+}
+
+/** Year to date is the current column. The other two phases swap in file counts. */
+export function columnForPhase(
+  column: RegistryColumn,
+  phase: RecruitmentPhase,
+  alive = false,
+): RegistryColumn {
+  if (alive && column.id === "adrc") {
+    return applySpan(column, SPAN[phase].adrcAlive);
+  }
+  if (phase === "ytd") return column;
+  return applySpan(column, SPAN[phase][column.id]);
 }

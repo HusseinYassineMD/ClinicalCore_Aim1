@@ -83,6 +83,12 @@ def uds_visit_date(row: dict[str, str]) -> datetime | None:
 
 
 
+def subject_is_deceased(subject: dict[str, str] | None) -> bool:
+    if not subject:
+        return True
+    return (subject.get("der_status_adrc") or "").strip() == "Deceased"
+
+
 def summarize_uds(
     visits: list[dict[str, str]],
     subject_by_naccid: dict[str, dict[str, str]],
@@ -92,6 +98,8 @@ def summarize_uds(
     end: datetime,
     phrase: str,
     publish_follow_up_mode: bool = False,
+    alive_only: bool = False,
+    banner: str | None = None,
 ) -> dict:
     chosen = []
     dates: list[datetime] = []
@@ -101,6 +109,10 @@ def summarize_uds(
             if when is None:
                 continue
         elif not dated(when, start, end):
+            continue
+        if alive_only and subject_is_deceased(
+            subject_by_naccid.get((row.get("naccid") or "").strip())
+        ):
             continue
         chosen.append(row)
         if when:
@@ -129,19 +141,39 @@ def summarize_uds(
 
     first = min(dates).strftime("%Y-%m-%d") if dates else None
     last = max(dates).strftime("%Y-%m-%d") if dates else None
+    shown = f"{phrase} · alive" if alive_only else phrase
     caption = span_caption("Initial evaluations (packet I)", first, last)
-    footnote = (
-        "In-person and remote are red: most follow-up visits in this file have no mode, "
-        "so those totals are not available. Initial is packet I, the same field rule as year to date."
-    )
+    if alive_only:
+        caption = f"{caption} · alive, subject status is not Deceased"
+    if publish_follow_up_mode:
+        footnote = (
+            "Initial is packet I. In-person is mode 1 and remote is mode 2 or 3, "
+            "the same field rule as year to date."
+        )
+    else:
+        footnote = (
+            "In-person and remote are red: most follow-up visits in this file have no mode, "
+            "so those totals are not available. Initial is packet I, the same field rule as year to date."
+        )
+    if alive_only:
+        footnote = (
+            "Alive means the subject file does not list the person as Deceased. "
+            + footnote
+        )
+    alive_note = "alive · subject status is not Deceased · " if alive_only else ""
     return {
         "throughDate": last,
         "fromDate": first,
-        "title": f"Participants with a UDS visit · {phrase}",
+        "title": f"Participants with a UDS visit · {shown}",
         "total": len(people),
         "totalAvailable": True,
-        "headerNote": f"Pink · UDS visits {span_caption(phrase, first, last)}",
-        "banner": "Cumulative" if start == FAR_PAST else "Active grant period",
+        "headerNote": f"Pink · UDS visits {alive_note}{span_caption(phrase, first, last)}",
+        "banner": banner
+        or (
+            "Cumulative · all time"
+            if start == FAR_PAST
+            else "Active with UDS · since 7/1/2025"
+        ),
         "footnote": footnote,
         "activities": [
             {
@@ -200,7 +232,11 @@ def summarize_genescreen(
     # 739 Complete rows span May 2023–September 2026. That is not the 2026
     # window, and this CSV does not contain REDCap's 730 record count.
     # Leave cumulative and grant-period GeneScreen red.
-    banner = "Cumulative" if phrase.startswith("all years") else "Active grant period"
+    banner = (
+        "Cumulative · all time"
+        if phrase.startswith("all")
+        else "Active with UDS · since 7/1/2025"
+    )
     del rows, start, end, phrase, headline
     note = (
         "Red · this export does not give a separate total for this window. "
@@ -347,7 +383,11 @@ def summarize_brs(
     column red rather than show a different count in that slot.
     """
     del rows, apoe_by_ptid, start, end
-    banner = "Cumulative" if phrase.startswith("all years") else "Active grant period"
+    banner = (
+        "Cumulative · all time"
+        if phrase.startswith("all")
+        else "Active with UDS · since 7/1/2025"
+    )
     note = (
         "Red · year-to-date 226 is Data Core current enrollment. "
         "This export has no matching enrollment total for this window."
@@ -403,8 +443,18 @@ def main() -> None:
     }
 
     phases = {
-        "cumulative": (FAR_PAST, FAR_FUTURE, "all years in the file"),
-        "grant": (UDS_ACTIVE_START, FAR_FUTURE, "since 7/1/2025"),
+        "cumulative": (
+            FAR_PAST,
+            FAR_FUTURE,
+            "all time",
+            "Cumulative · all time",
+        ),
+        "grant": (
+            UDS_ACTIVE_START,
+            FAR_FUTURE,
+            "since 7/1/2025",
+            "Active with UDS · since 7/1/2025",
+        ),
     }
     payload: dict = {
         "udsActiveStart": "2025-07-01",
@@ -416,7 +466,7 @@ def main() -> None:
             "genescreen": gs_path.name,
         },
     }
-    for key, (start, end, phrase) in phases.items():
+    for key, (start, end, phrase, banner) in phases.items():
         gs_headline = (
             "Total members · GeneScreen · all Complete records"
             if key == "cumulative"
@@ -431,6 +481,17 @@ def main() -> None:
                 start=start,
                 end=end,
                 phrase=phrase,
+                banner=banner,
+            ),
+            "adrcAlive": summarize_uds(
+                visits,
+                subject_by_naccid,
+                apoe_by_ptid,
+                start=start,
+                end=end,
+                phrase=phrase,
+                alive_only=True,
+                banner=f"{banner} · alive",
             ),
             "genescreen": summarize_genescreen(
                 gs_rows,
@@ -465,24 +526,46 @@ def main() -> None:
         "remote": ytd["activities"][1]["count"],
     }
 
+    ytd_alive = summarize_uds(
+        visits,
+        subject_by_naccid,
+        apoe_by_ptid,
+        start=datetime(2026, 1, 1),
+        end=datetime(2026, 10, 16, 23, 59, 59),
+        phrase="year to date",
+        publish_follow_up_mode=True,
+        alive_only=True,
+        banner="Year to date · alive",
+    )
+    payload["ytd"] = {"adrcAlive": ytd_alive}
+
     ytd_check = payload.pop("ytdCheck")
     OUTPUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(ytd_check, indent=2))
     for phase in ("cumulative", "grant"):
         block = payload[phase]
+        alive = block["adrcAlive"]
         print(
             phase,
             "ADRC",
             block["adrc"]["total"],
-            block["adrc"]["fromDate"],
-            block["adrc"]["throughDate"],
-            "GS",
-            block["genescreen"]["total"],
-            "BRS",
-            block["brs"]["total"],
-            block["brs"]["fromDate"],
-            block["brs"]["throughDate"],
+            "alive",
+            alive["total"],
+            "initial",
+            alive["activities"][2]["count"],
+            alive["fromDate"],
+            alive["throughDate"],
         )
+    print(
+        "ytd alive",
+        ytd_alive["total"],
+        "in-person",
+        ytd_alive["activities"][0]["count"],
+        "remote",
+        ytd_alive["activities"][1]["count"],
+        "initial",
+        ytd_alive["activities"][2]["count"],
+    )
 
 
 if __name__ == "__main__":

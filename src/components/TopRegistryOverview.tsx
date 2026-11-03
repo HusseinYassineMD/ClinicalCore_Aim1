@@ -1444,24 +1444,31 @@ function RegistryAlignedDesktop({ columns }: { columns: RegistryColumn[] }) {
 }
 
 const RECRUITMENT_PHASES: { id: RecruitmentPhase; label: string }[] = [
-  { id: "cumulative", label: "Cumulative" },
-  { id: "grant", label: "Active grant period" },
+  { id: "cumulative", label: "Cumulative · all time" },
+  { id: "grant", label: "Active with UDS · since 7/1/2025" },
   { id: "ytd", label: "Year to date" },
 ];
 
 function RecruitmentPhaseToggle({
   phase,
+  alive,
   onChange,
+  onAliveChange,
 }: {
   phase: RecruitmentPhase;
+  alive: boolean;
   onChange: (phase: RecruitmentPhase) => void;
+  onAliveChange: (alive: boolean) => void;
 }) {
-  const caption =
+  const windowCaption =
     phase === "ytd"
       ? "Year to date keeps the current colors. Black and green run through the last date in each file. Red means that count is not in the file."
       : phase === "grant"
-        ? "Active period for UDS visits is July 1, 2025 through the last visit in the file. Pink means that count is in the file. Red means it is not."
-        : "Cumulative keeps a count pink only when the file supports the same rule as year to date. UDS visits in this export start in 2005. Red means that cut is not in the file.";
+        ? "Active with UDS is visits on or after July 1, 2025, the start of the current five-year period, through the last visit in the file. Pink means that count is in the file. Red means it is not."
+        : "Cumulative · all time is every UDS visit in this export. Those visits start in 2005. Pink means the count is in the file. Red means that cut is not in the file.";
+  const aliveCaption = alive
+    ? " Alive is on. The UDS column shows people in this window who are not listed as Deceased. GeneScreen and autopsy stay on the window above."
+    : "";
 
   return (
     <div className="flex flex-col items-center gap-2 px-2">
@@ -1490,8 +1497,18 @@ function RecruitmentPhaseToggle({
           );
         })}
       </div>
+      <label className="inline-flex items-center gap-2 text-sm font-medium text-cpbh-navy cursor-pointer">
+        <input
+          type="checkbox"
+          checked={alive}
+          onChange={(event) => onAliveChange(event.target.checked)}
+          className="h-4 w-4 rounded border-cpbh-navy/40"
+        />
+        Alive participants
+      </label>
       <p className="max-w-3xl text-center text-[11px] leading-snug text-cpbh-navy/60">
-        {caption}
+        {windowCaption}
+        {aliveCaption}
       </p>
     </div>
   );
@@ -1501,11 +1518,19 @@ export default function TopRegistryOverview({
   data,
 }: TopRegistryOverviewProps) {
   const [phase, setPhase] = useState<RecruitmentPhase>("ytd");
-  const columns = data.columns.map((column) => columnForPhase(column, phase));
+  const [alive, setAlive] = useState(false);
+  const columns = data.columns.map((column) =>
+    columnForPhase(column, phase, alive),
+  );
 
   return (
     <section className="relative z-[1] space-y-6 w-full mx-auto max-w-[90rem]">
-      <RecruitmentPhaseToggle phase={phase} onChange={setPhase} />
+      <RecruitmentPhaseToggle
+        phase={phase}
+        alive={alive}
+        onChange={setPhase}
+        onAliveChange={setAlive}
+      />
       <RegistryAlignedDesktop columns={columns} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xl:hidden">
         {columns.map((col) => (

@@ -8,15 +8,15 @@
     "genescreen": "USCGeneScreenRegistr-USCGeneScreenRegistr_DATA_LABELS_2026-10-07_0842.csv"
   },
   "cumulative": {
-    "phrase": "all years in the file",
+    "phrase": "all time",
     "adrc": {
       "throughDate": "2026-09-03",
       "fromDate": "2005-09-09",
-      "title": "Participants with a UDS visit \u00b7 all years in the file",
+      "title": "Participants with a UDS visit \u00b7 all time",
       "total": 2373,
       "totalAvailable": true,
-      "headerNote": "Pink \u00b7 UDS visits all years in the file \u00b7 2005-09-09 \u2013 2026-09-03",
-      "banner": "Cumulative",
+      "headerNote": "Pink \u00b7 UDS visits all time \u00b7 2005-09-09 \u2013 2026-09-03",
+      "banner": "Cumulative \u00b7 all time",
       "footnote": "In-person and remote are red: most follow-up visits in this file have no mode, so those totals are not available. Initial is packet I, the same field rule as year to date.",
       "activities": [
         {
@@ -280,6 +280,272 @@
         }
       ]
     },
+    "adrcAlive": {
+      "throughDate": "2026-09-03",
+      "fromDate": "2005-10-10",
+      "title": "Participants with a UDS visit \u00b7 all time \u00b7 alive",
+      "total": 1808,
+      "totalAvailable": true,
+      "headerNote": "Pink \u00b7 UDS visits alive \u00b7 subject status is not Deceased \u00b7 all time \u00b7 2005-10-10 \u2013 2026-09-03",
+      "banner": "Cumulative \u00b7 all time \u00b7 alive",
+      "footnote": "Alive means the subject file does not list the person as Deceased. In-person and remote are red: most follow-up visits in this file have no mode, so those totals are not available. Initial is packet I, the same field rule as year to date.",
+      "activities": [
+        {
+          "label": "In-person follow-ups",
+          "count": 0,
+          "available": false
+        },
+        {
+          "label": "Remote follow-ups",
+          "count": 0,
+          "available": false
+        },
+        {
+          "label": "Initial",
+          "count": 1804,
+          "available": true
+        }
+      ],
+      "charts": [
+        {
+          "title": "Ethnicity",
+          "type": "bar",
+          "n": 1804,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2005-10-10 \u2013 2026-09-03 \u00b7 alive, subject status is not Deceased",
+          "items": [
+            {
+              "label": "White",
+              "count": 830,
+              "available": true
+            },
+            {
+              "label": "Hispanic or Latino; White",
+              "count": 328,
+              "available": true
+            },
+            {
+              "label": "Black",
+              "count": 171,
+              "available": true
+            },
+            {
+              "label": "Asian",
+              "count": 169,
+              "available": true
+            },
+            {
+              "label": "Hispanic",
+              "count": 117,
+              "available": true
+            },
+            {
+              "label": "Hispanic or Latino; Don't know",
+              "count": 76,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native; Hispanic or Latino; White",
+              "count": 45,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native; Hispanic or Latino",
+              "count": 15,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native; White",
+              "count": 12,
+              "available": true
+            },
+            {
+              "label": "White; Don't know",
+              "count": 6,
+              "available": true
+            },
+            {
+              "label": "Asian; White",
+              "count": 5,
+              "available": true
+            },
+            {
+              "label": "Middle Eastern or North African",
+              "count": 5,
+              "available": true
+            },
+            {
+              "label": "Don't know",
+              "count": 4,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native",
+              "count": 4,
+              "available": true
+            },
+            {
+              "label": "Native Hawaiian or Pacific Islander; White",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "Hispanic or Latino; Native Hawaiian or Pacific Islander; White",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "Asian; Hispanic or Latino",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "Asian; Native Hawaiian or Pacific Islander; White",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "American Indian or Alaska Native; Hispanic or Latino; White; Don't know",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Asian; Hispanic or Latino; White",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Asian; Native Hawaiian or Pacific Islander",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Other race (legacy category)",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Hispanic or Latino; Native Hawaiian or Pacific Islander",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Hispanic or Latino; White; Don't know",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Native Hawaiian or Pacific Islander",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Middle Eastern or North African; White",
+              "count": 1,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "APOE genotype",
+          "type": "pie",
+          "n": 1804,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2005-10-10 \u2013 2026-09-03 \u00b7 alive, subject status is not Deceased \u00b7 red = genotype not in the MAP APOE file",
+          "items": [
+            {
+              "label": "E3/E3",
+              "count": 733,
+              "available": true
+            },
+            {
+              "label": "Genotype not in MAP APOE export",
+              "count": 438,
+              "available": false
+            },
+            {
+              "label": "E3/E4",
+              "count": 410,
+              "available": true
+            },
+            {
+              "label": "E4/E4",
+              "count": 98,
+              "available": true
+            },
+            {
+              "label": "E3/E2",
+              "count": 92,
+              "available": true
+            },
+            {
+              "label": "E4/E2",
+              "count": 28,
+              "available": true
+            },
+            {
+              "label": "E2/E2",
+              "count": 5,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "Referral source (NACC A1)",
+          "type": "bar",
+          "n": 1804,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2005-10-10 \u2013 2026-09-03 \u00b7 alive, subject status is not Deceased",
+          "items": [
+            {
+              "label": "refersc=blank",
+              "count": 786,
+              "available": true
+            },
+            {
+              "label": "ADRC clinician / staff",
+              "count": 328,
+              "available": true
+            },
+            {
+              "label": "Prior ADRC participant",
+              "count": 188,
+              "available": true
+            },
+            {
+              "label": "Self-referral",
+              "count": 163,
+              "available": true
+            },
+            {
+              "label": "Non-professional contact",
+              "count": 112,
+              "available": true
+            },
+            {
+              "label": "Other research study staff",
+              "count": 76,
+              "available": true
+            },
+            {
+              "label": "Other referral source",
+              "count": 71,
+              "available": true
+            },
+            {
+              "label": "Non-ADRC healthcare professional",
+              "count": 53,
+              "available": true
+            },
+            {
+              "label": "Unknown referral source",
+              "count": 27,
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
     "genescreen": {
       "throughDate": null,
       "fromDate": null,
@@ -287,7 +553,7 @@
       "total": 0,
       "totalAvailable": false,
       "headerNote": "Red \u00b7 this export does not give a separate total for this window. The year-to-date GeneScreen figures stay on Year to date.",
-      "banner": "Cumulative",
+      "banner": "Cumulative \u00b7 all time",
       "footnote": "Red \u00b7 this export does not give a separate total for this window. The year-to-date GeneScreen figures stay on Year to date.",
       "activities": [
         {
@@ -331,11 +597,11 @@
     "brs": {
       "throughDate": null,
       "fromDate": null,
-      "title": "Total enrolled \u00b7 Autopsy program \u00b7 all years in the file",
+      "title": "Total enrolled \u00b7 Autopsy program \u00b7 all time",
       "total": 0,
       "totalAvailable": false,
       "headerNote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",
-      "banner": "Cumulative",
+      "banner": "Cumulative \u00b7 all time",
       "footnote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",
       "activities": [
         {
@@ -381,7 +647,7 @@
       "total": 472,
       "totalAvailable": true,
       "headerNote": "Pink \u00b7 UDS visits since 7/1/2025 \u00b7 2025-07-01 \u2013 2026-09-03",
-      "banner": "Active grant period",
+      "banner": "Active with UDS \u00b7 since 7/1/2025",
       "footnote": "In-person and remote are red: most follow-up visits in this file have no mode, so those totals are not available. Initial is packet I, the same field rule as year to date.",
       "activities": [
         {
@@ -530,6 +796,162 @@
         }
       ]
     },
+    "adrcAlive": {
+      "throughDate": "2026-09-03",
+      "fromDate": "2025-07-01",
+      "title": "Participants with a UDS visit \u00b7 since 7/1/2025 \u00b7 alive",
+      "total": 469,
+      "totalAvailable": true,
+      "headerNote": "Pink \u00b7 UDS visits alive \u00b7 subject status is not Deceased \u00b7 since 7/1/2025 \u00b7 2025-07-01 \u2013 2026-09-03",
+      "banner": "Active with UDS \u00b7 since 7/1/2025 \u00b7 alive",
+      "footnote": "Alive means the subject file does not list the person as Deceased. In-person and remote are red: most follow-up visits in this file have no mode, so those totals are not available. Initial is packet I, the same field rule as year to date.",
+      "activities": [
+        {
+          "label": "In-person follow-ups",
+          "count": 0,
+          "available": false
+        },
+        {
+          "label": "Remote follow-ups",
+          "count": 0,
+          "available": false
+        },
+        {
+          "label": "Initial",
+          "count": 49,
+          "available": true
+        }
+      ],
+      "charts": [
+        {
+          "title": "Ethnicity",
+          "type": "bar",
+          "n": 49,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2025-07-01 \u2013 2026-09-03 \u00b7 alive, subject status is not Deceased",
+          "items": [
+            {
+              "label": "White",
+              "count": 17,
+              "available": true
+            },
+            {
+              "label": "Asian",
+              "count": 16,
+              "available": true
+            },
+            {
+              "label": "Hispanic",
+              "count": 9,
+              "available": true
+            },
+            {
+              "label": "Black",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "Hispanic or Latino; White",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "Asian; White",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Middle Eastern or North African",
+              "count": 1,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "APOE genotype",
+          "type": "pie",
+          "n": 49,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2025-07-01 \u2013 2026-09-03 \u00b7 alive, subject status is not Deceased \u00b7 red = genotype not in the MAP APOE file",
+          "items": [
+            {
+              "label": "Genotype not in MAP APOE export",
+              "count": 35,
+              "available": false
+            },
+            {
+              "label": "E3/E3",
+              "count": 7,
+              "available": true
+            },
+            {
+              "label": "E3/E4",
+              "count": 4,
+              "available": true
+            },
+            {
+              "label": "E4/E4",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "E3/E2",
+              "count": 1,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "Referral source (NACC A1)",
+          "type": "bar",
+          "n": 49,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2025-07-01 \u2013 2026-09-03 \u00b7 alive, subject status is not Deceased",
+          "items": [
+            {
+              "label": "Unknown referral source",
+              "count": 19,
+              "available": true
+            },
+            {
+              "label": "ADRC clinician / staff",
+              "count": 14,
+              "available": true
+            },
+            {
+              "label": "Prior ADRC participant",
+              "count": 6,
+              "available": true
+            },
+            {
+              "label": "Self-referral",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "Non-ADRC healthcare professional",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "Non-professional contact",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "Other referral source",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Other research study staff",
+              "count": 1,
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
     "genescreen": {
       "throughDate": null,
       "fromDate": null,
@@ -537,7 +959,7 @@
       "total": 0,
       "totalAvailable": false,
       "headerNote": "Red \u00b7 this export does not give a separate total for this window. The year-to-date GeneScreen figures stay on Year to date.",
-      "banner": "Active grant period",
+      "banner": "Active with UDS \u00b7 since 7/1/2025",
       "footnote": "Red \u00b7 this export does not give a separate total for this window. The year-to-date GeneScreen figures stay on Year to date.",
       "activities": [
         {
@@ -585,7 +1007,7 @@
       "total": 0,
       "totalAvailable": false,
       "headerNote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",
-      "banner": "Active grant period",
+      "banner": "Active with UDS \u00b7 since 7/1/2025",
       "footnote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",
       "activities": [
         {
@@ -618,6 +1040,139 @@
           "nAvailable": false,
           "nCaption": "No Data Core enrollment table for this window",
           "items": []
+        }
+      ]
+    }
+  },
+  "ytd": {
+    "adrcAlive": {
+      "throughDate": "2026-09-03",
+      "fromDate": "2026-01-05",
+      "title": "Participants with a UDS visit \u00b7 year to date \u00b7 alive",
+      "total": 221,
+      "totalAvailable": true,
+      "headerNote": "Pink \u00b7 UDS visits alive \u00b7 subject status is not Deceased \u00b7 year to date \u00b7 2026-01-05 \u2013 2026-09-03",
+      "banner": "Year to date \u00b7 alive",
+      "footnote": "Alive means the subject file does not list the person as Deceased. Initial is packet I. In-person is mode 1 and remote is mode 2 or 3, the same field rule as year to date.",
+      "activities": [
+        {
+          "label": "In-person follow-ups",
+          "count": 181,
+          "available": true
+        },
+        {
+          "label": "Remote follow-ups",
+          "count": 17,
+          "available": true
+        },
+        {
+          "label": "Initial",
+          "count": 23,
+          "available": true
+        }
+      ],
+      "charts": [
+        {
+          "title": "Ethnicity",
+          "type": "bar",
+          "n": 23,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2026-01-05 \u2013 2026-09-03 \u00b7 alive, subject status is not Deceased",
+          "items": [
+            {
+              "label": "White",
+              "count": 14,
+              "available": true
+            },
+            {
+              "label": "Hispanic",
+              "count": 6,
+              "available": true
+            },
+            {
+              "label": "Asian",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "Middle Eastern or North African",
+              "count": 1,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "APOE genotype",
+          "type": "pie",
+          "n": 23,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2026-01-05 \u2013 2026-09-03 \u00b7 alive, subject status is not Deceased \u00b7 red = genotype not in the MAP APOE file",
+          "items": [
+            {
+              "label": "Genotype not in MAP APOE export",
+              "count": 16,
+              "available": false
+            },
+            {
+              "label": "E3/E3",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "E3/E4",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "E3/E2",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "E4/E4",
+              "count": 1,
+              "available": true
+            }
+          ]
+        },
+        {
+          "title": "Referral source (NACC A1)",
+          "type": "bar",
+          "n": 23,
+          "nAvailable": true,
+          "nCaption": "Initial evaluations (packet I) \u00b7 2026-01-05 \u2013 2026-09-03 \u00b7 alive, subject status is not Deceased",
+          "items": [
+            {
+              "label": "ADRC clinician / staff",
+              "count": 12,
+              "available": true
+            },
+            {
+              "label": "Prior ADRC participant",
+              "count": 4,
+              "available": true
+            },
+            {
+              "label": "Non-ADRC healthcare professional",
+              "count": 3,
+              "available": true
+            },
+            {
+              "label": "Unknown referral source",
+              "count": 2,
+              "available": true
+            },
+            {
+              "label": "Other referral source",
+              "count": 1,
+              "available": true
+            },
+            {
+              "label": "Other research study staff",
+              "count": 1,
+              "available": true
+            }
+          ]
         }
       ]
     }
