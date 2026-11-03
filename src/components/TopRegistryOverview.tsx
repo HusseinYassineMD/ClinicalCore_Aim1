@@ -1544,10 +1544,10 @@ function RecruitmentPhaseToggle({
     phase === "ytd"
       ? "Cumulative is every UDS visit in this file, from 2005. Active is visits since July 1, 2025. Year to date stays in the UDS box. Black and green run through the last date in each file. Red means that count is not in the file."
       : phase === "grant"
-        ? "Active is visits on or after July 1, 2025. Year to date stays in the UDS box beside it. Pink means that count is in the file. Red means it is not."
-        : "Cumulative is every UDS visit in this export. Those visits start in 2005. Pink means the count is in the file. Red means that cut is not in the file.";
+        ? "Active changes only the UDS column: visits on or after July 1, 2025. GeneScreen and autopsy stay on year to date. Year to date stays in the UDS box beside Active."
+        : "Cumulative changes only the UDS column. It is every UDS visit in this export, and those visits start in 2005. GeneScreen and autopsy stay on year to date.";
   const aliveCaption = alive
-    ? " Alive is on. The UDS column shows people in this window who are not listed as Deceased. GeneScreen and autopsy stay on the window above."
+    ? " Alive is on for UDS. Those counts exclude people listed as Deceased."
     : "";
 
   return (

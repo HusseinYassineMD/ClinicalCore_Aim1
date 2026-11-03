@@ -118,15 +118,14 @@ export function udsPeriodBoxes(alive: boolean, ytdTotal: number): UdsPeriodBox[]
   ];
 }
 
-/** Year to date is the current column. The other two phases swap in file counts. */
+/** Cumulative and Active change the UDS column only. GeneScreen and autopsy stay on year to date. */
 export function columnForPhase(
   column: RegistryColumn,
   phase: RecruitmentPhase,
   alive = false,
 ): RegistryColumn {
-  if (alive && column.id === "adrc") {
-    return applySpan(column, SPAN[phase].adrcAlive);
-  }
+  if (column.id !== "adrc") return column;
+  if (alive) return applySpan(column, SPAN[phase].adrcAlive);
   if (phase === "ytd") return column;
-  return applySpan(column, SPAN[phase][column.id]);
+  return applySpan(column, SPAN[phase].adrc);
 }
