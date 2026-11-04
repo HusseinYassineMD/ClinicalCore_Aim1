@@ -186,7 +186,7 @@ function ChartSlot({
   tall?: boolean;
 }) {
   return (
-    <div className="rounded-xl border border-cpbh-mist/80 bg-white px-3 pt-2.5 pb-2.5 flex flex-col w-full h-full shadow-sm shadow-cpbh-navy/[0.03]">
+    <div className="rounded-xl border border-cpbh-mist/80 bg-white px-3 py-3 flex flex-col justify-center w-full h-full shadow-sm shadow-cpbh-navy/[0.03]">
       {children}
     </div>
   );
@@ -212,7 +212,7 @@ function ChartTitle({
       </p>
       {nCaption ? (
         <p
-          className="text-[9px] text-cpbh-navy/50 leading-snug line-clamp-1"
+          className="text-[9px] text-cpbh-navy/50 leading-snug line-clamp-2"
           title={nCaption}
         >
           {nCaption}
@@ -587,7 +587,7 @@ function PeriodActivityCard({
     <div
       className={`flex h-full ${PERIOD_CARD_HEIGHT} flex-col rounded-lg border border-cpbh-mist bg-white px-2 py-2 text-center shadow-sm`}
     >
-      <p className="shrink-0 h-8 text-[9px] sm:text-[10px] text-cpbh-navy/55 leading-tight line-clamp-2 flex items-center justify-center">
+      <p className="shrink-0 min-h-[2.25rem] text-[11px] text-cpbh-navy/60 leading-snug flex items-center justify-center">
         {label}
       </p>
       <div className="mt-auto flex flex-col justify-end">
@@ -702,7 +702,10 @@ function ReportingPeriodPanel({
         </div>
       )}
       {footnote ? (
-        <p className="text-[10px] text-cpbh-navy/45 text-center leading-snug px-1 pt-0.5">
+        <p
+          className="text-[10px] text-cpbh-navy/45 text-center leading-snug px-1 pt-0.5 line-clamp-2"
+          title={footnote}
+        >
           {footnote}
         </p>
       ) : null}
@@ -1257,11 +1260,13 @@ function RegistryHeaderBlock({
   udsBoxes,
   phase,
   onSelectPhase,
+  plain = false,
 }: {
   column: RegistryColumn;
   udsBoxes?: UdsPeriodBox[];
   phase?: RecruitmentPhase;
   onSelectPhase?: (phase: RecruitmentPhase) => void;
+  plain?: boolean;
 }) {
   const totalsProvenance = countProvenanceForColumn(
     column.id,
@@ -1271,7 +1276,13 @@ function RegistryHeaderBlock({
   const showUdsBoxes = column.id === "adrc" && udsBoxes && udsBoxes.length > 0;
 
   return (
-    <div className="text-center rounded-2xl border-2 border-cpbh-purple/25 bg-cpbh-mist/30 px-4 py-3 shadow-sm flex flex-col items-center justify-center min-h-[7.5rem] h-full">
+    <div
+      className={
+        plain
+          ? "text-center flex h-full w-full flex-col items-center justify-center"
+          : "text-center rounded-2xl border-2 border-cpbh-purple/25 bg-cpbh-mist/30 px-4 py-3 shadow-sm flex flex-col items-center justify-center min-h-[7.5rem] h-full"
+      }
+    >
       <p className="text-sm font-medium text-cpbh-purple uppercase tracking-wide leading-snug px-1 line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
         {showUdsBoxes ? "Participants with a UDS visit" : column.title}
       </p>
@@ -1314,7 +1325,7 @@ function RegistryHeaderBlock({
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
           {udsBoxes.some((box) => box.detail.includes("alive"))
             ? `Alive counts exclude people listed as Deceased. Last UDS visit in James’s file: ${formatScopeDate(udsLatestVisitDate)}. The outlined box matches the breakdown below.`
-            : `Year to date is black. Last UDS visit in James’s file: ${formatScopeDate(udsLatestVisitDate)}. Active is pink. The outlined box matches the breakdown below.`}
+            : `Black through ${formatScopeDate(udsLatestVisitDate)}. Active is pink. The outlined box matches the cards beside this one.`}
         </p>
       ) : column.headerNote ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
@@ -1370,10 +1381,20 @@ function RegistryHeaderBlock({
 
 const YTD_ROW_MIN = "min-h-[11.5rem]";
 
-function RegistryYtdBlock({ column }: { column: RegistryColumn }) {
+function RegistryYtdBlock({
+  column,
+  plain = false,
+}: {
+  column: RegistryColumn;
+  plain?: boolean;
+}) {
   return (
     <div
-      className={`rounded-xl bg-cpbh-mist/40 px-3 py-2 h-full flex flex-col justify-center ${YTD_ROW_MIN}`}
+      className={
+        plain
+          ? "flex h-full w-full flex-col justify-center"
+          : `rounded-xl bg-cpbh-mist/40 px-3 py-2 h-full flex flex-col justify-center ${YTD_ROW_MIN}`
+      }
     >
       {column.periodActivities ? (
         <ReportingPeriodPanel
@@ -1483,45 +1504,56 @@ function RegistryAlignedDesktop({
   onSelectPhase?: (phase: RecruitmentPhase) => void;
 }) {
   return (
-    <div className="hidden xl:flex xl:flex-col xl:gap-8 w-full mx-auto">
+    <div className="hidden xl:flex xl:flex-col xl:gap-6 w-full mx-auto">
       {columns.map((col) => {
         const chartsProvenance = chartsProvenanceForColumn(col);
         const slots = activeChartSlotsForColumn(col);
+        const rowAccent =
+          col.id === "adrc"
+            ? "bg-cpbh-navy"
+            : col.id === "genescreen"
+              ? "bg-cpbh-purple"
+              : "bg-cpbh-teal";
         return (
-          <div key={col.id} className="space-y-2">
-            <h3 className="font-display text-lg font-semibold text-cpbh-navy">
+          <section
+            key={col.id}
+            className="rounded-3xl bg-white/80 p-4 shadow-sm shadow-cpbh-navy/[0.04] ring-1 ring-cpbh-mist"
+          >
+            <h3 className="mb-3 flex items-center gap-2.5 font-display text-xl font-semibold text-cpbh-navy">
+              <span className={`h-5 w-1.5 rounded-full ${rowAccent}`} />
               {RECRUITMENT_ROW_LABEL[col.id]}
             </h3>
             <div
-              className="grid grid-cols-5 gap-3 items-stretch"
+              className="grid items-stretch gap-3 xl:grid-cols-[minmax(220px,0.92fr)_minmax(320px,1.2fr)_repeat(3,minmax(0,1fr))]"
               data-deck-slide={`recruitment-row-${col.id}`}
               data-deck-caption={`Recruitment · ${RECRUITMENT_ROW_LABEL[col.id]}`}
             >
               <div
-                className={`dashboard-card border-t-4 ${columnAccentBorder(col)} p-4 h-full min-w-0`}
+                className={`dashboard-card !p-4 border-t-4 ${columnAccentBorder(col)} flex h-full min-w-0 items-center`}
               >
                 <RegistryHeaderBlock
                   column={col}
                   udsBoxes={udsBoxes}
                   phase={phase}
                   onSelectPhase={onSelectPhase}
+                  plain
                 />
               </div>
               <div
-                className={`dashboard-card border-t-4 ${columnAccentBorder(col)} p-4 h-full min-w-0`}
+                className={`dashboard-card !p-4 border-t-4 ${columnAccentBorder(col)} flex h-full min-w-0 items-center bg-cpbh-mist/25`}
               >
-                <RegistryYtdBlock column={col} />
+                <RegistryYtdBlock column={col} plain />
               </div>
               {slots.map((slot, index) => (
                 <div
                   key={`${col.id}-chart-${index}`}
-                  className="h-full min-h-0 min-w-0 flex flex-col"
+                  className="flex h-full min-h-0 min-w-0 flex-col [&_.registry-chart-plot]:min-w-0"
                 >
                   {renderChartSlot(slot, index, col, chartsProvenance)}
                 </div>
               ))}
             </div>
-          </div>
+          </section>
         );
       })}
     </div>
