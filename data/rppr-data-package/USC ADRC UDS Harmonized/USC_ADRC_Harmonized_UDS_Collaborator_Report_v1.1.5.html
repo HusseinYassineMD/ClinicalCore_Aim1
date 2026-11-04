@@ -2638,6 +2638,23 @@ table code, code { font-size: 0.92em; }
 @media (max-width: 900px) { .usc-metrics { grid-template-columns: repeat(3, minmax(120px, 1fr)); } }
 @media (max-width: 600px) { .usc-metrics { grid-template-columns: repeat(2, minmax(120px, 1fr)); } #header h1.title { font-size: 1.8em; } }
 @media print { #TOC { display: none !important; } .usc-meta, .usc-note, .usc-release-note, .usc-interpretation-note, .usc-qc-note, .usc-metric { break-inside: avoid; } table { font-size: 0.90em; } }
+
+.release-files-table th:first-child,
+.release-files-table td:first-child {
+width: 70px;
+text-align: center !important;
+white-space: nowrap;
+}
+.release-files-table th:nth-child(4),
+.release-files-table td:nth-child(4) {
+min-width: 240px;
+}
+.release-files-note {
+padding: 11px 14px;
+margin: 10px 0 22px 0;
+border-left: 4px solid var(--usc-accent);
+background: var(--usc-accent-light);
+}
 </style>
 
 
@@ -2797,7 +2814,7 @@ border-radius: 0px;
 
 
 <h1 class="title toc-ignore">USC ADRC Harmonized UDS + Milestones</h1>
-<h3 class="subtitle">Collaborator Data Guide &amp; Release Summary</h3>
+<h3 class="subtitle">Data Release Guide</h3>
 
 </div>
 
@@ -2818,66 +2835,45 @@ border-radius: 0px;
 Pipeline release
 </td>
 <td style="text-align:left;">
-v1.1.0
+v1.1.5
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Generated
+Data cutoff
 </td>
 <td style="text-align:left;">
-September 17, 2026
+October 16, 2026
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Primary unit
+Primary file
 </td>
 <td style="text-align:left;">
-Longitudinal UDS: one row per participant per UDS visit
+UDS longitudinal (one row per participant visit)
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="overview" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Overview</h1>
-<p>This release provides the USC ADRC harmonized NACC Uniform Data Set
-(UDS) and Milestones research products. The pipeline supports
-longitudinal analyses across UDS generations while preserving
-<strong>all original source variables</strong> imported from the NACC
-exports. A deliberately limited set of harmonized, current-status, and
-USC convenience fields is added where it materially improves downstream
-use.</p>
-<p>For native NACC variables, the official NACC Researcher’s Data
-Dictionary (RDD) and generation-specific Data Element Dictionaries
-(DEDs) remain the authoritative source for definitions and allowable
-codes. This companion report focuses on the released files, the added
-fields, current release coverage, QC, and interpretation rules.</p>
-<p>Research-facing pipeline-added fields use a standardized naming
-convention: <code>der_*</code> identifies USC ADRC derived/harmonized
-variables, while <code>qc_*</code> identifies collaborator-relevant
-QC/review indicators. Original NACC source variable names are preserved
-unchanged. Official NACC-derived variables retain their published
-<code>NACC...</code> names when implemented.</p>
-<div class="usc-release-note">
-<p><strong>Recommended starting point:</strong> Use
-<code>UDS_longitudinal_harmonized.csv</code> for visit-level analyses.
-Use <code>ADRC_subject_current_harmonized.csv</code> when one row per
-participant is more appropriate. Add
-<code>Milestones_history_harmonized.csv</code> when status-event
-chronology is needed.</p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>The USC ADRC UDS + Milestones release combines participant visits
+across UDS generations and provides a separate current-subject summary.
+Original NACC source fields remain available alongside selected
+harmonized variables. The dates and counts below describe the
+<strong>included data</strong>, not when the report was prepared.</p>
 </div>
-</div>
-<div id="at-a-glance" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> At a glance</h1>
+<div id="at-a-glance" class="section level1">
+<h1>At a glance</h1>
 <div class="usc-metrics">
 <div class="usc-metric">
 <div class="usc-metric-label">
-Unique participants
+Participants
 </div>
 <div class="usc-metric-value">
-2,373
+2,390
 </div>
 </div>
 <div class="usc-metric">
@@ -2885,7 +2881,7 @@ Unique participants
 UDS visits
 </div>
 <div class="usc-metric-value">
-8,178
+8,273
 </div>
 </div>
 <div class="usc-metric">
@@ -2893,1391 +2889,562 @@ UDS visits
 Milestones events
 </div>
 <div class="usc-metric-value">
-4,259
-</div>
-</div>
-<div class="usc-metric">
-<div class="usc-metric-label">
-Original NACC UDS source variables
-</div>
-<div class="usc-metric-value">
-2,110
-</div>
-</div>
-<div class="usc-metric">
-<div class="usc-metric-label">
-Visit date range
-</div>
-<div class="usc-metric-value">
-2005-09-09 to 2026-09-03
+4,301
 </div>
 </div>
 </div>
 </div>
-<div id="release-files" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Release files</h1>
-<table>
-<colgroup>
-<col width="12%" />
-<col width="48%" />
-<col width="39%" />
-</colgroup>
+<div id="release-files" class="section level1">
+<h1>Release files</h1>
+<p><strong>Start with File 1</strong> for visit-level analyses, or
+<strong>File 2</strong> for one row per participant. File 3 provides the
+detailed status-event history.</p>
+<table class="release-files-table">
 <thead>
-<tr class="header">
-<th align="left">File</th>
-<th align="left">Purpose</th>
-<th align="left">Intended use</th>
+<tr>
+<th style="text-align:right;">
+File #
+</th>
+<th style="text-align:left;">
+File
+</th>
+<th style="text-align:left;">
+Purpose
+</th>
+<th style="text-align:left;">
+Relationship to File 1
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">UDS_longitudinal_harmonized.csv</td>
-<td align="left">Primary longitudinal harmonized UDS research file;
-preserves all imported UDS source variables and adds a small
-harmonized/current-status layer.</td>
-<td align="left">Default analytical input for visit-level UDS
-analyses</td>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+UDS_longitudinal_harmonized.csv
+</td>
+<td style="text-align:left;">
+All UDS visits and original UDS fields; visit-level harmonized measures.
+</td>
+<td style="text-align:left;">
+Primary visit-level dataset
+</td>
 </tr>
-<tr class="even">
-<td align="left">ADRC_subject_current_harmonized.csv</td>
-<td align="left">One-row-per-participant current/latest summary for
-cohort screening and participant-level analyses.</td>
-<td align="left">Screening, recruitment, descriptive summaries,
-current/latest participant characteristics</td>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+ADRC_subject_current_harmonized.csv
+</td>
+<td style="text-align:left;">
+One row per participant; latest demographics, diagnosis, and current
+status.
+</td>
+<td style="text-align:left;">
+Participant-level summary of File 1, enriched with Milestones
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Milestones_history_harmonized.csv</td>
-<td align="left">Longitudinal Milestones event history with standardized
-event/date/label fields added to the original source variables.</td>
-<td align="left">Status-history analyses requiring chronology of death,
-discontinuation, rejoin, protocol, or autopsy-consent events</td>
-</tr>
-</tbody>
-</table>
-<p>The corresponding <code>.rds</code> files are preferable for local R
-workflows because dates and R data types are preserved exactly. The CSV
-files are provided for broad interoperability and collaborator
-handoff.</p>
-</div>
-<div id="methods-harmonization" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Methods /
-Harmonization</h1>
-<p>The pipeline stacks the available UDS generations into one
-longitudinal structure, preserves each imported NACC source field, and
-adds harmonized fields only when they provide useful cross-generation
-interpretation. Official NACC UDS3-to-UDS4 programmatic crosswalks are
-used where applicable, while original source fields remain
-unchanged.</p>
-<p>Milestones records are treated as longitudinal status-change events.
-Death, discontinuation, rejoin, follow-up protocol, and autopsy-consent
-information are reconstructed chronologically for current-status use. A
-participant with no Milestones record is <strong>not</strong>
-automatically considered inactive: recent UDS participation without a
-Milestones record is treated as presumed active for the operational
-screening field, while older/no-Milestones cases remain flagged for
-review.</p>
-<p>For current participant-level race/ethnicity summaries, native UDS4
-combined race/ethnicity responses are preferred when available.
-Historical legacy variables are preserved in the longitudinal dataset.
-The USC more-than-one-race field is a convenience classification and
-does not replace canonical NACC race/ethnicity variables.</p>
-</div>
-<div id="data-summary" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Data summary</h1>
-<div id="uds-visits-by-source-generation" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> UDS visits by source
-generation</h2>
-<table>
-<thead>
-<tr class="header">
-<th align="left">source_generation</th>
-<th align="right">Visits</th>
-<th align="left">Percent of visits</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">V1</td>
-<td align="right">575</td>
-<td align="left">7.0%</td>
-</tr>
-<tr class="even">
-<td align="left">V2</td>
-<td align="right">2721</td>
-<td align="left">33.3%</td>
-</tr>
-<tr class="odd">
-<td align="left">V3</td>
-<td align="right">3813</td>
-<td align="left">46.6%</td>
-</tr>
-<tr class="even">
-<td align="left">V3.2</td>
-<td align="right">568</td>
-<td align="left">6.9%</td>
-</tr>
-<tr class="odd">
-<td align="left">V4</td>
-<td align="right">501</td>
-<td align="left">6.1%</td>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Milestones_history_harmonized.csv
+</td>
+<td style="text-align:left;">
+Status event history, including deaths, rejoining, and autopsy consent.
+</td>
+<td style="text-align:left;">
+Additional status-event source
+</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="current-adrc-status" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Current ADRC
-status</h2>
+<div id="participant-overview" class="section level1">
+<h1>Participant overview</h1>
+<p><strong>Current participation status</strong></p>
 <table>
-<colgroup>
-<col width="82%" />
-<col width="11%" />
-<col width="6%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th align="left">der_status_adrc</th>
-<th align="right">Participants</th>
-<th align="left">Percent</th>
+<tr>
+<th style="text-align:left;">
+Group
+</th>
+<th style="text-align:right;">
+Participants
+</th>
+<th style="text-align:right;">
+Share
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Discontinued</td>
-<td align="right">677</td>
-<td align="left">28.5%</td>
+<tr>
+<td style="text-align:left;">
+Discontinued
+</td>
+<td style="text-align:right;">
+677
+</td>
+<td style="text-align:right;">
+28.3%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Deceased</td>
-<td align="right">565</td>
-<td align="left">23.8%</td>
+<tr>
+<td style="text-align:left;">
+Deceased
+</td>
+<td style="text-align:right;">
+569
+</td>
+<td style="text-align:right;">
+23.8%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Minimal contact</td>
-<td align="right">541</td>
-<td align="left">22.8%</td>
+<tr>
+<td style="text-align:left;">
+Minimal contact
+</td>
+<td style="text-align:right;">
+540
+</td>
+<td style="text-align:right;">
+22.6%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Presumed active - no Milestones record; UDS within 24
-months</td>
-<td align="right">343</td>
-<td align="left">14.5%</td>
+<tr>
+<td style="text-align:left;">
+Presumed active - no Milestones record; UDS within 24 months
+</td>
+<td style="text-align:right;">
+349
+</td>
+<td style="text-align:right;">
+14.6%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Annual in-person UDS follow-up</td>
-<td align="right">213</td>
-<td align="left">9.0%</td>
+<tr>
+<td style="text-align:left;">
+Annual in-person UDS follow-up
+</td>
+<td style="text-align:right;">
+221
+</td>
+<td style="text-align:right;">
+9.2%
+</td>
 </tr>
-<tr class="even">
-<td align="left">Status review - no Milestones record; last UDS more
-than 24 months ago or visit date unresolved</td>
-<td align="right">21</td>
-<td align="left">0.9%</td>
+<tr>
+<td style="text-align:left;">
+Status review - no Milestones record; last UDS more than 24 months ago
+or visit date unresolved
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+0.8%
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Annual UDS follow-up by telephone</td>
-<td align="right">13</td>
-<td align="left">0.5%</td>
+<tr>
+<td style="text-align:left;">
+Annual UDS follow-up by telephone
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+0.6%
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Latest available cognitive diagnosis</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Group
+</th>
+<th style="text-align:right;">
+Participants
+</th>
+<th style="text-align:right;">
+Share
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Dementia
+</td>
+<td style="text-align:right;">
+904
+</td>
+<td style="text-align:right;">
+37.8%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cognitively unimpaired
+</td>
+<td style="text-align:right;">
+814
+</td>
+<td style="text-align:right;">
+34.1%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MCI
+</td>
+<td style="text-align:right;">
+563
+</td>
+<td style="text-align:right;">
+23.6%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cognitively impaired, not MCI/dementia
+</td>
+<td style="text-align:right;">
+108
+</td>
+<td style="text-align:right;">
+4.5%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unknown
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0%
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recorded sex</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Group
+</th>
+<th style="text-align:right;">
+Participants
+</th>
+<th style="text-align:right;">
+Share
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+1484
+</td>
+<td style="text-align:right;">
+62.1%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+905
+</td>
+<td style="text-align:right;">
+37.9%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unknown
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0%
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hispanic / Latino</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Group
+</th>
+<th style="text-align:right;">
+Participants
+</th>
+<th style="text-align:right;">
+Share
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Non-Hispanic/Latino
+</td>
+<td style="text-align:right;">
+1669
+</td>
+<td style="text-align:right;">
+69.8%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hispanic/Latino
+</td>
+<td style="text-align:right;">
+716
+</td>
+<td style="text-align:right;">
+30.0%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unknown
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.2%
+</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="current-clinical-diagnosis" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Current clinical
-diagnosis</h2>
+<div id="key-variables" class="section level1">
+<h1>Key variables</h1>
+<p>Only the most frequently requested fields are listed here.
+<code>der_*</code> identifies USC ADRC harmonized/derived fields;
+original NACC variable names are unchanged. All imported original fields
+remain in File 1, with definitions in the official NACC Researcher’s
+Data Dictionary.</p>
 <table>
 <thead>
-<tr class="header">
-<th align="left">der_latest_cognitive_dx</th>
-<th align="right">Participants</th>
-<th align="left">Percent</th>
+<tr>
+<th style="text-align:left;">
+File
+</th>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Use
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Dementia</td>
-<td align="right">898</td>
-<td align="left">37.8%</td>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+naccid / ptid
+</td>
+<td style="text-align:left;">
+Participant linkage identifiers.
+</td>
 </tr>
-<tr class="even">
-<td align="left">Cognitively unimpaired</td>
-<td align="right">817</td>
-<td align="left">34.4%</td>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+visit_date
+</td>
+<td style="text-align:left;">
+UDS visit date; use to select an assessment or reporting cohort.
+</td>
 </tr>
-<tr class="odd">
-<td align="left">MCI</td>
-<td align="right">536</td>
-<td align="left">22.6%</td>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+der_cognitive_dx
+</td>
+<td style="text-align:left;">
+Cognitive syndrome at that visit.
+</td>
 </tr>
-<tr class="even">
-<td align="left">Cognitively impaired, not MCI/dementia</td>
-<td align="right">122</td>
-<td align="left">5.1%</td>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+der_etiology_summary
+</td>
+<td style="text-align:left;">
+Disease-level etiologic diagnoses at that visit.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+der_current_sex
+</td>
+<td style="text-align:left;">
+Harmonized recorded sex: Male, Female, or Unknown.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+birthsex / sex
+</td>
+<td style="text-align:left;">
+Separate native UDS4 and legacy source sex responses.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+educ
+</td>
+<td style="text-align:left;">
+Participant education in years; 99 means unknown.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+der_current_re_hispanic_latino
+</td>
+<td style="text-align:left;">
+Hispanic/Latino TRUE, FALSE, or unknown.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+der_current_race_ethnicity_summary
+</td>
+<td style="text-align:left;">
+Latest available race/ethnicity category summary.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+der_latest_cognitive_dx
+</td>
+<td style="text-align:left;">
+Latest available cognitive syndrome.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+der_latest_etiology_summary
+</td>
+<td style="text-align:left;">
+Most recent available etiologic summary; use File 1 for a single-visit
+diagnosis.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+der_status_adrc
+</td>
+<td style="text-align:left;">
+Current participation status.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+der_status_autopsy_consent
+</td>
+<td style="text-align:left;">
+Reconstructed autopsy-consent status.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+der_milestone_event
+</td>
+<td style="text-align:left;">
+Standardized Milestones event category.
+</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="key-participant-level-availability" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Key participant-level
-availability</h2>
-<p>Availability below means a usable nonmissing value is present in the
-subject-level research file. For UDS biomarker/imaging indicators,
-availability does not imply that a dedicated quantitative modality
-dataset is available.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Measure</th>
-<th align="right">Available N</th>
-<th align="right">Total N</th>
-<th align="right">Available %</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Primary language</td>
-<td align="right">2373</td>
-<td align="right">2373</td>
-<td align="right">100.0%</td>
-</tr>
-<tr class="even">
-<td align="left">Neuropsychological test language</td>
-<td align="right">2373</td>
-<td align="right">2373</td>
-<td align="right">100.0%</td>
-</tr>
-<tr class="odd">
-<td align="left">Cognitive diagnosis</td>
-<td align="right">2373</td>
-<td align="right">2373</td>
-<td align="right">100.0%</td>
-</tr>
-<tr class="even">
-<td align="left">CDR Global</td>
-<td align="right">2373</td>
-<td align="right">2373</td>
-<td align="right">100.0%</td>
-</tr>
-<tr class="odd">
-<td align="left">CDR Sum of Boxes</td>
-<td align="right">2373</td>
-<td align="right">2373</td>
-<td align="right">100.0%</td>
-</tr>
-<tr class="even">
-<td align="left">Etiologic diagnosis summary</td>
-<td align="right">1856</td>
-<td align="right">2373</td>
-<td align="right">78.2%</td>
-</tr>
-<tr class="odd">
-<td align="left">AD etiologic status</td>
-<td align="right">2035</td>
-<td align="right">2373</td>
-<td align="right">85.8%</td>
-</tr>
-<tr class="even">
-<td align="left">UDS amyloid PET indicator</td>
-<td align="right">1420</td>
-<td align="right">2373</td>
-<td align="right">59.8%</td>
-</tr>
-<tr class="odd">
-<td align="left">UDS amyloid CSF indicator</td>
-<td align="right">1414</td>
-<td align="right">2373</td>
-<td align="right">59.6%</td>
-</tr>
-<tr class="even">
-<td align="left">UDS4 CSF AD biomarker indicator</td>
-<td align="right">2</td>
-<td align="right">2373</td>
-<td align="right">0.1%</td>
-</tr>
-<tr class="odd">
-<td align="left">UDS4 blood AD biomarker indicator</td>
-<td align="right">16</td>
-<td align="right">2373</td>
-<td align="right">0.7%</td>
-</tr>
-<tr class="even">
-<td align="left">Current race/ethnicity summary</td>
-<td align="right">2373</td>
-<td align="right">2373</td>
-<td align="right">100.0%</td>
-</tr>
-<tr class="odd">
-<td align="left">Autopsy consent status</td>
-<td align="right">2373</td>
-<td align="right">2373</td>
-<td align="right">100.0%</td>
-</tr>
-<tr class="even">
-<td align="left">Current ADRC status</td>
-<td align="right">2373</td>
-<td align="right">2373</td>
-<td align="right">100.0%</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="raceethnicity-provenance" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Race/ethnicity
-provenance</h2>
-<table>
-<thead>
-<tr class="header">
-<th align="left">der_current_race_ethnicity_source_type</th>
-<th align="right">Participants</th>
-<th align="left">Percent</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">USC legacy interpretation</td>
-<td align="right">1208</td>
-<td align="left">50.9%</td>
-</tr>
-<tr class="even">
-<td align="left">Official NACC UDS3-to-UDS4 crosswalk</td>
-<td align="right">688</td>
-<td align="left">29.0%</td>
-</tr>
-<tr class="odd">
-<td align="left">Native UDS4</td>
-<td align="right">477</td>
-<td align="left">20.1%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="quality-control" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Quality control</h1>
-<p>The table below contains the routine collaborator-facing QC summary
-produced by the same pipeline run as the research datasets. Detailed
-row-level QC artifacts are retained internally and can be reviewed when
-a nonzero finding requires follow-up.</p>
-<table>
-<colgroup>
-<col width="49%" />
-<col width="4%" />
-<col width="46%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">QC.check</th>
-<th align="right">Count</th>
-<th align="left">Expected / interpretation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Same-day duplicate source groups</td>
-<td align="right">0</td>
-<td align="left">Expected 0</td>
-</tr>
-<tr class="even">
-<td align="left">Same-day key-variable conflict groups</td>
-<td align="right">0</td>
-<td align="left">Expected 0</td>
-</tr>
-<tr class="odd">
-<td align="left">Unresolved participant ID or visit date rows</td>
-<td align="right">0</td>
-<td align="left">Expected 0</td>
-</tr>
-<tr class="even">
-<td align="left">NACCID mapping to multiple PTIDs</td>
-<td align="right">0</td>
-<td align="left">Expected 0</td>
-</tr>
-<tr class="odd">
-<td align="left">PTID mapping to multiple NACCIDs</td>
-<td align="right">0</td>
-<td align="left">Expected 0</td>
-</tr>
-<tr class="even">
-<td align="left">Participants with DOB month/year conflict</td>
-<td align="right">0</td>
-<td align="left">Review any nonzero participants</td>
-</tr>
-<tr class="odd">
-<td align="left">Cognitive-diagnosis conflict rows</td>
-<td align="right">0</td>
-<td align="left">Expected 0</td>
-</tr>
-<tr class="even">
-<td align="left">Unexpected key-code rows</td>
-<td align="right">0</td>
-<td align="left">Expected 0</td>
-</tr>
-<tr class="odd">
-<td align="left">UDS4 D1a semantic rule rows</td>
-<td align="right">0</td>
-<td align="left">Expected 0</td>
-</tr>
-<tr class="even">
-<td align="left">Original UDS source variables missing from Research
-output</td>
-<td align="right">0</td>
-<td align="left">Expected 0; hard pipeline invariant</td>
-</tr>
-<tr class="odd">
-<td align="left">Original Milestones source variables missing from
-Research output</td>
-<td align="right">0</td>
-<td align="left">Expected 0; hard pipeline invariant</td>
-</tr>
-<tr class="even">
-<td align="left">Same-day Milestones duplicate source groups</td>
-<td align="right">0</td>
-<td align="left">Expected 0</td>
-</tr>
-<tr class="odd">
-<td align="left">Milestones unresolved ID/date rows</td>
-<td align="right">0</td>
-<td align="left">Expected 0</td>
-</tr>
-<tr class="even">
-<td align="left">No-Milestones participants with old/unresolved UDS
-requiring review</td>
-<td align="right">21</td>
-<td align="left">Review; absence of Milestones alone does not imply
-inactivity</td>
-</tr>
-<tr class="odd">
-<td align="left">Unresolved NACC crosswalk candidate conflict rows</td>
-<td align="right">0</td>
-<td align="left">Expected 0</td>
-</tr>
-<tr class="even">
-<td align="left">Crosswalk disagreements resolved by explicit NACC
-priority</td>
-<td align="right">127</td>
-<td align="left">Informational; explicit NACC priority resolved the
-disagreement</td>
-</tr>
-<tr class="odd">
-<td align="left">Non-High-Complexity crosswalk rules with source
-unavailable</td>
-<td align="right">30</td>
-<td align="left">Informational; inspect only when relevant to a
-project</td>
-</tr>
-<tr class="even">
-<td align="left">More-than-one-race TRUE with missing evidence
-detail</td>
-<td align="right">0</td>
-<td align="left">Expected 0</td>
-</tr>
-</tbody>
-</table>
-<div class="usc-qc-note">
-<p><strong>QC note:</strong> A nonzero QC count is not automatically a
-pipeline failure. Use the interpretation column to distinguish
-expected-zero checks from informational counts and items that require
-participant-level review.</p>
-</div>
-</div>
-<div id="data-dictionary" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Data dictionary</h1>
-<div id="variable-naming-convention" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Variable naming
-convention</h2>
-<p>The research files use a consistent naming scheme for pipeline-added
-variables. Original NACC source variables retain their native names. USC
-ADRC harmonized or summary variables begin with <code>der_</code>;
-collaborator-relevant review indicators begin with <code>qc_</code>.
-When official NACC-derived variables are implemented under published
-definitions, they retain their official <code>NACC...</code> names.
-Internal construction and debugging fields remain in the Audit/QC
-outputs rather than the collaborator-facing Research files. Redundant
-convenience booleans are intentionally omitted when the same information
-is fully represented by a retained status/count/date field; the full
-reconstruction remains available in Audit and the Milestones history
-file.</p>
-</div>
-<div id="how-to-read-the-dictionaries" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> How to read the
-dictionaries</h2>
-<p>The longitudinal file contains the full imported NACC source-variable
-universe plus a relatively small added harmonization/status layer.
-Native NACC variables should be interpreted from the official NACC
-RDD/DED. The dictionaries below focus on fields created or summarized by
-this pipeline and explicitly identify QC/review variables so they are
-not mistaken for substantive clinical fields. Where a pipeline-created
-field proved to be an exact duplicate of a retained native NACC field
-(for example longitudinal CDR Global and CDR Sum of Boxes), the
-redundant derived alias is intentionally omitted from the Research file
-while the native NACC field remains available.</p>
-</div>
-<div id="added-fields-in-the-longitudinal-uds-file" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Added fields in the
-longitudinal UDS file</h2>
-<table>
-<colgroup>
-<col width="13%" />
-<col width="8%" />
-<col width="47%" />
-<col width="30%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">Category</th>
-<th align="left">Description</th>
-<th align="left">Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">naccid</td>
-<td align="left">Identity</td>
-<td align="left">NACC participant identifier used for linkage.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">ptid</td>
-<td align="left">Identity</td>
-<td align="left">Center/PTID identifier when available; retained for
-local linkage.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">visit_date</td>
-<td align="left">Provenance / structure</td>
-<td align="left">Canonical UDS visit date used by the harmonization
-pipeline.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">source_generation</td>
-<td align="left">Provenance / structure</td>
-<td align="left">UDS source generation for the visit (for example V1,
-V2, V3, V3.2, V4).</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_age_at_visit_approx</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Approximate age at visit derived from reported birth
-month/year and visit date; exact birth day is not collected.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_primary_language</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Cross-generation harmonized primary/predominant
-language.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_test_language</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Language in which neuropsychological testing was
-administered when available.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_tested_in_english</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Convenience indicator that available neuropsychological
-test-language information supports English testing.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_cognitive_dx</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Cross-generation cognitive diagnosis summary.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_mci_subtype</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Cross-generation MCI subtype derived from
-generation-specific MCI indicators.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_mbi_status</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Harmonized mild behavioral impairment status where
-collected/derivable.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_etiology_primary</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Primary etiologic diagnosis summary across UDS
-generations.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_etiology_contributing</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Etiologies identified as contributing to
-impairment.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_etiology_noncontributing</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Etiologies identified as present but
-noncontributing.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_etiology_present_role_unknown</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Etiologies present when causal role cannot be
-consistently assigned across generations.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_etiology_summary</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Combined human-readable summary of etiologic findings
-for the visit.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_ad_status</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Cross-generation summary of Alzheimer disease etiologic
-status.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_uds_amyloid_pet</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">UDS-reported amyloid PET result/indicator;
-supplementary to dedicated PET data.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_uds_amylcsf</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">UDS-reported amyloid CSF result/indicator;
-supplementary to dedicated CSF data.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_uds_fdg_ad</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">UDS-reported FDG PET AD-pattern indicator where
-available.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_uds4_csf_ad</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">UDS4 CSF AD biomarker indicator derived from UDS4
-diagnostic/biomarker reporting.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_uds4_blood_ad</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">UDS4 blood AD biomarker indicator derived from UDS4
-diagnostic/biomarker reporting.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_usc_more_than_one_race</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">USC convenience flag for more-than-one-race/identity
-categorization; generation-specific logic preserves canonical source
-variables.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_status_latest_milestone_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date of the participant’s latest available Milestones
-event.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_status_adrc</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Human-readable reconstructed current ADRC participation
-status.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_status_protocol</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Most recent reconstructed Milestones follow-up protocol
-when available.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_status_death_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Reconstructed death date from available Milestones
-information.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_status_latest_discontinuation_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Most recent reconstructed discontinuation date.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_status_presumed_active</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Operational activity indicator used for current
-screening.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">der_status_autopsy_consent</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Current reconstructed autopsy-consent status from
-available Milestones records; blank consent is never interpreted as
-No.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_status_autopsy_consent_source_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Milestones date supporting the reconstructed
-autopsy-consent status.</td>
-<td align="left">Added by the USC harmonization layer; original NACC
-fields remain retained separately.</td>
-</tr>
-<tr class="even">
-<td align="left">qc_subject_review</td>
-<td align="left">QC / review</td>
-<td align="left">TRUE when one or more harmonization/current-status
-issues are designated for review.</td>
-<td align="left">QC/review field; inspect before participant-level
-use.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="current-subject-summary-file" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> Current-subject
-summary file</h2>
-<p><code>ADRC_subject_current_harmonized</code> is a
-one-row-per-participant convenience table derived from the longitudinal
-UDS and reconstructed Milestones history. Fields labeled as QC/review
-are intended to identify uncertainty or records requiring additional
-review rather than to define substantive clinical categories.</p>
-<table>
-<colgroup>
-<col width="19%" />
-<col width="7%" />
-<col width="45%" />
-<col width="27%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">Category</th>
-<th align="left">Description</th>
-<th align="left">Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">naccid</td>
-<td align="left">Identity / source</td>
-<td align="left">NACC participant identifier.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">ptid</td>
-<td align="left">Identity / source</td>
-<td align="left">Center/PTID identifier when available.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">birthyr</td>
-<td align="left">Identity / source</td>
-<td align="left">Reported birth year from UDS source data.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">birthmo</td>
-<td align="left">Identity / source</td>
-<td align="left">Reported birth month from UDS source data.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_n_uds_visits</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Number of UDS visits in the harmonized longitudinal
-dataset.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_first_uds_visit_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Earliest UDS visit date.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_uds_visit_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Most recent UDS visit date.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_uds_generation</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">UDS generation of the latest visit.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_uds_generations_seen</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">UDS generations represented for the participant.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_age_at_latest_uds_visit_approx</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Approximate age at the latest UDS visit.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_primary_language</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest available harmonized primary/predominant
-language.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_primary_language_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting latest primary language.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_ever_tested_in_english</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">TRUE if available neuropsychological testing-language
-data indicate English testing at least once.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_test_language</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest available neuropsychological test language.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_test_language_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting latest test language.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_cognitive_dx</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest available harmonized cognitive diagnosis.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_cognitive_dx_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting latest cognitive diagnosis.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_cognitive_dx_generation</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">UDS generation supporting latest cognitive
-diagnosis.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_mci_subtype</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest available harmonized MCI subtype.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_cdr_global</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest available harmonized CDR Global.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_cdr_global_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting latest CDR Global.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_cdr_sum_boxes</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest available harmonized CDR Sum of Boxes.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_cdr_sum_boxes_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting latest CDR Sum of Boxes.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_etiology_primary</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest primary etiologic diagnosis summary.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_etiology_contributing</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest contributing etiologies.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_etiology_noncontributing</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest noncontributing etiologies.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_etiology_present_role_unknown</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest etiologies present with
-uncertain/uncrosswalkable causal role.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_etiology_summary</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest combined etiologic summary.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_etiology_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting latest etiologic summary.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_ad_status</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest harmonized Alzheimer disease etiologic
-status.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_ad_status_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting latest AD status.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_uds_amyloid_pet</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest UDS-reported amyloid PET indicator/result.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_uds_amyloid_pet_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting latest UDS amyloid PET indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_uds_amylcsf</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest UDS-reported amyloid CSF indicator/result.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_uds_amylcsf_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting latest UDS amyloid CSF indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_uds4_csf_ad</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest UDS4 CSF AD biomarker indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_uds4_csf_ad_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting latest UDS4 CSF AD indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_uds4_blood_ad</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest UDS4 blood AD biomarker indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_uds4_blood_ad_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting latest UDS4 blood AD indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_latest_mbi_status</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest mild behavioral impairment status.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_latest_mbi_status_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting latest MBI status.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_current_re_aian</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Current American Indian or Alaska Native combined
-race/ethnicity indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_current_re_asian</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Current Asian combined race/ethnicity indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_current_re_black</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Current Black or African American combined
-race/ethnicity indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_current_re_hispanic_latino</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Current Hispanic or Latino combined race/ethnicity
-indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_current_re_mena</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Current Middle Eastern or North African combined
-race/ethnicity indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_current_re_nhpi</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Current Native Hawaiian or Pacific Islander combined
-race/ethnicity indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_current_re_white</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Current White combined race/ethnicity indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_current_re_dont_know</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Current race/ethnicity Don’t know indicator.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_current_race_ethnicity_summary</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Human-readable current combined race/ethnicity
-summary.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_current_race_ethnicity_source_type</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Provenance class for current race/ethnicity.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_current_race_ethnicity_source_generation</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">UDS generation supporting current race/ethnicity.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_current_race_ethnicity_source_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Date supporting current race/ethnicity.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_usc_more_than_one_race</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">USC convenience flag identifying
-more-than-one-race/identity according to generation-specific USC
-rules.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_status_n_milestone_records</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Number of Milestones records; missing indicates no
-available Milestones record.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_status_latest_milestone_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest Milestones event date.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_status_protocol</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Current reconstructed Milestones follow-up
-protocol.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_status_death_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Reconstructed death date.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_status_latest_discontinuation_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Latest reconstructed discontinuation date.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_status_autopsy_consent</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Current reconstructed autopsy-consent status.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_status_autopsy_consent_source_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Milestones date supporting current autopsy-consent
-status.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">der_status_presumed_active</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Operational current-activity indicator used for
-screening; may be NA when status requires review.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_status_adrc</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Human-readable current participation status integrating
-Milestones and the no-Milestones/recent-UDS rule.</td>
-<td align="left">One-row-per-participant summary field.</td>
-</tr>
-<tr class="even">
-<td align="left">qc_dob_month_year_conflict</td>
-<td align="left">QC / review</td>
-<td align="left">TRUE when conflicting birth month/year values occur
-across source records.</td>
-<td align="left">QC/review field; do not interpret as a clinical
-classification.</td>
-</tr>
-<tr class="odd">
-<td align="left">qc_subject_review</td>
-<td align="left">QC / review</td>
-<td align="left">TRUE if any current-subject harmonization/status issue
-is flagged for review.</td>
-<td align="left">QC/review field; do not interpret as a clinical
-classification.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="added-fields-in-milestones-history" class="section level2" number="7.5">
-<h2><span class="header-section-number">7.5</span> Added fields in
-Milestones history</h2>
-<table>
-<colgroup>
-<col width="11%" />
-<col width="10%" />
-<col width="32%" />
-<col width="45%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Variable</th>
-<th align="left">Category</th>
-<th align="left">Description</th>
-<th align="left">Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">naccid</td>
-<td align="left">Identity</td>
-<td align="left">NACC participant identifier.</td>
-<td align="left">Added for standardized longitudinal interpretation;
-original Milestones variables remain retained.</td>
-</tr>
-<tr class="even">
-<td align="left">ptid</td>
-<td align="left">Identity</td>
-<td align="left">Center/PTID identifier when available.</td>
-<td align="left">Added for standardized longitudinal interpretation;
-original Milestones variables remain retained.</td>
-</tr>
-<tr class="odd">
-<td align="left">visit_date</td>
-<td align="left">Provenance / structure</td>
-<td align="left">Canonical date of the Milestones event.</td>
-<td align="left">Added for standardized longitudinal interpretation;
-original Milestones variables remain retained.</td>
-</tr>
-<tr class="even">
-<td align="left">source_generation</td>
-<td align="left">Provenance / structure</td>
-<td align="left">Milestones source generation.</td>
-<td align="left">Added for standardized longitudinal interpretation;
-original Milestones variables remain retained.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_milestone_event</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Standardized event classification derived from the
-Milestones row.</td>
-<td align="left">Added for standardized longitudinal interpretation;
-original Milestones variables remain retained.</td>
-</tr>
-<tr class="even">
-<td align="left">der_protocol_label</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Human-readable label for the Milestones protocol
-value.</td>
-<td align="left">Added for standardized longitudinal interpretation;
-original Milestones variables remain retained.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_autopsy_consent_label</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Human-readable label for the autopsy-consent value on
-the event row.</td>
-<td align="left">Added for standardized longitudinal interpretation;
-original Milestones variables remain retained.</td>
-</tr>
-<tr class="even">
-<td align="left">der_death_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Standardized death date assembled from available
-Milestones date parts.</td>
-<td align="left">Added for standardized longitudinal interpretation;
-original Milestones variables remain retained.</td>
-</tr>
-<tr class="odd">
-<td align="left">der_discontinuation_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Standardized discontinuation date assembled from
-available date parts.</td>
-<td align="left">Added for standardized longitudinal interpretation;
-original Milestones variables remain retained.</td>
-</tr>
-<tr class="even">
-<td align="left">der_status_change_date</td>
-<td align="left">USC ADRC derived</td>
-<td align="left">Standardized status-change date where applicable.</td>
-<td align="left">Added for standardized longitudinal interpretation;
-original Milestones variables remain retained.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="important-assumptions-limitations" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Important assumptions
-&amp; limitations</h1>
+<div id="important-to-know" class="section level1">
+<h1>Important to know</h1>
 <ul>
-<li><strong>All original UDS source variables are preserved.</strong>
-Harmonized fields are additive and do not overwrite the historical
-source-variable record.</li>
-<li><strong>Use visit-level variables for longitudinal
-trajectories.</strong> The current-subject table is intended for cohort
-screening and latest/current summaries.</li>
-<li><strong>Race/ethnicity collection changed in UDS4.</strong> Native
-UDS4 combined race/ethnicity responses are preferred for current
-participant-level summaries; historical legacy fields remain
-unchanged.</li>
-<li><strong>No Milestones record does not imply inactivity.</strong>
-Recent UDS participation without Milestones is treated as presumed
-active for the operational screening field; older/no-Milestones cases
-remain unresolved/review.</li>
-<li><strong>Autopsy consent is distinct from post-death autopsy
-information.</strong> Blank autopsy-consent fields are never
-automatically interpreted as No.</li>
-<li><strong>UDS biomarker/imaging indicators are supplementary
-metadata.</strong> Dedicated PET, MRI, CSF, blood biomarker, genetics,
-or neuropathology datasets should remain authoritative when
-available.</li>
-<li><strong>Age is approximate when exact birth day is
-unavailable.</strong> Use caution near birthday boundaries.</li>
-<li><strong>QC/review fields identify uncertainty.</strong> They should
-be reviewed before participant-level decisions and should not be treated
-as clinical classifications.</li>
+<li><strong>Reporting groups:</strong> Current-subject data cover all
+participants in the release, not automatically a dashboard’s eligible
+initial-visit or enrollment cohort. Apply the appropriate population and
+date filters before calculating percentages.</li>
+<li><strong>Demographics:</strong>
+<code>der_current_re_hispanic_latino</code> is TRUE, FALSE, or unknown.
+It carries the latest meaningfully answered response across generations;
+later blanks do not erase an earlier response. UDS4 race/ethnicity is a
+combined, potentially multi-select question.
+<code>der_current_sex</code> is a cross-generation recorded-sex
+convenience field, <strong>not gender identity</strong>.</li>
+<li><strong>Education:</strong> <code>educ=99</code> is unknown and
+should not be averaged as 99 years.</li>
+<li><strong>Clinical diagnosis:</strong> Syndromal and etiologic
+diagnoses are different. Latest subject-level etiologic components may
+originate from different UDS visits; use File 1 when the diagnoses must
+describe one specific visit or the final assessment before death.</li>
+<li><strong>Status:</strong> Absence of a Milestones record is not
+evidence that participation ended. Reconstructed status and autopsy
+consent may require review for individual-level decisions.</li>
 </ul>
-<div class="usc-interpretation-note">
-<p><strong>Interpretation note:</strong> The harmonized dataset is
-intentionally source-preserving. Apparent blanks in historical fields
-can reflect differences in what a UDS generation collected rather than
-true absence of the underlying characteristic.</p>
-</div>
-</div>
-<div id="provenance-reproducibility" class="section level1" number="9">
-<h1><span class="header-section-number">9</span> Provenance &amp;
-reproducibility</h1>
-<p>This report and the accompanying Research datasets were generated by
-the same version-controlled R harmonization pipeline. The full run
-retains source manifests, crosswalk provenance, audit representations,
-detailed QC, session information, and harmonization assumptions outside
-the routine collaborator-facing package.</p>
-<p>For authoritative definitions of original NACC UDS variables, consult
-the official NACC RDD and generation-specific DEDs. For questions about
-USC-derived fields or QC/review indicators, use this report together
-with the pipeline’s internal audit documentation.</p>
+<p>Detailed field descriptions and data-quality review materials are
+maintained separately by the USC ADRC Data Core.</p>
 <div class="usc-footer">
-<p>USC Alzheimer’s Disease Research Center · Data Documentation</p>
+<p>USC Alzheimer’s Disease Research Center · Data Release Guide</p>
 </div>
 </div>
 

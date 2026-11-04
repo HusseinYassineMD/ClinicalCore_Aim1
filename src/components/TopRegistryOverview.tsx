@@ -42,6 +42,8 @@ import {
   type RecruitmentPhase,
   type UdsPeriodBox,
 } from "@/data/recruitmentPhases";
+import { udsLatestVisitDate } from "@/data/siteReporting";
+import { formatScopeDate } from "@/lib/formatScopeDate";
 
 type ChartCountItem = {
   label: string;
@@ -50,14 +52,15 @@ type ChartCountItem = {
 };
 
 /**
- * ADRC visit counts and autopsy enrollment are not in a file that reaches
- * the October 16 lock, so those numbers render green. Red placeholders stay red.
+ * Autopsy enrollment is not in a file that reaches the October 16 lock, so those
+ * numbers render green. UDS year to date from James’s harmonized export renders
+ * black. Red placeholders stay red.
  */
 function countProvenanceForColumn(
   columnId: string,
   provenance: DataProvenance,
 ): DataProvenance {
-  if ((columnId === "adrc" || columnId === "brs") && provenance === "ytd") {
+  if (columnId === "brs" && provenance === "ytd") {
     return "prior";
   }
   return provenance;
@@ -1310,14 +1313,18 @@ function RegistryHeaderBlock({
       {showUdsBoxes ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
           {udsBoxes.some((box) => box.detail.includes("alive"))
-            ? "Alive counts exclude people listed as Deceased. The outlined box matches the breakdown below."
-            : "Active is pink. Year to date stays green because the file ends before 10/16/2026. The outlined box matches the breakdown below."}
+            ? `Alive counts exclude people listed as Deceased. Last UDS visit in James’s file: ${formatScopeDate(udsLatestVisitDate)}. The outlined box matches the breakdown below.`
+            : `Year to date is black. Last UDS visit in James’s file: ${formatScopeDate(udsLatestVisitDate)}. Active is pink. The outlined box matches the breakdown below.`}
         </p>
       ) : column.headerNote ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
           {column.headerNote}
         </p>
-      ) : column.id === "adrc" || column.id === "brs" ? (
+      ) : column.id === "adrc" ? (
+        <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
+          Black · last UDS visit in James’s file: {formatScopeDate(udsLatestVisitDate)}
+        </p>
+      ) : column.id === "brs" ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
           Green · source file ends before 10/16/2026
         </p>
@@ -1542,7 +1549,7 @@ function RecruitmentPhaseToggle({
 }) {
   const windowCaption =
     phase === "ytd"
-      ? "Cumulative is every UDS visit in this file, from 2005. Active is visits since July 1, 2025. Year to date stays in the UDS box. Black and green run through the last date in each file. Red means that count is not in the file."
+      ? `Cumulative is every UDS visit in this file, from 2005. Active is visits since July 1, 2025. Year to date is black through the last visit in James’s file, ${formatScopeDate(udsLatestVisitDate)}. Red means that count is not in the file.`
       : phase === "grant"
         ? "Active changes only the UDS column: visits on or after July 1, 2025. GeneScreen and autopsy stay on year to date. Year to date stays in the UDS box beside Active."
         : "Cumulative is every UDS visit in this export, and those visits start in 2005. GeneScreen and autopsy are red on Cumulative because this file has no matching total for that window.";

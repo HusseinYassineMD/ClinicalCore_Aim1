@@ -6,6 +6,10 @@ const pkg = rpprDataPackage as RpprDataPackage;
 export const packageYtd: ReportingPeriodSummary | undefined =
   pkg.reportingPeriodSummary;
 
+/** Last visit_date in the harmonized UDS file currently loaded. */
+export const udsLatestVisitDate =
+  packageYtd?.dataCoverage?.udsLatestVisitDate ?? null;
+
 export const siteReportingWindow = {
   label: packageYtd?.label ?? "Year to date",
   startDate: packageYtd?.startDate ?? "2026-01-01",

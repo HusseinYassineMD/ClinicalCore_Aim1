@@ -101,6 +101,9 @@ FILE_DESCRIPTIONS: dict[str, str] = {
     "USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.0.html": (
         "Collaborator-facing UDS harmonization report (QC, coverage, methodology)."
     ),
+    "USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.5.html": (
+        "Collaborator-facing UDS harmonization report (QC, coverage, methodology)."
+    ),
     "Integrated_Biomarker_Availability_Report_v1.0.5.html": (
         "Integrated biomarker availability report with coverage summaries."
     ),
@@ -1748,7 +1751,10 @@ def main() -> None:
     uds_subject_path = uds_dir / "ADRC_subject_current_harmonized.csv"
     uds_long_path = uds_dir / "UDS_longitudinal_harmonized.csv"
     milestones_path = uds_dir / "Milestones_history_harmonized.csv"
-    uds_report = uds_dir / "USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.0.html"
+    uds_reports = sorted(uds_dir.glob("USC_ADRC_Harmonized_UDS_Collaborator_Report_*.html"))
+    if not uds_reports:
+        raise FileNotFoundError(f"No UDS collaborator report under {uds_dir}")
+    uds_report = uds_reports[-1]
     bio_dir = PKG / "USC ADRC Integrated Biomarker Availability"
     bio_summary_path = bio_dir / "Integrated_Biomarker_Subject_Summary_v1.0.5.csv"
     bio_avail_path = bio_dir / "Integrated_Biomarker_Availability_v1.0.5.csv"
@@ -1895,7 +1901,7 @@ def main() -> None:
                     "includes collaborator report, longitudinal tables, and NACC data dictionaries."
                 ),
                 "status": "available",
-                "reportPath": "/data-package/reports/USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.0.html",
+                "reportPath": f"/data-package/reports/{uds_report.name}",
                 "summary": {
                     "subjects": summarize_uds_subjects(uds_rows),
                     "longitudinal": summarize_uds_longitudinal(uds_long_rows),

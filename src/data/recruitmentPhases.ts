@@ -1,4 +1,6 @@
 import spanCounts from "@/data/recruitmentSpanCounts.json";
+import { udsLatestVisitDate } from "@/data/siteReporting";
+import { formatScopeDate } from "@/lib/formatScopeDate";
 import type {
   DataProvenance,
   RegistryChartSlot,
@@ -97,6 +99,8 @@ export type UdsPeriodBox = {
   provenance: DataProvenance;
 };
 
+const udsThrough = formatScopeDate(udsLatestVisitDate);
+
 /** Active and year to date, shown together in the UDS header. */
 export function udsPeriodBoxes(alive: boolean, ytdTotal: number): UdsPeriodBox[] {
   const active = alive ? SPAN.grant.adrcAlive : SPAN.grant.adrc;
@@ -111,9 +115,9 @@ export function udsPeriodBoxes(alive: boolean, ytdTotal: number): UdsPeriodBox[]
     {
       id: "ytd",
       label: "Year to date",
-      detail: alive ? "alive" : "through last visit",
+      detail: alive ? `alive · through ${udsThrough}` : `through ${udsThrough}`,
       total: alive ? SPAN.ytd.adrcAlive.total : ytdTotal,
-      provenance: alive ? "span" : "prior",
+      provenance: alive ? "span" : "ytd",
     },
   ];
 }

@@ -17,8 +17,10 @@ import type { RpprDataPackage } from "@/types/dataPackage";
 import {
   packageYtd,
   siteReportingWindow,
+  udsLatestVisitDate,
   ytdParticipantsWithVisit,
 } from "@/data/siteReporting";
+import { formatScopeDate } from "@/lib/formatScopeDate";
 import { buildRecruitmentSectionNotes } from "@/data/recruitmentProvenance";
 import {
   adrcYtdApoeChartProvenance,
@@ -123,7 +125,7 @@ export const aim1MockData: Aim1DashboardData = {
     "RedCap — USC ADRC Biofluid Request Tracking",
     "RedCap — USC ADRC Neurobank Request Tracking",
     "GeneScreen — biobetagenetest.usc.edu/yassine/gs/recruitment.php",
-    "USC ADRC RPPR Data Package · UDS Harmonization (v1.1.0)",
+    "USC ADRC RPPR Data Package · UDS Harmonization (v1.1.5)",
     "USC ADRC RPPR Data Package · Integrated Biomarkers (v1.0.5)",
     "USC ADRC Integrated Imaging Availability (v1.5.2)",
     "MAPDatabase REDCap · BRS Cohort & APOE Genotype",
@@ -364,7 +366,7 @@ export const aim1MockData: Aim1DashboardData = {
         {
           title: "Not the same as",
           lines: [
-            `ADRC registry card headline (${ytdParticipantsWithVisit}) — unique participants with UDS visit · ${siteReportingWindow.label} · green because the file ends before 10/16/2026`,
+            `ADRC registry card headline (${ytdParticipantsWithVisit}) — unique participants with UDS visit · ${siteReportingWindow.label} · black · last visit in James’s file ${formatScopeDate(udsLatestVisitDate)}`,
             "Harmonized YTD Table 1 — planned in Data Core export",
           ],
         },

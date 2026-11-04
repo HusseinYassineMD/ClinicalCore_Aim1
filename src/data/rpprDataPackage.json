@@ -2,7 +2,7 @@
   "packageLabel": "USC ADRC RPPR Data Package",
   "receivedAt": "2026-09-16",
   "supplementReceivedAt": "2026-10-09",
-  "lastAggregated": "2026-10-09T20:32:59.091268+00:00",
+  "lastAggregated": "2026-11-03T23:58:27.737476+00:00",
   "reportingPeriodSummary": {
     "label": "1/1/2026 \u2013 10/16/2026",
     "startDate": "2026-01-01",
@@ -13,7 +13,7 @@
     "note": "Year-to-date counts from row-level dates in the package CSVs (received 2026-09-16; BRS & biospecimen supplements 2026-10-09). The export is a snapshot \u2014 activity after delivery is not in these files.",
     "dataCoverage": {
       "packageReceivedAt": "2026-09-16",
-      "udsLatestVisitDate": "2026-09-03",
+      "udsLatestVisitDate": "2026-10-12",
       "biomarkerLatestCollectionDate": "2026-07-30",
       "brsLatestActivityDate": "2026-10-05"
     },
@@ -23,11 +23,11 @@
         "visit_date",
         "visitdate"
       ],
-      "newInitialEvaluations": 24,
-      "followUpInPerson": 181,
-      "followUpRemote": 17,
-      "totalVisitRecords": 222,
-      "uniqueParticipantsWithVisit": 222,
+      "newInitialEvaluations": 40,
+      "followUpInPerson": 247,
+      "followUpRemote": 23,
+      "totalVisitRecords": 310,
+      "uniqueParticipantsWithVisit": 310,
       "definitions": {
         "newInitialEvaluations": "Visit records with packet=I and visit_date in period",
         "followUpInPerson": "Non-initial visit records with modea1=1 (in person)",
@@ -37,15 +37,15 @@
         "byRaceEthnicity": [
           {
             "label": "White",
-            "count": 15
-          },
-          {
-            "label": "Hispanic",
-            "count": 6
+            "count": 24
           },
           {
             "label": "Asian",
-            "count": 2
+            "count": 8
+          },
+          {
+            "label": "Hispanic",
+            "count": 7
           },
           {
             "label": "Middle Eastern or North African",
@@ -55,18 +55,18 @@
         "byApoeGenotype": [
           {
             "label": "Genotype not in MAP APOE export",
-            "count": 16
+            "count": 31
           },
           {
             "label": "E3/E3",
             "count": 3
           },
           {
-            "label": "E3/E2",
-            "count": 2
+            "label": "E3/E4",
+            "count": 3
           },
           {
-            "label": "E3/E4",
+            "label": "E3/E2",
             "count": 2
           },
           {
@@ -77,11 +77,15 @@
         "byReferralSource": [
           {
             "label": "ADRC clinician / staff",
-            "count": 13
+            "count": 21
+          },
+          {
+            "label": "Other referral source",
+            "count": 6
           },
           {
             "label": "Prior ADRC participant",
-            "count": 4
+            "count": 6
           },
           {
             "label": "Non-ADRC healthcare professional",
@@ -92,11 +96,11 @@
             "count": 2
           },
           {
-            "label": "Other referral source",
+            "label": "Other research study staff",
             "count": 1
           },
           {
-            "label": "Other research study staff",
+            "label": "Self-referral",
             "count": 1
           }
         ],
@@ -316,7 +320,7 @@
     "note": "Additional row-level date fields from other package CSVs, filtered to the same year-to-date window as the section above.",
     "dataCoverage": {
       "packageReceivedAt": "2026-09-16",
-      "milestonesLatestVisitDate": "2026-08-24"
+      "milestonesLatestVisitDate": "2026-10-16"
     },
     "domains": [
       {
@@ -327,13 +331,13 @@
         "metrics": [
           {
             "label": "Milestone visit records (visit_date)",
-            "value": 161,
-            "participants": 140
+            "value": 200,
+            "participants": 169
           },
           {
             "label": "Death records (der_death_date)",
-            "value": 10,
-            "participants": 10
+            "value": 13,
+            "participants": 13
           },
           {
             "label": "Discontinuation records (der_discontinuation_date)",
@@ -342,8 +346,8 @@
           },
           {
             "label": "Status change records (der_status_change_date)",
-            "value": 132,
-            "participants": 112
+            "value": 168,
+            "participants": 139
           }
         ],
         "footnote": "Milestone rows are event history \u2014 one participant may have multiple records in the period."
@@ -413,15 +417,15 @@
         "metrics": [
           {
             "label": "Subjects with first UDS visit in period",
-            "value": 24
+            "value": 40
           },
           {
             "label": "Subjects whose latest UDS visit falls in period",
-            "value": 222
+            "value": 310
           },
           {
             "label": "Subjects with derived death date in period",
-            "value": 10
+            "value": 13
           },
           {
             "label": "Subjects with derived discontinuation date in period",
@@ -429,7 +433,7 @@
           },
           {
             "label": "Subjects with latest milestone date in period",
-            "value": 140
+            "value": 169
           }
         ],
         "footnote": "Subject-level dates differ from longitudinal visit row counts \u2014 e.g. latest visit date tags subjects active in period, not visit volume."
@@ -484,8 +488,8 @@
     "totalFiles": 31,
     "csvFiles": 24,
     "htmlReports": 3,
-    "totalCsvRows": 275078,
-    "totalSizeMb": 107.5,
+    "totalCsvRows": 275232,
+    "totalSizeMb": 108.0,
     "files": [
       {
         "path": "data/rppr-data-package/MAPDatabase-APOEGenotype_DATA_2026-09-16_1445.csv",
@@ -1089,10 +1093,10 @@
       {
         "path": "data/rppr-data-package/USC ADRC UDS Harmonized/ADRC_subject_current_harmonized.csv",
         "fileName": "ADRC_subject_current_harmonized.csv",
-        "rowCount": 2373,
-        "columnCount": 65,
-        "fileSizeMb": 1.27,
-        "fileModified": "2026-09-18",
+        "rowCount": 2390,
+        "columnCount": 76,
+        "fileSizeMb": 1.51,
+        "fileModified": "2026-11-03",
         "description": "One row per participant with derived current status, demographics, latest cognitive/diagnostic fields, and Milestones-derived enrollment state.",
         "fileType": "csv",
         "columns": [
@@ -1100,11 +1104,20 @@
           "ptid",
           "birthyr",
           "birthmo",
+          "birthsex",
+          "sex",
+          "educ",
           "der_n_uds_visits",
           "der_first_uds_visit_date",
           "der_latest_uds_visit_date",
           "der_latest_uds_generation",
           "der_uds_generations_seen",
+          "der_current_sex",
+          "der_current_sex_source_field",
+          "der_current_sex_source_date",
+          "der_birthsex_source_date",
+          "der_sex_source_date",
+          "der_educ_source_date",
           "der_age_at_latest_uds_visit_approx",
           "der_latest_primary_language",
           "der_latest_primary_language_date",
@@ -1126,16 +1139,7 @@
           "der_latest_etiology_summary",
           "der_latest_etiology_date",
           "der_latest_ad_status",
-          "der_latest_ad_status_date",
-          "der_latest_uds_amyloid_pet",
-          "der_latest_uds_amyloid_pet_date",
-          "der_latest_uds_amylcsf",
-          "der_latest_uds_amylcsf_date",
-          "der_latest_uds4_csf_ad",
-          "der_latest_uds4_csf_ad_date",
-          "der_latest_uds4_blood_ad",
-          "der_latest_uds4_blood_ad_date",
-          "der_latest_mbi_status"
+          "der_latest_ad_status_date"
         ],
         "columnTruncated": true,
         "relativeDir": "USC ADRC UDS Harmonized"
@@ -1143,10 +1147,10 @@
       {
         "path": "data/rppr-data-package/USC ADRC UDS Harmonized/Milestones_history_harmonized.csv",
         "fileName": "Milestones_history_harmonized.csv",
-        "rowCount": 4259,
+        "rowCount": 4301,
         "columnCount": 70,
-        "fileSizeMb": 0.83,
-        "fileModified": "2026-09-18",
+        "fileSizeMb": 0.84,
+        "fileModified": "2026-11-03",
         "description": "Longitudinal Milestones events per participant (enrollment status changes, discontinuation, death, autopsy flags).",
         "fileType": "csv",
         "columns": [
@@ -1200,7 +1204,7 @@
         "rowCount": 33,
         "columnCount": 8,
         "fileSizeMb": 0.01,
-        "fileModified": "2026-09-18",
+        "fileModified": "2026-08-12",
         "description": "NACC Milestones v3 data dictionary (field definitions).",
         "fileType": "csv",
         "columns": [
@@ -1217,13 +1221,13 @@
         "relativeDir": "USC ADRC UDS Harmonized/NACC Data Dictionaries"
       },
       {
-        "path": "data/rppr-data-package/USC ADRC UDS Harmonized/NACC Data Dictionaries/uds-v4-fvp-ded-08122026.csv",
-        "fileName": "uds-v4-fvp-ded-08122026.csv",
+        "path": "data/rppr-data-package/USC ADRC UDS Harmonized/NACC Data Dictionaries/uds-v4-fvp-ded-10132026.csv",
+        "fileName": "uds-v4-fvp-ded-10132026.csv",
         "rowCount": 1502,
-        "columnCount": 12,
+        "columnCount": 11,
         "fileSizeMb": 0.44,
-        "fileModified": "2026-09-18",
-        "description": "NACC UDS v4 FVP form data dictionary.",
+        "fileModified": "2026-11-03",
+        "description": "",
         "fileType": "csv",
         "columns": [
           "form_name",
@@ -1236,20 +1240,19 @@
           "data_type",
           "branching_logic",
           "notes",
-          "carry_forward",
-          "response_labels "
+          "carry_forward"
         ],
         "columnTruncated": false,
         "relativeDir": "USC ADRC UDS Harmonized/NACC Data Dictionaries"
       },
       {
-        "path": "data/rppr-data-package/USC ADRC UDS Harmonized/NACC Data Dictionaries/uds-v4-ivp-ded-08122026.csv",
-        "fileName": "uds-v4-ivp-ded-08122026.csv",
+        "path": "data/rppr-data-package/USC ADRC UDS Harmonized/NACC Data Dictionaries/uds-v4-ivp-ded-10132026.csv",
+        "fileName": "uds-v4-ivp-ded-10132026.csv",
         "rowCount": 1576,
         "columnCount": 10,
         "fileSizeMb": 0.45,
-        "fileModified": "2026-09-18",
-        "description": "NACC UDS v4 IVP form data dictionary.",
+        "fileModified": "2026-11-03",
+        "description": "",
         "fileType": "csv",
         "columns": [
           "form_name",
@@ -1272,7 +1275,7 @@
         "rowCount": 0,
         "columnCount": 0,
         "fileSizeMb": 0.66,
-        "fileModified": "2026-09-18",
+        "fileModified": "2021-01-19",
         "description": "",
         "fileType": "pdf",
         "relativeDir": "USC ADRC UDS Harmonized/NACC Data Dictionaries"
@@ -1283,7 +1286,7 @@
         "rowCount": 0,
         "columnCount": 0,
         "fileSizeMb": 0.71,
-        "fileModified": "2026-09-18",
+        "fileModified": "2021-01-19",
         "description": "",
         "fileType": "pdf",
         "relativeDir": "USC ADRC UDS Harmonized/NACC Data Dictionaries"
@@ -1294,7 +1297,7 @@
         "rowCount": 0,
         "columnCount": 0,
         "fileSizeMb": 0.19,
-        "fileModified": "2026-09-18",
+        "fileModified": "2021-11-16",
         "description": "",
         "fileType": "pdf",
         "relativeDir": "USC ADRC UDS Harmonized/NACC Data Dictionaries"
@@ -1305,7 +1308,7 @@
         "rowCount": 0,
         "columnCount": 0,
         "fileSizeMb": 2.26,
-        "fileModified": "2026-09-18",
+        "fileModified": "2026-08-20",
         "description": "",
         "fileType": "pdf",
         "relativeDir": "USC ADRC UDS Harmonized/NACC Data Dictionaries"
@@ -1313,10 +1316,10 @@
       {
         "path": "data/rppr-data-package/USC ADRC UDS Harmonized/UDS_longitudinal_harmonized.csv",
         "fileName": "UDS_longitudinal_harmonized.csv",
-        "rowCount": 8178,
+        "rowCount": 8273,
         "columnCount": 2140,
-        "fileSizeMb": 23.46,
-        "fileModified": "2026-09-18",
+        "fileSizeMb": 23.75,
+        "fileModified": "2026-11-03",
         "description": "Long-format harmonized UDS visits across NACC generations (V1\u2013V4); wide table with all harmonized form variables per visit.",
         "fileType": "csv",
         "columns": [
@@ -1365,12 +1368,12 @@
         "relativeDir": "USC ADRC UDS Harmonized"
       },
       {
-        "path": "data/rppr-data-package/USC ADRC UDS Harmonized/USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.0.html",
-        "fileName": "USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.0.html",
+        "path": "data/rppr-data-package/USC ADRC UDS Harmonized/USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.5.html",
+        "fileName": "USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.5.html",
         "rowCount": 0,
         "columnCount": 0,
-        "fileSizeMb": 0.96,
-        "fileModified": "2026-09-18",
+        "fileSizeMb": 0.92,
+        "fileModified": "2026-11-03",
         "description": "Collaborator-facing UDS harmonization report (QC, coverage, methodology).",
         "fileType": "html",
         "relativeDir": "USC ADRC UDS Harmonized"
@@ -1383,57 +1386,58 @@
       "title": "UDS Harmonization",
       "description": "Harmonizes current and legacy UDS data plus Milestones; includes collaborator report, longitudinal tables, and NACC data dictionaries.",
       "status": "available",
-      "reportPath": "/data-package/reports/USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.0.html",
+      "reportPath": "/data-package/reports/USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.5.html",
       "summary": {
         "subjects": {
-          "totalSubjects": 2373,
+          "totalSubjects": 2390,
           "byAdrcStatus": {
             "Discontinued": 677,
-            "Deceased": 565,
-            "Minimal contact": 541,
-            "Presumed active - no Milestones record; UDS within 24 months": 343,
-            "Annual in-person UDS follow-up": 213,
-            "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved": 21,
-            "Annual UDS follow-up by telephone": 13
+            "Deceased": 569,
+            "Minimal contact": 540,
+            "Presumed active - no Milestones record; UDS within 24 months": 349,
+            "Annual in-person UDS follow-up": 221,
+            "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved": 19,
+            "Annual UDS follow-up by telephone": 15
           },
-          "presumedActive": 343,
-          "presumedActiveFlag": 1110,
+          "presumedActive": 349,
+          "presumedActiveFlag": 1125,
           "discontinued": 677,
-          "deceased": 565,
-          "withAutopsyConsent": 380,
+          "deceased": 569,
+          "withAutopsyConsent": 376,
           "byAutopsyConsent": {
-            "Unknown / not established from available Milestones": 1015,
-            "No": 614,
-            "Yes": 380,
-            "Not established - no Milestones record": 364
+            "Unknown / not established from available Milestones": 1030,
+            "No": 616,
+            "Yes": 376,
+            "Not established - no Milestones record": 368
           },
           "byRaceEthnicity": {
-            "White": 1221,
-            "Hispanic or Latino; White": 417,
-            "Asian": 193,
-            "Black or African American": 127,
-            "Hispanic or Latino": 119,
-            "Hispanic or Latino; Don't know": 85,
+            "White": 1229,
+            "Hispanic or Latino; White": 406,
+            "Asian": 200,
+            "Black or African American": 134,
+            "Hispanic or Latino": 127,
+            "Hispanic or Latino; Don't know": 80,
             "American Indian or Alaska Native; Hispanic or Latino; White": 50,
-            "American Indian or Alaska Native; Black or African American": 18,
-            "American Indian or Alaska Native; Black or African American; White": 18,
             "American Indian or Alaska Native; White": 17,
+            "American Indian or Alaska Native; Black or African American": 15,
             "American Indian or Alaska Native; Hispanic or Latino": 15,
+            "American Indian or Alaska Native; Black or African American; White": 14,
             "Black or African American; White": 13,
             "White; Don't know": 9,
+            "Hispanic or Latino; Other race (legacy category)": 8,
             "Asian; White": 6,
             "Black or African American; Hispanic or Latino; White": 6,
             "Don't know": 5,
-            "American Indian or Alaska Native": 5,
-            "Black or African American; Hispanic or Latino": 5,
             "Middle Eastern or North African": 5,
             "Native Hawaiian or Pacific Islander; White": 4,
             "Hispanic or Latino; Native Hawaiian or Pacific Islander; White": 4,
+            "American Indian or Alaska Native": 4,
+            "Black or African American; Hispanic or Latino": 4,
             "Asian; Hispanic or Latino": 3,
             "Asian; Black or African American": 3,
-            "American Indian or Alaska Native; Black or African American; Hispanic or Latino": 3,
             "Native Hawaiian or Pacific Islander": 3,
             "Asian; Native Hawaiian or Pacific Islander; White": 2,
+            "American Indian or Alaska Native; Black or African American; Hispanic or Latino": 2,
             "American Indian or Alaska Native; Black or African American; Hispanic or Latino; White": 2,
             "Asian; Native Hawaiian or Pacific Islander": 2,
             "Asian; Black or African American; White": 2,
@@ -1442,55 +1446,61 @@
             "Black or African American; Don't know": 1,
             "Asian; Hispanic or Latino; White": 1,
             "Black or African American; Hispanic or Latino; Native Hawaiian or Pacific Islander; White": 1,
+            "White; Other race (legacy category)": 1,
             "Other race (legacy category)": 1,
             "Black or African American; Hispanic or Latino; Don't know": 1,
             "Hispanic or Latino; Native Hawaiian or Pacific Islander": 1,
+            "American Indian or Alaska Native; Other race (legacy category)": 1,
+            "American Indian or Alaska Native; Black or African American; Hispanic or Latino; Other race (legacy category)": 1,
             "Hispanic or Latino; White; Don't know": 1,
             "Middle Eastern or North African; White": 1,
-            "American Indian or Alaska Native; Asian; White": 1
+            "Hispanic or Latino; White; Other race (legacy category)": 1,
+            "American Indian or Alaska Native; Asian; White": 1,
+            "Black or African American; Hispanic or Latino; Other race (legacy category)": 1
           },
           "byRaceEthnicityBroad": {
-            "White (non-Hispanic)": 1221,
-            "Hispanic or Latino": 715,
-            "Asian": 204,
+            "White (non-Hispanic)": 1229,
+            "Hispanic or Latino": 716,
+            "Asian": 211,
             "Black or African American": 183,
             "American Indian or Alaska Native": 22,
-            "Multiracial / other (includes White)": 10,
+            "Multiracial / other (includes White)": 11,
             "Native Hawaiian or Pacific Islander": 7,
             "Other / multiracial": 6,
             "Unknown / not reported": 5
           },
           "byHispanicLatinoFlag": {
-            "FALSE": 1266,
-            "TRUE": 715,
-            "(blank)": 392
+            "FALSE": 1669,
+            "TRUE": 716,
+            "(blank)": 5
           },
-          "raceEthnicityNote": "Full harmonized race/ethnicity from der_current_race_ethnicity_summary (2373 of 2373 subjects populated). BRS REDCap export has gender and Hispanic flag only.",
+          "raceEthnicityNote": "Full harmonized race/ethnicity from der_current_race_ethnicity_summary (2390 of 2390 subjects populated). BRS REDCap export has gender and Hispanic flag only.",
           "byCognitiveDx": {
-            "Dementia": 898,
-            "Cognitively unimpaired": 817,
-            "MCI": 536,
-            "Cognitively impaired, not MCI/dementia": 122
+            "Dementia": 904,
+            "Cognitively unimpaired": 814,
+            "MCI": 563,
+            "Cognitively impaired, not MCI/dementia": 108,
+            "Unknown": 1
           },
           "byCdrGlobal": {
-            "0": 843,
-            "0.5": 729,
+            "0": 845,
+            "0.5": 740,
             "3": 319,
-            "1": 286,
-            "2": 196
+            "1": 289,
+            "2": 197
           },
           "byAdStatus": {
-            "Alzheimer's disease - primary": 721,
-            "Alzheimer's disease - absent": 699,
+            "Alzheimer's disease - primary": 741,
+            "Alzheimer's disease - absent": 686,
             "Probable Alzheimer's disease (legacy UDS)": 406,
-            "(blank)": 338,
+            "(blank)": 348,
             "Possible Alzheimer's disease (legacy UDS)": 192,
             "Alzheimer's disease - contributing": 17
           },
           "byPrimaryLanguage": {
-            "English": 1837,
-            "Spanish": 451,
-            "Other": 60,
+            "English": 1852,
+            "Spanish": 452,
+            "Other": 61,
             "Mandarin": 11,
             "Unknown": 5,
             "Japanese": 3,
@@ -1499,68 +1509,68 @@
             "Chinese dialect": 1
           },
           "byLatestUdsGeneration": {
-            "V3": 827,
+            "V3": 774,
             "V2": 710,
-            "V4": 478,
+            "V4": 549,
             "V1": 197,
-            "V3.2": 161
+            "V3.2": 160
           },
-          "avgUdsVisits": 3.4,
-          "totalUdsVisits": 8178,
+          "avgUdsVisits": 3.5,
+          "totalUdsVisits": 8273,
           "byMilestoneRecordCount": {
-            "1": 969,
-            "2": 456,
-            "(blank)": 364,
-            "3": 272,
+            "1": 968,
+            "2": 463,
+            "(blank)": 368,
+            "3": 276,
             "4": 146,
-            "5": 84,
-            "6": 45,
+            "5": 86,
+            "6": 46,
             "7": 20,
             "8": 9,
-            "9": 5,
-            "10": 2,
+            "9": 4,
+            "10": 3,
             "11": 1
           },
           "fieldBreakdowns": {
             "birthyr": {
-              "1951": 71,
+              "1951": 72,
               "1940": 69,
               "1942": 66,
               "1949": 66,
               "1937": 64,
+              "1947": 64,
               "1943": 63,
-              "1947": 63,
+              "1950": 61,
               "1941": 61,
               "1938": 60,
-              "1950": 59,
+              "1946": 59,
               "1936": 58,
-              "1946": 58,
               "1953": 57,
-              "1948": 56,
+              "1948": 57,
               "1929": 56,
               "1928": 55,
               "1935": 55,
+              "1956": 52,
               "1926": 51,
               "1944": 50,
               "1932": 50,
               "1923": 50,
               "1933": 50,
+              "1954": 50,
               "1930": 50,
-              "1956": 49,
-              "1954": 49,
               "1939": 48,
               "1925": 47,
               "1931": 47,
               "1934": 47,
-              "1957": 45,
+              "1957": 46,
+              "1952": 44,
               "1924": 44,
               "1960": 43,
-              "1952": 43,
               "1927": 42,
               "1945": 42,
-              "1958": 35,
-              "1959": 34,
-              "1955": 33,
+              "1959": 36,
+              "1958": 36,
+              "1955": 34,
               "1921": 33,
               "1922": 32,
               "1920": 27,
@@ -1579,9 +1589,9 @@
               "1970": 7,
               "1974": 7,
               "1968": 7,
+              "1976": 6,
               "1973": 6,
               "1977": 5,
-              "1976": 5,
               "1971": 5,
               "1979": 5,
               "1966": 5,
@@ -1616,125 +1626,176 @@
               "1991": 1
             },
             "birthmo": {
-              "8": 235,
+              "8": 237,
               "5": 209,
-              "6": 205,
+              "6": 206,
+              "11": 201,
               "2": 200,
-              "11": 199,
-              "1": 198,
-              "9": 197,
-              "10": 197,
-              "3": 191,
-              "7": 186,
-              "12": 179,
-              "4": 177
+              "10": 200,
+              "1": 200,
+              "9": 198,
+              "3": 193,
+              "7": 187,
+              "12": 180,
+              "4": 179
+            },
+            "birthsex": {
+              "(blank)": 1842,
+              "2": 350,
+              "1": 197,
+              "8": 1
+            },
+            "sex": {
+              "2": 1439,
+              "1": 882,
+              "(blank)": 69
+            },
+            "educ": {
+              "16": 484,
+              "18": 385,
+              "12": 361,
+              "14": 257,
+              "20": 195,
+              "13": 139,
+              "15": 88,
+              "6": 71,
+              "17": 70,
+              "19": 50,
+              "9": 38,
+              "3": 34,
+              "10": 29,
+              "8": 29,
+              "11": 26,
+              "7": 20,
+              "0": 17,
+              "4": 16,
+              "2": 16,
+              "22": 15,
+              "99": 14,
+              "5": 12,
+              "21": 9,
+              "1": 5,
+              "24": 4,
+              "25": 2,
+              "23": 2,
+              "26": 1,
+              "28": 1
             },
             "der_n_uds_visits": {
-              "1": 807,
-              "2": 457,
-              "3": 346,
-              "4": 214,
+              "1": 813,
+              "2": 436,
+              "3": 361,
+              "4": 229,
               "5": 115,
-              "7": 90,
-              "6": 78,
-              "8": 64,
+              "7": 91,
+              "6": 79,
+              "8": 61,
               "9": 45,
-              "10": 42,
+              "10": 44,
               "12": 29,
-              "14": 21,
+              "14": 23,
               "11": 20,
-              "13": 14,
+              "13": 13,
               "15": 12,
               "17": 7,
-              "16": 5,
               "19": 4,
-              "18": 3
+              "16": 4,
+              "18": 4
             },
             "der_latest_uds_generation": {
-              "V3": 827,
+              "V3": 774,
               "V2": 710,
-              "V4": 478,
+              "V4": 549,
               "V1": 197,
-              "V3.2": 161
+              "V3.2": 160
             },
             "der_uds_generations_seen": {
-              "V3": 543,
               "V2": 501,
-              "V3; V4": 289,
+              "V3": 495,
+              "V3; V4": 337,
               "V1; V2": 209,
               "V1": 197,
-              "V2; V3": 148,
-              "V3; V3.2": 145,
-              "V2; V3; V3.2": 81,
-              "V3; V3.2; V4": 80,
-              "V4": 52,
+              "V2; V3": 147,
+              "V3; V3.2": 141,
+              "V3; V3.2; V4": 84,
+              "V2; V3; V3.2": 80,
+              "V4": 69,
               "V1; V2; V3": 46,
-              "V2; V3; V3.2; V4": 43,
+              "V2; V3; V3.2; V4": 44,
               "V1; V2; V3; V3.2": 22,
               "V1; V2; V3; V3.2; V4": 8,
-              "V2; V3; V4": 5,
+              "V2; V3; V4": 6,
               "V1; V3; V3.2": 1,
               "V1; V2; V3; V4": 1,
               "V1; V2; V3.2": 1,
               "V2; V3.2": 1
             },
+            "der_current_sex": {
+              "Female": 1484,
+              "Male": 905,
+              "Unknown": 1
+            },
+            "der_current_sex_source_field": {
+              "Legacy UDS SEX": 1842,
+              "UDS4 BIRTHSEX": 548
+            },
             "der_age_at_latest_uds_visit_approx": {
-              "77": 98,
-              "76": 97,
+              "77": 103,
+              "76": 98,
               "79": 94,
-              "81": 93,
-              "72": 86,
-              "82": 85,
-              "73": 84,
-              "74": 82,
-              "69": 79,
-              "78": 79,
-              "75": 74,
-              "86": 71,
-              "87": 70,
+              "81": 92,
+              "72": 92,
+              "82": 86,
+              "69": 84,
+              "74": 83,
+              "73": 82,
+              "78": 82,
+              "86": 72,
+              "75": 71,
+              "71": 71,
               "84": 70,
-              "85": 70,
-              "71": 69,
-              "83": 66,
-              "68": 64,
-              "70": 63,
-              "67": 62,
+              "87": 69,
+              "85": 69,
+              "83": 68,
+              "67": 64,
+              "68": 63,
               "80": 61,
-              "65": 57,
+              "70": 60,
+              "65": 56,
+              "63": 50,
               "66": 49,
-              "63": 49,
-              "64": 47,
-              "89": 42,
-              "88": 40,
-              "91": 33,
-              "90": 33,
-              "93": 30,
+              "64": 46,
+              "88": 41,
+              "89": 40,
+              "90": 34,
+              "91": 32,
               "92": 29,
+              "93": 29,
               "62": 27,
-              "60": 24,
               "61": 24,
+              "60": 23,
               "59": 19,
               "95": 17,
               "58": 17,
               "94": 16,
               "98": 16,
-              "55": 14,
+              "55": 15,
               "51": 13,
               "96": 12,
               "52": 11,
               "57": 11,
               "56": 10,
               "53": 10,
+              "97": 9,
               "99": 8,
               "45": 7,
               "49": 7,
-              "97": 6,
               "47": 6,
               "48": 6,
               "44": 6,
+              "50": 6,
               "46": 5,
-              "54": 5,
-              "50": 5,
+              "54": 4,
               "100": 4,
               "27": 4,
               "43": 3,
@@ -1759,9 +1820,9 @@
               "31": 1
             },
             "der_latest_primary_language": {
-              "English": 1837,
-              "Spanish": 451,
-              "Other": 60,
+              "English": 1852,
+              "Spanish": 452,
+              "Other": 61,
               "Mandarin": 11,
               "Unknown": 5,
               "Japanese": 3,
@@ -1770,59 +1831,60 @@
               "Chinese dialect": 1
             },
             "der_ever_tested_in_english": {
-              "TRUE": 2039,
+              "TRUE": 2056,
               "FALSE": 334
             },
             "der_latest_test_language": {
-              "English": 2013,
-              "Spanish": 356,
+              "English": 2028,
+              "Spanish": 358,
               "Other": 4
             },
             "der_latest_cognitive_dx": {
-              "Dementia": 898,
-              "Cognitively unimpaired": 817,
-              "MCI": 536,
-              "Cognitively impaired, not MCI/dementia": 122
+              "Dementia": 904,
+              "Cognitively unimpaired": 814,
+              "MCI": 563,
+              "Cognitively impaired, not MCI/dementia": 108,
+              "Unknown": 1
             },
             "der_latest_cognitive_dx_generation": {
-              "V3": 827,
+              "V3": 774,
               "V2": 710,
-              "V4": 478,
+              "V4": 549,
               "V1": 197,
-              "V3.2": 161
+              "V3.2": 160
             },
             "der_latest_mci_subtype": {
-              "(blank)": 1642,
+              "(blank)": 1659,
               "Amnestic MCI, multiple domains": 434,
               "Amnestic MCI, single domain": 221,
               "Non-amnestic MCI, single domain": 46,
               "Non-amnestic MCI, multiple domains": 30
             },
             "der_latest_cdr_global": {
-              "0": 843,
-              "0.5": 729,
+              "0": 845,
+              "0.5": 740,
               "3": 319,
-              "1": 286,
-              "2": 196
+              "1": 289,
+              "2": 197
             },
             "der_latest_cdr_sum_boxes": {
-              "0": 803,
-              "0.5": 291,
+              "0": 807,
+              "0.5": 298,
               "18": 204,
-              "1": 168,
-              "1.5": 76,
+              "1": 164,
+              "1.5": 79,
               "2.5": 56,
-              "6": 54,
               "7": 54,
+              "6": 53,
               "3": 53,
-              "4.5": 45,
-              "5": 45,
-              "2": 44,
+              "2": 47,
+              "4.5": 47,
+              "5": 46,
               "17": 44,
-              "3.5": 44,
-              "12": 41,
+              "3.5": 43,
+              "12": 42,
+              "4": 42,
               "9": 41,
-              "4": 41,
               "15": 38,
               "13": 37,
               "16": 37,
@@ -1830,7 +1892,7 @@
               "10": 34,
               "14": 29,
               "8": 26,
-              "5.5": 16,
+              "5.5": 17,
               "6.5": 10,
               "7.5": 2,
               "9.5": 2,
@@ -1839,21 +1901,21 @@
               "12.5": 1
             },
             "der_latest_etiology_primary": {
-              "(blank)": 1348,
-              "Alzheimer's disease": 720,
+              "(blank)": 1339,
+              "Alzheimer's disease": 737,
               "Active depression": 68,
-              "Vascular brain injury": 51,
-              "Cognitive impairment NOS": 44,
-              "Lewy body disease": 25,
+              "Vascular brain injury": 65,
+              "Cognitive impairment NOS": 42,
+              "Lewy body disease": 23,
               "FTLD not otherwise specified": 19,
               "Anxiety disorder": 15,
-              "Cognitive impairment due to systemic disease/medical illness": 13,
-              "Other cognitive etiology": 13,
+              "Other cognitive etiology": 14,
+              "Cognitive impairment due to systemic disease/medical illness": 12,
               "Other psychiatric disease": 8,
               "Cognitive impairment due to alcohol abuse": 7,
               "Normal-pressure hydrocephalus": 7,
               "Progressive supranuclear palsy": 6,
-              "Traumatic brain injury": 6,
+              "Traumatic brain injury": 5,
               "Corticobasal degeneration": 4,
               "Cognitive impairment due to other substance abuse": 3,
               "Chronic traumatic encephalopathy": 2,
@@ -1871,12 +1933,12 @@
               "Post-traumatic stress disorder": 1
             },
             "der_latest_etiology_contributing": {
-              "(blank)": 1651,
+              "(blank)": 1657,
               "Active depression": 215,
-              "Cognitive impairment due to systemic disease/medical illness": 109,
-              "Vascular brain injury": 77,
-              "Cognitive impairment NOS": 42,
-              "Anxiety disorder": 38,
+              "Cognitive impairment due to systemic disease/medical illness": 104,
+              "Vascular brain injury": 93,
+              "Cognitive impairment NOS": 43,
+              "Anxiety disorder": 39,
               "Active depression; Cognitive impairment NOS": 29,
               "Active depression; Anxiety disorder": 20,
               "Alzheimer's disease": 13,
@@ -1891,7 +1953,6 @@
               "Other psychiatric disease": 6,
               "Active depression; Cognitive impairment due to systemic disease/medical illness; Cognitive impairment NOS": 5,
               "Normal-pressure hydrocephalus": 4,
-              "Cognitive impairment due to other substance abuse": 4,
               "Active depression; Cognitive impairment NOS; Cognitive impairment NOS (second entry)": 4,
               "Cognitive impairment due to systemic disease/medical illness; Cognitive impairment NOS": 4,
               "Cognitive impairment NOS (third entry)": 3,
@@ -1900,9 +1961,9 @@
               "Active depression; Other psychiatric disease; Cognitive impairment NOS": 3,
               "Post-traumatic stress disorder": 3,
               "Cognitive impairment due to systemic disease/medical illness; Cognitive impairment due to medications": 3,
+              "Cognitive impairment due to other substance abuse": 3,
               "Cognitive impairment NOS; Cognitive impairment NOS (second entry); Cognitive impairment NOS (third entry)": 3,
               "Vascular brain injury; Active depression; Cognitive impairment due to systemic disease/medical illness": 2,
-              "Lewy body disease; Cognitive impairment due to systemic disease/medical illness": 2,
               "Active depression; Cognitive impairment due to systemic disease/medical illness; Cognitive impairment due to medications": 2,
               "Vascular brain injury; Normal-pressure hydrocephalus": 2,
               "Alzheimer's disease; Vascular brain injury": 2,
@@ -1916,12 +1977,13 @@
               "Normal-pressure hydrocephalus; Other cognitive etiology": 1,
               "Active depression; Cognitive impairment NOS; Cognitive impairment NOS (third entry)": 1,
               "Anxiety disorder; Other psychiatric disease; Cognitive impairment due to alcohol abuse; Other cognitive etiology": 1,
-              "Active depression; Anxiety disorder; Cognitive impairment due to alcohol abuse": 1,
               "Progressive supranuclear palsy; Cognitive impairment due to systemic disease/medical illness": 1,
               "Lewy body disease; Vascular brain injury": 1,
               "Active depression; Schizophrenia or other psychosis": 1,
               "Active depression; Cognitive impairment NOS (second entry)": 1,
+              "Lewy body disease; Cognitive impairment due to systemic disease/medical illness": 1,
               "Active depression; Other psychiatric disease; Cognitive impairment due to systemic disease/medical illness; Cognitive impairment NOS; Cognitive impairment NOS (second entry); Cognitive impairment NOS (third entry)": 1,
+              "Cognitive impairment NOS; Other cognitive etiology": 1,
               "Traumatic brain injury; Active depression; Anxiety disorder": 1,
               "Other psychiatric disease; Other cognitive etiology": 1,
               "Traumatic brain injury; Cognitive impairment NOS": 1,
@@ -1961,7 +2023,7 @@
               "Epilepsy": 1
             },
             "der_latest_etiology_noncontributing": {
-              "(blank)": 2050,
+              "(blank)": 2067,
               "Active depression": 192,
               "Cognitive impairment NOS": 28,
               "Anxiety disorder": 19,
@@ -1995,7 +2057,7 @@
               "Cognitive impairment NOS (third entry)": 1
             },
             "der_latest_etiology_present_role_unknown": {
-              "(blank)": 1240,
+              "(blank)": 1257,
               "Probable Alzheimer's disease (legacy UDS)": 508,
               "Possible Alzheimer's disease (legacy UDS)": 193,
               "Active depression": 121,
@@ -2057,42 +2119,43 @@
               "Cognitive impairment due to other substance abuse": 1
             },
             "der_latest_ad_status": {
-              "Alzheimer's disease - primary": 721,
-              "Alzheimer's disease - absent": 699,
+              "Alzheimer's disease - primary": 741,
+              "Alzheimer's disease - absent": 686,
               "Probable Alzheimer's disease (legacy UDS)": 406,
-              "(blank)": 338,
+              "(blank)": 348,
               "Possible Alzheimer's disease (legacy UDS)": 192,
               "Alzheimer's disease - contributing": 17
             },
             "der_latest_uds_amyloid_pet": {
-              "Unknown / not assessed": 1303,
-              "(blank)": 953,
-              "Positive / abnormally elevated": 80,
-              "Negative / not abnormally elevated": 37
+              "Unknown / not assessed": 1302,
+              "(blank)": 967,
+              "Positive / abnormally elevated": 81,
+              "Negative / not abnormally elevated": 39,
+              "Indeterminate": 1
             },
             "der_latest_uds_amylcsf": {
               "Unknown / not assessed": 1373,
-              "(blank)": 959,
+              "(blank)": 976,
               "Not abnormally low": 22,
               "Abnormally low": 19
             },
             "der_latest_uds4_csf_ad": {
-              "(blank)": 2371,
+              "(blank)": 2388,
               "Indeterminate": 1,
               "Consistent with AD": 1
             },
             "der_latest_uds4_csf_ad_date": {
-              "(blank)": 2371,
+              "(blank)": 2388,
               "2025-07-08": 1,
               "2026-05-26": 1
             },
             "der_latest_uds4_blood_ad": {
-              "(blank)": 2357,
-              "Consistent with AD": 15,
+              "(blank)": 2373,
+              "Consistent with AD": 16,
               "Not consistent with AD": 1
             },
             "der_latest_uds4_blood_ad_date": {
-              "(blank)": 2357,
+              "(blank)": 2373,
               "2025-12-16": 1,
               "2026-06-23": 1,
               "2026-07-17": 1,
@@ -2108,70 +2171,93 @@
               "2026-01-09": 1,
               "2026-03-16": 1,
               "2026-05-19": 1,
-              "2026-05-26": 1
+              "2026-05-26": 1,
+              "2026-08-11": 1
             },
             "der_latest_mbi_status": {
-              "(blank)": 2127,
-              "No MBI": 224,
+              "(blank)": 2088,
+              "No MBI": 280,
               "MBI": 22
             },
             "der_latest_mbi_status_date": {
-              "(blank)": 2127,
+              "(blank)": 2088,
+              "2026-04-20": 5,
               "2026-03-16": 5,
               "2025-09-15": 4,
               "2026-04-06": 4,
+              "2026-08-17": 3,
               "2026-02-23": 3,
               "2025-07-08": 3,
               "2025-10-02": 3,
               "2025-12-01": 3,
+              "2026-05-06": 3,
               "2026-01-27": 3,
               "2025-12-02": 3,
               "2025-08-11": 3,
-              "2025-09-29": 3,
               "2025-07-22": 3,
               "2026-03-09": 3,
               "2026-01-29": 2,
               "2026-03-02": 2,
               "2025-07-09": 2,
               "2025-12-04": 2,
+              "2026-06-23": 2,
+              "2026-04-03": 2,
               "2025-11-24": 2,
               "2026-02-26": 2,
+              "2026-04-13": 2,
+              "2026-03-06": 2,
               "2025-11-17": 2,
               "2025-07-14": 2,
               "2026-02-11": 2,
               "2026-02-20": 2,
               "2025-10-15": 2,
               "2026-04-01": 2,
+              "2026-02-02": 2,
               "2025-10-27": 2,
               "2025-09-19": 2,
+              "2026-05-28": 2,
               "2025-08-26": 2,
               "2026-01-28": 2,
               "2026-03-30": 2,
               "2026-02-10": 2,
               "2025-07-02": 2,
               "2025-12-09": 2,
+              "2026-05-13": 2,
+              "2026-05-22": 2,
               "2026-05-29": 2,
+              "2026-08-03": 2,
+              "2026-05-12": 2,
+              "2026-05-18": 2,
               "2025-11-11": 2,
               "2026-04-27": 2,
-              "2025-08-19": 2,
+              "2026-02-27": 2,
               "2025-10-10": 2,
               "2026-03-18": 2,
               "2025-11-21": 2,
               "2026-03-31": 2,
+              "2026-04-10": 2,
               "2025-10-20": 2,
+              "2026-02-18": 2,
               "2025-08-12": 2,
+              "2025-09-29": 2,
+              "2026-09-15": 2,
               "2026-03-11": 2,
               "2026-02-19": 2,
               "2026-03-03": 2,
+              "2025-11-10": 2,
               "2025-11-06": 2,
               "2026-06-24": 2,
               "2025-07-21": 2,
+              "2026-08-31": 2,
               "2025-12-22": 2,
-              "2026-04-20": 2,
               "2025-10-07": 2,
               "2025-08-28": 2,
+              "2026-05-21": 2,
+              "2026-02-25": 2,
               "2025-10-08": 2,
               "2026-03-24": 2,
+              "2026-09-08": 2,
+              "2025-12-23": 2,
               "2025-10-06": 2,
               "2025-05-02": 1,
               "2025-12-16": 1,
@@ -2180,51 +2266,45 @@
               "2025-06-13": 1,
               "2025-08-29": 1,
               "2026-03-05": 1,
-              "2026-06-23": 1,
               "2025-09-24": 1,
               "2026-03-12": 1,
-              "2026-04-13": 1,
-              "2026-03-06": 1,
               "2026-07-17": 1,
               "2026-04-17": 1,
+              "2026-05-15": 1,
               "2026-06-05": 1,
               "2025-08-20": 1,
+              "2026-04-24": 1,
               "2025-10-17": 1,
-              "2026-05-28": 1,
-              "2026-08-17": 1,
               "2025-12-11": 1,
               "2025-12-10": 1,
               "2025-12-19": 1,
               "2026-01-08": 1,
               "2025-06-16": 1,
-              "2026-05-13": 1,
               "2026-01-07": 1,
               "2026-04-02": 1,
               "2025-09-12": 1,
-              "2026-05-06": 1,
               "2026-06-08": 1,
               "2025-09-11": 1,
               "2025-08-06": 1,
               "2026-08-13": 1,
-              "2025-07-07": 1,
-              "2025-09-30": 1,
+              "2026-10-01": 1,
+              "2026-04-16": 1,
               "2026-02-09": 1,
               "2026-03-25": 1,
               "2025-12-08": 1,
               "2026-03-23": 1,
               "2025-11-20": 1,
-              "2026-05-18": 1,
               "2025-08-07": 1,
               "2025-07-10": 1,
-              "2026-02-27": 1,
+              "2026-09-22": 1,
               "2026-01-14": 1,
               "2025-10-30": 1,
-              "2026-02-02": 1,
               "2026-03-10": 1,
               "2026-02-17": 1,
               "2025-07-11": 1,
               "2025-09-10": 1,
               "2026-01-06": 1,
+              "2025-08-01": 1,
               "2026-07-16": 1,
               "2025-08-08": 1,
               "2026-05-04": 1,
@@ -2235,21 +2315,24 @@
               "2026-05-05": 1,
               "2025-10-01": 1,
               "2026-07-20": 1,
+              "2026-09-30": 1,
               "2026-01-20": 1,
               "2025-10-31": 1,
               "2026-03-13": 1,
               "2025-12-03": 1,
               "2026-01-12": 1,
-              "2025-11-10": 1,
+              "2025-08-19": 1,
+              "2026-06-29": 1,
               "2026-07-23": 1,
               "2026-01-21": 1,
-              "2026-02-18": 1,
               "2026-07-01": 1,
               "2025-09-25": 1,
               "2025-11-13": 1,
               "2025-10-03": 1,
               "2025-12-15": 1,
               "2025-10-16": 1,
+              "2026-08-04": 1,
+              "2026-04-08": 1,
               "2025-08-27": 1,
               "2025-10-24": 1,
               "2025-09-04": 1,
@@ -2265,99 +2348,110 @@
               "2025-09-22": 1,
               "2025-10-13": 1,
               "2026-02-06": 1,
-              "2025-07-01": 1,
+              "2026-04-15": 1,
+              "2026-09-16": 1,
               "2025-08-18": 1,
               "2025-10-23": 1,
               "2025-11-07": 1,
-              "2026-08-03": 1,
-              "2026-02-25": 1,
+              "2026-07-06": 1,
               "2026-07-30": 1,
               "2026-01-09": 1,
               "2026-06-11": 1,
               "2025-08-14": 1,
+              "2026-01-26": 1,
+              "2026-08-06": 1,
               "2025-07-24": 1,
+              "2026-04-14": 1,
+              "2026-09-28": 1,
+              "2026-04-22": 1,
               "2026-06-18": 1,
+              "2026-06-15": 1,
               "2025-07-18": 1,
               "2025-07-23": 1,
               "2026-03-04": 1,
+              "2026-09-01": 1,
               "2026-07-24": 1,
               "2025-07-15": 1,
+              "2026-10-07": 1,
               "2026-05-19": 1,
               "2025-05-06": 1,
-              "2026-05-12": 1,
+              "2026-09-03": 1,
               "2026-05-26": 1,
+              "2026-09-29": 1,
+              "2025-08-13": 1,
               "2025-10-09": 1,
+              "2026-08-11": 1,
               "2025-12-18": 1,
               "2026-05-01": 1,
               "2025-07-30": 1
             },
             "der_current_re_aian": {
-              "FALSE": 1624,
-              "(blank)": 619,
-              "TRUE": 130
+              "FALSE": 2158,
+              "TRUE": 123,
+              "(blank)": 109
             },
             "der_current_re_asian": {
-              "FALSE": 1529,
-              "(blank)": 631,
-              "TRUE": 213
+              "FALSE": 2058,
+              "TRUE": 220,
+              "(blank)": 112
             },
             "der_current_re_black": {
-              "FALSE": 1537,
-              "(blank)": 635,
-              "TRUE": 201
+              "FALSE": 2081,
+              "TRUE": 201,
+              "(blank)": 108
             },
             "der_current_re_hispanic_latino": {
-              "FALSE": 1266,
-              "TRUE": 715,
-              "(blank)": 392
+              "FALSE": 1669,
+              "TRUE": 716,
+              "(blank)": 5
             },
             "der_current_re_mena": {
-              "(blank)": 1896,
-              "FALSE": 471,
+              "(blank)": 1846,
+              "FALSE": 538,
               "TRUE": 6
             },
             "der_current_re_nhpi": {
-              "FALSE": 1675,
-              "(blank)": 680,
+              "FALSE": 2260,
+              "(blank)": 112,
               "TRUE": 18
             },
             "der_current_re_white": {
-              "TRUE": 1777,
-              "FALSE": 400,
-              "(blank)": 196
+              "TRUE": 1772,
+              "FALSE": 519,
+              "(blank)": 99
             },
             "der_current_re_dont_know": {
-              "FALSE": 1676,
-              "(blank)": 594,
-              "TRUE": 103
+              "FALSE": 2292,
+              "TRUE": 98
             },
             "der_current_race_ethnicity_summary": {
-              "White": 1221,
-              "Hispanic or Latino; White": 417,
-              "Asian": 193,
-              "Black or African American": 127,
-              "Hispanic or Latino": 119,
-              "Hispanic or Latino; Don't know": 85,
+              "White": 1229,
+              "Hispanic or Latino; White": 406,
+              "Asian": 200,
+              "Black or African American": 134,
+              "Hispanic or Latino": 127,
+              "Hispanic or Latino; Don't know": 80,
               "American Indian or Alaska Native; Hispanic or Latino; White": 50,
-              "American Indian or Alaska Native; Black or African American": 18,
-              "American Indian or Alaska Native; Black or African American; White": 18,
               "American Indian or Alaska Native; White": 17,
+              "American Indian or Alaska Native; Black or African American": 15,
               "American Indian or Alaska Native; Hispanic or Latino": 15,
+              "American Indian or Alaska Native; Black or African American; White": 14,
               "Black or African American; White": 13,
               "White; Don't know": 9,
+              "Hispanic or Latino; Other race (legacy category)": 8,
               "Asian; White": 6,
               "Black or African American; Hispanic or Latino; White": 6,
               "Don't know": 5,
-              "American Indian or Alaska Native": 5,
-              "Black or African American; Hispanic or Latino": 5,
               "Middle Eastern or North African": 5,
               "Native Hawaiian or Pacific Islander; White": 4,
               "Hispanic or Latino; Native Hawaiian or Pacific Islander; White": 4,
+              "American Indian or Alaska Native": 4,
+              "Black or African American; Hispanic or Latino": 4,
               "Asian; Hispanic or Latino": 3,
               "Asian; Black or African American": 3,
-              "American Indian or Alaska Native; Black or African American; Hispanic or Latino": 3,
               "Native Hawaiian or Pacific Islander": 3,
               "Asian; Native Hawaiian or Pacific Islander; White": 2,
+              "American Indian or Alaska Native; Black or African American; Hispanic or Latino": 2,
               "American Indian or Alaska Native; Black or African American; Hispanic or Latino; White": 2,
               "Asian; Native Hawaiian or Pacific Islander": 2,
               "Asian; Black or African American; White": 2,
@@ -2366,210 +2460,245 @@
               "Black or African American; Don't know": 1,
               "Asian; Hispanic or Latino; White": 1,
               "Black or African American; Hispanic or Latino; Native Hawaiian or Pacific Islander; White": 1,
+              "White; Other race (legacy category)": 1,
               "Other race (legacy category)": 1,
               "Black or African American; Hispanic or Latino; Don't know": 1,
               "Hispanic or Latino; Native Hawaiian or Pacific Islander": 1,
+              "American Indian or Alaska Native; Other race (legacy category)": 1,
+              "American Indian or Alaska Native; Black or African American; Hispanic or Latino; Other race (legacy category)": 1,
               "Hispanic or Latino; White; Don't know": 1,
               "Middle Eastern or North African; White": 1,
-              "American Indian or Alaska Native; Asian; White": 1
+              "Hispanic or Latino; White; Other race (legacy category)": 1,
+              "American Indian or Alaska Native; Asian; White": 1,
+              "Black or African American; Hispanic or Latino; Other race (legacy category)": 1
             },
             "der_current_race_ethnicity_source_type": {
-              "USC legacy interpretation": 1208,
-              "Official NACC UDS3-to-UDS4 crosswalk": 688,
-              "Native UDS4": 477
+              "Legacy UDS1/2 source-aware interpretation": 1205,
+              "Legacy UDS3 source-aware interpretation": 637,
+              "Native UDS4": 548
             },
             "der_current_race_ethnicity_source_generation": {
-              "V2": 731,
-              "V3": 689,
-              "V4": 477,
+              "V2": 729,
+              "V3": 637,
+              "V4": 548,
               "V1": 476
             },
             "der_usc_more_than_one_race": {
-              "FALSE": 2100,
-              "TRUE": 183,
-              "(blank)": 90
+              "FALSE": 2128,
+              "TRUE": 177,
+              "(blank)": 85
             },
             "der_status_n_milestone_records": {
-              "1": 969,
-              "2": 456,
-              "(blank)": 364,
-              "3": 272,
+              "1": 968,
+              "2": 463,
+              "(blank)": 368,
+              "3": 276,
               "4": 146,
-              "5": 84,
-              "6": 45,
+              "5": 86,
+              "6": 46,
               "7": 20,
               "8": 9,
-              "9": 5,
-              "10": 2,
+              "9": 4,
+              "10": 3,
               "11": 1
             },
             "der_status_protocol": {
-              "(blank)": 1606,
-              "Minimal contact": 541,
-              "Annual in-person UDS follow-up": 213,
-              "Annual UDS follow-up by telephone": 13
+              "(blank)": 1614,
+              "Minimal contact": 540,
+              "Annual in-person UDS follow-up": 221,
+              "Annual UDS follow-up by telephone": 15
             },
             "der_status_autopsy_consent": {
-              "Unknown / not established from available Milestones": 1015,
-              "No": 614,
-              "Yes": 380,
-              "Not established - no Milestones record": 364
+              "Unknown / not established from available Milestones": 1030,
+              "No": 616,
+              "Yes": 376,
+              "Not established - no Milestones record": 368
             },
             "der_status_presumed_active": {
-              "FALSE": 1242,
-              "TRUE": 1110,
-              "(blank)": 21
+              "FALSE": 1246,
+              "TRUE": 1125,
+              "(blank)": 19
             },
             "der_status_adrc": {
               "Discontinued": 677,
-              "Deceased": 565,
-              "Minimal contact": 541,
-              "Presumed active - no Milestones record; UDS within 24 months": 343,
-              "Annual in-person UDS follow-up": 213,
-              "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved": 21,
-              "Annual UDS follow-up by telephone": 13
+              "Deceased": 569,
+              "Minimal contact": 540,
+              "Presumed active - no Milestones record; UDS within 24 months": 349,
+              "Annual in-person UDS follow-up": 221,
+              "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved": 19,
+              "Annual UDS follow-up by telephone": 15
             },
             "qc_dob_month_year_conflict": {
-              "FALSE": 2373
+              "FALSE": 2390
             },
             "qc_subject_review": {
-              "FALSE": 2352,
-              "TRUE": 21
+              "FALSE": 2371,
+              "TRUE": 19
             }
           },
           "numericSummaries": {},
           "fieldPresence": {
             "der_first_uds_visit_date": {
-              "nonBlank": 2373,
+              "nonBlank": 2390,
               "blank": 0
             },
             "der_latest_uds_visit_date": {
-              "nonBlank": 2373,
+              "nonBlank": 2390,
               "blank": 0
             },
-            "der_latest_primary_language_date": {
-              "nonBlank": 2373,
+            "der_current_sex_source_date": {
+              "nonBlank": 2390,
               "blank": 0,
-              "uniqueValues": 1656
+              "uniqueValues": 1732
+            },
+            "der_birthsex_source_date": {
+              "nonBlank": 548,
+              "blank": 1842,
+              "uniqueValues": 254
+            },
+            "der_sex_source_date": {
+              "nonBlank": 2321,
+              "blank": 69,
+              "uniqueValues": 1635
+            },
+            "der_educ_source_date": {
+              "nonBlank": 2390,
+              "blank": 0,
+              "uniqueValues": 1641
+            },
+            "der_latest_primary_language_date": {
+              "nonBlank": 2390,
+              "blank": 0,
+              "uniqueValues": 1641
             },
             "der_latest_test_language_date": {
-              "nonBlank": 2373,
+              "nonBlank": 2390,
               "blank": 0,
-              "uniqueValues": 1721
+              "uniqueValues": 1727
             },
             "der_latest_cognitive_dx_date": {
-              "nonBlank": 2373,
+              "nonBlank": 2390,
               "blank": 0,
-              "uniqueValues": 1737
+              "uniqueValues": 1746
             },
             "der_latest_cdr_global_date": {
-              "nonBlank": 2373,
+              "nonBlank": 2390,
               "blank": 0,
-              "uniqueValues": 1737
+              "uniqueValues": 1746
             },
             "der_latest_cdr_sum_boxes_date": {
-              "nonBlank": 2373,
+              "nonBlank": 2390,
               "blank": 0,
-              "uniqueValues": 1737
+              "uniqueValues": 1746
             },
             "der_latest_etiology_summary": {
-              "nonBlank": 1856,
-              "blank": 517,
+              "nonBlank": 1878,
+              "blank": 512,
               "uniqueValues": 413
             },
             "der_latest_etiology_date": {
-              "nonBlank": 1856,
-              "blank": 517,
-              "uniqueValues": 1501
+              "nonBlank": 1878,
+              "blank": 512,
+              "uniqueValues": 1509
             },
             "der_latest_ad_status_date": {
-              "nonBlank": 2035,
-              "blank": 338,
-              "uniqueValues": 1544
+              "nonBlank": 2042,
+              "blank": 348,
+              "uniqueValues": 1561
             },
             "der_latest_uds_amyloid_pet_date": {
-              "nonBlank": 1420,
-              "blank": 953,
-              "uniqueValues": 946
+              "nonBlank": 1423,
+              "blank": 967,
+              "uniqueValues": 950
             },
             "der_latest_uds_amylcsf_date": {
               "nonBlank": 1414,
-              "blank": 959,
+              "blank": 976,
               "uniqueValues": 915
             },
             "der_current_race_ethnicity_source_date": {
-              "nonBlank": 2373,
+              "nonBlank": 2390,
               "blank": 0,
-              "uniqueValues": 1656
+              "uniqueValues": 1641
+            },
+            "der_current_race_source_date": {
+              "nonBlank": 2390,
+              "blank": 0,
+              "uniqueValues": 1641
+            },
+            "der_current_hispanic_source_date": {
+              "nonBlank": 2390,
+              "blank": 0,
+              "uniqueValues": 1641
             },
             "der_status_latest_milestone_date": {
-              "nonBlank": 2009,
-              "blank": 364,
-              "uniqueValues": 1328
+              "nonBlank": 2022,
+              "blank": 368,
+              "uniqueValues": 1340
             },
             "der_status_death_date": {
-              "nonBlank": 561,
-              "blank": 1812,
-              "uniqueValues": 534
+              "nonBlank": 565,
+              "blank": 1825,
+              "uniqueValues": 538
             },
             "der_status_latest_discontinuation_date": {
               "nonBlank": 741,
-              "blank": 1632,
+              "blank": 1649,
               "uniqueValues": 482
             },
             "der_status_autopsy_consent_source_date": {
-              "nonBlank": 994,
-              "blank": 1379,
-              "uniqueValues": 764
+              "nonBlank": 992,
+              "blank": 1398,
+              "uniqueValues": 766
             }
           }
         },
         "longitudinal": {
-          "totalVisitRecords": 8178,
-          "uniqueParticipants": 2373,
+          "totalVisitRecords": 8273,
+          "uniqueParticipants": 2390,
           "byVisitNumber": {
-            "001": 2237,
-            "002": 1514,
-            "003": 1077,
-            "004": 744,
-            "005": 535,
-            "006": 428,
-            "007": 360,
+            "001": 2253,
+            "002": 1524,
+            "003": 1107,
+            "004": 761,
+            "005": 536,
+            "006": 430,
+            "007": 361,
             "008": 271,
-            "009": 206,
-            "010": 161,
-            "011": 119,
-            "012": 98,
-            "013": 71,
-            "1": 56,
-            "014": 56,
+            "009": 208,
+            "010": 164,
+            "011": 120,
+            "012": 99,
+            "013": 72,
+            "014": 58,
+            "1": 57,
             "015": 39,
             "016": 31,
-            "017": 27,
-            "018": 18,
+            "017": 28,
+            "018": 19,
             "019": 13,
-            "2": 9,
+            "2": 10,
+            "3": 8,
             "020": 8,
             "024": 7,
-            "3": 6,
             "021": 6,
             "022": 6,
             "023": 6,
             "025": 6,
+            "5": 4,
             "10": 4,
             "11": 4,
             "026": 4,
             "027": 4,
             "4": 3,
-            "5": 3,
             "6": 3,
+            "9": 3,
             "12": 3,
             "13": 3,
             "15": 3,
             "028": 3,
             "029": 3,
             "8": 2,
-            "9": 2,
             "17": 2,
             "16": 2,
             "01": 2,
@@ -2588,32 +2717,32 @@
             "035": 1
           },
           "byPacket": {
-            "F": 4197,
-            "I": 2367,
+            "F": 4221,
+            "I": 2384,
             "T": 1182,
-            "I4": 426,
+            "I4": 480,
             "IT": 6
           },
           "bySourceGeneration": {
             "V3": 3813,
             "V2": 2721,
+            "V4": 596,
             "V1": 575,
-            "V3.2": 568,
-            "V4": 501
+            "V3.2": 568
           },
           "byFormVersion": {
             "3": 3813,
             "2": 2721,
+            "4": 596,
             "1": 575,
-            "3.2": 568,
-            "4": 501
+            "3.2": 568
           },
           "byModule": {
             "UDS": 7677,
-            "uds": 501
+            "uds": 596
           },
           "byModcomm": {
-            "(blank)": 7745,
+            "(blank)": 7840,
             "1": 417,
             "3": 12,
             "2": 4
@@ -2622,56 +2751,56 @@
             "source_generation": {
               "V3": 3813,
               "V2": 2721,
+              "V4": 596,
               "V1": 575,
-              "V3.2": 568,
-              "V4": 501
+              "V3.2": 568
             },
             "adcid": {
-              "30": 8178
+              "30": 8273
             },
             "visitnum": {
-              "001": 2237,
-              "002": 1514,
-              "003": 1077,
-              "004": 744,
-              "005": 535,
-              "006": 428,
-              "007": 360,
+              "001": 2253,
+              "002": 1524,
+              "003": 1107,
+              "004": 761,
+              "005": 536,
+              "006": 430,
+              "007": 361,
               "008": 271,
-              "009": 206,
-              "010": 161,
-              "011": 119,
-              "012": 98,
-              "013": 71,
-              "1": 56,
-              "014": 56,
+              "009": 208,
+              "010": 164,
+              "011": 120,
+              "012": 99,
+              "013": 72,
+              "014": 58,
+              "1": 57,
               "015": 39,
               "016": 31,
-              "017": 27,
-              "018": 18,
+              "017": 28,
+              "018": 19,
               "019": 13,
-              "2": 9,
+              "2": 10,
+              "3": 8,
               "020": 8,
               "024": 7,
-              "3": 6,
               "021": 6,
               "022": 6,
               "023": 6,
               "025": 6,
+              "5": 4,
               "10": 4,
               "11": 4,
               "026": 4,
               "027": 4,
               "4": 3,
-              "5": 3,
               "6": 3,
+              "9": 3,
               "12": 3,
               "13": 3,
               "15": 3,
               "028": 3,
               "029": 3,
               "8": 2,
-              "9": 2,
               "17": 2,
               "16": 2,
               "01": 2,
@@ -2690,92 +2819,92 @@
               "035": 1
             },
             "packet": {
-              "F": 4197,
-              "I": 2367,
+              "F": 4221,
+              "I": 2384,
               "T": 1182,
-              "I4": 426,
+              "I4": 480,
               "IT": 6
             },
             "formver": {
               "3": 3813,
               "2": 2721,
+              "4": 596,
               "1": 575,
-              "3.2": 568,
-              "4": 501
+              "3.2": 568
             },
             "modcomm": {
-              "(blank)": 7745,
+              "(blank)": 7840,
               "1": 417,
               "3": 12,
               "2": 4
             },
             "module": {
               "UDS": 7677,
-              "uds": 501
+              "uds": 596
             }
           },
           "numericSummaries": {},
           "fieldPresence": {
             "visitdate": {
-              "nonBlank": 8178,
+              "nonBlank": 8273,
               "blank": 0,
-              "uniqueValues": 4011
+              "uniqueValues": 4046
             }
           }
         },
         "milestones": {
-          "totalRecords": 4259,
-          "uniqueParticipants": 2009,
+          "totalRecords": 4301,
+          "uniqueParticipants": 2022,
           "byMilestoneEvent": {
-            "Minimal contact": 1462,
+            "Minimal contact": 1482,
             "Discontinued": 750,
             "Annual in-person UDS follow-up": 684,
             "Annual UDS follow-up by telephone": 684,
-            "Deceased": 575,
-            "Rejoined": 96,
+            "Deceased": 579,
+            "Rejoined": 114,
             "(blank)": 8
           },
           "deceasedFlag": {
             "(blank)": 3426,
-            "1": 575,
-            "0": 258
+            "1": 579,
+            "0": 296
           },
           "autopsyFlag": {
-            "(blank)": 3684,
-            "1": 319,
-            "0": 256
+            "(blank)": 3722,
+            "1": 321,
+            "0": 258
           },
           "byProtocolLabel": {
-            "Minimal contact": 1463,
-            "(blank)": 1365,
-            "Annual in-person UDS follow-up": 738,
-            "Annual UDS follow-up by telephone": 693
+            "Minimal contact": 1483,
+            "(blank)": 1369,
+            "Annual in-person UDS follow-up": 754,
+            "Annual UDS follow-up by telephone": 695
           },
           "byAutopsyConsentLabel": {
-            "(blank)": 2557,
-            "No": 968,
-            "Yes": 734
+            "(blank)": 2577,
+            "No": 988,
+            "Yes": 736
           },
           "fieldBreakdowns": {
             "source_generation": {
               "V3 legacy": 2709,
               "V2 legacy": 1315,
-              "V3 ingest": 186,
+              "V3 ingest": 228,
               "V1 legacy": 49
             },
             "adcid": {
-              "30": 4259
+              "30": 4301
             },
             "autopsy": {
-              "(blank)": 3684,
-              "1": 319,
-              "0": 256
+              "(blank)": 3722,
+              "1": 321,
+              "0": 258
             },
             "deathdy": {
-              "(blank)": 3684,
+              "(blank)": 3722,
               "15": 36,
               "19": 25,
-              "24": 23,
+              "24": 24,
               "29": 22,
               "2": 22,
               "3": 22,
@@ -2791,25 +2920,25 @@
               "13": 18,
               "28": 18,
               "25": 17,
+              "5": 17,
               "6": 17,
               "21": 16,
-              "5": 16,
+              "17": 16,
               "18": 16,
               "30": 16,
-              "17": 15,
               "23": 15,
               "20": 14,
               "27": 14,
               "11": 14,
               "31": 13,
               "14": 12,
-              "4": 10,
+              "4": 11,
               "99": 4
             },
             "deathmo": {
-              "(blank)": 3684,
+              "(blank)": 3722,
               "1": 54,
-              "10": 53,
+              "10": 54,
               "8": 53,
               "12": 52,
               "3": 51,
@@ -2818,11 +2947,11 @@
               "7": 45,
               "5": 45,
               "2": 44,
-              "9": 41,
-              "6": 40
+              "6": 42,
+              "9": 42
             },
             "deathyr": {
-              "(blank)": 3684,
+              "(blank)": 3722,
               "2020": 37,
               "2019": 37,
               "2010": 36,
@@ -2839,19 +2968,19 @@
               "2008": 29,
               "2022": 27,
               "2024": 24,
-              "2025": 20,
+              "2025": 21,
               "2023": 16,
               "2007": 15,
-              "2026": 10,
+              "2026": 13,
               "2006": 8
             },
             "deceased": {
               "(blank)": 3426,
-              "1": 575,
-              "0": 258
+              "1": 579,
+              "0": 296
             },
             "discday": {
-              "(blank)": 3513,
+              "(blank)": 3555,
               "1": 48,
               "10": 45,
               "21": 40,
@@ -2885,7 +3014,7 @@
               "31": 7
             },
             "discmo": {
-              "(blank)": 3497,
+              "(blank)": 3539,
               "7": 84,
               "4": 71,
               "3": 70,
@@ -2902,10 +3031,10 @@
             "discont": {
               "(blank)": 3307,
               "1": 762,
-              "0": 190
+              "0": 232
             },
             "discreas": {
-              "(blank)": 3726,
+              "(blank)": 3768,
               "3": 214,
               "1": 124,
               "8": 117,
@@ -2913,7 +3042,7 @@
               "4": 34
             },
             "discreax": {
-              "(blank)": 4142,
+              "(blank)": 4184,
               "UNABLE TO CONTACT": 48,
               "DECEASED": 11,
               "UNABLE TO TRAVEL": 2,
@@ -2971,7 +3100,7 @@
               "FAMILY INDICATED TOO IMPAIRED": 1
             },
             "discyr": {
-              "(blank)": 3497,
+              "(blank)": 3539,
               "2010": 148,
               "2008": 97,
               "2011": 68,
@@ -2996,22 +3125,22 @@
             },
             "fdatedy": {
               "27": 4073,
-              "(blank)": 186
+              "(blank)": 228
             },
             "fdatemo": {
               "2": 4073,
-              "(blank)": 186
+              "(blank)": 228
             },
             "fdateyr": {
               "2026": 4073,
-              "(blank)": 186
+              "(blank)": 228
             },
             "finalize": {
               "1": 4073,
-              "(blank)": 186
+              "(blank)": 228
             },
             "formver": {
-              "3": 2895,
+              "3": 2937,
               "2": 1315,
               "1": 49
             },
@@ -3020,7 +3149,7 @@
               "2": 1009,
               "3": 559,
               "4": 299,
-              "(blank)": 186,
+              "(blank)": 228,
               "5": 149,
               "6": 73,
               "7": 27,
@@ -3031,25 +3160,25 @@
             },
             "module": {
               "MLST": 4073,
-              "mlst": 186
+              "mlst": 228
             },
             "npcogimp": {
-              "(blank)": 3887,
+              "(blank)": 3929,
               "0": 256,
               "1": 116
             },
             "nphomen": {
-              "(blank)": 3883,
+              "(blank)": 3925,
               "0": 257,
               "1": 119
             },
             "npothrea": {
-              "(blank)": 3848,
+              "(blank)": 3890,
               "1": 350,
               "0": 61
             },
             "npothrex": {
-              "(blank)": 3909,
+              "(blank)": 3951,
               "UNABLE TO COME TO CLINIC AT THIS TIME": 145,
               "UNABLE TO COME TO CLINIC": 32,
               "UNABLE TO CONTACT AT THIS TIME": 12,
@@ -3168,17 +3297,17 @@
               "DEES NOT WANT TO COME IN AT THIS TIME, WE WILL TRY NEXT YEAR": 1
             },
             "npphyill": {
-              "(blank)": 3884,
+              "(blank)": 3926,
               "0": 257,
               "1": 118
             },
             "npsytest": {
-              "(blank)": 3830,
+              "(blank)": 3872,
               "1": 396,
               "0": 33
             },
             "nursedy": {
-              "(blank)": 4240,
+              "(blank)": 4282,
               "1": 4,
               "30": 4,
               "99": 3,
@@ -3191,12 +3320,12 @@
               "20": 1
             },
             "nursehom": {
-              "(blank)": 4188,
+              "(blank)": 4230,
               "0": 53,
               "1": 18
             },
             "nursemo": {
-              "(blank)": 4240,
+              "(blank)": 4282,
               "8": 3,
               "99": 3,
               "1": 3,
@@ -3210,7 +3339,7 @@
               "2": 1
             },
             "nurseyr": {
-              "(blank)": 4240,
+              "(blank)": 4282,
               "2008": 6,
               "2009": 5,
               "2007": 3,
@@ -3220,35 +3349,35 @@
               "2012": 1
             },
             "packet": {
-              "M": 4259
+              "M": 4301
             },
             "phycog": {
-              "(blank)": 3889,
+              "(blank)": 3931,
               "0": 255,
               "1": 115
             },
             "phyhome": {
-              "(blank)": 3885,
+              "(blank)": 3927,
               "0": 257,
               "1": 117
             },
             "phyill": {
-              "(blank)": 3884,
+              "(blank)": 3926,
               "0": 257,
               "1": 118
             },
             "phyndata": {
-              "(blank)": 3831,
+              "(blank)": 3873,
               "1": 395,
               "0": 33
             },
             "phyoth": {
-              "(blank)": 3849,
+              "(blank)": 3891,
               "1": 351,
               "0": 59
             },
             "phyothx": {
-              "(blank)": 3908,
+              "(blank)": 3950,
               "UNABLE TO COME TO CLINIC AT THIS TIME": 147,
               "UNABLE TO COME TO CLINIC": 33,
               "UNABLE TO CONTACT AT THIS TIME": 13,
@@ -3362,13 +3491,13 @@
               "SEE 6E": 1
             },
             "udsactiv": {
-              "(blank)": 4210,
+              "(blank)": 4252,
               "4": 43,
               "3": 6
             },
             "visitday": {
+              "(blank)": 228,
               "1": 207,
-              "(blank)": 186,
               "2": 173,
               "10": 170,
               "15": 165,
@@ -3413,14 +3542,14 @@
               "11": 303,
               "2": 287,
               "12": 277,
-              "(blank)": 186
+              "(blank)": 228
             },
             "visitnum": {
               "M1": 1933,
               "M2": 1009,
               "M3": 559,
               "M4": 299,
-              "(blank)": 186,
+              "(blank)": 228,
               "M5": 149,
               "M6": 73,
               "M7": 27,
@@ -3436,13 +3565,13 @@
               "2022": 290,
               "2018": 258,
               "2019": 235,
+              "(blank)": 228,
               "2023": 220,
               "2016": 216,
               "2011": 213,
               "2025": 204,
               "2024": 198,
               "2015": 194,
-              "(blank)": 186,
               "2012": 182,
               "2013": 173,
               "2014": 170,
@@ -3453,134 +3582,134 @@
               "2006": 5
             },
             "nprefus": {
-              "(blank)": 3974,
+              "(blank)": 4016,
               "0": 278,
               "1": 7
             },
             "phyrefus": {
-              "(blank)": 3975,
+              "(blank)": 4017,
               "0": 278,
               "1": 6
             },
             "protocol": {
-              "2": 1463,
-              "(blank)": 1365,
-              "3": 738,
-              "1": 693
+              "2": 1483,
+              "(blank)": 1369,
+              "3": 754,
+              "1": 695
             },
             "rejoined": {
-              "(blank)": 4208,
+              "(blank)": 4250,
               "1": 45,
               "0": 6
             },
             "aconsent": {
-              "(blank)": 2557,
-              "0": 968,
-              "1": 734
+              "(blank)": 2577,
+              "0": 988,
+              "1": 736
             },
             "changedy": {
-              "(blank)": 1896,
-              "1": 120,
-              "11": 101,
+              "(blank)": 1900,
+              "1": 123,
+              "11": 102,
               "14": 100,
-              "8": 98,
-              "10": 96,
-              "15": 94,
+              "8": 99,
+              "10": 97,
+              "15": 96,
               "7": 89,
               "20": 89,
-              "5": 87,
-              "2": 87,
-              "22": 85,
-              "9": 81,
-              "3": 80,
-              "4": 79,
-              "6": 77,
+              "5": 88,
+              "2": 88,
+              "22": 87,
+              "3": 83,
+              "9": 83,
+              "4": 80,
+              "23": 78,
+              "6": 78,
               "24": 77,
-              "23": 75,
-              "21": 75,
-              "25": 73,
-              "18": 72,
-              "12": 71,
-              "27": 70,
-              "16": 68,
+              "21": 76,
+              "25": 76,
+              "12": 74,
+              "18": 74,
+              "27": 71,
+              "16": 69,
               "26": 65,
               "13": 64,
               "30": 60,
-              "17": 53,
-              "28": 52,
+              "28": 54,
+              "17": 54,
               "19": 49,
-              "29": 47,
-              "31": 29
+              "29": 48,
+              "31": 30
             },
             "changemo": {
-              "(blank)": 1896,
-              "4": 227,
+              "(blank)": 1900,
+              "4": 229,
+              "7": 223,
+              "5": 221,
               "3": 221,
-              "7": 220,
-              "5": 220,
-              "8": 209,
-              "6": 205,
+              "8": 212,
+              "6": 206,
+              "9": 205,
+              "10": 192,
               "1": 191,
-              "10": 188,
-              "9": 182,
-              "11": 172,
+              "11": 173,
               "2": 167,
               "12": 161
             },
             "changeyr": {
-              "(blank)": 1897,
+              "(blank)": 1901,
               "2020": 375,
               "2021": 299,
               "2022": 240,
-              "2025": 197,
+              "2025": 199,
               "2023": 186,
               "2018": 185,
               "2024": 180,
               "2019": 169,
+              "2026": 168,
               "2016": 164,
-              "2026": 132,
               "2017": 124,
               "2015": 107,
               "2005": 3,
               "2010": 1
             },
             "dropreas": {
-              "(blank)": 4030,
+              "(blank)": 4072,
               "1": 119,
               "2": 110
             },
             "recogim": {
               "(blank)": 2506,
-              "0": 1670,
+              "0": 1712,
               "1": 83
             },
             "rejoin": {
               "(blank)": 3912,
-              "0": 296,
-              "1": 51
+              "0": 320,
+              "1": 69
             },
             "renavail": {
               "(blank)": 2497,
-              "1": 1510,
-              "0": 252
+              "1": 1530,
+              "0": 274
             },
             "renurse": {
               "(blank)": 2554,
-              "0": 1704,
+              "0": 1746,
               "1": 1
             },
             "rephyill": {
               "(blank)": 2504,
-              "0": 1666,
+              "0": 1708,
               "1": 89
             },
             "rerefuse": {
               "(blank)": 2506,
-              "0": 1683,
+              "0": 1725,
               "1": 70
             },
             "discdy": {
-              "(blank)": 4243,
+              "(blank)": 4285,
               "11": 3,
               "15": 3,
               "27": 2,
@@ -3592,51 +3721,51 @@
               "2": 1
             },
             "der_milestone_event": {
-              "Minimal contact": 1462,
+              "Minimal contact": 1482,
               "Discontinued": 750,
               "Annual in-person UDS follow-up": 684,
               "Annual UDS follow-up by telephone": 684,
-              "Deceased": 575,
-              "Rejoined": 96,
+              "Deceased": 579,
+              "Rejoined": 114,
               "(blank)": 8
             },
             "der_protocol_label": {
-              "Minimal contact": 1463,
-              "(blank)": 1365,
-              "Annual in-person UDS follow-up": 738,
-              "Annual UDS follow-up by telephone": 693
+              "Minimal contact": 1483,
+              "(blank)": 1369,
+              "Annual in-person UDS follow-up": 754,
+              "Annual UDS follow-up by telephone": 695
             },
             "der_autopsy_consent_label": {
-              "(blank)": 2557,
-              "No": 968,
-              "Yes": 734
+              "(blank)": 2577,
+              "No": 988,
+              "Yes": 736
             }
           },
           "numericSummaries": {},
           "fieldPresence": {
             "visit_date": {
-              "nonBlank": 4259,
+              "nonBlank": 4301,
               "blank": 0
             },
             "visitdate": {
-              "nonBlank": 4259,
+              "nonBlank": 4301,
               "blank": 0,
-              "uniqueValues": 2428
+              "uniqueValues": 2459
             },
             "der_death_date": {
-              "nonBlank": 571,
-              "blank": 3688,
-              "uniqueValues": 534
+              "nonBlank": 575,
+              "blank": 3726,
+              "uniqueValues": 538
             },
             "der_discontinuation_date": {
               "nonBlank": 762,
-              "blank": 3497,
+              "blank": 3539,
               "uniqueValues": 490
             },
             "der_status_change_date": {
-              "nonBlank": 2362,
-              "blank": 1897,
-              "uniqueValues": 1506
+              "nonBlank": 2400,
+              "blank": 1901,
+              "uniqueValues": 1537
             }
           }
         }
@@ -3645,10 +3774,10 @@
         {
           "path": "data/rppr-data-package/USC ADRC UDS Harmonized/ADRC_subject_current_harmonized.csv",
           "fileName": "ADRC_subject_current_harmonized.csv",
-          "rowCount": 2373,
-          "columnCount": 65,
-          "fileSizeMb": 1.27,
-          "fileModified": "2026-09-18",
+          "rowCount": 2390,
+          "columnCount": 76,
+          "fileSizeMb": 1.51,
+          "fileModified": "2026-11-03",
           "description": "One row per participant with derived current status, demographics, latest cognitive/diagnostic fields, and Milestones-derived enrollment state.",
           "fileType": "csv",
           "columns": [
@@ -3656,11 +3785,20 @@
             "ptid",
             "birthyr",
             "birthmo",
+            "birthsex",
+            "sex",
+            "educ",
             "der_n_uds_visits",
             "der_first_uds_visit_date",
             "der_latest_uds_visit_date",
             "der_latest_uds_generation",
             "der_uds_generations_seen",
+            "der_current_sex",
+            "der_current_sex_source_field",
+            "der_current_sex_source_date",
+            "der_birthsex_source_date",
+            "der_sex_source_date",
+            "der_educ_source_date",
             "der_age_at_latest_uds_visit_approx",
             "der_latest_primary_language",
             "der_latest_primary_language_date",
@@ -3682,16 +3820,7 @@
             "der_latest_etiology_summary",
             "der_latest_etiology_date",
             "der_latest_ad_status",
-            "der_latest_ad_status_date",
-            "der_latest_uds_amyloid_pet",
-            "der_latest_uds_amyloid_pet_date",
-            "der_latest_uds_amylcsf",
-            "der_latest_uds_amylcsf_date",
-            "der_latest_uds4_csf_ad",
-            "der_latest_uds4_csf_ad_date",
-            "der_latest_uds4_blood_ad",
-            "der_latest_uds4_blood_ad_date",
-            "der_latest_mbi_status"
+            "der_latest_ad_status_date"
           ],
           "columnTruncated": true,
           "relativeDir": "USC ADRC UDS Harmonized"
@@ -3699,10 +3828,10 @@
         {
           "path": "data/rppr-data-package/USC ADRC UDS Harmonized/UDS_longitudinal_harmonized.csv",
           "fileName": "UDS_longitudinal_harmonized.csv",
-          "rowCount": 8178,
+          "rowCount": 8273,
           "columnCount": 2140,
-          "fileSizeMb": 23.46,
-          "fileModified": "2026-09-18",
+          "fileSizeMb": 23.75,
+          "fileModified": "2026-11-03",
           "description": "Long-format harmonized UDS visits across NACC generations (V1\u2013V4); wide table with all harmonized form variables per visit.",
           "fileType": "csv",
           "columns": [
@@ -3753,10 +3882,10 @@
         {
           "path": "data/rppr-data-package/USC ADRC UDS Harmonized/Milestones_history_harmonized.csv",
           "fileName": "Milestones_history_harmonized.csv",
-          "rowCount": 4259,
+          "rowCount": 4301,
           "columnCount": 70,
-          "fileSizeMb": 0.83,
-          "fileModified": "2026-09-18",
+          "fileSizeMb": 0.84,
+          "fileModified": "2026-11-03",
           "description": "Longitudinal Milestones events per participant (enrollment status changes, discontinuation, death, autopsy flags).",
           "fileType": "csv",
           "columns": [
@@ -3805,12 +3934,12 @@
           "relativeDir": "USC ADRC UDS Harmonized"
         },
         {
-          "path": "data/rppr-data-package/USC ADRC UDS Harmonized/USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.0.html",
-          "fileName": "USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.0.html",
+          "path": "data/rppr-data-package/USC ADRC UDS Harmonized/USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.5.html",
+          "fileName": "USC_ADRC_Harmonized_UDS_Collaborator_Report_v1.1.5.html",
           "rowCount": 0,
           "columnCount": 0,
-          "fileSizeMb": 0.96,
-          "fileModified": "2026-09-18",
+          "fileSizeMb": 0.92,
+          "fileModified": "2026-11-03",
           "description": "Collaborator-facing UDS harmonization report (QC, coverage, methodology).",
           "fileType": "html",
           "relativeDir": "USC ADRC UDS Harmonized"
@@ -3821,7 +3950,7 @@
           "rowCount": 33,
           "columnCount": 8,
           "fileSizeMb": 0.01,
-          "fileModified": "2026-09-18",
+          "fileModified": "2026-08-12",
           "description": "NACC Milestones v3 data dictionary (field definitions).",
           "fileType": "csv",
           "columns": [
@@ -3838,13 +3967,13 @@
           "relativeDir": "USC ADRC UDS Harmonized/NACC Data Dictionaries"
         },
         {
-          "path": "data/rppr-data-package/USC ADRC UDS Harmonized/NACC Data Dictionaries/uds-v4-fvp-ded-08122026.csv",
-          "fileName": "uds-v4-fvp-ded-08122026.csv",
+          "path": "data/rppr-data-package/USC ADRC UDS Harmonized/NACC Data Dictionaries/uds-v4-fvp-ded-10132026.csv",
+          "fileName": "uds-v4-fvp-ded-10132026.csv",
           "rowCount": 1502,
-          "columnCount": 12,
+          "columnCount": 11,
           "fileSizeMb": 0.44,
-          "fileModified": "2026-09-18",
-          "description": "NACC UDS v4 FVP form data dictionary.",
+          "fileModified": "2026-11-03",
+          "description": "",
           "fileType": "csv",
           "columns": [
             "form_name",
@@ -3857,20 +3986,19 @@
             "data_type",
             "branching_logic",
             "notes",
-            "carry_forward",
-            "response_labels "
+            "carry_forward"
           ],
           "columnTruncated": false,
           "relativeDir": "USC ADRC UDS Harmonized/NACC Data Dictionaries"
         },
         {
-          "path": "data/rppr-data-package/USC ADRC UDS Harmonized/NACC Data Dictionaries/uds-v4-ivp-ded-08122026.csv",
-          "fileName": "uds-v4-ivp-ded-08122026.csv",
+          "path": "data/rppr-data-package/USC ADRC UDS Harmonized/NACC Data Dictionaries/uds-v4-ivp-ded-10132026.csv",
+          "fileName": "uds-v4-ivp-ded-10132026.csv",
           "rowCount": 1576,
           "columnCount": 10,
           "fileSizeMb": 0.45,
-          "fileModified": "2026-09-18",
-          "description": "NACC UDS v4 IVP form data dictionary.",
+          "fileModified": "2026-11-03",
+          "description": "",
           "fileType": "csv",
           "columns": [
             "form_name",
@@ -8637,13 +8765,13 @@
     "files": 31,
     "csvFiles": 24,
     "htmlReports": 3,
-    "udsSubjects": 2373,
-    "udsVisitRecords": 8178,
-    "milestoneRecords": 4259,
+    "udsSubjects": 2390,
+    "udsVisitRecords": 8273,
+    "milestoneRecords": 4301,
     "brsRecords": 952,
     "apoeRecords": 2173,
     "biomarkerSubjects": 714,
     "biomarkerMeasurements": 7518,
-    "totalCsvRows": 275078
+    "totalCsvRows": 275232
   }
 }
