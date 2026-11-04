@@ -17,6 +17,8 @@ Source files for the Aim 1 metrics dashboard and sync scripts. Generated JSON co
 | `reference/james-supplements/` | Supplemental harmonized drops and dictionaries. |
 | `reference/brs-rppr-data-core/` | BRS Data Core table JSON for neuropath section. |
 | `reference/rec/` | REC scholars, faculty, and training-program CSVs → `npm run sync:rec`. |
+| `reference/biomarker-core/` | Abhay Sagare sample processing workbook → `npm run sync:biomarker-processing` → `src/data/biomarkerCoreSampleProcessing2026.json`. |
+| `reference/redcap/` | REDCap form field reference (referral / permission-to-contact — not yet wired to dashboard). |
 | `ATN UDS.csv` | APOE / ATN sidecar for UDS Table 1 script. |
 
 **Do not** place new CSVs or workbooks in the repository root — use the folders above.

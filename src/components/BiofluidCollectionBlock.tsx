@@ -18,10 +18,11 @@ export default function BiofluidCollectionBlock({ data }: BiofluidCollectionBloc
           Biofluid Collection
         </h3>
         <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl leading-relaxed">
-          Green · counts are still the Oct 9 biospecimen file. Last specimen_date{" "}
-          {formatScopeDate(biospecimenLatestSpecimenDate)}. Last collection_date{" "}
-          {formatScopeDate(biospecimenLatestCollectionDate)}. James has a Rapid
-          Excel from Abhay that he will share. Plasma and buffy coat are
+          Green · James harmonized biospecimen inventory (Oct 9 file). Last
+          specimen_date {formatScopeDate(biospecimenLatestSpecimenDate)}. Last
+          collection_date {formatScopeDate(biospecimenLatestCollectionDate)}.
+          Operational sample/tube counts from Abhay Sagare (Jan–Oct 2026) are in
+          the Biomarker Core processing table below. Plasma and buffy coat are
           direct-freeze samples in BST (REDCap, James and Xinhui); BST is being
           migrated and closed. CSF is REDCap. NCRAD assay rows are separate.
         </p>

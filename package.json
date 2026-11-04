@@ -12,6 +12,7 @@
     "demo": "npm run build && npm run start:demo",
     "lint": "next lint",
     "sync:redcap": "python3 scripts/aggregate_specimen_sharing.py && python3 scripts/aggregate_genescreen_ytd.py",
+    "sync:biomarker-processing": "python3 scripts/aggregate_biomarker_core_sample_processing.py",
     "sync:rec": "python3 scripts/aggregate_rec_roster.py",
     "sync:rec-speakers": "python3 scripts/aggregate_rec_speaker_series.py",
     "sync:table1": "python3 scripts/aggregate_table1_demographics.py",

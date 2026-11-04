@@ -3,6 +3,7 @@
 import type {
   SampleCounts,
   BiofluidCollectionEntry,
+  BiomarkerCoreSampleProcessingData,
   BiomarkerResearchEntry,
   BiomarkerResults,
   DataProvenance,
@@ -10,6 +11,7 @@ import type {
 } from "@/types/aim1";
 import MetricCard from "./MetricCard";
 import BiofluidCollectionBlock from "./BiofluidCollectionBlock";
+import BiomarkerCoreSampleProcessingBlock from "./BiomarkerCoreSampleProcessingBlock";
 import BiomarkerRenewalStickyNote from "./BiomarkerRenewalStickyNote";
 import BiomarkerResearchBlock from "./BiomarkerResearchBlock";
 import DataStatusStickyNote from "./DataStatusStickyNote";
@@ -25,6 +27,7 @@ interface BiomarkersSectionProps {
   samples: SampleCounts;
   samplesProvenance?: Partial<Record<keyof SampleCounts, DataProvenance>>;
   biofluidCollection: BiofluidCollectionEntry[];
+  biomarkerCoreSampleProcessing: BiomarkerCoreSampleProcessingData;
   biomarkerResearch: BiomarkerResearchEntry[];
   biomarkers: BiomarkerResults;
   plasmaNcradProvenance?: DataProvenance;
@@ -35,6 +38,7 @@ export default function BiomarkersSection({
   samples,
   samplesProvenance,
   biofluidCollection,
+  biomarkerCoreSampleProcessing,
   biomarkerResearch,
   biomarkers,
   plasmaNcradProvenance = "unknown",
@@ -72,6 +76,10 @@ export default function BiomarkersSection({
               {...sectionDataStatus.biofluidCollection}
             />
             <DataStatusStickyNote
+              heading="Biomarker Core processing"
+              {...sectionDataStatus.biomarkerCoreSampleProcessing}
+            />
+            <DataStatusStickyNote
               heading="NCRAD & Samples"
               {...sectionDataStatus.biomarkersSamplesAndNcrad}
             />
@@ -89,6 +97,15 @@ export default function BiomarkersSection({
             data-deck-caption="Biomarkers · biofluid collection"
           >
             <BiofluidCollectionBlock data={biofluidCollection} />
+          </div>
+
+          <div
+            data-deck-slide="biomarkers-core-sample-processing"
+            data-deck-caption="Biomarkers · Biomarker Core sample processing (Abhay Sagare)"
+          >
+            <BiomarkerCoreSampleProcessingBlock
+              data={biomarkerCoreSampleProcessing}
+            />
           </div>
 
           <div

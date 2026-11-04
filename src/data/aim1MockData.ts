@@ -13,6 +13,7 @@ import { getRecAttendanceTotals } from "@/lib/recAttendanceMetrics";
 import { getRecSessionCounts } from "@/lib/recSpeakerMetrics";
 import rpprDataPackageMeta from "@/data/rpprDataPackageMeta.json";
 import rpprDataPackage from "@/data/rpprDataPackage.json";
+import biomarkerCoreSampleProcessing2026 from "@/data/biomarkerCoreSampleProcessing2026.json";
 import type { RpprDataPackage } from "@/types/dataPackage";
 import {
   biofluidRequestLatestDate,
@@ -260,7 +261,7 @@ export const aim1MockData: Aim1DashboardData = {
         {
           title: `James biospecimen package (green · through ${formatScopeDate(biospecimenLatestSpecimenDate)})`,
           lines: [
-            "James has a Rapid Excel from Abhay that he will share. These counts are still the Oct 9 biospecimen file.",
+            "James biospecimen counts below are still the Oct 9 harmonized file. Monthly sample/tube processing from Abhay Sagare is in the table below.",
             "Plasma and buffy coat: direct freezing, BST (Biofluid Tracking) in REDCap, James and Xinhui. BST is being migrated and closed.",
             "CSF: REDCap. The zero below is the biospecimen file, not a REDCap count.",
             `Plasma: ${biospecYtd("plasma")?.participants ?? "—"} participants · ${biospecYtd("plasma")?.aliquots ?? "—"} aliquots`,
@@ -268,6 +269,22 @@ export const aim1MockData: Aim1DashboardData = {
             `Buffy coat: ${biospecYtd("buffy_coat")?.participants ?? "—"} participants · ${biospecYtd("buffy_coat")?.aliquots ?? "—"} aliquots`,
             `CSF collections in window: ${biospecYtd("csf")?.participants ?? 0} participants (integrated biomarker CSF assay rows may differ)`,
             `BRS export: ${ytdBrs.sourceFile} · active status=1 snapshot n=${ytdBrs.activeEnrolled ?? "—"} (RPPR cumulative definition pending Dr. Wang)`,
+          ],
+        },
+      ],
+    },
+    biomarkerCoreSampleProcessing: {
+      status: "ytd",
+      source: biomarkerCoreSampleProcessing2026.meta.providedBy,
+      bulletGroups: [
+        {
+          title: `Black · ${biomarkerCoreSampleProcessing2026.meta.reportingPeriodLabel}`,
+          lines: [
+            biomarkerCoreSampleProcessing2026.meta.sourceFile,
+            `Synced ${biomarkerCoreSampleProcessing2026.meta.lastUpdated} · npm run sync:biomarker-processing`,
+            `Totals · samples: plasma ${biomarkerCoreSampleProcessing2026.totals.samples.plasma}, buffy ${biomarkerCoreSampleProcessing2026.totals.samples.buffyCoat}, serum ${biomarkerCoreSampleProcessing2026.totals.samples.serum}`,
+            `Totals · tubes: plasma ${biomarkerCoreSampleProcessing2026.totals.tubes.plasma}, buffy ${biomarkerCoreSampleProcessing2026.totals.tubes.buffyCoat}, serum ${biomarkerCoreSampleProcessing2026.totals.tubes.serum}`,
+            biomarkerCoreSampleProcessing2026.meta.note,
           ],
         },
       ],
@@ -748,6 +765,9 @@ export const aim1MockData: Aim1DashboardData = {
       sourceNote: "CSF is tracked in REDCap. This zero is the biospecimen file.",
     },
   ],
+
+  biomarkerCoreSampleProcessing:
+    biomarkerCoreSampleProcessing2026 as typeof biomarkerCoreSampleProcessing2026,
 
   biomarkerResearch: [
     {

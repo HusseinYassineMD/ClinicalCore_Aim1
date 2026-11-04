@@ -431,6 +431,35 @@ export interface DataStatusInfo {
   bulletGroups?: DataStatusBulletGroup[];
 }
 
+export interface BiomarkerCoreFluidCounts {
+  plasma: number;
+  buffyCoat: number;
+  serum: number;
+}
+
+export interface BiomarkerCoreSampleProcessingMonth {
+  month: string;
+  samples: BiomarkerCoreFluidCounts;
+  tubes: BiomarkerCoreFluidCounts;
+}
+
+export interface BiomarkerCoreSampleProcessingData {
+  meta: {
+    providedBy: string;
+    sourceFile: string;
+    reportingPeriodLabel: string;
+    startMonth: string;
+    endMonth: string;
+    lastUpdated: string;
+    note: string;
+  };
+  months: BiomarkerCoreSampleProcessingMonth[];
+  totals: {
+    samples: BiomarkerCoreFluidCounts;
+    tubes: BiomarkerCoreFluidCounts;
+  };
+}
+
 export interface SectionDataStatus {
   recruitment: DataStatusInfo;
   recruitmentAdrc: DataStatusInfo;
@@ -445,6 +474,7 @@ export interface SectionDataStatus {
   biomarkersSamplesAndNcrad: DataStatusInfo;
   biomarkersClinicalLab: DataStatusInfo;
   biofluidCollection: DataStatusInfo;
+  biomarkerCoreSampleProcessing: DataStatusInfo;
   biomarkerResearch: DataStatusInfo;
   specimenSharingBiofluids: DataStatusInfo;
   neuropathology: DataStatusInfo;
@@ -475,6 +505,7 @@ export interface Aim1DashboardData {
   samples: SampleCounts;
   samplesProvenance?: Partial<Record<keyof SampleCounts, DataProvenance>>;
   biofluidCollection: BiofluidCollectionEntry[];
+  biomarkerCoreSampleProcessing: BiomarkerCoreSampleProcessingData;
   biomarkerResearch: BiomarkerResearchEntry[];
   biomarkers: BiomarkerResults;
   /** NCRAD plasma panel cards: YTD from James long file when present. */

@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "providedBy": "Abhay Sagare \u00b7 USC ADRC Biomarker Core",
+    "sourceFile": "data/reference/biomarker-core/Biomarker Core Sample Processing January-October 2026.xlsx",
+    "reportingPeriodLabel": "January \u2013 October 2026",
+    "startMonth": "2026-01",
+    "endMonth": "2026-10",
+    "lastUpdated": "2026-11-04",
+    "note": "Operational sample processing counts (# samples and total tubes) by month. Distinct from James harmonized biospecimen inventory and NCRAD assay rows on the dashboard."
+  },
+  "months": [
+    {
+      "month": "January 2026",
+      "samples": {
+        "plasma": 21,
+        "buffyCoat": 21,
+        "serum": 5
+      },
+      "tubes": {
+        "plasma": 203,
+        "buffyCoat": 42,
+        "serum": 108
+      }
+    },
+    {
+      "month": "February 2026",
+      "samples": {
+        "plasma": 23,
+        "buffyCoat": 23,
+        "serum": 7
+      },
+      "tubes": {
+        "plasma": 318,
+        "buffyCoat": 46,
+        "serum": 154
+      }
+    },
+    {
+      "month": "March 2026",
+      "samples": {
+        "plasma": 21,
+        "buffyCoat": 21,
+        "serum": 2
+      },
+      "tubes": {
+        "plasma": 255,
+        "buffyCoat": 42,
+        "serum": 45
+      }
+    },
+    {
+      "month": "April 2026",
+      "samples": {
+        "plasma": 17,
+        "buffyCoat": 17,
+        "serum": 4
+      },
+      "tubes": {
+        "plasma": 201,
+        "buffyCoat": 34,
+        "serum": 91
+      }
+    },
+    {
+      "month": "May 2026",
+      "samples": {
+        "plasma": 23,
+        "buffyCoat": 23,
+        "serum": 1
+      },
+      "tubes": {
+        "plasma": 277,
+        "buffyCoat": 46,
+        "serum": 25
+      }
+    },
+    {
+      "month": "June 2026",
+      "samples": {
+        "plasma": 25,
+        "buffyCoat": 25,
+        "serum": 2
+      },
+      "tubes": {
+        "plasma": 281,
+        "buffyCoat": 50,
+        "serum": 42
+      }
+    },
+    {
+      "month": "July 2026",
+      "samples": {
+        "plasma": 24,
+        "buffyCoat": 24,
+        "serum": 7
+      },
+      "tubes": {
+        "plasma": 314,
+        "buffyCoat": 47,
+        "serum": 157
+      }
+    },
+    {
+      "month": "August 2026",
+      "samples": {
+        "plasma": 26,
+        "buffyCoat": 26,
+        "serum": 2
+      },
+      "tubes": {
+        "plasma": 319,
+        "buffyCoat": 52,
+        "serum": 49
+      }
+    },
+    {
+      "month": "September 2026",
+      "samples": {
+        "plasma": 23,
+        "buffyCoat": 23,
+        "serum": 2
+      },
+      "tubes": {
+        "plasma": 259,
+        "buffyCoat": 45,
+        "serum": 50
+      }
+    },
+    {
+      "month": "October 2026",
+      "samples": {
+        "plasma": 6,
+        "buffyCoat": 6,
+        "serum": 0
+      },
+      "tubes": {
+        "plasma": 71,
+        "buffyCoat": 12,
+        "serum": 0
+      }
+    }
+  ],
+  "totals": {
+    "samples": {
+      "plasma": 209,
+      "buffyCoat": 209,
+      "serum": 32
+    },
+    "tubes": {
+      "plasma": 2498,
+      "buffyCoat": 416,
+      "serum": 721
+    }
+  }
+}

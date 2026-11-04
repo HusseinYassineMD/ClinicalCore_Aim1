@@ -212,6 +212,7 @@ export default function DashboardPage() {
             samples={data.samples}
             samplesProvenance={data.samplesProvenance}
             biofluidCollection={data.biofluidCollection}
+            biomarkerCoreSampleProcessing={data.biomarkerCoreSampleProcessing}
             biomarkerResearch={data.biomarkerResearch}
             biomarkers={data.biomarkers}
             plasmaNcradProvenance={data.plasmaNcradProvenance}
