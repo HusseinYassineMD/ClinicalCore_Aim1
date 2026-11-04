@@ -35,6 +35,7 @@ export type SectionScopeId =
   | "neuropathology"
   | "ore"
   | "biomarkers"
+  | "clinical"
   | "rec"
   | "imaging";
 
@@ -121,9 +122,18 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
       `inventory through ${formatScopeDate(biospecimenLatestSpecimenDate)}`,
     ]),
     bullets: [
-      `NCRAD plasma is green. Integrated_Biomarkers_Long last collection_date ${formatScopeDate(biomarkerLatestCollectionDate)}.`,
-      `Biospecimen inventory is green. Last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)}. Last collection_date ${formatScopeDate(biospecimenLatestCollectionDate)}.`,
+      `NCRAD plasma is green and lives in REDCap. Integrated_Biomarkers_Long last collection_date ${formatScopeDate(biomarkerLatestCollectionDate)}.`,
+      `Biospecimen inventory is green. Last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)}. Last collection_date ${formatScopeDate(biospecimenLatestCollectionDate)}. Plasma and buffy coat are direct-freeze samples in BST (REDCap, James and Xinhui). CSF is REDCap. James will share Abhay’s Rapid Excel.`,
       `Biofluid requests are green. Last Survey Timestamp ${formatScopeDate(biofluidRequestLatestDate)} · ${redcapSpecimenSharing.sources.biofluids} · pulled ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
+    ],
+  },
+  {
+    id: "clinical",
+    navLabel: "Clinical",
+    bracket: bracket(["gray", "pinned for a future RPPR"]),
+    bullets: [
+      "Clinical lab metrics (A1C, lipids, creatinine, blood pressure) are gray and not counted in this cycle.",
+      "Held out of Biomarkers and pinned for a future RPPR.",
     ],
   },
   {

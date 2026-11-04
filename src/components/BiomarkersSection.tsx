@@ -17,7 +17,6 @@ import SectionScopeBracket from "@/components/SectionScopeBracket";
 import StickyNoteRail, { SectionWithNotes } from "./StickyNoteRail";
 import {
   biomarkerLatestCollectionDate,
-  biospecimenLatestCollectionDate,
   biospecimenLatestSpecimenDate,
 } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
@@ -30,10 +29,6 @@ interface BiomarkersSectionProps {
   biomarkers: BiomarkerResults;
   plasmaNcradProvenance?: DataProvenance;
   sectionDataStatus: SectionDataStatus;
-}
-
-function formatValue(value: number | null): string | number {
-  return value ?? "—";
 }
 
 export default function BiomarkersSection({
@@ -62,29 +57,6 @@ export default function BiomarkersSection({
     { label: "ptau217", value: biomarkers.ptau217, accent: "navy" as const },
   ];
 
-  const clinicalLabMetrics = [
-    {
-      label: "A1C values",
-      value: formatValue(biomarkers.a1c),
-      accent: "amber" as const,
-    },
-    {
-      label: "LIPID VALUES",
-      value: formatValue(biomarkers.lipid),
-      accent: "orange" as const,
-    },
-    {
-      label: "CREATININE VALUES",
-      value: formatValue(biomarkers.creatinine),
-      accent: "rose" as const,
-    },
-    {
-      label: "BLOOD PRESSURE VALUES",
-      value: formatValue(biomarkers.bloodPressure),
-      accent: "emerald" as const,
-    },
-  ];
-
   return (
     <section className="space-y-6">
       <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy">
@@ -102,10 +74,6 @@ export default function BiomarkersSection({
             <DataStatusStickyNote
               heading="NCRAD & Samples"
               {...sectionDataStatus.biomarkersSamplesAndNcrad}
-            />
-            <DataStatusStickyNote
-              heading="Clinical Lab"
-              {...sectionDataStatus.biomarkersClinicalLab}
             />
             <DataStatusStickyNote
               heading="Biomarker Research"
@@ -126,7 +94,7 @@ export default function BiomarkersSection({
           <div
             className="dashboard-card space-y-6 p-8"
             data-deck-slide="biomarkers-samples-ncrad-lab"
-            data-deck-caption="Biomarkers · samples, NCRAD plasma, clinical lab"
+            data-deck-caption="Biomarkers · samples and NCRAD plasma"
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <MetricCard
@@ -134,14 +102,14 @@ export default function BiomarkersSection({
                 value={samples.pbmc}
                 accent="teal"
                 provenance={samplesProvenance?.pbmc ?? "prior"}
-                sublabel="RPPR inventory · not in James biospecimen package"
+                sublabel="Stopped for now. Separate procedure. Not in REDCap or BST. The number is the last RPPR inventory count."
               />
               <MetricCard
                 label="Buffy Coat Samples"
                 value={samples.buffyCoat}
                 accent="purple"
                 provenance={samplesProvenance?.buffyCoat ?? "prior"}
-                sublabel={`Green · biospecimen inventory · last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)}`}
+                sublabel={`Green · direct freezing · BST · last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)}`}
               />
               <MetricCard
                 label="126 Plasma Samples"
@@ -152,7 +120,7 @@ export default function BiomarkersSection({
               />
             </div>
             <p className="text-cpbh-navy/60 text-sm">
-              Green · NCRAD plasma · last collection_date{" "}
+              Green · NCRAD is in REDCap. Last collection_date{" "}
               {formatScopeDate(biomarkerLatestCollectionDate)}. This file does
               not include collections through 10/16/2026.
             </p>
@@ -166,22 +134,6 @@ export default function BiomarkersSection({
                   provenance={ncradProvenance}
                 />
               ))}
-            </div>
-            <div className="border-t border-cpbh-mist pt-6">
-              <h4 className="font-display text-base font-semibold text-cpbh-navy mb-4">
-                Clinical Lab Metrics
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 rounded-xl bg-amber-50/50 border border-amber-100 p-4">
-                {clinicalLabMetrics.map((item) => (
-                  <MetricCard
-                    key={item.label}
-                    label={item.label}
-                    value={item.value}
-                    accent={item.accent}
-                    provenance="unknown"
-                  />
-                ))}
-              </div>
             </div>
           </div>
 

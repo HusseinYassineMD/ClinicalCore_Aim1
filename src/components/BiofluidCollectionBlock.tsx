@@ -18,11 +18,12 @@ export default function BiofluidCollectionBlock({ data }: BiofluidCollectionBloc
           Biofluid Collection
         </h3>
         <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl leading-relaxed">
-          Green · USC ADRC Biospecimen Availability (James Oct 9 supplement).
-          Last specimen_date {formatScopeDate(biospecimenLatestSpecimenDate)}.
-          Last collection_date {formatScopeDate(biospecimenLatestCollectionDate)}.
-          The file ends before 10/16/2026. Not the NCRAD assay rows. WBC is not
-          a component in this export.
+          Green · counts are still the Oct 9 biospecimen file. Last specimen_date{" "}
+          {formatScopeDate(biospecimenLatestSpecimenDate)}. Last collection_date{" "}
+          {formatScopeDate(biospecimenLatestCollectionDate)}. James has a Rapid
+          Excel from Abhay that he will share. Plasma and buffy coat are
+          direct-freeze samples in BST (REDCap, James and Xinhui); BST is being
+          migrated and closed. CSF is REDCap. NCRAD assay rows are separate.
         </p>
       </div>
       <div className="overflow-x-auto px-2 pb-2">
@@ -46,8 +47,13 @@ export default function BiofluidCollectionBlock({ data }: BiofluidCollectionBloc
                 key={row.type}
                 className={index % 2 === 1 ? "table-row-alt" : undefined}
               >
-                <td className="px-6 py-4 text-base font-medium text-cpbh-navy border-b border-cpbh-mist">
+                <td className="px-6 py-4 text-base font-medium text-cpbh-navy border-b border-cpbh-mist align-top">
                   {row.type}
+                  {row.sourceNote ? (
+                    <p className="mt-1 text-xs font-normal text-cpbh-navy/55 leading-snug">
+                      {row.sourceNote}
+                    </p>
+                  ) : null}
                 </td>
                 <td
                   className={`px-6 py-4 text-base border-b border-cpbh-mist ${metricValueClass(row.provenance ?? "ytd", row.participants)}`}

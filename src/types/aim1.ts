@@ -173,6 +173,8 @@ export interface BiofluidCollectionEntry {
   /** Omitted when not reported in RPPR Table A7 (e.g. WBC aliquots). */
   aliquots?: number;
   provenance?: DataProvenance;
+  /** Source note under the biofluid name. Does not change the count color. */
+  sourceNote?: string;
 }
 
 export interface BiomarkerResearchEntry {

@@ -225,7 +225,8 @@ export const aim1MockData: Aim1DashboardData = {
           lines: [
             `Biospecimen inventory · ${HARMONIZED_FILES.biospecimenLong} · last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)} · last collection_date ${formatScopeDate(biospecimenLatestCollectionDate)}`,
             `Buffy coat YTD aliquots: ${biospecYtd("buffy_coat")?.aliquots ?? "—"} · cumulative inventory aliquots: ${biospecCumulative("buffy_coat")?.aliquots ?? "—"}`,
-            `NCRAD assay rows still from ${HARMONIZED_FILES.biomarkersLong} · last collection_date ${formatScopeDate(biomarkerLatestCollectionDate)}`,
+            `NCRAD is REDCap. Assay rows from ${HARMONIZED_FILES.biomarkersLong} · last collection_date ${formatScopeDate(biomarkerLatestCollectionDate)}`,
+            "PBMC is stopped for now. Separate procedure. Not in REDCap or BST. The count on the card is the last RPPR inventory.",
           ],
         },
         {
@@ -237,14 +238,14 @@ export const aim1MockData: Aim1DashboardData = {
       ],
     },
     biomarkersClinicalLab: {
-      status: "unknown",
-      mockFrom: `${PENDING_IN_HARMONIZED_EXPORT} · no A1c/creatinine/lipid panel counts in Integrated_Biomarkers_Long`,
+      status: "mixed",
+      mockFrom: "Moved to the Clinical section. Gray. Pinned for a future RPPR.",
       bulletGroups: [
         {
-          title: "Not extractable from James (red)",
+          title: "Gray · pinned for a future RPPR",
           lines: [
-            "A1c, lipid panel, creatinine: no matching biomarker labels in integrated long file",
-            "BP/lipid-related UDS fields exist (bpsys, bpdias, hypchol) but dashboard uses RPPR-style lab test counts — not wired",
+            "A1C, lipids, creatinine, and blood pressure sit in the Clinical section.",
+            "Not counted in this cycle. No matching rows in Integrated_Biomarkers_Long.",
           ],
         },
       ],
@@ -259,6 +260,9 @@ export const aim1MockData: Aim1DashboardData = {
         {
           title: `James biospecimen package (green · through ${formatScopeDate(biospecimenLatestSpecimenDate)})`,
           lines: [
+            "James has a Rapid Excel from Abhay that he will share. These counts are still the Oct 9 biospecimen file.",
+            "Plasma and buffy coat: direct freezing, BST (Biofluid Tracking) in REDCap, James and Xinhui. BST is being migrated and closed.",
+            "CSF: REDCap. The zero below is the biospecimen file, not a REDCap count.",
             `Plasma: ${biospecYtd("plasma")?.participants ?? "—"} participants · ${biospecYtd("plasma")?.aliquots ?? "—"} aliquots`,
             `Serum: ${biospecYtd("serum")?.participants ?? "—"} participants · ${biospecYtd("serum")?.aliquots ?? "—"} aliquots`,
             `Buffy coat: ${biospecYtd("buffy_coat")?.participants ?? "—"} participants · ${biospecYtd("buffy_coat")?.aliquots ?? "—"} aliquots`,
@@ -716,12 +720,16 @@ export const aim1MockData: Aim1DashboardData = {
       participants: biospecYtd("plasma")?.participants ?? ytdBio.subjectsWithPlasmaCollection,
       aliquots: biospecYtd("plasma")?.aliquots ?? ytdBio.plasmaMeasurementRows,
       provenance: ytdBiospecimen ? "prior" : "prior",
+      sourceNote:
+        "Direct freezing. BST (Biofluid Tracking), REDCap, James and Xinhui. BST is being migrated and closed.",
     },
     {
       type: "Buffy coat",
       participants: biospecYtd("buffy_coat")?.participants ?? null,
       aliquots: biospecYtd("buffy_coat")?.aliquots,
       provenance: ytdBiospecimen ? "prior" : "unknown",
+      sourceNote:
+        "Direct freezing. Same BST database as plasma.",
     },
     {
       type: "Serum",
@@ -736,6 +744,7 @@ export const aim1MockData: Aim1DashboardData = {
         ytdBio.subjectsWithCsfCollection,
       aliquots: biospecYtd("csf")?.aliquots ?? ytdBio.csfMeasurementRows,
       provenance: ytdBiospecimen ? "prior" : "prior",
+      sourceNote: "CSF is tracked in REDCap. This zero is the biospecimen file.",
     },
   ],
 

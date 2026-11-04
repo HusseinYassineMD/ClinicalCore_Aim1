@@ -9,6 +9,7 @@ import DemographicsTableClient from "@/components/DemographicsTableClient";
 import SectionLabel from "@/components/SectionLabel";
 import AdminTableA7Biomarkers from "@/components/AdminTableA7Biomarkers";
 import BiomarkersSection from "@/components/BiomarkersSection";
+import ClinicalLabSection from "@/components/ClinicalLabSection";
 import ImagingSection from "@/components/ImagingSection";
 import RecSection from "@/components/RecSection";
 import NeuropathAdditionalMetrics from "@/components/NeuropathAdditionalMetrics";
@@ -222,6 +223,8 @@ export default function DashboardPage() {
           </SectionWithNotes>
           <AdminTableA7Biomarkers />
         </section>
+
+        <ClinicalLabSection />
 
         {/* 5. REC */}
         <div id="rec" className="scroll-mt-32">
