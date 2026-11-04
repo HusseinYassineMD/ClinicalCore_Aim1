@@ -1482,7 +1482,7 @@ const RECRUITMENT_COLUMN_ORDER: RegistryColumn["id"][] = [
 const RECRUITMENT_ROW_LABEL: Record<RegistryColumn["id"], string> = {
   adrc: "UDS",
   genescreen: "GeneScreen",
-  brs: "Brain donation",
+  brs: "Autopsy program",
 };
 
 function orderRecruitmentColumns(columns: RegistryColumn[]): RegistryColumn[] {

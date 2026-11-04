@@ -85,7 +85,7 @@ export default function DashboardPage() {
               </div>
               <SectionLabel
                 title="Table 1 · Brain demographics"
-                subtitle="Green · old RPPR Table 1 (N=569) · charts below use the same numbers · UDS, GeneScreen, and brain donation counts below are a separate window"
+                subtitle="Green · old RPPR Table 1 (N=569) · charts below use the same numbers · UDS, GeneScreen, and autopsy program counts below are a separate window"
                 variant="priority"
                 scopeSectionId="demographics"
               />
