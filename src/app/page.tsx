@@ -76,17 +76,19 @@ export default function DashboardPage() {
                 </StickyNoteRail>
               }
             >
-              <div className="dashboard-card mb-4 w-full max-w-xs p-5">
-                <p className="text-xs font-medium uppercase tracking-wide text-cpbh-navy/55">
-                  Total ADRC
-                </p>
-                <p className="mt-1 text-4xl font-semibold metric-value-prior">
-                  {table1HarmonizedActiveSnapshot.meta.participantCount}
-                </p>
-                <p className="mt-2 text-xs leading-snug text-cpbh-navy/60">
-                  Green · Table 1 active cohort · as of{" "}
-                  {table1HarmonizedActiveSnapshot.meta.asOfDate}
-                </p>
+              <div className="mb-4 flex justify-center">
+                <div className="dashboard-card w-full max-w-xs p-5 text-center">
+                  <p className="text-xs font-medium uppercase tracking-wide text-cpbh-navy/55">
+                    Total ADRC
+                  </p>
+                  <p className="mt-1 text-4xl font-semibold metric-value-prior">
+                    {table1HarmonizedActiveSnapshot.meta.participantCount}
+                  </p>
+                  <p className="mt-2 text-xs leading-snug text-cpbh-navy/60">
+                    Green · Table 1 active cohort · as of{" "}
+                    {table1HarmonizedActiveSnapshot.meta.asOfDate}
+                  </p>
+                </div>
               </div>
               <SectionLabel
                 title="Table 1 · Brain demographics"
