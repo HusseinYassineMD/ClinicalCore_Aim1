@@ -239,10 +239,10 @@ export const aim1MockData: Aim1DashboardData = {
     },
     biomarkersClinicalLab: {
       status: "mixed",
-      mockFrom: "Moved to the Clinical section. Gray. Pinned for a future RPPR.",
+      mockFrom: "Moved to the Clinical section. Pinned for a future RPPR.",
       bulletGroups: [
         {
-          title: "Gray · pinned for a future RPPR",
+          title: "Pinned for a future RPPR",
           lines: [
             "A1C, lipids, creatinine, and blood pressure sit in the Clinical section.",
             "Not counted in this cycle. No matching rows in Integrated_Biomarkers_Long.",
@@ -385,6 +385,7 @@ export const aim1MockData: Aim1DashboardData = {
   },
 
   topRegistry: {
+    // Display order is applied in TopRegistryOverview: UDS, autopsy, GeneScreen.
     columns: [
       {
         id: "genescreen",

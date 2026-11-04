@@ -23,8 +23,8 @@ export default function ClinicalLabSection() {
           Clinical lab metrics
         </h3>
         <p className="text-sm text-neutral-500 mt-2 max-w-3xl leading-relaxed">
-          Gray. Pinned for a future RPPR. These counts are not part of this
-          cycle, so they are not shown in black, green, or red.
+          Pinned for a future RPPR. These counts are not part of this cycle,
+          so they are not shown in black, green, or red.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
           {CLINICAL_LAB_METRICS.map((label) => (

@@ -130,9 +130,9 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
   {
     id: "clinical",
     navLabel: "Clinical",
-    bracket: bracket(["gray", "pinned for a future RPPR"]),
+    bracket: bracket(["pinned for a future RPPR"]),
     bullets: [
-      "Clinical lab metrics (A1C, lipids, creatinine, blood pressure) are gray and not counted in this cycle.",
+      "Clinical lab metrics (A1C, lipids, creatinine, blood pressure) are not counted in this cycle.",
       "Held out of Biomarkers and pinned for a future RPPR.",
     ],
   },

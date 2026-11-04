@@ -1454,7 +1454,20 @@ function RegistryColumnCard({
 const REGISTRY_ROW_GRID =
   "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-x-6 xl:gap-y-5 items-stretch";
 
-/** Desktop: each horizontal band aligns across GeneScreen · ADRC · BRS. */
+/** Desktop: each horizontal band aligns across UDS · autopsy · GeneScreen. */
+const RECRUITMENT_COLUMN_ORDER: RegistryColumn["id"][] = [
+  "adrc",
+  "brs",
+  "genescreen",
+];
+
+function orderRecruitmentColumns(columns: RegistryColumn[]): RegistryColumn[] {
+  return [...columns].sort(
+    (a, b) =>
+      RECRUITMENT_COLUMN_ORDER.indexOf(a.id) -
+      RECRUITMENT_COLUMN_ORDER.indexOf(b.id),
+  );
+}
 function RegistryAlignedDesktop({
   columns,
   udsBoxes,
@@ -1471,7 +1484,7 @@ function RegistryAlignedDesktop({
       <div
         className={REGISTRY_ROW_GRID}
         data-deck-slide="recruitment-registry-headers"
-        data-deck-caption="Recruitment · GeneScreen, ADRC, BRS · registry totals"
+        data-deck-caption="Recruitment · UDS, autopsy, GeneScreen · registry totals"
       >
         {columns.map((col) => (
           <div
@@ -1606,7 +1619,7 @@ export default function TopRegistryOverview({
 }: TopRegistryOverviewProps) {
   const [phase, setPhase] = useState<RecruitmentPhase>("ytd");
   const [alive, setAlive] = useState(false);
-  const columns = data.columns.map((column) =>
+  const columns = orderRecruitmentColumns(data.columns).map((column) =>
     columnForPhase(column, phase, alive),
   );
   const ytdAdrc = data.columns.find((column) => column.id === "adrc");
