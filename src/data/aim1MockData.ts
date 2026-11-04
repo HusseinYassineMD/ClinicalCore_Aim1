@@ -15,6 +15,12 @@ import rpprDataPackageMeta from "@/data/rpprDataPackageMeta.json";
 import rpprDataPackage from "@/data/rpprDataPackage.json";
 import type { RpprDataPackage } from "@/types/dataPackage";
 import {
+  biofluidRequestLatestDate,
+  biomarkerLatestCollectionDate,
+  biospecimenLatestCollectionDate,
+  biospecimenLatestSpecimenDate,
+  brsLatestActivityDate,
+  neurobankRequestLatestDate,
   packageYtd,
   siteReportingWindow,
   udsLatestVisitDate,
@@ -215,11 +221,11 @@ export const aim1MockData: Aim1DashboardData = {
       ),
       bulletGroups: [
         {
-          title: "James Oct 9 supplement (black)",
+          title: `James Oct 9 supplement (green · last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)})`,
           lines: [
-            `Biospecimen inventory · ${HARMONIZED_FILES.biospecimenLong} · collection_date in ${siteReportingWindow.label}`,
+            `Biospecimen inventory · ${HARMONIZED_FILES.biospecimenLong} · last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)} · last collection_date ${formatScopeDate(biospecimenLatestCollectionDate)}`,
             `Buffy coat YTD aliquots: ${biospecYtd("buffy_coat")?.aliquots ?? "—"} · cumulative inventory aliquots: ${biospecCumulative("buffy_coat")?.aliquots ?? "—"}`,
-            `NCRAD assay rows still from ${HARMONIZED_FILES.biomarkersLong} (separate pipeline)`,
+            `NCRAD assay rows still from ${HARMONIZED_FILES.biomarkersLong} · last collection_date ${formatScopeDate(biomarkerLatestCollectionDate)}`,
           ],
         },
         {
@@ -251,7 +257,7 @@ export const aim1MockData: Aim1DashboardData = {
       mockFrom: `${LAST_RPPR_SOURCE} · WBC RPPR line (no WBC component in biospecimen export)`,
       bulletGroups: [
         {
-          title: "James biospecimen package (black YTD)",
+          title: `James biospecimen package (green · through ${formatScopeDate(biospecimenLatestSpecimenDate)})`,
           lines: [
             `Plasma: ${biospecYtd("plasma")?.participants ?? "—"} participants · ${biospecYtd("plasma")?.aliquots ?? "—"} aliquots`,
             `Serum: ${biospecYtd("serum")?.participants ?? "—"} participants · ${biospecYtd("serum")?.aliquots ?? "—"} aliquots`,
@@ -281,12 +287,12 @@ export const aim1MockData: Aim1DashboardData = {
       source: `${METRIC_SOURCES.redcapBiofluidCsv} · ${METRIC_SOURCES.biomarkerCore} biofluid requests`,
       bulletGroups: [
         {
-          title: "Year to date (black)",
+          title: `Green · last biofluid request ${formatScopeDate(biofluidRequestLatestDate)}`,
           lines: [
             `src/data/redcapSpecimenSharing.json · biofluids.reportingPeriod`,
             `Source CSV: ${redcapSpecimenSharing.sources.biofluids}`,
             `${redcapSpecimenSharing.biofluids.reportingPeriod.requestsReceived} requests · ${redcapSpecimenSharing.biofluids.reportingPeriod.plasma.aliquotsRequested} plasma aliquots requested`,
-            `Window: ${redcapSpecimenSharing.reportingPeriodLabel}`,
+            `Last Survey Timestamp in this file: ${formatScopeDate(biofluidRequestLatestDate)}. Pull dated 2026-10-07.`,
           ],
         },
       ],
@@ -297,7 +303,7 @@ export const aim1MockData: Aim1DashboardData = {
       mockFrom: `James MAP raw export · ${siteReportingWindow.label} · cross-check only`,
       bulletGroups: [
         {
-          title: "RPPR BRS Table 1 (black · Data Core QC)",
+          title: `RPPR BRS Table 1 (green · last MAP date ${formatScopeDate(brsLatestActivityDate)})`,
           lines: [
             `Current enrollment N=${brsDcEnrollmentN ?? "—"} · new ${brsDcNew?.participants ?? "—"} · withdrawal ${brsDcWithdrawal?.participants ?? "—"}`,
             `Deaths: ${brsDcDiedWithAutopsy?.participants ?? "—"} with autopsy · ${brsDcDiedWithoutAutopsy?.participants ?? "—"} w/o autopsy`,
@@ -325,11 +331,11 @@ export const aim1MockData: Aim1DashboardData = {
       source: `${METRIC_SOURCES.redcapNeurobankCsv} · ${METRIC_SOURCES.neuropathCoreY7} tissue request table`,
       bulletGroups: [
         {
-          title: "Year to date (black)",
+          title: `Green · last tissue request ${formatScopeDate(neurobankRequestLatestDate)}`,
           lines: [
             `src/data/redcapSpecimenSharing.json · neurobank.reportingPeriod`,
             `Source CSV: ${redcapSpecimenSharing.sources.neurobank}`,
-            `requestsReceived & breakdowns filtered to ${redcapSpecimenSharing.reportingPeriodLabel}`,
+            `Last Survey Timestamp in this file: ${formatScopeDate(neurobankRequestLatestDate)}. Pull dated 2026-10-07.`,
             "scripts/aggregate_specimen_sharing.py",
           ],
         },
@@ -700,7 +706,7 @@ export const aim1MockData: Aim1DashboardData = {
 
   samplesProvenance: {
     pbmc: "prior" as const,
-    buffyCoat: ytdBiospecimen ? ("ytd" as const) : ("prior" as const),
+    buffyCoat: "prior" as const,
     plasma126: "prior" as const,
   },
 
@@ -709,19 +715,19 @@ export const aim1MockData: Aim1DashboardData = {
       type: "Plasma",
       participants: biospecYtd("plasma")?.participants ?? ytdBio.subjectsWithPlasmaCollection,
       aliquots: biospecYtd("plasma")?.aliquots ?? ytdBio.plasmaMeasurementRows,
-      provenance: ytdBiospecimen ? "ytd" : "ytd",
+      provenance: ytdBiospecimen ? "prior" : "prior",
     },
     {
       type: "Buffy coat",
       participants: biospecYtd("buffy_coat")?.participants ?? null,
       aliquots: biospecYtd("buffy_coat")?.aliquots,
-      provenance: ytdBiospecimen ? "ytd" : "unknown",
+      provenance: ytdBiospecimen ? "prior" : "unknown",
     },
     {
       type: "Serum",
       participants: biospecYtd("serum")?.participants ?? r.biofluidCollection.serumParticipants,
       aliquots: biospecYtd("serum")?.aliquots ?? r.biofluidCollection.serumAliquots,
-      provenance: ytdBiospecimen ? "ytd" : "prior",
+      provenance: ytdBiospecimen ? "prior" : "prior",
     },
     {
       type: "CSF",
@@ -729,7 +735,7 @@ export const aim1MockData: Aim1DashboardData = {
         biospecYtd("csf")?.participants ??
         ytdBio.subjectsWithCsfCollection,
       aliquots: biospecYtd("csf")?.aliquots ?? ytdBio.csfMeasurementRows,
-      provenance: ytdBiospecimen ? "ytd" : "ytd",
+      provenance: ytdBiospecimen ? "prior" : "prior",
     },
   ],
 
@@ -776,7 +782,7 @@ export const aim1MockData: Aim1DashboardData = {
   })(),
 
   plasmaNcradProvenance: ytdBio.ncradPlasmaMeasurements
-    ? ("ytd" as const)
+    ? ("prior" as const)
     : ("unknown" as const),
 
   biofluidSpecimenSharing: redcapSpecimenSharing.biofluids.reportingPeriod,

@@ -1,6 +1,6 @@
 "use client";
 
-import type { SpecimenSharing } from "@/types/aim1";
+import type { DataProvenance, SpecimenSharing } from "@/types/aim1";
 import { PIE_START_AT_TWELVE, sortPieSlicesAscending } from "@/lib/pieChartConfig";
 import MetricCard from "./MetricCard";
 import PlasmaRequestSummaryBlock from "./PlasmaRequestSummary";
@@ -20,10 +20,12 @@ function SpecimenSharingSnapshot({
   data,
   periodLabel,
   emphasized = false,
+  provenance = "ytd",
 }: {
   data: SpecimenSharing;
   periodLabel: string;
   emphasized?: boolean;
+  provenance?: DataProvenance;
 }) {
   const requestorPie = sortPieSlicesAscending(data.requestorTypes);
   return (
@@ -42,7 +44,7 @@ function SpecimenSharingSnapshot({
           label="# of Requests Received"
           value={data.requestsReceived}
           accent="navy"
-          provenance="ytd"
+          provenance={provenance}
         />
         <div className="metric-card border-l-4 border-l-cpbh-sky h-full flex flex-col">
           <p className="text-cpbh-purple text-xs font-medium uppercase tracking-wide mb-2">
@@ -102,11 +104,15 @@ function SpecimenSharingSnapshot({
           label="# of Requests Fulfilled"
           value={data.requestsFulfilled}
           accent="purple"
-          provenance="ytd"
+          provenance={provenance}
         />
       </div>
       {data.plasma && (
-        <PlasmaRequestSummaryBlock data={data.plasma} periodLabel={periodLabel} />
+        <PlasmaRequestSummaryBlock
+          data={data.plasma}
+          periodLabel={periodLabel}
+          provenance={provenance}
+        />
       )}
     </div>
   );
@@ -119,6 +125,7 @@ interface SpecimenSharingSectionProps {
   subtitle?: string;
   deckSlideId?: string;
   deckCaption?: string;
+  countProvenance?: DataProvenance;
 }
 
 export default function SpecimenSharingSection({
@@ -128,6 +135,7 @@ export default function SpecimenSharingSection({
   subtitle = "RedCap request tracking · year to date",
   deckSlideId,
   deckCaption,
+  countProvenance = "ytd",
 }: SpecimenSharingSectionProps) {
   return (
     <div
@@ -143,8 +151,9 @@ export default function SpecimenSharingSection({
       <p className="text-cpbh-navy/60 text-sm mb-4">{subtitle}</p>
       <SpecimenSharingSnapshot
         data={data}
-        periodLabel={`Year to date · ${reportingPeriodLabel}`}
+        periodLabel={reportingPeriodLabel}
         emphasized
+        provenance={countProvenance}
       />
     </div>
   );

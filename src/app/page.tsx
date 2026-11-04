@@ -25,6 +25,11 @@ import StickyNoteRail, {
 } from "@/components/StickyNoteRail";
 import OreOutreachBlock from "@/components/OreOutreachBlock";
 import { aim1MockData } from "@/data/aim1MockData";
+import {
+  biofluidRequestLatestDate,
+  neurobankRequestLatestDate,
+} from "@/data/siteReporting";
+import { formatScopeDate } from "@/lib/formatScopeDate";
 import SitePeriodStrip from "@/components/SitePeriodStrip";
 import MetricsSectionNav from "@/components/MetricsSectionNav";
 import SectionScopeBracket from "@/components/SectionScopeBracket";
@@ -157,8 +162,9 @@ export default function DashboardPage() {
             <SpecimenSharingSection
               title="Tissue Inquiries"
               data={data.neurobankSpecimenSharing}
-              reportingPeriodLabel={data.specimenSharingReportingPeriodLabel}
-              subtitle={`RedCap neurobank requests · year to date · ${data.specimenSharingReportingPeriodLabel}`}
+              reportingPeriodLabel={`Green · last request ${formatScopeDate(neurobankRequestLatestDate)}`}
+              subtitle={`RedCap neurobank requests · last Survey Timestamp ${formatScopeDate(neurobankRequestLatestDate)} · pull 2026-10-07`}
+              countProvenance="prior"
               deckSlideId="neuropath-tissue-inquiries"
               deckCaption="Neuropathology · tissue inquiries (neurobank YTD)"
             />
@@ -207,8 +213,9 @@ export default function DashboardPage() {
             <SpecimenSharingSection
               title="Biofluid Inquiries"
               data={data.biofluidSpecimenSharing}
-              reportingPeriodLabel={data.specimenSharingReportingPeriodLabel}
-              subtitle={`RedCap biofluid requests · year to date · ${data.specimenSharingReportingPeriodLabel}`}
+              reportingPeriodLabel={`Green · last request ${formatScopeDate(biofluidRequestLatestDate)}`}
+              subtitle={`RedCap biofluid requests · last Survey Timestamp ${formatScopeDate(biofluidRequestLatestDate)} · pull 2026-10-07`}
+              countProvenance="prior"
               deckSlideId="biomarkers-biofluid-inquiries"
               deckCaption="Biomarkers · biofluid inquiries (RedCap YTD)"
             />

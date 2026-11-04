@@ -1,5 +1,10 @@
 import type { BiofluidCollectionEntry } from "@/types/aim1";
 import { metricValueClass } from "@/lib/metricValueClass";
+import {
+  biospecimenLatestCollectionDate,
+  biospecimenLatestSpecimenDate,
+} from "@/data/siteReporting";
+import { formatScopeDate } from "@/lib/formatScopeDate";
 
 interface BiofluidCollectionBlockProps {
   data: BiofluidCollectionEntry[];
@@ -13,10 +18,11 @@ export default function BiofluidCollectionBlock({ data }: BiofluidCollectionBloc
           Biofluid Collection
         </h3>
         <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl leading-relaxed">
-          Black · USC ADRC Biospecimen Availability (James Oct 9 supplement) ·
-          collection inventory by{" "}
-          <code className="text-[11px]">collection_date</code> — not integrated
-          biomarker assay rows. WBC is not a component in this export.
+          Green · USC ADRC Biospecimen Availability (James Oct 9 supplement).
+          Last specimen_date {formatScopeDate(biospecimenLatestSpecimenDate)}.
+          Last collection_date {formatScopeDate(biospecimenLatestCollectionDate)}.
+          The file ends before 10/16/2026. Not the NCRAD assay rows. WBC is not
+          a component in this export.
         </p>
       </div>
       <div className="overflow-x-auto px-2 pb-2">

@@ -42,7 +42,7 @@ import {
   type RecruitmentPhase,
   type UdsPeriodBox,
 } from "@/data/recruitmentPhases";
-import { udsLatestVisitDate } from "@/data/siteReporting";
+import { brsLatestActivityDate, udsLatestVisitDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 
 type ChartCountItem = {
@@ -1326,7 +1326,7 @@ function RegistryHeaderBlock({
         </p>
       ) : column.id === "brs" ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
-          Green · source file ends before 10/16/2026
+          Green · last MAP date {formatScopeDate(brsLatestActivityDate)}
         </p>
       ) : null}
       {column.id === "genescreen" && column.totalsProvenance === "ytd" && !column.headerNote ? (

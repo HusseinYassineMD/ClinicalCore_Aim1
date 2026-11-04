@@ -1,13 +1,15 @@
-import type { PlasmaRequestSummary } from "@/types/aim1";
+import type { DataProvenance, PlasmaRequestSummary } from "@/types/aim1";
 import MetricCard from "./MetricCard";
 import { metricValueClass } from "@/lib/metricValueClass";
 
 export default function PlasmaRequestSummaryBlock({
   data,
   periodLabel,
+  provenance = "ytd",
 }: {
   data: PlasmaRequestSummary;
   periodLabel: string;
+  provenance?: DataProvenance;
 }) {
   return (
     <div className="mt-4 pt-4 border-t border-cpbh-mist">
@@ -22,19 +24,19 @@ export default function PlasmaRequestSummaryBlock({
           label="Requests with plasma"
           value={data.requestsWithPlasma}
           accent="navy"
-          provenance="ytd"
+          provenance={provenance}
         />
         <MetricCard
           label="Plasma aliquots requested"
           value={data.aliquotsRequested}
           accent="purple"
-          provenance="ytd"
+          provenance={provenance}
         />
         <MetricCard
           label="Plasma requests fulfilled"
           value={data.requestsFulfilled}
           accent="teal"
-          provenance="ytd"
+          provenance={provenance}
         />
       </div>
       <div className="grid grid-cols-3 gap-3">
@@ -44,7 +46,7 @@ export default function PlasmaRequestSummaryBlock({
             className="rounded-lg border border-cpbh-mist bg-white/80 px-3 py-3 text-center"
           >
             <p
-              className={`text-lg font-semibold tabular-nums ${metricValueClass("ytd", item.count)}`}
+              className={`text-lg font-semibold tabular-nums ${metricValueClass(provenance, item.count)}`}
             >
               {item.count}
             </p>

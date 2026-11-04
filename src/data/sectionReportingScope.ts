@@ -8,7 +8,15 @@ import recMeetingAttendance from "@/data/recMeetingAttendance.json";
 import recRoster from "@/data/recRoster.json";
 import rpprMetrics from "@/data/rpprMetrics.json";
 import type { RpprDataPackage } from "@/types/dataPackage";
-import { siteReportingWindow } from "@/data/siteReporting";
+import {
+  biofluidRequestLatestDate,
+  biomarkerLatestCollectionDate,
+  biospecimenLatestCollectionDate,
+  biospecimenLatestSpecimenDate,
+  brsLatestActivityDate,
+  neurobankRequestLatestDate,
+  siteReportingWindow,
+} from "@/data/siteReporting";
 import { lastRpprReportingPeriod } from "@/data/reportingPeriodLegend";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 
@@ -55,11 +63,11 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
       "UDS black",
       `last visit ${formatScopeDate(cov.udsLatestVisitDate)}`,
       "autopsy green",
-      "autopsy file ends before 10/16/2026",
+      `last MAP date ${formatScopeDate(brsLatestActivityDate)}`,
     ]),
     bullets: [
       `UDS visit counts are black from James’s harmonized export. Last visit_date in that file: ${formatScopeDate(cov.udsLatestVisitDate)}. The reporting window is still ${ytdLabel}.`,
-      `Autopsy enrollment stays green: that source file does not include rows through 10/16/2026. BRS activity through ${formatScopeDate(cov.brsLatestActivityDate)}.`,
+      `Autopsy enrollment stays green. Last MAP date ${formatScopeDate(brsLatestActivityDate)} (autopsy consent). MAP pull 2026-10-07.`,
       `GeneScreen black: REDCap ${geneScreenYtd.sourceFile} · ${geneScreenYtd.reportingPeriodLabel} · export ${formatScopeDate(geneScreenYtd.lastUpdated)}.`,
       `Green registry headlines (668 / 573 / 231): last RPPR ${rpprPeriod}.`,
     ],
@@ -74,7 +82,7 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     ]),
     bullets: [
       `Table 1 and the charts under it are green: old RPPR harmonized active cohort N=${table1HarmonizedActiveSnapshot.meta.participantCount} · as of ${formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate)} (not the visit-date window).`,
-      `Recruitment UDS counts are black through ${formatScopeDate(cov.udsLatestVisitDate)}, the last visit in James’s file. Autopsy enrollment stays green: that file ends before 10/16/2026.`,
+      `Recruitment UDS counts are black through ${formatScopeDate(cov.udsLatestVisitDate)}, the last visit in James’s file. Autopsy enrollment stays green through ${formatScopeDate(brsLatestActivityDate)}.`,
       `Green RPPR Table 1 workbook period (if cited elsewhere): ${rpprTable1Period}.`,
     ],
   },
@@ -82,13 +90,13 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     id: "neuropathology",
     navLabel: "Neuropathology",
     bracket: bracket([
-      "black",
-      ytdLabel,
-      `BRS activity through ${formatScopeDate(cov.brsLatestActivityDate)}`,
+      "green",
+      `last MAP date ${formatScopeDate(brsLatestActivityDate)}`,
+      "MAP pull Oct 7, 2026",
     ]),
     bullets: [
-      `BRS YTD consents / autopsies: ${ytd.brsAutopsy.sourceFile} · supplement ${formatScopeDate(ytd.brsAutopsy.supplementReceivedAt)}.`,
-      `Neurobank RedCap YTD: ${redcapSpecimenSharing.sources.neurobank} · pulled ${formatScopeDate(redcapSpecimenSharing.lastUpdated)} · window ${redcapSpecimenSharing.reportingPeriodLabel}.`,
+      `BRS counts are green. Last autopsy consent in ${ytd.brsAutopsy.sourceFile}: ${formatScopeDate(brsLatestActivityDate)}. Supplement ${formatScopeDate(ytd.brsAutopsy.supplementReceivedAt)}.`,
+      `Neurobank requests are green. Last Survey Timestamp ${formatScopeDate(neurobankRequestLatestDate)} · ${redcapSpecimenSharing.sources.neurobank} · pulled ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
     ],
   },
   {
@@ -108,14 +116,14 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     id: "biomarkers",
     navLabel: "Biomarkers",
     bracket: bracket([
-      "black",
-      ytdLabel,
-      `plasma rows through ${formatScopeDate(cov.biomarkerLatestCollectionDate)}`,
+      "green",
+      `plasma collections through ${formatScopeDate(biomarkerLatestCollectionDate)}`,
+      `inventory through ${formatScopeDate(biospecimenLatestSpecimenDate)}`,
     ]),
     bullets: [
-      `NCRAD / plasma YTD: Integrated_Biomarkers_Long · latest collection_date ${formatScopeDate(cov.biomarkerLatestCollectionDate)}.`,
-      `Biofluid RedCap requests: ${redcapSpecimenSharing.sources.biofluids} · ${redcapSpecimenSharing.reportingPeriodLabel} · sync ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
-      `Biospecimen inventory supplement (if shown): ${formatScopeDate(ytd.biospecimenInventory?.supplementReceivedAt)}.`,
+      `NCRAD plasma is green. Integrated_Biomarkers_Long last collection_date ${formatScopeDate(biomarkerLatestCollectionDate)}.`,
+      `Biospecimen inventory is green. Last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)}. Last collection_date ${formatScopeDate(biospecimenLatestCollectionDate)}.`,
+      `Biofluid requests are green. Last Survey Timestamp ${formatScopeDate(biofluidRequestLatestDate)} · ${redcapSpecimenSharing.sources.biofluids} · pulled ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
     ],
   },
   {

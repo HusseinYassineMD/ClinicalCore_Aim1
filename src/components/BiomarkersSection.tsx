@@ -15,6 +15,12 @@ import BiomarkerResearchBlock from "./BiomarkerResearchBlock";
 import DataStatusStickyNote from "./DataStatusStickyNote";
 import SectionScopeBracket from "@/components/SectionScopeBracket";
 import StickyNoteRail, { SectionWithNotes } from "./StickyNoteRail";
+import {
+  biomarkerLatestCollectionDate,
+  biospecimenLatestCollectionDate,
+  biospecimenLatestSpecimenDate,
+} from "@/data/siteReporting";
+import { formatScopeDate } from "@/lib/formatScopeDate";
 
 interface BiomarkersSectionProps {
   samples: SampleCounts;
@@ -135,11 +141,7 @@ export default function BiomarkersSection({
                 value={samples.buffyCoat}
                 accent="purple"
                 provenance={samplesProvenance?.buffyCoat ?? "prior"}
-                sublabel={
-                  samplesProvenance?.buffyCoat === "ytd"
-                    ? "YTD aliquots · USC_ADRC_Biospecimen_Availability_Long"
-                    : "RPPR inventory · not in James biospecimen export"
-                }
+                sublabel={`Green · biospecimen inventory · last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)}`}
               />
               <MetricCard
                 label="126 Plasma Samples"
@@ -149,6 +151,11 @@ export default function BiomarkersSection({
                 sublabel="RPPR 126-plasma line · distinct from inventory aliquots"
               />
             </div>
+            <p className="text-cpbh-navy/60 text-sm">
+              Green · NCRAD plasma · last collection_date{" "}
+              {formatScopeDate(biomarkerLatestCollectionDate)}. This file does
+              not include collections through 10/16/2026.
+            </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {plasmaBiomarkers.map((item) => (
                 <MetricCard
