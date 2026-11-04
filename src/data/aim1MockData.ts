@@ -385,7 +385,7 @@ export const aim1MockData: Aim1DashboardData = {
   },
 
   topRegistry: {
-    // Display order is applied in TopRegistryOverview: UDS, autopsy, GeneScreen.
+    // Display order is applied in TopRegistryOverview: UDS, GeneScreen, brain donation.
     columns: [
       {
         id: "genescreen",

@@ -35,7 +35,7 @@ import SitePeriodStrip from "@/components/SitePeriodStrip";
 import MetricsSectionNav from "@/components/MetricsSectionNav";
 import SectionScopeBracket from "@/components/SectionScopeBracket";
 import ChartErrorBoundary from "@/components/ChartErrorBoundary";
-import { siteReportingWindow } from "@/data/siteReporting";
+import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
 
 export default function DashboardPage() {
   const data = aim1MockData;
@@ -62,6 +62,52 @@ export default function DashboardPage() {
               className="block mt-2 max-w-3xl mx-auto"
             />
           </h2>
+          <div id="demographics" className="scroll-mt-32">
+            <SectionWithNotes
+              layoutMaxWidth="max-w-none"
+              contentClassName="w-full max-w-none"
+              notes={
+                <StickyNoteRail>
+                  <DataStatusStickyNote
+                    heading="Demographics"
+                    {...data.sectionDataStatus.demographics}
+                  />
+                  <DemographicsTableStickyNote />
+                </StickyNoteRail>
+              }
+            >
+              <div className="dashboard-card mb-4 w-full max-w-xs p-5">
+                <p className="text-xs font-medium uppercase tracking-wide text-cpbh-navy/55">
+                  Total ADRC
+                </p>
+                <p className="mt-1 text-4xl font-semibold metric-value-prior">
+                  {table1HarmonizedActiveSnapshot.meta.participantCount}
+                </p>
+                <p className="mt-2 text-xs leading-snug text-cpbh-navy/60">
+                  Green · Table 1 active cohort · as of{" "}
+                  {table1HarmonizedActiveSnapshot.meta.asOfDate}
+                </p>
+              </div>
+              <SectionLabel
+                title="Table 1 · Brain demographics"
+                subtitle="Green · old RPPR Table 1 (N=569) · charts below use the same numbers · UDS, GeneScreen, and brain donation counts below are a separate window"
+                variant="priority"
+                scopeSectionId="demographics"
+              />
+              <DemographicsChartsHost
+                skeleton={
+                  <div
+                    className="dashboard-card min-h-[640px] animate-pulse bg-cpbh-mist/30 rounded-2xl"
+                    aria-busy
+                    aria-label="Loading demographics charts"
+                  />
+                }
+              >
+                <DemographicsTableClient />
+              </DemographicsChartsHost>
+            </SectionWithNotes>
+          </div>
+
           <div id="recruitment-charts" className="scroll-mt-32">
           <SectionWithNotes
             layoutMaxWidth="max-w-none"
@@ -91,39 +137,6 @@ export default function DashboardPage() {
           </div>
           </div>
 
-          <div id="demographics" className="scroll-mt-32">
-            <SectionWithNotes
-              layoutMaxWidth="max-w-none"
-              contentClassName="w-full max-w-none"
-              notes={
-                <StickyNoteRail>
-                  <DataStatusStickyNote
-                    heading="Demographics"
-                    {...data.sectionDataStatus.demographics}
-                  />
-                  <DemographicsTableStickyNote />
-                </StickyNoteRail>
-              }
-            >
-              <SectionLabel
-                title="Demographics"
-                subtitle="Green · old RPPR Table 1 (N=569) · charts below use the same numbers · Recruitment visit counts above are a separate window"
-                variant="priority"
-                scopeSectionId="demographics"
-              />
-              <DemographicsChartsHost
-                skeleton={
-                  <div
-                    className="dashboard-card min-h-[640px] animate-pulse bg-cpbh-mist/30 rounded-2xl"
-                    aria-busy
-                    aria-label="Loading demographics charts"
-                  />
-                }
-              >
-                <DemographicsTableClient />
-              </DemographicsChartsHost>
-            </SectionWithNotes>
-          </div>
         </section>
 
         {/* 2. Neuropathology */}

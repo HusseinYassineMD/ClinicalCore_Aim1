@@ -1451,15 +1451,18 @@ function RegistryColumnCard({
   );
 }
 
-const REGISTRY_ROW_GRID =
-  "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-x-6 xl:gap-y-5 items-stretch";
-
-/** Desktop: each horizontal band aligns across UDS · autopsy · GeneScreen. */
+/** Stacked rows, matching the upright sketch: UDS, then GeneScreen, then brain donation. */
 const RECRUITMENT_COLUMN_ORDER: RegistryColumn["id"][] = [
   "adrc",
-  "brs",
   "genescreen",
+  "brs",
 ];
+
+const RECRUITMENT_ROW_LABEL: Record<RegistryColumn["id"], string> = {
+  adrc: "UDS",
+  genescreen: "GeneScreen",
+  brs: "Brain donation",
+};
 
 function orderRecruitmentColumns(columns: RegistryColumn[]): RegistryColumn[] {
   return [...columns].sort(
@@ -1480,66 +1483,47 @@ function RegistryAlignedDesktop({
   onSelectPhase?: (phase: RecruitmentPhase) => void;
 }) {
   return (
-    <div className="hidden xl:flex xl:flex-col xl:gap-3 w-full mx-auto">
-      <div
-        className={REGISTRY_ROW_GRID}
-        data-deck-slide="recruitment-registry-headers"
-        data-deck-caption="Recruitment · UDS, autopsy, GeneScreen · registry totals"
-      >
-        {columns.map((col) => (
-          <div
-            key={`head-${col.id}`}
-            className={`dashboard-card border-t-4 ${columnAccentBorder(col)} p-4 h-full`}
-          >
-            <RegistryHeaderBlock
-              column={col}
-              udsBoxes={udsBoxes}
-              phase={phase}
-              onSelectPhase={onSelectPhase}
-            />
-          </div>
-        ))}
-      </div>
-      <div
-        className={REGISTRY_ROW_GRID}
-        data-deck-slide="recruitment-ytd-activities"
-        data-deck-caption="Recruitment · YTD activities (Jan–Sep 2026)"
-      >
-        {columns.map((col) => (
-          <div
-            key={`ytd-${col.id}`}
-            className={`dashboard-card border-t-4 ${columnAccentBorder(col)} p-4 h-full`}
-          >
-            <RegistryYtdBlock column={col} />
-          </div>
-        ))}
-      </div>
-      {[0, 1, 2].map((rowIndex) => (
-        <div
-          key={`charts-${rowIndex}`}
-          className={REGISTRY_ROW_GRID}
-          data-deck-slide={`recruitment-charts-row-${rowIndex + 1}`}
-          data-deck-caption={`Recruitment · charts (row ${rowIndex + 1})`}
-        >
-          {columns.map((col) => {
-            const chartsProvenance = chartsProvenanceForColumn(col);
-            const slots = activeChartSlotsForColumn(col);
-            return (
+    <div className="hidden xl:flex xl:flex-col xl:gap-8 w-full mx-auto">
+      {columns.map((col) => {
+        const chartsProvenance = chartsProvenanceForColumn(col);
+        const slots = activeChartSlotsForColumn(col);
+        return (
+          <div key={col.id} className="space-y-2">
+            <h3 className="font-display text-lg font-semibold text-cpbh-navy">
+              {RECRUITMENT_ROW_LABEL[col.id]}
+            </h3>
+            <div
+              className="grid grid-cols-5 gap-3 items-stretch"
+              data-deck-slide={`recruitment-row-${col.id}`}
+              data-deck-caption={`Recruitment · ${RECRUITMENT_ROW_LABEL[col.id]}`}
+            >
               <div
-                key={`${col.id}-chart-${rowIndex}`}
-                className="h-full min-h-0 min-w-0 w-full flex flex-col"
+                className={`dashboard-card border-t-4 ${columnAccentBorder(col)} p-4 h-full min-w-0`}
               >
-                {renderChartSlot(
-                  slots[rowIndex],
-                  rowIndex,
-                  col,
-                  chartsProvenance,
-                )}
+                <RegistryHeaderBlock
+                  column={col}
+                  udsBoxes={udsBoxes}
+                  phase={phase}
+                  onSelectPhase={onSelectPhase}
+                />
               </div>
-            );
-          })}
-        </div>
-      ))}
+              <div
+                className={`dashboard-card border-t-4 ${columnAccentBorder(col)} p-4 h-full min-w-0`}
+              >
+                <RegistryYtdBlock column={col} />
+              </div>
+              {slots.map((slot, index) => (
+                <div
+                  key={`${col.id}-chart-${index}`}
+                  className="h-full min-h-0 min-w-0 flex flex-col"
+                >
+                  {renderChartSlot(slot, index, col, chartsProvenance)}
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -1642,7 +1626,7 @@ export default function TopRegistryOverview({
         phase={phase}
         onSelectPhase={setPhase}
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xl:hidden">
+      <div className="grid grid-cols-1 gap-8 xl:hidden">
         {columns.map((col) => (
           <RegistryColumnCard
             key={col.id}
