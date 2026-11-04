@@ -53,15 +53,8 @@ export default function DashboardPage() {
 
       <main className="flex-1 mx-auto w-full min-w-0 max-w-[90rem] px-4 sm:px-6 lg:px-8 py-8 md:py-10 space-y-12">
         {/* 1. Recruitment + Table 1 */}
-        <section id="recruitment" className="scroll-mt-32 space-y-6">
+        <section className="scroll-mt-32 space-y-6">
           <div id="deck-section-recruitment" className="space-y-6 mx-auto w-full max-w-none">
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy text-center">
-            <span className="block">Recruitment</span>
-            <SectionScopeBracket
-              sectionId="recruitment"
-              className="block mt-2 max-w-3xl mx-auto"
-            />
-          </h2>
           <div id="demographics" className="scroll-mt-32">
             <SectionWithNotes
               layoutMaxWidth="max-w-none"
@@ -110,6 +103,14 @@ export default function DashboardPage() {
             </SectionWithNotes>
           </div>
 
+          <div id="recruitment" className="scroll-mt-32 space-y-6">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy text-center">
+            <span className="block">Recruitment</span>
+            <SectionScopeBracket
+              sectionId="recruitment"
+              className="block mt-2 max-w-3xl mx-auto"
+            />
+          </h2>
           <div id="recruitment-charts" className="scroll-mt-32">
           <SectionWithNotes
             layoutMaxWidth="max-w-none"
@@ -136,6 +137,7 @@ export default function DashboardPage() {
               </ChartErrorBoundary>
             </RegistryChartsHost>
           </SectionWithNotes>
+          </div>
           </div>
           </div>
 
