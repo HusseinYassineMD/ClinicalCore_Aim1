@@ -7,6 +7,7 @@ import {
 import TopRegistryOverview from "@/components/TopRegistryOverview";
 import DemographicsTableClient from "@/components/DemographicsTableClient";
 import SectionLabel from "@/components/SectionLabel";
+import AdminTableA7Biomarkers from "@/components/AdminTableA7Biomarkers";
 import BiomarkersSection from "@/components/BiomarkersSection";
 import ImagingSection from "@/components/ImagingSection";
 import RecSection from "@/components/RecSection";
@@ -212,6 +213,7 @@ export default function DashboardPage() {
               deckCaption="Biomarkers · biofluid inquiries (RedCap YTD)"
             />
           </SectionWithNotes>
+          <AdminTableA7Biomarkers />
         </section>
 
         {/* 5. REC */}
