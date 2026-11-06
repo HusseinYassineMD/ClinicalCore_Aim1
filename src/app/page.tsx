@@ -28,15 +28,11 @@ import {
   neurobankRequestLatestDate,
 } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
-import { metricValueClass } from "@/lib/metricValueClass";
-import recruitmentSpanCounts from "@/data/recruitmentSpanCounts.json";
 import SitePeriodStrip from "@/components/SitePeriodStrip";
 import MetricsSectionNav from "@/components/MetricsSectionNav";
 import SectionScopeBracket from "@/components/SectionScopeBracket";
 import ChartErrorBoundary from "@/components/ChartErrorBoundary";
 import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
-
-const udsCumulative = recruitmentSpanCounts.cumulative.adrc;
 
 export default function DashboardPage() {
   const data = aim1MockData;
@@ -112,22 +108,6 @@ export default function DashboardPage() {
               className="block mt-2 max-w-3xl mx-auto"
             />
           </h2>
-          <div className="flex justify-center">
-            <div className="dashboard-card w-full max-w-xs p-5 text-center">
-              <p className="text-xs font-medium uppercase tracking-wide text-cpbh-navy/55">
-                Cumulative up to date for UDS
-              </p>
-              <p className="mt-2 text-xs leading-snug text-cpbh-navy/60">
-                {formatScopeDate(udsCumulative.fromDate)} –{" "}
-                {formatScopeDate(udsCumulative.throughDate)}
-              </p>
-              <p
-                className={`mt-1 text-4xl font-semibold ${metricValueClass("span", udsCumulative.total)}`}
-              >
-                {udsCumulative.total}
-              </p>
-            </div>
-          </div>
           <div id="recruitment-charts" className="scroll-mt-32">
           <SectionWithNotes
             layoutMaxWidth="max-w-none"

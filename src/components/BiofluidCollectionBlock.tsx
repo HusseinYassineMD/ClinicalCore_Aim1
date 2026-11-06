@@ -26,8 +26,7 @@ export default function BiofluidCollectionBlock({ data }: BiofluidCollectionBloc
         </h3>
         <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl leading-relaxed">
           Black · {coverage} · {processingMeta.providedBy}. Updated sample and
-          tube totals from the Biomarker Core sample processing file. CSF is not
-          in that file.
+          tube totals from the Biomarker Core sample processing file.
         </p>
       </div>
       <div className="overflow-x-auto px-2 pb-2">

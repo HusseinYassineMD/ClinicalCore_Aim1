@@ -44,6 +44,7 @@ import {
 } from "@/data/recruitmentPhases";
 import { brsLatestActivityDate, udsLatestVisitDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
+import recruitmentSpanCounts from "@/data/recruitmentSpanCounts.json";
 
 type ChartCountItem = {
   label: string;
@@ -1560,6 +1561,31 @@ function RegistryAlignedDesktop({
   );
 }
 
+function UdsCumulativeBox({ alive }: { alive: boolean }) {
+  const span = alive
+    ? recruitmentSpanCounts.cumulative.adrcAlive
+    : recruitmentSpanCounts.cumulative.adrc;
+
+  return (
+    <div className="flex justify-center">
+      <div className="dashboard-card w-full max-w-xs p-5 text-center">
+        <p className="text-xs font-medium uppercase tracking-wide text-cpbh-navy/55">
+          Cumulative up to date for UDS
+        </p>
+        <p className="mt-2 text-xs leading-snug text-cpbh-navy/60">
+          {formatScopeDate(span.fromDate)} – {formatScopeDate(span.throughDate)}
+          {alive ? " · alive" : " · all participants"}
+        </p>
+        <p
+          className={`mt-1 text-4xl font-semibold ${metricValueClass("span", span.total)}`}
+        >
+          {span.total}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function AliveParticipantsControl({
   alive,
   onAliveChange,
@@ -1598,6 +1624,7 @@ export default function TopRegistryOverview({
 
   return (
     <section className="relative z-[1] space-y-6 w-full mx-auto max-w-[90rem]">
+      <UdsCumulativeBox alive={alive} />
       <AliveParticipantsControl alive={alive} onAliveChange={setAlive} />
       <RegistryAlignedDesktop
         columns={columns}

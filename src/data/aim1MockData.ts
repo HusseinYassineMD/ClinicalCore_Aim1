@@ -262,7 +262,7 @@ export const aim1MockData: Aim1DashboardData = {
             `Plasma: ${biomarkerCoreSampleProcessing2026.totals.samples.plasma} samples · ${biomarkerCoreSampleProcessing2026.totals.tubes.plasma} tubes`,
             `Buffy coat: ${biomarkerCoreSampleProcessing2026.totals.samples.buffyCoat} samples · ${biomarkerCoreSampleProcessing2026.totals.tubes.buffyCoat} tubes`,
             `Serum: ${biomarkerCoreSampleProcessing2026.totals.samples.serum} samples · ${biomarkerCoreSampleProcessing2026.totals.tubes.serum} tubes`,
-            "CSF is not in that file.",
+            "CSF: 0 samples · 0 tubes",
           ],
         },
       ],
@@ -747,10 +747,9 @@ export const aim1MockData: Aim1DashboardData = {
     },
     {
       type: "CSF",
-      participants: null,
-      provenance: "unknown" as const,
-      sourceNote:
-        "Not in Abhay Sagare’s January 1, 2026 – October 31, 2026 file.",
+      participants: 0,
+      aliquots: 0,
+      provenance: "ytd" as const,
     },
   ],
 
