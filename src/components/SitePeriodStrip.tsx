@@ -28,7 +28,7 @@ export default function SitePeriodStrip() {
           </span>
           <span>
             <span className="inline-block w-2 h-2 rounded-sm bg-red-600 align-middle mr-1" />
-            Red · we don't know
+            Red · we do not know
           </span>
         </span>
         <span className="mx-2 text-cpbh-mist hidden sm:inline">|</span>

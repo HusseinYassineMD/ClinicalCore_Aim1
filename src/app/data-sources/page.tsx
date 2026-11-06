@@ -92,7 +92,7 @@ export default function DataSourcesPage() {
             <span className="metric-value-span font-medium">Pink</span> = latest
             data packet, but it does not run through October 16.{" "}
             <span className="metric-value-unknown font-medium">Red</span> = we
-            don't know.
+            do not know.
           </p>
           <div className="flex flex-wrap gap-4 text-sm font-medium">
             <a
