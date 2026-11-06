@@ -44,7 +44,7 @@ PLACEHOLDER_UI = [
     "ADRC YTD chart splits → rpprDataPackage.json newInitialEvaluationBreakdown",
     "GeneScreen cumulative registry headline (green) → rpprMetrics.json until harmonized export",
     "Table 1 demographics → table1Demographics.json (green · last RPPR; not James YTD)",
-    "Biofluid WBC → not in biospecimen export; serum/plasma/buffy from James Oct 9 supplement when wired",
+    "Biofluid Collection → Abhay Sagare workbook Jan 1–Oct 31, 2026 (not the Oct 9 biospecimen inventory)",
     "REC speaker series & attendee counts → red (recSpeakerSeries.json not in package)",
     "Clinical lab A1c/lipid/creatinine/BP → null red",
     "Brain Health 4 Me → null red",
@@ -259,8 +259,6 @@ def expected_from_json(
     ytd = pkg["reportingPeriodSummary"]
     uds = ytd["udsClinical"]
     bio = ytd["biomarkers"]
-    biospecimen = ytd.get("biospecimenInventory") or {}
-    bio_plasma = (biospecimen.get("byComponentYtd") or {}).get("plasma") or {}
     brs = ytd["brsAutopsy"]
     imaging = ytd.get("imaging") or {}
     scan = imaging.get("scanStudy") or {}
@@ -280,6 +278,9 @@ def expected_from_json(
     dc_died_without = brs_data_core_row(brs_dc, "diedWithoutAutopsy")
     dc_deaths = (dc_died_with.get("participants") or 0) + (
         dc_died_without.get("participants") or 0
+    )
+    abhay = json.loads(
+        (SRC_DATA / "biomarkerCoreSampleProcessing2026.json").read_text(encoding="utf-8")
     )
 
     return {
@@ -305,12 +306,8 @@ def expected_from_json(
         "claritiScans.tauPet": clariti.get("participantsWithTauPet", 0),
         "biomarkers.ab40": ncrad.get("ab40"),
         "biomarkers.a1c": None,
-        "biofluidPlasma.participants": bio_plasma.get(
-            "participants", bio["subjectsWithPlasmaCollection"]
-        ),
-        "biofluidPlasma.aliquots": bio_plasma.get(
-            "aliquots", bio["plasmaMeasurementRows"]
-        ),
+        "biofluidPlasma.participants": abhay["totals"]["samples"]["plasma"],
+        "biofluidPlasma.aliquots": abhay["totals"]["tubes"]["plasma"],
         "neuropath.brsNewlyConsented": dc_new.get("participants"),
         "neuropath.autopsiesPerformed": dc_died_with.get("participants"),
         "neuropath.cohortDeaths": dc_deaths,

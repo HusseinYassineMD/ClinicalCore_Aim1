@@ -130,25 +130,25 @@ def main() -> int:
         ),
         (
             "biomarker subjects",
-            PKG / "USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Subject_Summary_v1.0.5.csv",
+            PKG / "USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Subject_Summary_v1.1.2.csv",
             pipelines["integrated-biomarkers"]["summary"]["subjects"],
             None,
         ),
         (
             "biomarker availability",
-            PKG / "USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Availability_v1.0.5.csv",
+            PKG / "USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Availability_v1.1.2.csv",
             pipelines["integrated-biomarkers"]["summary"]["availability"],
             None,
         ),
         (
             "biomarker long",
-            PKG / "USC ADRC Integrated Biomarker Availability/Integrated_Biomarkers_Long_v1.0.5.csv",
+            PKG / "USC ADRC Integrated Biomarker Availability/Integrated_Biomarkers_Long_v1.1.2.csv",
             pipelines["integrated-biomarkers"]["summary"]["longFormat"],
             None,
         ),
         (
             "source catalog",
-            PKG / "USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Source_Catalog_v1.0.5.csv",
+            PKG / "USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Source_Catalog_v1.1.2.csv",
             pipelines["integrated-biomarkers"]["summary"]["sourceCatalog"],
             None,
         ),
@@ -184,6 +184,8 @@ def main() -> int:
 
         print(f"✓ {name}")
         print(f"  rows: csv={row_count:,} json={json_rows:,}")
+        if json_rows is not None and row_count != json_rows:
+            errors.append(f"{name}: csv rows {row_count} != json rows {json_rows}")
         print(f"  columns: {len(columns)} total · {len(expected)} quantifiable · {len(covered)} covered")
         errors.extend(validate_summary(name, columns, summary, allowed=allowed))
 

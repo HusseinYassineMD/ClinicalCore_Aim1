@@ -119,7 +119,7 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
       "Abhay Sagare",
     ]),
     bullets: [
-      `NCRAD plasma is green. JamesDataPacket November 5 (v1.1.2) covers collections ${formatScopeDate(ytd.biomarkers.collectionCoverageStart)} – ${formatScopeDate(ytd.biomarkers.collectionCoverageEnd)}. Full packet range ${formatScopeDate(ytd.biomarkers.packetCollectionStart)} – ${formatScopeDate(ytd.biomarkers.packetCollectionEnd)}. Latest collection ${formatScopeDate(biomarkerLatestCollectionDate)}.`,
+      `NCRAD plasma is black. Hard cutoff ${formatScopeDate(siteReportingWindow.endDate)}. JamesDataPacket November 5 (v1.1.2) collections inside that cutoff: ${formatScopeDate(ytd.biomarkers.collectionCoverageStart)} – ${formatScopeDate(ytd.biomarkers.collectionCoverageEnd)}. Full packet range ${formatScopeDate(ytd.biomarkers.packetCollectionStart)} – ${formatScopeDate(ytd.biomarkers.packetCollectionEnd)}. Latest collection ${formatScopeDate(biomarkerLatestCollectionDate)}.`,
       "Biofluid Collection and Biomarker Core sample processing are black: January 1, 2026 – October 31, 2026, provided by Abhay Sagare, USC ADRC Biomarker Core.",
       `Biofluid requests are green. Last Survey Timestamp ${formatScopeDate(biofluidRequestLatestDate)} · ${redcapSpecimenSharing.sources.biofluids} · pulled ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
     ],

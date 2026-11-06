@@ -237,7 +237,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     source:
       "data/JamesDataPacket-November-5/Integrated_Biomarkers_Long_v1.1.2.csv · James Wang · received November 5, 2026",
     notes:
-      "Green. Counts are NCRAD plasma rows with collection_date January 6, 2026 – August 27, 2026. Full packet range May 31, 2011 – August 27, 2026. Flywheel update October 25, 2026.",
+      "Black. Hard cutoff October 16, 2026. Counts are NCRAD plasma rows with collection_date January 6, 2026 – August 27, 2026. Nothing in the file is dated after August 27, 2026. Full packet range May 31, 2011 – August 27, 2026. Flywheel update October 25, 2026.",
   },
   {
     section: "Biomarkers",

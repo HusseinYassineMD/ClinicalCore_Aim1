@@ -1300,7 +1300,7 @@ function ReportingPeriodSummarySection({ summary }: { summary: ReportingPeriodSu
       <ReportingPeriodDomain
         title="Biomarker collections"
         sourceFile={bio.sourcePath ?? bio.sourceFile}
-        dateHint={`${bio.packetName ?? "JamesDataPacket November 5"} · ${bio.providedBy ?? "James Wang"} · received ${bio.packetReceivedOn ?? "2026-11-05"} · ${bio.dateField} ${bio.collectionCoverageStart ?? "—"} through ${bio.collectionCoverageEnd ?? "—"}`}
+        dateHint={`${bio.packetName ?? "JamesDataPacket November 5"} · ${bio.providedBy ?? "James Wang"} · received ${bio.packetReceivedOn ?? "2026-11-05"} · hard cutoff ${summary.endDate} · ${bio.dateField} ${bio.collectionCoverageStart ?? "—"} through ${bio.collectionCoverageEnd ?? "—"}`}
         metrics={[
           {
             label: "Subjects with any specimen collection",
