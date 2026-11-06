@@ -21,6 +21,7 @@ import {
   biospecimenLatestCollectionDate,
   biospecimenLatestSpecimenDate,
   brsLatestActivityDate,
+  neurobankRequestFileLatestDate,
   neurobankRequestLatestDate,
   packageYtd,
   siteReportingWindow,
@@ -302,12 +303,12 @@ export const aim1MockData: Aim1DashboardData = {
       source: `${METRIC_SOURCES.redcapBiofluidCsv} · ${METRIC_SOURCES.biomarkerCore} biofluid requests`,
       bulletGroups: [
         {
-          title: `Green · last biofluid request ${formatScopeDate(biofluidRequestLatestDate)}`,
+          title: `Black · ${siteReportingWindow.label}`,
           lines: [
             `src/data/redcapSpecimenSharing.json · biofluids.reportingPeriod`,
             `Source CSV: ${redcapSpecimenSharing.sources.biofluids}`,
             `${redcapSpecimenSharing.biofluids.reportingPeriod.requestsReceived} requests · ${redcapSpecimenSharing.biofluids.reportingPeriod.plasma.aliquotsRequested} plasma aliquots requested`,
-            `Last Survey Timestamp in this file: ${formatScopeDate(biofluidRequestLatestDate)}. Pull dated 2026-10-07.`,
+            `Last request ${formatScopeDate(biofluidRequestLatestDate)}. Nothing in this pull is later. Pull dated ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
           ],
         },
       ],
@@ -346,11 +347,11 @@ export const aim1MockData: Aim1DashboardData = {
       source: `${METRIC_SOURCES.redcapNeurobankCsv} · ${METRIC_SOURCES.neuropathCoreY7} tissue request table`,
       bulletGroups: [
         {
-          title: `Green · last tissue request ${formatScopeDate(neurobankRequestLatestDate)}`,
+          title: `Black · ${siteReportingWindow.label}`,
           lines: [
             `src/data/redcapSpecimenSharing.json · neurobank.reportingPeriod`,
             `Source CSV: ${redcapSpecimenSharing.sources.neurobank}`,
-            `Last Survey Timestamp in this file: ${formatScopeDate(neurobankRequestLatestDate)}. Pull dated 2026-10-07.`,
+            `Last request counted ${formatScopeDate(neurobankRequestLatestDate)}. The pull also has requests through ${formatScopeDate(neurobankRequestFileLatestDate)}, after the cutoff. Pull dated ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
             "scripts/aggregate_specimen_sharing.py",
           ],
         },

@@ -9,9 +9,11 @@ import recRoster from "@/data/recRoster.json";
 import rpprMetrics from "@/data/rpprMetrics.json";
 import type { RpprDataPackage } from "@/types/dataPackage";
 import {
+  biofluidRequestEarliestDate,
   biofluidRequestLatestDate,
   biomarkerLatestCollectionDate,
   brsLatestActivityDate,
+  neurobankRequestEarliestDate,
   neurobankRequestLatestDate,
   siteReportingWindow,
 } from "@/data/siteReporting";
@@ -94,7 +96,7 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     ]),
     bullets: [
       `BRS counts are green. Last autopsy consent in ${ytd.brsAutopsy.sourceFile}: ${formatScopeDate(brsLatestActivityDate)}. Supplement ${formatScopeDate(ytd.brsAutopsy.supplementReceivedAt)}.`,
-      `Neurobank requests are green. Last Survey Timestamp ${formatScopeDate(neurobankRequestLatestDate)} · ${redcapSpecimenSharing.sources.neurobank} · pulled ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
+      `Neurobank requests are black. ${formatScopeDate(siteReportingWindow.startDate)} – ${formatScopeDate(siteReportingWindow.endDate)}. Requests ${formatScopeDate(neurobankRequestEarliestDate)} – ${formatScopeDate(neurobankRequestLatestDate)} · ${redcapSpecimenSharing.sources.neurobank} · pulled ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
     ],
   },
   {
@@ -121,7 +123,7 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     bullets: [
       `NCRAD plasma is black. James Wang, November 5. Collections ${formatScopeDate(ytd.biomarkers.collectionCoverageStart)} – ${formatScopeDate(biomarkerLatestCollectionDate)}, inside ${formatScopeDate(siteReportingWindow.startDate)} – ${formatScopeDate(siteReportingWindow.endDate)}. No collection is dated January 1–5.`,
       "Biofluid Collection and Biomarker Core sample processing are black: January 1, 2026 – October 31, 2026, provided by Abhay Sagare, USC ADRC Biomarker Core.",
-      `Biofluid requests are green. Last Survey Timestamp ${formatScopeDate(biofluidRequestLatestDate)} · ${redcapSpecimenSharing.sources.biofluids} · pulled ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
+      `Biofluid requests are black. ${formatScopeDate(siteReportingWindow.startDate)} – ${formatScopeDate(siteReportingWindow.endDate)}. Requests ${formatScopeDate(biofluidRequestEarliestDate)} – ${formatScopeDate(biofluidRequestLatestDate)} · ${redcapSpecimenSharing.sources.biofluids} · pulled ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
     ],
   },
   {

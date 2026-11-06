@@ -22,9 +22,14 @@ import StickyNoteRail, {
   SectionWithNotes,
 } from "@/components/StickyNoteRail";
 import { aim1MockData } from "@/data/aim1MockData";
+import redcapSpecimenSharing from "@/data/redcapSpecimenSharing.json";
 import {
+  biofluidRequestEarliestDate,
   biofluidRequestLatestDate,
+  neurobankRequestEarliestDate,
+  neurobankRequestFileLatestDate,
   neurobankRequestLatestDate,
+  siteReportingWindow,
 } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 import SitePeriodStrip from "@/components/SitePeriodStrip";
@@ -169,9 +174,10 @@ export default function DashboardPage() {
             <SpecimenSharingSection
               title="Tissue Inquiries"
               data={data.neurobankSpecimenSharing}
-              reportingPeriodLabel={`Green · last request ${formatScopeDate(neurobankRequestLatestDate)}`}
-              subtitle={`RedCap neurobank requests · last Survey Timestamp ${formatScopeDate(neurobankRequestLatestDate)} · pull 2026-10-07`}
-              countProvenance="prior"
+              reportingPeriodLabel={siteReportingWindow.label}
+              dateLine={`${formatScopeDate(siteReportingWindow.startDate)} – ${formatScopeDate(siteReportingWindow.endDate)} · last request ${formatScopeDate(neurobankRequestLatestDate)}`}
+              subtitle={`REDCap pull ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}. Requests in this count run ${formatScopeDate(neurobankRequestEarliestDate)} – ${formatScopeDate(neurobankRequestLatestDate)}. The pull also has requests through ${formatScopeDate(neurobankRequestFileLatestDate)}, after this cutoff.`}
+              countProvenance="ytd"
               deckSlideId="neuropath-tissue-inquiries"
               deckCaption="Neuropathology · tissue inquiries (neurobank YTD)"
             />
@@ -213,9 +219,10 @@ export default function DashboardPage() {
             <SpecimenSharingSection
               title="Biofluid Inquiries"
               data={data.biofluidSpecimenSharing}
-              reportingPeriodLabel={`Green · last request ${formatScopeDate(biofluidRequestLatestDate)}`}
-              subtitle={`RedCap biofluid requests · last Survey Timestamp ${formatScopeDate(biofluidRequestLatestDate)} · pull 2026-10-07`}
-              countProvenance="prior"
+              reportingPeriodLabel={siteReportingWindow.label}
+              dateLine={`${formatScopeDate(siteReportingWindow.startDate)} – ${formatScopeDate(siteReportingWindow.endDate)} · last request ${formatScopeDate(biofluidRequestLatestDate)}`}
+              subtitle={`REDCap pull ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}. Requests in this count run ${formatScopeDate(biofluidRequestEarliestDate)} – ${formatScopeDate(biofluidRequestLatestDate)}. Nothing in this pull is later than ${formatScopeDate(biofluidRequestLatestDate)}.`}
+              countProvenance="ytd"
               deckSlideId="biomarkers-biofluid-inquiries"
               deckCaption="Biomarkers · biofluid inquiries (RedCap YTD)"
             />

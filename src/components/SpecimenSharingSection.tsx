@@ -36,9 +36,6 @@ function SpecimenSharingSnapshot({
           : "rounded-xl border border-cpbh-mist bg-cpbh-mist/15 p-4"
       }
     >
-      <p className="text-xs font-semibold uppercase tracking-wide text-cpbh-navy/60 mb-3">
-        {periodLabel}
-      </p>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <MetricCard
           label="# of Requests Received"
@@ -122,6 +119,8 @@ interface SpecimenSharingSectionProps {
   data: SpecimenSharing;
   reportingPeriodLabel: string;
   title: string;
+  /** Coverage dates, shown on the line directly under the heading. */
+  dateLine: string;
   subtitle?: string;
   deckSlideId?: string;
   deckCaption?: string;
@@ -132,6 +131,7 @@ export default function SpecimenSharingSection({
   data,
   reportingPeriodLabel,
   title,
+  dateLine,
   subtitle = "RedCap request tracking · year to date",
   deckSlideId,
   deckCaption,
@@ -143,12 +143,13 @@ export default function SpecimenSharingSection({
       data-deck-slide={deckSlideId}
       data-deck-caption={deckSlideId ? (deckCaption ?? title) : undefined}
     >
-      <div className="mb-1 text-center">
+      <div className="mb-4 text-center">
         <h3 className="font-display text-lg font-semibold text-cpbh-navy">
           {title}
         </h3>
+        <p className="text-cpbh-navy text-sm mt-1">{dateLine}</p>
+        <p className="text-cpbh-navy/55 text-xs mt-1">{subtitle}</p>
       </div>
-      <p className="text-cpbh-navy/60 text-sm mb-4 text-center">{subtitle}</p>
       <SpecimenSharingSnapshot
         data={data}
         periodLabel={reportingPeriodLabel}

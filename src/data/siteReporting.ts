@@ -31,9 +31,16 @@ export const brsLatestDeathDate = "2026-10-04";
 export const biospecimenLatestSpecimenDate = "2026-09-23";
 export const biospecimenLatestCollectionDate = "2026-01-26";
 
-/** Last Survey Timestamp inside the reporting window. REDCap pulls dated 2026-10-07. */
+/**
+ * First and last Survey Timestamp counted inside Jan 1–Oct 16, 2026.
+ * REDCap Submitted Requests pull dated 2026-11-06.
+ */
+export const biofluidRequestEarliestDate = "2026-01-05";
 export const biofluidRequestLatestDate = "2026-10-05";
-export const neurobankRequestLatestDate = "2026-10-02";
+export const neurobankRequestEarliestDate = "2026-01-07";
+export const neurobankRequestLatestDate = "2026-10-16";
+/** Latest Survey Timestamp in the tissue pull, including rows after the cutoff. */
+export const neurobankRequestFileLatestDate = "2026-11-05";
 
 export const siteReportingWindow = {
   label: packageYtd?.label ?? "Year to date",

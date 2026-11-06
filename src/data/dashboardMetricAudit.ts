@@ -288,9 +288,9 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Specimen sharing",
     metric: "RedCap biofluid / neurobank requests · year to date",
-    value: "7 / 34",
+    value: "8 / 36",
     tier: "verified",
-    source: "RedCap CSV exports · reportingPeriod bucket",
+    source: "REDCap Submitted Requests · pull 2026-11-06 · reportingPeriod",
     notes: siteReportingWindow.label,
   },
   {
@@ -298,14 +298,14 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     metric: "Plasma requests · year to date",
     value: "8 requests · 590 aliquots",
     tier: "verified",
-    source: "USCADRCBiofluidReque_DATA_2026-08-11_1336.csv · reportingPeriod",
+    source: "USCADRCBiofluidReque-SubmittedRequests_DATA_LABELS_2026-11-06_1127.csv · reportingPeriod",
   },
   {
     section: "Specimen sharing · Neurobank",
     metric: "Requests · year to date",
-    value: "34 received · 6 fulfilled",
+    value: "36 received · 6 fulfilled",
     tier: "verified",
-    source: "USCADRCNeurobankRequ RedCap export · redcapSpecimenSharing.json",
+    source: "USCADRCNeurobankRequ-SubmittedRequests_DATA_LABELS_2026-11-06_1127.csv · redcapSpecimenSharing.json",
   },
   // Demographics
   {

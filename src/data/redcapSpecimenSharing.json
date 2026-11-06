@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-10-09",
+  "lastUpdated": "2026-11-06",
   "reportingPeriodLabel": "1/1/2026 \u2013 10/16/2026",
   "grantYearLabel": "7/1/2025 \u2013 6/30/2026",
   "sources": {
-    "biofluids": "USCADRCBiofluidReque-SubmittedRequests_DATA_LABELS_2026-10-07_0847.csv",
-    "neurobank": "USCADRCNeurobankRequ-SubmittedRequests_DATA_LABELS_2026-10-07_0846.csv"
+    "biofluids": "USCADRCBiofluidReque-SubmittedRequests_DATA_LABELS_2026-11-06_1127.csv",
+    "neurobank": "USCADRCNeurobankRequ-SubmittedRequests_DATA_LABELS_2026-11-06_1127.csv"
   },
   "biofluids": {
     "reportingPeriod": {
@@ -76,12 +76,12 @@
   },
   "neurobank": {
     "reportingPeriod": {
-      "requestsReceived": 35,
+      "requestsReceived": 36,
       "requestsFulfilled": 6,
       "requestorTypes": [
         {
           "label": "External",
-          "count": 7
+          "count": 8
         },
         {
           "label": "Internal",
