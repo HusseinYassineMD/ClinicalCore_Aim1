@@ -5,9 +5,10 @@ import { siteReportingWindow } from "@/data/siteReporting";
 export const lastRpprReportingPeriod = rpprMetrics.meta.reportingPeriod;
 
 export const METRIC_COLOR_LEGEND = {
-  ytd: `Black · Jan 1 – date (${siteReportingWindow.label}) · James harmonized data package`,
-  prior: `Green · last RPPR reporting period (${lastRpprReportingPeriod})`,
-  unknown: "Red · no data available",
+  ytd: `Black · through October 16 (${siteReportingWindow.label})`,
+  prior: `Green · old RPPR (${lastRpprReportingPeriod})`,
+  span: "Pink · latest data packet, but it does not run through October 16",
+  unknown: "Red · we don't know",
 } as const;
 
 export function priorPeriodCaption(suffix?: string): string {

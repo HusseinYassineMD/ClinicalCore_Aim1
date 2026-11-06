@@ -1,0 +1,477 @@
+{
+  "packet": "JamesDataPacket-November-6",
+  "receivedOn": "2026-11-06",
+  "uds": {
+    "version": "v1.1.5",
+    "sourceFiles": [
+      "UDS_longitudinal_harmonized.csv",
+      "ADRC_subject_current_harmonized.csv",
+      "Milestones_history_harmonized.csv"
+    ],
+    "participants": 2390,
+    "visits": 8273,
+    "milestoneEvents": 4301,
+    "lastVisitDate": "2026-10-12",
+    "statusField": "der_status_adrc",
+    "status": [
+      {
+        "label": "Discontinued",
+        "count": 677
+      },
+      {
+        "label": "Presumed active - no Milestones record; UDS within 24 months",
+        "count": 349
+      },
+      {
+        "label": "Minimal contact",
+        "count": 540
+      },
+      {
+        "label": "Deceased",
+        "count": 569
+      },
+      {
+        "label": "Annual in-person UDS follow-up",
+        "count": 221
+      },
+      {
+        "label": "Annual UDS follow-up by telephone",
+        "count": 15
+      },
+      {
+        "label": "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved",
+        "count": 19
+      }
+    ],
+    "cognitiveDxField": "der_latest_cognitive_dx",
+    "cognitiveDx": [
+      {
+        "label": "MCI",
+        "count": 563
+      },
+      {
+        "label": "Cognitively unimpaired",
+        "count": 814
+      },
+      {
+        "label": "Dementia",
+        "count": 904
+      },
+      {
+        "label": "Cognitively impaired, not MCI/dementia",
+        "count": 108
+      },
+      {
+        "label": "Unknown",
+        "count": 1
+      }
+    ],
+    "sexField": "der_current_sex",
+    "sex": [
+      {
+        "label": "Male",
+        "count": 905
+      },
+      {
+        "label": "Female",
+        "count": 1484
+      },
+      {
+        "label": "Unknown",
+        "count": 1
+      }
+    ],
+    "hispanicField": "der_current_re_hispanic_latino",
+    "hispanic": [
+      {
+        "label": "Non-Hispanic/Latino",
+        "count": 1669
+      },
+      {
+        "label": "Hispanic/Latino",
+        "count": 716
+      },
+      {
+        "label": "Unknown",
+        "count": 5
+      }
+    ]
+  },
+  "biomarkers": {
+    "version": "v1.1.2",
+    "sourceFile": "Integrated_Biomarkers_Long_v1.1.2.csv",
+    "uniqueSubjects": 734,
+    "measurements": 8100,
+    "sourceFamilies": 4,
+    "plasmaMeasurements": 6205,
+    "csfMeasurements": 1895,
+    "collectionStart": "2011-05-31",
+    "collectionEnd": "2026-08-27",
+    "suspectCollectionDatesExcludedFromRange": 2,
+    "bySource": [
+      {
+        "source": "C2N",
+        "specimen": "Plasma",
+        "measurements": 332,
+        "subjects": 163
+      },
+      {
+        "source": "Legacy CSF",
+        "specimen": "CSF",
+        "measurements": 144,
+        "subjects": 36
+      },
+      {
+        "source": "NCRAD",
+        "specimen": "Plasma",
+        "measurements": 5586,
+        "subjects": 601
+      },
+      {
+        "source": "VCS REDCap",
+        "specimen": "CSF",
+        "measurements": 1751,
+        "subjects": 255
+      },
+      {
+        "source": "VCS REDCap",
+        "specimen": "Plasma",
+        "measurements": 287,
+        "subjects": 162
+      }
+    ],
+    "byBiomarker": [
+      {
+        "specimen": "CSF",
+        "biomarker": "ABeta38",
+        "domain": "A",
+        "measurements": 315,
+        "subjects": 212
+      },
+      {
+        "specimen": "CSF",
+        "biomarker": "ABeta40",
+        "domain": "A",
+        "measurements": 315,
+        "subjects": 212
+      },
+      {
+        "specimen": "CSF",
+        "biomarker": "ABeta42",
+        "domain": "A",
+        "measurements": 319,
+        "subjects": 213
+      },
+      {
+        "specimen": "CSF",
+        "biomarker": "Ptau181",
+        "domain": "T",
+        "measurements": 378,
+        "subjects": 244
+      },
+      {
+        "specimen": "CSF",
+        "biomarker": "TotalTau",
+        "domain": "N",
+        "measurements": 235,
+        "subjects": 170
+      },
+      {
+        "specimen": "CSF",
+        "biomarker": "sPDGFRB",
+        "domain": "V",
+        "measurements": 167,
+        "subjects": 159
+      },
+      {
+        "specimen": "CSF",
+        "biomarker": "Neurogranin",
+        "domain": "Other",
+        "measurements": 166,
+        "subjects": 151
+      },
+      {
+        "specimen": "Plasma",
+        "biomarker": "ABeta40",
+        "domain": "A",
+        "measurements": 1098,
+        "subjects": 660
+      },
+      {
+        "specimen": "Plasma",
+        "biomarker": "ABeta42",
+        "domain": "A",
+        "measurements": 1097,
+        "subjects": 659
+      },
+      {
+        "specimen": "Plasma",
+        "biomarker": "Ptau181",
+        "domain": "T",
+        "measurements": 34,
+        "subjects": 34
+      },
+      {
+        "specimen": "Plasma",
+        "biomarker": "Ptau217",
+        "domain": "T",
+        "measurements": 1358,
+        "subjects": 647
+      },
+      {
+        "specimen": "Plasma",
+        "biomarker": "NFL",
+        "domain": "N",
+        "measurements": 1244,
+        "subjects": 598
+      },
+      {
+        "specimen": "Plasma",
+        "biomarker": "sPDGFRB",
+        "domain": "V",
+        "measurements": 130,
+        "subjects": 128
+      },
+      {
+        "specimen": "Plasma",
+        "biomarker": "GFAP",
+        "domain": "Other",
+        "measurements": 1244,
+        "subjects": 598
+      }
+    ]
+  },
+  "imaging": {
+    "version": "v1.5.4",
+    "sourceFiles": [
+      "USC_ADRC_Imaging_Availability_Subject_Level_v1.5.4.csv",
+      "USC_ADRC_Imaging_Availability_Study_Summary_v1.5.4.csv",
+      "USC_ADRC_Integrated_Imaging_Availability_v1.5.4.csv"
+    ],
+    "uniqueSubjects": 13235,
+    "reportingSetRecords": 165923,
+    "udsLinkable": 836,
+    "naccVerified": 714,
+    "lastStudyDate": "2026-10-16",
+    "modalities": [
+      {
+        "label": "Any imaging",
+        "subjects": 13235,
+        "udsLinkable": 836,
+        "naccVerified": 714
+      },
+      {
+        "label": "Any MRI",
+        "subjects": 11090,
+        "udsLinkable": 791,
+        "naccVerified": 678
+      },
+      {
+        "label": "Conventional MRI",
+        "subjects": 11086,
+        "udsLinkable": 791,
+        "naccVerified": 678
+      },
+      {
+        "label": "DTI",
+        "subjects": 2514,
+        "udsLinkable": 743,
+        "naccVerified": 640
+      },
+      {
+        "label": "fMRI",
+        "subjects": 1546,
+        "udsLinkable": 640,
+        "naccVerified": 559
+      },
+      {
+        "label": "Any PET",
+        "subjects": 7812,
+        "udsLinkable": 340,
+        "naccVerified": 322
+      },
+      {
+        "label": "Amyloid PET",
+        "subjects": 6515,
+        "udsLinkable": 300,
+        "naccVerified": 284
+      },
+      {
+        "label": "Tau PET",
+        "subjects": 3813,
+        "udsLinkable": 215,
+        "naccVerified": 211
+      },
+      {
+        "label": "Other PET",
+        "subjects": 1324,
+        "udsLinkable": 0,
+        "naccVerified": 0
+      },
+      {
+        "label": "Other imaging",
+        "subjects": 401,
+        "udsLinkable": 206,
+        "naccVerified": 202
+      }
+    ],
+    "studies": [
+      {
+        "study": "A4",
+        "uniqueSubjects": 71,
+        "udsLinkable": 59,
+        "naccVerified": 46,
+        "imagingRecords": 313,
+        "datedVisits": 290,
+        "meanRecordsPerSubject": "4.41",
+        "mriSubjects": 35,
+        "amyloidPetSubjects": 71,
+        "tauPetSubjects": 18
+      },
+      {
+        "study": "ADNIDOD",
+        "uniqueSubjects": 311,
+        "udsLinkable": 0,
+        "naccVerified": 0,
+        "imagingRecords": 7368,
+        "datedVisits": 964,
+        "meanRecordsPerSubject": "23.69",
+        "mriSubjects": 274,
+        "amyloidPetSubjects": 275,
+        "tauPetSubjects": 131
+      },
+      {
+        "study": "AIBL",
+        "uniqueSubjects": 1456,
+        "udsLinkable": 1,
+        "naccVerified": 0,
+        "imagingRecords": 7557,
+        "datedVisits": 4016,
+        "meanRecordsPerSubject": "5.19",
+        "mriSubjects": 762,
+        "amyloidPetSubjects": 1430,
+        "tauPetSubjects": 13
+      },
+      {
+        "study": "CLARiTI",
+        "uniqueSubjects": 929,
+        "udsLinkable": 21,
+        "naccVerified": 21,
+        "imagingRecords": 6625,
+        "datedVisits": 1953,
+        "meanRecordsPerSubject": "7.13",
+        "mriSubjects": 691,
+        "amyloidPetSubjects": 736,
+        "tauPetSubjects": 644
+      },
+      {
+        "study": "Diverse VCID",
+        "uniqueSubjects": 26,
+        "udsLinkable": 26,
+        "naccVerified": 26,
+        "imagingRecords": 29,
+        "datedVisits": 29,
+        "meanRecordsPerSubject": "1.12",
+        "mriSubjects": 26,
+        "amyloidPetSubjects": 0,
+        "tauPetSubjects": 0
+      },
+      {
+        "study": "DVR",
+        "uniqueSubjects": 294,
+        "udsLinkable": 81,
+        "naccVerified": 81,
+        "imagingRecords": 9188,
+        "datedVisits": 926,
+        "meanRecordsPerSubject": "31.25",
+        "mriSubjects": 278,
+        "amyloidPetSubjects": 257,
+        "tauPetSubjects": 0
+      },
+      {
+        "study": "EEAJ",
+        "uniqueSubjects": 198,
+        "udsLinkable": 96,
+        "naccVerified": 89,
+        "imagingRecords": 10426,
+        "datedVisits": 455,
+        "meanRecordsPerSubject": "52.66",
+        "mriSubjects": 195,
+        "amyloidPetSubjects": 24,
+        "tauPetSubjects": 65
+      },
+      {
+        "study": "PPG",
+        "uniqueSubjects": 504,
+        "udsLinkable": 197,
+        "naccVerified": 171,
+        "imagingRecords": 31749,
+        "datedVisits": 1542,
+        "meanRecordsPerSubject": "62.99",
+        "mriSubjects": 500,
+        "amyloidPetSubjects": 345,
+        "tauPetSubjects": 361
+      },
+      {
+        "study": "SCAN",
+        "uniqueSubjects": 8489,
+        "udsLinkable": 62,
+        "naccVerified": 62,
+        "imagingRecords": 43954,
+        "datedVisits": 15248,
+        "meanRecordsPerSubject": "5.18",
+        "mriSubjects": 7339,
+        "amyloidPetSubjects": 3391,
+        "tauPetSubjects": 2592
+      },
+      {
+        "study": "USC ADRC",
+        "uniqueSubjects": 104,
+        "udsLinkable": 104,
+        "naccVerified": 104,
+        "imagingRecords": 2738,
+        "datedVisits": 213,
+        "meanRecordsPerSubject": "26.33",
+        "mriSubjects": 52,
+        "amyloidPetSubjects": 59,
+        "tauPetSubjects": 64
+      },
+      {
+        "study": "VCD",
+        "uniqueSubjects": 206,
+        "udsLinkable": 203,
+        "naccVerified": 184,
+        "imagingRecords": 14674,
+        "datedVisits": 370,
+        "meanRecordsPerSubject": "71.23",
+        "mriSubjects": 205,
+        "amyloidPetSubjects": 0,
+        "tauPetSubjects": 0
+      },
+      {
+        "study": "VCDPILOT",
+        "uniqueSubjects": 85,
+        "udsLinkable": 42,
+        "naccVerified": 42,
+        "imagingRecords": 1135,
+        "datedVisits": 85,
+        "meanRecordsPerSubject": "13.35",
+        "mriSubjects": 85,
+        "amyloidPetSubjects": 0,
+        "tauPetSubjects": 0
+      },
+      {
+        "study": "VCID",
+        "uniqueSubjects": 784,
+        "udsLinkable": 166,
+        "naccVerified": 109,
+        "imagingRecords": 30167,
+        "datedVisits": 954,
+        "meanRecordsPerSubject": "38.48",
+        "mriSubjects": 784,
+        "amyloidPetSubjects": 0,
+        "tauPetSubjects": 0
+      }
+    ]
+  }
+}

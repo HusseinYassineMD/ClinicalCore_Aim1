@@ -5,6 +5,7 @@ import {
   RegistryChartsHost,
 } from "@/components/MetricsChartsHost";
 import TopRegistryOverview from "@/components/TopRegistryOverview";
+import { JamesUdsPacketBlock } from "@/components/JamesNovember6PacketBlocks";
 import DemographicsTableClient from "@/components/DemographicsTableClient";
 import AdminTableA7Biomarkers from "@/components/AdminTableA7Biomarkers";
 import BiomarkersSection from "@/components/BiomarkersSection";
@@ -75,11 +76,13 @@ export default function DashboardPage() {
                   <p className="text-xs font-medium uppercase tracking-wide text-cpbh-navy/55">
                     Total ADRC
                   </p>
-                  <p className="mt-1 text-4xl font-semibold metric-value-prior">
+                  <p className="mt-1 text-4xl font-semibold metric-value-span">
                     {table1HarmonizedActiveSnapshot.meta.participantCount}
                   </p>
                   <p className="mt-2 text-xs leading-snug text-cpbh-navy/60">
-                    Active cohort · {formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate)}
+                    Pink · active cohort as of{" "}
+                    {formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate)}.
+                    That snapshot stops before October 16.
                   </p>
                 </div>
               </div>
@@ -131,6 +134,7 @@ export default function DashboardPage() {
               </ChartErrorBoundary>
             </RegistryChartsHost>
           </SectionWithNotes>
+          <JamesUdsPacketBlock />
           </div>
           </div>
           </div>

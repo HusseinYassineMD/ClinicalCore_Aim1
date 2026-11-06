@@ -25,8 +25,9 @@ export default function BrsRpprTableBlock() {
           {meta.title}
         </h3>
         <p className="text-cpbh-navy/60 text-sm mt-1">
-          Green · {meta.preparedBy} · MAP pull {meta.mapBrsDataPullDate}.
-          This table stops before Oct 16, 2026. The Nov 6 MAP file is a
+          Pink · {meta.preparedBy} · MAP pull {meta.mapBrsDataPullDate}.
+          This table stops before Oct 16, 2026. It is the latest packet from
+          that pull, not the old RPPR. The Nov 6 MAP file is a
           separate pull. Last consent in that file{" "}
           {formatScopeDate(brsLatestActivityDate)}.
         </p>
@@ -64,22 +65,22 @@ export default function BrsRpprTableBlock() {
                   {row.emphasis ? "*" : ""}
                 </td>
                 <td
-                  className={`px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 ${metricValueClass("prior", row.participants)}`}
+                  className={`px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 ${metricValueClass("span", row.participants)}`}
                 >
                   {row.participants}
                 </td>
                 <td
                   className={`px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 ${metricValueClass(
-                    row.percentOfEnrollment == null ? "unknown" : "prior",
+                    row.percentOfEnrollment == null ? "unknown" : "span",
                     row.percentOfEnrollment ?? "—",
                   )}`}
                 >
                   {formatPercent(row.percentOfEnrollment)}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 metric-value-prior">
+                <td className="px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 metric-value-span">
                   {row.female}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 metric-value-prior">
+                <td className="px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 metric-value-span">
                   {row.male}
                 </td>
               </tr>

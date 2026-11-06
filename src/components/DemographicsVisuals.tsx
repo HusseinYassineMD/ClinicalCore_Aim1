@@ -39,7 +39,7 @@ const TABLE1_STRATA_FILLS = [
   "#8b7cb8",
   "#6b9080",
 ] as const;
-const TABLE1_CHART_LABEL_FILL = METRIC_CHART_COLORS.prior;
+const TABLE1_CHART_LABEL_FILL = METRIC_CHART_COLORS.span;
 
 function chartSliceFill(index: number): string {
   if (index === 0) return TABLE1_OVERALL_FILL;

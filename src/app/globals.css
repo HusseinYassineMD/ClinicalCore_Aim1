@@ -74,7 +74,7 @@
     @apply bg-cpbh-mist/30;
   }
 
-  /* Black = Jan 1–date YTD · green = last RPPR period · pink = recruitment cumulative/grant · red = no data */
+  /* Black = through October 16 · green = old RPPR · pink = latest packet that stops short of October 16 · red = we don't know */
   .metric-value-ytd {
     @apply text-neutral-950;
   }
@@ -89,10 +89,10 @@
     font-weight: 600;
   }
 
-  /* Table 1 chart counts follow the old-RPPR green, including SVG labels. */
+  /* Table 1 chart counts are pink: September 17 snapshot, not through October 16. */
   .demographics-chart-plot .recharts-label text,
   .demographics-chart-plot .recharts-label-list text {
-    fill: #15803d !important;
+    fill: #db2777 !important;
   }
 
   .metric-value-unknown {

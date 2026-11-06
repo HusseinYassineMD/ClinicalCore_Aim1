@@ -26,8 +26,8 @@ export default function ImagingQcBlock({ data }: ImagingQcBlockProps) {
         <p className="text-cpbh-navy/60 text-sm mt-1 leading-snug">
           Green · last RPPR Imaging Core (B2) · cumulative QC narrative. Not in
           James Integrated Imaging Availability — no calendar YTD QC counts in the
-          Sept 2026 harmonized package. YTD scan progress is SCAN / CLARiTI
-          participant cards above.
+          James Integrated Imaging Availability. YTD scan progress is the SCAN /
+          CLARiTI participant cards above, from v1.5.4.
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

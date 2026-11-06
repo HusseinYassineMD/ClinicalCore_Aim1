@@ -10,6 +10,7 @@ import type {
 } from "@/types/aim1";
 import MetricCard from "./MetricCard";
 import BiofluidCollectionBlock from "./BiofluidCollectionBlock";
+import { JamesBiomarkerPacketBlock } from "./JamesNovember6PacketBlocks";
 import BiomarkerCoreSampleProcessingBlock from "./BiomarkerCoreSampleProcessingBlock";
 import BiomarkerRenewalStickyNote from "./BiomarkerRenewalStickyNote";
 import DataStatusStickyNote from "./DataStatusStickyNote";
@@ -142,7 +143,7 @@ export default function BiomarkersSection({
               ))}
             </div>
           </div>
-
+          <JamesBiomarkerPacketBlock />
         </div>
       </SectionWithNotes>
     </section>

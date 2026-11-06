@@ -84,14 +84,15 @@ export default function DataSourcesPage() {
             Color-coded provenance (CSV & PDF)
           </h2>
           <p className="text-sm text-cpbh-navy/70 mb-3 leading-relaxed">
-            Same black / green / red system as the dashboard.{" "}
-            <span className="metric-value-ytd font-medium">Black</span> = James
-            &amp; Xinhui Wang harmonized data package (and scripted aggregates
-            from those CSVs — not hand-entered).{" "}
-            <span className="metric-value-prior font-medium">Green</span> = last
-            RPPR workbook/PDF (not James calendar YTD).{" "}
-            <span className="metric-value-unknown font-medium">Red</span> = not
-            in export / placeholder.
+            Same black / green / pink / red system as the dashboard.{" "}
+            <span className="metric-value-ytd font-medium">Black</span> = counted
+            through October 16.{" "}
+            <span className="metric-value-prior font-medium">Green</span> = old
+            RPPR.{" "}
+            <span className="metric-value-span font-medium">Pink</span> = latest
+            data packet, but it does not run through October 16.{" "}
+            <span className="metric-value-unknown font-medium">Red</span> = we
+            don't know.
           </p>
           <div className="flex flex-wrap gap-4 text-sm font-medium">
             <a

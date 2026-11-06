@@ -101,7 +101,28 @@ const brsDcDiedWithoutAutopsy = brsDataCoreRow("diedWithoutAutopsy");
 const brsDcEnrollmentN = brsDcCurrent?.participants ?? null;
 const ytdImaging = ytd.imaging;
 const ytdImagingStudyRollup = ytd.imagingYtdIntegratedStudySummary;
-const periodCap = siteReportingWindow.periodCaption;
+
+/** Abhay's workbook is monthly. January–September sit fully inside the October 16 lock. October has no day, so it is not in this total. */
+const abhayThroughSeptember = biomarkerCoreSampleProcessing2026.months
+  .filter((month) => month.month !== "October 2026")
+  .reduce(
+    (sum, month) => ({
+      samples: {
+        plasma: sum.samples.plasma + month.samples.plasma,
+        buffyCoat: sum.samples.buffyCoat + month.samples.buffyCoat,
+        serum: sum.samples.serum + month.samples.serum,
+      },
+      tubes: {
+        plasma: sum.tubes.plasma + month.tubes.plasma,
+        buffyCoat: sum.tubes.buffyCoat + month.tubes.buffyCoat,
+        serum: sum.tubes.serum + month.tubes.serum,
+      },
+    }),
+    {
+      samples: { plasma: 0, buffyCoat: 0, serum: 0 },
+      tubes: { plasma: 0, buffyCoat: 0, serum: 0 },
+    },
+  );
 
 export const aim1MockData: Aim1DashboardData = {
   reportingPeriod: siteReportingWindow.label,
@@ -130,7 +151,7 @@ export const aim1MockData: Aim1DashboardData = {
     "GeneScreen — biobetagenetest.usc.edu/yassine/gs/recruitment.php",
     "USC ADRC RPPR Data Package · UDS Harmonization (v1.1.5)",
     "JamesDataPacket November 5 · Integrated Biomarkers (v1.1.2)",
-    "USC ADRC Integrated Imaging Availability (v1.5.2)",
+    "JamesDataPacket November 6 · Integrated Imaging Availability (v1.5.4)",
     "MAPDatabase REDCap · BRS Cohort & APOE Genotype",
   ],
 
@@ -252,12 +273,13 @@ export const aim1MockData: Aim1DashboardData = {
       source: biomarkerCoreSampleProcessing2026.meta.providedBy,
       bulletGroups: [
         {
-          title: `Black · January 1, 2026 – October 31, 2026 · ${biomarkerCoreSampleProcessing2026.meta.providedBy}`,
+          title: `Black · January 1–September 30, 2026 · ${biomarkerCoreSampleProcessing2026.meta.providedBy}`,
           lines: [
             "Biofluid Collection uses the updated sample and tube totals from Abhay Sagare’s Biomarker Core sample processing file.",
-            `Plasma: ${biomarkerCoreSampleProcessing2026.totals.samples.plasma} samples · ${biomarkerCoreSampleProcessing2026.totals.tubes.plasma} tubes`,
-            `Buffy coat: ${biomarkerCoreSampleProcessing2026.totals.samples.buffyCoat} samples · ${biomarkerCoreSampleProcessing2026.totals.tubes.buffyCoat} tubes`,
-            `Serum: ${biomarkerCoreSampleProcessing2026.totals.samples.serum} samples · ${biomarkerCoreSampleProcessing2026.totals.tubes.serum} tubes`,
+            `Plasma: ${abhayThroughSeptember.samples.plasma} samples · ${abhayThroughSeptember.tubes.plasma} tubes`,
+            `Buffy coat: ${abhayThroughSeptember.samples.buffyCoat} samples · ${abhayThroughSeptember.tubes.buffyCoat} tubes`,
+            `Serum: ${abhayThroughSeptember.samples.serum} samples · ${abhayThroughSeptember.tubes.serum} tubes`,
+            "October is pink on the monthly table. It is a monthly total with no day, so it is not in this October 16 count.",
             "CSF: 0 samples · 0 tubes",
           ],
         },
@@ -268,13 +290,13 @@ export const aim1MockData: Aim1DashboardData = {
       source: biomarkerCoreSampleProcessing2026.meta.providedBy,
       bulletGroups: [
         {
-          title: `Black · ${biomarkerCoreSampleProcessing2026.meta.reportingPeriodLabel}`,
+          title: "Black · January–September 2026 · October is pink",
           lines: [
             biomarkerCoreSampleProcessing2026.meta.sourceFile,
             `Synced ${biomarkerCoreSampleProcessing2026.meta.lastUpdated} · npm run sync:biomarker-processing`,
-            `Totals · samples: plasma ${biomarkerCoreSampleProcessing2026.totals.samples.plasma}, buffy ${biomarkerCoreSampleProcessing2026.totals.samples.buffyCoat}, serum ${biomarkerCoreSampleProcessing2026.totals.samples.serum}`,
-            `Totals · tubes: plasma ${biomarkerCoreSampleProcessing2026.totals.tubes.plasma}, buffy ${biomarkerCoreSampleProcessing2026.totals.tubes.buffyCoat}, serum ${biomarkerCoreSampleProcessing2026.totals.tubes.serum}`,
-            biomarkerCoreSampleProcessing2026.meta.note,
+            `January–September samples: plasma ${abhayThroughSeptember.samples.plasma}, buffy ${abhayThroughSeptember.samples.buffyCoat}, serum ${abhayThroughSeptember.samples.serum}`,
+            `January–September tubes: plasma ${abhayThroughSeptember.tubes.plasma}, buffy ${abhayThroughSeptember.tubes.buffyCoat}, serum ${abhayThroughSeptember.tubes.serum}`,
+            "October stays pink. The workbook has no day, and that month runs through October 31.",
           ],
         },
       ],
@@ -403,51 +425,62 @@ export const aim1MockData: Aim1DashboardData = {
           {
             label: "Online enrollments",
             count: geneScreenYtd.onlineEnrollmentsByMembershipTimestamp,
-            provenance: "ytd",
+            provenance: "span",
           },
           {
             label: "New members",
             count: geneScreenYtd.newMembersByConsentDate,
-            provenance: "ytd",
+            provenance: "span",
             periodTarget: BUDGET_TARGETS.geneScreenRecruitmentReportingPeriod,
           },
         ],
-        totalsProvenance: "ytd",
-        chartsProvenance: "ytd",
+        totalsProvenance: "span",
+        chartsProvenance: "span",
+        headerNote:
+          "Pink · 739 Complete? records in the October 7, 2026 REDCap export. That file stops October 7, before October 16. The old RPPR number was 668.",
         periodTarget: BUDGET_TARGETS.geneScreenRecruitmentReportingPeriod,
-        periodTargetNote: `Black = GeneScreen YTD · ${geneScreenYtd.reportingPeriodLabel} · REDCap · green headline = ${priorPeriodCaption()}`,
+        periodTargetNote: `Pink · REDCap file ${geneScreenYtd.sourceFile}. That file stops October 7, 2026, so this is not a count through October 16.`,
         chartSlots: [
           {
             title: "Ethnicity",
             type: "bar",
-            provenance: "ytd",
+            provenance: "span",
+            nProvenance: "span",
+            chartProvenance: "span",
             n: geneScreenYtd.newMembersByConsentDate,
-            nCaption: periodCap,
+            nCaption:
+              "Pink · October 7, 2026 REDCap export. That file stops before October 16.",
             items: geneScreenYtd.ethnicity.map((row) => ({
               ...row,
-              provenance: "ytd" as const,
+              provenance: "span" as const,
             })),
           },
           {
             title: "APOE4",
             type: "pie",
-            provenance: "ytd",
+            provenance: "span",
+            nProvenance: "span",
+            chartProvenance: "span",
             n: geneScreenYtd.newMembersByConsentDate,
-            nCaption: periodCap,
+            nCaption:
+              "Pink · October 7, 2026 REDCap export. That file stops before October 16.",
             items: geneScreenYtd.apoe4.map((row) => ({
               ...row,
-              provenance: "ytd" as const,
+              provenance: "span" as const,
             })),
           },
           {
             title: "Gender",
             type: "bar",
-            provenance: "ytd",
+            provenance: "span",
+            nProvenance: "span",
+            chartProvenance: "span",
             n: geneScreenYtd.newMembersByConsentDate,
-            nCaption: periodCap,
+            nCaption:
+              "Pink · October 7, 2026 REDCap export. That file stops before October 16.",
             items: geneScreenYtd.gender.map((row) => ({
               ...row,
-              provenance: "ytd" as const,
+              provenance: "span" as const,
             })),
           },
         ],
@@ -560,8 +593,8 @@ export const aim1MockData: Aim1DashboardData = {
             provenance: "ytd",
           },
         ],
-        totalsProvenance: "prior",
-        chartsProvenance: "prior",
+        totalsProvenance: "span",
+        chartsProvenance: "span",
         periodTargetNote:
           "Black · Nov 6 MAP pull · 5 consent dates inside Jan 1–Oct 16 · last consent Oct 5, 2026",
         chartSlots: [
@@ -598,22 +631,22 @@ export const aim1MockData: Aim1DashboardData = {
           {
             title: "Sex",
             type: "bar",
-            provenance: "prior",
-            nProvenance: "prior",
-            chartProvenance: "prior",
+            provenance: "span",
+            nProvenance: "span",
+            chartProvenance: "span",
             n: brsDcEnrollmentN ?? undefined,
             nCaption:
-              "Green · Xinhui Wang · Data Core Table 1, Brain Research Study · current enrollment · MAP pull Oct 7, 2026. That pull stops before Oct 16.",
+              "Pink · Xinhui Wang · Data Core Table 1, Brain Research Study · current enrollment · MAP pull Oct 7, 2026. That pull stops before Oct 16.",
             items: [
               {
                 label: "Male",
                 count: brsDcCurrent?.male ?? 0,
-                provenance: "prior" as const,
+                provenance: "span" as const,
               },
               {
                 label: "Female",
                 count: brsDcCurrent?.female ?? 0,
-                provenance: "prior" as const,
+                provenance: "span" as const,
               },
             ],
           },
@@ -698,13 +731,13 @@ export const aim1MockData: Aim1DashboardData = {
     ? {
         imagingYtdMeta: {
           periodLabel: siteReportingWindow.label,
-          packageVersion: ytdImaging.packageVersion ?? "v1.5.2",
+          packageVersion: ytdImaging.packageVersion ?? "v1.5.4",
           latestStudyDate:
             ytdImaging.dataCoverage?.imagingLatestStudyDate ?? undefined,
           identityFilter: ytdImaging.identityFilter,
           longitudinalSourceFile:
             ytdImaging.sourceFiles?.longitudinal ??
-            "USC_ADRC_Imaging_Availability_Longitudinal_v1.5.2.csv",
+            "USC_ADRC_Imaging_Availability_Longitudinal_v1.5.4.csv",
         },
       }
     : {}),
@@ -744,20 +777,20 @@ export const aim1MockData: Aim1DashboardData = {
   biofluidCollection: [
     {
       type: "Plasma",
-      participants: biomarkerCoreSampleProcessing2026.totals.samples.plasma,
-      aliquots: biomarkerCoreSampleProcessing2026.totals.tubes.plasma,
+      participants: abhayThroughSeptember.samples.plasma,
+      aliquots: abhayThroughSeptember.tubes.plasma,
       provenance: "ytd" as const,
     },
     {
       type: "Buffy coat",
-      participants: biomarkerCoreSampleProcessing2026.totals.samples.buffyCoat,
-      aliquots: biomarkerCoreSampleProcessing2026.totals.tubes.buffyCoat,
+      participants: abhayThroughSeptember.samples.buffyCoat,
+      aliquots: abhayThroughSeptember.tubes.buffyCoat,
       provenance: "ytd" as const,
     },
     {
       type: "Serum",
-      participants: biomarkerCoreSampleProcessing2026.totals.samples.serum,
-      aliquots: biomarkerCoreSampleProcessing2026.totals.tubes.serum,
+      participants: abhayThroughSeptember.samples.serum,
+      aliquots: abhayThroughSeptember.tubes.serum,
       provenance: "ytd" as const,
     },
     {

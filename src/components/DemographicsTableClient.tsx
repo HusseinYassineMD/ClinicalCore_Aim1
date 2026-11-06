@@ -40,7 +40,8 @@ export default function DemographicsTableClient() {
           Table 1: Demographic and clinical characteristics of the clinical core
         </h2>
         <p className="text-cpbh-navy/60 text-sm mt-1 leading-snug">
-          RPPR Table 1 · {formatScopeDate(harmonized.meta.asOfDate)}
+          Pink · harmonized active cohort as of {formatScopeDate(harmonized.meta.asOfDate)}.
+          That snapshot stops before October 16. It is not the old RPPR.
         </p>
       </div>
 
@@ -52,7 +53,7 @@ export default function DemographicsTableClient() {
         <DemographicsTable
           data={harmonized}
           columnKeys={HARMONIZED_COLUMNS}
-          valueProvenance="prior"
+          valueProvenance="span"
         />
         <p className="mt-3 px-2 py-3 text-xs text-cpbh-navy/50 border-t border-cpbh-mist bg-cpbh-mist/20 rounded-xl">
           {harmonized.meta.cohortDefinition} NIH RPPR enrollment workflow: Cohort 2
@@ -65,10 +66,10 @@ export default function DemographicsTableClient() {
       <div className="border-t border-cpbh-mist/80 px-4 sm:px-6 pb-6 pt-5">
         <p className="text-xs text-cpbh-navy/55 mb-4">
           Charts below parse the Table 1 cells above · bar colors by stratum ·
-          numbers in green (same old RPPR source as the table).
+          numbers in pink (September 17 snapshot, not through October 16).
         </p>
         <ChartErrorBoundary fallbackTitle="Demographics charts could not load">
-          <DemographicsVisuals data={harmonized} valueProvenance="prior" />
+          <DemographicsVisuals data={harmonized} valueProvenance="span" />
         </ChartErrorBoundary>
       </div>
     </div>

@@ -15,7 +15,7 @@ export default function DemographicsTableStickyNote() {
       aria-label="Demographics Table 1 display note"
     >
       <p className={`${STICKY_NOTE_TITLE} text-violet-900`}>
-        Table 1 · old RPPR cohort (green)
+        Table 1 · September 17 snapshot (pink)
       </p>
       <ul className={`${STICKY_NOTE_BODY} list-disc pl-3 space-y-0.5`}>
         <li>
@@ -26,7 +26,7 @@ export default function DemographicsTableStickyNote() {
           Registry card: {ytdParticipantsWithVisit} with visit in{" "}
           {siteReportingWindow.label}
         </li>
-        <li>Legacy green RPPR workbook Table 1 (N=573) removed from dashboard</li>
+        <li>Legacy old-RPPR workbook Table 1 (N=573) is not on this page</li>
       </ul>
     </div>
   );

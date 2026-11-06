@@ -29,8 +29,8 @@ export default function IntegratedImagingSummaryBlock({
         <p className="text-cpbh-navy/60 text-sm mt-1 leading-snug">
           USC ADRC Integrated Imaging Availability{" "}
           {ytdMeta?.packageVersion ?? ytdStudySummary.packageVersion} ·{" "}
-          <span className="font-medium text-emerald-800">
-            green = unique participants · study file ends before 10/16/2026
+          <span className="font-medium metric-value-ytd">
+            black = unique participants · latest study_date is 10/16/2026
           </span>
           {ytdMeta?.identityFilter ? ` · ${ytdMeta.identityFilter} only` : null}
           {ytdMeta?.latestStudyDate
@@ -67,7 +67,7 @@ export default function IntegratedImagingSummaryBlock({
                 {YTD_COLUMNS.map((col) => (
                   <td
                     key={col.key}
-                    className="py-3 px-2 text-right tabular-nums metric-value-prior font-semibold"
+                    className="py-3 px-2 text-right tabular-nums metric-value-ytd font-semibold"
                   >
                     {formatInteger(row[col.key])}
                   </td>

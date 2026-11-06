@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { siteReportingWindow } from "@/data/siteReporting";
-import { lastRpprReportingPeriod } from "@/data/reportingPeriodLegend";
 import { DASHBOARD_UI_STAMP } from "@/data/dashboardBuildStamp";
 
 export default function SitePeriodStrip() {
@@ -17,15 +16,19 @@ export default function SitePeriodStrip() {
         <span className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5">
           <span>
             <span className="inline-block w-2 h-2 rounded-sm bg-neutral-950 align-middle mr-1" />
-            Black · Jan 1–date ({siteReportingWindow.label})
+            Black · through October 16
           </span>
           <span>
             <span className="inline-block w-2 h-2 rounded-sm bg-emerald-700 align-middle mr-1" />
-            Green · last RPPR ({lastRpprReportingPeriod})
+            Green · old RPPR
+          </span>
+          <span>
+            <span className="inline-block w-2 h-2 rounded-sm bg-pink-600 align-middle mr-1" />
+            Pink · latest packet, not through October 16
           </span>
           <span>
             <span className="inline-block w-2 h-2 rounded-sm bg-red-600 align-middle mr-1" />
-            Red · no data
+            Red · we don't know
           </span>
         </span>
         <span className="mx-2 text-cpbh-mist hidden sm:inline">|</span>

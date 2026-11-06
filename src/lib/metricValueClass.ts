@@ -28,10 +28,12 @@ export function isMissingChartCount(
 }
 
 /**
- * Black (ytd) = Jan 1 – date · harmonized data package + RedCap YTD.
- * Green (prior) = Last RPPR reporting period (rpprMetrics / Table 1 workbook).
- * Pink (span) = Recruitment cumulative or active grant period, counted from the current files.
- * Red (unknown) = No data / placeholder (text, bars, labels — not pie slice fill).
+ * Black (ytd) = counted through October 16. The file covers that lock.
+ * Green (prior) = old RPPR only.
+ * Pink (span) = latest data packet, but it stops before October 16
+ *   (for example an October 6 or October 7 export), or a cumulative total
+ *   whose dates are not the October 16 window.
+ * Red (unknown) = we don't know.
  */
 export function metricValueClass(
   kind: DataProvenance | "real" | "mock" | undefined = "ytd",

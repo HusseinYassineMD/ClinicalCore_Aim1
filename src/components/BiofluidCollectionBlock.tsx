@@ -1,17 +1,8 @@
 import type { BiofluidCollectionEntry } from "@/types/aim1";
 import { metricValueClass } from "@/lib/metricValueClass";
 import biomarkerCoreSampleProcessing2026 from "@/data/biomarkerCoreSampleProcessing2026.json";
-import { formatScopeDate } from "@/lib/formatScopeDate";
-
-function coverageLabel(startMonth: string, endMonth: string): string {
-  const startIso = `${startMonth}-01`;
-  const [year, month] = endMonth.split("-").map(Number);
-  const endIso = new Date(Date.UTC(year, month, 0)).toISOString().slice(0, 10);
-  return `${formatScopeDate(startIso)} – ${formatScopeDate(endIso)}`;
-}
 
 const processingMeta = biomarkerCoreSampleProcessing2026.meta;
-const coverage = coverageLabel(processingMeta.startMonth, processingMeta.endMonth);
 
 interface BiofluidCollectionBlockProps {
   data: BiofluidCollectionEntry[];
@@ -25,12 +16,13 @@ export default function BiofluidCollectionBlock({ data }: BiofluidCollectionBloc
           Biofluid Collection
         </h3>
         <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl mx-auto leading-relaxed">
-          Black · {coverage} · {processingMeta.providedBy}.
+          Black · January 1, 2026 – September 30, 2026 · {processingMeta.providedBy}.
         </p>
         <p className="text-cpbh-navy/55 text-xs mt-2 max-w-3xl mx-auto leading-relaxed">
-          Source: {processingMeta.sourceFile}. Sample and tube totals for{" "}
-          {coverage}. CSF is 0 samples and 0 tubes because that workbook has no
-          CSF rows.
+          Source: {processingMeta.sourceFile}. These totals are January through
+          September, which sit inside January 1–October 16. October is a
+          monthly total with no day, so it is not included. CSF is 0 samples
+          and 0 tubes because that workbook has no CSF rows.
         </p>
       </div>
       <div className="overflow-x-auto px-2 pb-2">

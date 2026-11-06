@@ -1,24 +1,14 @@
 import type { BiomarkerCoreSampleProcessingData } from "@/types/aim1";
 import { metricValueClass } from "@/lib/metricValueClass";
-import { formatScopeDate } from "@/lib/formatScopeDate";
-
-function coverageLabel(startMonth: string, endMonth: string): string {
-  const startIso = `${startMonth}-01`;
-  const [year, month] = endMonth.split("-").map(Number);
-  const endIso = new Date(Date.UTC(year, month, 0)).toISOString().slice(0, 10);
-  return `${formatScopeDate(startIso)} – ${formatScopeDate(endIso)}`;
-}
 
 interface BiomarkerCoreSampleProcessingBlockProps {
   data: BiomarkerCoreSampleProcessingData;
 }
 
-const PROVENANCE = "ytd" as const;
-
-function numCell(value: number) {
+function numCell(value: number, provenance: "ytd" | "prior" | "span") {
   return (
     <td
-      className={`px-4 py-3 text-base tabular-nums border-b border-cpbh-mist ${metricValueClass(PROVENANCE, value)}`}
+      className={`px-4 py-3 text-base tabular-nums border-b border-cpbh-mist ${metricValueClass(provenance, value)}`}
     >
       {value.toLocaleString()}
     </td>
@@ -28,7 +18,26 @@ function numCell(value: number) {
 export default function BiomarkerCoreSampleProcessingBlock({
   data,
 }: BiomarkerCoreSampleProcessingBlockProps) {
-  const { meta, months, totals } = data;
+  const { meta, months } = data;
+  const windowMonths = months.filter((row) => row.month !== "October 2026");
+  const windowTotals = windowMonths.reduce(
+    (sum, row) => ({
+      samples: {
+        plasma: sum.samples.plasma + row.samples.plasma,
+        buffyCoat: sum.samples.buffyCoat + row.samples.buffyCoat,
+        serum: sum.samples.serum + row.samples.serum,
+      },
+      tubes: {
+        plasma: sum.tubes.plasma + row.tubes.plasma,
+        buffyCoat: sum.tubes.buffyCoat + row.tubes.buffyCoat,
+        serum: sum.tubes.serum + row.tubes.serum,
+      },
+    }),
+    {
+      samples: { plasma: 0, buffyCoat: 0, serum: 0 },
+      tubes: { plasma: 0, buffyCoat: 0, serum: 0 },
+    },
+  );
 
   return (
     <div className="dashboard-card overflow-hidden p-0">
@@ -37,11 +46,12 @@ export default function BiomarkerCoreSampleProcessingBlock({
           Biomarker Core · sample processing
         </h3>
         <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl mx-auto leading-relaxed">
-          Black · {coverageLabel(meta.startMonth, meta.endMonth)} ·{" "}
-          {meta.providedBy}. Monthly sample and tube counts for that period.
+          Black · January through September 2026, inside January 1–October 16.{" "}
+          {meta.providedBy}. October stays pink: the workbook is the latest
+          packet, it has no day, and that month runs through October 31.
         </p>
         <p className="text-cpbh-navy/55 text-xs mt-2 max-w-3xl mx-auto leading-relaxed">
-          Source: {meta.sourceFile}. Coverage {coverageLabel(meta.startMonth, meta.endMonth)}.
+          Source: {meta.sourceFile}. The total row is January–September only.
         </p>
       </div>
       <div className="overflow-x-auto px-2 pb-6">
@@ -81,29 +91,33 @@ export default function BiomarkerCoreSampleProcessingBlock({
             </tr>
           </thead>
           <tbody>
-            {months.map((row, index) => (
+            {months.map((row, index) => {
+              const inWindow = row.month !== "October 2026";
+              const provenance = inWindow ? "ytd" : "span";
+              return (
               <tr key={row.month} className={index % 2 === 1 ? "table-row-alt" : undefined}>
                 <td className="px-4 py-3 text-sm font-medium text-cpbh-navy border-b border-cpbh-mist whitespace-nowrap">
                   {row.month}
                 </td>
-                {numCell(row.samples.plasma)}
-                {numCell(row.samples.buffyCoat)}
-                {numCell(row.samples.serum)}
-                {numCell(row.tubes.plasma)}
-                {numCell(row.tubes.buffyCoat)}
-                {numCell(row.tubes.serum)}
+                {numCell(row.samples.plasma, provenance)}
+                {numCell(row.samples.buffyCoat, provenance)}
+                {numCell(row.samples.serum, provenance)}
+                {numCell(row.tubes.plasma, provenance)}
+                {numCell(row.tubes.buffyCoat, provenance)}
+                {numCell(row.tubes.serum, provenance)}
               </tr>
-            ))}
+              );
+            })}
             <tr className="bg-cpbh-mist/40 font-semibold">
               <td className="px-4 py-3 text-sm text-cpbh-navy border-b border-cpbh-mist">
-                Totals
+                January–September
               </td>
-              {numCell(totals.samples.plasma)}
-              {numCell(totals.samples.buffyCoat)}
-              {numCell(totals.samples.serum)}
-              {numCell(totals.tubes.plasma)}
-              {numCell(totals.tubes.buffyCoat)}
-              {numCell(totals.tubes.serum)}
+              {numCell(windowTotals.samples.plasma, "ytd")}
+              {numCell(windowTotals.samples.buffyCoat, "ytd")}
+              {numCell(windowTotals.samples.serum, "ytd")}
+              {numCell(windowTotals.tubes.plasma, "ytd")}
+              {numCell(windowTotals.tubes.buffyCoat, "ytd")}
+              {numCell(windowTotals.tubes.serum, "ytd")}
             </tr>
           </tbody>
         </table>

@@ -218,18 +218,18 @@
       }
     },
     "imaging": {
-      "packageVersion": "v1.5.2",
+      "packageVersion": "v1.5.4",
       "identityFilter": "nacc_registry_verified",
       "sourceFiles": {
-        "longitudinal": "USC_ADRC_Imaging_Availability_Longitudinal_v1.5.2.csv",
-        "studySubjectLevel": "USC_ADRC_Imaging_Availability_Study_Subject_Level_v1.5.2.csv"
+        "longitudinal": "USC_ADRC_Imaging_Availability_Longitudinal_v1.5.4.csv",
+        "studySubjectLevel": "USC_ADRC_Imaging_Availability_Study_Subject_Level_v1.5.4.csv"
       },
       "dateField": "study_date",
       "scanStudy": {
         "studyLabel": "SCAN",
-        "participantsWithMri": 11,
-        "participantsWithAmyloidPet": 0,
-        "participantsWithTauPet": 0,
+        "participantsWithMri": 16,
+        "participantsWithAmyloidPet": 1,
+        "participantsWithTauPet": 2,
         "definitions": {
           "participantsWithMri": "Unique subject_key with \u22651 MRI-family row (MRI/DTI/fMRI), study_date in period, nacc_registry_verified=TRUE on study row and visit row",
           "participantsWithAmyloidPet": "Unique subject_key with \u22651 verified Amyloid PET row dated in period",
@@ -238,9 +238,9 @@
       },
       "claritiStudy": {
         "studyLabel": "CLARiTI",
-        "participantsWithMri": 8,
-        "participantsWithAmyloidPet": 9,
-        "participantsWithTauPet": 9,
+        "participantsWithMri": 11,
+        "participantsWithAmyloidPet": 19,
+        "participantsWithTauPet": 18,
         "definitions": {
           "participantsWithMri": "Unique subject_key with \u22651 MRI-family row (MRI/DTI/fMRI), study_date in period, nacc_registry_verified=TRUE on study row and visit row",
           "participantsWithAmyloidPet": "Unique subject_key with \u22651 verified Amyloid PET row dated in period",
@@ -249,70 +249,70 @@
       },
       "note": "Study-specific participant counts for the reporting period. Only subjects with nacc_registry_verified=TRUE (official USC NACC identifier registry) on both the study-subject row and each counted longitudinal row. Do not sum SCAN and CLARiTI.",
       "dataCoverage": {
-        "imagingLatestStudyDate": "2026-09-10"
+        "imagingLatestStudyDate": "2026-10-16"
       }
     },
     "imagingYtdIntegratedStudySummary": {
-      "packageVersion": "v1.5.2",
+      "packageVersion": "v1.5.4",
       "sourceFiles": {
-        "longitudinal": "USC_ADRC_Imaging_Availability_Longitudinal_v1.5.2.csv",
-        "studySubjectLevel": "USC_ADRC_Imaging_Availability_Study_Subject_Level_v1.5.2.csv"
+        "longitudinal": "USC_ADRC_Imaging_Availability_Longitudinal_v1.5.4.csv",
+        "studySubjectLevel": "USC_ADRC_Imaging_Availability_Study_Subject_Level_v1.5.4.csv"
       },
       "dateField": "study_date",
-      "note": "Calendar YTD counts from James Integrated Imaging longitudinal rows (nacc_registry_verified=TRUE, study_date in reporting window). Replaces RPPR-only interpretation for progress within the window.",
+      "note": "Calendar YTD counts from James Integrated Imaging v1.5.4 longitudinal rows (nacc_registry_verified=TRUE, study_date in reporting window). Latest study_date in the file is 2026-10-16. Received November 6, 2026.",
       "studies": [
         {
           "study": "SCAN",
-          "uniqueSubjects": 11,
-          "naccRegistryVerifiedSubjects": 11,
-          "subjectsWithMri": 11,
-          "subjectsWithAmyloidPet": 0,
-          "subjectsWithTauPet": 0
+          "uniqueSubjects": 17,
+          "naccRegistryVerifiedSubjects": 17,
+          "subjectsWithMri": 16,
+          "subjectsWithAmyloidPet": 1,
+          "subjectsWithTauPet": 2
         },
         {
           "study": "CLARiTI",
-          "uniqueSubjects": 11,
-          "naccRegistryVerifiedSubjects": 11,
-          "subjectsWithMri": 8,
-          "subjectsWithAmyloidPet": 9,
-          "subjectsWithTauPet": 9
+          "uniqueSubjects": 21,
+          "naccRegistryVerifiedSubjects": 21,
+          "subjectsWithMri": 11,
+          "subjectsWithAmyloidPet": 19,
+          "subjectsWithTauPet": 18
         },
         {
           "study": "USC ADRC",
-          "uniqueSubjects": 39,
-          "naccRegistryVerifiedSubjects": 39,
-          "subjectsWithMri": 39,
+          "uniqueSubjects": 42,
+          "naccRegistryVerifiedSubjects": 42,
+          "subjectsWithMri": 42,
           "subjectsWithAmyloidPet": 0,
           "subjectsWithTauPet": 0
         }
       ]
     },
     "imagingIntegratedStudySummary": {
-      "packageVersion": "v1.5.2",
-      "sourceFile": "USC_ADRC_Imaging_Availability_Study_Summary_v1.5.2.csv",
-      "note": "Study-level integrated availability from James Integrated Imaging v1.5.2. nacc_registry_verified_subjects = identity QC in the official NACC registry. Modality subject counts are package-wide (not calendar YTD). YTD SCAN/CLARITi participant progress is in imaging.scanStudy / claritiStudy.",
+      "packageVersion": "v1.5.4",
+      "sourceFile": "USC_ADRC_Imaging_Availability_Study_Summary_v1.5.4.csv",
+      "note": "Study-level integrated availability from James Integrated Imaging v1.5.4. nacc_registry_verified_subjects = identity QC in the official NACC registry. Modality subject counts are package-wide (not calendar YTD). YTD SCAN/CLARITi participant progress is in imaging.scanStudy / claritiStudy.",
       "studies": [
         {
           "study": "SCAN",
-          "uniqueSubjects": 8485,
-          "naccRegistryVerifiedSubjects": 58,
-          "subjectsWithMri": 7335,
+          "uniqueSubjects": 8489,
+          "naccRegistryVerifiedSubjects": 62,
+          "subjectsWithMri": 7339,
           "subjectsWithAmyloidPet": 3391,
           "subjectsWithTauPet": 2592
         },
         {
           "study": "CLARiTI",
-          "uniqueSubjects": 919,
-          "naccRegistryVerifiedSubjects": 11,
-          "subjectsWithMri": 688,
-          "subjectsWithAmyloidPet": 726,
-          "subjectsWithTauPet": 635
+          "uniqueSubjects": 929,
+          "naccRegistryVerifiedSubjects": 21,
+          "subjectsWithMri": 691,
+          "subjectsWithAmyloidPet": 736,
+          "subjectsWithTauPet": 644
         },
         {
           "study": "USC ADRC",
-          "uniqueSubjects": 103,
-          "naccRegistryVerifiedSubjects": 103,
-          "subjectsWithMri": 51,
+          "uniqueSubjects": 104,
+          "naccRegistryVerifiedSubjects": 104,
+          "subjectsWithMri": 52,
           "subjectsWithAmyloidPet": 59,
           "subjectsWithTauPet": 64
         }
@@ -8486,18 +8486,18 @@
       "reportPath": "/data-package/reports/USC_ADRC_Imaging_Availability_Report_v1.5.2.html",
       "summary": {
         "reportingPeriod": {
-          "packageVersion": "v1.5.2",
+          "packageVersion": "v1.5.4",
           "identityFilter": "nacc_registry_verified",
           "sourceFiles": {
-            "longitudinal": "USC_ADRC_Imaging_Availability_Longitudinal_v1.5.2.csv",
-            "studySubjectLevel": "USC_ADRC_Imaging_Availability_Study_Subject_Level_v1.5.2.csv"
+            "longitudinal": "USC_ADRC_Imaging_Availability_Longitudinal_v1.5.4.csv",
+            "studySubjectLevel": "USC_ADRC_Imaging_Availability_Study_Subject_Level_v1.5.4.csv"
           },
           "dateField": "study_date",
           "scanStudy": {
             "studyLabel": "SCAN",
-            "participantsWithMri": 11,
-            "participantsWithAmyloidPet": 0,
-            "participantsWithTauPet": 0,
+            "participantsWithMri": 16,
+            "participantsWithAmyloidPet": 1,
+            "participantsWithTauPet": 2,
             "definitions": {
               "participantsWithMri": "Unique subject_key with \u22651 MRI-family row (MRI/DTI/fMRI), study_date in period, nacc_registry_verified=TRUE on study row and visit row",
               "participantsWithAmyloidPet": "Unique subject_key with \u22651 verified Amyloid PET row dated in period",
@@ -8506,9 +8506,9 @@
           },
           "claritiStudy": {
             "studyLabel": "CLARiTI",
-            "participantsWithMri": 8,
-            "participantsWithAmyloidPet": 9,
-            "participantsWithTauPet": 9,
+            "participantsWithMri": 11,
+            "participantsWithAmyloidPet": 19,
+            "participantsWithTauPet": 18,
             "definitions": {
               "participantsWithMri": "Unique subject_key with \u22651 MRI-family row (MRI/DTI/fMRI), study_date in period, nacc_registry_verified=TRUE on study row and visit row",
               "participantsWithAmyloidPet": "Unique subject_key with \u22651 verified Amyloid PET row dated in period",
@@ -8517,13 +8517,13 @@
           },
           "note": "Study-specific participant counts for the reporting period. Only subjects with nacc_registry_verified=TRUE (official USC NACC identifier registry) on both the study-subject row and each counted longitudinal row. Do not sum SCAN and CLARiTI.",
           "dataCoverage": {
-            "imagingLatestStudyDate": "2026-09-10"
+            "imagingLatestStudyDate": "2026-10-16"
           }
         },
         "studySummaryRows": 13,
-        "longitudinalRows": 37739,
-        "masterRows": 164949,
-        "subjectLevelRows": 13211,
+        "longitudinalRows": 37831,
+        "masterRows": 166570,
+        "subjectLevelRows": 13235,
         "dataDictionary": [
           {
             "variable": "source_system",

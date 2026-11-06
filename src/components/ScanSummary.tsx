@@ -18,12 +18,16 @@ function ScanProgressBlock({
   title,
   data,
   periodLabel,
+  sourceNote,
 }: {
   title: string;
   data: ScanData;
   periodLabel?: string;
+  sourceNote?: string;
 }) {
-  const ytdSublabel = periodLabel ? `Participants · ${periodLabel}` : undefined;
+  const ytdSublabel = [periodLabel ? `Participants · ${periodLabel}` : null, sourceNote]
+    .filter(Boolean)
+    .join(" · ") || undefined;
   const modalities = [
     { label: "MRI" as const, count: data.mri },
     { label: "Amyloid PET" as const, count: data.amyloidPet },
@@ -53,7 +57,7 @@ function ScanProgressBlock({
             label={mod.label}
             value={mod.count}
             accent={MODALITY_ACCENTS[mod.label]}
-            provenance="prior"
+            provenance={data.provenance ?? "ytd"}
             sublabel={ytdSublabel}
           />
         ))}
@@ -66,19 +70,22 @@ export default function ScanSummary({
   scans,
   claritiScans,
   periodLabel,
-}: ScanSummaryProps) {
+  sourceNote,
+}: ScanSummaryProps & { sourceNote?: string }) {
   return (
     <div className="dashboard-card space-y-8">
       <ScanProgressBlock
         title="SCAN Progress"
         data={scans}
         periodLabel={periodLabel}
+        sourceNote={sourceNote}
       />
       <div className="border-t border-cpbh-mist pt-8">
         <ScanProgressBlock
           title="CLARITi Progress"
           data={claritiScans}
           periodLabel={periodLabel}
+          sourceNote={sourceNote}
         />
       </div>
     </div>

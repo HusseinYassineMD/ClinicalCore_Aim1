@@ -40,7 +40,7 @@ export default function NeuropathAdditionalMetrics({
         Pull Nov 6, 2026, after the Oct 16 lock. Last consent{" "}
         {formatScopeDate(brsLatestConsentDate)}. Last death{" "}
         {formatScopeDate(brsLatestDeathDate)}. Last autopsy performed date{" "}
-        {formatScopeDate(brsLatestAutopsyPerformedDate)}. Green counts are
+        {formatScopeDate(brsLatestAutopsyPerformedDate)}. Pink counts are
         Xinhui Wang, Data Core Table 1, MAP pull{" "}
         {brsRpprTableDataCore.meta.mapBrsDataPullDate}.
       </p>
@@ -56,8 +56,8 @@ export default function NeuropathAdditionalMetrics({
           label="Enrolled in Autopsy Program"
           value={data.enrolledInAutopsyProgram ?? "—"}
           accent="teal"
-          provenance="prior"
-          sublabel={`Green · Data Core current enrollment · N=${brsRpprTableDataCore.meta.percentDenominator} · MAP pull ${brsRpprTableDataCore.meta.mapBrsDataPullDate}${
+          provenance="span"
+          sublabel={`Pink · Data Core current enrollment · N=${brsRpprTableDataCore.meta.percentDenominator} · MAP pull ${brsRpprTableDataCore.meta.mapBrsDataPullDate}${
             mapCmp ? ` · MAP Active in the Nov 6 file: ${mapCmp.activeStatusOne}` : ""
           }`}
         />
@@ -65,17 +65,17 @@ export default function NeuropathAdditionalMetrics({
           label="Withdrawals"
           value={data.withdrawals ?? "—"}
           accent="purple"
-          provenance="prior"
-          sublabel="Green · Xinhui Oct 7 table. The Nov 6 MAP file has 0 termination dates inside Jan 1–Oct 16. One NP-reported 2026 withdrawal may not be in MAP yet."
+          provenance="span"
+          sublabel="Pink · Xinhui Oct 7 table. That pull stops before Oct 16. The Nov 6 MAP file has 0 termination dates inside Jan 1–Oct 16. One NP-reported 2026 withdrawal may not be in MAP yet."
         />
         <MetricCard
           label="Participant deaths (RPPR table)"
           value={deathsLabel}
           accent="navy"
-          provenance="prior"
+          provenance="span"
           sublabel={
             mapCmp
-              ? `Green · Xinhui Oct 7 table, 7 with autopsy and 1 without. Nov 6 file: ${mapCmp.deaths} deaths inside Jan 1–Oct 16, last death ${formatScopeDate(brsLatestDeathDate)}.`
+              ? `Pink · Xinhui Oct 7 table, 7 with autopsy and 1 without. That pull stops before Oct 16. Nov 6 file: ${mapCmp.deaths} deaths inside Jan 1–Oct 16, last death ${formatScopeDate(brsLatestDeathDate)}.`
               : undefined
           }
         />
@@ -94,10 +94,10 @@ export default function NeuropathAdditionalMetrics({
           label="Autopsy Enrollment Rate"
           value={enrollmentLabel}
           accent="teal"
-          provenance={hasRate ? "prior" : "unknown"}
+          provenance={hasRate ? "span" : "unknown"}
           sublabel={
             hasRate
-              ? `Green · Data Core enrolled ${enrolled} ÷ active cohort N=${adrcTotal} as of Sep 17, 2026`
+              ? `Pink · Data Core enrolled ${enrolled} ÷ active cohort N=${adrcTotal} as of Sep 17, 2026. Neither side runs through October 16.`
               : undefined
           }
         />

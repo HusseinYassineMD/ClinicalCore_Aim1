@@ -185,7 +185,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Imaging",
     metric: "SCAN YTD · MRI / Amyloid PET / Tau PET participants",
-    value: "11 / 0 / 0",
+    value: "16 / 1 / 2",
     tier: "verified",
     source: "USC_ADRC_Imaging_Availability · study_date in period · nacc_registry_verified",
     notes: siteReportingWindow.label,
@@ -193,15 +193,15 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Imaging",
     metric: "CLARiTI YTD · MRI / Amyloid PET / Tau PET participants",
-    value: "8 / 9 / 9",
+    value: "11 / 19 / 18",
     tier: "verified",
-    source: "USC_ADRC_Imaging_Availability v1.5.2 · same rules as SCAN",
+    source: "USC_ADRC_Imaging_Availability v1.5.4 · same rules as SCAN",
     notes: "Do not sum SCAN and CLARiTI.",
   },
   {
     section: "Imaging",
     metric: "YTD participants table + SCAN/CLARiTI cards (black)",
-    value: "SCAN 11/0/0 · CLARiTI 8/9/9",
+    value: "SCAN 16/1/2 · CLARiTI 11/19/18",
     tier: "verified",
     source: "rpprDataPackage.json · imaging · study_date in reporting window",
     notes: siteReportingWindow.label,
@@ -209,9 +209,9 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Imaging",
     metric: "Study_Summary snapshot table (green · not YTD)",
-    value: "SCAN 58 · CLARiTI 11 · USC ADRC 103 NACC verified",
+    value: "SCAN 62 · CLARiTI 21 · USC ADRC 104 NACC verified",
     tier: "verified",
-    source: "USC_ADRC_Imaging_Availability_Study_Summary_v1.5.2.csv · package-wide counts",
+    source: "USC_ADRC_Imaging_Availability_Study_Summary_v1.5.4.csv · package-wide counts",
   },
   {
     section: "Imaging",
