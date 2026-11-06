@@ -41,8 +41,6 @@ export default function BiomarkersSection({
   const jamesPacket = packageYtd?.biomarkers;
   const ncradCountStart = jamesPacket?.collectionCoverageStart;
   const ncradCountEnd = jamesPacket?.collectionCoverageEnd;
-  const packetStart = jamesPacket?.packetCollectionStart;
-  const packetEnd = jamesPacket?.packetCollectionEnd;
   const plasmaBiomarkers = [
     {
       label: "Plasma Biomarker — NCRAD Aβ40",
@@ -122,18 +120,15 @@ export default function BiomarkersSection({
               </div>
             </div>
             <p className="text-cpbh-navy/60 text-sm text-center max-w-3xl mx-auto leading-relaxed">
-              Black · hard cutoff {formatScopeDate(siteReportingWindow.endDate)}.
-              JamesDataPacket, November 5, 2026 (v1.1.2), from James Wang. NCRAD
-              plasma counts are collections inside that cutoff:{" "}
-              {formatScopeDate(ncradCountStart)} – {formatScopeDate(ncradCountEnd)}.
-              The packet’s full collection-date range is{" "}
-              {formatScopeDate(packetStart)} – {formatScopeDate(packetEnd)}.
-              NCRAD Flywheel update {formatScopeDate(jamesPacket?.ncradFlywheelUpdate)}.
+              Black · James Wang, November 5, 2026. Collections{" "}
+              {formatScopeDate(ncradCountStart)} – {formatScopeDate(ncradCountEnd)},
+              counted inside {formatScopeDate(siteReportingWindow.startDate)} –{" "}
+              {formatScopeDate(siteReportingWindow.endDate)}.
             </p>
             <p className="text-cpbh-navy/55 text-xs text-center max-w-3xl mx-auto leading-relaxed">
-              Source: {jamesPacket?.sourcePath ?? jamesPacket?.sourceFile}. Rows
-              are counted only when collection_date is on or before{" "}
-              {formatScopeDate(siteReportingWindow.endDate)}.
+              Source: {jamesPacket?.sourcePath ?? jamesPacket?.sourceFile}. The
+              earlier James file is included. No collection is dated January 1–5.
+              Last collection {formatScopeDate(ncradCountEnd)}.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {plasmaBiomarkers.map((item) => (

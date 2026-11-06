@@ -8,7 +8,7 @@ import DemographicsTable, {
   type Table1ColumnKey,
 } from "@/components/DemographicsTable";
 import type { DemographicGroup } from "@/types/aim1";
-import { siteReportingWindow } from "@/data/siteReporting";
+import { formatScopeDate } from "@/lib/formatScopeDate";
 import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
 
 type HarmonizedSnapshot = Table1VisualData & {
@@ -40,9 +40,7 @@ export default function DemographicsTableClient() {
           Table 1: Demographic and clinical characteristics of the clinical core
         </h2>
         <p className="text-cpbh-navy/60 text-sm mt-1 leading-snug">
-          Green · old RPPR · harmonized active ADRC cohort · as of{" "}
-          {harmonized.meta.asOfDate} · N={harmonized.meta.participantCount} · not
-          the {siteReportingWindow.label} visit window
+          RPPR Table 1 · {formatScopeDate(harmonized.meta.asOfDate)}
         </p>
       </div>
 

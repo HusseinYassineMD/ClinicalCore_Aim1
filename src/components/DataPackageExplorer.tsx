@@ -1300,7 +1300,7 @@ function ReportingPeriodSummarySection({ summary }: { summary: ReportingPeriodSu
       <ReportingPeriodDomain
         title="Biomarker collections"
         sourceFile={bio.sourcePath ?? bio.sourceFile}
-        dateHint={`${bio.packetName ?? "JamesDataPacket November 5"} · ${bio.providedBy ?? "James Wang"} · received ${bio.packetReceivedOn ?? "2026-11-05"} · hard cutoff ${summary.endDate} · ${bio.dateField} ${bio.collectionCoverageStart ?? "—"} through ${bio.collectionCoverageEnd ?? "—"}`}
+        dateHint={`${bio.packetName ?? "JamesDataPacket November 5"} · ${bio.providedBy ?? "James Wang"} · received ${bio.packetReceivedOn ?? "2026-11-05"} · counted ${summary.startDate} through ${summary.endDate} · first collection ${bio.collectionCoverageStart ?? "—"} · last collection ${bio.collectionCoverageEnd ?? "—"}`}
         metrics={[
           {
             label: "Subjects with any specimen collection",
@@ -1339,7 +1339,7 @@ function ReportingPeriodSummarySection({ summary }: { summary: ReportingPeriodSu
             value: bio.ncradPlasmaMeasurements?.ptau217 ?? 0,
           },
         ]}
-        footnote={`Source file ${bio.sourcePath ?? bio.sourceFile}. NCRAD counts are plasma rows in ${bio.collectionCoverageStart ?? "—"} through ${bio.collectionCoverageEnd ?? "—"}. Full packet collection-date range ${bio.packetCollectionStart ?? "—"} through ${bio.packetCollectionEnd ?? "—"}. NCRAD Flywheel update ${bio.ncradFlywheelUpdate ?? "—"}.`}
+        footnote={`Source file ${bio.sourcePath ?? bio.sourceFile}. Counts are every NCRAD plasma row with ${bio.dateField} from ${summary.startDate} through ${summary.endDate}. This file includes the earlier v1.0.5 rows. First collection ${bio.collectionCoverageStart ?? "—"}. Last collection ${bio.collectionCoverageEnd ?? "—"}. Full packet range ${bio.packetCollectionStart ?? "—"} through ${bio.packetCollectionEnd ?? "—"}. NCRAD Flywheel update ${bio.ncradFlywheelUpdate ?? "—"}.`}
       />
 
       <ReportingPeriodDomain

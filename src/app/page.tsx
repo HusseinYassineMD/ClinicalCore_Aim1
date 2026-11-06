@@ -6,7 +6,6 @@ import {
 } from "@/components/MetricsChartsHost";
 import TopRegistryOverview from "@/components/TopRegistryOverview";
 import DemographicsTableClient from "@/components/DemographicsTableClient";
-import SectionLabel from "@/components/SectionLabel";
 import AdminTableA7Biomarkers from "@/components/AdminTableA7Biomarkers";
 import BiomarkersSection from "@/components/BiomarkersSection";
 import ImagingSection from "@/components/ImagingSection";
@@ -75,17 +74,10 @@ export default function DashboardPage() {
                     {table1HarmonizedActiveSnapshot.meta.participantCount}
                   </p>
                   <p className="mt-2 text-xs leading-snug text-cpbh-navy/60">
-                    Green · Table 1 active cohort · as of{" "}
-                    {table1HarmonizedActiveSnapshot.meta.asOfDate}
+                    Active cohort · {formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate)}
                   </p>
                 </div>
               </div>
-              <SectionLabel
-                title="Table 1 · Brain demographics"
-                subtitle="Green · old RPPR Table 1 (N=569) · charts below use the same numbers · UDS, GeneScreen, and autopsy program counts below are a separate window"
-                variant="priority"
-                scopeSectionId="demographics"
-              />
               <DemographicsChartsHost
                 skeleton={
                   <div

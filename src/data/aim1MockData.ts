@@ -226,7 +226,7 @@ export const aim1MockData: Aim1DashboardData = {
           lines: [
             `Biospecimen inventory · ${HARMONIZED_FILES.biospecimenLong} · last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)} · last collection_date ${formatScopeDate(biospecimenLatestCollectionDate)}`,
             `Buffy coat YTD aliquots: ${biospecYtd("buffy_coat")?.aliquots ?? "—"} · cumulative inventory aliquots: ${biospecCumulative("buffy_coat")?.aliquots ?? "—"}`,
-            `Black · hard cutoff ${formatScopeDate(siteReportingWindow.endDate)}. JamesDataPacket November 5 (v1.1.2). NCRAD plasma collections inside that cutoff: ${formatScopeDate(ytdBio.collectionCoverageStart)} – ${formatScopeDate(ytdBio.collectionCoverageEnd)}. Full packet range ${formatScopeDate(ytdBio.packetCollectionStart)} – ${formatScopeDate(ytdBio.packetCollectionEnd)}.`,
+            `Black · James Wang, November 5. Collections ${formatScopeDate(ytdBio.collectionCoverageStart)} – ${formatScopeDate(ytdBio.collectionCoverageEnd)}, inside ${formatScopeDate(siteReportingWindow.startDate)} – ${formatScopeDate(siteReportingWindow.endDate)}. No collection is dated January 1–5.`,
             "PBMC is stopped for now. Separate procedure. Not in REDCap or BST. The count on the card is the last RPPR inventory.",
           ],
         },
