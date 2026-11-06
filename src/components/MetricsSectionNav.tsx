@@ -13,7 +13,7 @@ const SECTIONS = SECTION_REPORTING_SCOPES.map((s) => ({
 }));
 
 export default function MetricsSectionNav() {
-  const [active, setActive] = useState<string>("recruitment");
+  const [active, setActive] = useState<string>("demographics");
   const [trackScroll, setTrackScroll] = useState(false);
 
   useEffect(() => {

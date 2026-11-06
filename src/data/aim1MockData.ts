@@ -252,23 +252,17 @@ export const aim1MockData: Aim1DashboardData = {
       ],
     },
     biofluidCollection: {
-      status: "mixed",
-      realFrom: dataCoreYtdSource(
-        `Biospecimen inventory · ${HARMONIZED_FILES.biospecimenLong} · collection_date in window`,
-      ),
-      mockFrom: `${LAST_RPPR_SOURCE} · WBC RPPR line (no WBC component in biospecimen export)`,
+      status: "ytd",
+      source: biomarkerCoreSampleProcessing2026.meta.providedBy,
       bulletGroups: [
         {
-          title: `James biospecimen package (green · through ${formatScopeDate(biospecimenLatestSpecimenDate)})`,
+          title: `Black · January 1, 2026 – October 31, 2026 · ${biomarkerCoreSampleProcessing2026.meta.providedBy}`,
           lines: [
-            "James biospecimen counts below are still the Oct 9 harmonized file. Monthly sample/tube processing from Abhay Sagare is in the table below.",
-            "Plasma and buffy coat: direct freezing, BST (Biofluid Tracking) in REDCap, James and Xinhui. BST is being migrated and closed.",
-            "CSF: REDCap. The zero below is the biospecimen file, not a REDCap count.",
-            `Plasma: ${biospecYtd("plasma")?.participants ?? "—"} participants · ${biospecYtd("plasma")?.aliquots ?? "—"} aliquots`,
-            `Serum: ${biospecYtd("serum")?.participants ?? "—"} participants · ${biospecYtd("serum")?.aliquots ?? "—"} aliquots`,
-            `Buffy coat: ${biospecYtd("buffy_coat")?.participants ?? "—"} participants · ${biospecYtd("buffy_coat")?.aliquots ?? "—"} aliquots`,
-            `CSF collections in window: ${biospecYtd("csf")?.participants ?? 0} participants (integrated biomarker CSF assay rows may differ)`,
-            `BRS export: ${ytdBrs.sourceFile} · active status=1 snapshot n=${ytdBrs.activeEnrolled ?? "—"} (RPPR cumulative definition pending Dr. Wang)`,
+            "Biofluid Collection uses the updated sample and tube totals from Abhay Sagare’s Biomarker Core sample processing file.",
+            `Plasma: ${biomarkerCoreSampleProcessing2026.totals.samples.plasma} samples · ${biomarkerCoreSampleProcessing2026.totals.tubes.plasma} tubes`,
+            `Buffy coat: ${biomarkerCoreSampleProcessing2026.totals.samples.buffyCoat} samples · ${biomarkerCoreSampleProcessing2026.totals.tubes.buffyCoat} tubes`,
+            `Serum: ${biomarkerCoreSampleProcessing2026.totals.samples.serum} samples · ${biomarkerCoreSampleProcessing2026.totals.tubes.serum} tubes`,
+            "CSF is not in that file.",
           ],
         },
       ],
@@ -735,34 +729,28 @@ export const aim1MockData: Aim1DashboardData = {
   biofluidCollection: [
     {
       type: "Plasma",
-      participants: biospecYtd("plasma")?.participants ?? ytdBio.subjectsWithPlasmaCollection,
-      aliquots: biospecYtd("plasma")?.aliquots ?? ytdBio.plasmaMeasurementRows,
-      provenance: ytdBiospecimen ? "prior" : "prior",
-      sourceNote:
-        "Direct freezing. BST (Biofluid Tracking), REDCap, James and Xinhui. BST is being migrated and closed.",
+      participants: biomarkerCoreSampleProcessing2026.totals.samples.plasma,
+      aliquots: biomarkerCoreSampleProcessing2026.totals.tubes.plasma,
+      provenance: "ytd" as const,
     },
     {
       type: "Buffy coat",
-      participants: biospecYtd("buffy_coat")?.participants ?? null,
-      aliquots: biospecYtd("buffy_coat")?.aliquots,
-      provenance: ytdBiospecimen ? "prior" : "unknown",
-      sourceNote:
-        "Direct freezing. Same BST database as plasma.",
+      participants: biomarkerCoreSampleProcessing2026.totals.samples.buffyCoat,
+      aliquots: biomarkerCoreSampleProcessing2026.totals.tubes.buffyCoat,
+      provenance: "ytd" as const,
     },
     {
       type: "Serum",
-      participants: biospecYtd("serum")?.participants ?? r.biofluidCollection.serumParticipants,
-      aliquots: biospecYtd("serum")?.aliquots ?? r.biofluidCollection.serumAliquots,
-      provenance: ytdBiospecimen ? "prior" : "prior",
+      participants: biomarkerCoreSampleProcessing2026.totals.samples.serum,
+      aliquots: biomarkerCoreSampleProcessing2026.totals.tubes.serum,
+      provenance: "ytd" as const,
     },
     {
       type: "CSF",
-      participants:
-        biospecYtd("csf")?.participants ??
-        ytdBio.subjectsWithCsfCollection,
-      aliquots: biospecYtd("csf")?.aliquots ?? ytdBio.csfMeasurementRows,
-      provenance: ytdBiospecimen ? "prior" : "prior",
-      sourceNote: "CSF is tracked in REDCap. This zero is the biospecimen file.",
+      participants: null,
+      provenance: "unknown" as const,
+      sourceNote:
+        "Not in Abhay Sagare’s January 1, 2026 – October 31, 2026 file.",
     },
   ],
 

@@ -1,5 +1,3 @@
-import SectionScopeBracket from "@/components/SectionScopeBracket";
-
 const CLINICAL_LAB_METRICS = [
   "A1C values",
   "Lipid values",
@@ -12,7 +10,6 @@ export default function ClinicalLabSection() {
     <section id="clinical" className="scroll-mt-32 space-y-6">
       <h2 className="font-display text-3xl md:text-4xl font-semibold text-neutral-500">
         <span className="block">Clinical</span>
-        <SectionScopeBracket sectionId="clinical" className="block mt-2 text-neutral-400" />
       </h2>
       <div
         className="rounded-2xl border border-neutral-200 bg-neutral-100 p-6 md:p-8"

@@ -1,10 +1,17 @@
 import type { BiofluidCollectionEntry } from "@/types/aim1";
 import { metricValueClass } from "@/lib/metricValueClass";
-import {
-  biospecimenLatestCollectionDate,
-  biospecimenLatestSpecimenDate,
-} from "@/data/siteReporting";
+import biomarkerCoreSampleProcessing2026 from "@/data/biomarkerCoreSampleProcessing2026.json";
 import { formatScopeDate } from "@/lib/formatScopeDate";
+
+function coverageLabel(startMonth: string, endMonth: string): string {
+  const startIso = `${startMonth}-01`;
+  const [year, month] = endMonth.split("-").map(Number);
+  const endIso = new Date(Date.UTC(year, month, 0)).toISOString().slice(0, 10);
+  return `${formatScopeDate(startIso)} – ${formatScopeDate(endIso)}`;
+}
+
+const processingMeta = biomarkerCoreSampleProcessing2026.meta;
+const coverage = coverageLabel(processingMeta.startMonth, processingMeta.endMonth);
 
 interface BiofluidCollectionBlockProps {
   data: BiofluidCollectionEntry[];
@@ -18,13 +25,9 @@ export default function BiofluidCollectionBlock({ data }: BiofluidCollectionBloc
           Biofluid Collection
         </h3>
         <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl leading-relaxed">
-          Green · James harmonized biospecimen inventory (Oct 9 file). Last
-          specimen_date {formatScopeDate(biospecimenLatestSpecimenDate)}. Last
-          collection_date {formatScopeDate(biospecimenLatestCollectionDate)}.
-          Operational sample/tube counts from Abhay Sagare (Jan–Oct 2026) are in
-          the Biomarker Core processing table below. Plasma and buffy coat are
-          direct-freeze samples in BST (REDCap, James and Xinhui); BST is being
-          migrated and closed. CSF is REDCap. NCRAD assay rows are separate.
+          Black · {coverage} · {processingMeta.providedBy}. Updated sample and
+          tube totals from the Biomarker Core sample processing file. CSF is not
+          in that file.
         </p>
       </div>
       <div className="overflow-x-auto px-2 pb-2">
@@ -35,10 +38,10 @@ export default function BiofluidCollectionBlock({ data }: BiofluidCollectionBloc
                 Biofluid
               </th>
               <th className="bg-cpbh-navy text-white text-base font-medium px-6 py-4 text-left">
-                # Participants
+                # of samples
               </th>
               <th className="bg-cpbh-navy text-white text-base font-medium px-6 py-4 text-left">
-                # Aliquots
+                Total tubes
               </th>
             </tr>
           </thead>
@@ -59,7 +62,9 @@ export default function BiofluidCollectionBlock({ data }: BiofluidCollectionBloc
                 <td
                   className={`px-6 py-4 text-base border-b border-cpbh-mist ${metricValueClass(row.provenance ?? "ytd", row.participants)}`}
                 >
-                  {row.participants ?? "—"}
+                  {row.participants == null
+                    ? "—"
+                    : row.participants.toLocaleString()}
                 </td>
                 <td
                   className={`px-6 py-4 text-base border-b border-cpbh-mist ${metricValueClass(
@@ -69,7 +74,9 @@ export default function BiofluidCollectionBlock({ data }: BiofluidCollectionBloc
                     row.aliquots,
                   )}`}
                 >
-                  {row.aliquots ?? "—"}
+                  {row.aliquots == null
+                    ? "—"
+                    : row.aliquots.toLocaleString()}
                 </td>
               </tr>
             ))}

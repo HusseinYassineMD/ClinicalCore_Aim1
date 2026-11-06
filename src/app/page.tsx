@@ -9,7 +9,6 @@ import DemographicsTableClient from "@/components/DemographicsTableClient";
 import SectionLabel from "@/components/SectionLabel";
 import AdminTableA7Biomarkers from "@/components/AdminTableA7Biomarkers";
 import BiomarkersSection from "@/components/BiomarkersSection";
-import ClinicalLabSection from "@/components/ClinicalLabSection";
 import ImagingSection from "@/components/ImagingSection";
 import RecSection from "@/components/RecSection";
 import NeuropathAdditionalMetrics from "@/components/NeuropathAdditionalMetrics";
@@ -19,23 +18,25 @@ import DemographicsTableStickyNote from "@/components/DemographicsTableStickyNot
 import DashboardContactFooter from "@/components/DashboardContactFooter";
 import DataStatusStickyNote from "@/components/DataStatusStickyNote";
 import AutopsyEnrollmentConfirmationStickyNote from "@/components/AutopsyEnrollmentConfirmationStickyNote";
-import EventAttendeesConfirmationStickyNote from "@/components/EventAttendeesConfirmationStickyNote";
 import FulfilledConfirmationStickyNote from "@/components/FulfilledConfirmationStickyNote";
 import StickyNoteRail, {
   SectionWithNotes,
 } from "@/components/StickyNoteRail";
-import OreOutreachBlock from "@/components/OreOutreachBlock";
 import { aim1MockData } from "@/data/aim1MockData";
 import {
   biofluidRequestLatestDate,
   neurobankRequestLatestDate,
 } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
+import { metricValueClass } from "@/lib/metricValueClass";
+import recruitmentSpanCounts from "@/data/recruitmentSpanCounts.json";
 import SitePeriodStrip from "@/components/SitePeriodStrip";
 import MetricsSectionNav from "@/components/MetricsSectionNav";
 import SectionScopeBracket from "@/components/SectionScopeBracket";
 import ChartErrorBoundary from "@/components/ChartErrorBoundary";
 import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
+
+const udsCumulative = recruitmentSpanCounts.cumulative.adrc;
 
 export default function DashboardPage() {
   const data = aim1MockData;
@@ -111,6 +112,22 @@ export default function DashboardPage() {
               className="block mt-2 max-w-3xl mx-auto"
             />
           </h2>
+          <div className="flex justify-center">
+            <div className="dashboard-card w-full max-w-xs p-5 text-center">
+              <p className="text-xs font-medium uppercase tracking-wide text-cpbh-navy/55">
+                Cumulative up to date for UDS
+              </p>
+              <p className="mt-2 text-xs leading-snug text-cpbh-navy/60">
+                {formatScopeDate(udsCumulative.fromDate)} –{" "}
+                {formatScopeDate(udsCumulative.throughDate)}
+              </p>
+              <p
+                className={`mt-1 text-4xl font-semibold ${metricValueClass("span", udsCumulative.total)}`}
+              >
+                {udsCumulative.total}
+              </p>
+            </div>
+          </div>
           <div id="recruitment-charts" className="scroll-mt-32">
           <SectionWithNotes
             layoutMaxWidth="max-w-none"
@@ -190,20 +207,13 @@ export default function DashboardPage() {
         </section>
 
         {/* 3. ORE */}
-        <section id="ore" className="scroll-mt-32 space-y-6">
-          <SectionWithNotes
-            notes={
-              <StickyNoteRail>
-                <DataStatusStickyNote
-                  heading="ORE"
-                  {...data.sectionDataStatus.oreOutreach}
-                />
-                <EventAttendeesConfirmationStickyNote />
-              </StickyNoteRail>
-            }
-          >
-            <OreOutreachBlock outreach={data.oreOutreach} />
-          </SectionWithNotes>
+        <section id="ore" className="scroll-mt-32 space-y-4">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy text-center">
+            Outreach, Recruitment, and Engagement
+          </h2>
+          <p className="text-center text-lg text-cpbh-navy/70">
+            N/A for this current period
+          </p>
         </section>
 
         {/* 4. Biomarkers */}
@@ -213,7 +223,6 @@ export default function DashboardPage() {
             samplesProvenance={data.samplesProvenance}
             biofluidCollection={data.biofluidCollection}
             biomarkerCoreSampleProcessing={data.biomarkerCoreSampleProcessing}
-            biomarkerResearch={data.biomarkerResearch}
             biomarkers={data.biomarkers}
             plasmaNcradProvenance={data.plasmaNcradProvenance}
             sectionDataStatus={data.sectionDataStatus}
@@ -241,8 +250,6 @@ export default function DashboardPage() {
           </SectionWithNotes>
           <AdminTableA7Biomarkers />
         </section>
-
-        <ClinicalLabSection />
 
         {/* 5. REC */}
         <div id="rec" className="scroll-mt-32">

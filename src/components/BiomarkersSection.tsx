@@ -4,7 +4,6 @@ import type {
   SampleCounts,
   BiofluidCollectionEntry,
   BiomarkerCoreSampleProcessingData,
-  BiomarkerResearchEntry,
   BiomarkerResults,
   DataProvenance,
   SectionDataStatus,
@@ -13,14 +12,10 @@ import MetricCard from "./MetricCard";
 import BiofluidCollectionBlock from "./BiofluidCollectionBlock";
 import BiomarkerCoreSampleProcessingBlock from "./BiomarkerCoreSampleProcessingBlock";
 import BiomarkerRenewalStickyNote from "./BiomarkerRenewalStickyNote";
-import BiomarkerResearchBlock from "./BiomarkerResearchBlock";
 import DataStatusStickyNote from "./DataStatusStickyNote";
 import SectionScopeBracket from "@/components/SectionScopeBracket";
 import StickyNoteRail, { SectionWithNotes } from "./StickyNoteRail";
-import {
-  biomarkerLatestCollectionDate,
-  biospecimenLatestSpecimenDate,
-} from "@/data/siteReporting";
+import { biomarkerLatestCollectionDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 
 interface BiomarkersSectionProps {
@@ -28,7 +23,6 @@ interface BiomarkersSectionProps {
   samplesProvenance?: Partial<Record<keyof SampleCounts, DataProvenance>>;
   biofluidCollection: BiofluidCollectionEntry[];
   biomarkerCoreSampleProcessing: BiomarkerCoreSampleProcessingData;
-  biomarkerResearch: BiomarkerResearchEntry[];
   biomarkers: BiomarkerResults;
   plasmaNcradProvenance?: DataProvenance;
   sectionDataStatus: SectionDataStatus;
@@ -39,7 +33,6 @@ export default function BiomarkersSection({
   samplesProvenance,
   biofluidCollection,
   biomarkerCoreSampleProcessing,
-  biomarkerResearch,
   biomarkers,
   plasmaNcradProvenance = "unknown",
   sectionDataStatus,
@@ -83,10 +76,6 @@ export default function BiomarkersSection({
               heading="NCRAD & Samples"
               {...sectionDataStatus.biomarkersSamplesAndNcrad}
             />
-            <DataStatusStickyNote
-              heading="Biomarker Research"
-              {...sectionDataStatus.biomarkerResearch}
-            />
             <BiomarkerRenewalStickyNote />
           </StickyNoteRail>
         }
@@ -113,28 +102,16 @@ export default function BiomarkersSection({
             data-deck-slide="biomarkers-samples-ncrad-lab"
             data-deck-caption="Biomarkers · samples and NCRAD plasma"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <MetricCard
-                label="PBMC Samples"
-                value={samples.pbmc}
-                accent="teal"
-                provenance={samplesProvenance?.pbmc ?? "prior"}
-                sublabel="Stopped for now. Separate procedure. Not in REDCap or BST. The number is the last RPPR inventory count."
-              />
-              <MetricCard
-                label="Buffy Coat Samples"
-                value={samples.buffyCoat}
-                accent="purple"
-                provenance={samplesProvenance?.buffyCoat ?? "prior"}
-                sublabel={`Green · direct freezing · BST · last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)}`}
-              />
-              <MetricCard
-                label="126 Plasma Samples"
-                value={samples.plasma126}
-                accent="navy"
-                provenance={samplesProvenance?.plasma126 ?? "prior"}
-                sublabel="RPPR 126-plasma line · distinct from inventory aliquots"
-              />
+            <div className="flex justify-center">
+              <div className="w-full max-w-sm">
+                <MetricCard
+                  label="PBMC Samples"
+                  value={samples.pbmc}
+                  accent="teal"
+                  provenance={samplesProvenance?.pbmc ?? "prior"}
+                  sublabel="Stopped for now. Separate procedure. Not in REDCap or BST. The number is the last RPPR inventory count."
+                />
+              </div>
             </div>
             <p className="text-cpbh-navy/60 text-sm">
               Green · NCRAD is in REDCap. Last collection_date{" "}
@@ -154,12 +131,6 @@ export default function BiomarkersSection({
             </div>
           </div>
 
-          <div
-            data-deck-slide="biomarkers-research"
-            data-deck-caption="Biomarkers · biomarker research studies"
-          >
-            <BiomarkerResearchBlock data={biomarkerResearch} />
-          </div>
         </div>
       </SectionWithNotes>
     </section>

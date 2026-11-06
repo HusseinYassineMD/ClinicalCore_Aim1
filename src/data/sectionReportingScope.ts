@@ -11,8 +11,6 @@ import type { RpprDataPackage } from "@/types/dataPackage";
 import {
   biofluidRequestLatestDate,
   biomarkerLatestCollectionDate,
-  biospecimenLatestCollectionDate,
-  biospecimenLatestSpecimenDate,
   brsLatestActivityDate,
   neurobankRequestLatestDate,
   siteReportingWindow,
@@ -35,7 +33,6 @@ export type SectionScopeId =
   | "neuropathology"
   | "ore"
   | "biomarkers"
-  | "clinical"
   | "rec"
   | "imaging";
 
@@ -58,6 +55,20 @@ function bracket(parts: string[]): string {
 
 export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
   {
+    id: "demographics",
+    navLabel: "Demographics",
+    bracket: bracket([
+      "green",
+      "old RPPR Table 1",
+      `snapshot ${formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate)}`,
+    ]),
+    bullets: [
+      `Table 1 and the charts under it are green: old RPPR harmonized active cohort N=${table1HarmonizedActiveSnapshot.meta.participantCount} · as of ${formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate)} (not the visit-date window).`,
+      `Recruitment UDS counts are black through ${formatScopeDate(cov.udsLatestVisitDate)}, the last visit in James’s file. Autopsy enrollment stays green through ${formatScopeDate(brsLatestActivityDate)}.`,
+      `Green RPPR Table 1 workbook period (if cited elsewhere): ${rpprTable1Period}.`,
+    ],
+  },
+  {
     id: "recruitment",
     navLabel: "Recruitment",
     bracket: bracket([
@@ -71,20 +82,6 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
       `Autopsy enrollment stays green. Last MAP date ${formatScopeDate(brsLatestActivityDate)} (autopsy consent). MAP pull 2026-10-07.`,
       `GeneScreen black: REDCap ${geneScreenYtd.sourceFile} · ${geneScreenYtd.reportingPeriodLabel} · export ${formatScopeDate(geneScreenYtd.lastUpdated)}.`,
       `Green registry headlines (668 / 573 / 231): last RPPR ${rpprPeriod}.`,
-    ],
-  },
-  {
-    id: "demographics",
-    navLabel: "Demographics",
-    bracket: bracket([
-      "green",
-      "old RPPR Table 1",
-      `snapshot ${formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate)}`,
-    ]),
-    bullets: [
-      `Table 1 and the charts under it are green: old RPPR harmonized active cohort N=${table1HarmonizedActiveSnapshot.meta.participantCount} · as of ${formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate)} (not the visit-date window).`,
-      `Recruitment UDS counts are black through ${formatScopeDate(cov.udsLatestVisitDate)}, the last visit in James’s file. Autopsy enrollment stays green through ${formatScopeDate(brsLatestActivityDate)}.`,
-      `Green RPPR Table 1 workbook period (if cited elsewhere): ${rpprTable1Period}.`,
     ],
   },
   {
@@ -117,23 +114,14 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     id: "biomarkers",
     navLabel: "Biomarkers",
     bracket: bracket([
-      "green",
-      `plasma collections through ${formatScopeDate(biomarkerLatestCollectionDate)}`,
-      `inventory through ${formatScopeDate(biospecimenLatestSpecimenDate)}`,
+      "black",
+      "Jan 1, 2026 – Oct 31, 2026",
+      "Abhay Sagare",
     ]),
     bullets: [
       `NCRAD plasma is green and lives in REDCap. Integrated_Biomarkers_Long last collection_date ${formatScopeDate(biomarkerLatestCollectionDate)}.`,
-      `Biospecimen inventory is green. Last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)}. Last collection_date ${formatScopeDate(biospecimenLatestCollectionDate)}. Plasma and buffy coat are direct-freeze samples in BST (REDCap, James and Xinhui). CSF is REDCap. James will share Abhay’s Rapid Excel.`,
+      "Biofluid Collection and Biomarker Core sample processing are black: January 1, 2026 – October 31, 2026, provided by Abhay Sagare, USC ADRC Biomarker Core.",
       `Biofluid requests are green. Last Survey Timestamp ${formatScopeDate(biofluidRequestLatestDate)} · ${redcapSpecimenSharing.sources.biofluids} · pulled ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
-    ],
-  },
-  {
-    id: "clinical",
-    navLabel: "Clinical",
-    bracket: bracket(["pinned for a future RPPR"]),
-    bullets: [
-      "Clinical lab metrics (A1C, lipids, creatinine, blood pressure) are not counted in this cycle.",
-      "Held out of Biomarkers and pinned for a future RPPR.",
     ],
   },
   {

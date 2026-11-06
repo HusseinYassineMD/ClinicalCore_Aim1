@@ -1560,59 +1560,15 @@ function RegistryAlignedDesktop({
   );
 }
 
-const RECRUITMENT_PHASES: { id: RecruitmentPhase; label: string }[] = [
-  { id: "cumulative", label: "Cumulative" },
-  { id: "grant", label: "Active" },
-];
-
-function RecruitmentPhaseToggle({
-  phase,
+function AliveParticipantsControl({
   alive,
-  onChange,
   onAliveChange,
 }: {
-  phase: RecruitmentPhase;
   alive: boolean;
-  onChange: (phase: RecruitmentPhase) => void;
   onAliveChange: (alive: boolean) => void;
 }) {
-  const windowCaption =
-    phase === "ytd"
-      ? `Cumulative is every UDS visit in this file, from 2005. Active is visits since July 1, 2025. Year to date is black through the last visit in James’s file, ${formatScopeDate(udsLatestVisitDate)}. Red means that count is not in the file.`
-      : phase === "grant"
-        ? "Active changes only the UDS column: visits on or after July 1, 2025. GeneScreen and autopsy stay on year to date. Year to date stays in the UDS box beside Active."
-        : "Cumulative is every UDS visit in this export, and those visits start in 2005. GeneScreen and autopsy are red on Cumulative because this file has no matching total for that window.";
-  const aliveCaption = alive
-    ? " Alive is on for UDS. Those counts exclude people listed as Deceased."
-    : "";
-
   return (
-    <div className="flex flex-col items-center gap-2 px-2">
-      <div
-        role="radiogroup"
-        aria-label="Recruitment time window"
-        className="inline-flex flex-wrap justify-center gap-1 rounded-full border border-cpbh-mist bg-white p-1 shadow-sm"
-      >
-        {RECRUITMENT_PHASES.map((option) => {
-          const selected = phase === option.id;
-          return (
-            <button
-              key={option.id}
-              type="button"
-              role="radio"
-              aria-checked={selected}
-              onClick={() => onChange(option.id)}
-              className={`rounded-full px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors ${
-                selected
-                  ? "bg-cpbh-navy text-white"
-                  : "text-cpbh-navy/70 hover:bg-cpbh-mist/60"
-              }`}
-            >
-              {option.label}
-            </button>
-          );
-        })}
-      </div>
+    <div className="flex justify-center px-2">
       <label className="inline-flex items-center gap-2 text-sm font-medium text-cpbh-navy cursor-pointer">
         <input
           type="checkbox"
@@ -1622,10 +1578,6 @@ function RecruitmentPhaseToggle({
         />
         Alive participants
       </label>
-      <p className="max-w-3xl text-center text-[11px] leading-snug text-cpbh-navy/60">
-        {windowCaption}
-        {aliveCaption}
-      </p>
     </div>
   );
 }
@@ -1634,7 +1586,7 @@ export default function TopRegistryOverview({
   data,
 }: TopRegistryOverviewProps) {
   const [phase, setPhase] = useState<RecruitmentPhase>("ytd");
-  const [alive, setAlive] = useState(false);
+  const [alive, setAlive] = useState(true);
   const columns = orderRecruitmentColumns(data.columns).map((column) =>
     columnForPhase(column, phase, alive),
   );
@@ -1646,12 +1598,7 @@ export default function TopRegistryOverview({
 
   return (
     <section className="relative z-[1] space-y-6 w-full mx-auto max-w-[90rem]">
-      <RecruitmentPhaseToggle
-        phase={phase}
-        alive={alive}
-        onChange={setPhase}
-        onAliveChange={setAlive}
-      />
+      <AliveParticipantsControl alive={alive} onAliveChange={setAlive} />
       <RegistryAlignedDesktop
         columns={columns}
         udsBoxes={udsBoxes}

@@ -1,6 +1,13 @@
 import type { BiomarkerCoreSampleProcessingData } from "@/types/aim1";
-import { siteReportingWindow } from "@/data/siteReporting";
 import { metricValueClass } from "@/lib/metricValueClass";
+import { formatScopeDate } from "@/lib/formatScopeDate";
+
+function coverageLabel(startMonth: string, endMonth: string): string {
+  const startIso = `${startMonth}-01`;
+  const [year, month] = endMonth.split("-").map(Number);
+  const endIso = new Date(Date.UTC(year, month, 0)).toISOString().slice(0, 10);
+  return `${formatScopeDate(startIso)} – ${formatScopeDate(endIso)}`;
+}
 
 interface BiomarkerCoreSampleProcessingBlockProps {
   data: BiomarkerCoreSampleProcessingData;
@@ -30,11 +37,8 @@ export default function BiomarkerCoreSampleProcessingBlock({
           Biomarker Core · sample processing
         </h3>
         <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl leading-relaxed">
-          Black · {meta.reportingPeriodLabel} · source {meta.providedBy}. File:{" "}
-          {meta.sourceFile.split("/").pop()}. Dashboard RPPR window:{" "}
-          {siteReportingWindow.label}. October rows in this workbook may include
-          activity after the RPPR end date.{" "}
-          {meta.note}
+          Black · {coverageLabel(meta.startMonth, meta.endMonth)} ·{" "}
+          {meta.providedBy}. Monthly sample and tube counts for that period.
         </p>
       </div>
       <div className="overflow-x-auto px-2 pb-6">
