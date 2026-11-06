@@ -265,7 +265,8 @@ def write_brs_recruitment_constants(*, brs_path: Path, brs_rows: list[dict[str, 
     ]
     hispanic = sum(1 for r in active if (r.get("subject_basic_hispanic") or "") == "1")
     non_hispanic = sum(1 for r in active if (r.get("subject_basic_hispanic") or "") == "0")
-    unknown_hispanic = len(active) - hispanic - non_hispanic
+    unknown_hispanic = sum(1 for r in active if (r.get("subject_basic_hispanic") or "") == "9")
+    hispanic_not_reported = len(active) - hispanic - non_hispanic - unknown_hispanic
     male = sum(1 for r in active if (r.get("map_subject_gender") or "") == "1")
     female = sum(1 for r in active if (r.get("map_subject_gender") or "") == "2")
     out_path = ROOT / "src" / "data" / "recruitmentChartConstants.ts"
@@ -278,6 +279,7 @@ export const BRS_ACTIVE_COHORT = {{
     {{ label: "Hispanic", count: {hispanic} }},
     {{ label: "Non-Hispanic", count: {non_hispanic} }},
     {{ label: "Unknown", count: {unknown_hispanic} }},
+    {{ label: "Not reported", count: {hispanic_not_reported} }},
   ],
   sex: [
     {{ label: "Male", count: {male} }},

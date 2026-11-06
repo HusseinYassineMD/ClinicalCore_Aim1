@@ -3,10 +3,12 @@ export const BRS_ACTIVE_COHORT = {
   exportFile: "MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv",
   activeRows: 231,
   rpprHeadlineEnrolled: 231,
+  /** Choice 1, choice 0, choice 9 (Unknown). Blank field is Not reported, not Unknown. */
   hispanicLatino: [
     { label: "Hispanic", count: 51 },
     { label: "Non-Hispanic", count: 178 },
-    { label: "Unknown", count: 2 },
+    { label: "Unknown", count: 1 },
+    { label: "Not reported", count: 1 },
   ],
   sex: [
     { label: "Male", count: 85 },
