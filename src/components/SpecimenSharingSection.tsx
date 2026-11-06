@@ -143,12 +143,12 @@ export default function SpecimenSharingSection({
       data-deck-slide={deckSlideId}
       data-deck-caption={deckSlideId ? (deckCaption ?? title) : undefined}
     >
-      <div className="mb-1">
+      <div className="mb-1 text-center">
         <h3 className="font-display text-lg font-semibold text-cpbh-navy">
           {title}
         </h3>
       </div>
-      <p className="text-cpbh-navy/60 text-sm mb-4">{subtitle}</p>
+      <p className="text-cpbh-navy/60 text-sm mb-4 text-center">{subtitle}</p>
       <SpecimenSharingSnapshot
         data={data}
         periodLabel={reportingPeriodLabel}

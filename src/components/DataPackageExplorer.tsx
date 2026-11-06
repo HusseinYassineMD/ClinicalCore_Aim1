@@ -1299,8 +1299,8 @@ function ReportingPeriodSummarySection({ summary }: { summary: ReportingPeriodSu
 
       <ReportingPeriodDomain
         title="Biomarker collections"
-        sourceFile={bio.sourceFile}
-        dateHint={`Filtered on ${bio.dateField}`}
+        sourceFile={bio.sourcePath ?? bio.sourceFile}
+        dateHint={`${bio.packetName ?? "JamesDataPacket November 5"} · ${bio.providedBy ?? "James Wang"} · received ${bio.packetReceivedOn ?? "2026-11-05"} · ${bio.dateField} ${bio.collectionCoverageStart ?? "—"} through ${bio.collectionCoverageEnd ?? "—"}`}
         metrics={[
           {
             label: "Subjects with any specimen collection",
@@ -1318,8 +1318,28 @@ function ReportingPeriodSummarySection({ summary }: { summary: ReportingPeriodSu
             label: "CSF measurement rows",
             value: bio.csfMeasurementRows,
           },
+          {
+            label: "NCRAD plasma Aβ40",
+            value: bio.ncradPlasmaMeasurements?.ab40 ?? 0,
+          },
+          {
+            label: "NCRAD plasma Aβ42",
+            value: bio.ncradPlasmaMeasurements?.ab42 ?? 0,
+          },
+          {
+            label: "NCRAD plasma GFAP",
+            value: bio.ncradPlasmaMeasurements?.gfap ?? 0,
+          },
+          {
+            label: "NCRAD plasma NfL",
+            value: bio.ncradPlasmaMeasurements?.nfl ?? 0,
+          },
+          {
+            label: "NCRAD plasma ptau217",
+            value: bio.ncradPlasmaMeasurements?.ptau217 ?? 0,
+          },
         ]}
-        footnote="Subject counts use unique uds_id. Measurement rows may include multiple draws per subject."
+        footnote={`Source file ${bio.sourcePath ?? bio.sourceFile}. NCRAD counts are plasma rows in ${bio.collectionCoverageStart ?? "—"} through ${bio.collectionCoverageEnd ?? "—"}. Full packet collection-date range ${bio.packetCollectionStart ?? "—"} through ${bio.packetCollectionEnd ?? "—"}. NCRAD Flywheel update ${bio.ncradFlywheelUpdate ?? "—"}.`}
       />
 
       <ReportingPeriodDomain

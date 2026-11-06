@@ -35,7 +35,7 @@ const HARMONIZED_COLUMNS: Table1ColumnKey[] = [
 export default function DemographicsTableClient() {
   return (
     <div className="dashboard-card overflow-visible p-0 shadow-lg shadow-cpbh-navy/8">
-      <div className="px-6 pt-6 pb-3">
+      <div className="px-6 pt-6 pb-3 text-center">
         <h2 className="font-display text-xl font-semibold text-cpbh-navy">
           Table 1: Demographic and clinical characteristics of the clinical core
         </h2>

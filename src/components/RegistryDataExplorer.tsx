@@ -85,6 +85,21 @@ function SummaryPanel({ dataset }: { dataset: RegistryDatasetMeta }) {
   if (s.deceased != null) {
     cards.push({ label: "Deceased", value: s.deceased.toLocaleString() });
   }
+  if (s.measurements != null) {
+    cards.push({ label: "Measurements", value: s.measurements.toLocaleString() });
+  }
+  if (s.plasmaRows != null) {
+    cards.push({ label: "Plasma rows", value: s.plasmaRows.toLocaleString() });
+  }
+  if (s.csfRows != null) {
+    cards.push({ label: "CSF rows", value: s.csfRows.toLocaleString() });
+  }
+  if (s.collectionStart && s.collectionEnd) {
+    cards.push({
+      label: "Collection dates",
+      value: `${s.collectionStart} – ${s.collectionEnd}`,
+    });
+  }
 
   return (
     <div className="space-y-4">
@@ -125,8 +140,10 @@ function DatasetSummaryCard({ dataset }: { dataset: RegistryDatasetMeta }) {
           {dataset.label}
         </h2>
         <p className="text-sm text-cpbh-navy/60 mt-1">{dataset.description}</p>
-        <p className="text-xs text-cpbh-navy/50 mt-2">
-          Source file indexed {dataset.fileModified} · {dataset.fileSizeMb} MB
+        <p className="text-xs text-cpbh-navy/50 mt-2 leading-relaxed">
+          Source: {dataset.sourceFile}
+          {dataset.fileModified ? ` · file date ${dataset.fileModified}` : ""} ·{" "}
+          {dataset.fileSizeMb} MB
         </p>
       </div>
       <SummaryPanel dataset={dataset} />

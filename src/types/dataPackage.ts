@@ -146,7 +146,18 @@ export interface ReportingPeriodSummary {
   };
   biomarkers: {
     sourceFile: string;
+    sourcePath?: string;
+    packetName?: string;
+    providedBy?: string;
+    packetReceivedOn?: string;
     dateField: string;
+    /** First and last collection_date inside the dashboard year-to-date window. */
+    collectionCoverageStart?: string;
+    collectionCoverageEnd?: string;
+    /** First and last dated collection in the packet, excluding suspect dates. */
+    packetCollectionStart?: string;
+    packetCollectionEnd?: string;
+    ncradFlywheelUpdate?: string;
     subjectsWithCollection: number;
     subjectsWithPlasmaCollection: number;
     subjectsWithCsfCollection: number;

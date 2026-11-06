@@ -9,7 +9,7 @@ interface IdaUploadBlockProps {
 export default function IdaUploadBlock({ data }: IdaUploadBlockProps) {
   return (
     <div className="dashboard-card">
-      <div className="mb-4">
+      <div className="mb-4 text-center">
         <h3 className="font-display text-lg font-semibold text-cpbh-navy">
           IDA Imaging Uploads
         </h3>

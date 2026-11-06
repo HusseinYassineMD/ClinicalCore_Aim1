@@ -39,9 +39,12 @@ export default function ImagingSection({
 }: ImagingSectionProps) {
   return (
     <section className="space-y-6">
-      <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy">
+      <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy text-center">
         <span className="block">Imaging</span>
-        <SectionScopeBracket sectionId="imaging" className="block mt-2" />
+        <SectionScopeBracket
+          sectionId="imaging"
+          className="block mt-2 max-w-3xl mx-auto"
+        />
       </h2>
 
       <SectionWithNotes

@@ -222,20 +222,30 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   // Biomarkers
   {
     section: "Biomarkers",
-    metric: "Biofluid inventory YTD (James biospecimen package)",
-    value: "Plasma 183 / 2371 aliquots · Serum 32 / 746 · Buffy 183 / 392 · CSF 0 / 0",
+    metric: "Biofluid Collection · samples / tubes",
+    value: "Plasma 209 / 2,498 · Buffy coat 209 / 416 · Serum 32 / 721 · CSF 0 / 0",
     tier: "verified",
     source:
-      "USC_ADRC_Biospecimen_Availability_Long_v1.0.1.csv · collection_date · rpprDataPackage.json biospecimenInventory",
-    notes: siteReportingWindow.label,
+      "data/reference/biomarker-core/Biomarker Core Sample Processing January-October 2026.xlsx · Abhay Sagare, USC ADRC Biomarker Core",
+    notes: "Black. January 1, 2026 – October 31, 2026. CSF is 0 / 0 because that workbook has no CSF rows.",
   },
   {
     section: "Biomarkers",
-    metric: "NCRAD plasma assay YTD · sample cards (mixed provenance)",
-    value: "Aβ40/42 98 · GFAP/NfL/ptau217 194 · buffy YTD 392 aliquots (black) · PBMC/126-plasma green RPPR",
+    metric: "NCRAD plasma assay rows",
+    value: "Aβ40 148 · Aβ42 148 · GFAP 294 · NfL 294 · ptau217 296",
     tier: "verified",
     source:
-      "Integrated_Biomarkers_Long (NCRAD) · biospecimen long (buffy YTD) · rpprMetrics samples (PBMC/126)",
+      "data/JamesDataPacket-November-5/Integrated_Biomarkers_Long_v1.1.2.csv · James Wang · received November 5, 2026",
+    notes:
+      "Green. Counts are NCRAD plasma rows with collection_date January 6, 2026 – August 27, 2026. Full packet range May 31, 2011 – August 27, 2026. Flywheel update October 25, 2026.",
+  },
+  {
+    section: "Biomarkers",
+    metric: "PBMC samples",
+    value: "331",
+    tier: "verified",
+    source: "Last RPPR inventory count. Not in REDCap, BST, or JamesDataPacket November 5.",
+    notes: "Green. Stopped for now.",
   },
   {
     section: "Biomarkers",

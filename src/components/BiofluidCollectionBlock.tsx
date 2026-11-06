@@ -20,13 +20,17 @@ interface BiofluidCollectionBlockProps {
 export default function BiofluidCollectionBlock({ data }: BiofluidCollectionBlockProps) {
   return (
     <div className="dashboard-card overflow-hidden p-0">
-      <div className="px-8 pt-8 pb-5">
+      <div className="px-8 pt-8 pb-5 text-center">
         <h3 className="font-display text-xl md:text-2xl font-semibold text-cpbh-navy leading-snug">
           Biofluid Collection
         </h3>
-        <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl leading-relaxed">
-          Black · {coverage} · {processingMeta.providedBy}. Updated sample and
-          tube totals from the Biomarker Core sample processing file.
+        <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl mx-auto leading-relaxed">
+          Black · {coverage} · {processingMeta.providedBy}.
+        </p>
+        <p className="text-cpbh-navy/55 text-xs mt-2 max-w-3xl mx-auto leading-relaxed">
+          Source: {processingMeta.sourceFile}. Sample and tube totals for{" "}
+          {coverage}. CSF is 0 samples and 0 tubes because that workbook has no
+          CSF rows.
         </p>
       </div>
       <div className="overflow-x-auto px-2 pb-2">

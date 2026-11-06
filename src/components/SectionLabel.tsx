@@ -15,7 +15,7 @@ export default function SectionLabel({
   scopeSectionId,
 }: SectionLabelProps) {
   return (
-    <div className="flex items-center gap-3 mb-4">
+    <div className="flex items-center justify-center gap-3 mb-4 text-center">
       <span
         className={`inline-block w-1 h-8 rounded-full ${
           variant === "priority" ? "bg-cpbh-purple" : "bg-cpbh-teal"

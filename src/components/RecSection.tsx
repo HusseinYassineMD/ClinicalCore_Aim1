@@ -12,10 +12,13 @@ interface RecSectionProps {
 export default function RecSection({ data, roster }: RecSectionProps) {
   return (
     <section className="space-y-8">
-      <div>
+      <div className="text-center">
         <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy">
           <span className="block">REC</span>
-          <SectionScopeBracket sectionId="rec" className="block mt-2" />
+          <SectionScopeBracket
+            sectionId="rec"
+            className="block mt-2 max-w-3xl mx-auto"
+          />
         </h2>
         <p className="text-cpbh-navy/60 text-sm mt-1">
           Research Education Component · speaker series, scholars, faculty, and
@@ -24,7 +27,7 @@ export default function RecSection({ data, roster }: RecSectionProps) {
       </div>
 
       <div>
-        <h3 className="font-display text-xl font-semibold text-cpbh-navy mb-3">
+        <h3 className="font-display text-xl font-semibold text-cpbh-navy mb-3 text-center">
           Speaker series
         </h3>
         <div className="dashboard-card">
@@ -96,7 +99,7 @@ export default function RecSection({ data, roster }: RecSectionProps) {
         data-deck-slide="rec-roster"
         data-deck-caption="REC · scholars, faculty, and training programs"
       >
-        <h3 className="font-display text-xl font-semibold text-cpbh-navy mb-3">
+        <h3 className="font-display text-xl font-semibold text-cpbh-navy mb-3 text-center">
           Scholars, faculty &amp; programs
         </h3>
         <RecRosterPanel roster={roster} />

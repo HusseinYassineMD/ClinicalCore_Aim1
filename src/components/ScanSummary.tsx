@@ -32,7 +32,7 @@ function ScanProgressBlock({
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-center gap-3 mb-6 text-center">
         <h3 className="font-display text-2xl md:text-3xl font-semibold text-cpbh-navy">
           {title}
         </h3>

@@ -420,7 +420,7 @@ export default function AdminTableA7Biomarkers() {
       data-deck-slide="biomarkers-admin-table-a7"
       data-deck-caption="Biomarkers · Administrative Table A7 (January 2025)"
     >
-      <div className="px-6 pt-6 pb-4 border-b border-cpbh-mist">
+      <div className="px-6 pt-6 pb-4 border-b border-cpbh-mist text-center">
         <h3 className="font-display text-xl font-semibold text-cpbh-navy">
           Administrative Table A7
         </h3>

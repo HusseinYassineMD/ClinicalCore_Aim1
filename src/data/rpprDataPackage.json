@@ -2,7 +2,7 @@
   "packageLabel": "USC ADRC RPPR Data Package",
   "receivedAt": "2026-09-16",
   "supplementReceivedAt": "2026-10-09",
-  "lastAggregated": "2026-11-03T23:58:27.737476+00:00",
+  "lastAggregated": "2026-11-06T01:59:34.983590+00:00",
   "reportingPeriodSummary": {
     "label": "1/1/2026 \u2013 10/16/2026",
     "startDate": "2026-01-01",
@@ -14,7 +14,7 @@
     "dataCoverage": {
       "packageReceivedAt": "2026-09-16",
       "udsLatestVisitDate": "2026-10-12",
-      "biomarkerLatestCollectionDate": "2026-07-30",
+      "biomarkerLatestCollectionDate": "2026-08-27",
       "brsLatestActivityDate": "2026-10-05"
     },
     "udsClinical": {
@@ -112,25 +112,34 @@
       }
     },
     "biomarkers": {
-      "sourceFile": "Integrated_Biomarkers_Long_v1.0.5.csv",
+      "sourceFile": "Integrated_Biomarkers_Long_v1.1.2.csv",
+      "sourcePath": "data/JamesDataPacket-November-5/Integrated_Biomarkers_Long_v1.1.2.csv",
+      "packetName": "JamesDataPacket November 5",
+      "packetReceivedOn": "2026-11-05",
+      "providedBy": "James Wang",
       "dateField": "collection_date",
-      "subjectsWithCollection": 98,
-      "subjectsWithPlasmaCollection": 98,
+      "collectionCoverageStart": "2026-01-06",
+      "collectionCoverageEnd": "2026-08-27",
+      "packetCollectionStart": "2011-05-31",
+      "packetCollectionEnd": "2026-08-27",
+      "ncradFlywheelUpdate": "2026-10-25",
+      "subjectsWithCollection": 148,
+      "subjectsWithPlasmaCollection": 148,
       "subjectsWithCsfCollection": 0,
-      "measurementRows": 778,
-      "plasmaMeasurementRows": 778,
+      "measurementRows": 1180,
+      "plasmaMeasurementRows": 1180,
       "csfMeasurementRows": 0,
       "ncradPlasmaMeasurements": {
-        "ab40": 98,
-        "ab42": 98,
-        "gfap": 194,
-        "nfl": 194,
-        "ptau217": 194
+        "ab40": 148,
+        "ab42": 148,
+        "gfap": 294,
+        "nfl": 294,
+        "ptau217": 296
       },
       "definitions": {
         "subjectsWithCollection": "Unique uds_id with any collection_date in period",
         "subjectsWithPlasmaCollection": "Unique uds_id with plasma collection_date in period",
-        "ncradPlasmaMeasurements": "Plasma measurement rows in period from Integrated_Biomarkers_Long by biomarker label (NCRAD panel)"
+        "ncradPlasmaMeasurements": "NCRAD plasma measurement rows in the year-to-date window from JamesDataPacket November 5, Integrated_Biomarkers_Long_v1.1.2.csv, by biomarker label"
       }
     },
     "brsAutopsy": {
@@ -441,13 +450,13 @@
       {
         "id": "biomarker-availability",
         "title": "Biomarker availability matrix",
-        "sourceFile": "Integrated_Biomarker_Availability_v1.0.5.csv",
-        "dateHint": "Subject \u00d7 biomarker rows filtered on collection_date",
+        "sourceFile": "data/JamesDataPacket-November-5/Integrated_Biomarker_Availability_v1.1.2.csv",
+        "dateHint": "JamesDataPacket November 5 \u00b7 subject \u00d7 biomarker rows filtered on collection_date",
         "metrics": [
           {
             "label": "Availability rows with collection in period",
-            "value": 487,
-            "participants": 98
+            "value": 738,
+            "participants": 148
           }
         ],
         "footnote": "Row count is matrix slots (subject \u00d7 biomarker), not unique draws. Long-format measurement counts are in the section above."
@@ -455,20 +464,20 @@
       {
         "id": "biomarker-subject-summary",
         "title": "Biomarker subject summary",
-        "sourceFile": "Integrated_Biomarker_Subject_Summary_v1.0.5.csv",
-        "dateHint": "Subject-level first and latest collection dates",
+        "sourceFile": "data/JamesDataPacket-November-5/Integrated_Biomarker_Subject_Summary_v1.1.2.csv",
+        "dateHint": "JamesDataPacket November 5 \u00b7 subject-level first and latest collection dates",
         "metrics": [
           {
             "label": "Subjects with first collection in period",
-            "value": 24
+            "value": 34
           },
           {
             "label": "Subjects with latest collection in period",
-            "value": 98
+            "value": 148
           },
           {
             "label": "Subjects with collection span touching period",
-            "value": 98
+            "value": 148
           }
         ],
         "footnote": "Span touching period includes subjects whose first/latest collection range overlaps the year-to-date window."
@@ -485,11 +494,11 @@
   },
   "note": "Integrated imaging availability v1.5.2 is included when CSVs are present under USC ADRC Integrated Imaging Availability. BRS IDs use 8-xxxx format \u2014 open CSVs via import, not double-click in Excel.",
   "inventory": {
-    "totalFiles": 31,
-    "csvFiles": 24,
-    "htmlReports": 3,
-    "totalCsvRows": 275232,
-    "totalSizeMb": 108.0,
+    "totalFiles": 37,
+    "csvFiles": 29,
+    "htmlReports": 4,
+    "totalCsvRows": 291302,
+    "totalSizeMb": 113.86,
     "files": [
       {
         "path": "data/rppr-data-package/MAPDatabase-APOEGenotype_DATA_2026-09-16_1445.csv",
@@ -721,7 +730,18 @@
         "columnCount": 0,
         "fileSizeMb": 0.96,
         "fileModified": "2026-09-18",
-        "description": "Integrated biomarker availability report with coverage summaries.",
+        "description": "Integrated biomarker availability report with coverage summaries. Superseded by v1.1.2.",
+        "fileType": "html",
+        "relativeDir": "USC ADRC Integrated Biomarker Availability"
+      },
+      {
+        "path": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Availability_Report_v1.1.2.html",
+        "fileName": "Integrated_Biomarker_Availability_Report_v1.1.2.html",
+        "rowCount": 0,
+        "columnCount": 0,
+        "fileSizeMb": 0.92,
+        "fileModified": "2026-11-05",
+        "description": "JamesDataPacket November 5. Integrated biomarker availability report. Collection-date range 2011-05-31 to 2026-08-27. NCRAD Flywheel update 2026-10-25.",
         "fileType": "html",
         "relativeDir": "USC ADRC Integrated Biomarker Availability"
       },
@@ -732,7 +752,38 @@
         "columnCount": 17,
         "fileSizeMb": 1.33,
         "fileModified": "2026-09-18",
-        "description": "Subject \u00d7 collection \u00d7 biomarker availability matrix (has_measurement flags).",
+        "description": "Subject \u00d7 collection \u00d7 biomarker availability matrix (has_measurement flags). Superseded by JamesDataPacket November 5 (v1.1.2).",
+        "fileType": "csv",
+        "columns": [
+          "uds_id",
+          "collection_date",
+          "specimen_type",
+          "biomarker",
+          "atnv_domain",
+          "source_family",
+          "source_dataset",
+          "measurement_family_id",
+          "protocol_id",
+          "has_measurement",
+          "n_measurements",
+          "n_replicates",
+          "any_qc_review",
+          "biomarker_unit",
+          "batch_return_numbers",
+          "batch_return_dates",
+          "source_files"
+        ],
+        "columnTruncated": false,
+        "relativeDir": "USC ADRC Integrated Biomarker Availability"
+      },
+      {
+        "path": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Availability_v1.1.2.csv",
+        "fileName": "Integrated_Biomarker_Availability_v1.1.2.csv",
+        "rowCount": 7159,
+        "columnCount": 17,
+        "fileSizeMb": 1.42,
+        "fileModified": "2026-11-05",
+        "description": "JamesDataPacket November 5. Subject \u00d7 collection \u00d7 biomarker availability matrix (has_measurement flags).",
         "fileType": "csv",
         "columns": [
           "uds_id",
@@ -763,7 +814,23 @@
         "columnCount": 2,
         "fileSizeMb": 0.0,
         "fileModified": "2026-09-18",
-        "description": "Field definitions for integrated biomarker deliverables.",
+        "description": "Field definitions for integrated biomarker deliverables. Superseded by JamesDataPacket November 5 (v1.1.2).",
+        "fileType": "csv",
+        "columns": [
+          "variable",
+          "description"
+        ],
+        "columnTruncated": false,
+        "relativeDir": "USC ADRC Integrated Biomarker Availability"
+      },
+      {
+        "path": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Data_Dictionary_v1.1.2.csv",
+        "fileName": "Integrated_Biomarker_Data_Dictionary_v1.1.2.csv",
+        "rowCount": 36,
+        "columnCount": 2,
+        "fileSizeMb": 0.0,
+        "fileModified": "2026-11-05",
+        "description": "JamesDataPacket November 5. Field definitions for integrated biomarker deliverables.",
         "fileType": "csv",
         "columns": [
           "variable",
@@ -779,7 +846,34 @@
         "columnCount": 13,
         "fileSizeMb": 0.01,
         "fileModified": "2026-09-18",
-        "description": "Catalog of integrated source datasets, protocols, and measurement counts.",
+        "description": "Catalog of integrated source datasets, protocols, and measurement counts. Superseded by JamesDataPacket November 5 (v1.1.2).",
+        "fileType": "csv",
+        "columns": [
+          "source_family",
+          "source_dataset",
+          "specimen_type",
+          "measurement_family_id",
+          "protocol_id",
+          "biomarker",
+          "biomarker_unit",
+          "atnv_domain",
+          "n_measurements",
+          "n_subjects",
+          "n_dated_measurements",
+          "first_collection_date",
+          "latest_collection_date"
+        ],
+        "columnTruncated": false,
+        "relativeDir": "USC ADRC Integrated Biomarker Availability"
+      },
+      {
+        "path": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Source_Catalog_v1.1.2.csv",
+        "fileName": "Integrated_Biomarker_Source_Catalog_v1.1.2.csv",
+        "rowCount": 41,
+        "columnCount": 13,
+        "fileSizeMb": 0.01,
+        "fileModified": "2026-11-05",
+        "description": "JamesDataPacket November 5. Catalog of integrated source datasets, protocols, and measurement counts.",
         "fileType": "csv",
         "columns": [
           "source_family",
@@ -806,7 +900,40 @@
         "columnCount": 19,
         "fileSizeMb": 0.1,
         "fileModified": "2026-09-18",
-        "description": "One row per subject with plasma/CSF/NCRAD/C2N and ATN coverage flags.",
+        "description": "One row per subject with plasma/CSF/NCRAD/C2N and ATN coverage flags. Superseded by JamesDataPacket November 5 (v1.1.2).",
+        "fileType": "csv",
+        "columns": [
+          "uds_id",
+          "has_any_biomarker",
+          "has_plasma",
+          "has_csf",
+          "has_ncrad",
+          "has_c2n",
+          "has_vcs_redcap",
+          "has_legacy_csf",
+          "has_A",
+          "has_T",
+          "has_N",
+          "has_V",
+          "n_measurements",
+          "n_distinct_biomarkers",
+          "n_distinct_collection_dates",
+          "first_collection_date",
+          "latest_collection_date",
+          "biomarkers_available",
+          "source_families"
+        ],
+        "columnTruncated": false,
+        "relativeDir": "USC ADRC Integrated Biomarker Availability"
+      },
+      {
+        "path": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Subject_Summary_v1.1.2.csv",
+        "fileName": "Integrated_Biomarker_Subject_Summary_v1.1.2.csv",
+        "rowCount": 734,
+        "columnCount": 19,
+        "fileSizeMb": 0.11,
+        "fileModified": "2026-11-05",
+        "description": "JamesDataPacket November 5. One row per subject with plasma/CSF/NCRAD/C2N and ATN coverage flags.",
         "fileType": "csv",
         "columns": [
           "uds_id",
@@ -839,7 +966,57 @@
         "columnCount": 36,
         "fileSizeMb": 3.03,
         "fileModified": "2026-09-18",
-        "description": "Long-format harmonized biomarker measurements with source provenance.",
+        "description": "Long-format harmonized biomarker measurements with source provenance. Superseded by JamesDataPacket November 5 (v1.1.2).",
+        "fileType": "csv",
+        "columns": [
+          "uds_id",
+          "collection_date",
+          "analysis_date",
+          "batch_return_number",
+          "batch_return_date",
+          "batch_date_provenance",
+          "specimen_type",
+          "biomarker",
+          "biomarker_value",
+          "biomarker_unit",
+          "biomarker_unit_provenance",
+          "replicate_number",
+          "source_family",
+          "source_dataset",
+          "measurement_family_id",
+          "protocol_id",
+          "assay_method",
+          "assay_platform",
+          "assay_platform_code",
+          "assay_name",
+          "assay_name_code",
+          "assay_version",
+          "assay_lot_no",
+          "source_project",
+          "source_event",
+          "source_generation",
+          "qc_status",
+          "qc_note",
+          "source_priority",
+          "source_file",
+          "source_row",
+          "date_provenance",
+          "atnv_domain",
+          "canonical_selection_reason",
+          "collection_date_raw",
+          "collection_date_suspect"
+        ],
+        "columnTruncated": false,
+        "relativeDir": "USC ADRC Integrated Biomarker Availability"
+      },
+      {
+        "path": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarkers_Long_v1.1.2.csv",
+        "fileName": "Integrated_Biomarkers_Long_v1.1.2.csv",
+        "rowCount": 8100,
+        "columnCount": 36,
+        "fileSizeMb": 3.4,
+        "fileModified": "2026-11-05",
+        "description": "JamesDataPacket November 5 (James Wang, received 2026-11-05). Long-format harmonized biomarker measurements. Dashboard NCRAD counts use collection_date in the year-to-date window.",
         "fileType": "csv",
         "columns": [
           "uds_id",
@@ -4024,30 +4201,30 @@
     {
       "id": "integrated-biomarkers",
       "title": "Integrated Biomarkers",
-      "description": "Harmonizes latest NCRAD releases and legacy biomarker sources; includes availability matrix, subject summary, source catalog, and report.",
+      "description": "JamesDataPacket November 5 (v1.1.2), from James Wang, received 2026-11-05. NCRAD, VCS REDCap, legacy CSF, and C2N. Dashboard NCRAD counts use collection_date in this file. Full collection-date range 2011-05-31 to 2026-08-27.",
       "status": "available",
-      "reportPath": "/data-package/reports/Integrated_Biomarker_Availability_Report_v1.0.5.html",
+      "reportPath": "/data-package/reports/Integrated_Biomarker_Availability_Report_v1.1.2.html",
       "summary": {
         "subjects": {
-          "totalSubjects": 714,
-          "hasAnyBiomarker": 714,
-          "hasPlasma": 649,
+          "totalSubjects": 734,
+          "hasAnyBiomarker": 734,
+          "hasPlasma": 670,
           "hasCsf": 268,
-          "hasNcrad": 576,
+          "hasNcrad": 601,
           "hasC2n": 163,
           "hasVcsRedcap": 293,
           "hasLegacyCsf": 36,
-          "hasA": 682,
-          "hasT": 688,
-          "hasN": 651,
+          "hasA": 702,
+          "hasT": 710,
+          "hasN": 675,
           "hasV": 204,
-          "atnComplete": 638,
+          "atnComplete": 663,
           "byBiomarkersAvailable": {
-            "ABeta40": 682,
-            "ABeta42": 681,
-            "Ptau217": 624,
-            "GFAP": 571,
-            "NFL": 571,
+            "ABeta40": 702,
+            "ABeta42": 701,
+            "Ptau217": 647,
+            "GFAP": 598,
+            "NFL": 598,
             "Ptau181": 255,
             "ABeta38": 212,
             "sPDGFRB": 204,
@@ -4055,139 +4232,142 @@
             "Neurogranin": 151
           },
           "bySourceFamilies": {
-            "NCRAD": 576,
+            "NCRAD": 601,
             "VCS_REDCap": 293,
             "C2N": 163,
             "Legacy_CSF": 36
           },
           "coverageFlags": {
-            "Any biomarker": 714,
-            "Plasma": 649,
+            "Any biomarker": 734,
+            "Plasma": 670,
             "CSF": 268,
-            "NCRAD": 576,
+            "NCRAD": 601,
             "C2N": 163,
             "VCS REDCap": 293,
             "Legacy CSF": 36,
-            "A (amyloid)": 682,
-            "T (tau)": 688,
-            "N (neurodegeneration)": 651,
+            "A (amyloid)": 702,
+            "T (tau)": 710,
+            "N (neurodegeneration)": 675,
             "V (vascular)": 204,
-            "ATN complete": 638
+            "ATN complete": 663
           },
           "fieldBreakdowns": {
             "has_any_biomarker": {
-              "TRUE": 714
+              "TRUE": 734
             },
             "has_plasma": {
-              "TRUE": 649,
-              "FALSE": 65
+              "TRUE": 670,
+              "FALSE": 64
             },
             "has_csf": {
-              "FALSE": 446,
+              "FALSE": 466,
               "TRUE": 268
             },
             "has_ncrad": {
-              "TRUE": 576,
-              "FALSE": 138
+              "TRUE": 601,
+              "FALSE": 133
             },
             "has_c2n": {
-              "FALSE": 551,
+              "FALSE": 571,
               "TRUE": 163
             },
             "has_vcs_redcap": {
-              "FALSE": 421,
+              "FALSE": 441,
               "TRUE": 293
             },
             "has_legacy_csf": {
-              "FALSE": 678,
+              "FALSE": 698,
               "TRUE": 36
             },
             "has_A": {
-              "TRUE": 682,
+              "TRUE": 702,
               "FALSE": 32
             },
             "has_T": {
-              "TRUE": 688,
-              "FALSE": 26
+              "TRUE": 710,
+              "FALSE": 24
             },
             "has_N": {
-              "TRUE": 651,
-              "FALSE": 63
+              "TRUE": 675,
+              "FALSE": 59
             },
             "has_V": {
-              "FALSE": 510,
+              "FALSE": 530,
               "TRUE": 204
             },
             "n_measurements": {
-              "5": 215,
-              "13": 65,
-              "8": 60,
-              "10": 46,
-              "18": 32,
-              "15": 29,
-              "11": 23,
-              "4": 22,
-              "16": 21,
-              "6": 21,
+              "5": 203,
+              "8": 78,
+              "13": 74,
+              "10": 38,
+              "18": 35,
+              "16": 27,
+              "15": 26,
+              "11": 25,
+              "6": 22,
               "1": 21,
-              "9": 18,
-              "14": 16,
-              "3": 14,
-              "12": 13,
-              "7": 11,
-              "23": 10,
-              "19": 10,
+              "4": 20,
+              "23": 16,
+              "9": 16,
+              "14": 13,
+              "12": 12,
+              "3": 12,
+              "21": 11,
+              "7": 10,
+              "20": 8,
+              "30": 7,
               "24": 7,
-              "17": 6,
-              "21": 6,
-              "20": 5,
-              "30": 5,
+              "19": 6,
+              "17": 5,
+              "26": 4,
               "31": 4,
               "28": 4,
+              "29": 4,
               "22": 4,
               "36": 4,
-              "2": 4,
               "38": 3,
-              "29": 3,
-              "26": 3,
+              "2": 3,
               "34": 2,
               "33": 2,
               "46": 1,
-              "50": 1,
+              "52": 1,
+              "44": 1,
               "32": 1,
               "39": 1,
-              "40": 1
+              "40": 1,
+              "27": 1,
+              "25": 1
             },
             "n_distinct_biomarkers": {
-              "5": 417,
-              "8": 64,
+              "5": 441,
+              "8": 63,
               "7": 52,
-              "10": 49,
+              "10": 51,
               "6": 40,
               "9": 30,
               "1": 21,
-              "4": 20,
-              "3": 17,
-              "2": 4
+              "4": 19,
+              "3": 14,
+              "2": 3
             },
             "n_distinct_collection_dates": {
-              "1": 362,
-              "2": 189,
-              "3": 83,
-              "4": 29,
-              "5": 23,
+              "1": 365,
+              "2": 191,
+              "3": 89,
+              "4": 37,
+              "5": 22,
               "0": 15,
-              "6": 7,
+              "6": 9,
               "7": 4,
               "9": 1,
               "8": 1
             },
             "biomarkers_available": {
-              "ABeta40": 682,
-              "ABeta42": 681,
-              "Ptau217": 624,
-              "GFAP": 571,
-              "NFL": 571,
+              "ABeta40": 702,
+              "ABeta42": 701,
+              "Ptau217": 647,
+              "GFAP": 598,
+              "NFL": 598,
               "Ptau181": 255,
               "ABeta38": 212,
               "sPDGFRB": 204,
@@ -4195,7 +4375,7 @@
               "Neurogranin": 151
             },
             "source_families": {
-              "NCRAD": 576,
+              "NCRAD": 601,
               "VCS_REDCap": 293,
               "C2N": 163,
               "Legacy_CSF": 36
@@ -4204,41 +4384,41 @@
           "numericSummaries": {},
           "fieldPresence": {
             "first_collection_date": {
-              "nonBlank": 699,
+              "nonBlank": 719,
               "blank": 15
             },
             "latest_collection_date": {
-              "nonBlank": 699,
+              "nonBlank": 719,
               "blank": 15
             },
             "biomarkers_available": {
-              "nonBlank": 714,
+              "nonBlank": 734,
               "blank": 0,
-              "tokenTotal": 4121
+              "tokenTotal": 4238
             },
             "source_families": {
-              "nonBlank": 714,
+              "nonBlank": 734,
               "blank": 0,
-              "tokenTotal": 1068
+              "tokenTotal": 1093
             }
           }
         },
         "availability": {
-          "totalRows": 6803,
-          "uniqueSubjects": 699,
-          "withMeasurement": 6803,
+          "totalRows": 7159,
+          "uniqueSubjects": 719,
+          "withMeasurement": 7159,
           "bySpecimenType": {
-            "Plasma": 4926,
+            "Plasma": 5282,
             "CSF": 1877
           },
           "bySourceFamily": {
-            "NCRAD": 4307,
+            "NCRAD": 4663,
             "VCS_REDCap": 2020,
             "C2N": 332,
             "Legacy_CSF": 144
           },
           "bySourceDataset": {
-            "NCRAD_Biomarkers_Long": 4307,
+            "NCRAD_Biomarkers_Master": 4663,
             "VCS_REDCap_CSF": 1733,
             "VCS_REDCap_Plasma": 287,
             "VCS_C2N_IPMS": 184,
@@ -4246,18 +4426,18 @@
             "Legacy_CSF_Analysis_Spreadsheet": 144
           },
           "byAtnvDomain": {
-            "A": 3008,
-            "T": 1382,
-            "N": 1101,
-            "Other": 1032,
+            "A": 3142,
+            "T": 1458,
+            "N": 1174,
+            "Other": 1105,
             "V": 280
           },
           "byBiomarker": {
-            "ABeta42": 1348,
-            "ABeta40": 1345,
-            "Ptau217": 971,
-            "GFAP": 866,
-            "NFL": 866,
+            "ABeta42": 1415,
+            "ABeta40": 1412,
+            "Ptau217": 1047,
+            "GFAP": 939,
+            "NFL": 939,
             "Ptau181": 411,
             "ABeta38": 315,
             "sPDGFRB": 280,
@@ -4265,11 +4445,11 @@
             "Neurogranin": 166
           },
           "topBiomarkers": {
-            "ABeta42": 1348,
-            "ABeta40": 1345,
-            "Ptau217": 971,
-            "GFAP": 866,
-            "NFL": 866,
+            "ABeta42": 1415,
+            "ABeta40": 1412,
+            "Ptau217": 1047,
+            "GFAP": 939,
+            "NFL": 939,
             "Ptau181": 411,
             "ABeta38": 315,
             "sPDGFRB": 280,
@@ -4279,47 +4459,47 @@
           "byProtocolId": {
             "VCS CSF Biomarkers - assay provenance not specified in supplied dictionary": 1733,
             "NCRAD | Quanterix HD-X | N2PB": 1136,
-            "NCRAD | Quanterix Simoa | Neurology 2 Plex B Plus Advantage Kit": 462,
+            "NCRAD | Quanterix Simoa | Neurology 2 Plex B Plus Advantage Kit": 608,
             "NCRAD | Quanterix HD-X | pTau217": 415,
             "NCRAD | Fujirebio Lumipulse G1200 | Lumipulse G B-Amyloid 1-40 Plasma": 337,
             "NCRAD | Fujirebio Lumipulse G1200 | Lumipulse G B-Amyloid 1-42 Plasma": 336,
             "C2N Plasma IP-MS": 332,
+            "NCRAD | Quanterix Simoa | AlzPath pTau217 Plus Advantage Kit": 304,
             "VCS Plasma Biomarkers - assay provenance not specified in supplied dictionary": 287,
             "NCRAD | Lumipulse G1200 | Lumipulse G B-Amyloid 1-40 Plasma": 251,
             "NCRAD | Lumipulse G1200 | Lumipulse G B-Amyloid 1-42 Plasma": 251,
-            "NCRAD | Quanterix Simoa | AlzPath pTau217 Plus Advantage Kit": 228,
+            "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma": 191,
+            "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma": 191,
             "NCRAD | Quanterix HD-X | N4PE": 188,
             "NCRAD | Quanterix HD-X | pTau217 plus": 171,
             "Legacy CSF biomarker panel": 144,
-            "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma": 139,
-            "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma": 139,
-            "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma v2": 90,
-            "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma v2": 90,
+            "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma v2": 105,
+            "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma v2": 105,
             "NCRAD | Quanterix HD-X | N2PB plus": 40,
             "NCRAD | Quanterix HD-X | Ptau 181 v2.1": 34
           },
           "byBiomarkerUnit": {
-            "pg/mL": 6523,
+            "pg/mL": 6879,
             "ng/mL": 280
           },
           "byAnyQcReview": {
-            "FALSE": 6797,
+            "FALSE": 7153,
             "TRUE": 6
           },
           "byHasMeasurement": {
-            "TRUE": 6803
+            "TRUE": 7159
           },
           "fieldBreakdowns": {
             "specimen_type": {
-              "Plasma": 4926,
+              "Plasma": 5282,
               "CSF": 1877
             },
             "biomarker": {
-              "ABeta42": 1348,
-              "ABeta40": 1345,
-              "Ptau217": 971,
-              "GFAP": 866,
-              "NFL": 866,
+              "ABeta42": 1415,
+              "ABeta40": 1412,
+              "Ptau217": 1047,
+              "GFAP": 939,
+              "NFL": 939,
               "Ptau181": 411,
               "ABeta38": 315,
               "sPDGFRB": 280,
@@ -4327,20 +4507,20 @@
               "Neurogranin": 166
             },
             "atnv_domain": {
-              "A": 3008,
-              "T": 1382,
-              "N": 1101,
-              "Other": 1032,
+              "A": 3142,
+              "T": 1458,
+              "N": 1174,
+              "Other": 1105,
               "V": 280
             },
             "source_family": {
-              "NCRAD": 4307,
+              "NCRAD": 4663,
               "VCS_REDCap": 2020,
               "C2N": 332,
               "Legacy_CSF": 144
             },
             "source_dataset": {
-              "NCRAD_Biomarkers_Long": 4307,
+              "NCRAD_Biomarkers_Master": 4663,
               "VCS_REDCap_CSF": 1733,
               "VCS_REDCap_Plasma": 287,
               "VCS_C2N_IPMS": 184,
@@ -4348,11 +4528,11 @@
               "Legacy_CSF_Analysis_Spreadsheet": 144
             },
             "measurement_family_id": {
-              "NCRAD_Plasma_GFAP": 866,
-              "NCRAD_Plasma_NFL": 866,
-              "NCRAD_Plasma_ABeta40": 864,
-              "NCRAD_Plasma_ABeta42": 863,
-              "NCRAD_Plasma_Ptau217": 814,
+              "NCRAD_Plasma_GFAP": 939,
+              "NCRAD_Plasma_NFL": 939,
+              "NCRAD_Plasma_ABeta40": 931,
+              "NCRAD_Plasma_ABeta42": 930,
+              "NCRAD_Plasma_Ptau217": 890,
               "VCS_CSF_Ptau181": 377,
               "VCS_CSF_ABeta42": 319,
               "VCS_CSF_ABeta38": 315,
@@ -4369,65 +4549,69 @@
             "protocol_id": {
               "VCS CSF Biomarkers - assay provenance not specified in supplied dictionary": 1733,
               "NCRAD | Quanterix HD-X | N2PB": 1136,
-              "NCRAD | Quanterix Simoa | Neurology 2 Plex B Plus Advantage Kit": 462,
+              "NCRAD | Quanterix Simoa | Neurology 2 Plex B Plus Advantage Kit": 608,
               "NCRAD | Quanterix HD-X | pTau217": 415,
               "NCRAD | Fujirebio Lumipulse G1200 | Lumipulse G B-Amyloid 1-40 Plasma": 337,
               "NCRAD | Fujirebio Lumipulse G1200 | Lumipulse G B-Amyloid 1-42 Plasma": 336,
               "C2N Plasma IP-MS": 332,
+              "NCRAD | Quanterix Simoa | AlzPath pTau217 Plus Advantage Kit": 304,
               "VCS Plasma Biomarkers - assay provenance not specified in supplied dictionary": 287,
               "NCRAD | Lumipulse G1200 | Lumipulse G B-Amyloid 1-40 Plasma": 251,
               "NCRAD | Lumipulse G1200 | Lumipulse G B-Amyloid 1-42 Plasma": 251,
-              "NCRAD | Quanterix Simoa | AlzPath pTau217 Plus Advantage Kit": 228,
+              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma": 191,
+              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma": 191,
               "NCRAD | Quanterix HD-X | N4PE": 188,
               "NCRAD | Quanterix HD-X | pTau217 plus": 171,
               "Legacy CSF biomarker panel": 144,
-              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma": 139,
-              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma": 139,
-              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma v2": 90,
-              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma v2": 90,
+              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma v2": 105,
+              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma v2": 105,
               "NCRAD | Quanterix HD-X | N2PB plus": 40,
               "NCRAD | Quanterix HD-X | Ptau 181 v2.1": 34
             },
             "has_measurement": {
-              "TRUE": 6803
+              "TRUE": 7159
             },
             "n_measurements": {
-              "1": 6108,
-              "2": 695
+              "1": 6242,
+              "2": 915,
+              "4": 2
             },
             "n_replicates": {
-              "1": 6108,
-              "2": 695
+              "1": 6242,
+              "2": 915,
+              "4": 2
             },
             "any_qc_review": {
-              "FALSE": 6797,
+              "FALSE": 7153,
               "TRUE": 6
             },
             "biomarker_unit": {
-              "pg/mL": 6523,
+              "pg/mL": 6879,
               "ng/mL": 280
             },
             "batch_return_numbers": {
               "(blank)": 2496,
               "4": 738,
-              "16": 483,
+              "16": 527,
               "11": 411,
               "7": 317,
               "6": 310,
               "12": 286,
               "9": 269,
               "13": 262,
+              "18": 254,
               "3": 252,
               "15": 231,
               "10": 201,
               "8": 197,
+              "17": 139,
               "14": 129,
-              "17": 109,
               "5": 97,
+              "19": 30,
               "1": 15
             },
             "source_files": {
-              "VascularCohortStudy_DATA_2026-09-16_1213.csv": 2020,
+              "VascularCohortStudy_DATA_2026-11-03_1510.csv": 2020,
               "N2PB BAL0008 Return 4.xlsx": 270,
               "30_ncrad-biomarker-n2pb-return-16.csv": 198,
               "Return 3 BAL0008 N4PE Return Doc_Site 30 Final.xlsx": 188,
@@ -4442,6 +4626,7 @@
               "pTau217 BAL0008 Return 4.xlsx": 124,
               "Site 30 N2PB BAL0008 Return 7.xlsx": 118,
               "Copy of Site 30 N2PB BAL0008 Return 12.xlsx": 106,
+              "30_ncrad-biomarker-n2pb-return-18.csv": 104,
               "30_ncrad-biomarker-abeta-40-return-16.csv": 95,
               "30_ncrad-biomarker-abeta-42-return-16.csv": 95,
               "30_ncrad-biomarker-ptau217-return-16.csv": 95,
@@ -4460,8 +4645,11 @@
               "Site 30 AB40 BAL0008 Return 7.xlsx": 59,
               "Site 30 AB42 BAL0008 Return 7.xlsx": 59,
               "Copy of Site 30 ptau217 BAL0008 Return 10.xlsx": 59,
+              "30_ncrad-biomarker-ptau217-return-18.csv": 58,
               "Copy of Site 30 pTau217 BAL0008 Return 12.xlsx": 58,
               "Site 30 ptau217 BAL0008 Return 7.xlsx": 51,
+              "30_ncrad-biomarker-abeta-40-return-18.csv": 46,
+              "30_ncrad-biomarker-abeta-42-return-18.csv": 46,
               "Copy of Site 30 AB40 BAL0008 Return 13.xlsx": 44,
               "Copy of Site 30 AB42 BAL0008 Return 13.xlsx": 44,
               "30_ncrad-biomarker-n2pb-return-17.csv": 44,
@@ -4489,14 +4677,19 @@
               "30_ncrad-biomarker-abeta-40-adcfb-express-return-11.csv": 18,
               "30_ncrad-biomarker-abeta-42-adcfb-express-return-11.csv": 18,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-11.csv": 18,
+              "30_ncrad-biomarker-n2pb-adcfb-express-return-16.csv": 18,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-5.csv": 18,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-13.csv": 18,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-6.csv": 14,
+              "30_ncrad-biomarker-n2pb-adcfb-express-return-17.csv": 12,
+              "30_ncrad-biomarker-n2pb-adcfb-express-return-19.csv": 12,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-3.csv": 12,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-14.csv": 12,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-7.csv": 12,
               "Copy of Site 30 ptau217 BAL0008 Return 5.xlsx": 11,
               "Copy of Site 30 AB40 BAL0008 Return 5.xlsx": 10,
+              "30_ncrad-biomarker-abeta-40-adcfb-express-return-16.csv": 9,
+              "30_ncrad-biomarker-abeta-42-adcfb-express-return-16.csv": 9,
               "30_ncrad-biomarker-abeta-40-adcfb-express-return-5.csv": 9,
               "30_ncrad-biomarker-abeta-42-adcfb-express-return-5.csv": 9,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-5.csv": 9,
@@ -4504,10 +4697,17 @@
               "30_ncrad-biomarker-abeta-42-adcfb-express-return-13.csv": 9,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-13.csv": 9,
               "Copy of Site 30 AB42 BAL0008 Return 5.xlsx": 9,
+              "30_ncrad-biomarker-ptau217-adcfb-express-return-16.csv": 8,
               "30_ncrad-biomarker-abeta-40-adcfb-express-return-6.csv": 7,
               "30_ncrad-biomarker-abeta-42-adcfb-express-return-6.csv": 7,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-6.csv": 7,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-15.csv": 6,
+              "30_ncrad-biomarker-abeta-40-adcfb-express-return-17.csv": 6,
+              "30_ncrad-biomarker-abeta-42-adcfb-express-return-17.csv": 6,
+              "30_ncrad-biomarker-ptau217-adcfb-express-return-17.csv": 6,
+              "30_ncrad-biomarker-abeta-40-adcfb-express-return-19.csv": 6,
+              "30_ncrad-biomarker-abeta-42-adcfb-express-return-19.csv": 6,
+              "30_ncrad-biomarker-ptau217-adcfb-express-return-19.csv": 6,
               "30_ncrad-biomarker-abeta-40-adcfb-express-return-3.csv": 6,
               "30_ncrad-biomarker-abeta-42-adcfb-express-return-3.csv": 6,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-3.csv": 6,
@@ -4533,40 +4733,40 @@
           "numericSummaries": {},
           "fieldPresence": {
             "collection_date": {
-              "nonBlank": 6803,
+              "nonBlank": 7159,
               "blank": 0
             },
             "batch_return_numbers": {
-              "nonBlank": 4307,
+              "nonBlank": 4663,
               "blank": 2496,
-              "tokenTotal": 6803
+              "tokenTotal": 7161
             },
             "batch_return_dates": {
-              "nonBlank": 1148,
+              "nonBlank": 1504,
               "blank": 5655
             },
             "source_files": {
-              "nonBlank": 6803,
+              "nonBlank": 7159,
               "blank": 0,
-              "tokenTotal": 6803
+              "tokenTotal": 7161
             }
           }
         },
         "longFormat": {
-          "totalMeasurements": 7518,
-          "uniqueSubjects": 714,
+          "totalMeasurements": 8100,
+          "uniqueSubjects": 734,
           "bySpecimenType": {
-            "Plasma": 5623,
+            "Plasma": 6205,
             "CSF": 1895
           },
           "bySourceFamily": {
-            "NCRAD": 5004,
+            "NCRAD": 5586,
             "VCS_REDCap": 2038,
             "C2N": 332,
             "Legacy_CSF": 144
           },
           "bySourceDataset": {
-            "NCRAD_Biomarkers_Long": 5004,
+            "NCRAD_Biomarkers_Master": 5586,
             "VCS_REDCap_CSF": 1751,
             "VCS_REDCap_Plasma": 287,
             "VCS_C2N_IPMS": 184,
@@ -4574,18 +4774,18 @@
             "Legacy_CSF_Analysis_Spreadsheet": 144
           },
           "byAtnvDomain": {
-            "A": 3010,
-            "T": 1614,
-            "N": 1333,
-            "Other": 1264,
+            "A": 3144,
+            "T": 1770,
+            "N": 1479,
+            "Other": 1410,
             "V": 297
           },
           "byBiomarker": {
-            "ABeta42": 1349,
-            "ABeta40": 1346,
-            "Ptau217": 1202,
-            "GFAP": 1098,
-            "NFL": 1098,
+            "ABeta42": 1416,
+            "ABeta40": 1413,
+            "Ptau217": 1358,
+            "GFAP": 1244,
+            "NFL": 1244,
             "Ptau181": 412,
             "ABeta38": 315,
             "sPDGFRB": 297,
@@ -4593,11 +4793,11 @@
             "Neurogranin": 166
           },
           "topBiomarkers": {
-            "ABeta42": 1349,
-            "ABeta40": 1346,
-            "Ptau217": 1202,
-            "GFAP": 1098,
-            "NFL": 1098,
+            "ABeta42": 1416,
+            "ABeta40": 1413,
+            "Ptau217": 1358,
+            "GFAP": 1244,
+            "NFL": 1244,
             "Ptau181": 412,
             "ABeta38": 315,
             "sPDGFRB": 297,
@@ -4607,24 +4807,24 @@
           "byAssayMethod": {
             "(blank)": 2110,
             "Quanterix HD-X": 1989,
-            "Quanterix Simoa": 1380,
+            "Quanterix Simoa": 1828,
             "Fujirebio Lumipulse G1200": 675,
+            "Fujirebio Lumipulse": 592,
             "Lumipulse G1200": 502,
-            "Fujirebio Lumipulse": 458,
             "IP-MS": 332,
             "6E10 (source header)": 72
           },
           "byAssayPlatform": {
             "(blank)": 2182,
             "Quanterix HD-X": 1989,
-            "Quanterix Simoa": 1380,
+            "Quanterix Simoa": 1828,
             "Fujirebio Lumipulse G1200": 675,
+            "Fujirebio Lumipulse": 592,
             "Lumipulse G1200": 502,
-            "Fujirebio Lumipulse": 458,
             "C2N Diagnostics": 332
           },
           "byQcStatus": {
-            "retained": 7508,
+            "retained": 8090,
             "review_note": 4,
             "caution_low_in_range": 4,
             "review_suspect_collection_date": 2
@@ -4632,9 +4832,10 @@
           "fieldBreakdowns": {
             "batch_return_number": {
               "(blank)": 2514,
-              "16": 776,
+              "16": 846,
               "4": 738,
               "11": 465,
+              "18": 416,
               "15": 368,
               "7": 335,
               "6": 331,
@@ -4642,27 +4843,28 @@
               "12": 286,
               "3": 270,
               "9": 269,
+              "17": 222,
               "10": 203,
               "8": 200,
-              "17": 174,
               "14": 147,
               "5": 129,
+              "19": 48,
               "1": 24
             },
             "batch_date_provenance": {
               "(blank)": 5680,
-              "Flywheel Last Updated": 1838
+              "flywheel_last_updated_proxy_not_verified_return_date": 2420
             },
             "specimen_type": {
-              "Plasma": 5623,
+              "Plasma": 6205,
               "CSF": 1895
             },
             "biomarker": {
-              "ABeta42": 1349,
-              "ABeta40": 1346,
-              "Ptau217": 1202,
-              "GFAP": 1098,
-              "NFL": 1098,
+              "ABeta42": 1416,
+              "ABeta40": 1413,
+              "Ptau217": 1358,
+              "GFAP": 1244,
+              "NFL": 1244,
               "Ptau181": 412,
               "ABeta38": 315,
               "sPDGFRB": 297,
@@ -4670,27 +4872,29 @@
               "Neurogranin": 166
             },
             "biomarker_unit": {
-              "pg/mL": 7221,
+              "pg/mL": 7803,
               "ng/mL": 297
             },
             "biomarker_unit_provenance": {
-              "Upstream NCRAD curated release": 3166,
+              "source_header": 3166,
+              "official_ncrad_variable_description": 2420,
               "Source field/dictionary": 2182,
-              "Official NCRAD variable description": 1838,
               "Source file definition": 332
             },
             "replicate_number": {
-              "1": 6823,
-              "2": 695
+              "1": 7179,
+              "2": 917,
+              "3": 2,
+              "4": 2
             },
             "source_family": {
-              "NCRAD": 5004,
+              "NCRAD": 5586,
               "VCS_REDCap": 2038,
               "C2N": 332,
               "Legacy_CSF": 144
             },
             "source_dataset": {
-              "NCRAD_Biomarkers_Long": 5004,
+              "NCRAD_Biomarkers_Master": 5586,
               "VCS_REDCap_CSF": 1751,
               "VCS_REDCap_Plasma": 287,
               "VCS_C2N_IPMS": 184,
@@ -4698,11 +4902,11 @@
               "Legacy_CSF_Analysis_Spreadsheet": 144
             },
             "measurement_family_id": {
-              "NCRAD_Plasma_GFAP": 1098,
-              "NCRAD_Plasma_NFL": 1098,
-              "NCRAD_Plasma_Ptau217": 1045,
-              "NCRAD_Plasma_ABeta40": 865,
-              "NCRAD_Plasma_ABeta42": 864,
+              "NCRAD_Plasma_GFAP": 1244,
+              "NCRAD_Plasma_NFL": 1244,
+              "NCRAD_Plasma_Ptau217": 1201,
+              "NCRAD_Plasma_ABeta40": 932,
+              "NCRAD_Plasma_ABeta42": 931,
               "VCS_CSF_Ptau181": 378,
               "VCS_CSF_ABeta42": 319,
               "VCS_CSF_ABeta38": 315,
@@ -4718,9 +4922,9 @@
             },
             "protocol_id": {
               "VCS CSF Biomarkers - assay provenance not specified in supplied dictionary": 1751,
+              "NCRAD | Quanterix Simoa | Neurology 2 Plex B Plus Advantage Kit": 1216,
               "NCRAD | Quanterix HD-X | N2PB": 1138,
-              "NCRAD | Quanterix Simoa | Neurology 2 Plex B Plus Advantage Kit": 924,
-              "NCRAD | Quanterix Simoa | AlzPath pTau217 Plus Advantage Kit": 456,
+              "NCRAD | Quanterix Simoa | AlzPath pTau217 Plus Advantage Kit": 612,
               "NCRAD | Quanterix HD-X | pTau217": 418,
               "NCRAD | Fujirebio Lumipulse G1200 | Lumipulse G B-Amyloid 1-40 Plasma": 338,
               "NCRAD | Fujirebio Lumipulse G1200 | Lumipulse G B-Amyloid 1-42 Plasma": 337,
@@ -4728,73 +4932,74 @@
               "VCS Plasma Biomarkers - assay provenance not specified in supplied dictionary": 287,
               "NCRAD | Lumipulse G1200 | Lumipulse G B-Amyloid 1-40 Plasma": 251,
               "NCRAD | Lumipulse G1200 | Lumipulse G B-Amyloid 1-42 Plasma": 251,
+              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma": 191,
+              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma": 191,
               "NCRAD | Quanterix HD-X | N4PE": 188,
               "NCRAD | Quanterix HD-X | pTau217 plus": 171,
               "Legacy CSF biomarker panel": 144,
-              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma": 139,
-              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma": 139,
-              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma v2": 90,
-              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma v2": 90,
+              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-40 Plasma v2": 105,
+              "NCRAD | Fujirebio Lumipulse | Lumipulse G B-Amyloid 1-42 Plasma v2": 105,
               "NCRAD | Quanterix HD-X | N2PB plus": 40,
               "NCRAD | Quanterix HD-X | Ptau 181 v2.1": 34
             },
             "assay_method": {
               "(blank)": 2110,
               "Quanterix HD-X": 1989,
-              "Quanterix Simoa": 1380,
+              "Quanterix Simoa": 1828,
               "Fujirebio Lumipulse G1200": 675,
+              "Fujirebio Lumipulse": 592,
               "Lumipulse G1200": 502,
-              "Fujirebio Lumipulse": 458,
               "IP-MS": 332,
               "6E10 (source header)": 72
             },
             "assay_platform": {
               "(blank)": 2182,
               "Quanterix HD-X": 1989,
-              "Quanterix Simoa": 1380,
+              "Quanterix Simoa": 1828,
               "Fujirebio Lumipulse G1200": 675,
+              "Fujirebio Lumipulse": 592,
               "Lumipulse G1200": 502,
-              "Fujirebio Lumipulse": 458,
               "C2N Diagnostics": 332
             },
             "assay_platform_code": {
               "(blank)": 5680,
-              "1": 1380,
-              "2": 458
+              "1": 1828,
+              "2": 592
             },
             "assay_name": {
               "(blank)": 2182,
+              "Neurology 2 Plex B Plus Advantage Kit": 1216,
               "N2PB": 1138,
-              "Neurology 2 Plex B Plus Advantage Kit": 924,
-              "Lumipulse G B-Amyloid 1-40 Plasma": 728,
-              "Lumipulse G B-Amyloid 1-42 Plasma": 727,
-              "AlzPath pTau217 Plus Advantage Kit": 456,
+              "Lumipulse G B-Amyloid 1-40 Plasma": 780,
+              "Lumipulse G B-Amyloid 1-42 Plasma": 779,
+              "AlzPath pTau217 Plus Advantage Kit": 612,
               "pTau217": 418,
               "N4PE": 188,
               "pTau217 plus": 171,
               "ABeta40 Plasma IP-MS": 166,
               "ABeta42 Plasma IP-MS": 166,
-              "Lumipulse G B-Amyloid 1-40 Plasma v2": 90,
-              "Lumipulse G B-Amyloid 1-42 Plasma v2": 90,
+              "Lumipulse G B-Amyloid 1-40 Plasma v2": 105,
+              "Lumipulse G B-Amyloid 1-42 Plasma v2": 105,
               "N2PB plus": 40,
               "Ptau 181 v2.1": 34
             },
             "assay_name_code": {
               "(blank)": 5680,
-              "1": 924,
-              "2": 456,
-              "4": 139,
-              "3": 139,
-              "10": 90,
-              "11": 90
+              "1": 1216,
+              "2": 612,
+              "4": 191,
+              "3": 191,
+              "10": 105,
+              "11": 105
             },
             "assay_version": {
-              "(blank)": 7518
+              "(blank)": 8100
             },
             "assay_lot_no": {
               "(blank)": 2514,
               "504607": 732,
               "504137": 496,
+              "536719": 436,
               "T4B6033": 292,
               "503866": 270,
               "504131": 260,
@@ -4807,19 +5012,21 @@
               "T4B5112": 163,
               "T6B5112": 163,
               "999048": 160,
-              "536719": 144,
               "999008": 124,
+              "Plates 1-25: 536727 Plates 26-44: 536817": 116,
+              "536727": 112,
               "T6B7036": 111,
+              "B9C6121S": 111,
               "504500": 111,
               "T4B5081": 90,
               "T6B5081": 90,
-              "B9C6121S": 90,
               "504495": 88,
               "Plate 22: 536719 All Other Plates: 504607": 88,
               "999024": 83,
-              "536727": 72,
+              "C5C6113S": 70,
               "999036": 51,
               "C5C6112S": 47,
+              "09/15/2026 - 09/17/2026: B9C6121S 10/09/2026 - 10/15/2026: B9C7073S": 46,
               "Plates 1-6 and 11-25: 504683 Plates 7-10: 536727": 42,
               "503843": 34,
               "503858": 24,
@@ -4827,11 +5034,10 @@
               "C5C6077S": 15,
               "T4B4067": 11,
               "T6B4067": 10,
-              "C5C6113S": 3,
               "C5C6044S": 3
             },
             "source_project": {
-              "(blank)": 5004,
+              "(blank)": 5586,
               "Vascular Cohort Study / PPG": 2038,
               "VCS": 195,
               "PPG": 161,
@@ -4840,7 +5046,7 @@
               "VCS-II": 8
             },
             "source_event": {
-              "(blank)": 5004,
+              "(blank)": 5586,
               "baseline_arm_1": 1424,
               "follow_up_2_arm_1": 427,
               "V1": 282,
@@ -4857,32 +5063,33 @@
             },
             "source_generation": {
               "historical_excel": 3166,
+              "current_csv": 2420,
               "current_redcap": 2038,
-              "current_csv": 1838,
               "fixed_c2n_file": 332,
               "legacy_spreadsheet": 144
             },
             "qc_status": {
-              "retained": 7508,
+              "retained": 8090,
               "review_note": 4,
               "caution_low_in_range": 4,
               "review_suspect_collection_date": 2
             },
             "qc_note": {
-              "(blank)": 7508,
+              "(blank)": 8090,
               "NFL | Concentration Low in Range": 4,
               "Suspect VCS biomk_date retained for provenance: 1954-10-13 (matches participant DOB)": 2,
               "C2N measure is \"E3/E3\"; NCRAD test is \"E3/E4\"; VCS/RECap database is \"E3/E4\". Therefore Abhay updated C37 content to be \"E3/E4\".": 2,
               "C2N measure is \"E3/E3\"; NCRAD test is \"E3/E4\"; VCS/RECap database is \"E3/E4\". Therefore Abhay updated C108 content to be \"E3/E4\".": 2
             },
             "source_priority": {
-              "100": 5480,
+              "100": 6062,
               "200": 2038
             },
             "source_file": {
-              "VascularCohortStudy_DATA_2026-09-16_1213.csv": 2038,
+              "VascularCohortStudy_DATA_2026-11-03_1510.csv": 2038,
               "30_ncrad-biomarker-n2pb-return-16.csv": 396,
               "N2PB BAL0008 Return 4.xlsx": 270,
+              "30_ncrad-biomarker-n2pb-return-18.csv": 208,
               "30_ncrad-biomarker-ptau217-return-16.csv": 190,
               "Return 3 BAL0008 N4PE Return Doc_Site 30 Final.xlsx": 188,
               "Copy of Site 30 N2PB BAL0008 Return 9.xlsx": 186,
@@ -4896,6 +5103,7 @@
               "N2PB BAL0008 Return 11.xlsx": 128,
               "pTau217 BAL0008 Return 4.xlsx": 124,
               "Site 30 N2PB BAL0008 Return 7.xlsx": 118,
+              "30_ncrad-biomarker-ptau217-return-18.csv": 116,
               "Copy of Site 30 N2PB BAL0008 Return 12.xlsx": 106,
               "30_ncrad-biomarker-abeta-40-return-16.csv": 95,
               "30_ncrad-biomarker-abeta-42-return-16.csv": 95,
@@ -4918,6 +5126,8 @@
               "Site 30 AB42 BAL0008 Return 7.xlsx": 59,
               "Copy of Site 30 pTau217 BAL0008 Return 12.xlsx": 58,
               "Site 30 ptau217 BAL0008 Return 7.xlsx": 51,
+              "30_ncrad-biomarker-abeta-40-return-18.csv": 46,
+              "30_ncrad-biomarker-abeta-42-return-18.csv": 46,
               "Copy of Site 30 AB40 BAL0008 Return 13.xlsx": 44,
               "Copy of Site 30 AB42 BAL0008 Return 13.xlsx": 44,
               "30_ncrad-biomarker-abeta-40-return-15.csv": 44,
@@ -4926,6 +5136,7 @@
               "Copy of Site 30 pTau217 BAL0008 Return 13.xlsx": 41,
               "Copy of Site 30 N2PB BAL0008 Return 14.xlsx": 40,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-11.csv": 36,
+              "30_ncrad-biomarker-n2pb-adcfb-express-return-16.csv": 36,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-5.csv": 36,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-13.csv": 36,
               "Return 3 BAL0008 pTau 181 Return Doc_Site 30 Final.xlsx": 34,
@@ -4937,6 +5148,8 @@
               "Copy of Site 30 AB42 BAL0008 Return 9.xlsx": 28,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-6.csv": 28,
               "Copy of Site 30 ptau217 BAL0008 Return 9.xlsx": 27,
+              "30_ncrad-biomarker-n2pb-adcfb-express-return-17.csv": 24,
+              "30_ncrad-biomarker-n2pb-adcfb-express-return-19.csv": 24,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-3.csv": 24,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-14.csv": 24,
               "Copy of Site 30 N2PB BAL0008 Return 5.xlsx": 24,
@@ -4950,8 +5163,11 @@
               "30_ncrad-biomarker-abeta-42-adcfb-express-return-11.csv": 18,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-5.csv": 18,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-13.csv": 18,
+              "30_ncrad-biomarker-ptau217-adcfb-express-return-16.csv": 16,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-6.csv": 14,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-15.csv": 12,
+              "30_ncrad-biomarker-ptau217-adcfb-express-return-17.csv": 12,
+              "30_ncrad-biomarker-ptau217-adcfb-express-return-19.csv": 12,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-3.csv": 12,
               "30_ncrad-biomarker-n2pb-adcfb-express-return-1.csv": 12,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-14.csv": 12,
@@ -4959,6 +5175,8 @@
               "30_ncrad-biomarker-ptau217-adcfb-express-return-7.csv": 12,
               "Copy of Site 30 AB40 BAL0008 Return 5.xlsx": 11,
               "Copy of Site 30 AB42 BAL0008 Return 5.xlsx": 10,
+              "30_ncrad-biomarker-abeta-40-adcfb-express-return-16.csv": 9,
+              "30_ncrad-biomarker-abeta-42-adcfb-express-return-16.csv": 9,
               "30_ncrad-biomarker-abeta-40-adcfb-express-return-5.csv": 9,
               "30_ncrad-biomarker-abeta-42-adcfb-express-return-5.csv": 9,
               "30_ncrad-biomarker-abeta-40-adcfb-express-return-13.csv": 9,
@@ -4966,6 +5184,10 @@
               "30_ncrad-biomarker-abeta-40-adcfb-express-return-6.csv": 7,
               "30_ncrad-biomarker-abeta-42-adcfb-express-return-6.csv": 7,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-15.csv": 6,
+              "30_ncrad-biomarker-abeta-40-adcfb-express-return-17.csv": 6,
+              "30_ncrad-biomarker-abeta-42-adcfb-express-return-17.csv": 6,
+              "30_ncrad-biomarker-abeta-40-adcfb-express-return-19.csv": 6,
+              "30_ncrad-biomarker-abeta-42-adcfb-express-return-19.csv": 6,
               "30_ncrad-biomarker-abeta-40-adcfb-express-return-3.csv": 6,
               "30_ncrad-biomarker-abeta-42-adcfb-express-return-3.csv": 6,
               "30_ncrad-biomarker-ptau217-adcfb-express-return-1.csv": 6,
@@ -4983,7 +5205,7 @@
               "30_ncrad-biomarker-abeta-42-adcfb-express-return-8.csv": 1
             },
             "date_provenance": {
-              "NCRAD collection_date": 5004,
+              "NCRAD collection_date": 5586,
               "VCS biomk_date": 1751,
               "C2N DATE_OF_BLOOD_DRAW": 332,
               "VCS pla_ptau217_date": 157,
@@ -4991,62 +5213,62 @@
               "VCS pla_ptau217_date used as shared plasma-instrument date (only supplied plasma draw-date field)": 130
             },
             "atnv_domain": {
-              "A": 3010,
-              "T": 1614,
-              "N": 1333,
-              "Other": 1264,
+              "A": 3144,
+              "T": 1770,
+              "N": 1479,
+              "Other": 1410,
               "V": 297
             },
             "canonical_selection_reason": {
-              "source_record_preserved_no_cross_protocol_collapse": 5623,
+              "source_record_preserved_no_cross_protocol_collapse": 6205,
               "current_VCS_REDCap_CSF_preferred": 1751,
               "legacy_CSF_used_when_current_VCS_value_absent": 144
             },
             "collection_date_suspect": {
-              "FALSE": 7516,
+              "FALSE": 8098,
               "TRUE": 2
             }
           },
           "numericSummaries": {
             "biomarker_value": {
-              "count": 7518,
+              "count": 8100,
               "min": 0.0894,
               "max": 12175.31,
-              "mean": 371.2161,
-              "sum": 2790802.5813
+              "mean": 349.7485,
+              "sum": 2832962.4613
             },
             "source_row": {
-              "count": 7518,
+              "count": 8100,
               "min": 1.0,
-              "max": 1191.0,
-              "mean": 172.6554,
-              "sum": 1298023.0
+              "max": 1198.0,
+              "mean": 163.0331,
+              "sum": 1320568.0
             }
           },
           "fieldPresence": {
             "collection_date": {
-              "nonBlank": 7500,
+              "nonBlank": 8082,
               "blank": 18
             },
             "analysis_date": {
-              "nonBlank": 5004,
+              "nonBlank": 5586,
               "blank": 2514
             },
             "batch_return_date": {
-              "nonBlank": 1838,
+              "nonBlank": 2420,
               "blank": 5680
             },
             "collection_date_raw": {
-              "nonBlank": 1735,
-              "blank": 5783,
-              "uniqueValues": 329
+              "nonBlank": 7319,
+              "blank": 781,
+              "uniqueValues": 1119
             }
           }
         },
         "sourceCatalog": {
           "totalSourceRows": 41,
-          "totalMeasurementsCataloged": 7518,
-          "totalSubjectSlots": 5985,
+          "totalMeasurementsCataloged": 8100,
+          "totalSubjectSlots": 6288,
           "bySourceFamily": {
             "NCRAD": 22,
             "VCS_REDCap": 9,
@@ -5254,7 +5476,7 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "ABeta40",
               "atnvDomain": "A",
@@ -5265,29 +5487,29 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "ABeta40",
               "atnvDomain": "A",
-              "nMeasurements": 139,
-              "nSubjects": 139,
-              "firstCollectionDate": "2025-06-23",
-              "latestCollectionDate": "2026-01-15"
+              "nMeasurements": 191,
+              "nSubjects": 187,
+              "firstCollectionDate": "2017-09-18",
+              "latestCollectionDate": "2026-08-27"
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "ABeta40",
               "atnvDomain": "A",
-              "nMeasurements": 90,
-              "nSubjects": 90,
+              "nMeasurements": 105,
+              "nSubjects": 105,
               "firstCollectionDate": "2026-01-14",
-              "latestCollectionDate": "2026-07-30"
+              "latestCollectionDate": "2026-08-13"
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "ABeta40",
               "atnvDomain": "A",
@@ -5298,7 +5520,7 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "ABeta40",
               "atnvDomain": "A",
@@ -5309,7 +5531,7 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "ABeta42",
               "atnvDomain": "A",
@@ -5320,29 +5542,29 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "ABeta42",
               "atnvDomain": "A",
-              "nMeasurements": 139,
-              "nSubjects": 139,
-              "firstCollectionDate": "2025-06-23",
-              "latestCollectionDate": "2026-01-15"
+              "nMeasurements": 191,
+              "nSubjects": 187,
+              "firstCollectionDate": "2017-09-18",
+              "latestCollectionDate": "2026-08-27"
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "ABeta42",
               "atnvDomain": "A",
-              "nMeasurements": 90,
-              "nSubjects": 90,
+              "nMeasurements": 105,
+              "nSubjects": 105,
               "firstCollectionDate": "2026-01-14",
-              "latestCollectionDate": "2026-07-30"
+              "latestCollectionDate": "2026-08-13"
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "ABeta42",
               "atnvDomain": "A",
@@ -5353,7 +5575,7 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "ABeta42",
               "atnvDomain": "A",
@@ -5364,7 +5586,7 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "GFAP",
               "atnvDomain": "Other",
@@ -5375,7 +5597,7 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "GFAP",
               "atnvDomain": "Other",
@@ -5386,7 +5608,7 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "GFAP",
               "atnvDomain": "Other",
@@ -5397,18 +5619,18 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "GFAP",
               "atnvDomain": "Other",
-              "nMeasurements": 462,
-              "nSubjects": 221,
-              "firstCollectionDate": "2025-03-11",
-              "latestCollectionDate": "2026-07-30"
+              "nMeasurements": 608,
+              "nSubjects": 280,
+              "firstCollectionDate": "2017-09-18",
+              "latestCollectionDate": "2026-08-27"
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "NFL",
               "atnvDomain": "N",
@@ -5419,7 +5641,7 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "NFL",
               "atnvDomain": "N",
@@ -5430,7 +5652,7 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "NFL",
               "atnvDomain": "N",
@@ -5441,18 +5663,18 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "NFL",
               "atnvDomain": "N",
-              "nMeasurements": 462,
-              "nSubjects": 221,
-              "firstCollectionDate": "2025-03-11",
-              "latestCollectionDate": "2026-07-30"
+              "nMeasurements": 608,
+              "nSubjects": 280,
+              "firstCollectionDate": "2017-09-18",
+              "latestCollectionDate": "2026-08-27"
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "Ptau181",
               "atnvDomain": "T",
@@ -5463,7 +5685,7 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "Ptau217",
               "atnvDomain": "T",
@@ -5474,7 +5696,7 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "Ptau217",
               "atnvDomain": "T",
@@ -5485,14 +5707,14 @@
             },
             {
               "sourceFamily": "NCRAD",
-              "sourceDataset": "NCRAD_Biomarkers_Long",
+              "sourceDataset": "NCRAD_Biomarkers_Master",
               "specimenType": "Plasma",
               "biomarker": "Ptau217",
               "atnvDomain": "T",
-              "nMeasurements": 456,
-              "nSubjects": 218,
-              "firstCollectionDate": "2024-12-03",
-              "latestCollectionDate": "2026-07-30"
+              "nMeasurements": 612,
+              "nSubjects": 277,
+              "firstCollectionDate": "2017-09-18",
+              "latestCollectionDate": "2026-08-27"
             },
             {
               "sourceFamily": "VCS_REDCap",
@@ -5525,7 +5747,7 @@
               "C2N": 4
             },
             "source_dataset": {
-              "NCRAD_Biomarkers_Long": 22,
+              "NCRAD_Biomarkers_Master": 22,
               "VCS_REDCap_CSF": 7,
               "Legacy_CSF_Analysis_Spreadsheet": 6,
               "PPG_C2N_IPMS": 2,
@@ -5608,11 +5830,11 @@
               "292": 2,
               "74": 2,
               "92": 2,
-              "139": 2,
-              "90": 2,
+              "191": 2,
+              "105": 2,
               "251": 2,
               "569": 2,
-              "462": 2,
+              "608": 2,
               "293": 1,
               "166": 1,
               "352": 1,
@@ -5623,7 +5845,7 @@
               "34": 1,
               "418": 1,
               "171": 1,
-              "456": 1,
+              "612": 1,
               "157": 1,
               "130": 1
             },
@@ -5635,11 +5857,11 @@
               "198": 2,
               "72": 2,
               "91": 2,
-              "139": 2,
-              "90": 2,
+              "187": 2,
+              "105": 2,
               "231": 2,
               "476": 2,
-              "221": 2,
+              "280": 2,
               "26": 1,
               "199": 1,
               "151": 1,
@@ -5651,7 +5873,7 @@
               "34": 1,
               "379": 1,
               "171": 1,
-              "218": 1,
+              "277": 1,
               "154": 1,
               "128": 1
             },
@@ -5663,11 +5885,11 @@
               "292": 2,
               "74": 2,
               "92": 2,
-              "139": 2,
-              "90": 2,
+              "191": 2,
+              "105": 2,
               "251": 2,
               "569": 2,
-              "462": 2,
+              "608": 2,
               "293": 1,
               "166": 1,
               "351": 1,
@@ -5678,7 +5900,7 @@
               "34": 1,
               "416": 1,
               "171": 1,
-              "456": 1,
+              "612": 1,
               "157": 1,
               "130": 1
             }
@@ -5722,7 +5944,7 @@
           },
           {
             "variable": "batch_date_provenance",
-            "description": "Provenance for batch_return_date, such as upstream NCRAD curated release or Flywheel Last Updated."
+            "description": "Provenance for batch_return_date, preserving upstream NCRAD's distinction between a Flywheel Last Updated proxy and a verified return date."
           },
           {
             "variable": "specimen_type",
@@ -5734,15 +5956,15 @@
           },
           {
             "variable": "biomarker_value",
-            "description": "Numeric biomarker measurement retained from the selected source record."
+            "description": "Numeric QC-retained biomarker value; the upstream NCRAD Master is read from biomarker_value_clean and excludes shipment/failed/flagged-out assay rows."
           },
           {
             "variable": "biomarker_unit",
-            "description": "Source-supported measurement unit. For current NCRAD ABeta40, ABeta42, pTau217, NfL, and GFAP, missing upstream units are filled as pg/mL from the official NCRAD variable-description workbook. Values are not converted across units in v1.0.5."
+            "description": "Source-supported unit; units already provided by upstream NCRAD Master are preserved, and the official NCRAD variable-description workbook only fills missing values. No cross-assay unit conversion is performed."
           },
           {
             "variable": "biomarker_unit_provenance",
-            "description": "Provenance of biomarker_unit, distinguishing upstream/source-provided units from temporary enrichment using the official NCRAD variable description."
+            "description": "Provenance of biomarker_unit, preferring the official NCRAD upstream source-specific provenance and using an external dictionary only as a fallback."
           },
           {
             "variable": "replicate_number",
@@ -5754,7 +5976,7 @@
           },
           {
             "variable": "source_dataset",
-            "description": "Specific imported dataset/instrument representation."
+            "description": "Specific imported dataset/instrument representation, including NCRAD_Biomarkers_Master (QC-retained assay rows only)."
           },
           {
             "variable": "measurement_family_id",
@@ -5806,7 +6028,7 @@
           },
           {
             "variable": "qc_status",
-            "description": "Measurement-level QC state. review_note means retained but accompanied by a source note requiring awareness."
+            "description": "Measurement-level QC state. Upstream NCRAD Master includes only measurement_qc_status=retained in this release; caution_low_in_range and review_note are retained with annotations."
           },
           {
             "variable": "qc_note",
@@ -5850,7 +6072,18 @@
           "columnCount": 0,
           "fileSizeMb": 0.96,
           "fileModified": "2026-09-18",
-          "description": "Integrated biomarker availability report with coverage summaries.",
+          "description": "Integrated biomarker availability report with coverage summaries. Superseded by v1.1.2.",
+          "fileType": "html",
+          "relativeDir": "USC ADRC Integrated Biomarker Availability"
+        },
+        {
+          "path": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Availability_Report_v1.1.2.html",
+          "fileName": "Integrated_Biomarker_Availability_Report_v1.1.2.html",
+          "rowCount": 0,
+          "columnCount": 0,
+          "fileSizeMb": 0.92,
+          "fileModified": "2026-11-05",
+          "description": "JamesDataPacket November 5. Integrated biomarker availability report. Collection-date range 2011-05-31 to 2026-08-27. NCRAD Flywheel update 2026-10-25.",
           "fileType": "html",
           "relativeDir": "USC ADRC Integrated Biomarker Availability"
         },
@@ -5861,7 +6094,38 @@
           "columnCount": 17,
           "fileSizeMb": 1.33,
           "fileModified": "2026-09-18",
-          "description": "Subject \u00d7 collection \u00d7 biomarker availability matrix (has_measurement flags).",
+          "description": "Subject \u00d7 collection \u00d7 biomarker availability matrix (has_measurement flags). Superseded by JamesDataPacket November 5 (v1.1.2).",
+          "fileType": "csv",
+          "columns": [
+            "uds_id",
+            "collection_date",
+            "specimen_type",
+            "biomarker",
+            "atnv_domain",
+            "source_family",
+            "source_dataset",
+            "measurement_family_id",
+            "protocol_id",
+            "has_measurement",
+            "n_measurements",
+            "n_replicates",
+            "any_qc_review",
+            "biomarker_unit",
+            "batch_return_numbers",
+            "batch_return_dates",
+            "source_files"
+          ],
+          "columnTruncated": false,
+          "relativeDir": "USC ADRC Integrated Biomarker Availability"
+        },
+        {
+          "path": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Availability_v1.1.2.csv",
+          "fileName": "Integrated_Biomarker_Availability_v1.1.2.csv",
+          "rowCount": 7159,
+          "columnCount": 17,
+          "fileSizeMb": 1.42,
+          "fileModified": "2026-11-05",
+          "description": "JamesDataPacket November 5. Subject \u00d7 collection \u00d7 biomarker availability matrix (has_measurement flags).",
           "fileType": "csv",
           "columns": [
             "uds_id",
@@ -5892,7 +6156,23 @@
           "columnCount": 2,
           "fileSizeMb": 0.0,
           "fileModified": "2026-09-18",
-          "description": "Field definitions for integrated biomarker deliverables.",
+          "description": "Field definitions for integrated biomarker deliverables. Superseded by JamesDataPacket November 5 (v1.1.2).",
+          "fileType": "csv",
+          "columns": [
+            "variable",
+            "description"
+          ],
+          "columnTruncated": false,
+          "relativeDir": "USC ADRC Integrated Biomarker Availability"
+        },
+        {
+          "path": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Data_Dictionary_v1.1.2.csv",
+          "fileName": "Integrated_Biomarker_Data_Dictionary_v1.1.2.csv",
+          "rowCount": 36,
+          "columnCount": 2,
+          "fileSizeMb": 0.0,
+          "fileModified": "2026-11-05",
+          "description": "JamesDataPacket November 5. Field definitions for integrated biomarker deliverables.",
           "fileType": "csv",
           "columns": [
             "variable",
@@ -5908,7 +6188,34 @@
           "columnCount": 13,
           "fileSizeMb": 0.01,
           "fileModified": "2026-09-18",
-          "description": "Catalog of integrated source datasets, protocols, and measurement counts.",
+          "description": "Catalog of integrated source datasets, protocols, and measurement counts. Superseded by JamesDataPacket November 5 (v1.1.2).",
+          "fileType": "csv",
+          "columns": [
+            "source_family",
+            "source_dataset",
+            "specimen_type",
+            "measurement_family_id",
+            "protocol_id",
+            "biomarker",
+            "biomarker_unit",
+            "atnv_domain",
+            "n_measurements",
+            "n_subjects",
+            "n_dated_measurements",
+            "first_collection_date",
+            "latest_collection_date"
+          ],
+          "columnTruncated": false,
+          "relativeDir": "USC ADRC Integrated Biomarker Availability"
+        },
+        {
+          "path": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Source_Catalog_v1.1.2.csv",
+          "fileName": "Integrated_Biomarker_Source_Catalog_v1.1.2.csv",
+          "rowCount": 41,
+          "columnCount": 13,
+          "fileSizeMb": 0.01,
+          "fileModified": "2026-11-05",
+          "description": "JamesDataPacket November 5. Catalog of integrated source datasets, protocols, and measurement counts.",
           "fileType": "csv",
           "columns": [
             "source_family",
@@ -5935,7 +6242,40 @@
           "columnCount": 19,
           "fileSizeMb": 0.1,
           "fileModified": "2026-09-18",
-          "description": "One row per subject with plasma/CSF/NCRAD/C2N and ATN coverage flags.",
+          "description": "One row per subject with plasma/CSF/NCRAD/C2N and ATN coverage flags. Superseded by JamesDataPacket November 5 (v1.1.2).",
+          "fileType": "csv",
+          "columns": [
+            "uds_id",
+            "has_any_biomarker",
+            "has_plasma",
+            "has_csf",
+            "has_ncrad",
+            "has_c2n",
+            "has_vcs_redcap",
+            "has_legacy_csf",
+            "has_A",
+            "has_T",
+            "has_N",
+            "has_V",
+            "n_measurements",
+            "n_distinct_biomarkers",
+            "n_distinct_collection_dates",
+            "first_collection_date",
+            "latest_collection_date",
+            "biomarkers_available",
+            "source_families"
+          ],
+          "columnTruncated": false,
+          "relativeDir": "USC ADRC Integrated Biomarker Availability"
+        },
+        {
+          "path": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Subject_Summary_v1.1.2.csv",
+          "fileName": "Integrated_Biomarker_Subject_Summary_v1.1.2.csv",
+          "rowCount": 734,
+          "columnCount": 19,
+          "fileSizeMb": 0.11,
+          "fileModified": "2026-11-05",
+          "description": "JamesDataPacket November 5. One row per subject with plasma/CSF/NCRAD/C2N and ATN coverage flags.",
           "fileType": "csv",
           "columns": [
             "uds_id",
@@ -5968,7 +6308,57 @@
           "columnCount": 36,
           "fileSizeMb": 3.03,
           "fileModified": "2026-09-18",
-          "description": "Long-format harmonized biomarker measurements with source provenance.",
+          "description": "Long-format harmonized biomarker measurements with source provenance. Superseded by JamesDataPacket November 5 (v1.1.2).",
+          "fileType": "csv",
+          "columns": [
+            "uds_id",
+            "collection_date",
+            "analysis_date",
+            "batch_return_number",
+            "batch_return_date",
+            "batch_date_provenance",
+            "specimen_type",
+            "biomarker",
+            "biomarker_value",
+            "biomarker_unit",
+            "biomarker_unit_provenance",
+            "replicate_number",
+            "source_family",
+            "source_dataset",
+            "measurement_family_id",
+            "protocol_id",
+            "assay_method",
+            "assay_platform",
+            "assay_platform_code",
+            "assay_name",
+            "assay_name_code",
+            "assay_version",
+            "assay_lot_no",
+            "source_project",
+            "source_event",
+            "source_generation",
+            "qc_status",
+            "qc_note",
+            "source_priority",
+            "source_file",
+            "source_row",
+            "date_provenance",
+            "atnv_domain",
+            "canonical_selection_reason",
+            "collection_date_raw",
+            "collection_date_suspect"
+          ],
+          "columnTruncated": false,
+          "relativeDir": "USC ADRC Integrated Biomarker Availability"
+        },
+        {
+          "path": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarkers_Long_v1.1.2.csv",
+          "fileName": "Integrated_Biomarkers_Long_v1.1.2.csv",
+          "rowCount": 8100,
+          "columnCount": 36,
+          "fileSizeMb": 3.4,
+          "fileModified": "2026-11-05",
+          "description": "JamesDataPacket November 5 (James Wang, received 2026-11-05). Long-format harmonized biomarker measurements. Dashboard NCRAD counts use collection_date in the year-to-date window.",
           "fileType": "csv",
           "columns": [
             "uds_id",
@@ -8762,16 +9152,16 @@
     }
   ],
   "totals": {
-    "files": 31,
-    "csvFiles": 24,
-    "htmlReports": 3,
+    "files": 37,
+    "csvFiles": 29,
+    "htmlReports": 4,
     "udsSubjects": 2390,
     "udsVisitRecords": 8273,
     "milestoneRecords": 4301,
     "brsRecords": 952,
     "apoeRecords": 2173,
-    "biomarkerSubjects": 714,
-    "biomarkerMeasurements": 7518,
-    "totalCsvRows": 275232
+    "biomarkerSubjects": 734,
+    "biomarkerMeasurements": 8100,
+    "totalCsvRows": 291302
   }
 }

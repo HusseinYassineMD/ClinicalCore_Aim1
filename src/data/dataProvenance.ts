@@ -14,7 +14,7 @@ export const DATA_CORE = {
 
 export const HARMONIZED_FILES = {
   udsLongitudinal: "UDS_longitudinal_harmonized.csv",
-  biomarkersLong: "Integrated_Biomarkers_Long_v1.0.5.csv",
+  biomarkersLong: "JamesDataPacket November 5 · Integrated_Biomarkers_Long_v1.1.2.csv",
   brsCohort: "MAPDatabase-BRSCohort_DATA (REDCap export)",
   biospecimenLong: "USC_ADRC_Biospecimen_Availability_Long_v1.0.1.csv",
   imagingLongitudinal: "USC_ADRC_Imaging_Availability_Longitudinal",

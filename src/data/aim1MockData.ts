@@ -133,7 +133,7 @@ export const aim1MockData: Aim1DashboardData = {
     "RedCap — USC ADRC Neurobank Request Tracking",
     "GeneScreen — biobetagenetest.usc.edu/yassine/gs/recruitment.php",
     "USC ADRC RPPR Data Package · UDS Harmonization (v1.1.5)",
-    "USC ADRC RPPR Data Package · Integrated Biomarkers (v1.0.5)",
+    "JamesDataPacket November 5 · Integrated Biomarkers (v1.1.2)",
     "USC ADRC Integrated Imaging Availability (v1.5.2)",
     "MAPDatabase REDCap · BRS Cohort & APOE Genotype",
   ],
@@ -226,7 +226,7 @@ export const aim1MockData: Aim1DashboardData = {
           lines: [
             `Biospecimen inventory · ${HARMONIZED_FILES.biospecimenLong} · last specimen_date ${formatScopeDate(biospecimenLatestSpecimenDate)} · last collection_date ${formatScopeDate(biospecimenLatestCollectionDate)}`,
             `Buffy coat YTD aliquots: ${biospecYtd("buffy_coat")?.aliquots ?? "—"} · cumulative inventory aliquots: ${biospecCumulative("buffy_coat")?.aliquots ?? "—"}`,
-            `NCRAD is REDCap. Assay rows from ${HARMONIZED_FILES.biomarkersLong} · last collection_date ${formatScopeDate(biomarkerLatestCollectionDate)}`,
+            `JamesDataPacket November 5 (v1.1.2). NCRAD plasma counts cover collections ${formatScopeDate(ytdBio.collectionCoverageStart)} – ${formatScopeDate(ytdBio.collectionCoverageEnd)}. Full packet collection-date range ${formatScopeDate(ytdBio.packetCollectionStart)} – ${formatScopeDate(ytdBio.packetCollectionEnd)}.`,
             "PBMC is stopped for now. Separate procedure. Not in REDCap or BST. The count on the card is the last RPPR inventory.",
           ],
         },

@@ -148,8 +148,10 @@ export default function DataSourcesPage() {
                 Availability v1.0.1 — copied under{" "}
                 <code className="text-xs">data/rppr-data-package/</code> and{" "}
                 <code className="text-xs">data/reference/james-supplements/</code>.
-                Dashboard black biofluid inventory uses biospecimen long file; NCRAD
-                assay cards still use integrated biomarkers long.
+                The table below is that October 9 biospecimen inventory. The
+                dashboard Biofluid Collection table uses Abhay Sagare’s January 1,
+                2026 – October 31, 2026 workbook. NCRAD assay cards use
+                JamesDataPacket November 5, Integrated_Biomarkers_Long_v1.1.2.csv.
               </p>
               <ul className="mt-2 list-disc pl-5 text-cpbh-navy/65 space-y-1">
                 <li>
@@ -172,6 +174,12 @@ export default function DataSourcesPage() {
               </ul>
               {biospecimenYtd ? (
                 <div className="mt-4 overflow-x-auto">
+                  <p className="text-cpbh-navy/60 text-xs mb-2 leading-relaxed">
+                    Source: USC_ADRC_Biospecimen_Availability_Long_v1.0.1.csv · James
+                    Wang supplement, received October 9, 2026. Year-to-date window{" "}
+                    {ytd?.label}. This inventory is not the dashboard Biofluid
+                    Collection table.
+                  </p>
                   <table className="w-full text-left border-collapse min-w-[520px] text-xs">
                     <thead>
                       <tr className="border-b border-cpbh-mist text-cpbh-navy/70">

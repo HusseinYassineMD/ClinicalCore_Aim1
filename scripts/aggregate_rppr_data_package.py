@@ -68,19 +68,34 @@ FILE_DESCRIPTIONS: dict[str, str] = {
     "uds-v4-fvp-ded-08122026.csv": "NACC UDS v4 FVP form data dictionary.",
     "uds-v4-ivp-ded-08122026.csv": "NACC UDS v4 IVP form data dictionary.",
     "Integrated_Biomarker_Availability_v1.0.5.csv": (
-        "Subject × collection × biomarker availability matrix (has_measurement flags)."
+        "Subject × collection × biomarker availability matrix (has_measurement flags). Superseded by JamesDataPacket November 5 (v1.1.2)."
     ),
     "Integrated_Biomarker_Subject_Summary_v1.0.5.csv": (
-        "One row per subject with plasma/CSF/NCRAD/C2N and ATN coverage flags."
+        "One row per subject with plasma/CSF/NCRAD/C2N and ATN coverage flags. Superseded by JamesDataPacket November 5 (v1.1.2)."
     ),
     "Integrated_Biomarkers_Long_v1.0.5.csv": (
-        "Long-format harmonized biomarker measurements with source provenance."
+        "Long-format harmonized biomarker measurements with source provenance. Superseded by JamesDataPacket November 5 (v1.1.2)."
     ),
     "Integrated_Biomarker_Source_Catalog_v1.0.5.csv": (
-        "Catalog of integrated source datasets, protocols, and measurement counts."
+        "Catalog of integrated source datasets, protocols, and measurement counts. Superseded by JamesDataPacket November 5 (v1.1.2)."
     ),
     "Integrated_Biomarker_Data_Dictionary_v1.0.5.csv": (
-        "Field definitions for integrated biomarker deliverables."
+        "Field definitions for integrated biomarker deliverables. Superseded by JamesDataPacket November 5 (v1.1.2)."
+    ),
+    "Integrated_Biomarker_Availability_v1.1.2.csv": (
+        "JamesDataPacket November 5. Subject × collection × biomarker availability matrix (has_measurement flags)."
+    ),
+    "Integrated_Biomarker_Subject_Summary_v1.1.2.csv": (
+        "JamesDataPacket November 5. One row per subject with plasma/CSF/NCRAD/C2N and ATN coverage flags."
+    ),
+    "Integrated_Biomarkers_Long_v1.1.2.csv": (
+        "JamesDataPacket November 5 (James Wang, received 2026-11-05). Long-format harmonized biomarker measurements. Dashboard NCRAD counts use collection_date in the year-to-date window."
+    ),
+    "Integrated_Biomarker_Source_Catalog_v1.1.2.csv": (
+        "JamesDataPacket November 5. Catalog of integrated source datasets, protocols, and measurement counts."
+    ),
+    "Integrated_Biomarker_Data_Dictionary_v1.1.2.csv": (
+        "JamesDataPacket November 5. Field definitions for integrated biomarker deliverables."
     ),
     "MAPDatabase-BRSCohort_DATA_2026-09-16_1445.csv": (
         "REDCap MAP BRS cohort export — enrollment, consent, autopsy linkage (8-xxxx IDs)."
@@ -105,7 +120,10 @@ FILE_DESCRIPTIONS: dict[str, str] = {
         "Collaborator-facing UDS harmonization report (QC, coverage, methodology)."
     ),
     "Integrated_Biomarker_Availability_Report_v1.0.5.html": (
-        "Integrated biomarker availability report with coverage summaries."
+        "Integrated biomarker availability report with coverage summaries. Superseded by v1.1.2."
+    ),
+    "Integrated_Biomarker_Availability_Report_v1.1.2.html": (
+        "JamesDataPacket November 5. Integrated biomarker availability report. Collection-date range 2011-05-31 to 2026-08-27. NCRAD Flywheel update 2026-10-25."
     ),
     "USC_ADRC_Integrated_Imaging_Availability_v1.5.2.csv": (
         "Comprehensive master integrated imaging availability file."
@@ -558,6 +576,18 @@ def build_reporting_period_summary(
         "nfl": ncrad_by_label.get("NFL", 0),
         "ptau217": ncrad_by_label.get("Ptau217", 0) or ncrad_by_label.get("PTAU217", 0),
     }
+    ytd_dates = [
+        parsed
+        for r in plasma_rows
+        if (parsed := parse_row_date(r.get("collection_date")))
+    ]
+    packet_dates = []
+    for r in bio_long_rows:
+        if (r.get("collection_date_suspect") or "").strip().upper() == "TRUE":
+            continue
+        parsed = parse_row_date(r.get("collection_date"))
+        if parsed and parsed.year >= 2000:
+            packet_dates.append(parsed)
 
     data_coverage = {
         "packageReceivedAt": PACKAGE_RECEIVED_AT,
@@ -605,8 +635,17 @@ def build_reporting_period_summary(
             "newInitialEvaluationBreakdown": new_initial_breakdown,
         },
         "biomarkers": {
-            "sourceFile": "Integrated_Biomarkers_Long_v1.0.5.csv",
+            "sourceFile": "Integrated_Biomarkers_Long_v1.1.2.csv",
+            "sourcePath": "data/JamesDataPacket-November-5/Integrated_Biomarkers_Long_v1.1.2.csv",
+            "packetName": "JamesDataPacket November 5",
+            "packetReceivedOn": "2026-11-05",
+            "providedBy": "James Wang",
             "dateField": "collection_date",
+            "collectionCoverageStart": min(ytd_dates).strftime("%Y-%m-%d") if ytd_dates else None,
+            "collectionCoverageEnd": max(ytd_dates).strftime("%Y-%m-%d") if ytd_dates else None,
+            "packetCollectionStart": min(packet_dates).strftime("%Y-%m-%d") if packet_dates else None,
+            "packetCollectionEnd": max(packet_dates).strftime("%Y-%m-%d") if packet_dates else None,
+            "ncradFlywheelUpdate": "2026-10-25",
             "subjectsWithCollection": len(bio_subjects),
             "subjectsWithPlasmaCollection": len(plasma_subjects),
             "subjectsWithCsfCollection": len(csf_subjects),
@@ -618,8 +657,9 @@ def build_reporting_period_summary(
                 "subjectsWithCollection": "Unique uds_id with any collection_date in period",
                 "subjectsWithPlasmaCollection": "Unique uds_id with plasma collection_date in period",
                 "ncradPlasmaMeasurements": (
-                    "Plasma measurement rows in period from Integrated_Biomarkers_Long "
-                    "by biomarker label (NCRAD panel)"
+                    "NCRAD plasma measurement rows in the year-to-date window from "
+                    "JamesDataPacket November 5, Integrated_Biomarkers_Long_v1.1.2.csv, "
+                    "by biomarker label"
                 ),
             },
         },
@@ -1000,8 +1040,8 @@ def build_reporting_period_additional(
             {
                 "id": "biomarker-availability",
                 "title": "Biomarker availability matrix",
-                "sourceFile": "Integrated_Biomarker_Availability_v1.0.5.csv",
-                "dateHint": "Subject × biomarker rows filtered on collection_date",
+                "sourceFile": "data/JamesDataPacket-November-5/Integrated_Biomarker_Availability_v1.1.2.csv",
+                "dateHint": "JamesDataPacket November 5 · subject × biomarker rows filtered on collection_date",
                 "metrics": [
                     {
                         "label": "Availability rows with collection in period",
@@ -1017,8 +1057,8 @@ def build_reporting_period_additional(
             {
                 "id": "biomarker-subject-summary",
                 "title": "Biomarker subject summary",
-                "sourceFile": "Integrated_Biomarker_Subject_Summary_v1.0.5.csv",
-                "dateHint": "Subject-level first and latest collection dates",
+                "sourceFile": "data/JamesDataPacket-November-5/Integrated_Biomarker_Subject_Summary_v1.1.2.csv",
+                "dateHint": "JamesDataPacket November 5 · subject-level first and latest collection dates",
                 "metrics": [
                     {
                         "label": "Subjects with first collection in period",
@@ -1756,12 +1796,12 @@ def main() -> None:
         raise FileNotFoundError(f"No UDS collaborator report under {uds_dir}")
     uds_report = uds_reports[-1]
     bio_dir = PKG / "USC ADRC Integrated Biomarker Availability"
-    bio_summary_path = bio_dir / "Integrated_Biomarker_Subject_Summary_v1.0.5.csv"
-    bio_avail_path = bio_dir / "Integrated_Biomarker_Availability_v1.0.5.csv"
-    bio_long_path = bio_dir / "Integrated_Biomarkers_Long_v1.0.5.csv"
-    bio_catalog_path = bio_dir / "Integrated_Biomarker_Source_Catalog_v1.0.5.csv"
-    bio_dict_path = bio_dir / "Integrated_Biomarker_Data_Dictionary_v1.0.5.csv"
-    bio_report = bio_dir / "Integrated_Biomarker_Availability_Report_v1.0.5.html"
+    bio_summary_path = bio_dir / "Integrated_Biomarker_Subject_Summary_v1.1.2.csv"
+    bio_avail_path = bio_dir / "Integrated_Biomarker_Availability_v1.1.2.csv"
+    bio_long_path = bio_dir / "Integrated_Biomarkers_Long_v1.1.2.csv"
+    bio_catalog_path = bio_dir / "Integrated_Biomarker_Source_Catalog_v1.1.2.csv"
+    bio_dict_path = bio_dir / "Integrated_Biomarker_Data_Dictionary_v1.1.2.csv"
+    bio_report = bio_dir / "Integrated_Biomarker_Availability_Report_v1.1.2.html"
     imaging_dir = PKG / "USC ADRC Integrated Imaging Availability"
     imaging_long_path = imaging_dir / "USC_ADRC_Imaging_Availability_Longitudinal_v1.5.2.csv"
     imaging_study_subject_path = (
@@ -1923,11 +1963,12 @@ def main() -> None:
                 "id": "integrated-biomarkers",
                 "title": "Integrated Biomarkers",
                 "description": (
-                    "Harmonizes latest NCRAD releases and legacy biomarker sources; "
-                    "includes availability matrix, subject summary, source catalog, and report."
+                    "JamesDataPacket November 5 (v1.1.2), from James Wang, received 2026-11-05. "
+                    "NCRAD, VCS REDCap, legacy CSF, and C2N. Dashboard NCRAD counts use "
+                    "collection_date in this file. Full collection-date range 2011-05-31 to 2026-08-27."
                 ),
                 "status": "available",
-                "reportPath": "/data-package/reports/Integrated_Biomarker_Availability_Report_v1.0.5.html",
+                "reportPath": "/data-package/reports/Integrated_Biomarker_Availability_Report_v1.1.2.html",
                 "summary": {
                     "subjects": summarize_biomarker_subjects(bio_rows),
                     "availability": summarize_biomarker_availability(bio_avail_rows),

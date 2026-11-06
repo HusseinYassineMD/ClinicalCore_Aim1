@@ -22,7 +22,7 @@ export default function IntegratedImagingSummaryBlock({
 
   return (
     <div className="dashboard-card space-y-4">
-      <div>
+      <div className="text-center">
         <h3 className="font-display text-lg font-semibold text-cpbh-navy">
           Study-wide availability · {periodLabel}
         </h3>

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-09",
+  "lastUpdated": "2026-11-05",
   "categories": [
     "ATN",
     "BRS",
@@ -18,15 +18,15 @@
     "data/rppr-data-package/MAPDatabase-APOEGenotype_DATA_2026-09-16_1445.csv",
     "data/rppr-data-package/USC ADRC UDS Harmonized/ADRC_subject_current_harmonized.csv",
     "data/rppr-data-package/USC ADRC UDS Harmonized/UDS_longitudinal_harmonized.csv",
-    "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Subject_Summary_v1.0.5.csv",
-    "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarkers_Long_v1.0.5.csv",
+    "data/JamesDataPacket-November-5/Integrated_Biomarker_Subject_Summary_v1.1.2.csv",
+    "data/JamesDataPacket-November-5/Integrated_Biomarkers_Long_v1.1.2.csv",
     "data/rppr-data-package/MAPDatabase_DataDictionary_2026-10-09.csv",
     "data/rppr-data-package/USC ADRC Biospecimen Availability/USC_ADRC_Biospecimen_Availability_Long_v1.0.1.csv",
     "data/rppr-data-package/USC ADRC Biospecimen Availability/USC_ADRC_Biospecimen_Subject_Summary_v1.0.1.csv"
   ],
   "totals": {
     "datasets": 14,
-    "rows": 94555,
+    "rows": 95269,
     "maxColumns": 2140
   },
   "datasets": [
@@ -256,22 +256,22 @@
       "description": "Harmonized current UDS subject summary.",
       "sourceFile": "data/rppr-data-package/USC ADRC UDS Harmonized/ADRC_subject_current_harmonized.csv",
       "dataFile": "data/rppr-data-package/USC ADRC UDS Harmonized/ADRC_subject_current_harmonized.csv",
-      "rowCount": 2373,
-      "columnCount": 65,
-      "fileSizeMb": 1.27,
-      "fileModified": "2026-09-18",
+      "rowCount": 2390,
+      "columnCount": 76,
+      "fileSizeMb": 1.51,
+      "fileModified": "2026-11-03",
       "summary": {
-        "uniqueParticipants": 2373,
-        "presumedActive": 343,
+        "uniqueParticipants": 2390,
+        "presumedActive": 349,
         "discontinued": 677,
         "byStatusRedcap": {
           "Discontinued": 677,
-          "Deceased": 565,
-          "Minimal contact": 541,
-          "Presumed active - no Milestones record; UDS within 24 months": 343,
-          "Annual in-person UDS follow-up": 213,
-          "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved": 21,
-          "Annual UDS follow-up by telephone": 13
+          "Deceased": 569,
+          "Minimal contact": 540,
+          "Presumed active - no Milestones record; UDS within 24 months": 349,
+          "Annual in-person UDS follow-up": 221,
+          "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved": 19,
+          "Annual UDS follow-up by telephone": 15
         }
       }
     },
@@ -282,67 +282,68 @@
       "description": "Harmonized UDS visit rows.",
       "sourceFile": "data/rppr-data-package/USC ADRC UDS Harmonized/UDS_longitudinal_harmonized.csv",
       "dataFile": "data/rppr-data-package/USC ADRC UDS Harmonized/UDS_longitudinal_harmonized.csv",
-      "rowCount": 8178,
+      "rowCount": 8273,
       "columnCount": 2140,
-      "fileSizeMb": 23.46,
-      "fileModified": "2026-09-18",
+      "fileSizeMb": 23.75,
+      "fileModified": "2026-11-03",
       "summary": {
-        "uniqueParticipants": 8178,
-        "presumedActive": 859,
+        "uniqueParticipants": 8273,
+        "presumedActive": 896,
         "discontinued": 1530,
         "byStatusRedcap": {
-          "Deceased": 2352,
-          "Minimal contact": 1727,
-          "Annual in-person UDS follow-up": 1573,
+          "Deceased": 2370,
+          "Minimal contact": 1710,
+          "Annual in-person UDS follow-up": 1617,
           "Discontinued": 1530,
-          "Presumed active - no Milestones record; UDS within 24 months": 859,
-          "Annual UDS follow-up by telephone": 114,
-          "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved": 23
+          "Presumed active - no Milestones record; UDS within 24 months": 896,
+          "Annual UDS follow-up by telephone": 131,
+          "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved": 19
         }
       }
     },
     {
-      "id": "package-integrated-biomarker-subject-summary-v1-0-5",
+      "id": "package-integrated-biomarker-subject-summary-v1-1-2",
       "category": "Package",
       "label": "Biomarker Subject Summary",
-      "description": "Integrated biomarker availability by subject.",
-      "sourceFile": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Subject_Summary_v1.0.5.csv",
-      "dataFile": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarker_Subject_Summary_v1.0.5.csv",
-      "rowCount": 714,
+      "description": "JamesDataPacket November 5 (v1.1.2). One row per subject. James Wang, received 2026-11-05. Collection dates 2011-05-31 to 2026-08-27.",
+      "sourceFile": "data/JamesDataPacket-November-5/Integrated_Biomarker_Subject_Summary_v1.1.2.csv",
+      "dataFile": "data/JamesDataPacket-November-5/Integrated_Biomarker_Subject_Summary_v1.1.2.csv",
+      "rowCount": 734,
       "columnCount": 19,
-      "fileSizeMb": 0.1,
-      "fileModified": "2026-09-18",
+      "fileSizeMb": 0.11,
+      "fileModified": "2026-11-05",
       "summary": {
-        "uniqueParticipants": 714,
-        "hasPlasma": 649,
+        "uniqueParticipants": 734,
+        "hasPlasma": 670,
         "hasCsf": 268,
-        "hasNcrad": 576,
+        "hasNcrad": 601,
         "hasBiomarkerFlags": {
-          "has_A": 682,
-          "has_T": 688,
-          "has_N": 651
+          "has_A": 702,
+          "has_T": 710,
+          "has_N": 675
         }
       }
     },
     {
-      "id": "package-integrated-biomarkers-long-v1-0-5",
+      "id": "package-integrated-biomarkers-long-v1-1-2",
       "category": "Package",
       "label": "Biomarkers Long",
-      "description": "Integrated biomarker measurements (assay availability).",
-      "sourceFile": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarkers_Long_v1.0.5.csv",
-      "dataFile": "data/rppr-data-package/USC ADRC Integrated Biomarker Availability/Integrated_Biomarkers_Long_v1.0.5.csv",
-      "rowCount": 7518,
+      "description": "JamesDataPacket November 5 (v1.1.2). Integrated biomarker measurements. James Wang, received 2026-11-05. Dashboard NCRAD counts use collection_date Jan 6, 2026 \u2013 Aug 27, 2026.",
+      "sourceFile": "data/JamesDataPacket-November-5/Integrated_Biomarkers_Long_v1.1.2.csv",
+      "dataFile": "data/JamesDataPacket-November-5/Integrated_Biomarkers_Long_v1.1.2.csv",
+      "rowCount": 8100,
       "columnCount": 36,
-      "fileSizeMb": 3.03,
-      "fileModified": "2026-09-18",
+      "fileSizeMb": 3.4,
+      "fileModified": "2026-11-05",
       "summary": {
-        "uniqueParticipants": 0,
-        "topForms": {
-          "(blank)": 7518
-        },
-        "visitYears": {
-          "(blank)": 7518
-        }
+        "uniqueParticipants": 734,
+        "measurements": 8100,
+        "plasmaRows": 6205,
+        "csfRows": 1895,
+        "collectionStart": "2011-05-31",
+        "collectionEnd": "2026-08-27",
+        "sourcePacket": "JamesDataPacket November 5",
+        "sourceFile": "Integrated_Biomarkers_Long_v1.1.2.csv"
       }
     },
     {

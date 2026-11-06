@@ -19,7 +19,7 @@ export default function ImagingQcBlock({ data }: ImagingQcBlockProps) {
 
   return (
     <div className="dashboard-card">
-      <div className="mb-4">
+      <div className="mb-4 text-center">
         <h3 className="font-display text-lg font-semibold text-cpbh-navy">
           RPPR Imaging QC (cumulative)
         </h3>

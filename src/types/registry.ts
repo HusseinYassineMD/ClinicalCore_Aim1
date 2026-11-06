@@ -17,6 +17,13 @@ export interface RegistryDatasetSummary {
   topForms?: Record<string, number>;
   visitYears?: Record<string, number>;
   byStatusRedcap?: Record<string, number>;
+  measurements?: number;
+  plasmaRows?: number;
+  csfRows?: number;
+  collectionStart?: string | null;
+  collectionEnd?: string | null;
+  sourcePacket?: string;
+  sourceFile?: string;
 }
 
 export interface RegistryDatasetMeta {

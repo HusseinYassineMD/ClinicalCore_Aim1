@@ -109,6 +109,28 @@ def summarize_uds_harmonized(rows: list[dict[str, str]]) -> dict:
     }
 
 
+def summarize_biomarker_long(rows: list[dict[str, str]]) -> dict:
+    dates = []
+    for row in rows:
+        if (row.get("collection_date_suspect") or "").strip().upper() == "TRUE":
+            continue
+        day = (row.get("collection_date") or "").strip()[:10]
+        if day >= "2000-01-01":
+            dates.append(day)
+    return {
+        "uniqueParticipants": len({r.get("uds_id") for r in rows if r.get("uds_id")}),
+        "measurements": len(rows),
+        "plasmaRows": sum(
+            1 for r in rows if (r.get("specimen_type") or "").lower() == "plasma"
+        ),
+        "csfRows": sum(1 for r in rows if (r.get("specimen_type") or "").lower() == "csf"),
+        "collectionStart": min(dates) if dates else None,
+        "collectionEnd": max(dates) if dates else None,
+        "sourcePacket": "JamesDataPacket November 5",
+        "sourceFile": "Integrated_Biomarkers_Long_v1.1.2.csv",
+    }
+
+
 def summarize_biomarker_package(rows: list[dict[str, str]]) -> dict:
     def flag(field: str) -> int:
         return sum(1 for r in rows if (r.get(field) or "").upper() == "TRUE")
@@ -156,6 +178,8 @@ def pick_summarizer(category: str, label: str, columns: list[str]) -> str:
         return "biomarker-package"
     if "has_any_biomarker" in columns:
         return "biomarker-package"
+    if "biomarker_value" in columns:
+        return "biomarker-long"
     if "der_status_adrc" in columns:
         return "uds-harmonized"
     if category == "BRS":
@@ -179,6 +203,8 @@ def summarize(category: str, label: str, columns: list[str], rows: list[dict[str
         return summarize_uds_harmonized(rows)
     if kind == "biomarker-package":
         return summarize_biomarker_package(rows)
+    if kind == "biomarker-long":
+        return summarize_biomarker_long(rows)
     if kind == "apoe-package":
         return summarize_apoe_package(rows)
     return summarize_uds(rows)
@@ -275,18 +301,20 @@ def discover_files() -> list[dict]:
             (
                 "Package",
                 "Biomarker Subject Summary",
-                pkg_dir
-                / "USC ADRC Integrated Biomarker Availability"
-                / "Integrated_Biomarker_Subject_Summary_v1.0.5.csv",
-                "Integrated biomarker availability by subject.",
+                ROOT
+                / "data"
+                / "JamesDataPacket-November-5"
+                / "Integrated_Biomarker_Subject_Summary_v1.1.2.csv",
+                "JamesDataPacket November 5 (v1.1.2). One row per subject. James Wang, received 2026-11-05. Collection dates 2011-05-31 to 2026-08-27.",
             ),
             (
                 "Package",
                 "Biomarkers Long",
-                pkg_dir
-                / "USC ADRC Integrated Biomarker Availability"
-                / "Integrated_Biomarkers_Long_v1.0.5.csv",
-                "Integrated biomarker measurements (assay availability).",
+                ROOT
+                / "data"
+                / "JamesDataPacket-November-5"
+                / "Integrated_Biomarkers_Long_v1.1.2.csv",
+                "JamesDataPacket November 5 (v1.1.2). Integrated biomarker measurements. James Wang, received 2026-11-05. Dashboard NCRAD counts use collection_date Jan 6, 2026 – Aug 27, 2026.",
             ),
         ]
         if brs_latest:

@@ -15,7 +15,7 @@ import BiomarkerRenewalStickyNote from "./BiomarkerRenewalStickyNote";
 import DataStatusStickyNote from "./DataStatusStickyNote";
 import SectionScopeBracket from "@/components/SectionScopeBracket";
 import StickyNoteRail, { SectionWithNotes } from "./StickyNoteRail";
-import { biomarkerLatestCollectionDate } from "@/data/siteReporting";
+import { packageYtd } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 
 interface BiomarkersSectionProps {
@@ -38,6 +38,11 @@ export default function BiomarkersSection({
   sectionDataStatus,
 }: BiomarkersSectionProps) {
   const ncradProvenance = plasmaNcradProvenance;
+  const jamesPacket = packageYtd?.biomarkers;
+  const ncradCountStart = jamesPacket?.collectionCoverageStart;
+  const ncradCountEnd = jamesPacket?.collectionCoverageEnd;
+  const packetStart = jamesPacket?.packetCollectionStart;
+  const packetEnd = jamesPacket?.packetCollectionEnd;
   const plasmaBiomarkers = [
     {
       label: "Plasma Biomarker — NCRAD Aβ40",
@@ -56,9 +61,12 @@ export default function BiomarkersSection({
 
   return (
     <section className="space-y-6">
-      <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy">
+      <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy text-center">
         <span className="block">Biomarkers</span>
-        <SectionScopeBracket sectionId="biomarkers" className="block mt-2" />
+        <SectionScopeBracket
+          sectionId="biomarkers"
+          className="block mt-2 max-w-3xl mx-auto"
+        />
       </h2>
 
       <SectionWithNotes
@@ -113,10 +121,17 @@ export default function BiomarkersSection({
                 />
               </div>
             </div>
-            <p className="text-cpbh-navy/60 text-sm">
-              Green · NCRAD is in REDCap. Last collection_date{" "}
-              {formatScopeDate(biomarkerLatestCollectionDate)}. This file does
-              not include collections through 10/16/2026.
+            <p className="text-cpbh-navy/60 text-sm text-center max-w-3xl mx-auto leading-relaxed">
+              Green · JamesDataPacket, November 5, 2026 (v1.1.2), from James Wang.
+              NCRAD plasma counts cover collections{" "}
+              {formatScopeDate(ncradCountStart)} – {formatScopeDate(ncradCountEnd)}.
+              The packet’s full collection-date range is{" "}
+              {formatScopeDate(packetStart)} – {formatScopeDate(packetEnd)}.
+              NCRAD Flywheel update {formatScopeDate(jamesPacket?.ncradFlywheelUpdate)}.
+            </p>
+            <p className="text-cpbh-navy/55 text-xs text-center max-w-3xl mx-auto leading-relaxed">
+              Source: {jamesPacket?.sourcePath ?? jamesPacket?.sourceFile}. Counts
+              are NCRAD plasma rows with collection_date in that window.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {plasmaBiomarkers.map((item) => (

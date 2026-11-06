@@ -32,13 +32,16 @@ export default function BiomarkerCoreSampleProcessingBlock({
 
   return (
     <div className="dashboard-card overflow-hidden p-0">
-      <div className="px-8 pt-8 pb-5">
+      <div className="px-8 pt-8 pb-5 text-center">
         <h3 className="font-display text-xl md:text-2xl font-semibold text-cpbh-navy leading-snug">
           Biomarker Core · sample processing
         </h3>
-        <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl leading-relaxed">
+        <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl mx-auto leading-relaxed">
           Black · {coverageLabel(meta.startMonth, meta.endMonth)} ·{" "}
           {meta.providedBy}. Monthly sample and tube counts for that period.
+        </p>
+        <p className="text-cpbh-navy/55 text-xs mt-2 max-w-3xl mx-auto leading-relaxed">
+          Source: {meta.sourceFile}. Coverage {coverageLabel(meta.startMonth, meta.endMonth)}.
         </p>
       </div>
       <div className="overflow-x-auto px-2 pb-6">

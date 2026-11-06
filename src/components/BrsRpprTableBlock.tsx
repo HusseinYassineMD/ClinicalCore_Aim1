@@ -20,7 +20,7 @@ export default function BrsRpprTableBlock() {
       data-deck-slide="neuropath-brs-rppr-table"
       data-deck-caption="Neuropathology · BRS RPPR Table 1 (Data Core QC)"
     >
-      <div className="px-6 pt-6 pb-4 border-b border-cpbh-mist">
+      <div className="px-6 pt-6 pb-4 border-b border-cpbh-mist text-center">
         <h3 className="font-display text-xl font-semibold text-cpbh-navy">
           {meta.title}
         </h3>
@@ -29,7 +29,7 @@ export default function BrsRpprTableBlock() {
           {formatScopeDate(brsLatestActivityDate)} · MAP pull{" "}
           {meta.mapBrsDataPullDate}. File ends before 10/16/2026.
         </p>
-        <p className="text-cpbh-navy/55 text-xs mt-2 leading-relaxed max-w-3xl">
+        <p className="text-cpbh-navy/55 text-xs mt-2 leading-relaxed max-w-3xl mx-auto">
           {currentEnrollmentDefinition}
         </p>
       </div>
