@@ -76,12 +76,13 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     bracket: bracket([
       "UDS black",
       `last visit ${formatScopeDate(cov.udsLatestVisitDate)}`,
-      "autopsy green",
-      `last MAP date ${formatScopeDate(brsLatestActivityDate)}`,
+      "autopsy 226 green",
+      "Nov 6 counts black",
+      `last consent ${formatScopeDate(brsLatestActivityDate)}`,
     ]),
     bullets: [
       `UDS visit counts are black from James’s harmonized export. Last visit_date in that file: ${formatScopeDate(cov.udsLatestVisitDate)}. The reporting window is still ${ytdLabel}.`,
-      `Autopsy enrollment stays green. Last MAP date ${formatScopeDate(brsLatestActivityDate)} (autopsy consent). MAP pull 2026-10-07.`,
+      `Autopsy enrollment 226 stays green. Source is Xinhui Wang, MAP pull Oct 7, 2026. New consents, ethnicity, and APOE are black from the Nov 6 MAP pull. Last consent ${formatScopeDate(brsLatestActivityDate)}. Last death and last autopsy performed date are Oct 4, 2026.`,
       `GeneScreen black: REDCap ${geneScreenYtd.sourceFile} · ${geneScreenYtd.reportingPeriodLabel} · export ${formatScopeDate(geneScreenYtd.lastUpdated)}.`,
       `Green registry headlines (668 / 573 / 231): last RPPR ${rpprPeriod}.`,
     ],
@@ -90,12 +91,12 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     id: "neuropathology",
     navLabel: "Neuropathology",
     bracket: bracket([
-      "green",
-      `last MAP date ${formatScopeDate(brsLatestActivityDate)}`,
-      "MAP pull Oct 7, 2026",
+      "226 green",
+      "Nov 6 window counts black",
+      `last consent ${formatScopeDate(brsLatestActivityDate)}`,
     ]),
     bullets: [
-      `BRS counts are green. Last autopsy consent in ${ytd.brsAutopsy.sourceFile}: ${formatScopeDate(brsLatestActivityDate)}. Supplement ${formatScopeDate(ytd.brsAutopsy.supplementReceivedAt)}.`,
+      `Enrollment 226 is green. Source is Xinhui Wang, MAP pull Oct 7, 2026. New consents 5 and autopsy performed dates 7 are black from MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv, pulled Nov 6, 2026. Last consent ${formatScopeDate(brsLatestActivityDate)}. Last death and last autopsy performed date Oct 4, 2026.`,
       `Neurobank requests are black. ${formatScopeDate(siteReportingWindow.startDate)} – ${formatScopeDate(siteReportingWindow.endDate)}. Requests ${formatScopeDate(neurobankRequestEarliestDate)} – ${formatScopeDate(neurobankRequestLatestDate)} · ${redcapSpecimenSharing.sources.neurobank} · pulled ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
     ],
   },

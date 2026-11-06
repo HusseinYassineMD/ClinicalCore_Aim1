@@ -25,9 +25,10 @@ export default function BrsRpprTableBlock() {
           {meta.title}
         </h3>
         <p className="text-cpbh-navy/60 text-sm mt-1">
-          Green · {meta.preparedBy} · last MAP date{" "}
-          {formatScopeDate(brsLatestActivityDate)} · MAP pull{" "}
-          {meta.mapBrsDataPullDate}. File ends before 10/16/2026.
+          Green · {meta.preparedBy} · MAP pull {meta.mapBrsDataPullDate}.
+          This table stops before Oct 16, 2026. The Nov 6 MAP file is a
+          separate pull. Last consent in that file{" "}
+          {formatScopeDate(brsLatestActivityDate)}.
         </p>
         <p className="text-cpbh-navy/55 text-xs mt-2 leading-relaxed max-w-3xl mx-auto">
           {currentEnrollmentDefinition}

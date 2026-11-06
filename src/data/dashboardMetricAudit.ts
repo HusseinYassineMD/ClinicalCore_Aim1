@@ -150,7 +150,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     value: "Sex 83/143 of 226 · ethnicity 51/178/1/1 of 231 · APOE 71/140/20 of 231",
     tier: "verified",
     source:
-      "Sex: Xinhui Wang Data Core current enrollment. Ethnicity: James MAP BRS Oct 9 status=1. APOE: James MAP APOE file Sep 16 joined to those 231.",
+      "Sex stays green: Xinhui Wang Data Core current enrollment, MAP pull Oct 7, 2026. Ethnicity and APOE are black: James MAP Nov 6 pull, status Active, 231. The pull is after Oct 16. Last consent Oct 5, 2026.",
   },
   {
     section: "Recruitment · BRS",
@@ -329,6 +329,8 @@ export const AUDIT_SUMMARY = {
     "6. Biomarker Core Metrics.xlsx",
     "ADRC Renewal application (Jun 2024) — plan targets only",
     "data/rppr-data-package/ · UDS Harmonization & Integrated Biomarkers & Imaging",
+    "James Nov 6: data/MAPDataPacket-November-6/MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv",
+    "James Nov 6: data/MAPDataPacket-November-6/MAPDatabase-APOEGenotype_DATA_LABELS_2026-11-06_1248.csv",
     "James Oct 9: MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv",
     "James Oct 9: MAPDatabase_DataDictionary_2026-10-09.csv",
     "James Oct 9: USC ADRC Biospecimen Availability v1.0.1 (long + subject summary + dictionary)",

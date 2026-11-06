@@ -53,17 +53,14 @@ type ChartCountItem = {
 };
 
 /**
- * Autopsy enrollment is not in a file that reaches the October 16 lock, so those
- * numbers render green. UDS year to date from James’s harmonized export renders
- * black. Red placeholders stay red.
+ * Provenance is set on each autopsy number. Enrollment 226 stays green because
+ * Xinhui’s table is the October 7 pull. Nov 6 MAP counts inside Jan 1–Oct 16
+ * stay black: that pull is after the lock and the last event in the file is Oct 5.
  */
 function countProvenanceForColumn(
-  columnId: string,
+  _columnId: string,
   provenance: DataProvenance,
 ): DataProvenance {
-  if (columnId === "brs" && provenance === "ytd") {
-    return "prior";
-  }
   return provenance;
 }
 
@@ -213,7 +210,7 @@ function ChartTitle({
       </p>
       {nCaption ? (
         <p
-          className="text-[9px] text-cpbh-navy/50 leading-snug line-clamp-4"
+          className="text-[9px] text-cpbh-navy/50 leading-snug line-clamp-6"
           title={nCaption}
         >
           {nCaption}
@@ -1158,7 +1155,7 @@ function classicRegistryChartSlots(
   ];
 }
 
-/** GeneScreen YTD uses REDCap chartSlots when wired; BRS lower charts stay cumulative RPPR (green). */
+/** GeneScreen and autopsy charts use the column chartSlots. Autopsy sex stays green; ethnicity and APOE are black. */
 function reportingPeriodChartSlots(
   column: RegistryColumn,
 ): [RegistryChartSlot, RegistryChartSlot, RegistryChartSlot] {
@@ -1338,8 +1335,8 @@ function RegistryHeaderBlock({
         </p>
       ) : column.id === "brs" ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
-          Xinhui Wang · Data Core Table 1, Brain Research Study · current
-          enrollment · MAP pull Oct 7, 2026
+          Green · Xinhui Wang · Data Core Table 1 · MAP pull Oct 7, 2026.
+          That pull stops before Oct 16.
         </p>
       ) : null}
       {column.id === "genescreen" && column.totalsProvenance === "ytd" && !column.headerNote ? (

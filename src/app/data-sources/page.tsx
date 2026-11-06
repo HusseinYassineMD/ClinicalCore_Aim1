@@ -152,6 +152,8 @@ export default function DataSourcesPage() {
                 dashboard Biofluid Collection table uses Abhay Sagare’s January 1,
                 2026 – October 31, 2026 workbook. NCRAD assay cards use
                 JamesDataPacket November 5, Integrated_Biomarkers_Long_v1.1.2.csv.
+                The November 6 MAP labels exports are stored in{" "}
+                <code className="text-xs">data/MAPDataPacket-November-6/</code>.
               </p>
               <ul className="mt-2 list-disc pl-5 text-cpbh-navy/65 space-y-1">
                 <li>

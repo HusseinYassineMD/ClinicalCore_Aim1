@@ -79,11 +79,16 @@
     }
   ],
   "comparisonJamesMapExportOct9": {
-    "sourceFile": "MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv",
+    "sourceFile": "MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv",
+    "pullDate": "2026-11-06",
     "windowDashboardAggregate": "1/1/2026 – 10/16/2026",
     "subject_brs_status_active": 231,
     "newAutopsyConsentsInWindow": 5,
-    "autopsiesPerformedDateInWindow": 6,
-    "deathsDateOfDeathInWindow": 9
+    "autopsiesPerformedDateInWindow": 7,
+    "deathsDateOfDeathInWindow": 9,
+    "lastConsentDate": "2026-10-05",
+    "lastDeathDate": "2026-10-04",
+    "lastAutopsyPerformedDate": "2026-10-04",
+    "note": "Same 952 IDs as the Oct 9 coded export. MAP 9903470 autopsy performed date was blank on Oct 9 and is 2026-05-09 in this pull, so performed dates inside the window are 7."
   }
 }

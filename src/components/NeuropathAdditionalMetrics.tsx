@@ -1,7 +1,6 @@
 import type { NeuropathMetrics } from "@/types/aim1";
 import MetricCard from "./MetricCard";
 import {
-  brsLatestActivityDate,
   brsLatestAutopsyPerformedDate,
   brsLatestConsentDate,
   brsLatestDeathDate,
@@ -37,30 +36,29 @@ export default function NeuropathAdditionalMetrics({
       data-deck-caption="Neuropathology · autopsy & consent metrics"
     >
       <p className="text-cpbh-navy/60 text-sm mb-4">
-        Green · last date in the MAP file {formatScopeDate(brsLatestActivityDate)}{" "}
-        (autopsy consent). MAP pull {brsRpprTableDataCore.meta.mapBrsDataPullDate}.
-        The file does not include activity through 10/16/2026. James MAP raw
-        counts are in the card sublabels where they differ.
+        Black counts come from MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv.
+        Pull Nov 6, 2026, after the Oct 16 lock. Last consent{" "}
+        {formatScopeDate(brsLatestConsentDate)}. Last death{" "}
+        {formatScopeDate(brsLatestDeathDate)}. Last autopsy performed date{" "}
+        {formatScopeDate(brsLatestAutopsyPerformedDate)}. Green counts are
+        Xinhui Wang, Data Core Table 1, MAP pull{" "}
+        {brsRpprTableDataCore.meta.mapBrsDataPullDate}.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <MetricCard
           label="BRS Newly Consented"
           value={data.brsNewlyConsented}
           accent="navy"
-          provenance="prior"
-          sublabel={
-            mapCmp && mapCmp.newConsents !== data.brsNewlyConsented
-              ? `James MAP autopsy_consent_date: ${mapCmp.newConsents} · last consent ${formatScopeDate(brsLatestConsentDate)}`
-              : `Last autopsy consent in the MAP file: ${formatScopeDate(brsLatestConsentDate)}`
-          }
+          provenance="ytd"
+          sublabel={`Black · ${mapCmp?.newConsents ?? data.brsNewlyConsented} consent dates inside Jan 1–Oct 16 · last consent ${formatScopeDate(brsLatestConsentDate)} · pull Nov 6, 2026`}
         />
         <MetricCard
           label="Enrolled in Autopsy Program"
           value={data.enrolledInAutopsyProgram ?? "—"}
           accent="teal"
           provenance="prior"
-          sublabel={`Data Core current enrollment · N=${brsRpprTableDataCore.meta.percentDenominator}${
-            mapCmp ? ` · MAP status=1: ${mapCmp.activeStatusOne}` : ""
+          sublabel={`Green · Data Core current enrollment · N=${brsRpprTableDataCore.meta.percentDenominator} · MAP pull ${brsRpprTableDataCore.meta.mapBrsDataPullDate}${
+            mapCmp ? ` · MAP Active in the Nov 6 file: ${mapCmp.activeStatusOne}` : ""
           }`}
         />
         <MetricCard
@@ -68,7 +66,7 @@ export default function NeuropathAdditionalMetrics({
           value={data.withdrawals ?? "—"}
           accent="purple"
           provenance="prior"
-          sublabel="date_of_termination + Withdraw status · NP-reported case may lag MAP"
+          sublabel="Green · Xinhui Oct 7 table. The Nov 6 MAP file has 0 termination dates inside Jan 1–Oct 16. One NP-reported 2026 withdrawal may not be in MAP yet."
         />
         <MetricCard
           label="Participant deaths (RPPR table)"
@@ -77,7 +75,7 @@ export default function NeuropathAdditionalMetrics({
           provenance="prior"
           sublabel={
             mapCmp
-              ? `James date_of_death rows: ${mapCmp.deaths} · last death ${formatScopeDate(brsLatestDeathDate)}`
+              ? `Green · Xinhui Oct 7 table, 7 with autopsy and 1 without. Nov 6 file: ${mapCmp.deaths} deaths inside Jan 1–Oct 16, last death ${formatScopeDate(brsLatestDeathDate)}.`
               : undefined
           }
         />
@@ -85,10 +83,10 @@ export default function NeuropathAdditionalMetrics({
           label="Died with autopsy"
           value={data.diedWithAutopsy ?? data.autopsiesPerformed}
           accent="sky"
-          provenance="prior"
+          provenance="ytd"
           sublabel={
             mapCmp
-              ? `James autopsy_performed_date rows: ${mapCmp.autopsiesPerformed} · last performed ${formatScopeDate(brsLatestAutopsyPerformedDate)}`
+              ? `Black · ${mapCmp.autopsiesPerformed} autopsy performed dates inside Jan 1–Oct 16 · last performed ${formatScopeDate(brsLatestAutopsyPerformedDate)} · pull Nov 6, 2026`
               : "QC: death + autopsy_performed_date + autopsy_number"
           }
         />
@@ -99,7 +97,7 @@ export default function NeuropathAdditionalMetrics({
           provenance={hasRate ? "prior" : "unknown"}
           sublabel={
             hasRate
-              ? `Data Core enrolled ÷ Table 1 cohort N (${adrcTotal})`
+              ? `Green · Data Core enrolled ${enrolled} ÷ active cohort N=${adrcTotal} as of Sep 17, 2026`
               : undefined
           }
         />

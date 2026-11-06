@@ -18,7 +18,7 @@ export const biomarkerLatestCollectionDate =
 export const brsLatestActivityDate =
   packageYtd?.dataCoverage?.brsLatestActivityDate ?? null;
 
-/** Field maxima in MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv. */
+/** Field maxima in MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv. Same maxima as the Oct 9 file. */
 export const brsLatestConsentDate = "2026-10-05";
 export const brsLatestAutopsyPerformedDate = "2026-10-04";
 export const brsLatestDeathDate = "2026-10-04";

@@ -1,0 +1,953 @@
+"MAP Subject ID","BRS ID","UDS ID","Subject Autopsy Status","Autopsy Number","Autopsy Consent","Autopsy Consent Date","Date of Death","Date of Termination","Subject Current Overall Status","Date Deceased for Overall Status","Autopsy Performed","Autopsy Performed Date","Diagnosis at Consent","Final Diagnosis","Autopsy Failure","Specify autopsy failure","Autopsy Report Date",PMI,Gender,"Date of Birth","Eye Donation","Subject Race","Subject Ethnicity"
+9900003,8-2797,30318,Deceased,1074,Yes,1999-04-15,2021-12-24,,Deceased,2021-12-24,Yes,2021-12-25,"AD Probable / no Lewy bodies","Primary age related tauopathy (PART), CVD",,,2022-03-11,23,Female,1930-07-12,Yes,White,Hispanic
+9900004,8-2196,10885,Deceased,751,Yes,1996-08-09,2006-01-20,,Deceased,2006-01-20,Yes,2006-01-20,"Parkinson's disease with dementia","Parkinson's disease, Alzheimer's disease (Braak IV)","Not Applicable",,2006-04-20,3.5,Male,1920-10-13,Yes,White,Non-Hispanic
+9900013,8-3676,30256,Active,,Yes,2018-06-12,,,Active,,,,,,,,,,Female,1942-03-28,Yes,White,Hispanic
+9900014,8-2659,30180,Active,,Yes,1994-06-14,,,Active,,No,,,,"Not Applicable",,,,Male,1937-01-16,N/A,White,Hispanic
+9900015,8-3197,30356,Deceased,947,Yes,2009-03-02,2015-04-10,,Deceased,2015-04-10,Yes,2015-04-10,"AD Probable / no Lewy bodies","Braak V",,,2015-10-06,4,Female,1923-11-07,No,White,Hispanic
+9900017,8-3067,,Deceased,769,Yes,2004-06-07,2006-10-09,,Deceased,2006-10-09,Yes,2006-10-10,"Other Neurological Disorders","Alzheimer's disease, definite (Braak VI)",,,,"13 3/4",Male,1934-11-15,Yes,White,Non-Hispanic
+9900019,8-3070,,Deceased,,Yes,2004-07-26,2004-07-01,,Deceased,2004-07-01,No,,,,,,,,Female,1918-09-18,Yes,White,Non-Hispanic
+9900020,8-1786,10475,Deceased,733,Yes,1991-03-18,2005-03-10,,Deceased,2005-03-10,Yes,2005-03-10,,"AD and parkinson's possible","Not Applicable",,2005-04-19,5,Male,1909-01-03,No,White,Non-Hispanic
+9900030,8-3045,,Deceased,759,Yes,2004-03-24,2006-04-09,,Deceased,2006-04-09,Yes,2006-04-09,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak V)",,,,5.5,Female,1908-12-01,Yes,White,Non-Hispanic
+9900031,8-3047,1101051,Active,,Yes,2004-03-25,,,Active,,,,,,,,,,Female,1939-06-14,Yes,White,Non-Hispanic
+9900042,8-2426,11115,Deceased,709,Yes,2002-02-05,2004-02-13,,Deceased,2004-02-13,Yes,2004-02-13,"Other Neurological Disorders","Alzheimer's disease, definite (Braak VI)","Not Applicable",,2004-06-04,7,Male,1933-01-07,No,White,Non-Hispanic
+9900045,8-3346,11177,Deceased,951,Yes,2012-03-08,2015-06-05,,Deceased,2015-06-05,Yes,2015-06-05,"AD Probable / no Lewy bodies","AD Braak V, CAA, CVD","Not Applicable",,2015-12-11,4,Female,1945-08-29,Yes,"More than one race",Non-Hispanic
+9900049,8-2362,11051,Deceased,745,Yes,2000-10-24,2005-09-14,,Deceased,2005-09-14,Yes,2005-09-14,"AD Probable / no Lewy bodies","Alzheimer's disease (Braak V)","Not Applicable",,2006-02-14,4,Female,1912-10-13,Yes,White,Non-Hispanic
+9900050,8-1962,10651,Deceased,,Yes,1993-04-21,2010-04-26,,Deceased,2010-04-26,No,,,,"Not Applicable",,,,Male,1925-04-27,No,White,Non-Hispanic
+9900051,8-2430,11119,Deceased,1022,Yes,2002-03-05,2019-04-10,,Deceased,2019-04-10,Yes,2019-04-10,,"Braak V-VI","Not Applicable",,,7.25,Male,1933-06-13,Yes,White,Non-Hispanic
+9900062,8-3205,11222,Deceased,825,Yes,2009-04-10,2009-08-31,,Deceased,2009-08-31,Yes,2009-08-31,"AD Probable / no Lewy bodies","AD intermediate",,,2010-02-09,9.75,Female,1941-01-10,Yes,White,Non-Hispanic
+9900071,8-2189,10878,Deceased,,Yes,1996-07-16,2015-02-01,,Deceased,2015-02-01,No,,,,"Not Applicable",,,,Female,1923-02-08,No,White,Non-Hispanic
+9900078,8-2790,30311,Deceased,,Yes,1998-10-13,2006-10-14,,Deceased,2006-10-14,No,,,,,,,,Male,1941-03-15,,"Unknown or not reported",Hispanic
+9900083,8-2743,30264,Deceased,,Yes,1997-07-21,2006-05-03,,Deceased,2006-05-03,No,,,,,,,,Male,1922-08-18,,"Unknown or not reported",Hispanic
+9900085,8-3081,11193,Withdraw,,Yes,2005-07-06,,2013-08-27,Withdrawn,,,,,,,,,,Female,1925-02-25,Yes,White,Non-Hispanic
+9900092,8-3040,,Deceased,,Yes,2004-03-05,2006-07-01,,Deceased,2006-07-01,No,,,,,,,,Male,1915-08-24,Yes,White,Non-Hispanic
+9900096,8-2602,30123,Deceased,,Yes,1991-08-22,2009-10-23,,Deceased,2009-10-23,No,,,,,,,,Female,1916-11-14,,"Unknown or not reported",Hispanic
+9900109,8-2475,11164,Deceased,,Yes,2003-09-15,2011-11-15,,Deceased,2011-07-15,No,,,,Disqualified,,,,Female,1939-03-08,Yes,White,Non-Hispanic
+9900114,8-2214,10903,Withdraw,,Yes,1996-11-14,,2004-12-01,Withdrawn,,No,,,,"Not Applicable",,,,Female,1923-10-18,No,White,Non-Hispanic
+9900123,8-2404,11093,Deceased,757,Yes,2001-10-01,2005-11-02,,Deceased,2005-11-02,Yes,2005-11-05,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak V)","Not Applicable",,2006-04-03,5,Male,1922-08-21,Yes,White,Non-Hispanic
+9900125,8-3084,1100407,Deceased,843,Yes,2005-08-29,2010-04-12,,Deceased,2010-04-12,Yes,2010-04-13,"AD Probable / no Lewy bodies","AD high likelihood",,,2010-09-01,4,Male,1946-12-16,,White,Non-Hispanic
+9900127,8-3200,11233,Withdraw,,Yes,2009-03-03,,2014-09-26,Withdrawn,,,,,,,,,,Female,1932-08-25,Yes,White,Non-Hispanic
+9900132,8-2121,10810,Deceased,850,Yes,1995-05-09,2010-09-13,,Deceased,2010-09-13,Yes,2010-09-14,"Other Neurological Disorders","mesial temporal sclerosis; multi-infarct dementia","Not Applicable",,2011-03-25,34.75,Female,1927-11-11,Yes,White,Non-Hispanic
+9900136,8-2139,10828,Deceased,827,Yes,1995-08-07,2009-10-10,,Deceased,2009-10-10,Yes,2009-10-10,"Normal Control","Braak 0 Normal Control; amyloid angiopathy","Not Applicable",,2010-02-09,8.75,Female,1917-11-04,No,White,Non-Hispanic
+9900141,8-2388,11077,Deceased,,Yes,2001-06-21,2004-06-18,,Deceased,2004-06-18,No,,,,"Not Applicable",,,,Female,1907-11-04,Yes,White,Non-Hispanic
+9900143,8-3049,1101065,Deceased,,Yes,2004-03-26,2017-03-17,,Deceased,2017-03-17,No,,,,"Logistics failure (specify)",,,,Male,1918-08-14,Yes,White,Non-Hispanic
+9900146,8-2323,11012,Withdraw,,Yes,1999-07-20,,2016-10-05,Withdrawn,,No,,,,"Not Applicable",,,,Male,1943-05-14,Yes,White,Non-Hispanic
+9900153,8-2098,10787,Withdraw,,Yes,1995-02-09,,2013-08-07,Withdrawn,,No,,,,"Not Applicable",,,,Female,1926-05-17,Yes,White,Non-Hispanic
+9900160,8-2456,11145,Deceased,768,Yes,2002-08-18,2006-09-28,,Deceased,2006-09-28,Yes,2006-09-29,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak VI)",,,2006-11-08,13,Male,1923-08-03,Yes,White,Non-Hispanic
+9900163,8-1811,10500,Deceased,715,Yes,1991-04-22,2004-05-08,,Deceased,2004-05-08,Yes,2004-05-08,"Normal Control","Cerebrum, infarct, intermediate, focal arteriolosclerosis","Not Applicable",,2004-08-09,9,Female,1904-05-10,Yes,White,Non-Hispanic
+9900168,8-3019,10197,Deceased,730,Yes,1986-07-14,2004-12-30,,Deceased,2004-12-30,Yes,2004-12-30,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak VI)","Not Applicable",,,3,Female,1928-07-18,Yes,"Unknown or not reported",Hispanic
+9900179,8-3037,,Deceased,,Yes,2004-03-03,2006-11-01,,Deceased,2006-11-01,No,,,,,,,,Male,1934-12-06,Yes,White,Non-Hispanic
+9900181,8-1888,10577,Deceased,816,Yes,1992-06-04,2009-04-21,2007-08-30,Deceased,2009-04-21,Yes,2009-04-22,"Normal Control","AD, low probability","Not Applicable",,2009-09-04,12,Female,1913-01-07,Yes,White,Non-Hispanic
+9900184,8-1604,10293,Deceased,742,Yes,1988-03-14,2005-08-05,,Deceased,2005-08-05,Yes,2005-08-05,"Other Neurological Disorders","Subcortical arteriosclerotic encephalopathy","Not Applicable",,,3,Female,1941-07-14,Yes,White,Non-Hispanic
+9900186,8-1614,10303,Deceased,805,Yes,1988-04-12,2008-10-18,,Deceased,2008-10-18,Yes,2008-10-18,"AD Probable / no Lewy bodies","AD, definite (Braak V)","Not Applicable",,,6,Female,1916-01-23,Yes,White,Non-Hispanic
+9900204,8-2391,11080,Withdraw,,Yes,2001-06-28,,2019-04-09,Withdrawn,,No,,,,"Not Applicable",,,,Female,1940-08-15,Yes,White,Non-Hispanic
+9900212,8-3075,1100541,Deceased,782,Yes,2005-03-25,2007-07-25,,Deceased,2007-07-25,Yes,2007-07-25,"AD Probable / no Lewy bodies","AD, definite (Braak V, IV)",,,2007-08-29,9,Female,1918-03-26,Yes,White,Non-Hispanic
+9900239,8-2666,30187,Deceased,,Yes,1994-04-19,2005-10-25,,Deceased,2005-10-25,No,,,,,,,,Male,1940-03-20,,"Unknown or not reported",Hispanic
+9900247,8-1946,10635,Disqualified,,Yes,1993-01-11,,2009-10-14,Withdrawn,,No,,,,"Not Applicable",,,,Male,1915-01-08,Yes,White,Non-Hispanic
+9900263,8-2704,30225,Deceased,821,Yes,1995-03-01,2009-07-22,,Deceased,2009-07-22,Yes,2009-07-23,"AD Probable / no Lewy bodies","bilateral severe hippo sclerosis; sever cerebral atrophy",,,2009-10-23,5,Male,1933-07-20,,White,Hispanic
+9900275,8-2378,11067,Deceased,795,Yes,2001-05-04,2008-02-20,,Deceased,2008-02-20,Yes,2008-02-20,"Other Neurological Disorders","Alzheimer's disease (Braak V)","Not Applicable",,2008-06-12,6,Male,1927-09-26,No,White,Non-Hispanic
+9900276,8-3038,,Deceased,726,Yes,2004-03-03,2004-10-12,,Deceased,2004-10-12,Yes,2004-10-12,"Normal Control","Cerebrum, arteriolarsclerosis & ischemic change of subcortical wm",,,,5.5,Female,1906-12-19,Yes,White,Non-Hispanic
+9900291,8-3029,1100841,Active,,Yes,2004-02-24,,,Active,,,,,,,,,,Female,1938-10-17,Yes,White,Non-Hispanic
+9900292,8-2423,11112,Deceased,,Yes,2002-01-30,2013-03-19,,Deceased,2013-03-19,No,,,,"Not Applicable",,,,Female,1922-07-15,Yes,White,Non-Hispanic
+9900304,8-1816,10505,Deceased,996,Yes,1991-07-19,2017-12-11,,Active,2017-12-11,Yes,2017-12-12,"AD Probable / no Lewy bodies","No Braak score; AD low likelihood","Not Applicable",,2018-03-01,16.5,Male,1932-04-20,Yes,White,Non-Hispanic
+9900305,8-3076,,Deceased,802,Yes,2005-03-28,2008-04-21,,Deceased,2008-04-21,Yes,2008-04-22,"Normal Control","No Braak; Normal Control; amyloid angiopathy",,,,3.15,Female,1912-10-10,Yes,White,Non-Hispanic
+9900312,8-2995,10173,Deceased,743,Yes,1986-01-14,2005-08-31,,Deceased,2005-08-31,Yes,2005-08-31,"Other Neurological Disorders","Alzheimer's disease (Braak V)","Not Applicable",,2006-02-10,6,Male,1918-04-08,Yes,White,Non-Hispanic
+9900314,8-2741,30262,Withdraw,,N/A,1997-02-27,,2016-02-10,Withdrawn,,No,,,,"Not Applicable",,,,Female,1934-11-21,N/A,White,Hispanic
+9900315,8-2742,30263,Withdraw,,,1997-02-27,,2019-04-15,Withdrawn,,,,,,,,,,Male,1932-07-28,,White,Hispanic
+9900322,8-3095,,Deceased,814,Yes,2006-03-21,2009-03-21,,Deceased,2009-03-21,Yes,2009-03-21,"AD Probable / no Lewy bodies","Alzheimer's disease, high probability (Braak V)",,,,4,Female,1910-08-15,No,White,Non-Hispanic
+9900338,8-1777,1100804,Deceased,1007,Yes,1991-02-22,2018-05-04,,Deceased,2018-05-04,Yes,2018-05-05,"Normal Control",AD,"Not Applicable",,2018-06-26,12,Female,1924-09-08,Yes,White,Non-Hispanic
+9900345,8-2315,11004,Deceased,,Yes,1999-06-08,2011-07-30,,Deceased,2011-07-30,No,,,,"Not Applicable",,,,Male,1915-07-20,Yes,White,Non-Hispanic
+9900355,8-2523,10996,Deceased,,Yes,1988-10-24,2003-01-05,1999-10-20,Deceased,2003-01-05,No,,,,"Not Applicable",,,,Female,1911-05-14,N/A,"Unknown or not reported",Hispanic
+9900363,8-2114,10803,Deceased,,Yes,1995-03-30,2008-10-07,2007-01-24,Deceased,2008-10-07,No,,,,"Not Applicable",,,,Female,1920-03-15,Yes,"Unknown or not reported",Unknown
+9900386,8-3099,,Active,,Yes,2006-02-15,,,Active,,,,,,,,,,Female,1929-06-15,Yes,"Unknown or not reported",Hispanic
+9900391,8-2982,10160,Deceased,,Yes,1985-12-03,2005-06-06,,Deceased,2005-06-06,No,,,,"Not Applicable",,,,Male,1918-08-03,No,White,Non-Hispanic
+9900392,8-2350,11039,Deceased,,Yes,2000-08-01,2007-01-31,,Deceased,2007-01-31,No,,,,"Not Applicable",,,,Female,1931-12-04,No,"Black or African American",Non-Hispanic
+9900397,8-3096,11179,Withdraw,,No,2006-03-15,,2010-04-21,Withdrawn,,,,,,,,,,Female,1938-05-08,Yes,White,Hispanic
+9900406,8-1754,10443,Deceased,749,Yes,1990-10-15,2005-11-08,,Deceased,2005-11-08,Yes,2005-11-08,"Normal Control","Alzheimer's disease, possible (Braak IV-V)",,,2006-02-14,5,Female,1909-06-28,Yes,White,Non-Hispanic
+9900425,8-1918,10607,Withdraw,,Yes,1992-10-06,,2011-04-05,Withdrawn,,No,,,,"Not Applicable",,,,Female,1915-08-23,Yes,White,Non-Hispanic
+9900429,8-2220,10909,Withdraw,,Yes,1997-01-09,,2019-04-16,Withdrawn,,No,,,,"Not Applicable",,,,Female,1942-08-03,Yes,White,Non-Hispanic
+9900434,8-3043,1101077,Deceased,,Yes,2004-03-15,2018-06-05,,Deceased,2018-06-05,No,,,,"Logistics failure (specify)",,,,Female,1921-12-24,Yes,White,Non-Hispanic
+9900439,8-2470,11159,Deceased,,Yes,2003-01-06,2010-05-24,,Deceased,2010-05-24,No,,,,,,,,Male,1930-08-01,No,"Unknown or not reported",Unknown
+9900455,8-3053,1100853,Withdraw,,Yes,2004-04-02,,2010-12-08,Withdrawn,,,,,,Withdrawn,,,,Female,1929-03-11,No,White,Non-Hispanic
+9900456,8-3052,1100852,Deceased,804,Yes,2004-04-02,2008-08-06,,Deceased,2008-08-06,Yes,2008-08-07,"Normal Control","No Braak; Normal Control","Not Applicable",,2008-10-21,9,Male,1925-09-29,No,White,Non-Hispanic
+9900457,8-3050,1100787,Withdraw,,Yes,2004-04-01,,,Withdrawn,,,,,,Withdrawn,,,,Female,1932-09-20,Yes,White,Non-Hispanic
+9900458,8-3051,1100788,Deceased,987,Yes,2004-04-01,2017-04-13,,Deceased,2017-04-13,Yes,2017-04-14,"Normal Control","Braak II",,,2017-06-22,16,Male,1929-12-22,No,White,Non-Hispanic
+9900463,8-3082,11228,Deceased,1080,Yes,2005-07-21,2022-03-24,,Deceased,2022-03-24,Yes,2022-03-25,"Normal Control","AD intermediate, CAA, Grade I and II",,,2022-07-15,19,Male,1934-02-17,Yes,White,Non-Hispanic
+9900486,8-3030,,Withdraw,,Yes,2004-02-25,,2009-03-27,Withdrawn,,,,,,,,,,Male,1916-08-04,Yes,White,Non-Hispanic
+9900489,8-2770,30291,Active,,Yes,1997-11-04,,,Active,,,,,,,,,,Female,1922-09-26,,"Unknown or not reported",Hispanic
+9900493,8-2034,10723,Deceased,855,Yes,1994-02-24,2010-11-29,,Deceased,2010-11-29,Yes,2010-11-29,"AD Probable / no Lewy bodies","mesial temporal sclerosis; AD high likelihood","Not Applicable",,,17,Female,1919-09-10,Yes,White,Non-Hispanic
+9900496,8-1986,10675,Deceased,1088,Yes,1993-08-06,2022-10-30,,Deceased,2022-10-30,Yes,2022-11-02,"Normal Control","AD, intermediate probability",,,2023-03-24,67,Male,1923-04-07,Yes,White,Non-Hispanic
+9900501,8-2351,11040,Withdraw,,Yes,2000-08-17,,2021-12-13,Withdrawn,,No,,,,"Not Applicable",,,,Female,1932-02-06,Yes,White,Non-Hispanic
+9900505,8-3123,30360,Deceased,928,Yes,2006-03-06,2014-07-27,,Deceased,2014-07-27,Yes,2014-07-27,"AD Probable / no Lewy bodies","Braak V",,,2015-04-20,8,Male,1945-02-01,Yes,White,Hispanic
+9900509,8-3086,,Deceased,746,Yes,2005-09-21,2005-09-20,,Deceased,2005-09-20,Yes,2005-09-21,"Other Neurological Disorders","Alzheimer's disease (Braak V)",,,,14,Male,1921-08-19,Yes,White,Non-Hispanic
+9900511,8-3056,,Withdraw,,Yes,2004-04-15,,2019-05-01,Withdrawn,,,,,,,,,,Male,1926-09-07,Yes,White,Non-Hispanic
+9900515,8-2250,10939,Deceased,,Yes,1997-08-13,2015-02-28,2007-02-14,Deceased,2015-02-28,No,,,,"Logistics failure (specify)",,,,Female,1916-05-16,Yes,White,Non-Hispanic
+9900517,8-2348,11037,Deceased,803,Yes,2000-05-17,2008-06-01,,Deceased,2008-06-01,Yes,2008-06-01,"Normal Control","AD, possible (Braak III)","Not Applicable",,2008-09-05,9.5,Female,1920-12-17,Yes,White,Non-Hispanic
+9900524,8-3080,,Deceased,755,Yes,2005-07-15,2006-02-13,,Deceased,2006-02-13,Yes,2006-02-13,"Other Neurological Disorders","Pick's disease","Not Applicable",,,5,Female,1932-08-03,Yes,White,Non-Hispanic
+9900528,8-2401,11090,Withdraw,,Yes,2001-09-20,,2007-09-19,Withdrawn,,No,,,,"Not Applicable",,,,Female,1915-07-07,Yes,White,Non-Hispanic
+9900536,8-1911,10600,Deceased,,Yes,1992-08-26,2019-07-25,,Deceased,2019-07-25,No,,,,"Logistics failure (specify)",,,,Male,1929-01-30,Yes,White,Non-Hispanic
+9900537,8-2728,30249,Deceased,,Yes,1996-08-06,2005-12-19,,Deceased,2005-12-19,No,,,,,,,,Female,1918-04-08,,"Unknown or not reported",Hispanic
+9900542,8-3186,11230,Deceased,1108,Yes,2008-08-22,2024-07-03,,Deceased,2024-07-03,Yes,2024-07-04,,,,,,13.5,Male,1924-03-19,Yes,Asian,Non-Hispanic
+9900557,8-1789,10478,Withdraw,,Yes,1991-03-20,,2007-10-30,Withdrawn,,No,,,,"Not Applicable",,,,Female,1925-05-27,Yes,White,Non-Hispanic
+9900559,8-2366,11055,Deceased,,Yes,2000-11-14,2005-08-26,,Deceased,2005-08-26,No,,,,"Not Applicable",,,,Female,1914-11-18,Yes,White,Non-Hispanic
+9900565,8-2450,11139,Active,,Yes,2002-07-25,,,Active,,,,,,,,,,Male,1946-03-06,Yes,White,Non-Hispanic
+9900566,8-2415,11104,Deceased,874,Yes,2001-10-22,2011-06-20,,Deceased,2011-06-20,Yes,2011-06-20,"AD Probable / no Lewy bodies","AD, high likelihood","Not Applicable",,2011-11-09,4,Male,1920-10-15,Yes,White,Non-Hispanic
+9900567,8-2382,11071,Deceased,760,Yes,2001-06-04,2006-04-13,,Deceased,2006-04-13,Yes,2006-04-13,"Other Neurological Disorders","Huntington's disease","Not Applicable",,2006-09-28,5,Male,1923-02-10,No,White,Non-Hispanic
+9900572,8-3109,11195,Withdraw,,Yes,2006-04-26,2019-03-11,2019-04-16,Withdrawn,2019-03-11,,,,,,,,,Female,1941-01-13,Yes,White,Non-Hispanic
+9900583,8-2438,11127,Deceased,,Yes,2002-04-10,2004-01-03,,Deceased,2004-01-03,No,,,,"Not Applicable",,,,Female,1923-08-05,No,White,Non-Hispanic
+9900588,8-2058,10747,Deceased,727,Yes,1994-07-19,2004-10-30,,Deceased,2004-10-30,Yes,2004-10-30,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak V-VI)","Not Applicable",,,3,Female,1929-12-21,Yes,White,Non-Hispanic
+9900596,8-2507,30028,"Withdrew consent",,,1988-04-27,,2016-06-13,"Withdrew ADRC consent",,,,,,,,,,Male,1921-12-17,,White,Hispanic
+9900597,8-3044,1100848,Deceased,1038,Yes,2004-03-18,2019-12-03,,Active,2019-12-03,Yes,2019-12-03,"Normal Control","Braak III","Not Applicable",,2020-03-21,5.25,Male,1922-07-11,Yes,White,Hispanic
+9900615,8-2746,30267,Withdraw,,Yes,2001-03-12,,2011-12-06,Withdrawn,,,,,,,,,,Male,1944-12-27,,"Unknown or not reported",Hispanic
+9900618,8-2238,10927,Deceased,,Yes,1997-05-20,2004-05-23,,Deceased,2004-05-23,No,,,,"Not Applicable",,,,Female,1914-10-10,Yes,White,Non-Hispanic
+9900631,8-3058,11229,Deceased,946,Yes,2004-04-26,2015-04-01,,Deceased,2015-04-01,Yes,2015-04-01,"Normal Control","Braak V",,,2015-09-16,3.5,Male,1917-10-12,Yes,White,Non-Hispanic
+9900633,8-3034,11227,Deceased,,Yes,2004-03-02,2020-02-15,,Deceased,2020-02-15,No,,,,,,,,Female,1915-03-22,Yes,White,Non-Hispanic
+9900635,8-3048,1100849,Deceased,881,Yes,2004-03-26,2011-12-07,,Deceased,2011-12-07,Yes,2011-12-08,"Normal Control","AD, intermediate; hippo sclerosis",,,2012-04-26,8,Male,1920-06-06,Yes,White,Non-Hispanic
+9900639,8-2235,10924,Deceased,,Yes,1997-05-06,2004-08-22,,Deceased,2004-08-22,No,,,,"Not Applicable",,,,Male,1921-10-20,Yes,White,Non-Hispanic
+9900646,8-1515,10204,Deceased,767,Yes,1986-12-08,2006-07-12,,Deceased,2006-07-12,Yes,2006-07-12,"AD Probable / no Lewy bodies","Alzheimer's disease (Braak IV)","Not Applicable",,,10,Female,1908-12-15,Yes,"Black or African American",Non-Hispanic
+9900650,8-2732,30253,Active,,Yes,1996-10-23,,1999-10-20,Active,,No,,,,"Not Applicable",,,,Female,1949-02-05,N/A,White,Hispanic
+9900660,8-3092,,Deceased,777,Yes,2005-11-14,2007-03-28,,Deceased,2007-03-28,Yes,2007-03-28,"AD Probable / no Lewy bodies","AD, definite (Braak V)",,,,9,Male,1920-09-03,Yes,White,Non-Hispanic
+9900662,8-3106,11171,Deceased,935,Yes,2006-05-02,2014-10-10,,Deceased,2014-10-10,Yes,2014-10-13,"AD Probable / no Lewy bodies"," Parkinson's disease; low AD ",,,2015-04-23,75.5,Male,1936-10-03,Yes,White,Non-Hispanic
+9900665,8-1927,10616,Deceased,785,Yes,1992-09-25,2007-08-14,2006-07-05,Deceased,2007-08-14,Yes,2007-08-14,"AD Probable / no Lewy bodies","AD, probable (Braak III)","Not Applicable",,,12,Female,1908-02-15,Yes,White,Non-Hispanic
+9900666,8-2279,10968,Deceased,824,Yes,1998-07-16,2009-08-27,,Deceased,2009-08-27,Yes,2009-08-27,"Normal Control","Normal control, Braak 0","Not Applicable",,2010-02-09,7.75,Female,1922-04-11,Yes,White,Non-Hispanic
+9900668,8-2284,10973,Withdraw,,Yes,1998-08-06,,2013-08-27,Withdrawn,,No,,,,"Not Applicable",,,,Male,1926-01-30,Yes,White,Non-Hispanic
+9900669,8-1978,10667,Deceased,867,Yes,1993-07-19,2011-05-02,2007-09-24,Deceased,2011-05-02,Yes,2011-05-02,"Normal Control","AD, low likelihood Braak1","Not Applicable",,,8.25,Female,1921-10-21,Yes,White,Non-Hispanic
+9900671,8-1977,10666,Deceased,703,Yes,1993-07-19,2003-12-22,,Deceased,2003-12-22,Yes,2003-12-22,"Mild Cognitive Impairment","Alzheimer's disease, definite (Braak V)","Not Applicable",,,3,Male,1909-12-20,Yes,White,Non-Hispanic
+9900672,8-3026,11231,Deceased,,Yes,2004-02-23,2020-05-18,,Deceased,2020-05-18,No,,,,"Logistics failure (specify)",,,,Female,1922-06-21,Yes,White,Non-Hispanic
+9900675,8-2205,10894,Deceased,998,Yes,1996-09-17,2017-12-19,,Deceased,2017-12-19,Yes,2017-12-20,"Normal Control","vascular dementia; infarct","Not Applicable",,2018-04-09,16,Female,1918-01-27,Yes,White,Non-Hispanic
+9900687,8-3069,1101080,Withdraw,,Yes,2004-07-07,,2010-06-09,Withdrawn,,,,,,,,,,Female,1936-11-25,Yes,"More than one race",Non-Hispanic
+9900693,8-2045,10734,Deceased,,Yes,1994-05-24,2010-08-15,2007-02-28,Deceased,2010-08-15,No,,,,"Not Applicable",,,,Male,1924-01-18,Yes,White,Non-Hispanic
+9900699,8-2907,10085,Deceased,,Yes,1985-06-18,2021-09-06,,Deceased,2021-09-06,No,,,,"Logistics failure (specify)",,,,Female,1926-01-09,No,White,Non-Hispanic
+9900710,8-2144,10833,Active,,Yes,1995-10-12,,,Active,,No,,,,"Not Applicable",,,,Male,1948-07-10,Yes,"Unknown or not reported",Hispanic
+9900711,8-2713,30234,Withdraw,,No,1995-05-25,,2011-05-18,Withdrawn,,,,,,,,,,Female,1924-07-04,,"Unknown or not reported",Hispanic
+9900715,8-2254,10943,Deceased,752,Yes,1997-09-09,2006-02-08,,Deceased,2006-02-08,Yes,2006-02-08,"AD Probable / no Lewy bodies","Alzheimer's disease, probable (Braak III-IV)","Not Applicable",,2006-05-18,5.5,Male,1907-11-13,Yes,White,Non-Hispanic
+9900716,8-2335,11024,Deceased,722,Yes,2000-01-20,2004-08-26,,Deceased,2004-08-26,Yes,2004-08-26,"Other Neurological Disorders","Parkinson's disease","Not Applicable",,2005-04-12,6,Male,1916-05-24,Yes,White,Non-Hispanic
+9900718,8-3041,1100597,Deceased,,Yes,2004-03-04,2008-06-09,,Deceased,2008-06-09,No,,,,,,,,Male,1927-12-15,Yes,White,Non-Hispanic
+9900721,8-3158,11188,Active,,Yes,2007-11-05,,,Active,,,,,,,,,,Female,1938-06-23,Yes,White,Non-Hispanic
+9900723,8-2383,11072,Deceased,870,Yes,2001-06-12,2011-05-28,2006-07-13,Deceased,2011-05-28,Yes,2011-05-29,"Normal Control","acute vasculiits, acute cerebritis, amyloid angiopathy","Not Applicable",,2011-12-13,9,Female,1916-05-08,Yes,White,Non-Hispanic
+9900729,8-2384,11073,Deceased,833,Yes,2001-06-12,2009-11-13,,Deceased,2009-11-13,Yes,2009-11-14,"AD Probable / no Lewy bodies","mesial temporal sclerosis; degenerative vessel and paranchymal calcification; AD low","Not Applicable",,2010-05-05,6.5,Male,1918-03-02,Yes,White,Non-Hispanic
+9900741,8-3059,,Deceased,823,Yes,2004-05-10,2009-08-11,,Deceased,2009-08-11,Yes,2009-08-11,"AD Probable / no Lewy bodies","AD high likelihood",,,,6,Female,1918-03-18,Yes,White,Non-Hispanic
+9900742,8-2112,10801,Deceased,,Yes,1995-03-28,2013-09-16,,Deceased,2013-09-16,No,,,,"Not Applicable",,,,Female,1927-01-26,No,White,Non-Hispanic
+9900744,8-2374,11063,Deceased,766,Yes,2001-04-03,2006-07-09,,Deceased,2006-07-09,Yes,2006-07-10,"Other Neurological Disorders","Progressive Supranuclear Palsy (PSP)","Not Applicable",,2007-02-14,4,Male,1921-10-21,Yes,White,Non-Hispanic
+9900748,8-2461,11150,Deceased,729,Yes,2002-08-30,2004-12-30,,Deceased,2004-12-30,Yes,2004-12-30,"Other Neurological Disorders","Parkinson's disease severe","Not Applicable",,,6,Female,1921-02-28,Yes,White,Non-Hispanic
+9900749,8-2460,11149,Deceased,,Yes,2002-08-30,2010-12-16,,Deceased,2010-12-16,No,,,,,,,,Male,1918-02-28,Yes,White,Non-Hispanic
+9900751,8-3079,,Deceased,739,Yes,2005-06-23,2005-06-22,,Deceased,2005-06-22,Yes,2005-06-24,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak VI)",,,,41,Female,1917-09-18,,White,Non-Hispanic
+9900753,8-2395,11084,Deceased,,Yes,2001-07-20,2015-02-09,,Deceased,2015-02-09,No,,,,"Not Applicable",,,,Male,1934-05-25,No,White,Non-Hispanic
+9900754,8-1910,10599,Deceased,1063,Yes,1992-08-06,2021-06-17,,Deceased,2021-06-17,Yes,2021-06-19,"Normal Control","AD Low, CAA, CVD","Not Applicable",,2021-12-01,37,Female,1919-01-25,No,White,Non-Hispanic
+9900786,8-3100,11185,Deceased,826,Yes,2006-03-20,2009-10-02,,Deceased,2009-10-02,Yes,2009-10-02,"Other Neurological Disorders","AD low likelihood; cerebrum remote infarction",,,2010-02-09,9.5,Female,1918-04-04,Yes,"Black or African American",Non-Hispanic
+9900791,8-2372,11061,Deceased,1112,Yes,2001-03-29,2024-10-19,,Deceased,2024-10-19,Yes,2024-10-19,"Normal Control","""Intermediate"" ADNC","Not Applicable",,2025-07-28,5,Female,1928-07-19,Yes,White,Non-Hispanic
+9900792,8-3061,,Deceased,720,Yes,2004-05-15,2004-07-04,,Deceased,2004-07-04,Yes,2004-07-04,"AD Probable / no Lewy bodies","Parkinson's disease",,,,3.5,Male,1940-09-14,Yes,White,Non-Hispanic
+9900796,8-3027,1100808,Withdraw,,No,2004-02-23,,2012-11-20,Withdrawn,,No,,,,Withdrawn,,,,Female,1917-06-09,No,White,Non-Hispanic
+9900801,8-2562,30083,Withdraw,,Yes,1990-05-22,,2009-09-22,Withdrawn,,,,,,,,,,Female,1930-08-28,,White,Hispanic
+9900802,8-3074,,Deceased,,Yes,2004-11-12,2018-07-06,,Deceased,2018-07-06,No,,,,"Logistics failure (specify)",,,,Female,1928-07-29,Yes,White,Non-Hispanic
+9900807,8-3179,11201,Deceased,1097,Yes,2008-06-30,2023-06-19,,Deceased,2023-06-19,Yes,2023-06-20,"Dementia due to Other Medical Conditions","Alzheimer's Disease, Intermediate 2nd Dx: Dementia w/Lewy bodies",,,2023-09-20,21.5,Male,1930-04-04,Yes,White,Non-Hispanic
+9900811,8-2376,11065,Deceased,809,Yes,2001-04-20,2009-01-22,,Deceased,2009-01-22,Yes,2009-01-22,"AD Probable / no Lewy bodies","AD definite (Braak V)","Not Applicable",,2009-07-08,3,Male,1943-09-30,Yes,White,Non-Hispanic
+9900812,8-2393,11082,Deceased,,Yes,2001-06-29,2013-07-09,,Deceased,2013-07-09,No,,,,"Logistics failure (specify)",,,,Female,1925-09-25,Yes,White,Non-Hispanic
+9900813,8-2392,11081,Deceased,,Yes,2001-06-29,2006-08-06,,Deceased,2006-08-06,No,,,,"Not Applicable",,,,Male,1923-10-04,Yes,White,Non-Hispanic
+9900819,8-2354,11043,Deceased,738,Yes,2000-09-06,2005-06-04,,Deceased,2005-06-04,Yes,2005-06-04,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak V)","Not Applicable",,2005-10-05,6,Male,1921-06-30,Yes,White,Non-Hispanic
+9900825,8-3104,11223,Deceased,873,Yes,2006-05-07,2011-06-17,,Deceased,2011-06-17,Yes,2011-06-17,"AD Probable / no Lewy bodies","premortem AD; low AD",,,2011-11-11,5.75,Female,1922-05-13,Yes,White,Non-Hispanic
+9900827,8-2379,11068,Withdraw,,Yes,2001-05-10,,2019-04-09,Withdrawn,,No,,,,"Not Applicable",,,,Female,1935-06-03,Yes,White,Non-Hispanic
+9900828,8-3025,,Withdraw,,No,2004-02-23,,2005-04-12,Withdrawn,,,,,,,,,,Female,1929-01-19,Yes,White,Non-Hispanic
+9900831,8-1846,,Deceased,,Yes,1991-11-15,2007-08-29,,Deceased,2007-08-29,No,,,,"Not Applicable",,,,Female,1910-06-27,Yes,White,Non-Hispanic
+9900833,8-2458,11147,Withdraw,,Yes,2002-08-31,,2005-11-30,Withdrawn,,,,,,,,,,Male,1920-08-31,Yes,,Non-Hispanic
+9900834,8-3322,11200,Active,,Yes,2011-07-01,,,Active,,,,,,,,,,Female,1939-02-25,Yes,Asian,Non-Hispanic
+9900838,8-3055,1100880,Deceased,,Yes,2004-04-15,2018-05-17,,Deceased,2018-05-17,No,,,,"Logistics failure (specify)",,,,Female,1922-02-06,Yes,White,Non-Hispanic
+9900842,8-2425,11114,Deceased,687,Yes,2002-02-05,2003-06-22,,Deceased,2003-06-22,Yes,2003-06-22,"Dx Deferred until next Evaluation","Alzheimer's disease, definite (Braak V)","Not Applicable",,2003-10-21,4.5,Male,1924-04-01,No,White,Non-Hispanic
+9900846,8-2128,10817,Deceased,1116,Yes,1995-06-20,2025-01-09,,Deceased,2025-01-09,Yes,2025-01-09,"Normal Control","Alzheimer's disease, high neuropathic change","Not Applicable",,2025-12-28,8.5,Female,1925-07-26,Yes,White,Non-Hispanic
+9900849,8-2210,10899,Deceased,807,Yes,1996-10-22,2008-11-25,,Deceased,2008-11-25,Yes,2008-11-25,"Normal Control","AD, probable (Braak III)","Not Applicable",,2009-03-03,4.5,Male,1923-07-24,Yes,White,Non-Hispanic
+9900860,8-3131,11208,Deceased,,Yes,2007-03-21,2012-01-30,2008-03-05,Deceased,2012-01-30,No,,,,Withdrawn,,,,Female,1919-07-13,Yes,White,Non-Hispanic
+9900870,8-2328,11017,Deceased,822,Yes,1999-09-23,2009-07-23,,Deceased,2009-07-23,Yes,2009-07-23,"AD Probable / no Lewy bodies","AD low likeliood; cerebrum infarcton remote","Not Applicable",,2010-02-09,4,Female,1922-09-26,Yes,White,Non-Hispanic
+9900872,8-2180,10869,Deceased,,Yes,1996-05-21,2012-06-09,,Deceased,2012-06-09,No,,,,"Logistics failure (specify)",,,,Male,1918-08-10,Yes,White,Non-Hispanic
+9900874,8-2249,10938,Deceased,,Yes,1997-08-07,2025-01-17,,Deceased,2025-01-20,No,,,,"Logistics failure (specify)","BRS patient Terrance Kupfer (8-2249) passed away this morning in Waco, Texas. Annie called the closest ADRC to patient in Dallas, but their pickup radius is 50 miles which was too far. I spoke with the patient's daughter, Kim, who completely understood.  Her intent was to notify us of the death.",,,Male,1935-12-11,Yes,White,Non-Hispanic
+9900878,8-3289,30288,Deceased,834,Yes,2007-06-21,2009-11-15,,Deceased,2009-11-15,Yes,2009-11-15,"AD Probable / no Lewy bodies","cerebrum, remote lacuner infarctions",,,2010-05-06,7.75,Female,1918-07-15,,White,Hispanic
+9900885,8-2243,10932,Withdraw,,Yes,1997-07-01,,2005-01-31,Withdrawn,,No,,,,"Not Applicable",,,,Female,1923-10-12,Yes,White,Non-Hispanic
+9900886,8-3057,1101064,Active,,Yes,2004-04-15,,,Active,,,,,,,,,,Female,1929-03-26,Yes,White,Non-Hispanic
+9900895,8-3172,11216,Active,,Yes,2008-05-12,,,Active,,,,,,,,,,Female,1937-11-02,Yes,White,Non-Hispanic
+9900899,8-2462,11151,Active,,Yes,2002-09-03,,,Active,,,,,,"Not Applicable",,,,Female,1958-11-05,Yes,White,Non-Hispanic
+9900902,8-2447,11136,Deceased,740,Yes,2002-05-28,2005-07-03,,Deceased,2005-07-03,Yes,2005-07-03,"Parkinson's disease with dementia","Parkinson's disease, definite","Not Applicable",,2005-11-22,3.5,Female,1915-05-16,Yes,White,Non-Hispanic
+9900904,8-2839,10017,Deceased,912,Yes,1984-12-13,2013-08-24,,Deceased,2013-08-24,Yes,2013-08-25,"Normal Control","Braak V","Not Applicable",,2013-12-20,3,Female,1914-07-26,Yes,White,Non-Hispanic
+9900909,8-2255,10944,Deceased,,Yes,1997-09-23,2015-08-15,,Deceased,2015-08-15,No,,,,"Not Applicable",,,,Female,1917-12-15,Yes,White,Non-Hispanic
+9900910,8-2257,10946,Deceased,,Yes,1997-10-07,2018-09-18,,Deceased,2018-09-18,No,,,,"Logistics failure (specify)",,,,Male,1918-10-27,Yes,White,Non-Hispanic
+9900911,8-2246,10935,Deceased,891,Yes,1997-07-18,2012-05-08,,Deceased,2012-05-08,Yes,2012-05-09,"Normal Control","Infarct (fixed brain only)","Not Applicable",,2012-06-11,25.75,Male,1921-05-28,Yes,White,Non-Hispanic
+9900920,8-3515,11118,Deceased,942,Yes,2015-01-31,2015-02-02,2002-12-16,Deceased,2015-02-02,Yes,2015-02-03,"AD Probable / no Lewy bodies","NFT predominant disease; Braak II (PART)","Not Applicable",,2015-07-08,13.5,Female,1915-09-15,Yes,White,Non-Hispanic
+9900924,8-2442,11131,Deceased,,Yes,2002-05-01,2007-01-07,,Deceased,2007-01-07,No,,,,"Not Applicable",,,,Female,1922-06-19,Yes,,Non-Hispanic
+9900927,8-3032,,Deceased,,Yes,2004-02-27,2008-08-20,,Deceased,2008-08-20,No,,,,"Not Applicable",,,,Male,1912-03-03,Yes,"Unknown or not reported",Unknown
+9900943,8-3247,11182,Active,,Yes,2010-02-23,,,Active,,,,,,,,,,Female,1928-10-31,No,White,Non-Hispanic
+9900944,8-3248,11183,Deceased,,Yes,2010-02-23,2021-06-19,,Deceased,2021-06-19,No,,,,"Logistics failure (specify)",,,,Male,1923-03-14,Yes,White,Non-Hispanic
+9900946,8-3039,11226,Withdraw,,Yes,2004-03-03,,2012-08-22,Withdrawn,,,,,,,,,,Female,1931-08-27,Yes,White,Non-Hispanic
+9900952,8-2955,10133,Deceased,,Yes,1985-10-02,2012-01-05,,Deceased,2012-01-05,No,,,,"Not Applicable",,,,Female,1900-07-06,Yes,White,Non-Hispanic
+9900961,8-2269,10958,Deceased,763,Yes,1998-02-06,2006-05-08,,Deceased,2006-05-08,Yes,2006-05-08,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak V)","Not Applicable",,2006-08-02,"10 3/4",Female,1909-07-21,No,White,Non-Hispanic
+9900962,8-2358,11047,Deceased,863,Yes,2000-09-19,2011-04-06,,Deceased,2011-04-06,Yes,2011-04-06,"AD Probable / no Lewy bodies","AD, high likelihood","Not Applicable",,2011-10-18,6.5,Female,1923-05-03,Yes,"Unknown or not reported",Unknown
+9900970,8-1707,10396,Deceased,,Yes,1990-02-27,2018-08-30,,Deceased,2018-08-30,No,,,,"Not Applicable",,,,Female,1931-02-24,No,White,Non-Hispanic
+9900971,8-2370,11059,Deceased,,Yes,2001-03-20,2018-03-15,,Deceased,2018-03-15,No,,,,"Logistics failure (specify)",,,,Male,1932-05-03,Yes,White,Non-Hispanic
+9900974,8-2551,30072,Deceased,,Yes,1990-02-28,2005-02-22,,Deceased,2005-02-22,No,,,,,,,,Male,1915-08-07,,"Unknown or not reported",Hispanic
+9900975,8-2545,30066,Deceased,,Yes,1989-11-20,2004-06-27,,Deceased,2004-06-27,No,,,,,,,,Female,1921-07-12,,"Unknown or not reported",Hispanic
+9900977,8-1744,10433,Deceased,,Yes,1990-10-16,2010-06-01,,Deceased,2010-06-01,No,,,,"Not Applicable",,,,Female,1928-05-08,Yes,White,Non-Hispanic
+9900984,8-3258,11199,Active,,Yes,2010-03-22,,,Active,,,,,,,,,,Male,1950-03-04,Yes,White,Non-Hispanic
+9900986,8-3293,11206,Deceased,,Yes,2010-07-13,2024-12-23,,Deceased,2024-12-23,No,,,,"Logistics failure (specify)","Family did not call us. ",,,Female,1940-09-06,Yes,White,Non-Hispanic
+9900988,8-3272,30358,Deceased,967,Yes,2008-08-04,2016-04-02,,Deceased,2016-04-02,Yes,2016-04-03,"AD Probable / no Lewy bodies","Braak V","Not Applicable",,2016-07-20,9.75,Male,1939-06-04,,White,Hispanic
+9900999,8-3107,11205,Withdraw,,Yes,2006-04-24,,2019-05-01,Withdrawn,,,,,,,,,,Female,1926-09-25,Yes,White,Non-Hispanic
+9901000,8-3105,11204,Deceased,,Yes,2006-05-08,2021-05-30,,Deceased,2021-05-30,No,,,,,,,,Male,1928-03-11,Yes,White,Non-Hispanic
+9901013,8-2369,11058,Deceased,862,Yes,2001-03-09,2011-03-13,,Deceased,2011-03-13,Yes,2011-03-14,"Normal Control","Parkinson's Disease","Not Applicable",,2011-10-04,14,Male,1916-02-24,Yes,White,Non-Hispanic
+9901016,8-3072,11175,Deceased,812,Yes,2004-08-31,2009-02-12,,Deceased,2009-02-12,Yes,2009-02-12,"AD Probable / no Lewy bodies","AD, Lewy body variant (Braak II-III)",,,2009-06-22,10.5,Male,1924-02-28,Yes,White,Non-Hispanic
+9901018,8-2446,11135,Withdraw,,Yes,2002-06-05,,2012-07-11,Withdrawn,,No,,,,Withdrawn,,,,Female,1925-02-22,Yes,White,Non-Hispanic
+9901034,8-2583,30104,Deceased,718,Yes,1994-09-09,2004-05-15,,Deceased,2004-05-15,Yes,2004-05-15,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak V)",,,2004-10-04,7,Male,1920-12-28,,"Unknown or not reported",Hispanic
+9901037,8-1824,10513,Deceased,713,Yes,1991-06-14,2004-04-25,,Deceased,2004-04-25,Yes,2004-04-25,"Mild Cognitive Impairment","Alzheimer's disease, definite (Braak V)","Not Applicable",,2004-08-24,3.75,Male,1910-10-01,Yes,White,Non-Hispanic
+9901038,8-1823,10512,Deceased,,Yes,1991-06-14,2006-11-12,,Deceased,2006-11-12,No,,,,"Not Applicable",,,,Female,1910-07-27,Yes,White,Non-Hispanic
+9901043,8-3073,11180,Active,,Yes,2004-09-01,,,Active,,,,,,,,,,Male,1938-04-15,Yes,White,Non-Hispanic
+9901046,8-1733,10422,Deceased,,Yes,1990-08-03,2013-02-24,,Deceased,2013-02-24,No,,,,"Not Applicable",,,,Male,1923-11-22,Yes,White,Non-Hispanic
+9901055,8-2414,11103,Deceased,,Yes,2001-10-17,2005-12-20,,Deceased,2005-12-20,No,,,,"Not Applicable",,,,Female,1924-02-21,No,White,Non-Hispanic
+9901059,8-2788,30309,Withdraw,,Yes,1998-09-09,,2011-12-06,Withdrawn,,,,,,,,,,Female,1924-02-27,,"Unknown or not reported",Hispanic
+9901062,8-3046,,Deceased,728,Yes,2004-03-25,2004-12-23,,Deceased,2004-12-23,Yes,2004-12-23,"Normal Control","Alzheimer's disease, possible (Braak IV)",,,,10,Male,1918-04-05,Yes,White,Non-Hispanic
+9901064,8-1745,10434,Withdraw,,N/A,1990-10-24,,2014-04-23,Withdrawn,,No,,,,"Not Applicable",,,,Male,1915-03-05,Yes,White,Non-Hispanic
+9901065,8-3033,,Deceased,731,Yes,2004-03-02,2005-02-19,,Deceased,2005-02-19,Yes,2005-02-19,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak V-VI)",,,,5,Female,1917-10-02,Yes,White,Non-Hispanic
+9901067,8-2157,10846,Withdraw,,N/A,1996-01-06,,2005-10-27,Withdrawn,,No,,,,Withdrawn,,,,Female,1929-02-02,No,White,Non-Hispanic
+9901077,8-2122,10811,Deceased,,Yes,1995-05-16,2009-01-24,,Deceased,2009-01-24,No,,,,"Not Applicable",,,,Female,1934-09-23,Yes,White,Non-Hispanic
+9901078,8-2339,11028,Deceased,817,Yes,2000-02-17,2009-06-18,,Deceased,2009-06-18,Yes,2009-06-18,"AD Probable / no Lewy bodies","PD, intermediate","Not Applicable",,2009-12-04,12,Male,1921-07-23,Yes,White,Non-Hispanic
+9901079,8-2338,11027,Deceased,772,Yes,2000-02-17,2007-01-14,,Deceased,2007-01-14,Yes,2007-01-14,"AD Probable / no Lewy bodies","AD, definite/Lewy body variant (Braak )","Not Applicable",,2007-04-16,5,Female,1927-06-06,Yes,White,Non-Hispanic
+9901087,8-3089,11214,Deceased,1000,Yes,2005-11-30,2018-01-30,2012-07-25,Deceased,2018-01-30,Yes,2018-01-30,"AD Probable / no Lewy bodies","Braak II-III",,,2018-06-26,9,Female,1924-06-04,Yes,Asian,Non-Hispanic
+9901099,8-2260,10949,Withdraw,,Yes,1997-10-28,,2011-04-26,Withdrawn,,No,,,,"Not Applicable",,,,Male,1926-03-13,No,"Unknown or not reported",Unknown
+9901102,8-2739,,Deceased,,Yes,1997-02-12,2005-01-05,,Deceased,2005-01-05,,,,,,,,,Male,1930-08-26,,"Unknown or not reported",Hispanic
+9901103,8-2800,30321,Deceased,,Yes,2001-03-21,2006-01-13,,Deceased,2006-01-13,No,,,,,,,,Female,1928-06-07,,"Unknown or not reported",Hispanic
+9901114,8-2130,10819,Active,,Yes,1995-06-27,,,Active,,No,,,,"Not Applicable",,,,Male,1932-11-02,Yes,White,Non-Hispanic
+9901116,8-2080,10769,Deceased,,Yes,1994-11-07,2003-11-25,,Deceased,2003-11-25,No,,,,"Not Applicable",,,,Male,1924-11-17,Yes,White,Non-Hispanic
+9901118,8-2419,11108,Deceased,,Yes,2001-11-12,2008-08-30,,Deceased,2008-08-30,No,,,,"Not Applicable",,,,Male,1931-01-03,No,"Unknown or not reported",Hispanic
+9901123,8-2115,10804,Deceased,732,Yes,1995-04-17,2005-03-08,,Deceased,2005-03-08,Yes,2005-03-08,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak VI)","Not Applicable",,,5,Female,1938-06-09,Yes,White,Non-Hispanic
+9901125,8-2387,11076,Withdraw,,Yes,2001-06-19,,2019-05-01,Withdrawn,,No,,,,"Not Applicable",,,,Male,1925-02-10,Yes,White,Non-Hispanic
+9901127,8-3098,1100301,Deceased,852,Yes,2006-03-28,2010-09-24,,Deceased,2010-09-24,Yes,2010-09-24,"AD Probable / no Lewy bodies","AD, high likelihood (fixed brain only)",,,2010-12-11,5.25,Male,1933-09-18,Yes,White,Non-Hispanic
+9901145,8-3083,,Deceased,754,Yes,2005-08-12,2006-02-12,,Deceased,2006-02-12,Yes,2006-02-12,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak VI)",,,,8,Female,1922-02-03,,,Non-Hispanic
+9901153,8-2386,11075,Deceased,756,Yes,2001-06-19,2006-03-05,,Deceased,2006-03-05,Yes,2006-03-06,"Other Neurological Disorders","Alzheimer's disease, definite (Braak VI)","Not Applicable",,2006-06-27,6.5,Male,1930-08-31,Yes,White,Non-Hispanic
+9901156,8-2755,30276,Deceased,,Yes,2001-04-17,2009-05-30,,Deceased,2009-05-30,No,,,,,,,,Female,1926-07-15,,"Unknown or not reported",Hispanic
+9901161,8-3122,30357,Deceased,,Yes,2006-03-06,2011-12-05,,Deceased,2011-12-05,No,,,,,,,,Female,1911-03-21,,"Unknown or not reported",Hispanic
+9901163,8-2288,10977,Deceased,,Yes,1998-10-16,2006-08-01,,Deceased,2006-08-01,No,,,,"Not Applicable",,,,Female,1928-11-02,Yes,White,Non-Hispanic
+9901176,8-2291,10980,Deceased,,Yes,1998-11-04,2007-06-16,,Deceased,2007-06-16,No,,,,"Not Applicable",,,,Female,1919-07-01,Yes,White,Non-Hispanic
+9901177,8-3023,1101063,Deceased,,Yes,2004-02-23,2011-09-12,,Deceased,2011-09-12,No,,,,"Logistics failure (specify)",,,,Male,1913-10-28,Yes,White,Non-Hispanic
+9901185,8-3065,30282,Deceased,,Yes,1998-01-05,2008-09-13,2004-01-27,Deceased,2008-09-13,Yes,,,,,,,,Female,1914-01-22,,"Unknown or not reported",Hispanic
+9901193,8-2731,30252,Active,,Yes,1996-10-23,,,Active,,No,,,,"Not Applicable",,,,Female,1938-01-20,N/A,White,Hispanic
+9901204,8-2102,10791,Withdraw,,N/A,1995-02-17,,2010-05-24,Withdrawn,,No,,,,Withdrawn,,,,Female,1934-06-19,No,White,Non-Hispanic
+9901208,8-3087,,Deceased,,Yes,2005-09-23,2005-09-23,,Deceased,2005-09-23,No,,,,,,,,Female,1934-01-15,,White,Non-Hispanic
+9901209,8-2296,10985,Withdraw,,N/A,1998-11-20,,2016-02-29,Withdrawn,,No,,,,Withdrawn,,,,Female,1942-05-01,No,White,Non-Hispanic
+9901215,8-3097,,Deceased,761,Yes,2006-03-30,2006-04-29,,Deceased,2006-04-29,Yes,2006-04-29,"Other Neurological Disorders","Neuronal intermediate filament inclusion disease","Not Applicable",,,6,Female,1969-09-30,Yes,White,Non-Hispanic
+9901216,8-2989,10167,Deceased,969,,1985-12-18,2016-04-26,,Deceased,2016-04-26,Yes,2016-04-26,"Normal Control","Braak V","Not Applicable",,2016-07-20,7.25,Female,1920-08-06,Yes,White,Non-Hispanic
+9901218,8-1572,10261,Deceased,884,Yes,1987-10-23,2012-02-25,2006-04-03,Deceased,2012-02-25,Yes,2012-02-26,,"AD, low likelihood","Not Applicable",,2012-06-05,9,Female,1916-11-30,Yes,White,Non-Hispanic
+9901219,8-2992,10170,Active,,Yes,1986-01-08,,,Active,,No,,,,"Not Applicable",,,,Female,1923-03-04,Yes,"Black or African American",Hispanic
+9901233,8-2411,11100,Deceased,753,Yes,2001-10-11,2006-02-08,,Deceased,2006-02-08,Yes,2006-02-08,"AD Probable / no Lewy bodies","Parkinson's disease, definite","Not Applicable",,2006-05-23,5,Female,1915-06-10,Yes,White,Non-Hispanic
+9901239,8-3060,,Deceased,810,Yes,2004-05-10,2009-01-30,,Deceased,2009-01-30,Yes,2009-01-30,"AD Probable / no Lewy bodies","Spinocerebellar degeneration (SCA type 2)","Not Applicable",,,3,Male,1927-07-31,Yes,"Unknown or not reported",Hispanic
+9901240,8-3066,30350,Deceased,,Yes,2003-05-13,2011-11-01,,Deceased,2011-11-01,No,,,,,,,,Male,1953-12-08,,White,Hispanic
+9901245,8-3116,11189,Deceased,1084,Yes,2006-11-01,2022-08-16,,Deceased,2022-08-16,Yes,2022-08-17,"AD Probable / no Lewy bodies","AD high",,,2023-01-24,24,Female,1921-10-16,Yes,White,Non-Hispanic
+9901250,8-2457,11146,Deceased,776,Yes,2002-07-25,2007-03-13,,Deceased,2007-03-13,Yes,2007-03-13,"AD Probable / no Lewy bodies","Alzheimer's disease (Braak V)8-",,,2007-05-29,8,Female,1908-08-05,Yes,White,Non-Hispanic
+9901251,8-2158,10847,Deceased,,Yes,1996-01-25,2024-12-29,,Deceased,2024-12-29,No,,,,"Not Applicable",,,,Male,1939-08-07,Yes,White,Non-Hispanic
+9901263,8-3020,,Withdraw,,Yes,2004-02-09,,2007-06-04,Withdrawn,,,,,,,,,,Male,1922-12-11,Yes,White,Non-Hispanic
+9901269,8-3036,1100846,Deceased,877,Yes,2004-03-02,2011-07-16,,Deceased,2011-07-16,Yes,2011-07-17,"Normal Control","Braak 0 Normal Control; amyloid angiopathy",,,2012-03-08,3.75,Male,1917-08-17,Yes,White,Non-Hispanic
+9901270,8-3090,11186,Withdraw,,Yes,2005-11-29,,2019-04-18,Withdrawn,,,,,,,,,,Female,1935-10-10,,White,Hispanic
+9901271,8-3091,11187,Withdraw,,Yes,2005-11-29,,2019-04-18,Withdrawn,,,,,,,,,,Male,1935-12-03,,White,Hispanic
+9901276,8-2359,11048,Deceased,747,Yes,2000-09-19,2005-10-01,,Deceased,2005-10-01,Yes,2005-10-01,"Other Neurological Disorders","Pick's disease","Not Applicable",,2006-02-09,4.5,Male,1936-02-09,Yes,White,Non-Hispanic
+9901307,8-2664,30185,Deceased,865,Yes,1994-02-01,2011-04-12,1996-11-20,Deceased,2011-04-12,Yes,2011-04-13,"AD Probable / no Lewy bodies","cerebrum infarcts; multiple remote","Not Applicable",,2011-11-01,15.25,Male,1937-11-05,No,"Unknown or not reported",Hispanic
+9901309,1-0715-2,,Deceased,307,Yes,1993-12-20,1993-12-17,,Deceased,1993-12-17,Yes,1993-12-20,"Other Neurological Disorders","Diffuse Lewy body disease","Not Applicable",,,na,Female,,No,"Unknown or not reported",Unknown
+9901310,8-1941,10630,Deceased,,Yes,1993-01-27,2013-04-09,2011-12-15,Deceased,2013-04-09,No,,,,Disqualified,,,,Female,1921-06-10,Yes,White,Non-Hispanic
+9901311,8-2377,11066,Deceased,797,Yes,2001-04-26,2008-03-04,,Deceased,2008-03-04,Yes,2008-03-04,"Other Neurological Disorders","Frontotemporal dementia (FTLD-U)","Not Applicable",,2008-07-16,7.5,Male,1924-09-07,Yes,White,Non-Hispanic
+9901314,8-2468,11157,Deceased,846,Yes,2002-12-04,2010-05-23,,Deceased,2010-05-23,Yes,2010-05-23,"AD Probable / no Lewy bodies","AD intermediate",,,2010-12-14,4.5,Male,1924-09-10,Yes,White,Non-Hispanic
+9901340,8-2684,30205,Deceased,,Yes,1994-09-06,2016-04-20,,Deceased,2016-04-20,No,,,,"Not Applicable",,,,Female,1922-04-20,N/A,"Unknown or not reported",Hispanic
+9901347,8-3031,,Deceased,710,Yes,2004-02-27,2004-03-04,,Deceased,2004-03-04,Yes,2004-03-04,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak VI)",,,,5.5,Male,1917-07-26,Yes,White,Non-Hispanic
+9901356,8-2198,10887,Active,,Yes,2017-01-26,,,Active,,No,,,,"Not Applicable",,,,Female,1944-08-27,Yes,White,Non-Hispanic
+9901379,8-2353,1100953,Deceased,866,Yes,2000-09-02,2011-04-16,,Deceased,2011-04-16,Yes,2011-04-16,"Parkinson's disease with dementia","Parkinson's disease; AD intermediate","Not Applicable",,2011-11-09,8.75,Female,1915-10-20,Yes,White,Non-Hispanic
+9901383,8-2380,11069,Deceased,,Yes,2001-05-18,2011-03-11,,Deceased,2011-03-11,No,,,,"Not Applicable",,,,Female,1924-01-24,Yes,White,Non-Hispanic
+9901397,8-1975,10664,Deceased,973,Yes,1993-07-23,2016-07-31,,Deceased,2016-07-31,Yes,2016-08-01,"Normal Control","Braak IV","Not Applicable",,,8.5,Female,1917-10-31,Yes,"Unknown or not reported",Non-Hispanic
+9901398,8-3071,,Deceased,748,Yes,2004-08-25,2005-10-19,,Deceased,2005-10-19,Yes,2005-10-20,"AD Probable / no Lewy bodies","Vascular dementia (Braak II)",,,,8.5,Female,1920-01-31,Yes,White,Non-Hispanic
+9901399,8-1892,10581,Deceased,910,Yes,1992-03-04,2013-07-17,,Deceased,2013-07-17,Yes,2013-07-17,"Normal Control","Braak V","Not Applicable",,2013-11-13,4.5,Female,1912-08-30,Yes,White,Non-Hispanic
+9901404,8-2941,10119,Deceased,1046,Yes,1985-08-28,2020-05-30,,Deceased,2020-05-30,Yes,2020-05-30,"Normal Control","AD intermediate","Not Applicable",,2021-04-05,3,Female,1930-07-02,Yes,White,Non-Hispanic
+9901407,8-2948,10126,Deceased,,Yes,1985-09-20,2008-08-09,,Deceased,2008-08-09,No,,,,"Not Applicable",,,,Male,1915-08-21,Yes,White,Non-Hispanic
+9901408,8-2949,10127,Deceased,,Yes,1985-09-20,2015-01-01,,Deceased,2015-01-01,No,,,,"Not Applicable",,,,Female,1916-08-27,Yes,White,Non-Hispanic
+9901413,8-2167,10856,Disqualified,,Yes,1996-02-27,,2006-07-05,Withdrawn,,No,,,,"Not Applicable",,,,Female,1933-07-24,Yes,White,Non-Hispanic
+9901416,8-2166,10855,Withdraw,,Yes,1996-02-27,,2006-07-05,Withdrawn,,No,,,,"Not Applicable",,,,Male,1925-10-29,Yes,White,Non-Hispanic
+9901418,8-3077,10813,Deceased,736,Yes,2005-04-26,2005-04-25,2003-02-18,Deceased,2005-04-25,Yes,2005-04-26,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak V-VI)","Not Applicable",,2005-08-18,21.5,Female,1916-06-25,No,White,Non-Hispanic
+9901420,8-2389,11078,Withdraw,,Yes,2001-06-21,,2019-05-01,Withdrawn,,No,,,,"Not Applicable",,,,Female,1940-03-11,Yes,White,Non-Hispanic
+9901434,8-2517,10032,Deceased,694,Yes,1988-08-17,2003-10-03,,Deceased,2003-10-03,Yes,2003-10-03,"AD Probable / no Lewy bodies","Dementia w/Lewy bodies & Alzheimer's disease","Not Applicable",,2003-12-23,5,Female,1909-01-08,Yes,"Unknown or not reported",Hispanic
+9901437,8-3088,,Deceased,750,Yes,2005-11-10,2005-11-11,,Deceased,2005-11-11,Yes,2005-11-11,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak V-VI)",,,,4.5,Male,1923-02-11,No,"Unknown or not reported",Unknown
+9901438,8-3085,,Deceased,744,Yes,2005-09-11,2005-09-11,,Deceased,2005-09-11,Yes,2005-09-11,"AD Probable / no Lewy bodies","Alzheimer's disease (Braak VI)",,,,3,Female,1913-04-04,Yes,White,Non-Hispanic
+9901439,8-2345,11034,Deceased,1089,Yes,2000-04-25,2022-11-12,,Deceased,2022-11-12,Yes,2022-11-14,"Normal Control",ARTAG,"Not Applicable",,2023-04-24,53,Female,1927-04-04,Yes,White,Non-Hispanic
+9901445,8-1821,10510,Deceased,799,Yes,1991-08-12,2008-03-22,,Deceased,2008-03-22,Yes,2008-03-22,"AD Probable / no Lewy bodies","AD, definite (Braak V)","Not Applicable",,2008-08-20,6,Female,1912-06-17,Yes,White,Non-Hispanic
+9901448,8-1869,10558,Deceased,828,Yes,1991-12-20,2009-10-19,2006-07-05,Active,2009-10-19,Yes,2009-10-19,"Normal Control","Braak 0 Normal Control; amyloid angiopathy","Not Applicable",,2010-03-19,12,Male,1916-03-13,Yes,White,Non-Hispanic
+9901465,8-3001,10179,Deceased,845,Yes,1986-02-05,2010-05-22,2008-10-27,Deceased,2010-05-22,Yes,2010-05-22,"Normal Control","normal brain; braak 0","Not Applicable",,2010-09-30,5,Female,1920-03-17,Yes,White,Non-Hispanic
+9901470,8-3064,30257,Deceased,794,Yes,1996-01-12,2008-02-12,,Deceased,2008-02-12,Yes,2008-02-12,"Other Neurological Disorders","Frontotemporal dementia (FTLD-U)",,,2008-07-15,7,Male,1931-07-16,,"Unknown or not reported",Hispanic
+9901471,8-2375,11064,Withdraw,,Yes,2001-04-19,,2013-08-06,Withdrawn,,No,,,,"Not Applicable",,,,Female,1914-03-14,Yes,Asian,Non-Hispanic
+9901482,8-3094,11215,Deceased,,Yes,2006-03-17,2010-07-03,,Deceased,2010-07-03,No,,,,,,,,Female,1926-02-03,Yes,White,Non-Hispanic
+9901487,8-3024,1100811,Active,,Yes,2004-02-23,,,Active,,,,,,,,,,Female,1932-10-31,Yes,White,Non-Hispanic
+9901499,8-3054,,Deceased,712,Yes,2004-04-07,2004-04-09,,Deceased,2004-04-09,Yes,2004-04-09,"Other Neurological Disorders","Alzheimer's disease (Lewy body variant) Braak VI",,,,5,Male,1931-04-24,Yes,White,Non-Hispanic
+9901500,8-2766,30287,Deceased,,Yes,2018-05-29,2026-09-17,,Deceased,2026-09-17,No,,,,Withdrawn,,,,Female,1928-09-17,Yes,White,Hispanic
+9901503,8-1852,10541,Deceased,808,Yes,1991-11-20,2009-01-11,,Deceased,2009-01-11,Yes,2009-01-11,"Normal Control","AD, moderate, probability (Braak IV & V)","Not Applicable",,2009-09-10,6,Male,1913-09-02,Yes,White,Non-Hispanic
+9901520,8-2285,10974,Deceased,1019,Yes,1998-10-02,2019-01-31,,Deceased,2019-01-31,Yes,2019-01-31,"Normal Control","Braak III-IV","Not Applicable",,2019-08-06,10.5,Female,1924-09-06,Yes,"Black or African American",Non-Hispanic
+9901524,8-3130,11173,Withdraw,,Yes,2007-03-21,,2014-09-26,Deceased,2013-09-11,,,,,,,,,Female,1933-11-10,Yes,White,Non-Hispanic
+9901554,8-2057,10746,Deceased,854,Yes,1994-07-14,2010-11-28,,Deceased,2010-11-28,Yes,2010-11-28,"AD Probable / no Lewy bodies","AD, high likelihood","Not Applicable",,,5.5,Female,1923-03-19,Yes,"More than one race",Hispanic
+9901564,8-1895,10584,Deceased,,Yes,1992-02-26,2011-01-29,,Deceased,2011-01-29,No,,,,"Not Applicable",,,,Female,1916-08-19,Yes,White,Non-Hispanic
+9901565,8-3028,,Deceased,774,Yes,2004-02-24,2007-01-25,,Deceased,2007-01-25,Yes,2007-01-25,"Normal Control","Subarachnoid hemorrhage, focal, recent",,,,6.5,Male,1913-09-15,Yes,White,Non-Hispanic
+9901566,8-3022,1100784,Deceased,779,Yes,2004-01-30,2007-06-14,,Deceased,2007-06-14,Yes,2007-06-14,"Normal Control","Essentially normal brain (Braak II)",,,2007-09-17,8.45,Female,1918-08-17,Yes,"More than one race",Non-Hispanic
+9901582,8-2357,11046,Deceased,,Yes,2000-09-19,2004-10-20,,Deceased,2004-10-20,No,,,,"Not Applicable",,,,Female,1917-10-22,Yes,White,Non-Hispanic
+9901586,8-1842,10531,Deceased,758,Yes,1991-10-07,2006-04-04,,Deceased,2006-04-04,Yes,2006-04-04,"AD Probable / no Lewy bodies","Control; severe artherscelorsis","Not Applicable",,2006-07-12,5.25,Male,1913-04-16,Yes,White,Non-Hispanic
+9901588,8-1878,10567,Deceased,,Yes,1992-02-25,2009-02-18,2007-01-24,Deceased,2009-02-18,No,,,,"Not Applicable",,,,Female,1912-09-19,Yes,White,Non-Hispanic
+9901589,8-3042,,Deceased,,Yes,2004-03-05,2014-06-08,,Deceased,2014-06-08,No,,,,"Logistics failure (specify)",,,,Female,1919-10-07,Yes,White,Non-Hispanic
+9901591,8-2540,30061,Active,,,1989-10-04,,,Active,,,,,,,,,,Female,1920-08-07,,White,Hispanic
+9901592,8-2454,11143,Deceased,,Yes,2002-08-16,2010-10-11,2011-11-30,Deceased,2010-10-11,No,,,,,,,,Male,1912-12-29,No,White,Non-Hispanic
+9901593,8-3078,,Deceased,737,Yes,2005-05-24,2005-05-27,,Deceased,2005-05-27,Yes,2005-05-27,"AD Probable / no Lewy bodies","Alzheimer's disease, possible (Braak III)",,,,6,Female,1929-03-08,,White,Non-Hispanic
+9901595,8-3021,1100803,Deceased,,Yes,2004-02-11,2016-07-24,,Deceased,2016-07-24,No,,,,,,,,Male,1918-10-02,Yes,White,Non-Hispanic
+9901596,8-2869,10047,Withdraw,,Yes,1985-03-07,,2005-11-16,Withdrawn,,No,,,,"Not Applicable",,,,Female,1922-06-19,Yes,White,Non-Hispanic
+9901597,8-1666,10355,Withdraw,,Yes,1989-03-22,,2005-11-16,Withdrawn,,No,,,,"Not Applicable",,,,Male,1920-01-13,Yes,White,Non-Hispanic
+9901598,8-2543,30064,Deceased,,Yes,1989-11-07,2021-08-23,,Deceased,2021-08-23,No,,,,"Not Applicable",,,,Female,1921-07-15,N/A,White,Hispanic
+9901605,8-3035,,Withdraw,,Yes,2004-03-02,,2019-05-01,Withdrawn,,,,,,,,,,Male,1915-07-31,Yes,White,Non-Hispanic
+9901612,8-3093,11194,Active,,Yes,2006-02-15,,,Active,,,,,,,,,,Female,1935-09-18,Yes,"Black or African American",Non-Hispanic
+9901615,8-2317,11006,Deceased,,Yes,1999-06-22,2023-12-02,,Deceased,2023-12-02,No,,,,"Not Applicable",,,,Male,1940-10-22,N/A,White,Non-Hispanic
+9901616,8-1988,10677,Deceased,789,Yes,1993-08-09,2007-10-23,,Deceased,2007-10-23,Yes,2007-10-23,"AD Probable / no Lewy bodies","Cerebrum, infarct, CVD","Not Applicable",,,6,Female,1902-06-01,Yes,White,Non-Hispanic
+9901619,8-2407,11096,Deceased,,Yes,2001-10-08,2009-03-28,2005-09-27,Deceased,2009-03-28,No,,,,"Not Applicable",,,,Male,1920-04-20,Yes,"Unknown or not reported",Unknown
+9901621,8-3062,,Deceased,735,Yes,2004-06-04,2005-04-20,,Deceased,2005-04-20,Yes,2005-04-20,"Normal Control","Alzheimer's disease, possible (Braak IV)",,,,4,Male,1922-07-30,Yes,White,Non-Hispanic
+9901623,8-2330,11019,Deceased,,Yes,1999-10-12,2007-08-21,,Deceased,2007-08-21,No,,,,"Not Applicable",,,,Female,1919-11-24,Yes,White,Non-Hispanic
+9901625,8-2469,,Deceased,811,Yes,2002-12-17,2009-01-31,,Deceased,2009-01-31,Yes,2009-01-31,"AD Probable / no Lewy bodies","AD, high likelihood (Braak VI)","Not Applicable",,,5,Male,1949-08-24,Yes,"Unknown or not reported",Unknown
+9901631,8-1873,10562,Deceased,706,Yes,1992-01-30,2004-01-23,,Deceased,2004-01-23,Yes,2004-01-23,"Normal Control","Parkinson's disease","Not Applicable",,2004-04-06,8,Female,1911-09-24,Yes,White,Non-Hispanic
+9901632,8-3150,11213,Deceased,1018,Yes,2007-08-27,2019-01-28,,Deceased,2019-01-28,Yes,2019-01-30,"Normal Control","No Braak score; normal brain, early ADNC",Withdrawn,,,59,Female,1926-08-19,Yes,White,Non-Hispanic
+9901637,8-3068,1101072,Withdraw,,Yes,2004-07-06,,2019-05-01,Withdrawn,,,,,,,,,,Female,1920-06-17,Yes,White,Non-Hispanic
+9901638,8-2394,11083,Deceased,1010,Yes,2001-07-12,2018-06-15,,Deceased,2018-06-15,Yes,2018-06-15,"AD Probable / no Lewy bodies","AD high","Not Applicable",,2019-01-11,4,Female,1930-06-27,Yes,White,Non-Hispanic
+9901640,1-0612,,Deceased,244,Yes,1992-11-10,1992-11-10,,Deceased,1992-11-10,Yes,1992-11-10,"Normal Control","Cerebrum, intravascular fibrin, focal","Not Applicable",,,7,Male,,No,"Unknown or not reported",Unknown
+9901643,8-3063,1100861,Active,,Yes,2004-06-04,,,Active,,,,,,,,,,Female,1927-06-28,Yes,White,Non-Hispanic
+9901644,8-2341,11030,Deceased,,Yes,2000-03-23,2010-06-18,,Deceased,2010-06-18,No,,,,"Not Applicable",,,,Female,1959-04-06,No,"Unknown or not reported",Hispanic
+9901665,8-3101,1100653,Deceased,899,Yes,2006-04-27,2012-12-14,,Deceased,2012-12-14,Yes,2012-12-15,,"AD, high likelihood",,,2013-02-11,10,Male,1929-02-23,Yes,White,Non-Hispanic
+9901673,8-3102,,Deceased,762,Yes,2006-04-26,2006-05-07,,Deceased,2006-05-07,Yes,2006-05-08,"Other Neurological Disorders","Multiple system atrophy","Not Applicable",,,7,Male,1937-03-28,Yes,White,Non-Hispanic
+9901675,8-3103,,Deceased,764,Yes,2006-05-09,2006-05-09,,Deceased,2006-05-09,Yes,2006-05-09,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak V/VI)",,,,8,Male,1930-10-23,,White,Non-Hispanic
+9901677,8-3108,1100651,Deceased,770,Yes,2006-05-25,2006-11-08,,Deceased,2006-11-08,Yes,2006-11-08,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak V)",,,2007-01-09,5.45,Male,1924-06-20,Yes,White,Non-Hispanic
+9901679,8-3110,,Deceased,790,Yes,2006-05-29,2007-12-04,,Deceased,2007-12-04,Yes,2007-12-04,"AD Probable / no Lewy bodies","Vascular dementia, infarct",,,,3,Female,1926-03-08,Yes,White,Non-Hispanic
+9901680,8-3111,1101066,Withdraw,,Yes,2006-05-24,,2015-10-09,Withdrawn,,,,,,,,,,Male,1932-09-28,Yes,White,Non-Hispanic
+9901681,8-3112,,Deceased,765,Yes,2006-06-11,2006-06-18,,Deceased,2006-06-18,Yes,2006-06-18,"AD Probable / no Lewy bodies","Alzheimer's disease, probable (Braak IV)","Not Applicable",,,7,Female,1921-01-15,Yes,White,Non-Hispanic
+9901682,8-3113,1100634,Deceased,894,Yes,2006-06-20,2012-09-24,,Deceased,2012-09-24,Yes,2012-09-25,,"AD, high; PD, hippo sclerosis",,,2013-01-25,6.5,Female,1930-06-02,Yes,White,Hispanic
+9901685,8-3376,11236,Deceased,911,Yes,2012-08-16,2013-08-17,,Deceased,2013-08-17,Yes,2013-08-17,"AD Probable / no Lewy bodies","Braak III",,,2013-12-09,7,Male,1924-09-11,Yes,White,Non-Hispanic
+9901686,8-3118,11237,Deceased,788,Yes,2006-12-06,2007-10-09,,Deceased,2007-10-09,Yes,2007-10-09,"AD Probable / no Lewy bodies","AD, probable (Braak III)",,,2008-01-10,6,Male,1925-05-22,Yes,White,Non-Hispanic
+9901687,8-3229,1100563,Active,,Yes,2009-11-05,,,Active,,,,,,,,,,Female,1931-05-28,Yes,Asian,Hispanic
+9901688,8-3260,1100613,Deceased,851,Yes,2010-03-25,2010-09-21,,Deceased,2010-09-21,Yes,2010-09-21,"AD Probable / no Lewy bodies","AD high likelihood",,,2010-12-15,4.75,Female,1923-02-07,Yes,White,Non-Hispanic
+9901690,8-3114,1100569,Deceased,796,Yes,2006-08-04,2008-02-25,,Deceased,2008-02-25,Yes,2008-02-25,"AD Probable / no Lewy bodies","AD, definite (Braak V) Lewy body variant",,,2008-09-03,5,Male,1931-05-16,Yes,"Black or African American",Non-Hispanic
+9901691,8-3231,1100600,Deceased,832,Yes,2009-11-13,2009-11-13,,Deceased,2009-11-13,Yes,2009-11-13,"AD Probable / no Lewy bodies","Parkinson's disease; AD low likelihood",,,2010-05-12,9.5,Male,1938-07-05,Yes,White,Non-Hispanic
+9901692,8-3390,30361,Deceased,977,Yes,2013-03-25,2016-10-12,,Deceased,2016-10-12,Yes,2016-10-13,"AD Probable / no Lewy bodies","Braak VI","Not Applicable",,2016-12-12,19,Female,1926-04-29,Yes,White,Hispanic
+9901693,8-3124,,Deceased,,Yes,2006-07-13,2008-01-11,,Deceased,2008-01-11,No,,,,,,,,Male,1923-04-27,,"Unknown or not reported",Unknown
+9901694,8-3125,,Deceased,,Yes,2006-07-16,2008-07-14,,Deceased,2008-07-14,No,,,,,,,,Female,1922-01-22,Yes,"Unknown or not reported",Unknown
+9901695,8-3382,30364,Deceased,897,Yes,2012-11-21,2012-11-21,,Deceased,2012-11-21,Yes,2012-11-21,,"AD, intermediate",,,2013-03-13,14,Male,1923-02-23,Yes,White,Hispanic
+9901696,8-3115,,Deceased,,Yes,2006-10-05,2012-03-19,,Deceased,2012-03-19,No,,,,"Logistics failure (specify)",,,,Female,1932-12-05,Yes,"Black or African American",Non-Hispanic
+9901697,8-3117,,Deceased,800,Yes,2006-10-31,2008-03-29,,Deceased,2008-03-29,Yes,2008-03-29,"AD Probable / no Lewy bodies","AD, definite (Braak V)",,,,5,Female,1911-08-31,Yes,"Unknown or not reported",Hispanic
+9901698,8-3119,,Deceased,771,Yes,2006-12-12,2006-12-15,,Deceased,2006-12-15,Yes,2006-12-15,"AD Probable / no Lewy bodies","Hydrocephalus, remote, S/P VP shunt",,,,5,Male,1918-05-18,Yes,White,Non-Hispanic
+9901699,8-3209,11242,Deceased,841,Yes,2009-04-20,2010-03-29,,Deceased,2010-03-29,Yes,2010-03-29,"AD Probable / no Lewy bodies","AD high likelihood; hydrocephalus, ex vacuo",,,2010-08-17,3.25,Female,1920-10-22,Yes,White,Hispanic
+9901700,8-3120,,Deceased,773,Yes,2006-11-05,2007-01-17,,Deceased,2007-01-17,Yes,2007-01-17,"AD Probable / no Lewy bodies","Vascular dementia",,,,5,Female,1917-02-16,Yes,White,Non-Hispanic
+9901703,8-3121,1100440,Deceased,885,Yes,2007-01-16,2012-03-03,,Deceased,2012-03-03,Yes,2012-03-04,"AD Probable / no Lewy bodies","AD, high likelihood",,,2012-06-05,16,Male,1926-10-05,Yes,White,Non-Hispanic
+9901704,8-3126,30365,"Withdrew consent",,No,2006-10-06,,2015-09-16,"Withdrew ADRC consent",,No,,,,Withdrawn,,,,Male,1935-03-13,No,White,Hispanic
+9901705,8-3127,1101090,Deceased,906,Yes,2007-01-11,2013-02-13,,Deceased,2013-02-13,Yes,2013-02-13,"AD Probable / no Lewy bodies",AD,,,2013-10-03,9,Male,1923-02-19,Yes,White,Non-Hispanic
+9901706,8-3128,,Deceased,775,Yes,2007-02-20,2007-02-23,,Deceased,2007-02-23,Yes,2007-02-23,"AD Probable / no Lewy bodies","Alzheimer's disease, Lewy body variant (Braak V)",,,,6,Female,1920-02-10,Yes,White,Non-Hispanic
+9901707,8-3129,1101105,Deceased,831,Yes,2007-03-08,2009-11-03,,Deceased,2009-11-03,Yes,2009-11-03,"AD Probable / no Lewy bodies","AD low likelihood",,,2010-05-06,3.5,Female,1920-05-20,Yes,White,Non-Hispanic
+9901708,8-3132,,Deceased,,Yes,2007-04-06,2008-05-24,,Deceased,2008-05-24,No,,,,,,,,Female,1930-01-24,Yes,White,Non-Hispanic
+9901709,8-3133,1100305,Withdraw,,Yes,2007-04-06,,2016-10-12,Withdrawn,,,,,,,,,,Male,1949-03-16,Yes,White,Non-Hispanic
+9901710,8-3134,1100306,Withdraw,,Yes,2007-04-06,,2016-10-12,Withdrawn,,,,,,,,,,Female,1949-04-26,Yes,White,Non-Hispanic
+9901711,8-3135,1100497,Withdraw,,Yes,2007-04-06,,2016-10-12,Withdrawn,,,,,,,,,,Female,1953-05-08,Yes,White,Non-Hispanic
+9901712,8-3136,1100762,Deceased,872,Yes,2007-04-09,2011-06-15,,Deceased,2011-06-15,Yes,2011-06-15,"AD Probable / no Lewy bodies","AD, high likelihood",,,2011-11-11,4,Male,1929-10-17,Yes,White,Non-Hispanic
+9901713,8-3137,,Deceased,778,Yes,2007-05-03,2007-05-08,,Deceased,2007-05-08,Yes,2007-05-08,"AD Probable / no Lewy bodies","Alzheimer's disease, Lewy body variant (Braak V)",,,,5,Male,1944-10-17,Yes,White,Non-Hispanic
+9901717,8-3139,,Deceased,798,Yes,2007-05-04,2008-03-18,,Deceased,2008-03-18,Yes,2008-03-19,"Other Neurological Disorders","Progressive Supranuclear Palsy",,,,5,Male,1922-09-22,Yes,"Unknown or not reported",Hispanic
+9901718,8-3140,,Deceased,780,Yes,2007-05-31,2007-07-05,,Deceased,2007-07-05,Yes,2007-07-05,"Other Neurological Disorders","Parkinson's disease",,,,5,Female,1922-05-04,Yes,White,Non-Hispanic
+9901719,8-3141,1100262,Deceased,918,Yes,2007-06-15,2014-01-19,,Deceased,2014-01-19,Yes,2014-01-19,"AD Probable / no Lewy bodies","Braak III",,,2014-05-14,5.75,Female,1921-11-29,Yes,White,Non-Hispanic
+9901720,8-3142,,Deceased,786,Yes,2007-06-15,2007-08-15,,Deceased,2007-08-15,Yes,2007-08-16,"AD Probable / no Lewy bodies","AD, definite (Braak V)",,,,4,Female,1920-08-08,Yes,White,Non-Hispanic
+9901721,8-3143,,Deceased,781,Yes,2007-07-05,2007-07-05,,Deceased,2007-07-05,Yes,2007-07-06,"AD Probable / no Lewy bodies","AD, definite (Braak V-VI)",,,,5,Male,1926-08-09,Yes,White,Non-Hispanic
+9901722,8-3144,,Deceased,787,Yes,2007-07-16,2007-08-30,,Deceased,2007-08-30,Yes,2007-08-30,"AD Probable / no Lewy bodies","AD, probable (Braak IV)",,,,6,Female,1921-01-13,Yes,"Unknown or not reported",Hispanic
+9901723,8-3145,,Deceased,783,Yes,2007-07-20,2007-07-26,,Deceased,2007-07-26,Yes,2007-07-26,"AD Probable / no Lewy bodies","AD, definite (Braak VI)",,,,3,Female,1943-03-10,Yes,White,Non-Hispanic
+9901724,8-3146,1100425,Active,,Yes,2007-07-15,,,Active,,,,,,,,,,Female,1943-10-11,Yes,White,Non-Hispanic
+9901725,8-3147,1100449,Deceased,793,Yes,2007-07-15,2008-02-11,,Deceased,2008-02-11,Yes,2008-02-11,"AD Probable / no Lewy bodies","AD, probable (Braak III)",,,2008-06-12,11,Female,1920-04-13,Yes,White,Non-Hispanic
+9901726,8-3148,1100397,Deceased,784,Yes,2007-08-10,2007-08-09,,Deceased,2007-08-09,Yes,2007-08-10,"AD Probable / no Lewy bodies","AD, definite (Braak VI)",,,2007-09-20,15.5,Male,1928-10-01,Yes,White,Non-Hispanic
+9901727,8-3149,,Deceased,791,Yes,2007-08-14,2007-12-21,,Deceased,2007-12-21,Yes,2007-12-21,"AD Probable / no Lewy bodies","AD, probable (Braak IV)",,,,7,Female,1921-09-16,Yes,White,Non-Hispanic
+9901728,8-3151,1100882,Deceased,813,Yes,2007-09-07,2009-03-15,,Deceased,2009-03-15,Yes,2009-03-15,"AD Probable / no Lewy bodies","Alzheimer's disease, definite (Braak V)",,,2009-07-08,4,Male,1929-03-28,Yes,White,Non-Hispanic
+9901729,8-3152,1100794,Deceased,806,Yes,2007-08-19,2008-11-08,,Deceased,2008-11-08,Yes,2008-11-08,"AD Probable / no Lewy bodies","AD, definite (Braak V)",,,2009-02-09,10,Male,1910-07-26,Yes,White,Non-Hispanic
+9901730,8-3153,1100836,Withdraw,,Yes,2007-08-19,,2024-01-26,Withdrawn,,,,,,"Not Applicable",,,,Female,1937-09-11,Yes,White,Non-Hispanic
+9901731,8-3154,1100832,Deceased,,Yes,2007-10-08,2010-05-25,,Deceased,2010-05-25,No,,,,,,,,Male,1932-04-09,Yes,"More than one race",Non-Hispanic
+9901732,8-3155,202543,Deceased,,Yes,2007-10-04,2017-09-16,,Deceased,2017-09-16,No,,,,,,,,Male,1918-05-15,Yes,White,Non-Hispanic
+9901733,8-3156,,Withdraw,,Yes,2007-10-19,,,Withdrawn,,,,,,,,,,Female,1918-04-06,Yes,"Unknown or not reported",Hispanic
+9901734,8-3157,1101101,Withdraw,,Yes,2007-10-19,,2016-01-29,Withdrawn,,,,,,,,,,Female,1937-12-04,Yes,White,Non-Hispanic
+9901735,8-3159,,Deceased,820,Yes,2007-11-05,2009-07-18,,Deceased,2009-07-18,Yes,2009-07-18,"AD Probable / no Lewy bodies","AD intermediate",,,,6,Female,1917-11-29,Yes,White,Non-Hispanic
+9901736,8-3160,202577,Deceased,896,Yes,2007-11-07,2012-10-18,,Deceased,2012-10-18,Yes,2012-10-18,,"AD, high; PD",,,2013-01-25,13.25,Female,1928-10-23,Yes,White,Non-Hispanic
+9901737,8-3161,,Deceased,801,Yes,2007-11-26,2008-04-03,,Deceased,2008-04-03,Yes,2008-04-04,"AD Probable / no Lewy bodies","AD, definite (Braak V)",,,,5,Female,1932-09-28,Yes,White,Non-Hispanic
+9901738,8-3162,1100192,Deceased,792,Yes,2008-01-16,2008-01-03,,Deceased,2008-01-03,Yes,2008-01-03,"AD Probable / no Lewy bodies","AD, definite (Braak V) high probability",,,2008-05-07,4.5,Female,1925-02-26,No,White,Hispanic
+9901739,8-3164,1100399,Deceased,,Yes,2008-01-16,2013-04-06,,Deceased,2013-04-06,No,,,,"Logistics failure (specify)",,,,Female,1947-11-25,Yes,White,Hispanic
+9901740,8-3165,202534,Deceased,999,Yes,2008-02-11,2018-01-28,,Deceased,2018-01-28,Yes,2018-01-28,"AD Probable / no Lewy bodies","Braak IV AD intermediate",,,2018-06-20,7,Female,1917-06-24,Yes,White,Non-Hispanic
+9901741,8-3166,1100887,Withdraw,,Yes,2008-02-19,,2015-04-21,Withdrawn,,No,,,,Withdrawn,,,,Female,1937-05-31,Yes,White,Non-Hispanic
+9901742,8-3167,,Withdraw,,Yes,2008-02-19,,2013-10-15,Withdrawn,,,,,,,,,,Male,1934-01-18,Yes,White,Non-Hispanic
+9901743,8-3168,1100464,Deceased,940,Yes,2008-03-14,2014-12-23,,Deceased,2014-12-23,Yes,2014-12-23,"AD Probable / no Lewy bodies","Braak V",,,2015-07-23,3.5,Female,1943-03-23,Yes,White,Non-Hispanic
+9901744,8-3169,1100323,Deceased,,Yes,2008-04-29,2010-01-24,,Deceased,2010-10-24,No,,,,,,,,Male,1936-01-17,Yes,White,Non-Hispanic
+9901745,8-3170,1100957,Deceased,880,Yes,2008-04-28,2011-10-22,,Deceased,2011-10-22,Yes,2011-10-22,"AD Probable / no Lewy bodies","AD, intermediate",,,2012-04-20,3.5,Female,1918-04-03,Yes,White,Non-Hispanic
+9901747,8-3173,1100398,Deceased,,Yes,2008-05-19,2015-02-10,2014-08-20,Deceased,2015-02-10,No,,,,,,,,Male,1937-06-15,Yes,White,Non-Hispanic
+9901749,8-3174,1100472,Deceased,1008,Yes,2008-06-19,2018-05-24,,Deceased,2018-05-24,Yes,2018-05-24,"AD Probable / no Lewy bodies","Braak V-VI",,,2018-09-18,6,Female,1931-08-03,Yes,White,Non-Hispanic
+9901750,8-3175,1100984,Deceased,971,Yes,2008-06-23,2016-06-15,,Deceased,2016-06-15,Yes,2016-06-15,"Other Neurological Disorders","FTLD-PSP; Braak V-VI","Not Applicable",,2016-11-17,6.75,Male,1928-03-19,Yes,White,Hispanic
+9901751,8-3176,1100822,Deceased,954,Yes,2008-06-25,2015-07-17,,Deceased,2015-07-17,Yes,2015-07-18,"Normal Control","No Braak score; AD intermediate; (fixed only brain)",,,2015-12-18,14,Female,1925-01-02,Yes,White,Non-Hispanic
+9901752,8-3177,1100824,Deceased,919,Yes,2008-06-26,2014-01-22,,Deceased,2014-01-22,Yes,2014-01-22,"AD Probable / no Lewy bodies","Braak IV",,,2014-04-29,7,Male,1925-11-13,Yes,White,Non-Hispanic
+9901753,8-3178,1100834,Deceased,931,Yes,2008-07-08,2014-09-20,,Deceased,2014-09-20,Yes,2014-09-20,"AD Probable / no Lewy bodies","Braak IV",,,2015-03-12,7.75,Female,1921-05-31,Yes,White,Non-Hispanic
+9901755,8-3181,1100099,Withdraw,,Yes,2008-07-31,,2011-11-30,Withdrawn,,,,,,,,,,Female,1926-08-26,Yes,Asian,Non-Hispanic
+9901756,8-3182,1100994,Deceased,858,Yes,2008-07-28,2010-12-16,,Deceased,2010-12-16,Yes,2010-12-17,"AD Probable / no Lewy bodies","AD, high likelihood",,,2011-03-17,42.75,Male,1947-01-04,N/A,White,Non-Hispanic
+9901757,8-3183,201895,Deceased,838,Yes,2008-08-05,2010-01-20,,Deceased,2010-01-20,Yes,2010-01-20,"AD Probable / no Lewy bodies","AD familial (tissue discarded; HEPC+)",,,2010-08-04,4.5,Female,1962-09-16,Yes,White,Hispanic
+9901758,8-3184,1100965,Deceased,1114,Yes,2008-07-30,2024-11-15,,Deceased,2024-11-15,Yes,2024-11-15,"Normal Control","Progressive supranuclear palsy with prominent thread pathology in setting of LRRK2 G2019S mutation","Not Applicable",,2026-04-05,5.5,Female,1938-02-15,Yes,White,Non-Hispanic
+9901759,8-3185,1100362,Deceased,830,Yes,2008-08-06,2009-11-02,,Deceased,2009-11-02,Yes,2009-11-03,"AD Probable / no Lewy bodies","AD intermediate",,,2010-05-05,4.25,Female,1920-02-27,Yes,White,Hispanic
+9901760,8-3187,1100931,Deceased,972,Yes,2008-09-04,2016-07-08,,Deceased,2016-07-08,Yes,2016-07-11,"AD Probable / no Lewy bodies","AD, Braak V",,,2016-11-17,50,Female,1941-07-07,Yes,White,Non-Hispanic
+9901761,8-3188,1100990,Deceased,,Yes,2008-09-16,2020-04-24,,Deceased,2020-04-24,No,,,,"Not Applicable",,,,Female,1932-07-13,Yes,White,Non-Hispanic
+9901762,8-3189,1100966,Deceased,1043,Yes,2008-09-16,2020-01-25,,Deceased,2020-01-25,Yes,2020-01-25,"Normal Control","AD, CAA, hepC positive",,,2020-11-11,4.5,Male,1931-02-18,Yes,White,Non-Hispanic
+9901763,8-3190,1100892,"Withdrew consent",,Yes,2008-09-19,,2016-09-08,"Withdrew ADRC consent",,,,,,,,,,Female,1952-02-10,Yes,White,Non-Hispanic
+9901764,8-3191,1101006,Active,,Yes,2008-09-18,,,Active,,,,,,,,,,Female,1942-12-08,Yes,White,Non-Hispanic
+9901765,8-3192,1100393,Deceased,842,Yes,2008-10-03,2010-04-03,,Deceased,2010-04-03,Yes,2010-04-03,"AD Probable / no Lewy bodies","AD high likelihood",,,2010-08-25,10,Female,1917-12-13,Yes,White,Non-Hispanic
+9901766,8-3193,1100878,Deceased,836,Yes,2008-10-06,2009-11-27,,Deceased,2009-11-27,Yes,2009-11-27,"AD Probable / no Lewy bodies","hippo sclerosis;arthersclerosis moderate",,,2010-05-17,7,Male,1936-02-25,Yes,"Native Hawaiian/Pacific Islander",Non-Hispanic
+9901767,8-3194,1100877,Deceased,861,Yes,2008-10-06,2011-03-13,2010-04-05,Deceased,2011-03-13,Yes,2011-03-13,"AD Probable / no Lewy bodies","Braak 0 Normal Control ",,,2011-11-09,10,Female,1936-11-18,Yes,"More than one race",Non-Hispanic
+9901769,8-3195,1101030,Active,,Yes,2008-12-11,,,Active,,,,,,,,,,Female,1937-01-21,Yes,White,Hispanic
+9901771,8-3196,1100769,Deceased,,Yes,2009-02-25,2012-01-02,,Deceased,2012-01-02,No,,,,,,,,Female,1936-11-14,No,White,Non-Hispanic
+9901774,8-3198,1100682,Deceased,868,Yes,2009-03-12,2011-05-05,,Deceased,2011-05-05,Yes,2011-05-05,"AD Probable / no Lewy bodies","AD, high likelihood (fixed brain only)",,,2011-11-09,13.75,Male,1926-08-02,Yes,White,Non-Hispanic
+9901775,8-3199,1100924,Withdraw,,Yes,2009-03-10,,2019-03-06,Withdrawn,,,,,,,,,,Female,1951-11-03,No,"More than one race",Non-Hispanic
+9901777,8-3201,1101019,Deceased,883,Yes,2009-03-19,2012-02-21,,Deceased,2012-02-21,Yes,2012-02-21,"AD Probable / no Lewy bodies","hippo sclerosis; leptomeningitis focal",,,2012-06-05,9.5,Male,1929-06-14,Yes,White,Non-Hispanic
+9901787,8-3235,1100678,Deceased,1037,Yes,2009-12-04,2019-11-26,,Deceased,2019-11-26,Yes,2019-11-26,"Normal Control","Braak I",,,,6.5,Male,1924-09-06,Yes,White,Non-Hispanic
+9901792,8-3281,1100780,Deceased,952,Yes,2010-05-14,2015-07-01,,Active,2015-07-01,Yes,2015-07-01,"AD Probable / no Lewy bodies","Braak IV",,,2016-02-11,15.5,Female,1936-10-28,Yes,White,Non-Hispanic
+9901798,8-3302,1100807,Deceased,953,Yes,2010-09-02,2015-07-16,,Deceased,2015-07-16,Yes,2015-07-17,,"Braak V (fixed brain only)",,,2015-12-18,19.5,Female,1929-10-28,Yes,White,Non-Hispanic
+9901801,8-3290,1100816,Deceased,,Yes,2010-07-06,2010-09-06,,Deceased,2010-09-06,No,,,,,,,,Male,1924-10-07,Yes,White,Non-Hispanic
+9901814,8-3216,1100977,Deceased,,Yes,2009-06-26,2015-01-22,,Deceased,2015-01-22,No,,,,"Logistics failure (specify)",,,,Female,1932-12-11,Yes,White,Non-Hispanic
+9901816,8-3218,1100985,Deceased,905,Yes,2009-07-06,2013-02-12,,Deceased,2013-02-12,Yes,2013-02-12,"AD Probable / no Lewy bodies","Braak III",,,2013-10-15,8,Male,1931-04-06,Yes,White,Non-Hispanic
+9901818,8-3214,1100991,Active,,Yes,2009-06-10,,,Active,,,,,,,,,,Female,1938-01-30,Yes,"More than one race",Hispanic
+9901827,8-3202,1100871,Deceased,815,Yes,2009-04-02,2009-04-02,,Active,2009-04-02,Yes,2009-04-02,"AD Probable / no Lewy bodies","Cerebrum infarct, remote, multiple",,,,8.25,Female,1924-08-21,Yes,"Unknown or not reported",Hispanic
+9901828,8-3203,1100942,Deceased,895,Yes,2009-04-08,2012-10-02,,Deceased,2012-10-02,Yes,2012-10-02,,"AD, intermediate",,,2013-01-25,7.5,Male,1920-07-26,No,White,Hispanic
+9901829,8-3204,1101039,Deceased,903,Yes,2009-04-04,2013-01-31,,Deceased,2013-01-31,Yes,2013-02-01,"AD Probable / no Lewy bodies","AD neuropath changes",,,2013-04-04,3.75,Female,1932-12-30,Yes,White,Non-Hispanic
+9901831,8-3206,1101054,Deceased,1073,Yes,2009-04-14,2021-12-09,,Deceased,2021-12-09,Yes,2021-12-10,"Normal Control","CVD, AD, ARTAG",,,2022-04-01,21.5,Female,1920-12-13,Yes,White,Non-Hispanic
+9901832,8-3207,1101057,Deceased,,Yes,2009-04-15,2020-08-01,,Deceased,2020-08-01,No,,,,"Logistics failure (specify)",,,,Male,1934-01-05,Yes,White,Non-Hispanic
+9901833,8-3210,1100930,Deceased,819,Yes,2009-04-29,2009-07-13,,Deceased,2009-07-13,Yes,2009-07-13,"AD Probable / no Lewy bodies","AD, high likelihood, Braak VI",,,2009-10-28,5,Female,1928-07-19,Yes,"Black or African American",Non-Hispanic
+9901834,8-3211,1101075,"Withdrew consent",,N/A,2009-05-21,,2018-12-12,Withdrawn,,No,,,,Withdrawn,,,,Female,1947-11-01,N/A,White,Non-Hispanic
+9901835,8-3212,202010,Deceased,856,Yes,2009-05-11,2010-12-15,,Deceased,2010-12-15,Yes,2010-12-15,"AD Probable / no Lewy bodies","AD, high likelihood",,,2011-04-14,10,Female,1941-02-02,Yes,White,Non-Hispanic
+9901836,8-3213,1101028,Deceased,857,Yes,2009-05-28,2010-12-19,,Deceased,2010-12-19,Yes,2010-12-20,"AD Probable / no Lewy bodies","AD, neuropath changes",,,1944-03-09,14.75,Male,1929-03-02,Yes,White,Non-Hispanic
+9901839,8-3217,1100607,Active,,Yes,2009-07-08,,,Active,,,,,,,,,,Female,1944-08-08,Yes,"Black or African American",Non-Hispanic
+9901840,8-3219,1100352,Deceased,,Yes,2009-07-23,2014-06-04,,Deceased,2014-06-04,No,,,,,,,,Male,1932-02-14,Yes,White,Non-Hispanic
+9901841,8-3220,1101099,Withdraw,,Yes,2009-07-31,,2011-11-30,Withdrawn,,,,,,,,,,Female,1936-05-06,Yes,White,Non-Hispanic
+9901842,8-3221,1101094,Deceased,944,Yes,2009-08-11,2015-02-26,,Deceased,2015-02-26,Yes,2015-02-27,"AD Probable / no Lewy bodies","Braak V",,,2015-07-23,25,Male,1923-05-18,Yes,White,Hispanic
+9901843,8-3222,1100371,Deceased,920,Yes,2009-09-08,2014-01-27,,Deceased,2014-01-27,Yes,2014-01-27,"AD Probable / no Lewy bodies","Braak V",,,2014-07-07,6.25,Female,1930-05-23,Yes,White,Hispanic
+9901844,8-3223,1101000,Active,,Yes,2009-08-18,,,Active,,,,,,,,,,Female,1940-03-20,Yes,White,Non-Hispanic
+9901845,8-3224,1100975,Active,,Yes,2009-08-18,,2023-08-16,Active,,,,,,Withdrawn,,,,Male,1943-12-13,No,White,Non-Hispanic
+9901847,8-3347,202677,Deceased,955,Yes,2012-03-14,2015-07-27,,Deceased,2015-07-27,Yes,2015-07-27,"AD Probable / no Lewy bodies","Braak IV (fixed brain only)",,,2015-12-21,13.5,Female,1934-09-14,Yes,White,Non-Hispanic
+9901848,8-3225,1101014,Deceased,844,Yes,2009-10-21,2010-05-07,,Deceased,2010-05-07,Yes,2010-05-07,"AD Probable / no Lewy bodies","Diffuse Lewy Body disease; AD intermediate; hippo sclerosis",,,2010-10-01,6.75,Female,1931-02-24,Yes,White,Non-Hispanic
+9901849,8-3226,202882,Deceased,829,Yes,2009-10-26,2009-10-29,,Deceased,2009-10-29,Yes,2009-10-30,"AD Probable / no Lewy bodies","AD high likelihood",,,2010-05-21,4,Female,1960-08-31,Yes,Asian,Non-Hispanic
+9901850,8-3227,,Deceased,860,Yes,2009-10-26,2011-01-23,,Deceased,2011-01-23,Yes,2011-01-23,"AD Probable / no Lewy bodies","AD, high likelihood",,,2011-05-23,3.5,Female,1923-09-29,Yes,White,Non-Hispanic
+9901852,8-3276,1100488,Deceased,,Yes,2010-04-27,2015-07-16,,Deceased,2015-07-16,No,,,,"Logistics failure (specify)",,,,Female,1928-01-04,Yes,Asian,Non-Hispanic
+9901857,8-3481,1101048,Active,,Yes,2014-06-30,,,Active,,,,,,,,,,Male,1950-09-01,Yes,White,Hispanic
+9901859,8-3327,1100231,Deceased,970,Yes,2011-08-18,2016-05-10,,Deceased,2016-05-10,Yes,2016-05-10,"AD Probable / no Lewy bodies","Parkinson's disease stage 6, Braak IV, atheroscleroisis",,,2016-08-17,26,Female,1929-10-09,Yes,White,Non-Hispanic
+9901860,8-3228,11240,Deceased,1052,Yes,2009-11-05,2020-12-20,,Deceased,2020-12-20,Yes,2020-12-21,,AD,,,2021-07-26,36,Female,1929-08-15,Yes,Asian,Hispanic
+9901869,8-3230,1100534,Withdraw,,Yes,2009-11-12,,2023-05-23,Withdrawn,,,,,,Withdrawn,,,,Male,1930-04-06,Yes,White,Non-Hispanic
+9901871,8-3232,1101020,Deceased,835,Yes,2009-11-16,2009-11-24,,Deceased,2009-11-24,Yes,2009-11-24,"AD Probable / no Lewy bodies","Parkinson's Disease; AD intermediate",,,2010-05-02,4.25,Female,1931-05-23,No,White,Non-Hispanic
+9901872,8-3233,1100388,Active,,Yes,2009-11-24,,,Active,,,,,,,,,,Female,1938-08-10,Yes,White,Hispanic
+9901873,8-3234,11198,Deceased,1100,Yes,2009-12-03,2023-10-22,,Deceased,2023-10-22,Yes,2023-10-23,"Normal Control","Primary-age related tauopathy (PART)",,,2024-07-29,15.5,Male,1933-03-03,Yes,"More than one race",Non-Hispanic
+9901874,8-3236,1101118,Deceased,980,Yes,2009-12-04,2016-12-18,,Active,2016-12-18,Yes,2016-12-18,"AD Probable / no Lewy bodies","Braak IV",,,2017-03-29,8,Female,1930-08-30,Yes,White,Non-Hispanic
+9901875,8-3237,1101119,Deceased,901,Yes,2009-12-10,2012-12-25,,Deceased,2012-12-25,Yes,2012-12-25,,"AD neuropath changes (no frozen tissue)",,,2013-04-04,5,Male,1933-10-31,Yes,White,Hispanic
+9901876,8-3238,1101024,Deceased,917,Yes,2010-01-19,2014-01-13,,Deceased,2014-01-13,Yes,2014-01-14,"AD Probable / no Lewy bodies","Braak V","Not Applicable",,2014-04-16,7.5,Female,1934-06-29,Yes,White,Hispanic
+9901877,8-3239,1101122,Withdraw,,Yes,2010-01-19,,2013-11-12,Withdrawn,,,,,,,,,,Female,1929-12-02,Yes,"Black or African American",Non-Hispanic
+9901878,8-3240,202693,Deceased,837,Yes,2010-01-17,2010-01-17,,Deceased,2010-01-17,Yes,2010-01-18,,"AD high likelihood",,,2010-05-05,16,Male,1939-03-18,Yes,White,Non-Hispanic
+9901880,8-3242,1101127,Deceased,849,Yes,2010-02-02,2010-08-12,,Deceased,2010-08-12,Yes,2010-08-12,"AD Probable / no Lewy bodies","AD high likelihood (tissue discarded)",,,2010-12-14,4.25,Male,1930-05-03,,White,Non-Hispanic
+9901881,8-3243,202895,Deceased,995,Yes,2010-01-11,2017-11-19,,Deceased,2017-11-19,Yes,2017-11-20,"AD Probable / no Lewy bodies","No Braak score; AD high probability",,,2018-03-01,14.75,Female,1926-01-10,No,White,Hispanic
+9901882,8-3244,1101128,Deceased,839,Yes,2010-02-09,2010-03-15,,Deceased,2010-03-15,Yes,2010-03-15,"Other Neurological Disorders","dementia lacking distinctive histology",,,2010-09-01,12,Male,1924-07-03,Yes,White,Non-Hispanic
+9901883,8-3245,1101026,Deceased,932,Yes,2010-02-08,2014-09-25,,Deceased,2014-09-25,Yes,2014-09-25,"AD Probable / no Lewy bodies","premortem AD; low AD",,,2015-03-26,12.5,Male,1921-06-25,Yes,White,Non-Hispanic
+9901884,8-3246,,Deceased,871,Yes,2010-02-08,2011-06-03,,Deceased,2011-06-03,Yes,2011-06-03,"AD Probable / no Lewy bodies","AD, intermediate likelihood",,,2011-11-11,5.5,Female,1923-02-05,Yes,"Black or African American",Non-Hispanic
+9901886,8-3250,1100734,Active,,Yes,2010-02-24,,,Active,,,,,,,,,,Male,1934-06-11,Yes,"More than one race",Hispanic
+9901889,8-3251,1100387,Deceased,889,Yes,2010-03-03,2012-04-09,,Deceased,2012-04-09,Yes,2012-04-09,"Other Neurological Disorders","AD, high probability",,,2012-10-15,12,Male,1927-11-01,Yes,White,Non-Hispanic
+9901890,8-3570,202801,Deceased,,Yes,2015-12-16,2017-03-29,,Deceased,2017-03-29,No,,,,,,,,Male,1950-11-17,Yes,White,Non-Hispanic
+9901891,8-3389,202504,Active,,Yes,2013-03-20,,,Active,,,,,,,,,,Male,1927-06-22,Yes,White,Non-Hispanic
+9901893,8-3298,1101121,Deceased,,Yes,2010-08-18,2018-09-02,,Active,2018-09-02,No,,,,"Logistics failure (specify)",,,,Female,1962-12-31,Yes,White,Hispanic
+9901894,8-3253,1100835,Deceased,907,Yes,2010-03-11,2013-02-17,,Deceased,2013-02-17,Yes,2013-02-17,"Normal Control","Braak score 0.5 Normal brain",,,2013-10-09,3,Male,1928-03-22,Yes,White,Hispanic
+9901895,8-3254,1100912,Deceased,,Yes,2010-03-12,2010-10-13,,Active,2010-10-13,No,,,,,,,,Male,1924-02-01,Yes,White,Non-Hispanic
+9901896,8-3255,1101002,Deceased,1032,Yes,2010-03-12,2019-10-10,,Deceased,2019-10-10,Yes,2019-10-10,"AD Probable / no Lewy bodies","Braak V",,,,6.25,Female,1949-01-04,Yes,"More than one race",Non-Hispanic
+9901897,8-3256,1101038,Deceased,926,Yes,2010-03-16,2014-06-16,2014-06-16,Active,2014-06-16,Yes,2014-06-16,"AD Probable / no Lewy bodies","Braak IV",,,2014-11-11,4,Female,1915-12-26,Yes,White,Hispanic
+9901898,8-3257,1101136,Deceased,853,Yes,2010-03-17,2010-10-14,,Deceased,2010-10-14,Yes,2010-10-14,"AD Probable / no Lewy bodies","demential of lewy body type",,,2011-03-09,6.5,Female,1932-12-28,Yes,White,Non-Hispanic
+9901900,8-3488,202686,Deceased,929,Yes,2014-07-24,2014-08-01,,Deceased,2014-08-01,Yes,2014-08-01,"Parkinson's disease with dementia","Parkinson's disease, AD Braak V",,,2015-01-09,14.25,Male,1935-11-27,No,White,Non-Hispanic
+9901901,8-3259,202351,Deceased,840,Yes,2010-03-24,2010-03-24,,Deceased,2010-03-24,Yes,2010-03-24,"AD Probable / no Lewy bodies","AD intermediate",,,2010-08-17,7,Female,1936-12-12,Yes,White,Hispanic
+9901905,8-3264,1101113,Deceased,908,Yes,2010-03-31,2013-02-20,,Deceased,2013-02-20,Yes,2013-02-20,"AD Probable / no Lewy bodies","Braak V",,,2013-10-09,8.75,Male,1927-05-27,Yes,Asian,Non-Hispanic
+9901906,8-3288,1101111,Deceased,1064,Yes,2010-06-24,2021-06-19,,Active,2021-06-19,Yes,2021-06-22,"AD Probable / no Lewy bodies","AD, CAA, LBD","Not Applicable",,2021-10-18,62,Male,1956-04-17,Yes,White,Non-Hispanic
+9901913,8-3567,1101109,Active,,Yes,2015-12-09,,,Active,,,,,,,,,,Female,1941-03-28,Yes,White,Non-Hispanic
+9901915,8-3249,1100618,Deceased,913,Yes,2010-02-24,2013-08-28,,Deceased,2013-08-28,Yes,2013-08-28,"AD Probable / no Lewy bodies","Braak V (fixed brain only)",,,2013-12-20,9.25,Female,1935-11-09,Yes,"More than one race",Hispanic
+9901916,8-3261,202819,Deceased,878,Yes,2010-03-29,2011-08-03,,Deceased,2011-08-02,Yes,2011-08-03,"AD Probable / no Lewy bodies","AD, high likelihood",,,2012-04-26,4.75,Female,1922-06-15,Yes,White,Non-Hispanic
+9901917,8-3262,1100719,Deceased,974,Yes,2010-03-30,2016-08-08,,Deceased,2016-08-08,Yes,2016-08-08,"AD Probable / no Lewy bodies","Braak III (AD intermediate)",,,2016-12-12,12.5,Female,1925-08-02,Yes,White,Non-Hispanic
+9901918,8-3263,1101041,Active,,Yes,2010-03-30,,,Active,,,,,,,,,,Male,1929-07-23,No,White,Hispanic
+9901919,8-3265,1100610,Deceased,989,Yes,2010-04-07,2017-05-16,,Deceased,2017-05-16,Yes,2017-05-16,"AD Probable / no Lewy bodies","Braak V-VI",,,2017-08-22,7,Female,1932-11-21,Yes,White,Non-Hispanic
+9901920,8-3266,1101137,Deceased,,Yes,2010-04-07,2015-02-21,,Deceased,2015-02-21,No,,,,,,,,Female,1932-08-01,No,White,Hispanic
+9901921,8-3267,1100820,Deceased,,Yes,2010-04-13,2018-11-15,,Deceased,2018-11-15,No,,,,"Logistics failure (specify)",,,,Male,1928-06-26,Yes,White,Non-Hispanic
+9901922,8-3268,202471,Deceased,937,Yes,2010-04-13,2014-11-11,,Deceased,2014-11-11,Yes,2014-11-11,"AD Probable / no Lewy bodies","Braak V",,,2015-07-08,6,Male,1935-01-05,Yes,White,Non-Hispanic
+9901923,8-3269,1100927,Deceased,,Yes,2010-04-13,2010-07-12,,Deceased,2010-07-12,No,,,,,,,,Male,1922-02-28,No,White,Non-Hispanic
+9901924,8-3270,,Deceased,859,Yes,2010-04-14,2011-01-04,,Deceased,2011-01-04,Yes,2011-01-04,"AD Probable / no Lewy bodies","vascular dementia; AD low likelihood",,,2011-03-09,4.25,Male,1921-02-03,Yes,White,Non-Hispanic
+9901925,8-3271,202375,Deceased,,Yes,2010-04-19,2016-08-15,,Deceased,2016-08-15,No,,,,"Logistics failure (specify)",,,,Female,1943-03-24,Yes,White,Hispanic
+9901926,8-3273,1101139,Deceased,994,Yes,2010-04-21,2017-08-22,,Active,2017-08-22,Yes,2017-08-22,"AD Probable / no Lewy bodies","No Braak score; AD low; hippo scelrosis",,,2018-01-03,8.25,Male,1929-04-04,Yes,White,Non-Hispanic
+9901927,8-3274,1101040,Deceased,,Yes,2010-04-22,2011-12-18,2011-01-21,Deceased,2011-12-18,No,,,,Disqualified,,,,Female,1936-12-05,Yes,White,Non-Hispanic
+9901928,8-3275,1100947,Deceased,,Yes,2010-04-23,2012-04-27,,Deceased,2012-04-27,No,,,,"Logistics failure (specify)",,,,Female,1923-08-17,No,White,Non-Hispanic
+9901929,8-3277,1100955,Deceased,,Yes,2010-04-27,2020-03-20,,Deceased,2020-03-20,No,,,,"Logistics failure (specify)",,,,Male,1922-04-10,Yes,Asian,Non-Hispanic
+9901930,8-3278,1101011,Deceased,847,Yes,2010-04-28,2010-06-10,,Deceased,2010-06-10,Yes,2010-06-10,"AD Probable / no Lewy bodies","AD high likelihood",,,2010-12-15,4.25,Male,1927-02-23,Yes,"Black or African American",Non-Hispanic
+9901931,8-3279,1101144,Deceased,,Yes,2010-05-07,2011-03-11,,Deceased,2011-03-11,No,,,,,,,,Male,1941-06-04,Yes,White,Non-Hispanic
+9901932,8-3280,202532,Deceased,869,Yes,2010-05-03,2011-05-05,,Deceased,2011-05-05,Yes,2011-05-05,"AD Probable / no Lewy bodies","AD, high likelihood",,,2011-11-09,4.25,Female,1936-02-11,Yes,White,Non-Hispanic
+9901933,8-3667,202794,Deceased,1004,,2018-01-24,2018-04-21,,Deceased,2018-04-21,Yes,2018-04-22,"AD Probable / no Lewy bodies","Braak II-III",,,2018-11-19,8.25,Male,1939-11-28,Yes,White,Non-Hispanic
+9901936,8-3282,202827,Deceased,,Yes,2010-05-17,2016-01-14,,Deceased,2016-01-14,No,,,,"Logistics failure (specify)",,,,Female,1916-02-09,No,"Unknown or not reported",Hispanic
+9901943,8-3294,202453,Deceased,923,Yes,2010-07-20,2014-05-20,,Deceased,2014-05-20,Yes,2014-05-20,"AD Probable / no Lewy bodies","Braak IV",,,2014-08-12,4.5,Male,1927-12-27,Yes,White,Non-Hispanic
+9901946,8-3422,202467,Deceased,1016,Yes,2013-08-28,2019-01-21,,Deceased,2019-01-21,Yes,2019-01-22,"AD Probable / no Lewy bodies"," AD high (no frozen hippo)",,,,19,Female,1928-08-17,Yes,White,Non-Hispanic
+9901958,8-3215,202511,Deceased,898,Yes,2009-06-08,2012-12-05,,Deceased,2012-12-04,Yes,2012-12-05,,"AD, high likelihood (no frozen tissue)",,,2013-02-11,35,Male,1928-11-14,Yes,White,Non-Hispanic
+9901963,8-3399,202526,Deceased,1026,Yes,2013-05-15,2018-12-05,,Deceased,2018-12-05,Yes,2018-12-05,"Other Neurological Disorders","Braak IV",,,2019-12-02,16,Male,1933-10-07,Yes,White,Non-Hispanic
+9901980,8-3323,202593,Deceased,960,Yes,2011-07-01,2015-10-29,,Deceased,2015-10-29,Yes,2015-10-29,"AD Probable / no Lewy bodies","Braak V","Not Applicable",,2016-02-11,11.75,Male,1949-09-14,Yes,White,Non-Hispanic
+9902021,8-3180,202695,Deceased,,Yes,2008-07-18,2011-07-29,,Deceased,2011-07-29,No,,,,"Logistics failure (specify)",,,,Male,1948-11-18,Yes,White,Non-Hispanic
+9902026,8-3356,202710,Deceased,1059,Yes,2012-05-21,2021-04-23,,Deceased,2021-04-23,Yes,2021-04-24,"AD Probable / no Lewy bodies","AD, hippocampal sclerosis, CAA",,,2021-08-10,25,Female,1933-01-31,Yes,White,Non-Hispanic
+9902035,8-3474,202751,Deceased,1014,Yes,2014-05-12,2018-11-07,,Deceased,2018-11-07,Yes,2018-11-07,"AD Probable / no Lewy bodies",AD,,,2019-06-06,5.5,Female,1924-09-05,Yes,White,Non-Hispanic
+9902041,8-3480,202842,Withdraw,,Yes,2014-06-05,,2019-06-11,Withdrawn,,,,,,,,,,Male,1933-01-01,Yes,White,Non-Hispanic
+9902042,8-3701,202855,Deceased,1036,Yes,2019-11-13,2019-11-15,,Deceased,2019-11-15,Yes,2019-11-15,"AD Probable / no Lewy bodies","Braak V no frozen hippo","Not Applicable",,,6.5,Male,1937-11-24,Yes,Asian,Non-Hispanic
+9902050,8-3283,1101146,Deceased,,Yes,2010-05-26,2017-02-25,,Active,2017-02-25,No,,,,"Logistics failure (specify)",,,,Male,1938-07-27,No,White,Hispanic
+9902052,8-3284,1100960,Deceased,886,Yes,2010-06-02,2012-03-08,,Deceased,2012-03-07,Yes,2012-03-08,"AD Probable / no Lewy bodies","AD high probability",,,2012-10-15,6.75,Female,1924-06-09,Yes,White,Hispanic
+9902057,8-3285,1101012,Deceased,902,Yes,2010-06-08,2013-07-17,,Deceased,2013-01-17,Yes,2013-01-17,,"AD, neuropath changes",,,2013-04-04,3.25,Female,1921-06-10,Yes,"More than one race",Non-Hispanic
+9902058,8-3286,1101151,Withdraw,,Yes,2010-06-16,,2014-12-19,Withdrawn,,,,,,,,,,Male,1930-08-29,Yes,White,Non-Hispanic
+9902059,8-3287,1101152,Withdraw,,Yes,2010-06-16,,2014-12-19,Withdrawn,,,,,,,,,,Female,1951-06-20,Yes,White,Non-Hispanic
+9902080,8-3291,1100714,Deceased,949,Yes,2010-07-07,2015-05-13,,Deceased,2015-05-13,Yes,2015-05-13,"AD Probable / no Lewy bodies","Braak V, Lewy Body Disease",,,2015-11-12,5,Male,1949-07-19,Yes,White,Non-Hispanic
+9902081,8-3138,1100778,Withdraw,,Yes,2007-05-07,,2012-04-09,Withdrawn,,,,,,,,,,Female,1923-05-19,Yes,"More than one race",Non-Hispanic
+9902082,8-3427,1101058,"Withdrew consent",,Yes,2013-09-10,,2013-10-28,"Withdrew ADRC consent",,,,,,,,,,Male,1924-05-18,No,Asian,Non-Hispanic
+9902083,8-3383,202930,Deceased,900,Yes,2012-12-15,2012-12-16,,Deceased,2012-12-16,Yes,2012-12-16,,"AD, high likelihood",,,2013-02-11,5.5,Male,1925-06-25,Yes,White,Non-Hispanic
+9902086,8-3539,1100403,Active,,Yes,2015-04-28,,,Active,,,,,,,,,,Female,1950-05-19,Yes,White,Non-Hispanic
+9902089,8-3292,1100094,Deceased,,Yes,2010-07-09,2019-01-02,,Active,2019-01-02,No,,,,,,,,Male,1929-09-11,Yes,White,Non-Hispanic
+9902092,8-3409,1101073,Deceased,993,Yes,2013-06-18,2017-08-01,,Active,2017-08-01,Yes,2017-08-01,"AD Probable / no Lewy bodies","AD intermediate to high neuropathologic (ADNC) change; No Braak score",,,2018-01-03,12.5,Male,1934-05-18,Yes,White,Non-Hispanic
+9902093,8-3438,203006,Deceased,914,Yes,2013-11-04,2013-11-04,,Deceased,2013-11-04,Yes,2013-11-05,"AD Probable / no Lewy bodies","Braak V",,,2013-12-20,37,Female,1930-09-29,Yes,White,Non-Hispanic
+9902112,8-3314,1100307,Deceased,1020,No,2011-04-08,2019-02-07,,Deceased,2019-02-07,Yes,2019-02-07,"AD Probable / no Lewy bodies","Braak III",,,,9,Female,1922-11-03,,"Black or African American",Non-Hispanic
+9902113,8-3343,1100032,Active,,Yes,2012-01-20,,,Active,,,,,,,,,,Female,1930-03-24,No,White,Hispanic
+9902115,8-3449,203018,Deceased,922,Yes,2014-02-05,2014-02-05,,Deceased,2014-02-05,Yes,2014-02-06,"Other Neurological Disorders",FTLD,,,2014-10-01,5.5,Male,1939-06-16,Yes,White,Non-Hispanic
+9902117,8-3724,1100390,Deceased,1079,Yes,2022-01-26,2022-03-10,,Deceased,2022-03-10,Yes,2022-03-11,"AD Probable / no Lewy bodies","AD high, CAA, CVD",,,2022-06-17,31.45,Female,1940-09-16,No,White,Hispanic
+9902119,8-3476,1100334,Active,,Yes,2014-05-21,,,Active,,,,,,,,,,Female,1937-05-01,No,White,Hispanic
+9902126,8-3295,,Deceased,848,Yes,2010-07-28,2010-07-31,,Deceased,2010-07-30,Yes,2010-07-31,"Other Neurological Disorders","FTLD-4 ubiquitin",,,2010-12-21,5.5,Male,1951-03-24,Yes,"Unknown or not reported",Hispanic
+9902157,8-3297,1100830,Deceased,,Yes,2010-08-10,2013-12-26,,Deceased,2013-12-26,No,,,,,,,,Female,1960-06-16,Yes,White,Non-Hispanic
+9902177,8-3634,1101033,Deceased,983,Yes,2017-01-24,2017-01-24,,Active,2017-01-24,Yes,2017-01-25,"AD Probable / no Lewy bodies","AD, CAA",,,2017-04-12,5.5,Female,1936-01-07,Yes,White,Non-Hispanic
+9902204,8-2472,11161,Withdraw,,Yes,2003-03-19,,2011-09-14,Withdrawn,,,,,,,,,,Female,1933-04-12,Yes,White,Non-Hispanic
+9902214,8-3329,1101117,Deceased,,Yes,2011-08-26,2025-01-19,,Deceased,2025-01-19,No,,,,"Logistics failure (specify)","Family did not call us and she lived in Monterey at the time of death. ",,,Female,1937-02-11,Yes,White,Non-Hispanic
+9902226,8-3486,1101097,Active,,Yes,2014-07-17,,,Active,,,,,,,,,,Male,1938-12-12,Yes,White,Non-Hispanic
+9902230,8-3511,1100881,Deceased,1058,Yes,2015-01-21,2021-04-20,,Deceased,2021-04-19,Yes,2021-04-20,"AD Probable / no Lewy bodies","AD, LBD, CBD",,,,27.5,Female,1933-10-17,No,White,Hispanic
+9902238,8-3305,1100410,Deceased,991,Yes,2010-10-28,2017-06-10,,Deceased,2017-06-10,Yes,2017-06-10,"AD Probable / no Lewy bodies","Braak II",,,2018-01-03,6,Female,1924-12-24,Yes,White,Hispanic
+9902246,8-3252,1101126,Deceased,882,Yes,2010-03-10,2012-01-13,,Deceased,2012-01-12,Yes,2012-01-13,"Isolated Cognitive Deficits","Parkinson's Disease",,,2012-05-25,4.75,Female,1938-03-08,Yes,White,Non-Hispanic
+9902247,8-3318,1101124,Deceased,965,Yes,2011-05-02,2016-01-23,,Deceased,2016-01-23,Yes,2016-01-23,"AD Probable / no Lewy bodies","Braak VI",,,2016-05-17,4.75,Male,1928-04-22,Yes,White,Non-Hispanic
+9902249,8-3340,1100670,Deceased,1117,Yes,2011-12-14,2025-01-28,,Deceased,2025-01-28,Yes,2025-01-29,"AD Probable / no Lewy bodies","Alzheimer's disease, high neuropathic change","Not Applicable",,2025-12-28,16.5,Female,1947-05-19,Yes,"Black or African American",Non-Hispanic
+9902259,8-3313,1100896,Deceased,909,Yes,2011-04-05,2013-03-24,,Deceased,2013-03-24,Yes,2013-03-24,"AD Probable / no Lewy bodies","Braak V",,,2013-11-07,5.5,Male,1926-05-14,Yes,"More than one race",Non-Hispanic
+9902264,8-3358,1100647,Deceased,936,Yes,2012-06-04,2014-10-13,,Deceased,2014-10-13,Yes,2014-10-14,"AD Probable / no Lewy bodies","Braak V",,,2015-06-04,6.75,Male,1949-03-31,Yes,White,Hispanic
+9902274,8-3315,1100694,Deceased,864,Yes,2011-04-11,2011-04-11,,Deceased,2011-04-11,Yes,2011-04-11,"AD Probable / no Lewy bodies","AD, high likelihood",,,2011-10-18,9.25,Male,1924-04-07,Yes,White,Non-Hispanic
+9902290,8-3299,1101159,Deceased,,Yes,2010-08-25,2013-03-29,,Deceased,2013-03-29,No,,,,"Logistics failure (specify)",,,,Male,1916-02-18,Yes,"Unknown or not reported",Hispanic
+9902293,8-3344,1100799,Deceased,,Yes,2012-01-23,2012-11-09,,Deceased,2012-11-09,No,,,,,,,,Female,1916-08-12,No,"More than one race",Non-Hispanic
+9902323,8-3332,1100951,Deceased,879,Yes,2011-09-19,2011-09-20,,Deceased,2011-09-18,Yes,2011-09-20,"AD Probable / no Lewy bodies","AD, high likelihood (fixed brain only)",,,2012-03-06,48,Female,1927-01-10,Yes,White,Hispanic
+9902327,8-3171,1100969,Deceased,890,Yes,2008-05-09,2012-05-05,,Deceased,2012-05-05,Yes,2012-05-05,"AD Probable / no Lewy bodies","AD, high likelihood",,,2012-06-05,5.5,Male,1941-04-16,Yes,White,Non-Hispanic
+9902347,8-3436,1101130,Deceased,915,Yes,2013-10-20,2013-12-26,,Deceased,2013-12-26,Yes,2013-12-26,"AD Probable / no Lewy bodies","Braak V",,,2014-04-16,7.5,Female,1927-03-10,Yes,White,Non-Hispanic
+9902348,8-3386,1100544,Deceased,1040,Yes,2013-02-07,2019-12-18,,Deceased,2019-12-18,Yes,2019-12-18,"AD Probable / no Lewy bodies","FTLD-Tau, hippocampal sclerosis, LBD",,,2020-12-14,6.4,Female,1935-11-07,No,White,Non-Hispanic
+9902353,8-3300,1101161,Active,,Yes,2010-09-02,,,Active,,,,,,,,,,Female,1939-04-24,Yes,White,Non-Hispanic
+9902354,8-3301,1101160,Deceased,,Yes,2010-09-02,2015-07-01,,Deceased,2015-07-01,No,,,,,,,,Male,1934-10-23,Yes,White,Non-Hispanic
+9902365,8-3241,1101123,Withdraw,,Yes,2010-01-26,,2011-01-18,Withdrawn,,,,,,,,,,Male,1938-03-21,No,Asian,Non-Hispanic
+9902375,8-3303,1101163,Active,,Yes,2010-09-03,,,Active,,,,,,,,,,Female,1950-03-12,Yes,"More than one race",Hispanic
+9902387,8-3321,1100829,Deceased,921,Yes,2011-06-16,2014-01-30,,Deceased,2014-01-30,Yes,2014-01-30,"AD Probable / no Lewy bodies","Braak V",,,2014-07-07,12.25,Female,1937-11-07,Yes,White,Hispanic
+9902390,8-3563,1100621,Deceased,958,Yes,2015-10-16,2015-10-18,,Deceased,2015-10-18,Yes,2015-10-19,"AD Probable / no Lewy bodies","Braak V",,,2016-03-17,13.5,Female,1928-10-30,No,White,Hispanic
+9902393,8-3304,1101165,Deceased,,Yes,2010-09-15,2023-08-13,,Deceased,2023-08-13,,,,,"Logistics failure (specify)","Family did not call USC Neuropath at time of death",,,Male,1935-05-12,No,White,Non-Hispanic
+9902404,8-3478,203050,Deceased,925,Yes,2014-05-28,2014-06-02,,Deceased,2014-06-02,Yes,2014-06-02,"AD Probable / no Lewy bodies","Braak V",,,2014-09-04,9,Male,1940-06-28,Yes,White,Non-Hispanic
+9902408,8-3339,1101167,Deceased,,Yes,2011-12-14,2020-01-07,,Deceased,2020-01-07,No,,,,,,,,Male,1933-04-05,Yes,White,Non-Hispanic
+9902410,8-3306,1100620,Deceased,957,Yes,2010-11-18,2015-09-06,,Deceased,2015-09-06,Yes,2015-09-06,"Other Neurological Disorders","FTD (frontotemporallobar dementia -Tau; Picks disease)",,,2016-03-17,5,Female,1938-09-03,Yes,White,Non-Hispanic
+9902414,8-3397,1101170,Active,,Yes,2013-05-07,,,Active,,,,,,,,,,Male,1924-07-09,Yes,White,Non-Hispanic
+9902415,8-3310,1101169,Withdraw,,Yes,2011-01-11,,2012-03-27,Withdrawn,,,,,,,,,,Male,1957-05-15,Yes,White,Non-Hispanic
+9902417,8-3307,1101173,Deceased,876,Yes,2010-12-07,2011-07-11,,Deceased,2011-07-09,Yes,2011-07-11,"AD Probable / no Lewy bodies","AD, high likelihood (fixed brain only)",,,2012-03-06,44,Female,1965-03-04,Yes,White,Hispanic
+9902428,8-3308,202659,Deceased,,Yes,2010-12-09,2016-01-03,,Deceased,2016-01-03,No,,,,,,,,Male,1958-07-10,Yes,White,Hispanic
+9902429,8-3309,1101177,Active,,Yes,2010-12-16,,,Active,,,,,,,,,,Female,1944-07-03,Yes,White,Non-Hispanic
+9902430,8-3512,1101174,Active,,Yes,2015-01-23,,,Active,,,,,,,,,,Female,1946-04-17,No,White,Hispanic
+9902432,8-3379,1101164,Deceased,978,Yes,2012-09-20,2016-10-24,,Deceased,2016-10-24,Yes,2016-10-24,"AD Probable / no Lewy bodies","Braak VI",,,2016-12-12,5,Male,1954-11-29,Yes,White,Non-Hispanic
+9902438,8-3311,1101179,Active,,Yes,2011-03-08,,,Active,,,,,,,,,,Female,1930-10-02,Yes,White,Non-Hispanic
+9902439,8-3312,1101180,Active,,Yes,2011-03-08,,,Active,,,,,,,,,,Male,1932-03-29,Yes,White,Non-Hispanic
+9902444,8-3316,1101186,Active,,Yes,2011-04-12,,,Active,,,,,,,,,,Female,1943-04-14,Yes,"Black or African American",Non-Hispanic
+9902445,8-3317,1101189,Deceased,1029,Yes,2011-04-20,2019-08-16,,Deceased,2019-08-16,Yes,2019-08-16,"AD Probable / no Lewy bodies","Braak III-IV (no frozen hippo)",,,,1.5,Female,1930-01-12,Yes,White,Non-Hispanic
+9902449,8-3320,1101195,Deceased,963,Yes,2011-05-12,2015-11-24,,Deceased,2015-11-24,Yes,2015-11-24,"AD Probable / no Lewy bodies","AD, CAA",,,2016-03-23,13,Female,1931-08-21,Yes,Asian,Non-Hispanic
+9902450,8-3367,1101193,Active,,Yes,2012-07-18,,,Active,,,,,,,,,,Female,1938-09-16,Yes,White,Non-Hispanic
+9902452,8-3335,1101190,Deceased,924,Yes,2011-11-09,2014-05-30,,Deceased,2014-05-30,Yes,2014-05-30,"AD Probable / no Lewy bodies","Braak V",,,2014-08-18,4,Female,1931-01-10,Yes,White,Hispanic
+9902453,8-3442,1101181,Deceased,976,Yes,2013-12-02,2016-10-10,,Deceased,2016-10-10,Yes,2016-10-10,"AD Probable / no Lewy bodies","PSP-FTLD; Braak II","Not Applicable",,2017-01-05,6.5,Male,1935-06-21,Yes,White,Hispanic
+9902454,8-3336,1101198,Deceased,986,Yes,2011-11-10,2017-03-24,,Deceased,2017-03-24,Yes,2017-03-30,"AD Probable / no Lewy bodies","Braak VI",,,2017-06-22,>24,Female,1940-10-13,Yes,White,Non-Hispanic
+9902459,8-3324,202807,Deceased,875,Yes,2011-07-07,2011-07-07,,Deceased,2011-07-07,Yes,2011-07-07,"AD Probable / no Lewy bodies","AD, high likelihood",,,2011-11-09,6.5,Female,1948-01-07,Yes,White,Non-Hispanic
+9902460,8-3325,1101203,Deceased,,Yes,2011-07-14,2015-07-07,,Deceased,2015-07-07,No,,,,"Logistics failure (specify)",,,,Female,1923-06-20,No,White,Hispanic
+9902461,8-3326,1101204,Deceased,1012,Yes,2011-07-18,2018-08-23,,Deceased,2018-08-23,Yes,2018-08-23,"AD Probable / no Lewy bodies","Braak V-VI",,,2019-03-28,8.5,Female,1932-06-07,Yes,White,Non-Hispanic
+9902929,8-3330,1101206,Deceased,,Yes,2011-09-06,2014-10-04,,Deceased,2014-10-04,No,,,,"Logistics failure (specify)",,,,Female,1930-12-15,No,White,Non-Hispanic
+9902933,8-3331,1101207,Deceased,1039,Yes,2011-09-14,2019-12-18,,Deceased,2019-12-18,Yes,2019-12-18,"Normal Control","Braak 0",,,2020-07-31,11.25,Male,1943-08-31,Yes,White,Hispanic
+9902942,8-3348,1101210,Deceased,1033,Yes,2012-03-23,2019-10-14,,Deceased,2019-10-14,Yes,2019-10-15,"Normal Control","AD low Braak III",,,,21,Female,1920-01-21,Yes,White,Non-Hispanic
+9902943,8-3333,1101211,Active,,Yes,2011-10-12,,,Active,,,,,,,,,,Female,1937-06-01,Yes,"Black or African American",Non-Hispanic
+9902944,8-3334,1101212,Deceased,1072,Yes,2011-10-12,2021-11-27,,Deceased,2021-11-27,Yes,2021-11-28,"AD Probable / no Lewy bodies","AD High, CAA",,,,31.5,Male,1934-12-13,Yes,"More than one race",Non-Hispanic
+9902947,8-3363,1101215,Active,,Yes,2012-07-11,,,Active,,,,,,,,,,Female,1934-08-08,Yes,White,Non-Hispanic
+9902948,8-3471,1101216,Active,,Yes,2014-04-08,,,Active,,,,,,,,,,Female,1939-09-15,Yes,White,Non-Hispanic
+9902949,8-3472,1101217,Active,,Yes,2014-04-08,,,Active,,,,,,,,,,Male,1938-02-09,Yes,White,Non-Hispanic
+9902957,8-3342,1101223,Deceased,,Yes,2011-11-22,2020-08-07,,Deceased,2020-08-07,No,,,,"Logistics failure (specify)",,,,Female,1927-08-30,No,White,Non-Hispanic
+9902959,8-3337,1101225,Deceased,938,Yes,2011-11-29,2014-11-15,,Deceased,2014-11-15,Yes,2014-11-15,"AD Probable / no Lewy bodies","Braak V","Not Applicable",,2015-06-17,11.25,Female,1922-08-07,Yes,White,Hispanic
+9902961,8-3380,1101227,Deceased,1003,Yes,2012-08-30,2018-03-28,,Deceased,2018-03-28,Yes,2018-03-29,"Normal Control","AD intermediate ",,,2018-06-26,18,Female,1921-11-04,Yes,White,Non-Hispanic
+9902962,8-3338,1101228,Active,,Yes,2011-12-07,,,Active,,,,,,,,,,Female,1944-08-28,Yes,White,Hispanic
+9902965,8-3357,202747,Deceased,1035,Yes,2012-06-01,2019-11-10,,Deceased,2019-11-10,Yes,2019-11-11,"AD Probable / no Lewy bodies","Braak VI",,,,17,Female,1953-04-22,Yes,White,Non-Hispanic
+9902967,8-3417,1101230,Active,,Yes,2013-08-12,,,Active,,,,,,,,,,Male,1927-09-13,Yes,White,Non-Hispanic
+9902975,8-3341,1101237,Deceased,893,Yes,2011-12-15,2012-07-31,,Deceased,2012-07-31,Yes,2012-07-31,,"FTLD-UPS (ubiquitin protease system)",,,2013-04-19,6,Male,1940-10-09,Yes,White,Non-Hispanic
+9902977,8-3328,1101239,Deceased,984,Yes,2011-08-30,2017-02-11,,Deceased,2017-02-11,Yes,2017-02-12,"AD Probable / no Lewy bodies","AD Braak VI, CAA",,,2017-04-12,9,Male,1944-11-21,Yes,White,Non-Hispanic
+9902982,8-3372,1101244,Deceased,1011,Yes,2012-06-11,2018-08-12,,Deceased,2018-08-12,Yes,2018-08-12,"Normal Control"," AD low (no frozen hippo)",,,2019-05-01,4.5,Female,1932-12-05,Yes,White,Hispanic
+9902983,8-3366,1101245,Active,,Yes,2012-07-16,,,Active,,,,,,,,,,Male,1933-12-14,Yes,White,Hispanic
+9902984,8-3365,1101246,Active,,Yes,2012-07-16,,,Active,,,,,,,,,,Female,1932-02-20,,White,Non-Hispanic
+9902987,8-3364,1101249,Deceased,1051,Yes,2012-07-11,2020-11-15,,Deceased,2020-11-14,Yes,2020-11-15,"Normal Control","AD with diffuse Lewy bodies",,,2021-03-24,36,Female,1932-11-10,Yes,White,Non-Hispanic
+9902990,8-3345,1101252,Deceased,,Yes,2012-01-24,2020-03-03,,Deceased,2020-03-03,No,,,,"Logistics failure (specify)",,,,Female,1927-09-22,Yes,White,Hispanic
+9902996,8-3352,1101258,"Withdrew consent",,Yes,2012-04-19,,2018-05-09,"Withdrew ADRC consent",,,,,,,,,,Female,1931-06-18,Yes,White,Non-Hispanic
+9903002,8-3495,1101264,Deceased,1094,Yes,2014-09-19,2022-12-27,,Deceased,2022-12-27,Yes,2022-12-28,"Normal Control","Alzheimer's disease intermediate neuropathic change (ADNC)",,,2023-05-10,18,Female,1934-07-21,Yes,White,Non-Hispanic
+9903014,8-3431,1101276,Deceased,1031,Yes,2013-09-23,2019-09-26,,Deceased,2019-09-26,Yes,2019-10-01,"Normal Control","AD, intermediate neuropathic change",,,,"6 days",Female,1929-03-11,Yes,White,Non-Hispanic
+9903019,8-3361,1101280,Deceased,1131,Yes,2012-07-09,2026-02-21,,Deceased,2026-02-21,Yes,2026-02-21,,,"Not Applicable",,,4,Female,1934-08-26,Yes,White,Non-Hispanic
+9903020,8-3362,1101281,Deceased,,Yes,2012-07-09,2025-06-19,,Deceased,2025-06-19,No,,,,"Logistics failure (specify)","The family did not call us. ",,,Male,1932-01-27,Yes,White,Non-Hispanic
+9903031,8-3360,1101291,"Withdrew consent",,Yes,2012-06-13,,2018-03-28,"Withdrew ADRC consent",,,,,,Withdrawn,,,,Female,1936-12-06,Yes,White,Non-Hispanic
+9903034,8-3412,1101294,Deceased,,Yes,2013-06-24,2025-06-27,,Deceased,2025-06-27,No,,,,"Logistics failure (specify)","Family did not call at time of death.",,,Female,1935-12-07,Yes,White,Non-Hispanic
+9903035,8-3370,1101295,Withdraw,,Yes,2012-07-24,,2012-07-30,"Withdrew ADRC consent",,,,,,,,,,Female,1935-08-15,No,White,Non-Hispanic
+9903037,8-3377,1101297,Active,,Yes,2012-08-20,,,Active,,,,,,,,,,Male,1933-10-25,No,White,Non-Hispanic
+9903039,8-3410,1101299,Active,,Yes,2013-06-20,,,Active,,,,,,,,,,Male,1935-05-18,Yes,Asian,Non-Hispanic
+9903040,8-3371,1101300,Active,,Yes,2012-08-01,,,Active,,,,,,,,,,Female,1927-05-01,Yes,White,Non-Hispanic
+9903044,8-3349,203164,Deceased,887,Yes,2012-03-13,2012-03-26,,Deceased,2012-03-26,Yes,2012-03-26,"Other Neurological Disorders","FTLD-tau PSP",,,2012-08-14,7.75,Female,1950-08-24,No,White,Non-Hispanic
+9903045,8-3440,1101304,Active,,Yes,2013-11-26,,,Active,,,,,,,,,,Male,1931-07-02,Yes,"More than one race",Non-Hispanic
+9903047,8-3350,202590,Deceased,888,Yes,2012-03-28,2012-04-02,,Deceased,2012-04-02,Yes,2012-04-02,"AD Probable / no Lewy bodies","Familial autosomal dominant AD",,,2012-08-14,6,Female,1959-08-25,Yes,Asian,Non-Hispanic
+9903048,8-3466,1101306,Active,,Yes,2014-03-31,,,Active,,,,,,,,,,Female,1938-07-09,Yes,White,Non-Hispanic
+9903056,8-3374,1101314,Deceased,1121,Yes,2012-08-08,2025-08-01,,Deceased,2025-08-01,Yes,2025-08-02,,,,,,16.5,Female,1931-02-01,Yes,White,Non-Hispanic
+9903059,8-3351,1101317,Withdraw,,Yes,2012-04-17,,2018-10-23,Withdrawn,,,,,,,,,,Male,1920-11-19,Yes,White,Non-Hispanic
+9903063,8-3447,1101321,Active,,Yes,2014-01-27,,,Active,,,,,,,,,,Female,1927-08-17,Yes,White,Non-Hispanic
+9903066,8-3353,1101323,Deceased,,Yes,2012-05-02,2016-07-06,,Deceased,2016-07-06,No,,,,,,,,Female,1942-02-06,No,"Black or African American",Non-Hispanic
+9903067,8-3354,,Deceased,892,Yes,2012-05-07,2012-05-10,,Deceased,2012-05-10,Yes,2012-05-10,"AD Probable / no Lewy bodies","AD, high probability",,,2012-10-15,5.75,Female,1928-04-15,Yes,"Unknown or not reported",Hispanic
+9903070,8-3355,1101324,Deceased,1050,Yes,2012-05-15,2020-10-27,,Deceased,2020-10-26,Yes,2020-10-27,"Normal Control","AD and CAA Grade 1-II",,,2021-03-24,13,Male,1931-05-21,Yes,White,Non-Hispanic
+9903077,8-3359,1101327,Deceased,,Yes,2012-06-12,2016-07-28,,Deceased,2016-07-28,No,,,,"Logistics failure (specify)",,,,Female,1933-07-15,Yes,White,Non-Hispanic
+9903078,8-3597,1101328,Withdraw,,Yes,2016-05-27,,2019-02-26,Active,,No,,,,Withdrawn,,,,Female,1926-08-23,Yes,White,Hispanic
+9903087,8-3451,1101338,Withdraw,,Yes,2014-02-12,,2018-10-03,Withdrawn,,,,,,,,,,Female,1937-01-03,Yes,White,Non-Hispanic
+9903089,8-3470,1101340,Withdraw,,Yes,2014-03-08,,,Withdrawn,,,,,,Withdrawn,,,,Female,1930-06-18,Yes,White,Non-Hispanic
+9903094,8-3381,1101345,Deceased,1023,Yes,2012-11-19,2019-04-26,,Deceased,2019-04-26,Yes,2019-04-26,"Normal Control","Braak I-II",,,2019-10-24,7.24,Male,1937-05-21,Yes,White,Hispanic
+9903096,8-3368,203151,Deceased,950,Yes,2012-07-18,2015-05-28,,Deceased,2015-05-28,Yes,2015-05-28,"AD Probable / no Lewy bodies","Braak VI (no frozen hippo)",,,2015-08-04,8.5,Male,1922-07-01,Yes,White,Non-Hispanic
+9903098,8-3369,1101348,Active,,Yes,2012-07-19,,,Active,,,,,,,,,,Female,1944-01-05,No,White,Hispanic
+9903101,8-3448,1101351,Active,,Yes,2014-01-24,,,Active,,,,,,,,,,Male,1932-01-23,Yes,White,Non-Hispanic
+9903110,8-3375,1101353,Active,,Yes,2012-08-09,,,Active,,,,,,,,,,Female,1932-05-29,Yes,White,Non-Hispanic
+9903111,8-3705,203130,Deceased,1048,Yes,2020-08-31,2020-09-13,,Deceased,2020-09-13,Yes,2020-09-13,,"PPA; AD",,,,5,Male,1953-06-15,Yes,White,Non-Hispanic
+9903112,8-3378,1101354,Active,,Yes,2012-08-21,,,Active,,,,,,,,,,Female,1942-09-06,Yes,White,Non-Hispanic
+9903126,8-3576,203291,Deceased,981,Yes,2016-01-28,2016-12-29,,Deceased,2016-12-29,Yes,2016-12-29,"AD Probable / no Lewy bodies","dementia with lewy bodies",,,2017-03-29,6,Male,1939-05-17,Yes,White,Non-Hispanic
+9903129,8-3392,203234,Deceased,927,Yes,2013-04-11,2014-06-16,,Deceased,2014-06-16,Yes,2014-06-16,"AD Probable / no Lewy bodies","Braak V",,,2014-08-25,18.25,Female,1937-06-30,Yes,White,Non-Hispanic
+9903131,8-3572,203294,"Withdrew consent",,Yes,2016-01-13,,2016-01-20,"Withdrew ADRC consent",,,,,,,,,,Male,1929-01-10,Yes,White,Non-Hispanic
+9903134,8-3538,203209,Active,,Yes,2015-04-22,,,Active,,,,,,,,,,Female,1945-07-26,No,White,Non-Hispanic
+9903139,8-3384,203213,Deceased,,Yes,2012-12-17,2020-04-22,,Deceased,2020-04-22,No,,,,,,,,Male,1946-12-01,Yes,White,Hispanic
+9903149,8-3424,1101360,Deceased,,Yes,2013-09-05,2017-03-08,,Deceased,2017-03-08,No,,,,,,,,Female,1949-07-28,Yes,White,Non-Hispanic
+9903152,8-3385,1101361,Deceased,,Yes,2013-01-29,2020-02-14,,Deceased,2020-02-14,No,,,,"Logistics failure (specify)",,,,Male,1938-01-21,Yes,White,Non-Hispanic
+9903154,8-3391,1101362,Active,,Yes,2013-03-28,,,Active,,,,,,,,,,Male,1946-11-24,Yes,White,Non-Hispanic
+9903156,8-3675,203216,Deceased,1009,Yes,2018-06-08,2018-06-09,,Deceased,2018-06-09,Yes,2018-06-09,"AD Probable / no Lewy bodies","Braak V",,,2018-11-27,7.5,Male,1929-09-01,Yes,White,Non-Hispanic
+9903160,8-3387,203413,Deceased,904,Yes,2013-02-11,2013-02-12,,Deceased,2013-02-12,Yes,2013-02-12,"AD Probable / no Lewy bodies","Familial early onset AD ","Not Applicable",,2013-04-19,6,Male,1961-10-06,Yes,Asian,Non-Hispanic
+9903172,8-3522,203285,Deceased,945,Yes,2015-03-04,2015-03-06,,Deceased,2015-03-06,Yes,2015-03-07,"AD Probable / no Lewy bodies","Parkinson's disease, lewy body; AD Braak V",,,2015-09-16,16.75,Male,1938-09-10,Yes,White,Non-Hispanic
+9903178,8-3425,202355,"Withdrew consent",,Yes,2013-09-09,,2021-09-23,Withdrawn,,,,,,,,,,Male,1951-05-17,Yes,White,Hispanic
+9903180,8-3388,1101375,Withdraw,,Yes,2013-03-13,,2016-09-28,Withdrawn,,,,,,,,,,Male,1934-07-09,Yes,White,Non-Hispanic
+9903182,8-3319,202226,Deceased,975,Yes,2004-08-09,2016-08-31,,Deceased,2016-08-31,Yes,2016-08-31,"AD Probable / no Lewy bodies","Braak VI",,,2016-12-12,5,Female,1944-05-13,Yes,White,Hispanic
+9903183,8-3565,203303,Deceased,962,Yes,2015-11-13,2015-11-16,,Deceased,2015-11-16,Yes,2015-11-16,"AD Probable / no Lewy bodies","Braak VI",,,2016-02-17,15.25,Female,1953-07-22,Yes,White,Hispanic
+9903198,8-3521,1101381,Active,,Yes,2015-02-23,,,Active,,,,,,,,,,Female,1939-02-15,Yes,"More than one race",Hispanic
+9903201,8-3647,202898,Deceased,990,Yes,2017-05-18,2017-05-23,,Deceased,2017-05-23,Yes,2017-05-24,"AD Probable / no Lewy bodies","AD high probability (frozen frontal and cerebellum)",,,2018-01-10,18.5,Female,1935-05-17,Yes,White,Non-Hispanic
+9903203,8-3530,203093,Deceased,,Yes,2015-03-04,2016-09-15,,Deceased,2016-09-15,No,,,,,,,,Male,1939-11-11,No,White,Non-Hispanic
+9903206,8-3393,202875,Withdraw,,Yes,2013-04-29,,2019-05-01,Withdrawn,,,,,,,,,,Male,1925-02-13,Yes,White,Hispanic
+9903207,8-3394,,Deceased,1006,Yes,2013-04-23,2018-05-02,,Deceased,2018-05-02,Yes,2018-05-02,"Normal Control","No Braak score; cerebrum infarct remote",,,2018-06-26,6.5,Female,1923-11-06,No,White,Non-Hispanic
+9903209,8-3396,203450,Active,,Yes,2013-04-25,,,Active,,,,,,,,,,Female,1937-08-26,Yes,Asian,Non-Hispanic
+9903211,8-3398,1101385,Deceased,959,Yes,2013-05-08,2015-10-21,,Deceased,2015-10-21,Yes,2015-10-21,"AD Probable / no Lewy bodies","Braak V",,,2015-12-21,9,Male,1935-07-11,Yes,White,Hispanic
+9903213,8-3403,1101387,Active,,Yes,2013-05-29,,,Active,,,,,,,,,,Female,1939-01-26,Yes,White,Non-Hispanic
+9903217,8-3400,1101391,Deceased,1057,Yes,2013-05-20,2021-03-09,,Deceased,2021-03-06,Yes,2021-03-09,"AD Probable / no Lewy bodies","AD, CAA, CBD",,,2021-07-08,52,Female,1925-03-04,Yes,White,Non-Hispanic
+9903219,8-3413,1101393,Deceased,,Yes,2013-07-09,2017-08-09,,Deceased,2017-08-09,No,,,,"Logistics failure (specify)",,,,Female,1928-12-03,Yes,White,Non-Hispanic
+9903222,8-3401,203411,Deceased,1053,Yes,2013-05-03,2020-12-27,,Deceased,2020-12-26,Yes,2020-12-27,"Normal Control","premortem: control Final: CBD, AD low, LBD brainstem",,,2021-09-20,31,Female,1923-05-15,Yes,White,Non-Hispanic
+9903223,8-3402,203412,Active,,Yes,2013-05-03,,,Active,,,,,,,,,,Female,1933-08-28,Yes,White,Non-Hispanic
+9903224,8-3404,,Deceased,,Yes,2013-04-15,2017-10-05,,Deceased,2017-10-05,No,,,,,,,,Female,1922-12-10,Yes,White,Non-Hispanic
+9903225,8-3405,203447,Deceased,1110,Yes,2013-04-23,2024-08-30,,Deceased,2024-08-30,Yes,2024-08-30,,"""NOT"" Alzheimer's Disease Neuropathological Change",,,2025-07-28,7.8,Male,1925-05-10,Yes,Asian,Non-Hispanic
+9903229,8-3406,201887,Active,,Yes,2025-07-18,,2024-10-10,Active,,,,"AD possible / no Lewy bodies",,,,,,Female,1932-04-22,,White,Non-Hispanic
+9903230,8-3407,203503,Deceased,,Yes,2013-06-05,2020-12-20,,Deceased,2020-12-20,No,,,,,,,,Female,1933-06-19,Yes,White,Non-Hispanic
+9903231,8-3408,203410,Active,,Yes,2013-06-11,,,Active,,,,,,,,,,Female,1935-08-09,Yes,Asian,Non-Hispanic
+9903233,8-3411,203553,Active,,Yes,2013-06-12,,,Active,,,,,,,,,,Female,1936-08-11,Yes,"More than one race",Non-Hispanic
+9903236,8-3550,1101397,Active,,Yes,2015-07-08,,,Active,,,,,,,,,,Female,1950-05-30,Yes,White,Non-Hispanic
+9903237,8-3414,1101398,Deceased,1095,Yes,2013-07-22,2023-03-25,,Deceased,2023-03-25,Yes,2023-03-26,"Other Neurological Disorders","AD, intermediate neuropathic change (ADNC) (2) Lewy body desease involving pons, midbrain, amygdala and frontal and occipital lobes (additional dx) Hippocampal sclerosis, Cerebral amyloid angiopathy, focal (grade I and/or II)",,,2023-05-30,15.75,Male,1936-07-26,Yes,White,Non-Hispanic
+9903239,8-3605,203366,Active,,Yes,2016-07-25,,,Active,,,,,,,,,,Female,1940-10-04,Yes,Asian,Non-Hispanic
+9903241,8-3463,1101400,Deceased,1082,Yes,2014-03-17,2022-04-11,,Deceased,2022-04-11,Yes,2022-04-12,"Normal Control","Brain w/low neuropathic changes in early, perhaps incipient AD, Grades I-III",,,2022-08-29,21,Female,1923-06-07,Yes,White,Non-Hispanic
+9903242,8-3415,1101401,Deceased,,Yes,2013-07-29,2018-01-01,2015-01-15,Deceased,2018-01-01,,,,,,,,,Female,1925-11-19,Yes,White,Non-Hispanic
+9903243,8-3416,1101402,Deceased,1067,Yes,2013-07-30,2021-08-11,,Deceased,2021-08-10,Yes,2021-08-11,"AD Probable / no Lewy bodies","CVD, ARTAG","Not Applicable",,2021-12-22,28.25,Male,1930-11-23,Yes,White,Non-Hispanic
+9903249,8-3441,1101405,Deceased,,Yes,2013-12-09,2020-05-06,,Deceased,2020-05-06,No,,,,"Logistics failure (specify)",,,,Male,1936-07-30,Yes,White,Non-Hispanic
+9903250,8-3638,1101406,Deceased,,,2017-03-08,2020-12-31,,Deceased,2020-12-31,No,,,,Disqualified,,,,Male,1931-03-23,,White,Non-Hispanic
+9903252,8-3419,1101407,Deceased,1129,Yes,2013-07-16,2025-12-31,,Deceased,2025-12-31,Yes,2025-12-31,"Normal Control",,"Not Applicable",,,5.25,Male,1934-12-02,Yes,White,Non-Hispanic
+9903253,8-3418,1101408,Withdraw,,Yes,2013-08-20,,2019-04-24,Withdrawn,,,,,,,,,,Male,1944-04-23,Yes,White,Non-Hispanic
+9903258,8-3420,1101412,Active,,Yes,2013-08-27,,,Active,,,,,,,,,,Female,1940-04-16,Yes,Asian,Non-Hispanic
+9903259,8-3421,1101413,Active,,Yes,2013-08-27,,,Active,,,,,,,,,,Male,1940-01-21,Yes,Asian,Non-Hispanic
+9903260,8-3606,203379,Deceased,1136,Yes,2016-07-25,2026-10-04,,Deceased,2026-10-04,Yes,2026-10-04,,,"Not Applicable",,,9,Male,1938-05-19,Yes,Asian,Non-Hispanic
+9903261,8-3423,1101414,Deceased,1015,Yes,2013-09-03,2019-01-06,,Deceased,2019-01-06,Yes,2019-01-06,"AD Probable / no Lewy bodies","Braak V-VI",,,2019-07-04,7.5,Female,1937-06-05,Yes,White,Hispanic
+9903263,8-3624,1101415,Deceased,,Yes,2016-11-01,2019-02-07,,Deceased,2019-02-07,No,,,,,,,,Female,1932-09-16,Yes,"More than one race",Non-Hispanic
+9903265,8-3528,1101416,Withdraw,,Yes,2015-03-25,,2019-02-19,Withdrawn,,,,,,,,,,Female,1952-02-01,Yes,White,Hispanic
+9903266,8-3529,1101417,Withdraw,,Yes,2015-03-25,,2019-02-19,Withdrawn,,,,,,,,,,Male,1947-12-26,No,White,Hispanic
+9903267,8-3426,1101418,"Withdrew consent",,Yes,2013-09-10,,2013-10-28,"Withdrew ADRC consent",,,,,,,,,,Female,1928-03-14,No,Asian,Non-Hispanic
+9903269,8-3428,202371,Deceased,948,Yes,2013-09-12,2015-04-25,,Deceased,2015-04-25,Yes,2015-04-25,"AD Probable / no Lewy bodies","Braak V","Not Applicable",,2015-09-24,5,Female,1926-07-07,Yes,Asian,Non-Hispanic
+9903270,8-3429,1101419,Withdraw,,Yes,2013-09-18,,2019-01-22,Withdrawn,,,,,,,,,,Male,1940-02-19,Yes,White,Hispanic
+9903271,8-3430,203268,Deceased,982,Yes,2013-09-23,2017-01-08,,Deceased,2017-01-08,Yes,2017-01-09,"Parkinson's disease with dementia","Braak II",,,2017-06-22,19,Female,1936-09-20,Yes,White,Non-Hispanic
+9903275,8-3433,1101421,Active,,Yes,2013-10-01,,,Active,,,,,,,,,,Male,1941-07-04,Yes,White,Non-Hispanic
+9903276,8-3432,1101422,Active,,Yes,2013-10-01,,,Active,,,,,,,,,,Female,1941-08-12,Yes,White,Non-Hispanic
+9903277,8-3437,1101423,Active,,Yes,2013-10-28,,2019-03-25,Active,,,,,,,,,,Male,1948-03-12,Yes,White,Hispanic
+9903279,8-3434,1101425,Active,,Yes,2013-10-08,,,Active,,,,,,,,,,Female,1938-07-12,Yes,White,Non-Hispanic
+9903280,8-3435,1101424,Active,,Yes,2013-10-08,,,Active,,,,,,,,,,Male,1934-02-05,Yes,White,Non-Hispanic
+9903281,8-3491,203231,Deceased,939,Yes,2014-08-06,2014-12-12,,Deceased,2014-12-12,Yes,2014-12-12,"AD Probable / no Lewy bodies","Braak V",,,2015-06-04,4.25,Female,1931-08-04,Yes,White,Non-Hispanic
+9903291,8-3552,1101428,Active,,Yes,2015-07-19,,,Active,,,,,,,,,,Female,1936-12-17,Yes,White,Non-Hispanic
+9903294,8-3439,202395,Deceased,,Yes,2013-11-18,2018-05-29,,Deceased,2018-05-29,No,,,,,,,,Female,1920-01-13,Yes,White,Hispanic
+9903303,8-3459,1101431,Deceased,941,Yes,2014-03-05,2015-01-22,,Deceased,2015-01-22,Yes,2015-01-22,"Other Neurological Disorders","FTLD-tau; PSP",,,2015-08-27,5.5,Male,1928-12-03,Yes,White,Non-Hispanic
+9903304,8-3653,1101432,Active,,Yes,2017-07-05,,,Active,,,,,,,,,,Female,1932-10-10,No,Asian,Non-Hispanic
+9903306,8-3444,202718,Deceased,943,Yes,2014-01-06,2015-02-19,,Deceased,2015-02-19,Yes,2015-02-20,"AD Probable / no Lewy bodies","dementia with Lewy Bodies; AD intermediate",,,2015-08-06,5,Male,1941-10-20,Yes,White,Non-Hispanic
+9903307,8-3557,203421,Active,,Yes,2015-08-19,,,Active,,,,,,,,,,Female,1942-05-09,Yes,White,Non-Hispanic
+9903308,8-3443,,Deceased,916,Yes,2013-12-30,2013-12-31,,Deceased,2013-12-29,Yes,2013-12-31,,"Normal CNS (fixed brain)",,,2014-04-16,46,Female,1917-02-14,No,White,Non-Hispanic
+9903309,8-3445,1101433,Active,,Yes,2014-01-09,,,Active,,,,,,,,,,Female,1941-03-19,Yes,White,Non-Hispanic
+9903310,8-3509,203358,Deceased,,Yes,2015-01-06,2017-04-07,,Deceased,2017-04-07,No,,,,"Logistics failure (specify)",,,,Female,1929-02-26,Yes,White,Non-Hispanic
+9903312,8-3458,1101434,Deceased,,Yes,2014-03-05,2020-08-28,,Deceased,2020-08-28,No,,,,Withdrawn,,,,Male,1947-03-17,Yes,White,Non-Hispanic
+9903319,8-3446,1101435,Deceased,1081,Yes,2014-01-22,2022-04-07,,Deceased,2022-04-07,Yes,2022-04-08,"AD Probable / no Lewy bodies","AD high, CAA, Grade I and II",,,2022-09-26,31,Female,1935-03-31,Yes,"Black or African American",Non-Hispanic
+9903322,8-3450,1101436,Deceased,,Yes,2014-02-07,2020-04-28,,Deceased,2020-04-28,No,,,,,,,,Female,1928-12-11,Yes,White,Non-Hispanic
+9903325,8-3452,1101437,Deceased,,Yes,2014-02-18,2018-12-24,,Deceased,2018-12-24,No,,,,,,,,Female,1930-05-01,Yes,"More than one race",Non-Hispanic
+9903326,8-3460,1101438,Withdraw,,Yes,2014-03-06,,2019-01-29,Withdrawn,,,,,,,,,,Female,1935-09-27,No,White,Hispanic
+9903327,8-3461,1101439,Active,,Yes,2014-03-06,,,Active,,,,,,,,,,Male,1935-01-20,Yes,White,Hispanic
+9903328,8-3453,1101440,Active,,Yes,2014-02-26,,,Active,,,,,,,,,,Female,1950-05-27,Yes,White,Non-Hispanic
+9903329,8-3454,1101441,"Withdrew consent",,Yes,2014-02-27,,2017-09-29,"Withdrew ADRC consent",,,,,,,,,,Male,1939-12-15,Yes,White,Hispanic
+9903330,8-3455,1101442,Active,,Yes,2014-02-28,,,Active,,,,,,,,,,Female,1945-06-16,No,White,Hispanic
+9903333,8-3457,1101444,Active,,Yes,2014-03-04,,,Active,,,,,,,,,,Female,1947-07-30,Yes,White,Hispanic
+9903334,8-3456,203136,Deceased,,Yes,2014-02-08,2019-01-03,,Deceased,2019-01-03,No,,,,,,,,Male,1936-08-17,Yes,White,Non-Hispanic
+9903336,8-3462,1101446,Deceased,1002,Yes,2014-03-12,2018-03-09,,Deceased,2018-03-09,Yes,2018-03-09,"Other Neurological Disorders","Parkinson's disease; AD intermediate",,,2018-06-20,7,Male,1945-10-20,Yes,White,Non-Hispanic
+9903339,8-3566,1101447,Active,,Yes,2015-12-07,,,Active,,,,,,,,,,Female,1938-09-13,Yes,White,Non-Hispanic
+9903342,8-3464,1101450,Deceased,,Yes,2014-03-25,2017-09-21,,Active,2017-09-21,No,,,,,,,,Male,1940-08-07,Yes,White,Non-Hispanic
+9903345,8-3465,1101452,Withdraw,,Yes,2014-03-31,,2020-02-27,Withdrawn,,,,,,,,,,Female,1937-06-20,Yes,White,Non-Hispanic
+9903346,8-3467,1101453,Deceased,,Yes,2014-04-01,2020-09-18,,Deceased,2020-09-18,No,,,,,,,,Male,1936-10-08,Yes,White,Non-Hispanic
+9903347,8-3468,1101454,Withdraw,,Yes,2014-04-02,,2023-09-29,Withdrawn,,,,,,Withdrawn,,,,Female,1946-10-10,No,White,Non-Hispanic
+9903348,8-3469,1101455,Active,,Yes,2014-04-02,,,Active,,,,,,,,,,Female,1943-04-08,Yes,White,Non-Hispanic
+9903351,8-3513,1101456,Active,,Yes,2015-01-26,,,Active,,,,,,,,,,Female,1939-02-25,Yes,White,Non-Hispanic
+9903363,8-3654,203463,Deceased,992,Yes,2017-07-12,2017-07-14,,Deceased,2017-07-13,Yes,2017-07-14,"AD Probable / no Lewy bodies","No Braak score; AD low",,,2018-01-03,13.5,Female,1949-08-01,Yes,"American Indian/Alaska Native",Non-Hispanic
+9903364,8-3473,1101459,Deceased,1107,Yes,2014-04-25,2024-06-24,,Deceased,2024-06-24,Yes,2024-06-24,,,,,,,Female,1954-09-16,Yes,White,Non-Hispanic
+9903365,8-3582,203148,Deceased,988,Yes,2016-03-05,2017-04-18,,Deceased,2017-04-18,Yes,2017-04-18,"AD Probable / no Lewy bodies","AD, CAA",,,2017-06-26,4.5,Male,1946-04-28,Yes,Asian,Non-Hispanic
+9903369,8-3475,1101463,Deceased,985,Yes,2014-05-15,2017-03-13,,Active,2017-03-13,Yes,2017-03-13,"AD Probable / no Lewy bodies","hippocampal sclerosis, AD, hemorrhage",,,2017-06-22,10.5,Male,1933-01-14,Yes,White,Non-Hispanic
+9903374,8-3482,1101466,"Withdrew consent",,Yes,2014-06-24,,2016-11-14,"Withdrew ADRC consent",,,,,,,,,,Female,1943-05-29,Yes,White,Non-Hispanic
+9903375,8-3483,1101467,"Withdrew consent",,Yes,2014-06-24,,2016-11-14,"Withdrew ADRC consent",,,,,,,,,,Male,1942-03-17,Yes,White,Non-Hispanic
+9903377,8-3477,1101469,Active,,Yes,2014-05-27,,,Active,,,,,,,,,,Male,1942-11-08,Yes,White,Non-Hispanic
+9903379,8-3479,203468,Deceased,968,Yes,2014-05-23,2016-04-18,,Deceased,2016-04-18,Yes,2016-04-18,"Normal Control","No Braak score; AD low","Not Applicable",,2016-08-17,8.25,Female,1930-03-16,Yes,White,Non-Hispanic
+9903386,8-3484,1101476,Withdraw,,Yes,2014-07-10,,2023-01-03,Withdrawn,,,,,,,,,,Female,1946-10-30,Yes,White,Non-Hispanic
+9903387,8-3485,1101477,Deceased,966,Yes,2014-07-15,2016-03-31,,Deceased,2016-03-31,Yes,2016-03-31,"AD Probable / no Lewy bodies","Braak V","Not Applicable",,2016-07-20,4.5,Female,1916-04-11,Yes,White,Non-Hispanic
+9903388,8-3487,1101478,Active,,Yes,2014-07-18,,,Active,,,,,,,,,,Male,1949-10-23,Yes,White,Non-Hispanic
+9903389,8-3489,1101479,Active,,Yes,2014-07-21,,,Active,,,,,,,,,,Male,1947-09-06,No,White,Non-Hispanic
+9903393,8-3490,1101480,Deceased,956,Yes,2014-07-29,2015-08-08,,Deceased,2015-08-08,Yes,2015-08-08,"Normal Control","Braak score 0; Normal Control",,,2015-12-18,7,Female,1930-03-29,Yes,White,Non-Hispanic
+9903394,8-3541,203467,Deceased,,Yes,2015-05-06,2021-01-25,,Deceased,2021-01-25,No,,,,Disqualified,,,,Male,1938-09-24,Yes,White,Non-Hispanic
+9903399,8-3723,1101484,Deceased,1087,Yes,2021-11-23,2022-09-19,,Deceased,2022-09-19,Yes,2022-09-20,"AD Probable / no Lewy bodies","NP changes consistent w/high AD NP change (ADNC)",,,2023-01-27,17.75,Male,1923-02-10,Yes,White,Non-Hispanic
+9903402,8-3492,1101485,Deceased,1101,Yes,2014-08-25,2023-12-28,,Deceased,2023-12-29,Yes,2023-12-30,"Normal Control","Cerebral amyloid angiopathy (CAA), mild to moderate involving cerebral cortex",,,2024-07-29,38.5,Female,1939-12-10,Yes,White,Non-Hispanic
+9903405,8-3579,1101488,Deceased,1034,Yes,2016-03-23,2019-11-03,2019-11-03,Deceased,2019-11-03,Yes,2019-11-03,"AD Probable / no Lewy bodies","Braak VI",,,,8.25,Male,1942-10-20,Yes,White,Non-Hispanic
+9903407,8-3517,1101490,Active,,Yes,2015-02-03,,,Active,,,,,,,,,,Male,1939-05-21,Yes,"More than one race",Non-Hispanic
+9903408,8-3493,202276,Deceased,930,Yes,2014-09-08,2014-09-06,,Deceased,2014-09-06,Yes,2014-09-08,"AD Probable / no Lewy bodies","Braak V",,,2015-02-18,48,Male,1925-10-03,No,White,Non-Hispanic
+9903410,8-3494,1101492,Deceased,1056,Yes,2014-09-10,2021-03-02,,Deceased,2021-03-02,Yes,2021-03-03,"AD Probable / no Lewy bodies","AD, CAA, subdural hemorrhage ",,,2021-07-14,17,Male,1937-09-30,Yes,Asian,Non-Hispanic
+9903414,8-3496,1101495,Deceased,,Yes,2014-09-23,2016-10-11,,Deceased,2016-10-11,No,,,,"Logistics failure (specify)",,,,Female,1949-07-15,Yes,White,Non-Hispanic
+9903415,8-3532,1101496,Active,,Yes,2015-04-01,,,Active,,,,,,,,,,Female,1940-01-02,Yes,White,Non-Hispanic
+9903419,8-3520,1101498,Deceased,1130,Yes,2015-02-19,2026-01-30,,Deceased,2026-01-30,Yes,2026-02-04,,,"Not Applicable",,,"5 days",Female,1939-03-05,Yes,White,Non-Hispanic
+9903423,8-3497,202728,Deceased,933,Yes,2014-09-28,2014-09-28,,Deceased,2014-09-28,Yes,2014-09-28,"AD Probable / no Lewy bodies","Braak V",,,2015-03-03,9,Female,1924-07-20,Yes,White,Non-Hispanic
+9903424,8-3516,1101501,Active,,Yes,2015-02-02,,,Active,,,,,,,,,,Male,1939-06-14,Yes,White,Non-Hispanic
+9903426,8-3498,203675,Deceased,934,Yes,2014-10-01,2014-10-01,,Deceased,2014-10-01,Yes,2014-10-03,"AD Probable / no Lewy bodies","Braak III",,,2015-04-14,48,Female,1923-08-20,No,"Black or African American",Non-Hispanic
+9903428,8-3499,1101502,Active,,Yes,2014-10-08,,,Active,,,,,,,,,,Male,1949-03-07,Yes,"More than one race",Hispanic
+9903431,8-3580,203527,Active,,Yes,2016-03-24,,,Active,,,,,,,,,,Female,1937-11-19,Yes,White,Non-Hispanic
+9903432,8-3500,1101505,Active,,Yes,2014-10-10,,,Active,,,,,,,,,,Female,1944-05-15,Yes,Asian,Non-Hispanic
+9903437,8-3623,203534,Deceased,1013,Yes,2016-10-26,2018-10-14,,Active,2018-10-14,Yes,2018-10-14,"AD Probable / no Lewy bodies"," AD intermediate",,,2019-06-24,12,Female,1925-03-02,Yes,Asian,Non-Hispanic
+9903438,8-3501,1101510,Active,,Yes,2014-10-20,,,Active,,,,,,,,,,Male,1947-10-24,Yes,White,Hispanic
+9903439,8-3608,1101511,Deceased,,Yes,2016-08-08,2022-01-11,,Deceased,2022-01-11,No,,,,"Logistics failure (specify)",,,,Female,1942-12-24,Yes,White,Non-Hispanic
+9903442,8-3502,1101514,Deceased,1030,Yes,2014-10-21,2019-09-30,,Deceased,2019-09-30,Yes,2019-10-01,"AD Probable / no Lewy bodies","Braak V (no frozen hippo)",,,,10,Female,1932-08-05,Yes,White,Non-Hispanic
+9903443,8-3519,1101515,Active,,Yes,2015-02-19,,,Active,,,,,,,,,,Female,1941-04-02,Yes,White,Non-Hispanic
+9903444,8-3503,1101516,Active,,Yes,2014-11-12,,,Active,,,,,,,,,,Male,1946-11-01,Yes,"Black or African American",Non-Hispanic
+9903447,8-3525,1101519,Withdraw,,Yes,2015-03-12,,2025-09-18,Withdrawn,,,,,,Withdrawn,,,,Female,1940-02-25,Yes,White,Non-Hispanic
+9903451,8-3523,1101520,Active,,Yes,2015-03-05,,,Active,,,,,,,,,,Female,1938-11-23,Yes,White,Non-Hispanic
+9903452,8-3648,1101521,Active,,Yes,2017-05-25,,2022-05-13,Active,,,,,,,,,,Male,1941-04-24,No,White,Non-Hispanic
+9903454,8-3575,1101522,Deceased,1049,Yes,2016-01-21,2020-10-02,,Deceased,2020-10-02,Yes,2020-10-02,"AD Probable / no Lewy bodies","AD, Lewy body dementia; CAA",,,,3,Male,1942-04-15,Yes,White,Non-Hispanic
+9903455,8-3504,1101523,Deceased,,Yes,2014-11-26,2019-07-12,,Deceased,2019-07-12,No,,,,"Logistics failure (specify)",,,,Male,1949-04-05,Yes,White,Hispanic
+9903457,8-3514,1101524,Active,,Yes,2015-01-26,,,Active,,,,,,,,,,Male,1942-02-17,Yes,White,Non-Hispanic
+9903459,8-3505,1101525,Deceased,1098,Yes,2014-12-09,2023-09-07,,Deceased,2023-09-07,Yes,2023-09-09,,"Alzheimer's disease, 2nd Dx Lewy body disease",,,,45.5,Male,1945-03-09,Yes,White,Non-Hispanic
+9903460,8-3506,203474,Deceased,964,Yes,2014-12-10,2015-12-22,,Deceased,2015-12-22,Yes,2015-12-22,"AD Probable / no Lewy bodies","No Braak score; AD intermediate ",,,2016-09-06,16,Female,1929-02-23,Yes,White,Non-Hispanic
+9903461,8-3510,203478,Deceased,1103,Yes,2015-01-17,2024-03-22,,Deceased,2024-03-22,Yes,2024-03-22,"Normal Control","Alzheimer's disease, low neuropathic changes",,,2024-07-17,8.5,Male,1933-07-14,Yes,White,Hispanic
+9903464,8-3395,201502,Deceased,1118,Yes,2013-04-18,2025-05-17,,Deceased,2025-05-17,Yes,2025-05-17,"Normal Control","“Low” Alzheimer’s Disease Neuropathologic Change","Not Applicable",,2026-06-16,7,Female,1921-10-03,Yes,White,Non-Hispanic
+9903465,8-3594,203560,Deceased,,Yes,2016-05-18,2018-07-21,,Deceased,2018-07-21,No,,,,,,,,Female,1925-11-29,Yes,White,Non-Hispanic
+9903466,8-3507,1101528,Withdraw,,Yes,2015-01-06,,2019-06-19,Withdrawn,,,,,,,,,,Female,1940-12-01,Yes,White,Non-Hispanic
+9903467,8-3508,1101529,Withdraw,,Yes,2015-01-06,,2019-06-19,Withdrawn,,,,,,,,,,Male,1939-02-10,Yes,White,Non-Hispanic
+9903470,8-3737,203519,Deceased,1134,Yes,2023-01-20,2026-05-08,,Deceased,2026-05-08,Yes,2026-05-09,,,"Not Applicable",,,17.5,Male,1934-11-12,Yes,White,Non-Hispanic
+9903475,8-3641,1101530,Active,,Yes,2017-03-21,,,Active,,,,,,,,,,Male,1941-12-18,Yes,White,Non-Hispanic
+9903477,8-3613,1101532,Withdraw,,Yes,2016-09-26,,2019-11-05,Withdrawn,,,,,,,,,,Male,1940-06-26,Yes,White,Non-Hispanic
+9903481,8-3766,1101536,Active,,Yes,2025-07-31,,,Active,,,,"Normal Control",,,,,,Female,1937-12-16,,White,Non-Hispanic
+9903485,8-3546,1101539,Active,,Yes,2015-05-20,,,Active,,,,,,,,,,Male,1938-09-02,Yes,White,Non-Hispanic
+9903486,8-3527,1101540,Active,,Yes,2015-03-23,,,Active,,,,,,,,,,Female,1943-09-25,Yes,White,Non-Hispanic
+9903490,8-3564,203574,Deceased,961,Yes,2015-11-04,2015-11-04,,Deceased,2015-11-04,Yes,2015-11-04,,"Braak V",,,2016-02-17,8,Female,1964-02-12,Yes,White,Non-Hispanic
+9903492,8-3536,1101544,Active,,Yes,2015-04-20,,,Active,,,,,,,,,,Female,1940-06-11,Yes,White,Non-Hispanic
+9903493,8-3531,1101545,Active,,Yes,2015-03-30,,,Active,,,,,,,,,,Female,1942-06-22,Yes,White,Non-Hispanic
+9903495,8-3518,1101547,Active,,Yes,2015-02-12,,,Active,,,,,,,,,,Female,1944-05-26,Yes,White,Non-Hispanic
+9903499,8-3581,1101548,Active,,Yes,2016-03-28,,,Active,,,,,,,,,,Female,1943-04-24,Yes,White,Non-Hispanic
+9903508,8-3614,1101555,Active,,Yes,2016-09-27,,,Active,,,,,,,,,,Male,1948-05-31,Yes,White,Non-Hispanic
+9903510,8-3524,1101556,Deceased,1086,Yes,2015-03-05,2022-07-23,,Deceased,2022-07-23,Yes,2022-07-23,"Normal Control","NP changes consistent w/Intermediate AD NP change (ADNC)","Not Applicable",,2023-01-27,7,Female,1936-06-26,Yes,White,Non-Hispanic
+9903518,8-3526,1101559,Active,,Yes,2015-03-18,,,Active,,,,,,,,,,Female,1943-01-30,Yes,White,Non-Hispanic
+9903522,8-3588,1101562,Active,,Yes,2016-04-18,,,Active,,,,,,,,,,Male,1956-11-11,Yes,White,Non-Hispanic
+9903525,8-3535,1101564,Deceased,1054,Yes,2015-04-15,2021-01-22,,Deceased,2021-01-22,Yes,2021-01-23,"AD Probable / no Lewy bodies","AD, CAA",,,2021-10-12,13,Male,1951-02-09,Yes,White,Non-Hispanic
+9903530,8-3533,1101568,Active,,Yes,2015-04-03,,,Active,,,,,,,,,,Male,1943-01-31,Yes,White,Non-Hispanic
+9903531,8-3534,203181,Deceased,,,2015-04-07,2017-09-24,,Deceased,2017-09-24,No,,,,,,,,Female,1940-10-15,,White,Non-Hispanic
+9903535,8-3593,1101570,Active,,Yes,2016-05-17,,,Active,,,,,,,,,,Female,1955-12-15,Yes,White,Non-Hispanic
+9903539,8-3537,1101573,Active,,Yes,2015-04-21,,,Active,,,,,,,,,,Female,1946-12-12,Yes,White,Non-Hispanic
+9903542,8-3540,1101575,Active,,Yes,2015-05-05,,,Active,,,,,,,,,,Female,1943-01-27,Yes,White,Non-Hispanic
+9903544,8-3542,1101577,Active,,Yes,2015-05-14,,,Active,,,,,,,,,,Female,1948-02-02,Yes,White,Non-Hispanic
+9903545,8-3544,1101578,Active,,Yes,2015-05-19,,,Active,,,,,,,,,,Male,1942-08-22,Yes,White,Non-Hispanic
+9903546,8-3543,1101579,Active,,Yes,2015-05-19,,,Active,,,,,,,,,,Female,1944-05-17,Yes,White,Non-Hispanic
+9903551,8-3545,1101581,Deceased,,Yes,2015-06-15,2019-11-05,,Deceased,2019-11-05,No,,,,"Logistics failure (specify)","Family never called us. ",,,Female,1935-08-21,Yes,"More than one race",Non-Hispanic
+9903555,8-3629,1101582,Active,,Yes,2016-11-10,,,Active,,,,,,,,,,Female,1944-12-08,Yes,Asian,Non-Hispanic
+9903556,8-3547,1101583,Active,,Yes,2015-06-19,,,Active,,,,,,,,,,Male,1942-07-26,Yes,White,Non-Hispanic
+9903558,8-3548,1101585,Withdraw,,Yes,2015-06-24,,2019-05-15,Withdrawn,,,,,,,,,,Female,1933-06-26,Yes,White,Hispanic
+9903561,8-3549,1101587,Active,,Yes,2015-07-06,,,Active,,,,,,,,,,Male,1942-03-18,Yes,White,Non-Hispanic
+9903567,8-3562,1101593,"Withdrew consent",,,2015-10-06,,2017-05-03,"Withdrew ADRC consent",,,,,,,,,,Female,1935-12-16,,Asian,Non-Hispanic
+9903568,08-3741,1101594,Active,,,2023-05-30,,,Active,,,,"AD Probable / no Lewy bodies",,,,,,Female,1945-11-01,,White,Non-Hispanic
+9903569,8-3551,1101595,Active,,Yes,2015-07-16,,,Active,,,,,,,,,,Female,1931-06-08,Yes,"Black or African American",Non-Hispanic
+9903577,8-3553,1101597,Withdraw,,Yes,2015-07-23,,2019-05-15,Withdrawn,,,,,,,,,,Female,1943-03-11,Yes,White,Non-Hispanic
+9903578,8-3631,1101598,Active,,Yes,2016-11-15,,,Active,,,,,,,,,,Female,1938-10-07,Yes,White,Hispanic
+9903580,8-3554,1101599,Active,,Yes,2015-07-28,,,Active,,,,,,,,,,Male,1943-11-26,Yes,White,Non-Hispanic
+9903583,8-3574,1101600,Active,,Yes,2016-01-15,,,Active,,,,,,,,,,Female,1949-11-27,Yes,White,Non-Hispanic
+9903585,8-3596,203552,Active,,Yes,2016-05-26,,,Active,,,,,,,,,,Male,1932-02-17,Yes,White,Non-Hispanic
+9903588,8-3555,1101602,Active,,Yes,2015-08-11,,,Active,,,,,,,,,,Female,1948-03-07,Yes,White,Non-Hispanic
+9903589,8-3556,1101603,Active,,Yes,2015-08-11,,,Active,,,,,,,,,,Male,1942-08-24,Yes,White,Non-Hispanic
+9903592,8-3558,1101605,Active,,Yes,2015-08-19,,,Active,,,,,,,,,,Male,1935-07-30,Yes,White,Non-Hispanic
+9903593,8-3560,1101606,Deceased,1096,Yes,2015-09-07,2023-04-22,,Deceased,2023-04-22,Yes,2023-04-23,"Normal Control","Alzheimer's Disease, low 2nd. Dx: ARTAG",,,2023-08-04,19.25,Male,1930-06-25,Yes,White,Non-Hispanic
+9903594,8-3559,1101607,Deceased,1085,Yes,2015-08-25,2022-09-03,,Deceased,2022-09-03,Yes,2022-09-03,"AD Probable / no Lewy bodies","NP changes consistent w/high AD NP change (ADNC)",,,2023-01-20,7,Male,1926-06-22,Yes,White,Non-Hispanic
+9903596,8-3714,1101609,Deceased,1075,Yes,2021-05-04,2022-01-05,,Deceased,2022-01-05,Yes,2022-01-06,"AD Probable / no Lewy bodies","AD High, CAA, Grade I and II",,,2022-03-04,12.5,Female,1934-07-05,Yes,White,Non-Hispanic
+9903597,8-3561,1101610,Withdraw,,Yes,2015-09-21,,2019-01-22,Withdrawn,,,,,,,,,,Female,1947-07-19,Yes,"Unknown or not reported",Hispanic
+9903598,8-3642,1101611,Active,,Yes,2017-03-23,,,Active,,,,,,,,,,Male,1937-07-21,Yes,White,Non-Hispanic
+9903602,8-3677,1101612,Active,,Yes,2018-06-15,,,Active,,,,,,,,,,Male,1947-01-04,Yes,White,Non-Hispanic
+9903607,8-3569,1101616,Active,,Yes,2015-12-11,,,Active,,,,,,,,,,Male,1946-10-26,Yes,White,Hispanic
+9903611,8-3722,1101619,Deceased,1071,Yes,2021-11-01,2021-11-01,,Deceased,2021-11-01,Yes,2021-11-01,"AD Probable / no Lewy bodies","Argyrophilic grain disease","Not Applicable",,2022-05-13,7.5,Female,1942-07-22,Yes,White,Non-Hispanic
+9903612,8-3568,1101620,Deceased,1105,Yes,2015-12-14,2024-05-09,,Active,2024-05-09,Yes,2024-05-11,,,,,,16,Female,1955-11-18,Yes,White,Hispanic
+9903613,8-3571,1101621,Deceased,,Yes,2015-12-23,2021-01-05,,Active,2021-01-05,,,,,,,,,Female,1956-06-07,Yes,White,Non-Hispanic
+9903618,8-3573,203397,Active,,Yes,2016-01-11,,,Active,,,,,,,,,,Male,1923-08-21,Yes,White,Hispanic
+9903627,8-3652,1101631,Active,,Yes,2017-06-21,,,Active,,,,,,,,,,Male,1951-09-02,Yes,White,Non-Hispanic
+9903629,8-3612,1101633,Active,,Yes,2016-09-20,,,Active,,,,,,,,,,Female,1949-09-30,Yes,White,Non-Hispanic
+9903640,8-3577,201558,Deceased,997,Yes,2016-01-26,2017-12-19,,Deceased,2017-12-19,Yes,2017-12-19,"AD Probable / no Lewy bodies","Braak II-III AD intermediate",,,2018-05-10,9,Female,1921-09-04,Yes,White,Non-Hispanic
+9903647,8-3578,1101741,Deceased,,Yes,2016-03-21,2023-10-20,,Deceased,2023-10-20,No,,,,"Logistics failure (specify)","Per Alice Gunderson family decided not to go through autopsy at time of death.",,,Female,1924-06-21,N/A,White,Hispanic
+9903663,8-3632,1101661,Deceased,1001,Yes,2016-12-12,2018-03-04,,Deceased,2018-03-04,Yes,2018-03-04,"AD Probable / no Lewy bodies","AD intermediate",,,2018-06-20,7.5,Male,1977-04-03,Yes,"More than one race",Non-Hispanic
+9903681,8-3583,1101678,Deceased,,Yes,2016-04-06,2021-11-20,,Deceased,2021-11-20,No,,,,"Logistics failure (specify)",,,,Male,1950-03-16,Yes,White,Non-Hispanic
+9903686,8-3584,1101683,Withdraw,,Yes,2016-04-11,,2019-05-16,Withdrawn,,,,,,,,,,Female,1936-03-05,Yes,White,Non-Hispanic
+9903687,8-3585,1101684,Withdraw,,Yes,2016-04-11,2019-03-21,2019-02-12,Deceased,2019-03-21,,,,,,,,,Male,1937-01-13,Yes,White,Non-Hispanic
+9903689,8-3586,1101686,Deceased,1021,Yes,2016-04-12,2019-03-21,,Deceased,2019-03-21,Yes,2019-03-21,"AD Probable / no Lewy bodies","Braak III (very little frozen)",,,,12,Female,1930-04-10,Yes,White,Non-Hispanic
+9903691,8-3587,1101689,Deceased,1076,Yes,2016-04-18,2022-02-04,,Deceased,2022-02-04,Yes,2022-02-04,"AD Probable / no Lewy bodies","Hippocampal sclerosis",,,2022-06-16,7.5,Female,1929-02-19,No,White,Non-Hispanic
+9903694,8-3589,1101690,Deceased,1125,Yes,2016-04-19,2025-10-04,,Deceased,2025-10-04,Yes,2025-10-04,,,,,,"7 hrs",Male,1940-07-17,Yes,White,Non-Hispanic
+9903695,8-3590,1101691,Deceased,,Yes,2016-04-20,2022-08-22,,Deceased,2022-08-22,No,,,,"Logistics failure (specify)","We have received a message from the daughter of Mr. Donald Bremner informing us that he died last year in a car accident. I found his obituary online, he died 8/22/2022. M.S.",,,Male,1929-03-13,Yes,White,Non-Hispanic
+9903701,8-3591,1101694,Active,,Yes,2016-05-03,,,Active,,,,,,,,,,Female,1945-06-26,Yes,White,Non-Hispanic
+9903705,8-3592,1101697,Active,,Yes,2016-05-05,,,Active,,,,,,,,,,Female,1947-02-20,Yes,White,Non-Hispanic
+9903708,8-3595,1101700,Deceased,,Yes,2016-05-25,2017-03-16,,Deceased,2017-03-16,No,,,,,,,,Female,1927-11-08,Yes,White,Non-Hispanic
+9903744,8-3598,1101756,Deceased,1106,Yes,2016-06-14,2024-06-16,,Deceased,2024-06-16,Yes,2024-06-17,"Normal Control","""NOT"" Alzheimer's Disease Neuropathological Change",,,2025-01-08,20.5,Female,1946-07-10,Yes,Asian,Non-Hispanic
+9903745,8-3599,1102051,Active,,Yes,2016-06-14,,,Active,,,,,,,,,,Female,1943-09-05,Yes,Asian,Non-Hispanic
+9903747,8-3600,1101736,Active,,Yes,2016-06-27,,,Active,,,,,,,,,,Female,1948-08-24,Yes,"Black or African American",Non-Hispanic
+9903748,8-3601,1101737,Active,,Yes,2016-07-06,,,Active,,,,,,,,,,Female,1948-08-23,Yes,Asian,Non-Hispanic
+9903754,8-3616,1101744,Deceased,,Yes,2016-10-12,2023-05-18,,Deceased,2023-05-18,No,,,,"Logistics failure (specify)","Family did not call us. We found Ms. Lewis' obituary online. ",,,Female,1938-07-12,No,White,Non-Hispanic
+9903755,8-3602,1101745,Active,,Yes,2016-07-07,,,Active,,,,,,,,,,Female,1947-04-04,Yes,White,Hispanic
+9903758,8-3603,1101747,Deceased,,Yes,2016-07-12,2019-12-11,,Deceased,2019-12-11,,,,,,,,,Male,1942-12-11,Yes,"Black or African American",Non-Hispanic
+9903759,8-3604,1101748,Active,,Yes,2016-07-18,,,Active,,,,,,,,,,Female,1954-11-18,Yes,White,Hispanic
+9903761,8-3607,1101750,Active,,Yes,2016-08-03,,,Active,,,,,,,,,,Female,1937-10-09,Yes,"More than one race",Non-Hispanic
+9903762,8-3671,203160,Active,,,2018-04-30,,,Active,,,,,,,,,,Male,1943-02-06,Yes,Asian,Non-Hispanic
+9903763,8-3609,1101751,Active,,Yes,2016-08-10,,,Active,,,,,,,,,,Male,1947-06-25,Yes,White,Non-Hispanic
+9903764,8-3610,1101752,Active,,Yes,2016-08-15,,,Active,,,,,,,,,,Female,1931-12-21,Yes,White,Non-Hispanic
+9903768,8-3611,1101755,Active,,Yes,2016-08-29,,,Active,,,,,,,,,,Female,1935-09-19,Yes,"Black or African American",Non-Hispanic
+9903777,8-3615,1101761,Withdraw,,Yes,2016-10-10,,2021-04-05,Withdrawn,,,,,,,,,,Female,1941-04-04,Yes,White,Non-Hispanic
+9903778,8-3617,1101762,Deceased,1041,Yes,2016-10-12,2020-01-07,,Deceased,2020-01-07,Yes,2020-01-07,"AD Probable / no Lewy bodies","AD and CAA Grade I-II diffuse",,,2020-08-25,4.5,Female,1920-03-08,Yes,White,Hispanic
+9903782,8-3618,1101766,Active,,Yes,2016-10-13,,,Active,,,,,,,,,,Female,1951-04-26,No,White,Hispanic
+9903783,8-3619,1101767,Deceased,1045,Yes,2016-10-17,2020-03-02,,Deceased,2020-03-02,Yes,2020-03-02,"AD Probable / no Lewy bodies",AD,,,2020-11-11,4.5,Female,1932-08-22,Yes,White,Non-Hispanic
+9903784,8-3620,1101768,Active,,Yes,2016-10-18,,,Active,,,,,,,,,,Female,1946-01-06,Yes,White,Hispanic
+9903786,8-3621,1101769,Withdraw,,Yes,2016-10-24,,2019-04-17,Withdrawn,,,,,,,,,,Male,1955-03-20,Yes,White,Non-Hispanic
+9903788,8-3625,1101770,Active,,Yes,2016-10-25,,,Active,,,,,,,,,,Male,1943-09-05,Yes,White,Non-Hispanic
+9903789,8-3622,,Deceased,979,Yes,2016-10-26,2016-10-27,,Deceased,2016-10-27,Yes,2016-10-28,"AD Probable / no Lewy bodies","Braak II",,,2016-12-12,9,Female,1918-06-26,No,White,Non-Hispanic
+9903791,8-3664,1101771,Active,,Yes,2017-12-05,,,Active,,No,,,,,,,,Male,1954-09-20,Yes,"More than one race",Hispanic
+9903812,8-3626,1101791,Active,,Yes,2016-11-07,,,Active,,,,"Normal Control",,,,,,Female,1947-04-23,Yes,White,Non-Hispanic
+9903813,8-3627,1101792,Deceased,1090,Yes,2016-11-07,2022-11-27,,Deceased,2022-11-27,Yes,2022-11-28,"AD Probable / no Lewy bodies","Alzheimer's disease, low neuropathic change",,,2023-04-24,20,Male,1928-09-06,Yes,White,Non-Hispanic
+9903814,8-3628,1101795,Active,,Yes,2016-11-07,,,Active,,,,,,,,,,Female,1942-03-18,Yes,White,Non-Hispanic
+9903815,8-3727,1101793,Active,,Yes,2022-03-01,,,Active,,,,,,,,,,Male,1943-04-20,Yes,White,Non-Hispanic
+9903816,8-3728,1101794,Active,,Yes,2022-03-01,,,Active,,,,,,,,,,Female,1942-09-09,Yes,White,Non-Hispanic
+9903821,8-3729,1101799,Active,,Yes,2022-03-07,,,Active,,,,,,,,,,Female,1948-07-30,Yes,White,Non-Hispanic
+9903824,8-3630,1101801,Deceased,,Yes,2016-10-15,2026-03-29,,Deceased,2026-03-29,No,,,,"Logistics failure (specify)","she died in another state",,,Female,1941-04-01,Yes,White,Non-Hispanic
+9903841,8-3713,1101818,Deceased,1061,Yes,2021-04-30,2021-04-29,,Deceased,2021-04-29,Yes,2021-05-02,"AD Probable / no Lewy bodies","AD, CAA",,,2021-10-18,72,Male,1932-09-21,Yes,White,Non-Hispanic
+9903845,8-3674,1101820,Active,,Yes,2018-06-06,,,Active,,,,,,,,,,Female,1954-06-28,Yes,White,Non-Hispanic
+9903858,8-3633,1101835,Active,,Yes,2016-12-21,,,Active,,,,,,,,,,Female,1929-03-28,Yes,White,Non-Hispanic
+9903870,8-3635,1101841,Active,,Yes,2017-01-26,,,Active,,,,,,,,,,Male,1946-02-12,Yes,White,Non-Hispanic
+9903871,8-3719,1101842,Deceased,1091,Yes,2021-08-15,2022-12-20,,Deceased,2022-12-20,Yes,2022-12-21,"AD Probable / no Lewy bodies","Alzheimer's disease, high neuropathic change (ADNC)",,,2023-05-10,15,Male,1963-07-19,Yes,White,Non-Hispanic
+9903885,8-3689,1101856,Deceased,,Yes,2019-03-13,2023-05-15,,Deceased,2023-05-15,No,,,,"Logistics failure (specify)","The wife of Mr. Hough unformed us that she called the 24hr number but that no one answered. ",,,Male,1933-08-08,Yes,White,Non-Hispanic
+9903903,8-3636,1101873,Active,,Yes,2017-02-14,,,Active,,,,,,,,,,Female,1934-01-06,Yes,White,Non-Hispanic
+9903907,8-3637,1101876,Active,,Yes,2017-03-08,,,Active,,,,,,,,,,Female,1941-08-24,Yes,White,Non-Hispanic
+9903911,8-3639,203753,"Withdrew consent",,Yes,2017-03-14,,2020-04-27,"Withdrew ADRC consent",,,,,,,,,,Female,1931-06-18,Yes,White,Non-Hispanic
+9903912,8-3640,202062,Deceased,1025,Yes,2017-03-14,2019-05-01,,Deceased,2019-05-02,Yes,2019-05-02,"AD Probable / no Lewy bodies","Braak VI",,,,19,Male,1928-06-10,Yes,White,Non-Hispanic
+9903930,8-3643,1101890,Active,,Yes,2017-04-04,,,Active,,,,,,,,,,Female,1944-05-11,Yes,"Black or African American",Non-Hispanic
+9903942,8-3644,1101899,Active,,Yes,2017-04-19,,,Active,,,,,,,,,,Female,1940-03-20,No,"Black or African American",Non-Hispanic
+9903943,8-3645,1101935,Deceased,1083,Yes,2017-04-20,2022-05-24,,Deceased,2022-05-24,Yes,2022-05-25,"Normal Control","AD intermediate, CAA mild",,,2022-09-28,32.5,Female,1937-03-11,Yes,White,Non-Hispanic
+9903969,8-3755,1101925,Deceased,1111,Yes,2024-06-17,2024-10-07,,Deceased,2024-10-07,Yes,2024-10-08,"Normal Control","""NOT"" Alzheimer's Disease Neuropathological Change",,,2025-08-08,19,Female,1923-10-08,Yes,"Black or African American",Non-Hispanic
+9903976,8-3715,1101932,Deceased,1065,Yes,2021-06-24,2021-06-25,,Deceased,2021-06-25,Yes,2021-06-26,"Other Neurological Disorders","FTLD, ARTAG","Not Applicable",,2022-01-14,24.25,Male,1943-02-18,No,White,Non-Hispanic
+9903983,8-3646,1101940,Active,,Yes,2017-05-09,,,Active,,,,,,,,,,Female,1939-05-22,Yes,White,Hispanic
+9903988,08-3743,1101943,Active,,Yes,2023-08-03,,,Active,,,,"Normal Control",,,,,,Female,1947-11-08,,White,Non-Hispanic
+9903993,8-3649,1101950,Active,,Yes,2017-05-31,,,Active,,,,,,,,,,Female,1948-10-26,Yes,White,Non-Hispanic
+9903994,8-3651,1101948,Deceased,,Yes,2017-05-31,2021-01-07,,Deceased,2021-01-07,Yes,,,,,,,,Male,1928-04-07,Yes,White,Non-Hispanic
+9903995,8-3650,1101949,Deceased,,Yes,2017-05-31,2020-04-10,,Deceased,2020-04-10,No,,,,"Not Applicable",,,,Female,1927-05-13,Yes,White,Non-Hispanic
+9904016,8-3655,,"Withdrew consent",,Yes,2017-07-26,2017-07-31,2017-07-31,"Withdrew ADRC consent",2017-07-31,No,,,,Withdrawn,,,,Male,1937-11-26,Yes,,Non-Hispanic
+9904021,8-3681,1101966,Deceased,1024,Yes,2018-08-03,2019-04-30,,Deceased,2019-04-30,Yes,2019-04-30,"AD Probable / no Lewy bodies","Braak VI (genetic case, be selective with allocation",,,,8,Male,1979-10-03,Yes,White,Hispanic
+9904061,8-3656,1102003,Active,,Yes,2017-08-15,,,Active,,,,,,,,,,Female,1954-07-27,Yes,White,Non-Hispanic
+9904062,8-3657,1102004,Deceased,1028,Yes,2017-08-15,2019-07-22,,Deceased,2019-07-22,Yes,2019-07-22,"AD Probable / no Lewy bodies","Braak V-VI",,,,7.5,Male,1931-02-20,Yes,White,Non-Hispanic
+9904076,8-3753,1102014,Active,,Yes,2024-06-10,,,Active,,,,"Normal Control",,,,,,Female,1943-09-21,,White,Non-Hispanic
+9904077,8-3754,1102015,Active,,Yes,2024-06-10,,,Active,,,,"Normal Control",,,,,,Male,1947-08-19,,White,Hispanic
+9904078,8-3658,1102016,Active,,Yes,2017-09-18,,,Active,,,,,,,,,,Male,1938-05-09,Yes,White,Non-Hispanic
+9904101,8-3696,1102038,Withdraw,,Yes,2019-07-25,,2021-04-14,Withdrawn,,,,,,,,,,Female,1948-09-18,Yes,White,Non-Hispanic
+9904102,8-3659,1102039,"Withdrew consent",,Yes,2017-10-19,,2017-12-20,"Withdrew ADRC consent",,,,,,,,,,Female,1929-01-18,Yes,"Unknown or not reported",Hispanic
+9904119,8-3660,1102056,Deceased,,Yes,2017-11-15,2022-04-28,,Deceased,2022-04-28,No,,,,Withdrawn,,,,Female,1950-04-26,Yes,White,Non-Hispanic
+9904122,8-3661,203226,Deceased,1099,Yes,2017-10-24,2023-10-08,,Deceased,2023-10-08,Yes,2023-10-09,"AD Probable / no Lewy bodies","Alzheimer's disease, high neuropathic change",,,2024-07-29,15.5,Female,1960-12-22,Yes,White,Non-Hispanic
+9904125,8-3662,1102061,Deceased,,Yes,2017-11-29,2022-01-21,,Deceased,2022-01-21,No,,,,"Logistics failure (specify)","family did not call us. ",,,Female,1932-10-03,Yes,White,Non-Hispanic
+9904126,8-3663,1102062,Active,,Yes,2017-11-29,,,Active,,,,,,,,,,Male,1932-06-28,Yes,White,Non-Hispanic
+9904137,8-3665,1102072,Active,,Yes,2017-12-11,,,Active,,,,,,,,,,Female,1943-08-18,Yes,White,Hispanic
+9904143,8-3666,1102079,Deceased,,Yes,2017-12-15,2024-06-05,,Deceased,2024-06-05,No,,,"Covid19 infection and pneumonia",Disqualified,,,,Male,1949-04-27,Yes,White,Non-Hispanic
+9904160,8-3668,1102094,Active,,Yes,2018-01-25,,,Withdrawn,,,,,,,,,,Female,1938-01-18,Yes,White,Hispanic
+9904164,8-3725,203893,Active,,Yes,2022-02-09,,,Active,,,,,,,,,,Female,1953-12-22,Yes,White,Non-Hispanic
+9904224,8-3672,1102155,Deceased,1005,Yes,2018-05-01,2018-05-02,,Deceased,2018-05-02,Yes,2018-05-02,"Other Neurological Disorders","FTLD C9orf72",,,2019-01-25,12.5,Male,1951-05-23,Yes,White,Non-Hispanic
+9904225,8-3669,1102156,Active,,Yes,2018-04-11,,,Active,,,,,,,,,,Female,1938-07-15,Yes,White,Non-Hispanic
+9904229,8-3670,1102164,Active,,Yes,2018-03-21,,,Active,,,,,,,,,,Female,1938-05-07,Yes,White,Non-Hispanic
+9904243,8-3679,1102173,Withdraw,,,2018-07-03,,,Withdrawn,,,,,,,,,,Female,1945-03-06,Yes,White,Non-Hispanic
+9904252,8-3692,1102182,Active,,Yes,2019-04-09,,,Active,,,,,,,,,,Female,1929-08-12,Yes,Asian,Non-Hispanic
+9904253,8-3673,1102183,Active,,Yes,2018-06-01,,,Active,,,,,,,,,,Female,1952-08-26,Yes,White,Non-Hispanic
+9904268,8-3680,1102195,Deceased,1017,Yes,2018-07-30,2019-01-23,,Deceased,2019-01-23,Yes,2019-01-23,"AD Probable / no Lewy bodies","AD intermediate",,,2019-07-11,7,Male,1928-08-18,Yes,White,Non-Hispanic
+9904275,8-3693,1102201,Active,,Yes,2019-04-06,,,Active,,,,,,,,,,Female,1943-10-07,Yes,White,Non-Hispanic
+9904286,8-3682,203979,Deceased,1027,Yes,2018-08-18,2019-06-23,,Deceased,2019-06-23,Yes,2019-06-23,"AD Probable / no Lewy bodies","AD, Braak V",,,,5.25,Female,1925-10-27,Yes,White,Non-Hispanic
+9904287,8-3683,1102210,Active,,Yes,2018-08-27,,,Active,,,,,,,,,,Male,1949-02-25,Yes,White,Non-Hispanic
+9904288,8-3684,203592,Deceased,1093,Yes,2018-08-27,2022-12-26,,Deceased,2022-12-26,Yes,2022-12-27,"AD Probable / no Lewy bodies","Alzheimer's disease, high",,,2023-05-30,23.5,Male,1959-01-19,Yes,White,Hispanic
+9904290,8-3685,1102212,Active,,Yes,2018-09-10,,,Active,,,,,,,,,,Male,1934-10-16,Yes,White,Non-Hispanic
+9904291,8-3686,1102214,Active,,Yes,2018-09-13,,,Active,,,,,,,,,,Male,1947-06-19,Yes,White,Non-Hispanic
+9904293,8-3720,203965,Deceased,1070,Yes,2021-10-24,2021-10-28,,Deceased,2021-10-28,Yes,2021-10-29,"AD Probable / no Lewy bodies",FTD,"Not Applicable",,2022-03-18,29.5,Male,1942-03-01,No,White,Hispanic
+9904300,8-3687,1102224,Active,,Yes,2018-10-02,,,Active,,,,,,,,,,Male,1949-08-01,Yes,White,Hispanic
+9904337,8-3704,1102256,Deceased,1069,Yes,2020-02-25,2021-10-18,,Deceased,2021-10-18,Yes,2021-10-19,"AD Probable / no Lewy bodies","Autosomal dominant AD, AD high","Not Applicable",,2021-12-22,30,Female,1979-04-05,Yes,"Unknown or not reported",Hispanic
+9904340,8-3678,1102259,Active,,Yes,2018-07-03,,,Active,,,,,,,,,,Female,1959-09-02,Yes,White,Non-Hispanic
+9904358,08-3738,1102276,Active,,Yes,2023-04-28,,,Active,,,,"Normal Control",,,,,,Female,1955-04-01,,"Unknown or not reported",Hispanic
+9904359,08-3739,1102277,Deceased,1133,Yes,2023-04-28,2026-04-10,,Deceased,2026-04-10,Yes,2026-04-10,"AD Probable / no Lewy bodies",,"Not Applicable",,,9.25,Male,1954-06-04,,White,Non-Hispanic
+9904379,8-3688,1103080,Active,,Yes,2019-03-09,,,Active,,,,,,,,,,Female,1925-11-09,Yes,White,Non-Hispanic
+9904380,8-3690,1102295,Deceased,,Yes,2019-03-15,2020-06-11,,Deceased,2020-06-11,No,,,,"Logistics failure (specify)",,,,Female,1928-08-05,Yes,White,Non-Hispanic
+9904395,8-3691,1102310,Deceased,1122,Yes,2019-04-09,2025-08-06,,Deceased,2025-08-06,Yes,2025-08-06,,,,,,12.25,Female,1916-04-27,Yes,White,Non-Hispanic
+9904398,8-3734,1102313,Active,,Yes,2022-09-20,,,Active,,,,,,,,,,Male,1934-12-21,Yes,White,Non-Hispanic
+9904429,8-3694,1102366,Deceased,1062,Yes,2019-05-23,2021-05-15,,Deceased,2021-05-15,Yes,2021-05-15,"Other Neurological Disorders",ALS,,,2021-12-28,6.5,Female,1965-11-24,Yes,White,Non-Hispanic
+9904450,8-3695,1102359,Active,,Yes,2019-06-07,,,Active,,,,,,,,,,Female,1949-10-23,No,White,Non-Hispanic
+9904468,8-3697,1102380,Active,,,2019-08-06,,,Active,,,,,,,,,,Male,1948-11-14,,White,Non-Hispanic
+9904474,8-3698,203820,Deceased,1042,Yes,2019-08-14,2020-01-12,,Deceased,2020-01-12,Yes,2020-01-12,"AD Probable / no Lewy bodies","AD and CAA Grade I-II diffuse","Not Applicable",,,6.5,Male,1940-12-09,Yes,White,Non-Hispanic
+9904475,8-3699,1102401,Active,,Yes,2019-08-08,,,Active,,,,,,,,,,Female,1927-09-09,Yes,White,Non-Hispanic
+9904484,8-3700,1102394,Deceased,1092,Yes,2019-09-16,2022-12-22,,Deceased,2022-12-22,Yes,2022-12-23,"Normal Control","Alzheimer's disease intermediate neuropathic change (ADNC)",,,2023-05-10,22,Female,1931-03-24,Yes,White,Non-Hispanic
+9904517,8-3702,1102428,Deceased,1044,Yes,2019-12-02,2020-02-23,,Deceased,2020-02-23,Yes,2020-02-23,"AD Probable / no Lewy bodies","Lewy body dementia",,,,1.5,Male,1940-10-05,Yes,White,Non-Hispanic
+9904518,8-3703,204043,Deceased,1047,Yes,2019-11-15,2020-08-18,,Deceased,2020-08-17,Yes,2020-08-18,"Other Neurological Disorders","FTLD-tau and AD ","Not Applicable",,,18,Female,1956-02-28,Yes,"Unknown or not reported",Unknown
+9904560,8-3712,1102469,Active,,Yes,2021-04-06,,,Active,,,,,,,,,,Male,1951-01-18,Yes,White,Non-Hispanic
+9904570,8-3707,1102479,Deceased,1102,Yes,2021-02-23,2024-03-19,,Deceased,2024-03-19,Yes,2024-03-19,"AD Probable / no Lewy bodies","Alzheimer's disease, high neuropathic change",,,2024-07-17,15,Male,1963-03-02,Yes,White,Non-Hispanic
+9904571,8-3774,1102480,Active,,,2026-06-18,,,Active,,,,"Normal Control",,,,,,Male,1942-03-03,,"Unknown or not reported",Unknown
+9904598,8-3735,1102507,Deceased,1119,Yes,2022-10-14,2025-06-03,,Deceased,2025-06-03,Yes,2025-06-04,"Normal Control","“Low” Alzheimer’s Disease Neuropathologic Change ","Not Applicable",,2026-06-16,12.5,Male,1948-12-27,Yes,White,Non-Hispanic
+9904610,8-3748,1102519,Deceased,1104,Yes,2024-03-06,2024-04-03,,Deceased,2024-04-03,Yes,2024-04-03,"AD Probable / no Lewy bodies","Alzheimer's disease, high neuropathic change",,,2025-01-18,9.25,Female,1960-05-15,Yes,"Unknown or not reported",Hispanic
+9904633,8-3746,204174,Deceased,1124,Yes,2024-02-16,2025-09-26,,Deceased,2025-09-26,Yes,2025-09-26,,,,,,"5 hrs",Male,1947-02-14,,"More than one race",Hispanic
+9904639,8-3706,1102548,Deceased,1120,Yes,2020-12-08,2025-06-24,,Deceased,,Yes,2025-06-24,,,"Not Applicable",,,8.5,Female,1947-04-08,Yes,White,Non-Hispanic
+9904641,8-3772,1102549,Active,,Yes,2026-02-25,,,Active,,,,"Progressive Supranuclear Palsy",,,,,,Female,1940-03-13,,White,Non-Hispanic
+9904648,8-3708,1102561,Deceased,1055,Yes,2021-02-26,2021-02-28,,Deceased,2021-02-26,Yes,2021-02-28,"AD Probable / no Lewy bodies","AD low, athersclerosis, microinfarct",,,2021-11-23,45,Male,1945-11-14,Yes,White,Non-Hispanic
+9904649,8-3709,1102563,Active,,Yes,2021-03-02,,,Active,,,,,,,,,,Female,1958-07-04,Yes,Asian,Hispanic
+9904650,8-3710,1102562,Deceased,1078,Yes,2021-03-04,2022-03-04,,Deceased,2022-03-04,Yes,2022-03-04,,"(PART), CVD",,,2022-06-17,6.5,Male,1949-11-30,Yes,"Native Hawaiian/Pacific Islander",Non-Hispanic
+9904662,8-3711,1102572,Deceased,1060,Yes,2021-03-25,2021-04-29,,Deceased,2021-04-29,Yes,2021-04-29,"AD Probable / no Lewy bodies","AD, LBD, CAA",,,2021-11-09,4,Female,1927-11-25,Yes,White,Non-Hispanic
+9904687,8-3716,1102675,Deceased,1066,Yes,2021-06-29,2021-07-01,,Deceased,2021-07-01,Yes,2021-07-01,"Other Neurological Disorders","Fahr's and CVD","Not Applicable",,2021-12-01,6,Male,1959-11-24,Yes,"Unknown or not reported",Hispanic
+9904692,8-3717,204273,Deceased,1068,Yes,2021-07-15,2021-09-02,,Deceased,2021-09-02,Yes,2021-09-03,"AD Probable / no Lewy bodies","AD High, CAA","Not Applicable",,2021-12-22,33.5,Female,1941-05-19,Yes,White,Non-Hispanic
+9904754,8-3769,1102660,Deceased,1127,Yes,2025-10-17,2025-10-19,,Deceased,2025-10-19,Yes,2025-10-19,"AD Probable / no Lewy bodies",,,,,6,Male,1957-12-31,,"Unknown or not reported",Hispanic
+9904760,8-3732,1102666,Active,,Yes,2022-06-29,,,Active,,,,,,,,,,Male,1950-02-16,Yes,White,Non-Hispanic
+9904769,8-3718,1102862,Active,,Yes,2021-07-28,,,Active,,,,,,,,,,Female,1950-08-03,Yes,White,Non-Hispanic
+9904798,8-3721,1102708,Active,,Yes,2021-10-26,,,Active,,,,,,,,,,Male,1952-05-07,Yes,White,Non-Hispanic
+9904818,8-3749,1102721,Active,,Yes,2024-05-03,,,Active,,,,"AD Probable / no Lewy bodies",,,,,,Female,1979-04-18,,"Unknown or not reported",Hispanic
+9904827,08-3764,1102730,Active,,Yes,2025-07-22,,,Active,,,,"Mild Cognitive Impairment",,,,,,Male,1935-03-21,,"Unknown or not reported",Hispanic
+9904828,08-3763,1102731,Active,,,2025-07-22,,,Active,,,,"Normal Control",,,,,,Female,1944-10-23,,"Unknown or not reported",Hispanic
+9904830,8-3726,1102733,Deceased,1077,Yes,2022-02-09,2022-02-12,,Deceased,2022-02-12,Yes,2022-02-13,"AD Probable / no Lewy bodies","LVD, (PART), CVD (ARTAG)",,,2022-06-17,26.5,Male,1941-03-14,Yes,White,Non-Hispanic
+9904848,8-3775,1102750,Active,,,2026-10-05,,,Active,,,,"Normal Control",,,,,,Female,1940-05-19,,"More than one race",Hispanic
+9904849,8-3730,1102752,Active,,Yes,2022-04-18,,,Active,,,,,,,,,,Male,1944-03-09,Yes,White,Non-Hispanic
+9904853,8-3733,1102755,Active,,Yes,2022-08-15,,,Active,,,,,,,,,,Male,1952-05-01,Yes,White,Non-Hispanic
+9904868,8-3731,1102808,Active,,Yes,2022-06-03,,,Active,,,,,,,,,,Female,1958-01-24,Yes,White,Non-Hispanic
+9904876,8-3752,1102777,Active,,Yes,2024-06-11,,,Active,,,,"Normal Control",,,,,,Male,1956-04-16,,White,Non-Hispanic
+9904898,08-3745,204495,Deceased,1128,Yes,2023-12-08,2025-12-08,,Deceased,2025-12-08,Yes,2025-12-09,"AD possible / no Lewy bodies",,"Not Applicable",,,15.25,Male,1969-10-10,,"Unknown or not reported",Unknown
+9904899,08-3742,1102799,Active,,,2023-08-02,,,Active,,,,"Normal Control",,,,,,Male,1970-05-20,,White,Non-Hispanic
+9904918,8-3768,1102818,Deceased,1123,Yes,2025-09-23,2025-09-25,,Deceased,2025-09-25,Yes,2025-09-25,"Mixed Vascular Dementia + AD",,,,,7.5,Male,1942-09-09,,White,Non-Hispanic
+9904948,8-3736,1102847,Active,,Yes,2022-12-06,,,Active,,,,,,,,,,Male,1942-04-10,Yes,White,Non-Hispanic
+9904954,8-3762,1102853,Active,,Yes,2025-07-17,,,Active,,,,"AD Probable / no Lewy bodies",,,,,,Male,1969-10-03,,White,Non-Hispanic
+9904956,8-3773,1102855,Active,,Yes,2026-04-20,,,Active,,,,"Normal Control",,,,,,Male,1956-09-28,,White,Hispanic
+9904962,8-3751,1102861,Active,,Yes,2024-05-29,,,Active,,,,"AD Probable / no Lewy bodies",,,,,,Male,1936-03-02,,White,Hispanic
+9904968,8-3756,1102868,Active,,Yes,2024-07-02,,,Active,,,,"Mild Cognitive Impairment",,,,,,Male,1958-02-28,,White,Non-Hispanic
+9905011,8-3758,1102911,Deceased,1115,Yes,2024-12-30,2024-12-29,,Deceased,2024-12-29,Yes,2025-01-01,"AD Probable / no Lewy bodies","""Intermediate"" ADNC",,,2025-07-31,70,Male,1950-07-12,No,White,Non-Hispanic
+9905047,08-3740,1102948,Deceased,1113,Yes,2023-05-25,2024-11-01,,Deceased,2024-11-01,Yes,2024-11-01,"AD possible with Lewy bodies","Lewy Body Dementia","Not Applicable",,2025-12-28,9,Female,1937-01-07,Yes,,Non-Hispanic
+9905053,08-3744,1102954,Deceased,1109,Yes,2023-08-16,2024-08-01,,Deceased,2024-08-01,Yes,2024-08-01,"AD Probable / no Lewy bodies","Alzheimer's disease, high neuropathic change",,,2025-07-28,,Female,1944-01-30,,White,Non-Hispanic
+9905161,8-3747,1103062,Active,,Yes,2024-03-01,,,Active,,,,,,,,,,Female,1952-10-01,,White,Non-Hispanic
+9905201,8-3750,1103103,,,Yes,2024-05-13,,,Active,,,,"AD Probable with Lewy bodies",,,,,,Male,1945-09-12,,White,Non-Hispanic
+9905234,8-3759,1103136,Deceased,1135,Yes,2025-04-24,2026-07-27,,Deceased,2026-07-27,Yes,2026-07-27,"AD Probable with Lewy bodies",,"Not Applicable",,,"6 hours",Male,1952-04-21,,White,Hispanic
+9905238,8-3757,1103140,Active,,Yes,2024-09-13,,,Active,,,,"Normal Control",,,,,,Male,1959-06-05,,"Black or African American",Non-Hispanic
+9905374,8-3760,1103276,Active,,Yes,2025-04-29,,,Active,,,,"Normal Control",,,,,,Female,1950-05-24,,,Non-Hispanic
+9905388,8-3761,1103290,Active,,Yes,2025-07-08,,,Active,,,,,,,,,,Male,1955-05-05,,,
+9905393,08-3765,1103295,Active,,Yes,2025-07-25,,,Active,,,,"AD Probable / no Lewy bodies",,,,,,Female,1942-09-03,,White,Non-Hispanic
+9905401,8-3767,1103303,Deceased,1126,Yes,2025-09-17,2025-10-16,,Deceased,2025-10-16,Yes,2025-10-17,"Corticobasal degeneration (Secondary Dx only)",,"Not Applicable",,,12.25,Female,1942-04-24,,White,Non-Hispanic
+9905404,8-3770,1103306,,,,,,,Active,,,,,,,,,,Male,1941-04-07,,White,Non-Hispanic
+9905405,8-3771,1103307,Deceased,1132,Yes,2026-02-17,2026-03-10,,Deceased,2026-03-10,Yes,2026-03-11,"AD Probable / no Lewy bodies",,"Not Applicable",,,20.5,Male,1974-10-30,,White,Non-Hispanic

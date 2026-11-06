@@ -1,6 +1,6 @@
-/** MAP BRS REDCap · subject_brs_status = 1 (Active) · auto-generated from MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv. */
+/** MAP BRS · Subject Autopsy Status = Active · recounted from MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv. Same 231 as the Oct 9 file. */
 export const BRS_ACTIVE_COHORT = {
-  exportFile: "MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv",
+  exportFile: "MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv",
   activeRows: 231,
   rpprHeadlineEnrolled: 231,
   /** Choice 1, choice 0, choice 9 (Unknown). Blank field is Not reported, not Unknown. */
@@ -27,8 +27,9 @@ export const BRS_LEGACY_APOE_PIE = [
 ] as const;
 
 /**
- * APOE among MAP status=1 (231) in the Oct 9 BRS file, joined to
- * MAPDatabase-APOEGenotype_DATA_2026-09-16_1445.csv.
+ * APOE among MAP Active (231) in the Nov 6 BRS file, joined to
+ * MAPDatabase-APOEGenotype_DATA_LABELS_2026-11-06_1248.csv.
+ * Five new genotype rows in that file are outside the BRS cohort.
  * Carrier = any e4 allele (e3/e4 55, e4/e4 10, e4/e2 6).
  * Non-carrier = e3/e3 121, e3/e2 17, e2/e2 2.
  * 20 active participants have no genotype in that file.

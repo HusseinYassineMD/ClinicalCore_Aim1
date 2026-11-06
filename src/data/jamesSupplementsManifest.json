@@ -7,6 +7,14 @@
       "path": "data/rppr-data-package/MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv"
     },
     {
+      "role": "brsCohort",
+      "path": "data/MAPDataPacket-November-6/MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv"
+    },
+    {
+      "role": "apoeGenotype",
+      "path": "data/MAPDataPacket-November-6/MAPDatabase-APOEGenotype_DATA_LABELS_2026-11-06_1248.csv"
+    },
+    {
       "role": "mapDataDictionary",
       "path": "data/rppr-data-package/MAPDatabase_DataDictionary_2026-10-09.csv"
     },

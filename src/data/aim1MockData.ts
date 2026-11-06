@@ -53,6 +53,7 @@ import {
   BRS_ACTIVE_COHORT,
 } from "@/data/recruitmentChartConstants";
 import brsRpprTableDataCore from "@/data/brsRpprTableDataCore2026.json";
+import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
 import recRosterJson from "@/data/recRoster.json";
 import type { RecRosterData } from "@/types/aim1";
 
@@ -101,10 +102,6 @@ const brsDcEnrollmentN = brsDcCurrent?.participants ?? null;
 const ytdImaging = ytd.imaging;
 const ytdImagingStudyRollup = ytd.imagingYtdIntegratedStudySummary;
 const periodCap = siteReportingWindow.periodCaption;
-const brsDeathsYtd =
-  pkg.reportingPeriodAdditional?.domains
-    .find((d) => d.id === "brs-dates")
-    ?.metrics.find((m) => m.label.startsWith("Deaths"))?.value ?? 0;
 
 export const aim1MockData: Aim1DashboardData = {
   reportingPeriod: siteReportingWindow.label,
@@ -326,10 +323,10 @@ export const aim1MockData: Aim1DashboardData = {
           ],
         },
         {
-          title: "James MAP export (raw · not RPPR denominator)",
+          title: "James MAP export Nov 6 (black · pull is after Oct 16)",
           lines: [
-            `${ytdBrs.newAutopsyConsents} consents · ${ytdBrs.autopsiesPerformed} autopsy_performed_date · ${brsDeathsYtd} date_of_death · ${siteReportingWindow.label}`,
-            `status=1 snapshot n=${ytdBrs.activeEnrolled ?? "—"} (${ytdBrs.sourceFile}) — Data Core uses N=226 after UDS packet QC`,
+            `5 consents · 7 autopsy_performed_date · 9 date_of_death · ${siteReportingWindow.label}`,
+            `Active n=231 · MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv · last consent Oct 5, 2026 · last death Oct 4, 2026 · last performed Oct 4, 2026`,
           ],
         },
         {
@@ -560,39 +557,42 @@ export const aim1MockData: Aim1DashboardData = {
             label: "New autopsy consents",
             count: brsDcNew?.participants ?? ytdBrs.newAutopsyConsents,
             periodTarget: BUDGET_TARGETS.brsNewConsentsPerYear,
+            provenance: "ytd",
           },
         ],
-        totalsProvenance: "ytd",
-        chartsProvenance: "ytd",
+        totalsProvenance: "prior",
+        chartsProvenance: "prior",
+        periodTargetNote:
+          "Black · Nov 6 MAP pull · 5 consent dates inside Jan 1–Oct 16 · last consent Oct 5, 2026",
         chartSlots: [
           {
             title: "Ethnicity",
             type: "bar",
-            provenance: "prior",
-            nProvenance: "prior",
-            chartProvenance: "prior",
+            provenance: "ytd",
+            nProvenance: "ytd",
+            chartProvenance: "ytd",
             n: BRS_ACTIVE_COHORT.activeRows,
             nCaption:
-              "James Wang · MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv · status Active · field Subject Ethnicity. Not Xinhui’s 226.",
+              "Black · James Wang · MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv · status Active · Subject Ethnicity · 231. Pull Nov 6, 2026, after Oct 16. Last consent Oct 5, 2026.",
             items: BRS_ACTIVE_COHORT.hispanicLatino.map((row) => ({
               label: row.label,
               count: row.count,
-              provenance: "prior" as const,
+              provenance: "ytd" as const,
             })),
           },
           {
             title: "APOE genotype",
             type: "pie",
-            provenance: "prior",
-            nProvenance: "prior",
-            chartProvenance: "prior",
+            provenance: "ytd",
+            nProvenance: "ytd",
+            chartProvenance: "ytd",
             n: BRS_ACTIVE_COHORT.activeRows,
             nCaption:
-              "James Wang · MAPDatabase-APOEGenotype_DATA_2026-09-16_1445.csv · field apoe_comb · joined to the 231 Active rows · an e4 allele is a carrier",
+              "Black · James Wang · MAPDatabase-APOEGenotype_DATA_LABELS_2026-11-06_1248.csv · Consolidated APOE Genotype · joined to the 231 Active rows · an e4 allele is a carrier. Pull Nov 6, 2026, after Oct 16.",
             items: BRS_ACTIVE_APOE.map((row) => ({
               label: row.label,
               count: row.count,
-              provenance: "prior" as const,
+              provenance: "ytd" as const,
             })),
           },
           {
@@ -603,7 +603,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "prior",
             n: brsDcEnrollmentN ?? undefined,
             nCaption:
-              "Xinhui Wang · Data Core Table 1, Brain Research Study · current enrollment row · MAP pull Oct 7, 2026",
+              "Green · Xinhui Wang · Data Core Table 1, Brain Research Study · current enrollment · MAP pull Oct 7, 2026. That pull stops before Oct 16.",
             items: [
               {
                 label: "Male",
@@ -856,15 +856,16 @@ export const aim1MockData: Aim1DashboardData = {
     diedWithoutAutopsy: brsDcDiedWithoutAutopsy?.participants,
     autopsiesPerformed: brsDcDiedWithAutopsy?.participants ?? ytdBrs.autopsiesPerformed,
     jamesMapExportComparison: {
-      activeStatusOne: ytdBrs.activeEnrolled ?? 0,
-      newConsents: ytdBrs.newAutopsyConsents,
-      autopsiesPerformed: ytdBrs.autopsiesPerformed,
-      deaths: brsDeathsYtd,
-      sourceFile: ytdBrs.sourceFile ?? "",
+      activeStatusOne: 231,
+      newConsents: 5,
+      autopsiesPerformed: 7,
+      deaths: 9,
+      sourceFile: "MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv",
     },
     autopsyEnrollmentRate: (() => {
       const enrolled = brsDcEnrollmentN;
-      const adrcTotal = Number.parseInt(String(t1.overall.n), 10) || null;
+      const adrcTotal =
+        table1HarmonizedActiveSnapshot.meta.participantCount ?? null;
       const percent =
         enrolled != null && adrcTotal != null && adrcTotal > 0
           ? Math.round((enrolled / adrcTotal) * 1000) / 10

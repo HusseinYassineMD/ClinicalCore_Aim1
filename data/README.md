@@ -6,6 +6,8 @@ Source files for the Aim 1 metrics dashboard and sync scripts. Generated JSON co
 |------|---------|
 | `redcap/` | REDCap CSV exports (specimen sharing, GeneScreen). Drop new exports here; run `npm run sync:redcap`. |
 | `rppr-data-package/` | Harmonized Data Core delivery (UDS, biomarkers, BRS, imaging). Run `npm run sync:package`. |
+| `MAPDataPacket-November-6/` | MAP BRS cohort and APOE genotype labels exports pulled Nov 6, 2026, 12:48. A copy also sits in `reference/james-supplements/`. |
+| `JamesDataPacket-November-5/` | Integrated Biomarkers v1.1.2 received Nov 5, 2026. |
 | `uds_data/` | NACC UDS export for Table 1–style demographics. |
 | `brs_data/` | BRS MAPDatabase workbooks (`.xlsx` → CSV via registry sync). |
 | `reference/core-metrics/` | Year 7 Core Metrics workbooks (Clinical, Data, ORE, etc.). |
