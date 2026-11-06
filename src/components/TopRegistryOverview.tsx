@@ -42,7 +42,7 @@ import {
   type RecruitmentPhase,
   type UdsPeriodBox,
 } from "@/data/recruitmentPhases";
-import { brsLatestActivityDate, udsLatestVisitDate } from "@/data/siteReporting";
+import { udsLatestVisitDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 import recruitmentSpanCounts from "@/data/recruitmentSpanCounts.json";
 
@@ -213,7 +213,7 @@ function ChartTitle({
       </p>
       {nCaption ? (
         <p
-          className="text-[9px] text-cpbh-navy/50 leading-snug line-clamp-2"
+          className="text-[9px] text-cpbh-navy/50 leading-snug line-clamp-4"
           title={nCaption}
         >
           {nCaption}
@@ -1338,7 +1338,8 @@ function RegistryHeaderBlock({
         </p>
       ) : column.id === "brs" ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
-          Green · last MAP date {formatScopeDate(brsLatestActivityDate)}
+          Xinhui Wang · Data Core Table 1, Brain Research Study · current
+          enrollment · MAP pull Oct 7, 2026
         </p>
       ) : null}
       {column.id === "genescreen" && column.totalsProvenance === "ytd" && !column.headerNote ? (

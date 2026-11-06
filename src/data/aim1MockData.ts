@@ -573,7 +573,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "prior",
             n: BRS_ACTIVE_COHORT.activeRows,
             nCaption:
-              "James Wang · MAP active Oct 9, 2026 · N=231, not the Data Core 226",
+              "James Wang · MAPDatabase-BRSCohort_DATA_2026-10-09_1005.csv · status Active · field Subject Ethnicity. Not Xinhui’s 226.",
             items: BRS_ACTIVE_COHORT.hispanicLatino.map((row) => ({
               label: row.label,
               count: row.count,
@@ -588,7 +588,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "prior",
             n: BRS_ACTIVE_COHORT.activeRows,
             nCaption:
-              "James Wang · APOE file Sep 16, 2026 · e4 allele = carrier · 20 have no genotype",
+              "James Wang · MAPDatabase-APOEGenotype_DATA_2026-09-16_1445.csv · field apoe_comb · joined to the 231 Active rows · an e4 allele is a carrier",
             items: BRS_ACTIVE_APOE.map((row) => ({
               label: row.label,
               count: row.count,
@@ -602,7 +602,8 @@ export const aim1MockData: Aim1DashboardData = {
             nProvenance: "prior",
             chartProvenance: "prior",
             n: brsDcEnrollmentN ?? undefined,
-            nCaption: "Xinhui Wang · Data Core current enrollment N=226",
+            nCaption:
+              "Xinhui Wang · Data Core Table 1, Brain Research Study · current enrollment row · MAP pull Oct 7, 2026",
             items: [
               {
                 label: "Male",
