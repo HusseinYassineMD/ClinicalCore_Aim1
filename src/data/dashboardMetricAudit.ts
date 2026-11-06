@@ -146,10 +146,11 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   },
   {
     section: "Recruitment · BRS",
-    metric: "Charts · year to date (ethnicity, sex, APOE)",
-    value: "n=4 · breakdown TBD (red)",
-    tier: "tbd",
-    source: "Harmonized export has consent count only — no YTD demographic breakdown yet",
+    metric: "Charts · ethnicity, sex, APOE",
+    value: "Sex 83/143 of 226 · ethnicity 51/178/2 of 231 · APOE 71/140/20 of 231",
+    tier: "verified",
+    source:
+      "Sex: Xinhui Wang Data Core current enrollment. Ethnicity: James MAP BRS Oct 9 status=1. APOE: James MAP APOE file Sep 16 joined to those 231.",
   },
   {
     section: "Recruitment · BRS",

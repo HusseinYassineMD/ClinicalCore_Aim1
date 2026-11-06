@@ -44,15 +44,13 @@ import {
   DATA_OWNERS_DISPLAY,
   HARMONIZED_FILES,
   LAST_RPPR_SOURCE,
-  PENDING_IN_HARMONIZED_EXPORT,
   dataCoreYtdSource,
   ytdWindowPhrase,
 } from "@/data/dataProvenance";
 import { priorPeriodCaption } from "@/data/reportingPeriodLegend";
 import {
-  BRS_TBD_APOE,
-  BRS_TBD_ETHNICITY,
-  BRS_TBD_SEX,
+  BRS_ACTIVE_APOE,
+  BRS_ACTIVE_COHORT,
 } from "@/data/recruitmentChartConstants";
 import brsRpprTableDataCore from "@/data/brsRpprTableDataCore2026.json";
 import recRosterJson from "@/data/recRoster.json";
@@ -570,38 +568,53 @@ export const aim1MockData: Aim1DashboardData = {
           {
             title: "Ethnicity",
             type: "bar",
-            provenance: "unknown",
-            nProvenance: "unknown",
-            chartProvenance: "unknown",
-            nCaption: `${PENDING_IN_HARMONIZED_EXPORT} · no ethnicity breakdown for Data Core N=${brsDcEnrollmentN ?? "—"}`,
-            items: BRS_TBD_ETHNICITY.map((row) => ({
-              ...row,
-              provenance: "unknown" as const,
+            provenance: "prior",
+            nProvenance: "prior",
+            chartProvenance: "prior",
+            n: BRS_ACTIVE_COHORT.activeRows,
+            nCaption:
+              "James Wang · MAP active Oct 9, 2026 · N=231, not the Data Core 226",
+            items: BRS_ACTIVE_COHORT.hispanicLatino.map((row) => ({
+              label: row.label,
+              count: row.count,
+              provenance: "prior" as const,
             })),
           },
           {
             title: "APOE genotype",
             type: "pie",
-            provenance: "unknown",
-            nProvenance: "unknown",
-            chartProvenance: "unknown",
-            nCaption: `${PENDING_IN_HARMONIZED_EXPORT} · no APOE breakdown wired`,
-            items: BRS_TBD_APOE.map((row) => ({
-              ...row,
-              provenance: "unknown" as const,
+            provenance: "prior",
+            nProvenance: "prior",
+            chartProvenance: "prior",
+            n: BRS_ACTIVE_COHORT.activeRows,
+            nCaption:
+              "James Wang · APOE file Sep 16, 2026 · e4 allele = carrier · 20 have no genotype",
+            items: BRS_ACTIVE_APOE.map((row) => ({
+              label: row.label,
+              count: row.count,
+              provenance: "prior" as const,
             })),
           },
           {
             title: "Sex",
             type: "bar",
-            provenance: "unknown",
-            nProvenance: "unknown",
-            chartProvenance: "unknown",
-            nCaption: `${PENDING_IN_HARMONIZED_EXPORT} · sex breakdown not in harmonized export`,
-            items: BRS_TBD_SEX.map((row) => ({
-              ...row,
-              provenance: "unknown" as const,
-            })),
+            provenance: "prior",
+            nProvenance: "prior",
+            chartProvenance: "prior",
+            n: brsDcEnrollmentN ?? undefined,
+            nCaption: "Xinhui Wang · Data Core current enrollment N=226",
+            items: [
+              {
+                label: "Male",
+                count: brsDcCurrent?.male ?? 0,
+                provenance: "prior" as const,
+              },
+              {
+                label: "Female",
+                count: brsDcCurrent?.female ?? 0,
+                provenance: "prior" as const,
+              },
+            ],
           },
         ],
         catchmentDemos: [],
