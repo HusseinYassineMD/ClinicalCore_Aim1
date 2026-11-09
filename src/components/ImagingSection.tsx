@@ -11,7 +11,6 @@ import type {
 } from "@/types/aim1";
 import ScanSummary from "./ScanSummary";
 import IntegratedImagingSummaryBlock from "./IntegratedImagingSummaryBlock";
-import { JamesImagingPacketBlock } from "./JamesNovember6PacketBlocks";
 import ImagingQcBlock from "./ImagingQcBlock";
 import IdaUploadBlock from "./IdaUploadBlock";
 import DataStatusStickyNote from "./DataStatusStickyNote";
@@ -89,7 +88,6 @@ export default function ImagingSection({
               />
             </div>
           ) : null}
-          <JamesImagingPacketBlock />
           <div
             data-deck-slide="imaging-qc"
             data-deck-caption="Imaging · QC metrics"
