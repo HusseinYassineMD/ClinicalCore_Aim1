@@ -9,11 +9,13 @@ import DemographicsTable, {
 } from "@/components/DemographicsTable";
 import type { DemographicGroup } from "@/types/aim1";
 import { formatScopeDate } from "@/lib/formatScopeDate";
+import { HeadingLead } from "@/components/HeadingLead";
 import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
 
 type HarmonizedSnapshot = Table1VisualData & {
   otherUnknown: DemographicGroup;
   meta: {
+    source: string;
     asOfDate: string;
     participantCount: number;
     cohortDefinition: string;
@@ -39,10 +41,14 @@ export default function DemographicsTableClient() {
         <h2 className="font-display text-xl font-semibold text-cpbh-navy">
           Table 1: Demographic and clinical characteristics of the clinical core
         </h2>
-        <p className="text-cpbh-navy/60 text-sm mt-1 leading-snug">
-          Pink · harmonized active cohort as of {formatScopeDate(harmonized.meta.asOfDate)}.
-          That snapshot stops before October 16. It is not the old RPPR.
-        </p>
+        <HeadingLead
+          className="text-cpbh-navy/60 text-sm mt-1 leading-snug"
+          source={harmonized.meta.source}
+          through={formatScopeDate(harmonized.meta.asOfDate)}
+        >
+          Pink · harmonized active cohort. That snapshot stops before October 16.
+          It is not the old RPPR.
+        </HeadingLead>
       </div>
 
       <div
@@ -65,8 +71,10 @@ export default function DemographicsTableClient() {
 
       <div className="border-t border-cpbh-mist/80 px-4 sm:px-6 pb-6 pt-5">
         <p className="text-xs text-cpbh-navy/55 mb-4">
-          Charts below parse the Table 1 cells above · bar colors by stratum ·
-          numbers in pink (September 17 snapshot, not through October 16).
+          Charts below parse the Table 1 cells above. Source:{" "}
+          {harmonized.meta.source}. Through:{" "}
+          {formatScopeDate(harmonized.meta.asOfDate)}. Bar colors by stratum.
+          Numbers in pink. That snapshot stops before October 16.
         </p>
         <ChartErrorBoundary fallbackTitle="Demographics charts could not load">
           <DemographicsVisuals data={harmonized} valueProvenance="span" />

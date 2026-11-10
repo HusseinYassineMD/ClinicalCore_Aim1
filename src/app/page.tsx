@@ -16,6 +16,8 @@ import BrsRpprTableBlock from "@/components/BrsRpprTableBlock";
 import SpecimenSharingSection from "@/components/SpecimenSharingSection";
 import DemographicsTableStickyNote from "@/components/DemographicsTableStickyNote";
 import DashboardContactFooter from "@/components/DashboardContactFooter";
+import { sourceThroughText } from "@/components/HeadingLead";
+import { lastRpprReportingPeriod } from "@/data/reportingPeriodLegend";
 import DataStatusStickyNote from "@/components/DataStatusStickyNote";
 import AutopsyEnrollmentConfirmationStickyNote from "@/components/AutopsyEnrollmentConfirmationStickyNote";
 import FulfilledConfirmationStickyNote from "@/components/FulfilledConfirmationStickyNote";
@@ -80,9 +82,11 @@ export default function DashboardPage() {
                     {table1HarmonizedActiveSnapshot.meta.participantCount}
                   </p>
                   <p className="mt-2 text-xs leading-snug text-cpbh-navy/60">
-                    Pink · active cohort as of{" "}
-                    {formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate)}.
-                    That snapshot stops before October 16.
+                    {sourceThroughText(
+                      table1HarmonizedActiveSnapshot.meta.source,
+                      formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate),
+                      "Pink · active cohort. That snapshot stops before October 16.",
+                    )}
                   </p>
                 </div>
               </div>
@@ -179,6 +183,8 @@ export default function DashboardPage() {
               title="Tissue Inquiries"
               data={data.neurobankSpecimenSharing}
               reportingPeriodLabel={siteReportingWindow.label}
+              source={`REDCap · ${redcapSpecimenSharing.sources.neurobank}`}
+              through={formatScopeDate(neurobankRequestLatestDate)}
               dateLine={`${formatScopeDate(siteReportingWindow.startDate)} – ${formatScopeDate(siteReportingWindow.endDate)} · last request ${formatScopeDate(neurobankRequestLatestDate)}`}
               subtitle={`REDCap pull ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}. Requests in this count run ${formatScopeDate(neurobankRequestEarliestDate)} – ${formatScopeDate(neurobankRequestLatestDate)}. The pull also has requests through ${formatScopeDate(neurobankRequestFileLatestDate)}, after this cutoff.`}
               countProvenance="ytd"
@@ -194,7 +200,11 @@ export default function DashboardPage() {
             Outreach, Recruitment, and Engagement
           </h2>
           <p className="text-center text-lg text-cpbh-navy/70">
-            N/A for this current period
+            {sourceThroughText(
+              "Last RPPR",
+              lastRpprReportingPeriod,
+              "N/A for this current period.",
+            )}
           </p>
         </section>
 
@@ -224,6 +234,8 @@ export default function DashboardPage() {
               title="Biofluid Inquiries"
               data={data.biofluidSpecimenSharing}
               reportingPeriodLabel={siteReportingWindow.label}
+              source={`REDCap · ${redcapSpecimenSharing.sources.biofluids}`}
+              through={formatScopeDate(biofluidRequestLatestDate)}
               dateLine={`${formatScopeDate(siteReportingWindow.startDate)} – ${formatScopeDate(siteReportingWindow.endDate)} · last request ${formatScopeDate(biofluidRequestLatestDate)}`}
               subtitle={`REDCap pull ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}. Requests in this count run ${formatScopeDate(biofluidRequestEarliestDate)} – ${formatScopeDate(biofluidRequestLatestDate)}. Nothing in this pull is later than ${formatScopeDate(biofluidRequestLatestDate)}.`}
               countProvenance="ytd"

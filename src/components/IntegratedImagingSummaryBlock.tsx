@@ -1,5 +1,7 @@
 import type { ImagingYtdMeta, IntegratedImagingStudySummary } from "@/types/aim1";
 import { formatInteger } from "@/lib/formatNumber";
+import { formatScopeDate } from "@/lib/formatScopeDate";
+import { HeadingLead } from "@/components/HeadingLead";
 
 interface IntegratedImagingSummaryBlockProps {
   ytdStudySummary: IntegratedImagingStudySummary;
@@ -26,22 +28,16 @@ export default function IntegratedImagingSummaryBlock({
         <h3 className="font-display text-lg font-semibold text-cpbh-navy">
           Study-wide availability · {periodLabel}
         </h3>
-        <p className="text-cpbh-navy/60 text-sm mt-1 leading-snug">
-          USC ADRC Integrated Imaging Availability{" "}
-          {ytdMeta?.packageVersion ?? ytdStudySummary.packageVersion} ·{" "}
+        <HeadingLead
+          className="text-cpbh-navy/60 text-sm mt-1 leading-snug"
+          source={`James Wang · USC ADRC Integrated Imaging Availability ${ytdMeta?.packageVersion ?? ytdStudySummary.packageVersion} · ${ytdMeta?.longitudinalSourceFile ?? ytdStudySummary.sourceFiles?.longitudinal ?? ytdStudySummary.sourceFile ?? "longitudinal file"}`}
+          through={formatScopeDate(ytdMeta?.latestStudyDate ?? "2026-10-16")}
+        >
           <span className="font-medium metric-value-ytd">
-            black = unique participants · latest study_date is 10/16/2026
+            black = unique participants
           </span>
           {ytdMeta?.identityFilter ? ` · ${ytdMeta.identityFilter} only` : null}
-          {ytdMeta?.latestStudyDate
-            ? ` · latest study_date in export ${ytdMeta.latestStudyDate}`
-            : null}
-        </p>
-        <p className="text-cpbh-navy/50 text-xs mt-1 font-mono">
-          {ytdMeta?.longitudinalSourceFile ??
-            ytdStudySummary.sourceFiles?.longitudinal ??
-            ytdStudySummary.sourceFile}
-        </p>
+        </HeadingLead>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left border-collapse min-w-[560px]">

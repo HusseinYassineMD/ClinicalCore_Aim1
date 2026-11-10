@@ -1,5 +1,6 @@
 import type { BiomarkerCoreSampleProcessingData } from "@/types/aim1";
 import { metricValueClass } from "@/lib/metricValueClass";
+import { HeadingLead } from "@/components/HeadingLead";
 
 interface BiomarkerCoreSampleProcessingBlockProps {
   data: BiomarkerCoreSampleProcessingData;
@@ -45,14 +46,12 @@ export default function BiomarkerCoreSampleProcessingBlock({
         <h3 className="font-display text-xl md:text-2xl font-semibold text-cpbh-navy leading-snug">
           Biomarker Core · sample processing
         </h3>
-        <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl mx-auto leading-relaxed">
-          Black · January through September 2026, inside January 1–October 16.{" "}
-          {meta.providedBy}. October stays pink: the workbook is the latest
-          packet, it has no day, and that month runs through October 31.
-        </p>
-        <p className="text-cpbh-navy/55 text-xs mt-2 max-w-3xl mx-auto leading-relaxed">
-          Source: {meta.sourceFile}. The total row is January–September only.
-        </p>
+        <HeadingLead source={`${meta.providedBy} · ${meta.sourceFile}`} through="September 30, 2026">
+          Black · January through September 2026, inside January 1–October 16.
+          The total row is January–September only. October stays pink: the
+          workbook is the latest packet, it has no day, and that month runs
+          through October 31.
+        </HeadingLead>
       </div>
       <div className="overflow-x-auto px-2 pb-6">
         <table className="w-full min-w-[720px] text-left">

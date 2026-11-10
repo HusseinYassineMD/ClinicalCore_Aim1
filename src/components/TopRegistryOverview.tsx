@@ -44,6 +44,7 @@ import {
 } from "@/data/recruitmentPhases";
 import { udsLatestVisitDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
+import { sourceThroughText } from "@/components/HeadingLead";
 import recruitmentSpanCounts from "@/data/recruitmentSpanCounts.json";
 
 type ChartCountItem = {
@@ -1322,8 +1323,16 @@ function RegistryHeaderBlock({
       {showUdsBoxes ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
           {udsBoxes.some((box) => box.detail.includes("alive"))
-            ? `Alive counts exclude people listed as Deceased. Last UDS visit in James’s file: ${formatScopeDate(udsLatestVisitDate)}. The outlined box matches the breakdown below.`
-            : `Black through ${formatScopeDate(udsLatestVisitDate)}. Active is pink. The outlined box matches the cards beside this one.`}
+            ? sourceThroughText(
+                "James Wang · UDS_longitudinal_harmonized.csv",
+                formatScopeDate(udsLatestVisitDate),
+                "Alive counts exclude people listed as Deceased. The outlined box matches the breakdown below.",
+              )
+            : sourceThroughText(
+                "James Wang · UDS_longitudinal_harmonized.csv",
+                formatScopeDate(udsLatestVisitDate),
+                "Black. Active is pink. The outlined box matches the cards beside this one.",
+              )}
         </p>
       ) : column.headerNote ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
@@ -1331,12 +1340,19 @@ function RegistryHeaderBlock({
         </p>
       ) : column.id === "adrc" ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
-          Black · last UDS visit in James’s file: {formatScopeDate(udsLatestVisitDate)}
+          {sourceThroughText(
+            "James Wang · UDS_longitudinal_harmonized.csv",
+            formatScopeDate(udsLatestVisitDate),
+            "Black.",
+          )}
         </p>
       ) : column.id === "brs" ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
-          Pink · Xinhui Wang · Data Core Table 1 · MAP pull Oct 7, 2026.
-          That pull stops before Oct 16.
+          {sourceThroughText(
+            "Xinhui Wang · Data Core Table 1",
+            "October 7, 2026",
+            "Pink. That pull stops before Oct 16.",
+          )}
         </p>
       ) : null}
       {column.id === "genescreen" && column.totalsProvenance === "ytd" && !column.headerNote ? (

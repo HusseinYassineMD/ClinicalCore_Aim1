@@ -1,6 +1,7 @@
 import type { BiofluidCollectionEntry } from "@/types/aim1";
 import { metricValueClass } from "@/lib/metricValueClass";
 import biomarkerCoreSampleProcessing2026 from "@/data/biomarkerCoreSampleProcessing2026.json";
+import { HeadingLead } from "@/components/HeadingLead";
 
 const processingMeta = biomarkerCoreSampleProcessing2026.meta;
 
@@ -15,15 +16,15 @@ export default function BiofluidCollectionBlock({ data }: BiofluidCollectionBloc
         <h3 className="font-display text-xl md:text-2xl font-semibold text-cpbh-navy leading-snug">
           Biofluid Collection
         </h3>
-        <p className="text-cpbh-navy/60 text-sm mt-2 max-w-3xl mx-auto leading-relaxed">
-          Black · January 1, 2026 – September 30, 2026 · {processingMeta.providedBy}.
-        </p>
-        <p className="text-cpbh-navy/55 text-xs mt-2 max-w-3xl mx-auto leading-relaxed">
-          Source: {processingMeta.sourceFile}. These totals are January through
-          September, which sit inside January 1–October 16. October is a
+        <HeadingLead
+          source={`${processingMeta.providedBy} · ${processingMeta.sourceFile}`}
+          through="September 30, 2026"
+        >
+          Black · January 1, 2026 – September 30, 2026. These totals are January
+          through September, which sit inside January 1–October 16. October is a
           monthly total with no day, so it is not included. CSF is 0 samples
           and 0 tubes because that workbook has no CSF rows.
-        </p>
+        </HeadingLead>
       </div>
       <div className="overflow-x-auto px-2 pb-2">
         <table className="w-full min-w-[520px]">

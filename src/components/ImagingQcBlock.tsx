@@ -1,5 +1,7 @@
 import type { ImagingQcMetrics } from "@/types/aim1";
 import MetricCard from "./MetricCard";
+import { HeadingLead } from "@/components/HeadingLead";
+import { lastRpprReportingPeriod } from "@/data/reportingPeriodLegend";
 
 interface ImagingQcBlockProps {
   data: ImagingQcMetrics;
@@ -23,12 +25,15 @@ export default function ImagingQcBlock({ data }: ImagingQcBlockProps) {
         <h3 className="font-display text-lg font-semibold text-cpbh-navy">
           RPPR Imaging QC (cumulative)
         </h3>
-        <p className="text-cpbh-navy/60 text-sm mt-1 leading-snug">
-          Green · last RPPR Imaging Core (B2) · cumulative QC narrative. Not in
-          James Integrated Imaging Availability — no calendar YTD QC counts in the
-          James Integrated Imaging Availability. YTD scan progress is the SCAN /
-          CLARiTI participant cards above, from v1.5.4.
-        </p>
+        <HeadingLead
+          className="text-cpbh-navy/60 text-sm mt-1 leading-snug"
+          source="Last RPPR · Imaging Core (B2) · rpprMetrics.json"
+          through={lastRpprReportingPeriod}
+        >
+          Green · cumulative QC narrative. Not in James Integrated Imaging
+          Availability. YTD scan progress is the SCAN / CLARiTI participant
+          cards above, from v1.5.4.
+        </HeadingLead>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {metrics.map((item) => (

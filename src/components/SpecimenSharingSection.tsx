@@ -119,7 +119,11 @@ interface SpecimenSharingSectionProps {
   data: SpecimenSharing;
   reportingPeriodLabel: string;
   title: string;
-  /** Coverage dates, shown on the line directly under the heading. */
+  /** Where the requests came from. Shown first under the heading. */
+  source?: string;
+  /** Last date this count actually contains. Shown second. */
+  through?: string;
+  /** Coverage dates, shown after source and through. */
   dateLine: string;
   subtitle?: string;
   deckSlideId?: string;
@@ -131,6 +135,8 @@ export default function SpecimenSharingSection({
   data,
   reportingPeriodLabel,
   title,
+  source,
+  through,
   dateLine,
   subtitle = "RedCap request tracking · year to date",
   deckSlideId,
@@ -147,7 +153,13 @@ export default function SpecimenSharingSection({
         <h3 className="font-display text-lg font-semibold text-cpbh-navy">
           {title}
         </h3>
-        <p className="text-cpbh-navy text-sm mt-1">{dateLine}</p>
+        {source ? (
+          <p className="text-cpbh-navy text-sm mt-1">Source: {source}</p>
+        ) : null}
+        {through ? (
+          <p className="text-cpbh-navy text-sm">Through: {through}</p>
+        ) : null}
+        <p className="text-cpbh-navy/70 text-sm mt-1">{dateLine}</p>
         <p className="text-cpbh-navy/55 text-xs mt-1">{subtitle}</p>
       </div>
       <SpecimenSharingSnapshot

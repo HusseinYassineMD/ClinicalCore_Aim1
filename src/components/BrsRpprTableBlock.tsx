@@ -2,6 +2,7 @@ import brsRpprTable from "@/data/brsRpprTableDataCore2026.json";
 import { brsLatestActivityDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 import { metricValueClass } from "@/lib/metricValueClass";
+import { HeadingLead } from "@/components/HeadingLead";
 
 type Row = (typeof brsRpprTable.rows)[number];
 
@@ -24,13 +25,15 @@ export default function BrsRpprTableBlock() {
         <h3 className="font-display text-xl font-semibold text-cpbh-navy">
           {meta.title}
         </h3>
-        <p className="text-cpbh-navy/60 text-sm mt-1">
-          Pink · {meta.preparedBy} · MAP pull {meta.mapBrsDataPullDate}.
-          This table stops before Oct 16, 2026. It is the latest packet from
-          that pull, not the old RPPR. The Nov 6 MAP file is a
-          separate pull. Last consent in that file{" "}
-          {formatScopeDate(brsLatestActivityDate)}.
-        </p>
+        <HeadingLead
+          className="text-cpbh-navy/60 text-sm mt-1"
+          source={`${meta.preparedBy} · Data Core Table 1`}
+          through={formatScopeDate(meta.mapBrsDataPullDate)}
+        >
+          Pink · this table stops before Oct 16, 2026. It is the latest packet
+          from that pull, not the old RPPR. The Nov 6 MAP file is a separate
+          pull. Last consent in that file {formatScopeDate(brsLatestActivityDate)}.
+        </HeadingLead>
         <p className="text-cpbh-navy/55 text-xs mt-2 leading-relaxed max-w-3xl mx-auto">
           {currentEnrollmentDefinition}
         </p>

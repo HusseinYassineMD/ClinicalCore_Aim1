@@ -437,9 +437,9 @@ export const aim1MockData: Aim1DashboardData = {
         totalsProvenance: "span",
         chartsProvenance: "span",
         headerNote:
-          "Pink · 739 Complete? records in the October 7, 2026 REDCap export. That file stops October 7, before October 16. The old RPPR number was 668.",
+          "Source: REDCap · USCGeneScreenRegistr-USCGeneScreenRegistr_DATA_LABELS_2026-10-07_0842.csv. Through: October 7, 2026. Pink · 739 Complete? records. That file stops October 7, before October 16. The old RPPR number was 668.",
         periodTarget: BUDGET_TARGETS.geneScreenRecruitmentReportingPeriod,
-        periodTargetNote: `Pink · REDCap file ${geneScreenYtd.sourceFile}. That file stops October 7, 2026, so this is not a count through October 16.`,
+        periodTargetNote: `Source: REDCap · ${geneScreenYtd.sourceFile}. Through: October 7, 2026. Pink · that file stops October 7, so this is not a count through October 16.`,
         chartSlots: [
           {
             title: "Ethnicity",
@@ -449,7 +449,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "span",
             n: geneScreenYtd.newMembersByConsentDate,
             nCaption:
-              "Pink · October 7, 2026 REDCap export. That file stops before October 16.",
+              "Source: REDCap · USCGeneScreenRegistr-USCGeneScreenRegistr_DATA_LABELS_2026-10-07_0842.csv. Through: October 7, 2026. Pink · that file stops before October 16.",
             items: geneScreenYtd.ethnicity.map((row) => ({
               ...row,
               provenance: "span" as const,
@@ -463,7 +463,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "span",
             n: geneScreenYtd.newMembersByConsentDate,
             nCaption:
-              "Pink · October 7, 2026 REDCap export. That file stops before October 16.",
+              "Source: REDCap · USCGeneScreenRegistr-USCGeneScreenRegistr_DATA_LABELS_2026-10-07_0842.csv. Through: October 7, 2026. Pink · that file stops before October 16.",
             items: geneScreenYtd.apoe4.map((row) => ({
               ...row,
               provenance: "span" as const,
@@ -477,7 +477,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "span",
             n: geneScreenYtd.newMembersByConsentDate,
             nCaption:
-              "Pink · October 7, 2026 REDCap export. That file stops before October 16.",
+              "Source: REDCap · USCGeneScreenRegistr-USCGeneScreenRegistr_DATA_LABELS_2026-10-07_0842.csv. Through: October 7, 2026. Pink · that file stops before October 16.",
             items: geneScreenYtd.gender.map((row) => ({
               ...row,
               provenance: "span" as const,
@@ -596,7 +596,7 @@ export const aim1MockData: Aim1DashboardData = {
         totalsProvenance: "span",
         chartsProvenance: "span",
         periodTargetNote:
-          "Black · Nov 6 MAP pull · 5 consent dates inside Jan 1–Oct 16 · last consent Oct 5, 2026",
+          "Source: James Wang · MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv. Through: October 5, 2026. Black · 5 consent dates inside Jan 1–Oct 16.",
         chartSlots: [
           {
             title: "Ethnicity",
@@ -606,7 +606,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "ytd",
             n: BRS_ACTIVE_COHORT.activeRows,
             nCaption:
-              "Black · James Wang · MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv · status Active · Subject Ethnicity · 231. Pull Nov 6, 2026, after Oct 16. Last consent Oct 5, 2026.",
+              "Source: James Wang · MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv. Through: October 5, 2026. Black · status Active · Subject Ethnicity · 231. Pull Nov 6, 2026, after Oct 16.",
             items: BRS_ACTIVE_COHORT.hispanicLatino.map((row) => ({
               label: row.label,
               count: row.count,
@@ -621,7 +621,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "ytd",
             n: BRS_ACTIVE_COHORT.activeRows,
             nCaption:
-              "Black · James Wang · MAPDatabase-APOEGenotype_DATA_LABELS_2026-11-06_1248.csv · Consolidated APOE Genotype · joined to the 231 Active rows · an e4 allele is a carrier. Pull Nov 6, 2026, after Oct 16.",
+              "Source: James Wang · MAPDatabase-APOEGenotype_DATA_LABELS_2026-11-06_1248.csv. Through: November 6, 2026. Black · Consolidated APOE Genotype joined to the 231 Active rows · an e4 allele is a carrier. Pull Nov 6, 2026, after Oct 16.",
             items: BRS_ACTIVE_APOE.map((row) => ({
               label: row.label,
               count: row.count,
@@ -636,7 +636,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "span",
             n: brsDcEnrollmentN ?? undefined,
             nCaption:
-              "Pink · Xinhui Wang · Data Core Table 1, Brain Research Study · current enrollment · MAP pull Oct 7, 2026. That pull stops before Oct 16.",
+              "Source: Xinhui Wang · Data Core Table 1. Through: October 7, 2026. Pink · current enrollment. That pull stops before Oct 16.",
             items: [
               {
                 label: "Male",

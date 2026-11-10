@@ -1,6 +1,7 @@
 import type { ScanData } from "@/types/aim1";
 import MetricCard from "./MetricCard";
 import { metricValueClass } from "@/lib/metricValueClass";
+import { sourceThroughText } from "@/components/HeadingLead";
 
 interface ScanSummaryProps {
   scans: ScanData;
@@ -25,9 +26,14 @@ function ScanProgressBlock({
   periodLabel?: string;
   sourceNote?: string;
 }) {
-  const ytdSublabel = [periodLabel ? `Participants · ${periodLabel}` : null, sourceNote]
-    .filter(Boolean)
-    .join(" · ") || undefined;
+  const ytdSublabel =
+    sourceThroughText(
+      "James Wang · USC ADRC Integrated Imaging Availability",
+      "October 16, 2026",
+      [periodLabel ? `Participants · ${periodLabel}` : null, sourceNote]
+        .filter(Boolean)
+        .join(" · ") || undefined,
+    );
   const modalities = [
     { label: "MRI" as const, count: data.mri },
     { label: "Amyloid PET" as const, count: data.amyloidPet },

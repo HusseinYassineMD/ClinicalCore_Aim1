@@ -2,6 +2,7 @@ import type { RecMetrics, RecRosterData } from "@/types/aim1";
 import MetricCard from "./MetricCard";
 import RecRosterPanel from "./RecRosterPanel";
 import SectionScopeBracket from "@/components/SectionScopeBracket";
+import { sourceThroughText } from "@/components/HeadingLead";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 
 interface RecSectionProps {
@@ -21,8 +22,11 @@ export default function RecSection({ data, roster }: RecSectionProps) {
           />
         </h2>
         <p className="text-cpbh-navy/60 text-sm mt-1">
-          Research Education Component · speaker series, scholars, faculty, and
-          training programs
+          {sourceThroughText(
+            "REC database · recSpeakerSeries.json and data/reference/rec",
+            "speaker schedule May 14, 2027 · attendance October 9, 2026",
+            "Research Education Component · speaker series, scholars, faculty, and training programs.",
+          )}
         </p>
       </div>
 
@@ -35,18 +39,24 @@ export default function RecSection({ data, roster }: RecSectionProps) {
             <MetricCard
               label="Completed / Scheduled"
               value={`${data.completed} / ${data.scheduled}`}
-              sublabel={`Friday sessions · as of ${data.asOfDate}`}
+              sublabel={sourceThroughText(
+                "REC_Database/REC_SpeakerSeries/data/speakers.json",
+                "May 14, 2027",
+                `Friday sessions · as of ${data.asOfDate}`,
+              )}
               accent="teal"
               provenance="unknown"
             />
             <MetricCard
               label="Avg No. Attendees"
               value={data.avgAttendees}
-              sublabel={
+              sublabel={sourceThroughText(
+                "data/reference/rec/meeting-attendance.csv",
+                "October 9, 2026",
                 data.attendanceSessionCount
                   ? `${data.attendanceSessionCount} sessions with attendance reported`
-                  : undefined
-              }
+                  : undefined,
+              )}
               accent="navy"
               provenance="ytd"
             />

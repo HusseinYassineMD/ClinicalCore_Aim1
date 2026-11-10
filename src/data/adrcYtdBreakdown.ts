@@ -11,7 +11,7 @@ export type AdrcBreakdownChartItem = {
   provenance: DataProvenance;
 };
 
-export const adrcYtdBreakdownCaption = `YTD new initial evals · ${siteReportingWindow.label}`;
+export const adrcYtdBreakdownCaption = `Source: James Wang · UDS_longitudinal_harmonized.csv. Through: October 12, 2026. YTD new initial evals · ${siteReportingWindow.label}`;
 
 function withYtd(rows: { label: string; count: number }[]): AdrcBreakdownChartItem[] {
   return rows.map((row) => ({ ...row, provenance: "ytd" as const }));

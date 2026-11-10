@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import packet from "@/data/jamesNovember6Packet.json";
 import { formatScopeDate } from "@/lib/formatScopeDate";
+import { sourceThroughText } from "@/components/HeadingLead";
 
 type CountRow = { label: string; count: number };
 
@@ -86,7 +87,11 @@ export function JamesUdsPacketBlock() {
   return (
     <Shell
       title={`James UDS packet · ${uds.version}`}
-      note={`Pink · whole file, not the January 1–October 16 visit count. ${n(uds.participants)} participants, ${n(uds.visits)} UDS visits, ${n(uds.milestoneEvents)} milestone events. Last visit ${formatScopeDate(uds.lastVisitDate)}. Files ${uds.sourceFiles.join(", ")}.`}
+      note={sourceThroughText(
+        `James Wang · ${uds.sourceFiles.join(", ")}`,
+        formatScopeDate(uds.lastVisitDate),
+        `Pink · whole file, not the January 1–October 16 visit count. ${n(uds.participants)} participants, ${n(uds.visits)} UDS visits, ${n(uds.milestoneEvents)} milestone events.`,
+      )}
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <MiniTable

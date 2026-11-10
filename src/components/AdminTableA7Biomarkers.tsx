@@ -425,7 +425,13 @@ export default function AdminTableA7Biomarkers() {
           Administrative Table A7
         </h3>
         <p className="text-cpbh-navy/60 text-sm mt-1">
-          Biomarkers · January 2025 · shown as provided
+          Source: Biomarkers administrative table, January 2025, shown as provided.
+        </p>
+        <p className="text-cpbh-navy/60 text-sm">
+          Through: January 2025.
+        </p>
+        <p className="text-cpbh-navy/60 text-sm mt-1">
+          Biomarkers · shown as provided
         </p>
       </div>
       <div className="overflow-x-auto">
