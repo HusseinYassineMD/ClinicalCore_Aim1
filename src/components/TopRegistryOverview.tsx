@@ -1321,17 +1321,11 @@ function RegistryHeaderBlock({
       )}
       {showUdsBoxes ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
-          {udsBoxes.some((box) => box.detail.includes("alive"))
-            ? sourceThroughText(
-                "James Wang · UDS_longitudinal_harmonized.csv",
-                formatScopeDate(udsLatestVisitDate),
-                "Alive counts exclude people listed as Deceased. The outlined box matches the breakdown below.",
-              )
-            : sourceThroughText(
-                "James Wang · UDS_longitudinal_harmonized.csv",
-                formatScopeDate(udsLatestVisitDate),
-                "Black. Active is pink. The outlined box matches the cards beside this one.",
-              )}
+          {sourceThroughText(
+            "James Wang · UDS_longitudinal_harmonized.csv",
+            formatScopeDate(udsLatestVisitDate),
+            "Black. Active is pink. The outlined box matches the cards beside this one.",
+          )}
         </p>
       ) : column.headerNote ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
@@ -1574,10 +1568,8 @@ function RegistryAlignedDesktop({
   );
 }
 
-function UdsCumulativeBox({ alive }: { alive: boolean }) {
-  const span = alive
-    ? recruitmentSpanCounts.cumulative.adrcAlive
-    : recruitmentSpanCounts.cumulative.adrc;
+function UdsCumulativeBox() {
+  const span = recruitmentSpanCounts.cumulative.adrc;
 
   return (
     <div className="flex justify-center">
@@ -1587,7 +1579,6 @@ function UdsCumulativeBox({ alive }: { alive: boolean }) {
         </p>
         <p className="mt-2 text-xs leading-snug text-cpbh-navy/60">
           {formatScopeDate(span.fromDate)} – {formatScopeDate(span.throughDate)}
-          {alive ? " · alive" : " · all participants"}
         </p>
         <p
           className={`mt-1 text-4xl font-semibold ${metricValueClass("span", span.total)}`}
@@ -1599,46 +1590,22 @@ function UdsCumulativeBox({ alive }: { alive: boolean }) {
   );
 }
 
-function AliveParticipantsControl({
-  alive,
-  onAliveChange,
-}: {
-  alive: boolean;
-  onAliveChange: (alive: boolean) => void;
-}) {
-  return (
-    <div className="flex justify-center px-2">
-      <label className="inline-flex items-center gap-2 text-sm font-medium text-cpbh-navy cursor-pointer">
-        <input
-          type="checkbox"
-          checked={alive}
-          onChange={(event) => onAliveChange(event.target.checked)}
-          className="h-4 w-4 rounded border-cpbh-navy/40"
-        />
-        Alive participants
-      </label>
-    </div>
-  );
-}
-
 export default function TopRegistryOverview({
   data,
 }: TopRegistryOverviewProps) {
   const [phase, setPhase] = useState<RecruitmentPhase>("ytd");
-  const [alive, setAlive] = useState(true);
   const columns = orderRecruitmentColumns(data.columns).map((column) =>
-    columnForPhase(column, phase, alive),
+    columnForPhase(column, phase),
   );
   const ytdAdrc = data.columns.find((column) => column.id === "adrc");
   const udsBoxes =
     phase === "cumulative" || !ytdAdrc
       ? undefined
-      : udsPeriodBoxes(alive, ytdAdrc.total);
+      : udsPeriodBoxes(false, ytdAdrc.total);
 
   return (
     <section className="relative z-[1] space-y-6 w-full mx-auto max-w-[90rem]">
-      <UdsCumulativeBox alive={alive} />
-      <AliveParticipantsControl alive={alive} onAliveChange={setAlive} />
+      <UdsCumulativeBox />
       <RegistryAlignedDesktop
         columns={columns}
         udsBoxes={udsBoxes}
