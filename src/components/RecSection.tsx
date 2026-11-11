@@ -54,17 +54,17 @@ export default function RecSection({ data, roster }: RecSectionProps) {
                 "data/reference/rec/meeting-attendance.csv",
                 "October 9, 2026",
                 data.attendanceSessionCount
-                  ? `${data.attendanceSessionCount} sessions with attendance reported`
+                  ? `${data.attendanceSessionCount} sessions with attendance reported. The October 16 session is not in this file.`
                   : undefined,
               )}
               accent="navy"
-              provenance="ytd"
+              provenance="span"
             />
             <MetricCard
               label="Total No. Attendees"
               value={data.totalAttendees}
               accent="sky"
-              provenance="ytd"
+              provenance="span"
             />
           </div>
           {data.attendanceSessions.length > 0 ? (
