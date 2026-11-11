@@ -5,7 +5,6 @@ import {
   RegistryChartsHost,
 } from "@/components/MetricsChartsHost";
 import TopRegistryOverview from "@/components/TopRegistryOverview";
-import { JamesUdsPacketBlock } from "@/components/JamesNovember6PacketBlocks";
 import DemographicsTableClient from "@/components/DemographicsTableClient";
 import AdminTableA7Biomarkers from "@/components/AdminTableA7Biomarkers";
 import BiomarkersSection from "@/components/BiomarkersSection";
@@ -137,7 +136,6 @@ export default function DashboardPage() {
               </ChartErrorBoundary>
             </RegistryChartsHost>
           </SectionWithNotes>
-          <JamesUdsPacketBlock />
           </div>
           </div>
           </div>
