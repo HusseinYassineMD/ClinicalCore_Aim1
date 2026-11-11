@@ -178,24 +178,26 @@ export const aim1MockData: Aim1DashboardData = {
         : `Modality counts pending ${DATA_CORE.imagingProduct} export`,
     },
     imagingQc: {
-      status: "prior",
-      source: sourceLabel(METRIC_SOURCES.rppr, "Imaging Core B2 · QC totals"),
-      mockFrom:
-        "James: integrated imaging = availability only · QC/upload ops (Kirsten / LONI) — pending export",
+      status: "span",
+      source: sourceLabel(
+        METRIC_SOURCES.dataCoreY7,
+        "v1.5.4 QC lists · CLARiTI_PET_QC_List · CLARiTI_MRI_QC_List · scan_mri_dashboard",
+      ),
+      realFrom:
+        "Amyloid 19 and tau 18 on the CLARiTI PET QC list. Structural MRI 39 sessions and 984 series on the two MRI QC lists. PET archive through November 3, 2026. MRI study date through October 29, 2026.",
       bulletGroups: [
         {
-          title: priorPeriodCaption(),
+          title: "James QC lists (pink)",
           lines: [
-            `Amyloid PET QC ${r.imagingQc.amyloidPetQc} · Tau PET ${r.imagingQc.tauPetQc} · Structural MRI ${r.imagingQc.structuralMriQc} · new raw PET ${r.imagingQc.newRawPetDatasets} · ${LAST_RPPR_SOURCE}`,
+            "CLARiTI_PET_QC_Listi_1793921811152.csv · amyloid 19 · tau 18",
+            "CLARiTI_MRI_QC_Listi_1793921830826.csv and scan_mri_dashboard_usc_2026-11-05T23_16_11.059Z.csv · structural MRI 39 sessions · 984 series · field mri_qc_summary",
+            "scan_pet_dashboard has 2 tau rows marked Failed QC. No new-raw-PET variable.",
           ],
         },
         {
-          title: "James YTD (black) — different metric",
+          title: priorPeriodCaption(),
           lines: [
-            ytdImagingStudyRollup
-              ? `Modality participants by study_date in ${siteReportingWindow.label} · ${DATA_CORE.imagingProduct}`
-              : "YTD modality counts pending imaging aggregate",
-            "Longitudinal export has modality / study_date / NACC verified — not Imaging Core QC workflow totals",
+            `Old RPPR sentence, different count: amyloid ${r.imagingQc.amyloidPetQc} · tau ${r.imagingQc.tauPetQc} · structural MRI ${r.imagingQc.structuralMriQc} · new raw PET ${r.imagingQc.newRawPetDatasets} · ${LAST_RPPR_SOURCE}`,
           ],
         },
       ],

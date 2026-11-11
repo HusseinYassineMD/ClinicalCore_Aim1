@@ -215,10 +215,13 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   },
   {
     section: "Imaging",
-    metric: "RPPR Imaging QC",
-    value: "114 / 75 / 917 / 14",
+    metric: "Imaging QC lists",
+    value: "Amyloid 19 · tau 18 · structural MRI 39 sessions / 984 series",
     tier: "verified",
-    source: "Last RPPR Imaging Core B2 · rpprMetrics.json",
+    source:
+      "v1.5.4 · CLARiTI_PET_QC_Listi_1793921811152.csv · CLARiTI_MRI_QC_Listi_1793921830826.csv · scan_mri_dashboard_usc_2026-11-05",
+    notes:
+      "Old RPPR sentence is a different count: 114 amyloid, 75 tau, 917 structural MRI, 14 new raw PET datasets. No new-raw-PET variable.",
   },
   {
     section: "Imaging",
