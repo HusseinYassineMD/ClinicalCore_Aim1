@@ -54,9 +54,8 @@ type ChartCountItem = {
 };
 
 /**
- * Provenance is set on each autopsy number. Enrollment 226 stays pink because
- * Xinhui’s table is the October 7 pull and does not run through October 16.
- * Nov 6 MAP counts inside Jan 1–Oct 16 stay black: that pull is after the lock.
+ * Provenance is set on each autopsy number. Enrollment 225 is black.
+ * Xinhui Wang’s table is as of October 16, 2026.
  */
 function countProvenanceForColumn(
   _columnId: string,
@@ -1156,7 +1155,7 @@ function classicRegistryChartSlots(
   ];
 }
 
-/** GeneScreen and autopsy charts use the column chartSlots. Autopsy sex stays pink; ethnicity and APOE are black. */
+/** GeneScreen and autopsy charts use the column chartSlots. Autopsy sex, ethnicity, and APOE are black. */
 function reportingPeriodChartSlots(
   column: RegistryColumn,
 ): [RegistryChartSlot, RegistryChartSlot, RegistryChartSlot] {
@@ -1349,9 +1348,9 @@ function RegistryHeaderBlock({
       ) : column.id === "brs" ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
           {sourceThroughText(
-            "Xinhui Wang · Data Core Table 1",
-            "October 7, 2026",
-            "Pink. That pull stops before Oct 16.",
+            "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · BRS Table",
+            "October 16, 2026",
+            "Black. Current enrollment as of October 16, 2026. Received November 10, 2026.",
           )}
         </p>
       ) : null}

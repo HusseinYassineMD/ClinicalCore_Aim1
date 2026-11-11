@@ -1,10 +1,5 @@
 import type { NeuropathMetrics } from "@/types/aim1";
 import MetricCard from "./MetricCard";
-import {
-  brsLatestAutopsyPerformedDate,
-  brsLatestConsentDate,
-  brsLatestDeathDate,
-} from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 import { HeadingLead, sourceThroughText } from "@/components/HeadingLead";
 import brsRpprTableDataCore from "@/data/brsRpprTableDataCore2026.json";
@@ -38,11 +33,12 @@ export default function NeuropathAdditionalMetrics({
     >
       <HeadingLead
         className="text-cpbh-navy/60 text-sm mb-4"
-        source="James Wang · MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv · pink rows from Xinhui Wang, Data Core Table 1"
-        through={`${formatScopeDate(brsLatestConsentDate)} last consent · ${formatScopeDate(brsLatestDeathDate)} last death · ${formatScopeDate(brsLatestAutopsyPerformedDate)} last autopsy performed · Xinhui pull ${formatScopeDate(brsRpprTableDataCore.meta.mapBrsDataPullDate)}`}
+        source={`Xinhui Wang · ${brsRpprTableDataCore.meta.sourceFile}`}
+        through={formatScopeDate(brsRpprTableDataCore.meta.asOfDate)}
       >
-        Black counts are the November 6 MAP pull, after the October 16 lock.
-        Pink counts are Xinhui Wang, MAP pull {formatScopeDate(brsRpprTableDataCore.meta.mapBrsDataPullDate)}.
+        Black · Brain Research Study table, January 1 through October 16, 2026.
+        Received November 10, 2026. James MAP Active{" "}
+        {mapCmp?.activeStatusOne ?? "231"} is a different count.
       </HeadingLead>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <MetricCard
@@ -51,76 +47,66 @@ export default function NeuropathAdditionalMetrics({
           accent="navy"
           provenance="ytd"
           sublabel={sourceThroughText(
-            "James Wang · MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv",
-            formatScopeDate(brsLatestConsentDate),
-            `Black · ${mapCmp?.newConsents ?? data.brsNewlyConsented} consent dates inside Jan 1–Oct 16 · pull Nov 6, 2026`,
+            "Xinhui Wang · BRS Table",
+            formatScopeDate(brsRpprTableDataCore.meta.asOfDate),
+            "Black · new participants enrolled, January 1 through October 16, 2026.",
           )}
         />
         <MetricCard
           label="Enrolled in Autopsy Program"
           value={data.enrolledInAutopsyProgram ?? "—"}
           accent="teal"
-          provenance="span"
+          provenance="ytd"
           sublabel={sourceThroughText(
-            "Xinhui Wang · Data Core Table 1",
-            formatScopeDate(brsRpprTableDataCore.meta.mapBrsDataPullDate),
-            `Pink · current enrollment · N=${brsRpprTableDataCore.meta.percentDenominator}${
-              mapCmp ? ` · MAP Active in the Nov 6 file: ${mapCmp.activeStatusOne}` : ""
-            }`,
+            "Xinhui Wang · BRS Table",
+            formatScopeDate(brsRpprTableDataCore.meta.asOfDate),
+            `Black · current enrollment N=${brsRpprTableDataCore.meta.percentDenominator}. Active, consent on or before October 16, and still active on October 16.`,
           )}
         />
         <MetricCard
           label="Withdrawals"
           value={data.withdrawals ?? "—"}
           accent="purple"
-          provenance="span"
+          provenance="ytd"
           sublabel={sourceThroughText(
-            "Xinhui Wang · Data Core Table 1",
-            formatScopeDate(brsRpprTableDataCore.meta.mapBrsDataPullDate),
-            "Pink · that pull stops before Oct 16. The Nov 6 MAP file has 0 termination dates inside Jan 1–Oct 16. One NP-reported 2026 withdrawal may not be in MAP yet.",
+            "Xinhui Wang · BRS Table",
+            formatScopeDate(brsRpprTableDataCore.meta.asOfDate),
+            "Black · 1 withdrawal in January 1 through October 16, 2026. Female 1, male 0.",
           )}
         />
         <MetricCard
           label="Participant deaths (RPPR table)"
           value={deathsLabel}
           accent="navy"
-          provenance="span"
-          sublabel={
-            mapCmp
-              ? sourceThroughText(
-                  "Xinhui Wang · Data Core Table 1",
-                  formatScopeDate(brsRpprTableDataCore.meta.mapBrsDataPullDate),
-                  `Pink · 7 with autopsy and 1 without. Nov 6 file: ${mapCmp.deaths} deaths inside Jan 1–Oct 16, last death ${formatScopeDate(brsLatestDeathDate)}.`,
-                )
-              : undefined
-          }
+          provenance="ytd"
+          sublabel={sourceThroughText(
+            "Xinhui Wang · BRS Table",
+            formatScopeDate(brsRpprTableDataCore.meta.asOfDate),
+            "Black · 7 died with autopsy and 1 died without autopsy.",
+          )}
         />
         <MetricCard
           label="Died with autopsy"
           value={data.diedWithAutopsy ?? data.autopsiesPerformed}
           accent="sky"
           provenance="ytd"
-          sublabel={
-            mapCmp
-              ? sourceThroughText(
-                  "James Wang · MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv",
-                  formatScopeDate(brsLatestAutopsyPerformedDate),
-                  `Black · ${mapCmp.autopsiesPerformed} autopsy performed dates inside Jan 1–Oct 16 · pull Nov 6, 2026`,
-                )
-              : "QC: death + autopsy_performed_date + autopsy_number"
-          }
+          sublabel={sourceThroughText(
+            "Xinhui Wang · BRS Table",
+            formatScopeDate(brsRpprTableDataCore.meta.asOfDate),
+            "Black · died with autopsy. Female 2, male 5.",
+          )}
         />
         <MetricCard
           label="Autopsy Enrollment Rate"
           value={enrollmentLabel}
           accent="teal"
-          provenance={hasRate ? "span" : "unknown"}
+          provenance={hasRate ? "ytd" : "unknown"}
           sublabel={
             hasRate
               ? sourceThroughText(
-                  "Xinhui Wang enrollment ÷ James harmonized active cohort",
-                  "September 17, 2026",
-                  `Pink · enrolled ${enrolled} ÷ active cohort N=${adrcTotal}. Neither side runs through October 16.`,
+                  "Xinhui Wang · BRS enrollment ÷ ADRC active table",
+                  formatScopeDate(brsRpprTableDataCore.meta.asOfDate),
+                  `Black · ${enrolled} enrolled ÷ ${adrcTotal} active ADRC participants. Both as of October 16, 2026.`,
                 )
               : undefined
           }

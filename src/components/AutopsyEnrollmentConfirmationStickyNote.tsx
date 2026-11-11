@@ -4,7 +4,7 @@ export default function AutopsyEnrollmentConfirmationStickyNote() {
   return (
     <NeedsConfirmationStickyNote
       ariaLabel="Autopsy enrollment confirmation note"
-      message="226 and its sex split stay pink. They are Xinhui Wang, Data Core Table 1 Brain Research Study, current enrollment, MAP pull Oct 7, 2026: active, consent on or before Oct 16, 2026, and a finished UDS packet. That pull stops before Oct 16, so it is not the old RPPR and it is not a count through October 16. Ethnicity and APOE are black. Ethnicity is James Wang, MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv, status Active, field Subject Ethnicity (231). APOE is James Wang, MAPDatabase-APOEGenotype_DATA_LABELS_2026-11-06_1248.csv, Consolidated APOE Genotype, joined to those 231. Pull Nov 6, 2026, after Oct 16. Last consent Oct 5, 2026. Last death and last autopsy performed date Oct 4, 2026. New consents in the window: 5. Autopsy performed dates in the window: 7. One 2026 withdrawal from Carol (NP) may not be in MAP yet."
+      message="225 is black. Xinhui Wang, Brain Research Study table, email November 10, 2026: active, autopsy consent on or before October 16, 2026, and still active on October 16. Sex is 143 female and 82 male. The person list has the same 225 IDs. Race is Hispanic 39, non-Hispanic White 143, African American 10, Asian 16, Other 17. APOE4 is 71 carriers, 139 non-carriers, and 15 with no genotype. New enrolled 5, withdrawal 1, died with autopsy 7, died without autopsy 1. James MAP Active 231 is a different count. The list filename says active + minimal contact. The table footnote says remained active."
     />
   );
 }

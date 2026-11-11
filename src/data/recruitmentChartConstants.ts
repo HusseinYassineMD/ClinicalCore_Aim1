@@ -1,18 +1,23 @@
-/** MAP BRS · Subject Autopsy Status = Active · recounted from MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv. Same 231 as the Oct 9 file. */
+/**
+ * Xinhui Wang person list, 225 unique UDS IDs, as of 2026-10-16.
+ * MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx
+ * race_ethnicity: 1 Hispanic, 2 non-Hispanic White, 3 African American, 4 Asian, 5 Other.
+ */
 export const BRS_ACTIVE_COHORT = {
-  exportFile: "MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv",
-  activeRows: 231,
-  rpprHeadlineEnrolled: 231,
-  /** Choice 1, choice 0, choice 9 (Unknown). Blank field is Not reported, not Unknown. */
+  exportFile:
+    "MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx",
+  activeRows: 225,
+  rpprHeadlineEnrolled: 225,
   hispanicLatino: [
-    { label: "Hispanic", count: 51 },
-    { label: "Non-Hispanic", count: 178 },
-    { label: "Unknown", count: 1 },
-    { label: "Not reported", count: 1 },
+    { label: "Hispanic", count: 39 },
+    { label: "Non-Hispanic White", count: 143 },
+    { label: "African American", count: 10 },
+    { label: "Asian", count: 16 },
+    { label: "Other", count: 17 },
   ],
   sex: [
-    { label: "Male", count: 85 },
-    { label: "Female", count: 146 },
+    { label: "Male", count: 82 },
+    { label: "Female", count: 143 },
   ],
 } as const;
 
@@ -27,18 +32,15 @@ export const BRS_LEGACY_APOE_PIE = [
 ] as const;
 
 /**
- * APOE among MAP Active (231) in the Nov 6 BRS file, joined to
- * MAPDatabase-APOEGenotype_DATA_LABELS_2026-11-06_1248.csv.
- * Five new genotype rows in that file are outside the BRS cohort.
- * Carrier = any e4 allele (e3/e4 55, e4/e4 10, e4/e2 6).
- * Non-carrier = e3/e3 121, e3/e2 17, e2/e2 2.
- * 20 active participants have no genotype in that file.
- * This is not Xinhui's Data Core N=226.
+ * APOE4 flag on Xinhui's 225-person list.
+ * Carrier = 1 (71). Non-carrier = 0 (139). Blank genotype = 15.
+ * Genotypes among the 210 with a value: e3/e4 55, e4/e4 10, e4/e2 6,
+ * e3/e3 120, e3/e2 17, e2/e2 2.
  */
 export const BRS_ACTIVE_APOE = [
   { label: "APOE4 carrier", count: 71 },
-  { label: "Non-carrier", count: 140 },
-  { label: "No genotype", count: 20 },
+  { label: "Non-carrier", count: 139 },
+  { label: "No genotype", count: 15 },
 ] as const;
 
 /** BRS column · labels only — counts show TBD (unknown provenance, count 0). */

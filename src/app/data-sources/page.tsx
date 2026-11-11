@@ -132,9 +132,10 @@ export default function DataSourcesPage() {
                 <span className="metric-value-ytd font-semibold">
                   N={brsRpprTableDataCore.meta.percentDenominator}
                 </span>{" "}
-                (MAP pull {brsRpprTableDataCore.meta.mapBrsDataPullDate}). Authoritative
-                for recruitment BRS headline and neuropath cards; James MAP raw export
-                kept as cross-check.
+                (as of {brsRpprTableDataCore.meta.asOfDate}, received{" "}
+                {brsRpprTableDataCore.meta.receivedDate}). Authoritative for the
+                recruitment BRS headline and neuropath cards. James MAP Active 231
+                is a different count.
               </p>
               <p className="mt-1 text-cpbh-navy/60 text-xs">
                 <code className="text-xs">src/data/brsRpprTableDataCore2026.json</code>

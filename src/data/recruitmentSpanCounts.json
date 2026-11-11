@@ -640,9 +640,9 @@
       "title": "Total enrolled \u00b7 Autopsy program \u00b7 all time",
       "total": 0,
       "totalAvailable": false,
-      "headerNote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",
+      "headerNote": "Red \u00b7 year-to-date 225 is Data Core current enrollment. This export has no matching enrollment total for this window.",
       "banner": "Cumulative \u00b7 all time",
-      "footnote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",
+      "footnote": "Red \u00b7 year-to-date 225 is Data Core current enrollment. This export has no matching enrollment total for this window.",
       "activities": [
         {
           "label": "New autopsy consents",
@@ -1046,9 +1046,9 @@
       "title": "Total enrolled \u00b7 Autopsy program \u00b7 since 7/1/2025",
       "total": 0,
       "totalAvailable": false,
-      "headerNote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",
+      "headerNote": "Red \u00b7 year-to-date 225 is Data Core current enrollment. This export has no matching enrollment total for this window.",
       "banner": "Active with UDS \u00b7 since 7/1/2025",
-      "footnote": "Red \u00b7 year-to-date 226 is Data Core current enrollment. This export has no matching enrollment total for this window.",
+      "footnote": "Red \u00b7 year-to-date 225 is Data Core current enrollment. This export has no matching enrollment total for this window.",
       "activities": [
         {
           "label": "New autopsy consents",

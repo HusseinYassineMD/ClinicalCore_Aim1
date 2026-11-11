@@ -78,14 +78,14 @@ export default function DashboardPage() {
                   <p className="text-xs font-medium uppercase tracking-wide text-cpbh-navy/55">
                     Total ADRC
                   </p>
-                  <p className="mt-1 text-4xl font-semibold metric-value-span">
+                  <p className="mt-1 text-4xl font-semibold metric-value-ytd">
                     {table1HarmonizedActiveSnapshot.meta.participantCount}
                   </p>
                   <p className="mt-2 text-xs leading-snug text-cpbh-navy/60">
                     {sourceThroughText(
                       table1HarmonizedActiveSnapshot.meta.source,
                       formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate),
-                      "Pink · active cohort. That snapshot stops before October 16.",
+                      "Black · active ADRC participants (UDS) as of October 16, 2026. Received November 10, 2026.",
                     )}
                   </p>
                 </div>

@@ -35,7 +35,7 @@ const ROWS: RowDef[] = [
   { label: "CDR = 0, n (%)", value: (g) => g.cdr0 },
   { label: "CDR = 0.5, n (%)", value: (g) => g.cdr05 },
   { label: "CDR ≥ 1, n (%)", value: (g) => g.cdrGe1 },
-  { label: "APOE ε4, %", value: (g) => g.apoeE4Percent },
+  { label: "APOE ε4, n (%)", value: (g) => g.apoeE4Percent },
   { label: "Follow-up, mean (SD)", value: (g) => g.followUpMeanSD },
 ];
 

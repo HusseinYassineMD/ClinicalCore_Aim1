@@ -139,18 +139,19 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Recruitment · BRS",
     metric: "Total enrolled / new consents · year to date",
-    value: "231 (green) / 4 (black)",
+    value: "225 enrolled · 5 new",
     tier: "verified",
-    source: "RPPR Neuropath B2 (231) · MAPDatabase-BRSCohort harmonized export (4 consents YTD)",
-    notes: siteReportingWindow.label,
+    source:
+      "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · BRS Table · as of 2026-10-16 · received 2026-11-10",
+    notes: "James MAP Active 231 is a different count.",
   },
   {
     section: "Recruitment · BRS",
     metric: "Charts · ethnicity, sex, APOE",
-    value: "Sex 83/143 of 226 · ethnicity 51/178/1/1 of 231 · APOE 71/140/20 of 231",
+    value: "Sex 82 male / 143 female of 225 · race Hispanic 39, White 143, African American 10, Asian 16, Other 17 · APOE 71 / 139 / 15 of 225",
     tier: "verified",
     source:
-      "Sex stays green: Xinhui Wang Data Core current enrollment, MAP pull Oct 7, 2026. Ethnicity and APOE are black: James MAP Nov 6 pull, status Active, 231. The pull is after Oct 16. Last consent Oct 5, 2026.",
+      "Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx · sex, race_ethnicity, APOE4 · as of 2026-10-16",
   },
   {
     section: "Recruitment · BRS",
@@ -280,17 +281,19 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Neuropathology · BRS RPPR",
     metric: "Data Core Table 1 · 01/01/26 – 10/16/26 (EAC lock)",
-    value: "New 5 · withdrawal 1 · current 226 · died w/ autopsy 7 · w/o 1",
+    value: "New 5 · withdrawal 1 · current 225 · died w/ autopsy 7 · w/o 1",
     tier: "verified",
-    source: "brsRpprTableDataCore2026.json · Xinhui Wang · MAP pull 2026-10-07",
-    notes: "Percent column uses N=226 denominator; excludes MAP-active without finalized UDS.",
+    source:
+      "brsRpprTableDataCore2026.json · Xinhui Wang · BRS Table · as of 2026-10-16 · received 2026-11-10",
+    notes: "Percent column uses N=225. Female 143, male 82. James MAP Active 231 is a different count.",
   },
   {
     section: "Neuropathology",
     metric: "Enrollment rate (Data Core enrolled ÷ Table 1 N)",
-    value: "226 / 573 (39.4%)",
+    value: "225 / 585 (38.5%)",
     tier: "verified",
-    source: "brsRpprTableDataCore2026.json + table1Demographics.json",
+    source:
+      "Xinhui Wang BRS current enrollment 225 ÷ Xinhui Wang active ADRC table 585 · both as of 2026-10-16",
   },
   {
     section: "Neuropathology",

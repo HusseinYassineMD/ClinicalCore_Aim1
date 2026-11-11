@@ -1,5 +1,4 @@
 import brsRpprTable from "@/data/brsRpprTableDataCore2026.json";
-import { brsLatestActivityDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 import { metricValueClass } from "@/lib/metricValueClass";
 import { HeadingLead } from "@/components/HeadingLead";
@@ -27,12 +26,12 @@ export default function BrsRpprTableBlock() {
         </h3>
         <HeadingLead
           className="text-cpbh-navy/60 text-sm mt-1"
-          source={`${meta.preparedBy} · Data Core Table 1`}
-          through={formatScopeDate(meta.mapBrsDataPullDate)}
+          source={`${meta.preparedBy} · ${meta.sourceFile}`}
+          through={formatScopeDate(meta.asOfDate)}
         >
-          Pink · this table stops before Oct 16, 2026. It is the latest packet
-          from that pull, not the old RPPR. The Nov 6 MAP file is a separate
-          pull. Last consent in that file {formatScopeDate(brsLatestActivityDate)}.
+          Black · window {meta.windowLabel}. Received November 10, 2026. Current
+          enrollment is as of October 16, 2026. James MAP Active 231 is a
+          different count.
         </HeadingLead>
         <p className="text-cpbh-navy/55 text-xs mt-2 leading-relaxed max-w-3xl mx-auto">
           {currentEnrollmentDefinition}
@@ -68,22 +67,22 @@ export default function BrsRpprTableBlock() {
                   {row.emphasis ? "*" : ""}
                 </td>
                 <td
-                  className={`px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 ${metricValueClass("span", row.participants)}`}
+                  className={`px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 ${metricValueClass("ytd", row.participants)}`}
                 >
                   {row.participants}
                 </td>
                 <td
                   className={`px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 ${metricValueClass(
-                    row.percentOfEnrollment == null ? "unknown" : "span",
+                    row.percentOfEnrollment == null ? "unknown" : "ytd",
                     row.percentOfEnrollment ?? "—",
                   )}`}
                 >
                   {formatPercent(row.percentOfEnrollment)}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 metric-value-span">
+                <td className="px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 metric-value-ytd">
                   {row.female}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 metric-value-span">
+                <td className="px-4 py-3 text-right tabular-nums border-b border-cpbh-mist/80 metric-value-ytd">
                   {row.male}
                 </td>
               </tr>
@@ -97,11 +96,10 @@ export default function BrsRpprTableBlock() {
           as denominator (RPPR historical algorithm).
         </p>
         <p>
-          Raw James MAP export ({brsRpprTable.comparisonJamesMapExportOct9.windowDashboardAggregate}):
-          active status=1 n=
-          {brsRpprTable.comparisonJamesMapExportOct9.subject_brs_status_active};
-          consents {brsRpprTable.comparisonJamesMapExportOct9.newAutopsyConsentsInWindow}{" "}
-          · differs after Data Core QC and MAP pull date.
+          James MAP Active in the November 6 file is{" "}
+          {brsRpprTable.comparisonJamesMapExportOct9.subject_brs_status_active}.
+          That file is {brsRpprTable.comparisonJamesMapExportOct9.sourceFile}. It
+          is a different count from this table.
         </p>
         <details className="group">
           <summary className="cursor-pointer text-cpbh-sky font-medium">

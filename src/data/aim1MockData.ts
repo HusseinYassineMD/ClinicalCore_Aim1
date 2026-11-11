@@ -20,7 +20,6 @@ import {
   biomarkerLatestCollectionDate,
   biospecimenLatestCollectionDate,
   biospecimenLatestSpecimenDate,
-  brsLatestActivityDate,
   neurobankRequestFileLatestDate,
   neurobankRequestLatestDate,
   packageYtd,
@@ -336,24 +335,25 @@ export const aim1MockData: Aim1DashboardData = {
       ],
     },
     neuropathology: {
-      status: "mixed",
-      realFrom: `Data Core BRS RPPR Table 1 · ${brsRpprTableDataCore.meta.windowLabel} · MAP pull ${brsRpprTableDataCore.meta.mapBrsDataPullDate}`,
-      mockFrom: `James MAP raw export · ${siteReportingWindow.label} · cross-check only`,
+      status: "ytd",
+      realFrom: `Xinhui Wang · BRS Table · ${brsRpprTableDataCore.meta.windowLabel} · as of ${formatScopeDate(brsRpprTableDataCore.meta.asOfDate)}`,
+      mockFrom: `James MAP Active 231 is a different count`,
       bulletGroups: [
         {
-          title: `RPPR BRS Table 1 (green · last MAP date ${formatScopeDate(brsLatestActivityDate)})`,
+          title: `Xinhui Wang · BRS Table (black · as of ${formatScopeDate(brsRpprTableDataCore.meta.asOfDate)})`,
           lines: [
-            `Current enrollment N=${brsDcEnrollmentN ?? "—"} · new ${brsDcNew?.participants ?? "—"} · withdrawal ${brsDcWithdrawal?.participants ?? "—"}`,
+            `Current enrollment N=${brsDcEnrollmentN ?? "—"} · female ${brsDcCurrent?.female ?? "—"} · male ${brsDcCurrent?.male ?? "—"}`,
+            `New ${brsDcNew?.participants ?? "—"} · withdrawal ${brsDcWithdrawal?.participants ?? "—"}`,
             `Deaths: ${brsDcDiedWithAutopsy?.participants ?? "—"} with autopsy · ${brsDcDiedWithoutAutopsy?.participants ?? "—"} w/o autopsy`,
             brsRpprTableDataCore.currentEnrollmentDefinition,
-            `Pending: Tiffany confirmation of RPPR withdrawal window (1/1/2026–10/16/2026 proposed); Carol NP withdrawal may be missing from MAP.`,
           ],
         },
         {
-          title: "James MAP export Nov 6 (black · pull is after Oct 16)",
+          title: "Person list (black · same 225)",
           lines: [
-            `5 consents · 7 autopsy_performed_date · 9 date_of_death · ${siteReportingWindow.label}`,
-            `Active n=231 · MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv · last consent Oct 5, 2026 · last death Oct 4, 2026 · last performed Oct 4, 2026`,
+            "Hispanic 39 · non-Hispanic White 143 · African American 10 · Asian 16 · Other 17",
+            "APOE4 carrier 71 · non-carrier 139 · no genotype 15",
+            "James MAP Active on November 6 is 231. That is a different count.",
           ],
         },
         {
@@ -404,14 +404,16 @@ export const aim1MockData: Aim1DashboardData = {
       ],
     },
     demographics: {
-      status: "prior",
-      source: `${LAST_RPPR_SOURCE} · table1Demographics.json · Table 1 cohort`,
+      status: "ytd",
+      source:
+        "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · ADRC_active_all by race · received November 10, 2026",
       bulletGroups: [
         {
-          title: "Not the same as",
+          title: "Black · active ADRC participants as of October 16, 2026",
           lines: [
-            `ADRC registry card headline (${ytdParticipantsWithVisit}) — unique participants with UDS visit · ${siteReportingWindow.label} · black · last visit in James’s file ${formatScopeDate(udsLatestVisitDate)}`,
-            "Harmonized YTD Table 1 — planned in Data Core export",
+            `N=${table1HarmonizedActiveSnapshot.meta.participantCount} · MoCA N=${table1HarmonizedActiveSnapshot.meta.mocaN} · APOE ε4 N=${table1HarmonizedActiveSnapshot.meta.apoeN}`,
+            `ADRC registry card (${ytdParticipantsWithVisit}) is a different count: unique participants with a UDS visit · ${siteReportingWindow.label} · last visit ${formatScopeDate(udsLatestVisitDate)}`,
+            "September 17 harmonized snapshot (N=569) and the old RPPR workbook (N=573) are not this table",
           ],
         },
       ],
@@ -598,10 +600,10 @@ export const aim1MockData: Aim1DashboardData = {
             provenance: "ytd",
           },
         ],
-        totalsProvenance: "span",
-        chartsProvenance: "span",
+        totalsProvenance: "ytd",
+        chartsProvenance: "ytd",
         periodTargetNote:
-          "Source: James Wang · MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv. Through: October 5, 2026. Black · 5 consent dates inside Jan 1–Oct 16.",
+          "Source: Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · BRS Table. Through: October 16, 2026. Black · 5 new participants enrolled.",
         chartSlots: [
           {
             title: "Ethnicity",
@@ -611,7 +613,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "ytd",
             n: BRS_ACTIVE_COHORT.activeRows,
             nCaption:
-              "Source: James Wang · MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv. Through: October 5, 2026. Black · status Active · Subject Ethnicity · 231. Pull Nov 6, 2026, after Oct 16.",
+              "Source: Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx · race_ethnicity. Through: October 16, 2026. Black · 225 people. Hispanic 39, non-Hispanic White 143, African American 10, Asian 16, Other 17.",
             items: BRS_ACTIVE_COHORT.hispanicLatino.map((row) => ({
               label: row.label,
               count: row.count,
@@ -626,7 +628,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "ytd",
             n: BRS_ACTIVE_COHORT.activeRows,
             nCaption:
-              "Source: James Wang · MAPDatabase-APOEGenotype_DATA_LABELS_2026-11-06_1248.csv. Through: November 6, 2026. Black · Consolidated APOE Genotype joined to the 231 Active rows · an e4 allele is a carrier. Pull Nov 6, 2026, after Oct 16.",
+              "Source: Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx · APOE4. Through: October 16, 2026. Black · 71 carriers, 139 non-carriers, 15 with no genotype.",
             items: BRS_ACTIVE_APOE.map((row) => ({
               label: row.label,
               count: row.count,
@@ -636,22 +638,22 @@ export const aim1MockData: Aim1DashboardData = {
           {
             title: "Sex",
             type: "bar",
-            provenance: "span",
-            nProvenance: "span",
-            chartProvenance: "span",
+            provenance: "ytd",
+            nProvenance: "ytd",
+            chartProvenance: "ytd",
             n: brsDcEnrollmentN ?? undefined,
             nCaption:
-              "Source: Xinhui Wang · Data Core Table 1. Through: October 7, 2026. Pink · current enrollment. That pull stops before Oct 16.",
+              "Source: Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · BRS Table. Through: October 16, 2026. Black · current enrollment. Female 143, male 82. The person list matches this split.",
             items: [
               {
                 label: "Male",
                 count: brsDcCurrent?.male ?? 0,
-                provenance: "span" as const,
+                provenance: "ytd" as const,
               },
               {
                 label: "Female",
                 count: brsDcCurrent?.female ?? 0,
-                provenance: "span" as const,
+                provenance: "ytd" as const,
               },
             ],
           },

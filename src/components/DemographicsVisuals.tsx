@@ -30,7 +30,7 @@ import {
 import { METRIC_CHART_COLORS, metricValueClass } from "@/lib/metricValueClass";
 import { PIE_START_AT_TWELVE, sortPieSlicesAscending } from "@/lib/pieChartConfig";
 
-/** Table 1 charts: stratum hues stay; every count label is green (old RPPR cohort). */
+/** Table 1 charts: stratum hues stay; count labels follow the October 16 snapshot (black). */
 const TABLE1_OVERALL_FILL = "#1a2744";
 const TABLE1_STRATA_FILLS = [
   "#5b4b8a",
@@ -39,7 +39,7 @@ const TABLE1_STRATA_FILLS = [
   "#8b7cb8",
   "#6b9080",
 ] as const;
-const TABLE1_CHART_LABEL_FILL = METRIC_CHART_COLORS.span;
+const TABLE1_CHART_LABEL_FILL = METRIC_CHART_COLORS.ytd;
 
 function chartSliceFill(index: number): string {
   if (index === 0) return TABLE1_OVERALL_FILL;
@@ -534,7 +534,10 @@ export default function DemographicsVisuals({
         </ChartCard>
         <ChartCard title="APOE ε4 (%)" subtitle="Participants with genotype" plotHeight={BAR_H}>
           <StratumBarChart
-            data={stratumSeries(data, (g) => parsePercent(g.apoeE4Percent))}
+            data={stratumSeries(data, (g) => {
+              const p = parseParenPercent(g.apoeE4Percent);
+              return p > 0 ? p : parsePercent(g.apoeE4Percent);
+            })}
             unit="%"
             domain={[0, 50]}
           />
@@ -548,7 +551,7 @@ export default function DemographicsVisuals({
         <ChartCard title="Education (years, median)" subtitle="Table 1 median" plotHeight={BAR_H}>
           <StratumBarChart
             data={stratumSeries(data, (g) => parseMeanSD(g.eduMedianIQR))}
-            domain={[12, 18]}
+            domain={[12, 20]}
           />
         </ChartCard>
         <ChartCard title="Follow-up (years, mean)" subtitle="Registry duration" plotHeight={BAR_H}>

@@ -20,6 +20,8 @@ type HarmonizedSnapshot = Table1VisualData & {
     participantCount: number;
     cohortDefinition: string;
     workflowReference: string;
+    mocaN?: number;
+    apoeN?: number;
   };
 };
 
@@ -46,8 +48,8 @@ export default function DemographicsTableClient() {
           source={harmonized.meta.source}
           through={formatScopeDate(harmonized.meta.asOfDate)}
         >
-          Pink · harmonized active cohort. That snapshot stops before October 16.
-          It is not the old RPPR.
+          Black · active ADRC participants (UDS) as of October 16, 2026. Received
+          November 10, 2026. This replaces the September 17 snapshot (N=569).
         </HeadingLead>
       </div>
 
@@ -59,13 +61,12 @@ export default function DemographicsTableClient() {
         <DemographicsTable
           data={harmonized}
           columnKeys={HARMONIZED_COLUMNS}
-          valueProvenance="span"
+          valueProvenance="ytd"
         />
         <p className="mt-3 px-2 py-3 text-xs text-cpbh-navy/50 border-t border-cpbh-mist bg-cpbh-mist/20 rounded-xl">
-          {harmonized.meta.cohortDefinition} NIH RPPR enrollment workflow: Cohort 2
-          (active through period end) —{" "}
+          {harmonized.meta.cohortDefinition} MoCA N={harmonized.meta.mocaN ?? "—"};
+          APOE ε4 N={harmonized.meta.apoeN ?? "—"}. File:{" "}
           <code className="text-[11px]">{harmonized.meta.workflowReference}</code>.
-          MoCA N=528; APOE ε4 N=475 in source table.
         </p>
       </div>
 
@@ -74,10 +75,10 @@ export default function DemographicsTableClient() {
           Charts below parse the Table 1 cells above. Source:{" "}
           {harmonized.meta.source}. Through:{" "}
           {formatScopeDate(harmonized.meta.asOfDate)}. Bar colors by stratum.
-          Numbers in pink. That snapshot stops before October 16.
+          Numbers in black. As of October 16, 2026.
         </p>
         <ChartErrorBoundary fallbackTitle="Demographics charts could not load">
-          <DemographicsVisuals data={harmonized} valueProvenance="span" />
+          <DemographicsVisuals data={harmonized} valueProvenance="ytd" />
         </ChartErrorBoundary>
       </div>
     </div>

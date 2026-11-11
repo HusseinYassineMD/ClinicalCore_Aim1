@@ -376,7 +376,7 @@ def summarize_brs(
     end: datetime,
     phrase: str,
 ) -> dict:
-    """Year-to-date 226 is Data Core current enrollment, not a date-filtered consent count.
+    """Year-to-date 225 is Data Core current enrollment, not a date-filtered consent count.
 
     The MAP export has consent dates, but it does not contain an enrollment total
     for 'since 9/1/2020' or for all years that uses the Data Core rule. Leave the
@@ -389,7 +389,7 @@ def summarize_brs(
         else "Active with UDS · since 7/1/2025"
     )
     note = (
-        "Red · year-to-date 226 is Data Core current enrollment. "
+        "Red · year-to-date 225 is Data Core current enrollment. "
         "This export has no matching enrollment total for this window."
     )
     empty = {
