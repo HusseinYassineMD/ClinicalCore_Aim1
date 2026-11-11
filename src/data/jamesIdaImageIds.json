@@ -1,0 +1,17 @@
+{
+  "packageVersion": "v1.5.4",
+  "sourceFile": "USC_ADRC_Integrated_Imaging_Availability_v1.5.4.csv",
+  "imageIdField": "image_id",
+  "searchFiles": [
+    "idaSearch_11_05_2026.csv",
+    "idaSearch_9_10_2026_SCAN.csv"
+  ],
+  "excludedSearchFile": "idaSearch_9_10_2026_CLARiTI.csv",
+  "excludedReason": "That CLARiTI IDA search has participants and no image_id.",
+  "searchFilesShareNoImageId": true,
+  "throughDate": "2026-11-04",
+  "mriParticipants": 10266,
+  "mriImageIds": 143660,
+  "petParticipants": 6775,
+  "petImageIds": 13573
+}

@@ -153,7 +153,8 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     bullets: [
       `SCAN, CLARiTI, and the study-wide table are black: Integrated Imaging v1.5.4 · filter window ${ytdLabel} · latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}.`,
       `Integrated study summary is black: v1.5.4, latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}.`,
-      `RPPR Imaging QC and IDA stay green: old RPPR · ${rpprPeriod}.`,
+      `RPPR Imaging QC stays green: old RPPR · ${rpprPeriod}.`,
+      `IDA image IDs are pink: James v1.5.4 · image_id in idaSearch_11_05_2026.csv and idaSearch_9_10_2026_SCAN.csv · through November 4, 2026. The old RPPR upload sentence is a different count.`,
     ],
   },
 ];

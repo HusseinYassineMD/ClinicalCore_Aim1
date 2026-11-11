@@ -215,10 +215,20 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   },
   {
     section: "Imaging",
-    metric: "QC & IDA upload counts",
-    value: "114 / 75 / 917 · 2,618 MR",
+    metric: "RPPR Imaging QC",
+    value: "114 / 75 / 917 / 14",
     tier: "verified",
-    source: "RPPR Imaging & Data Core B2",
+    source: "Last RPPR Imaging Core B2 · rpprMetrics.json",
+  },
+  {
+    section: "Imaging",
+    metric: "IDA image IDs",
+    value: "MR 10,266 participants / 143,660 image IDs · PET 6,775 / 13,573",
+    tier: "verified",
+    source:
+      "USC_ADRC_Integrated_Imaging_Availability_v1.5.4.csv · image_id · idaSearch_11_05_2026.csv and idaSearch_9_10_2026_SCAN.csv · through 2026-11-04",
+    notes:
+      "Old RPPR upload sentence is a different count: 2,489 MR participants, 2,618 MR scans, 1,073 PET participants, 1,068 PET scans.",
   },
   // Biomarkers
   {

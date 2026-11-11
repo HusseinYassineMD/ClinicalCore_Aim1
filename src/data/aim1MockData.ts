@@ -201,22 +201,25 @@ export const aim1MockData: Aim1DashboardData = {
       ],
     },
     idaImagingUpload: {
-      status: "prior",
-      source: sourceLabel(METRIC_SOURCES.rppr, "Data Core B2 · IDA upload totals"),
-      mockFrom:
-        "James defers IDA upload totals to Imaging Core / LONI — not in harmonized availability CSVs",
+      status: "span",
+      source: sourceLabel(
+        METRIC_SOURCES.dataCoreY7,
+        "USC_ADRC_Integrated_Imaging_Availability_v1.5.4.csv · image_id",
+      ),
+      realFrom:
+        "Unique image_id values in idaSearch_11_05_2026.csv and idaSearch_9_10_2026_SCAN.csv. The two files share no image_id. Through November 4, 2026.",
       bulletGroups: [
         {
-          title: priorPeriodCaption(),
+          title: "James IDA image IDs (pink)",
           lines: [
-            `MR ${r.idaImagingUpload.mrScans} scans / ${r.idaImagingUpload.mrParticipants} participants · PET ${r.idaImagingUpload.petScans} / ${r.idaImagingUpload.petParticipants} · ${LAST_RPPR_SOURCE}`,
+            "MR 10,266 participants · 143,660 image IDs · PET 6,775 participants · 13,573 image IDs",
+            "idaSearch_9_10_2026_CLARiTI.csv has participants and no image_id, so it is not in this count",
           ],
         },
         {
-          title: "James YTD (black) — different metric",
+          title: priorPeriodCaption(),
           lines: [
-            `Integrated Imaging longitudinal · unique participants with study_date in ${siteReportingWindow.label} (SCAN / CLARiTI / study-wide table)`,
-            "No IDA or Imaging Core QC fields in USC_ADRC_Imaging_Availability_*.csv",
+            `Old RPPR sentence, different count: MR ${r.idaImagingUpload.mrScans} scans / ${r.idaImagingUpload.mrParticipants} participants · PET ${r.idaImagingUpload.petScans} / ${r.idaImagingUpload.petParticipants} · ${LAST_RPPR_SOURCE}`,
           ],
         },
       ],
