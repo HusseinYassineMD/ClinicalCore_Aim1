@@ -11,7 +11,6 @@ import BiomarkersSection from "@/components/BiomarkersSection";
 import ImagingSection from "@/components/ImagingSection";
 import RecSection from "@/components/RecSection";
 import NeuropathAdditionalMetrics from "@/components/NeuropathAdditionalMetrics";
-import BrsRpprTableBlock from "@/components/BrsRpprTableBlock";
 import SpecimenSharingSection from "@/components/SpecimenSharingSection";
 import DemographicsTableStickyNote from "@/components/DemographicsTableStickyNote";
 import DashboardContactFooter from "@/components/DashboardContactFooter";
@@ -163,7 +162,6 @@ export default function DashboardPage() {
             }
           >
             <NeuropathAdditionalMetrics data={data.neuropath} />
-            <BrsRpprTableBlock />
           </SectionWithNotes>
           <SectionWithNotes
             notes={
