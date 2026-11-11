@@ -89,10 +89,10 @@
     font-weight: 600;
   }
 
-  /* Table 1 chart counts are pink: September 17 snapshot, not through October 16. */
+  /* Table 1 chart counts are black: Xinhui's active cohort as of October 16, 2026. */
   .demographics-chart-plot .recharts-label text,
   .demographics-chart-plot .recharts-label-list text {
-    fill: #db2777 !important;
+    fill: #0a0a0a !important;
   }
 
   .metric-value-unknown {
