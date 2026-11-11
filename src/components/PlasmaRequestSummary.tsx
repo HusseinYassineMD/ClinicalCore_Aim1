@@ -19,7 +19,7 @@ export default function PlasmaRequestSummaryBlock({
       <p className="text-cpbh-navy/55 text-xs mb-4">
         REDCap plasma_nci_req · plasma_mci_req · plasma_ad_req · {periodLabel}
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <MetricCard
           label="Requests with plasma"
           value={data.requestsWithPlasma}
@@ -30,12 +30,6 @@ export default function PlasmaRequestSummaryBlock({
           label="Plasma aliquots requested"
           value={data.aliquotsRequested}
           accent="purple"
-          provenance={provenance}
-        />
-        <MetricCard
-          label="Plasma requests fulfilled"
-          value={data.requestsFulfilled}
-          accent="teal"
           provenance={provenance}
         />
       </div>

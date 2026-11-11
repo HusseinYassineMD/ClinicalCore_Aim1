@@ -31,6 +31,9 @@ export default function NeuropathAdditionalMetrics({
       data-deck-slide="neuropath-autopsy-metrics"
       data-deck-caption="Neuropathology · autopsy & consent metrics"
     >
+      <h3 className="font-display text-xl font-semibold text-cpbh-navy text-center mb-2">
+        BRS autopsy program
+      </h3>
       <HeadingLead
         className="text-cpbh-navy/60 text-sm mb-4"
         source={`Xinhui Wang · ${brsRpprTableDataCore.meta.sourceFile}`}
@@ -53,7 +56,7 @@ export default function NeuropathAdditionalMetrics({
           )}
         />
         <MetricCard
-          label="Enrolled in Autopsy Program"
+          label="UDS participants enrolled"
           value={data.enrolledInAutopsyProgram ?? "—"}
           accent="teal"
           provenance="ytd"

@@ -1,6 +1,8 @@
 import spanCounts from "@/data/recruitmentSpanCounts.json";
+import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
 import { udsLatestVisitDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
+import { parseLeadingCount } from "@/lib/table1Parse";
 import type {
   DataProvenance,
   RegistryChartSlot,
@@ -101,16 +103,121 @@ export type UdsPeriodBox = {
 
 const udsThrough = formatScopeDate(udsLatestVisitDate);
 
+const ACTIVE_ADRC_SOURCE =
+  "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · sheet ADRC_active_all by race";
+
+/** Active ADRC participants (UDS data) as of October 16, 2026. Not the since-7/1/2025 visit count. */
+function activeAdrcColumn(column: RegistryColumn): RegistryColumn {
+  const n = table1HarmonizedActiveSnapshot.meta.participantCount;
+  const male = parseLeadingCount(table1HarmonizedActiveSnapshot.overall.male);
+  const female = n - male;
+  const apoeCarriers = parseLeadingCount(
+    table1HarmonizedActiveSnapshot.overall.apoeE4Percent,
+  );
+  const ytd = "ytd" as const;
+  const caption = `Source: ${ACTIVE_ADRC_SOURCE}. Through: October 16, 2026. Black · active ADRC participants (UDS data).`;
+  const race = [
+    ["Hispanic", table1HarmonizedActiveSnapshot.hispanic.n],
+    ["White", table1HarmonizedActiveSnapshot.white.n],
+    ["Black", table1HarmonizedActiveSnapshot.black.n],
+    ["Asian", table1HarmonizedActiveSnapshot.asian.n],
+    ["Other/unknown", table1HarmonizedActiveSnapshot.otherUnknown.n],
+  ] as const;
+
+  return {
+    ...column,
+    title: "Active ADRC participants (UDS)",
+    total: n,
+    totalsProvenance: ytd,
+    chartsProvenance: ytd,
+    newThisPeriod: n,
+    periodTarget: undefined,
+    periodBanner: "Active ADRC participants (UDS)",
+    periodTargetNote: `Female on the sex chart is ${n} minus the male count on the sheet. James Wang, UDS visits since 7/1/2025, is ${SPAN.grant.adrc.total}. That is a different count.`,
+    headerNote: caption,
+    gender: undefined,
+    periodActivities: [
+      {
+        label: "MoCA N",
+        count: table1HarmonizedActiveSnapshot.meta.mocaN,
+        provenance: ytd,
+      },
+      {
+        label: "APOE N",
+        count: table1HarmonizedActiveSnapshot.meta.apoeN,
+        provenance: ytd,
+      },
+      { label: "APOE4 allele", count: apoeCarriers, provenance: ytd },
+    ],
+    chartSlots: [
+      {
+        title: "Race/ethnicity",
+        type: "bar",
+        provenance: ytd,
+        nProvenance: ytd,
+        chartProvenance: ytd,
+        n,
+        nCaption: caption,
+        items: race.map(([label, raw]) => ({
+          label,
+          count: parseLeadingCount(raw),
+          provenance: ytd,
+        })),
+      },
+      {
+        title: "Sex",
+        type: "bar",
+        provenance: ytd,
+        nProvenance: ytd,
+        chartProvenance: ytd,
+        n,
+        nCaption: `${caption} Male ${male} is the cell on the sheet. Female ${female} is ${n} minus that male count.`,
+        items: [
+          { label: "Male", count: male, provenance: ytd },
+          { label: "Female", count: female, provenance: ytd },
+        ],
+      },
+      {
+        title: "CDR global",
+        type: "bar",
+        provenance: ytd,
+        nProvenance: ytd,
+        chartProvenance: ytd,
+        n,
+        nCaption: caption,
+        items: [
+          {
+            label: "CDR = 0",
+            count: parseLeadingCount(table1HarmonizedActiveSnapshot.overall.cdr0),
+            provenance: ytd,
+          },
+          {
+            label: "CDR = 0.5",
+            count: parseLeadingCount(table1HarmonizedActiveSnapshot.overall.cdr05),
+            provenance: ytd,
+          },
+          {
+            label: "CDR >= 1",
+            count: parseLeadingCount(
+              table1HarmonizedActiveSnapshot.overall.cdrGe1,
+            ),
+            provenance: ytd,
+          },
+        ],
+      },
+    ],
+  };
+}
+
 /** Active and year to date, shown together in the UDS header. */
 export function udsPeriodBoxes(alive: boolean, ytdTotal: number): UdsPeriodBox[] {
-  const active = alive ? SPAN.grant.adrcAlive : SPAN.grant.adrc;
   return [
     {
       id: "grant",
       label: "Active with UDS",
-      detail: alive ? "since 7/1/2025 · alive" : "since 7/1/2025",
-      total: active.total,
-      provenance: "span",
+      detail: "as of Oct 16, 2026",
+      total: table1HarmonizedActiveSnapshot.meta.participantCount,
+      provenance: "ytd",
     },
     {
       id: "ytd",
@@ -135,6 +242,7 @@ export function columnForPhase(
     if (phase === "cumulative") return applySpan(column, SPAN.cumulative[column.id]);
     return column;
   }
+  if (phase === "grant") return activeAdrcColumn(column);
   if (alive) return applySpan(column, SPAN[phase].adrcAlive);
   if (phase === "ytd") return column;
   return applySpan(column, SPAN[phase].adrc);

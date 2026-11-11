@@ -36,7 +36,7 @@ function SpecimenSharingSnapshot({
           : "rounded-xl border border-cpbh-mist bg-cpbh-mist/15 p-4"
       }
     >
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <MetricCard
           label="# of Requests Received"
           value={data.requestsReceived}
@@ -97,12 +97,6 @@ function SpecimenSharingSnapshot({
             </ClientMountGate>
           </div>
         </div>
-        <MetricCard
-          label="# of Requests Fulfilled"
-          value={data.requestsFulfilled}
-          accent="purple"
-          provenance={provenance}
-        />
       </div>
       {data.plasma && (
         <PlasmaRequestSummaryBlock

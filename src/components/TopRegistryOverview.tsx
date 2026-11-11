@@ -1114,13 +1114,13 @@ function classicRegistryChartSlots(
     return [
       {
         ...slotBase,
-        title: "Ethnicity",
+        title: "Race/ethnicity",
         type: "bar",
         items: ethnicityOrDemoItems,
       },
       {
         ...slotBase,
-        title: "APOE genotype",
+        title: "APOE4 carrier",
         type: "pie",
         items: apoeItems,
       },
@@ -1324,7 +1324,7 @@ function RegistryHeaderBlock({
           {sourceThroughText(
             "James Wang · UDS_longitudinal_harmonized.csv",
             formatScopeDate(udsLatestVisitDate),
-            "Black. Active is pink. The outlined box matches the cards beside this one.",
+            "Year to date is black. Active with UDS is Xinhui Wang, active ADRC participants (UDS data) as of October 16, 2026, black. The outlined box matches the cards beside this one.",
           )}
         </p>
       ) : column.headerNote ? (
@@ -1490,7 +1490,7 @@ const RECRUITMENT_COLUMN_ORDER: RegistryColumn["id"][] = [
 const RECRUITMENT_ROW_LABEL: Record<RegistryColumn["id"], string> = {
   adrc: "UDS",
   genescreen: "GeneScreen",
-  brs: "Autopsy program",
+  brs: "BRS autopsy program",
 };
 
 function orderRecruitmentColumns(columns: RegistryColumn[]): RegistryColumn[] {
@@ -1575,7 +1575,7 @@ function UdsCumulativeBox() {
     <div className="flex justify-center">
       <div className="dashboard-card w-full max-w-xs p-5 text-center">
         <p className="text-xs font-medium uppercase tracking-wide text-cpbh-navy/55">
-          Cumulative up to date for UDS
+          USC ADRC cumulative
         </p>
         <p className="mt-2 text-xs leading-snug text-cpbh-navy/60">
           {formatScopeDate(span.fromDate)} – {formatScopeDate(span.throughDate)}
@@ -1584,6 +1584,13 @@ function UdsCumulativeBox() {
           className={`mt-1 text-4xl font-semibold ${metricValueClass("span", span.total)}`}
         >
           {span.total}
+        </p>
+        <p className="mt-2 text-[10px] leading-snug text-cpbh-navy/55">
+          {sourceThroughText(
+            "James Wang · UDS_longitudinal_harmonized.csv",
+            formatScopeDate(span.throughDate),
+            "Pink · all participants in the USC ADRC file. Active with UDS is the October 16 snapshot, a different count.",
+          )}
         </p>
       </div>
     </div>

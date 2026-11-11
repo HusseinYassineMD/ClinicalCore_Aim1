@@ -20,7 +20,6 @@ import { sourceThroughText } from "@/components/HeadingLead";
 import { lastRpprReportingPeriod } from "@/data/reportingPeriodLegend";
 import DataStatusStickyNote from "@/components/DataStatusStickyNote";
 import AutopsyEnrollmentConfirmationStickyNote from "@/components/AutopsyEnrollmentConfirmationStickyNote";
-import FulfilledConfirmationStickyNote from "@/components/FulfilledConfirmationStickyNote";
 import StickyNoteRail, {
   SectionWithNotes,
 } from "@/components/StickyNoteRail";
@@ -175,7 +174,6 @@ export default function DashboardPage() {
                   heading="Tissue Inquiries"
                   {...data.sectionDataStatus.specimenSharingNeurobank}
                 />
-                <FulfilledConfirmationStickyNote />
               </StickyNoteRail>
             }
           >
@@ -226,7 +224,6 @@ export default function DashboardPage() {
                   heading="Biofluid Inquiries"
                   {...data.sectionDataStatus.specimenSharingBiofluids}
                 />
-                <FulfilledConfirmationStickyNote />
               </StickyNoteRail>
             }
           >

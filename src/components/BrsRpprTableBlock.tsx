@@ -1,4 +1,5 @@
 import brsRpprTable from "@/data/brsRpprTableDataCore2026.json";
+import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 import { metricValueClass } from "@/lib/metricValueClass";
 import { HeadingLead } from "@/components/HeadingLead";
@@ -13,6 +14,10 @@ function formatPercent(value: number | null): string {
 export default function BrsRpprTableBlock() {
   const { meta, currentEnrollmentDefinition, methodology, qcNotes, rows } =
     brsRpprTable;
+
+  const adrcActive = table1HarmonizedActiveSnapshot.meta.participantCount;
+  const ratePercent =
+    Math.round((meta.percentDenominator / adrcActive) * 1000) / 10;
 
   return (
     <div
@@ -92,7 +97,11 @@ export default function BrsRpprTableBlock() {
       </div>
       <div className="px-6 py-4 text-xs text-cpbh-navy/55 space-y-2 border-t border-cpbh-mist bg-cpbh-mist/15">
         <p>
-          *{meta.percentDenominatorLabel} — percentages use N={meta.percentDenominator}{" "}
+          Autopsy enrollment rate is {meta.percentDenominator} / {adrcActive} ({ratePercent}%).
+          That is current enrollment divided by active ADRC participants with UDS data, both as of October 16, 2026.
+        </p>
+        <p>
+          *{meta.percentDenominatorLabel} — percentages in the table use N={meta.percentDenominator}{" "}
           as denominator (RPPR historical algorithm).
         </p>
         <p>

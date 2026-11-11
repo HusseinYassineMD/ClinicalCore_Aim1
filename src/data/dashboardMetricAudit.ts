@@ -147,8 +147,8 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   },
   {
     section: "Recruitment · BRS",
-    metric: "Charts · ethnicity, sex, APOE",
-    value: "Sex 82 male / 143 female of 225 · race Hispanic 39, White 143, African American 10, Asian 16, Other 17 · APOE 71 / 139 / 15 of 225",
+    metric: "Charts · race/ethnicity, sex, APOE4",
+    value: "sex Male 82 / Female 143 of 225 · race/ethnicity Hispanic 39, non-Hispanic White 143, African American 10, Asian 16, Others 17 · APOE4 Yes 71 / No 139 / no genotype 15",
     tier: "verified",
     source:
       "Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx · sex, race_ethnicity, APOE4 · as of 2026-10-16",
@@ -320,7 +320,8 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Specimen sharing · Neurobank",
     metric: "Requests · year to date",
-    value: "36 received · 6 fulfilled",
+    value: "36 received",
+    notes: "Fulfilled boxes are not on the page. Tissue fulfilled 6. Biofluid fulfilled 0. Plasma fulfilled 0.",
     tier: "verified",
     source: "USCADRCNeurobankRequ-SubmittedRequests_DATA_LABELS_2026-11-06_1127.csv · redcapSpecimenSharing.json",
   },

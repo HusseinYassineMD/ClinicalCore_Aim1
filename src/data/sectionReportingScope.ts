@@ -81,7 +81,8 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     ]),
     bullets: [
       `UDS visit counts are black from James’s harmonized export. Last visit_date in that file: ${formatScopeDate(cov.udsLatestVisitDate)}. The reporting window is still ${ytdLabel}.`,
-      `Autopsy enrollment is 225, black. Source is Xinhui Wang, BRS table as of October 16, 2026, received November 10, 2026. Sex is 143 female and 82 male. Ethnicity and APOE are from her 225-person list. James MAP Active 231 is a different count.`,
+      `USC ADRC cumulative is all participants in James Wang's UDS file, pink, through the last visit. Active with UDS is 585, black: Xinhui Wang, active ADRC participants (UDS data) as of October 16, 2026. A UDS visit since 7/1/2025 in James's file is a different count.`,
+      `Autopsy enrollment is 225, black. Source is Xinhui Wang, BRS table as of October 16, 2026, received November 10, 2026. Code book: race/ethnicity Hispanic 39, non-Hispanic White 143, African American 10, Asian 16, Others 17. sex Male 82, Female 143. APOE4 Yes 71, No 139, no genotype 15. James MAP Active 231 is a different count.`,
       `GeneScreen is pink: REDCap ${geneScreenYtd.sourceFile} · export ${formatScopeDate(geneScreenYtd.lastUpdated)}. That file stops October 7, 2026.`,
       `Green numbers are the old RPPR only (${rpprPeriod}).`,
     ],

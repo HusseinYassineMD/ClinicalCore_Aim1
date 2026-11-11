@@ -1,7 +1,9 @@
 /**
  * Xinhui Wang person list, 225 unique UDS IDs, as of 2026-10-16.
- * MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx
- * race_ethnicity: 1 Hispanic, 2 non-Hispanic White, 3 African American, 4 Asian, 5 Other.
+ * MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx · sheet code book.
+ * race_ethnicity: 1=Hispanic, 2=non-Hispanic White, 3=African American, 4=Asian, 5=Others, 99=Unknown.
+ * sex: 1=Male, 2=Female.
+ * APOE4: 1=Yes, 0=No. Blank rows also have no apoe_comb.
  */
 export const BRS_ACTIVE_COHORT = {
   exportFile:
@@ -10,10 +12,10 @@ export const BRS_ACTIVE_COHORT = {
   rpprHeadlineEnrolled: 225,
   hispanicLatino: [
     { label: "Hispanic", count: 39 },
-    { label: "Non-Hispanic White", count: 143 },
+    { label: "non-Hispanic White", count: 143 },
     { label: "African American", count: 10 },
     { label: "Asian", count: 16 },
-    { label: "Other", count: 17 },
+    { label: "Others", count: 17 },
   ],
   sex: [
     { label: "Male", count: 82 },
@@ -38,8 +40,8 @@ export const BRS_LEGACY_APOE_PIE = [
  * e3/e3 120, e3/e2 17, e2/e2 2.
  */
 export const BRS_ACTIVE_APOE = [
-  { label: "APOE4 carrier", count: 71 },
-  { label: "Non-carrier", count: 139 },
+  { label: "Yes", count: 71 },
+  { label: "No", count: 139 },
   { label: "No genotype", count: 15 },
 ] as const;
 

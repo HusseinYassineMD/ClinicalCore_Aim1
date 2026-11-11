@@ -34,8 +34,8 @@
   },
   "qcNotes": [
     "Person list has 225 unique UDS IDs. Sex matches the table: 143 female, 82 male.",
-    "Race/ethnicity on that list: Hispanic 39, non-Hispanic White 143, African American 10, Asian 16, Other 17. No code 99 Unknown.",
-    "APOE4 on that list: 71 carriers, 139 non-carriers, 15 with no genotype.",
+    "Code book race_ethnicity: 1=Hispanic 39, 2=non-Hispanic White 143, 3=African American 10, 4=Asian 16, 5=Others 17. No code 99 Unknown.",
+    "Code book APOE4: 1=Yes 71, 0=No 139, blank 15. Those 15 rows also have no consolidated APOE genotype. Code book sex: 1=Male 82, 2=Female 143.",
     "James Wang, MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv, status Active is 231. That is a different count."
   ],
   "rows": [
