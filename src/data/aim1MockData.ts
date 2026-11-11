@@ -178,19 +178,19 @@ export const aim1MockData: Aim1DashboardData = {
         : `Modality counts pending ${DATA_CORE.imagingProduct} export`,
     },
     imagingQc: {
-      status: "span",
+      status: "ytd",
       source: sourceLabel(
         METRIC_SOURCES.dataCoreY7,
         "v1.5.4 QC lists · CLARiTI_PET_QC_List · CLARiTI_MRI_QC_List · scan_mri_dashboard",
       ),
       realFrom:
-        "Amyloid 19 and tau 18 on the CLARiTI PET QC list. Structural MRI 39 sessions and 984 series on the two MRI QC lists. PET archive through November 3, 2026. MRI study date through October 29, 2026.",
+        "study_date on or before October 16, 2026. Amyloid 19 and tau 18 on the CLARiTI PET QC list. Structural MRI 38 sessions and 966 series on the two MRI QC lists. Later study dates are excluded.",
       bulletGroups: [
         {
-          title: "James QC lists (pink)",
+          title: "James QC lists (black · through October 16, 2026)",
           lines: [
             "CLARiTI_PET_QC_Listi_1793921811152.csv · amyloid 19 · tau 18",
-            "CLARiTI_MRI_QC_Listi_1793921830826.csv and scan_mri_dashboard_usc_2026-11-05T23_16_11.059Z.csv · structural MRI 39 sessions · 984 series · field mri_qc_summary",
+            "CLARiTI_MRI_QC_Listi_1793921830826.csv and scan_mri_dashboard_usc_2026-11-05T23_16_11.059Z.csv · structural MRI 38 sessions · 966 series · field mri_qc_summary",
             "scan_pet_dashboard has 2 tau rows marked Failed QC. No new-raw-PET variable.",
           ],
         },
@@ -203,18 +203,18 @@ export const aim1MockData: Aim1DashboardData = {
       ],
     },
     idaImagingUpload: {
-      status: "span",
+      status: "ytd",
       source: sourceLabel(
         METRIC_SOURCES.dataCoreY7,
         "USC_ADRC_Integrated_Imaging_Availability_v1.5.4.csv · image_id",
       ),
       realFrom:
-        "Unique image_id values in idaSearch_11_05_2026.csv and idaSearch_9_10_2026_SCAN.csv. The two files share no image_id. Through November 4, 2026.",
+        "Unique image_id values in idaSearch_11_05_2026.csv and idaSearch_9_10_2026_SCAN.csv with study_date on or before October 16, 2026. Later dates are excluded.",
       bulletGroups: [
         {
-          title: "James IDA image IDs (pink)",
+          title: "James IDA image IDs (black · through October 16, 2026)",
           lines: [
-            "MR 10,266 participants · 143,660 image IDs · PET 6,775 participants · 13,573 image IDs",
+            "MR 10,259 participants · 143,034 image IDs · PET 6,775 participants · 13,573 image IDs",
             "idaSearch_9_10_2026_CLARiTI.csv has participants and no image_id, so it is not in this count",
           ],
         },

@@ -216,7 +216,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Imaging",
     metric: "Imaging QC lists",
-    value: "Amyloid 19 · tau 18 · structural MRI 39 sessions / 984 series",
+    value: "Amyloid 19 · tau 18 · structural MRI 38 sessions / 966 series · through 2026-10-16",
     tier: "verified",
     source:
       "v1.5.4 · CLARiTI_PET_QC_Listi_1793921811152.csv · CLARiTI_MRI_QC_Listi_1793921830826.csv · scan_mri_dashboard_usc_2026-11-05",
@@ -226,10 +226,10 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Imaging",
     metric: "IDA image IDs",
-    value: "MR 10,266 participants / 143,660 image IDs · PET 6,775 / 13,573",
+    value: "MR 10,259 participants / 143,034 image IDs · PET 6,775 / 13,573 · through 2026-10-16",
     tier: "verified",
     source:
-      "USC_ADRC_Integrated_Imaging_Availability_v1.5.4.csv · image_id · idaSearch_11_05_2026.csv and idaSearch_9_10_2026_SCAN.csv · through 2026-11-04",
+      "USC_ADRC_Integrated_Imaging_Availability_v1.5.4.csv · image_id · idaSearch_11_05_2026.csv and idaSearch_9_10_2026_SCAN.csv · study_date on or before 2026-10-16",
     notes:
       "Old RPPR upload sentence is a different count: 2,489 MR participants, 2,618 MR scans, 1,073 PET participants, 1,068 PET scans.",
   },

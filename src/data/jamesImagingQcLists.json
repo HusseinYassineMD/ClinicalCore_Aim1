@@ -9,11 +9,13 @@
   "mriQcField": "mri_qc_summary",
   "amyloidPetQc": 19,
   "tauPetQc": 18,
-  "structuralMriSessions": 39,
-  "structuralMriSeries": 984,
+  "structuralMriSessions": 38,
+  "structuralMriSeries": 966,
   "structuralMriParticipants": 37,
+  "countThrough": "2026-10-16",
+  "dateField": "study_date",
   "petStudyThrough": "2026-10-15",
   "petArchiveThrough": "2026-11-03",
-  "mriStudyThrough": "2026-10-29",
+  "mriStudyThrough": "2026-10-16",
   "scanPetFailedQc": 2
 }

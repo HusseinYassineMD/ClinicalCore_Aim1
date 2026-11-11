@@ -19,12 +19,13 @@ export default function ImagingQcBlock({ data }: ImagingQcBlockProps) {
         <HeadingLead
           className="text-cpbh-navy/60 text-sm mt-1 leading-snug"
           source={`James Wang · ${qcLists.sourceFile} · ${qcLists.petQcFile} · ${qcLists.mriQcFiles.join(" · ")} · MRI field ${qcLists.mriQcField}`}
-          through={`${formatScopeDate(qcLists.petArchiveThrough)} PET archive · ${formatScopeDate(qcLists.mriStudyThrough)} MRI study date`}
+          through={formatScopeDate(qcLists.countThrough)}
         >
-          Pink · these are the QC-list rows in the November 6 package. Amyloid
-          and tau are participants on the CLARiTI PET QC list. Structural MRI
-          is conventional MRI on the two MRI QC lists: {qcLists.structuralMriSessions}{" "}
-          sessions, {formatInteger(qcLists.structuralMriSeries)} series,{" "}
+          Black · study_date on or before October 16, 2026. The MRI QC list has
+          later study dates, and those rows are excluded. Amyloid and tau are
+          participants on the CLARiTI PET QC list. Structural MRI is conventional
+          MRI on the two MRI QC lists: {qcLists.structuralMriSessions} sessions,{" "}
+          {formatInteger(qcLists.structuralMriSeries)} series,{" "}
           {qcLists.structuralMriParticipants} participants. The SCAN PET dashboard
           has {qcLists.scanPetFailedQc} tau rows marked Failed QC, and those are
           not in the tau count. There is no new-raw-PET variable. The old RPPR
@@ -38,25 +39,25 @@ export default function ImagingQcBlock({ data }: ImagingQcBlockProps) {
           label="Amyloid PET QC"
           value={qcLists.amyloidPetQc}
           accent="purple"
-          provenance="span"
+          provenance="ytd"
         />
         <MetricCard
           label="Tau PET QC"
           value={qcLists.tauPetQc}
           accent="teal"
-          provenance="span"
+          provenance="ytd"
         />
         <MetricCard
           label="Structural MRI QC sessions"
           value={qcLists.structuralMriSessions}
           accent="sky"
-          provenance="span"
+          provenance="ytd"
         />
         <MetricCard
           label="Structural MRI QC series"
           value={formatInteger(qcLists.structuralMriSeries)}
           accent="navy"
-          provenance="span"
+          provenance="ytd"
         />
       </div>
     </div>

@@ -21,7 +21,8 @@ export default function IdaUploadBlock({ data }: IdaUploadBlockProps) {
           source={`James Wang · ${idaImages.sourceFile} · ${idaImages.imageIdField} in ${idaImages.searchFiles.join(" and ")}`}
           through={formatScopeDate(idaImages.throughDate)}
         >
-          Pink · unique IDA image IDs in the November 6 package. The two search
+          Black · study_date on or before October 16, 2026. The file has later
+          dates, and those rows are excluded. The two search
           files do not share an image_id. {idaImages.excludedSearchFile} has
           participants and no image_id, so those rows are not in this count.
           The old RPPR sentence was {formatInteger(data.mrParticipants)} MR
@@ -36,25 +37,25 @@ export default function IdaUploadBlock({ data }: IdaUploadBlockProps) {
           label="MR participants"
           value={formatInteger(idaImages.mriParticipants)}
           accent="purple"
-          provenance="span"
+          provenance="ytd"
         />
         <MetricCard
           label="MR IDA image IDs"
           value={formatInteger(idaImages.mriImageIds)}
           accent="navy"
-          provenance="span"
+          provenance="ytd"
         />
         <MetricCard
           label="PET participants"
           value={formatInteger(idaImages.petParticipants)}
           accent="sky"
-          provenance="span"
+          provenance="ytd"
         />
         <MetricCard
           label="PET IDA image IDs"
           value={formatInteger(idaImages.petImageIds)}
           accent="teal"
-          provenance="span"
+          provenance="ytd"
         />
       </div>
     </div>

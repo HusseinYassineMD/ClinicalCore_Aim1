@@ -153,8 +153,8 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     bullets: [
       `SCAN, CLARiTI, and the study-wide table are black: Integrated Imaging v1.5.4 · filter window ${ytdLabel} · latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}.`,
       `Integrated study summary is black: v1.5.4, latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}.`,
-      `RPPR Imaging QC lists are pink: CLARiTI PET QC list amyloid 19 and tau 18 · MRI QC lists 39 structural sessions and 984 series · PET archive through November 3, 2026. The old RPPR sentence 114 / 75 / 917 / 14 is a different count.`,
-      `IDA image IDs are pink: James v1.5.4 · image_id in idaSearch_11_05_2026.csv and idaSearch_9_10_2026_SCAN.csv · through November 4, 2026. The old RPPR upload sentence is a different count.`,
+      `Imaging QC lists are black through October 16, 2026: CLARiTI PET QC list amyloid 19 and tau 18 · MRI QC lists 38 structural sessions and 966 series. Later study dates are excluded.`,
+      `IDA image IDs are black through October 16, 2026: image_id in idaSearch_11_05_2026.csv and idaSearch_9_10_2026_SCAN.csv. MR 10,259 participants and 143,034 image IDs. PET 6,775 participants and 13,573 image IDs.`,
     ],
   },
 ];
