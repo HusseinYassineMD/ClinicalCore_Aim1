@@ -171,7 +171,7 @@ export const aim1MockData: Aim1DashboardData = {
       status: "mixed",
       realFrom: ytdImaging
         ? `MRI / Amyloid PET / Tau PET participants ${ytdWindowPhrase()} · ${DATA_CORE.imagingProduct} ${ytdImaging.packageVersion} · ${ytdImaging.identityFilter ?? "nacc_registry_verified"} only · SCAN & CLARiTI separate (do not sum)`
-        : "SCAN target (24) and CLARITi target (36) · RPPR budget",
+        : "SCAN target (24) and CLARiTI target (36) · RPPR budget",
       mockFrom: ytdImaging
         ? "Targets (24 / 36) · RPPR budget"
         : `Modality counts pending ${DATA_CORE.imagingProduct} export`,

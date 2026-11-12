@@ -151,8 +151,10 @@ export default function DataSourcesPage() {
                 <code className="text-xs">data/rppr-data-package/</code> and{" "}
                 <code className="text-xs">data/reference/james-supplements/</code>.
                 The table below is that October 9 biospecimen inventory. The
-                dashboard Biofluid Collection table uses Abhay Sagare’s January 1,
-                2026 – October 31, 2026 workbook. NCRAD assay cards use
+                dashboard Biofluid Collection table uses Abhay Sagare’s workbook
+                for January through September 2026 (black). October stays pink:
+                the workbook has no day, and that month runs through October 31.
+                NCRAD assay cards use
                 JamesDataPacket November 5, Integrated_Biomarkers_Long_v1.1.2.csv.
                 The November 6 MAP labels exports are stored in{" "}
                 <code className="text-xs">data/MAPDataPacket-November-6/</code>.

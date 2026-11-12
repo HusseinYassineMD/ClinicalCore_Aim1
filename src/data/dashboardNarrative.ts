@@ -21,7 +21,7 @@ export const DASHBOARD_MISSION = {
   ] as const,
   onThisPage: [
     "Recruitment, demographics (Table 1), neuropathology, outreach, biomarkers, REC, imaging, and specimen requests",
-    "Black = Jan 1–date (harmonized data package YTD); green = last RPPR reporting period; red = no data available",
+    "Black = counted through October 16, 2026. Green = last RPPR period. Pink = latest file that does not run through October 16. Red = not available.",
     "Checks & sources tab lists every headline metric, its tier, and the file it came from",
   ] as const,
   notOnThisPage: [

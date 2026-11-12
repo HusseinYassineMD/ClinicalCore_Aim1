@@ -65,6 +65,15 @@ def harmonized_csv_path(filename: str) -> str:
     """Repo-relative path to a Data Core CSV (no ellipsis)."""
     if filename.startswith("MAPDatabase") or filename.startswith("ADRC_"):
         return f"data/rppr-data-package/{filename}"
+    if "v1.5.4" in filename:
+        return (
+            "data/JamesDataPacket-November-6/USC ADRC Integrated Imaging Availability/"
+            f"{filename}"
+        )
+    if filename == "Integrated_Biomarkers_Long_v1.1.2.csv":
+        return (
+            "data/JamesDataPacket-November-5/Integrated_Biomarkers_Long_v1.1.2.csv"
+        )
     folder = HARMONIZED_PKG_FOLDERS.get(filename)
     if folder:
         return f"data/rppr-data-package/{folder}/{filename}"
@@ -98,16 +107,19 @@ def rec_session_counts(as_of_iso: str) -> tuple[int, int, str]:
 PDF_FILL = {
     "black": (230, 230, 230),
     "green": (198, 246, 213),
+    "pink": (252, 231, 243),
     "red": (254, 202, 202),
 }
 PDF_INK = {
     "black": (10, 10, 10),
     "green": (21, 128, 61),
+    "pink": (157, 23, 77),
     "red": (185, 28, 28),
 }
 PDF_SWATCH = {
     "black": (10, 10, 10),
     "green": (22, 163, 74),
+    "pink": (219, 39, 119),
     "red": (220, 38, 38),
 }
 
@@ -354,10 +366,10 @@ def build_rows() -> list[dict[str, str]]:
         row(
             "Validation",
             "Automated dashboard checks",
-            "94 passed / 0 failed",
+            "94 passed, 0 failed",
             "scripts/validate_dashboard.py batches 1-5",
             "scripts/validate_dashboard.py",
-            "Run: npm run validate:dashboard",
+            "Imaging v1.5.4 is read from the November 6 packet. Biofluid black totals are January through September.",
             dashboard_color="black",
             data_lineage="Repository QA script (not a dashboard metric color)",
         )
@@ -464,8 +476,8 @@ def build_rows() -> list[dict[str, str]]:
             str(gs_snap["membersComplete"]),
             "RedCap: all Complete? rows in export",
             f"data/redcap/{gene_ytd['sourceFile']} -> geneScreenYtd.json",
-            f"Black on dashboard; RPPR cited {rppr['geneScreen']['membersEnrolled']}",
-            dashboard_color="black",
+            f"Pink. File stops October 7, 2026. Old RPPR number was {rppr['geneScreen']['membersEnrolled']}.",
+            dashboard_color="pink",
             data_lineage=LINEAGE_LEGEND[3][1],
         )
     )
@@ -476,8 +488,8 @@ def build_rows() -> list[dict[str, str]]:
             f"{gs_snap['males']} / {gs_snap['females']} / {gs_snap['apoe4Carriers']}",
             "RedCap: Sex + Genotype on Complete? rows",
             f"data/redcap/{gene_ytd['sourceFile']} -> geneScreenYtd.json",
-            "Black on dashboard headline",
-            dashboard_color="black",
+            "Pink. File stops October 7, 2026.",
+            dashboard_color="pink",
             data_lineage=LINEAGE_LEGEND[3][1],
         )
     )
@@ -500,8 +512,8 @@ def build_rows() -> list[dict[str, str]]:
             str(gene_ytd["newMembersByConsentDate"]),
             "REDCap GeneScreen registry · Consent Date in window",
             f"data/redcap/{gene_ytd['sourceFile']} -> geneScreenYtd.json",
-            f"Black · {gene_ytd['reportingPeriodLabel']}",
-            dashboard_color="black",
+            f"Pink. File stops October 7, 2026. Window label {gene_ytd['reportingPeriodLabel']}.",
+            dashboard_color="pink",
             data_lineage=LINEAGE_LEGEND[1][1],
         )
     )
@@ -512,8 +524,8 @@ def build_rows() -> list[dict[str, str]]:
             str(gene_ytd["onlineEnrollmentsByMembershipTimestamp"]),
             "REDCap GeneScreen registry · Membership Timestamp in window",
             f"data/redcap/{gene_ytd['sourceFile']} -> geneScreenYtd.json",
-            "Black on dashboard period activities",
-            dashboard_color="black",
+            "Pink. File stops October 7, 2026.",
+            dashboard_color="pink",
             data_lineage=LINEAGE_LEGEND[1][1],
         )
     )
@@ -526,8 +538,8 @@ def build_rows() -> list[dict[str, str]]:
             gs_eth or "—",
             "RedCap Complete rows · Consent Date in window",
             f"data/redcap/{gene_ytd['sourceFile']} -> scripts/aggregate_genescreen_ytd.py -> src/data/geneScreenYtd.json",
-            f"n={gene_ytd['newMembersByConsentDate']} new members",
-            dashboard_color="black",
+            f"n={gene_ytd['newMembersByConsentDate']} new members. Pink. File stops October 7, 2026.",
+            dashboard_color="pink",
             data_lineage=LINEAGE_LEGEND[3][1],
         )
     )
@@ -538,8 +550,8 @@ def build_rows() -> list[dict[str, str]]:
             gs_apoe or "—",
             "Genotype field on same YTD consent cohort",
             f"data/redcap/{gene_ytd['sourceFile']} -> src/data/geneScreenYtd.json",
-            "Black charts on dashboard",
-            dashboard_color="black",
+            "Pink charts. File stops October 7, 2026.",
+            dashboard_color="pink",
             data_lineage=LINEAGE_LEGEND[3][1],
         )
     )
@@ -600,11 +612,13 @@ def build_rows() -> list[dict[str, str]]:
     rows.append(
         row(
             "Recruitment - BRS",
-            "YTD consent chart demographics",
-            f"n={dc_new.get('participants', brs['newAutopsyConsents'])}, breakdown empty",
-            "Count only; no demographic export",
-            brs_file,
-            "Red/TBD on dashboard",
+            "Race/ethnicity, sex, and APOE4 charts",
+            "Hispanic 39, non-Hispanic White 143, African American 10, Asian 16, Others 17; Male 82, Female 143; APOE4 Yes 71, No 139, no genotype 15",
+            "Person list codes, counted on the 225 active rows",
+            "data/reference/xinhui-wang-2026-11-10/MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx",
+            "Black. Code book race_ethnicity, sex, and APOE4. These charts are the 225 enrolled participants.",
+            dashboard_color="black",
+            data_lineage=LINEAGE_LEGEND[1][1],
         )
     )
     rows.append(
@@ -614,8 +628,8 @@ def build_rows() -> list[dict[str, str]]:
             str(brs.get("activeEnrolled", "?")),
             "Export snapshot — confirm RPPR cumulative definition",
             brs_file,
-            "James Oct 9 supplement; MAP data dictionary defines status=1 Active",
-            dashboard_color="black",
+            "Different count from the dashboard headline of 225. October 9 MAP export.",
+            dashboard_color="pink",
             data_lineage=LINEAGE_LEGEND[1][1],
         )
     )
@@ -627,8 +641,8 @@ def build_rows() -> list[dict[str, str]]:
                 f"{brs.get('withAutopsyCaseNumber')} / {brs.get('cumulativeAutopsiesFlagged')}",
                 "Row counts in latest MAP BRS cohort CSV",
                 brs_file,
-                "Not calendar YTD; data-package MAP pipeline summary",
-                dashboard_color="black",
+                "Whole-file MAP export. Not the October 16 autopsy cards.",
+                dashboard_color="pink",
                 data_lineage=LINEAGE_LEGEND[1][1],
             )
         )
@@ -642,7 +656,7 @@ def build_rows() -> list[dict[str, str]]:
                 "Neuropathology - BRS RPPR Table 1 (Data Core)",
                 dc_row.get("label", "?"),
                 f"{dc_row.get('participants')} · {pct_str} · F{dc_row.get('female')} M{dc_row.get('male')}",
-                "Xinhui Wang QC · MAP 10/7/2026 + harmonized UDS/milestones",
+                "Xinhui Wang · BRS Table · received November 10, 2026",
                 "src/data/brsRpprTableDataCore2026.json",
                 dc_meta.get("windowLabel", ""),
                 dashboard_color="black",
@@ -747,7 +761,33 @@ def build_rows() -> list[dict[str, str]]:
             f"{rppr['idaImagingUpload']['mrScans']} / {rppr['idaImagingUpload']['mrParticipants']} / {rppr['idaImagingUpload']['petScans']} / {rppr['idaImagingUpload']['petParticipants']}",
             "Cumulative RPPR Data Core B2",
             "rpprMetrics.json idaImagingUpload",
-            "Green",
+            "Green. Old RPPR upload sentence. Not the v1.5.4 image-ID cards.",
+        )
+    )
+    ida = load("jamesIdaImageIds.json")
+    qc = load("jamesImagingQcLists.json")
+    rows.append(
+        row(
+            "Imaging - IDA image IDs",
+            "MR and PET image IDs through October 16",
+            f"MR {ida['mriParticipants']} participants / {ida['mriImageIds']} image IDs · PET {ida['petParticipants']} / {ida['petImageIds']}",
+            "Unique image_id from the two IDA search files, study_date on or before October 16",
+            "data/JamesDataPacket-November-6/USC ADRC Integrated Imaging Availability/USC_ADRC_Integrated_Imaging_Availability_v1.5.4.csv",
+            "Black. idaSearch_9_10_2026_CLARiTI.csv has no image_id and is excluded.",
+            dashboard_color="black",
+            data_lineage=LINEAGE_LEGEND[1][1],
+        )
+    )
+    rows.append(
+        row(
+            "Imaging - QC lists",
+            "Amyloid / tau / structural MRI",
+            f"Amyloid {qc['amyloidPetQc']} · tau {qc['tauPetQc']} · {qc['structuralMriSessions']} sessions / {qc['structuralMriSeries']} series / {qc['structuralMriParticipants']} participants",
+            "QC-list rows with study_date on or before October 16. Structural MRI is detailed_modality MRI with mri_qc_summary filled.",
+            "data/JamesDataPacket-November-6/USC ADRC Integrated Imaging Availability/USC_ADRC_Integrated_Imaging_Availability_v1.5.4.csv",
+            "Black. Two SCAN PET rows marked Failed QC are not in the tau count.",
+            dashboard_color="black",
+            data_lineage=LINEAGE_LEGEND[1][1],
         )
     )
 
@@ -757,16 +797,60 @@ def build_rows() -> list[dict[str, str]]:
         if biospecimen
         else bio_file
     )
+    abhay = load("biomarkerCoreSampleProcessing2026.json")
+    abhay_locked = [
+        month for month in abhay["months"] if not str(month["month"]).startswith("October")
+    ]
+    abhay_october = next(
+        month for month in abhay["months"] if str(month["month"]).startswith("October")
+    )
+
+    def abhay_sum(months: list, kind: str, key: str) -> int:
+        return sum(month[kind][key] for month in months)
+
+    rows.append(
+        row(
+            "Biomarkers - biofluid collection",
+            "Dashboard table · January through September",
+            (
+                f"Plasma {abhay_sum(abhay_locked, 'samples', 'plasma')} / {abhay_sum(abhay_locked, 'tubes', 'plasma')} · "
+                f"Buffy {abhay_sum(abhay_locked, 'samples', 'buffyCoat')} / {abhay_sum(abhay_locked, 'tubes', 'buffyCoat')} · "
+                f"Serum {abhay_sum(abhay_locked, 'samples', 'serum')} / {abhay_sum(abhay_locked, 'tubes', 'serum')} · "
+                "CSF 0 / 0"
+            ),
+            "Sum of monthly workbook rows for January through September",
+            "src/data/biomarkerCoreSampleProcessing2026.json",
+            "Black. October is excluded because the workbook has no day and that month runs through October 31. CSF is 0 because the workbook has no CSF rows.",
+            dashboard_color="black",
+            data_lineage=LINEAGE_LEGEND[1][1],
+        )
+    )
+    rows.append(
+        row(
+            "Biomarkers - biofluid collection",
+            "October workbook month (not in the black total)",
+            (
+                f"Plasma {abhay_october['samples']['plasma']} / {abhay_october['tubes']['plasma']} · "
+                f"Buffy {abhay_october['samples']['buffyCoat']} / {abhay_october['tubes']['buffyCoat']} · "
+                f"Serum {abhay_october['samples']['serum']} / {abhay_october['tubes']['serum']}"
+            ),
+            "October row of Abhay Sagare's monthly workbook",
+            "src/data/biomarkerCoreSampleProcessing2026.json",
+            "Pink. Not part of the black January–September total.",
+            dashboard_color="pink",
+            data_lineage=LINEAGE_LEGEND[1][1],
+        )
+    )
     plasma_inv = bio_ytd.get("plasma") or {}
     rows.append(
         row(
-            "Biomarkers - biofluid inventory YTD",
-            "Plasma participants / aliquots (dashboard biofluid table)",
+            "Biomarkers - James biospecimen inventory",
+            "Plasma participants / aliquots (October 9 inventory, not the dashboard table)",
             f"{plasma_inv.get('participants', bio['subjectsWithPlasmaCollection'])} / {plasma_inv.get('aliquots', bio['plasmaMeasurementRows'])}",
             "Biospecimen availability long file · collection_date in window",
             bio_spec_file,
-            "James Oct 9 supplement — inventory, not assay rows",
-            dashboard_color="black",
+            "Different count. October 9 James inventory. The dashboard Biofluid Collection table is Abhay's January–September workbook.",
+            dashboard_color="pink",
             data_lineage=LINEAGE_LEGEND[1][1],
         )
     )
@@ -778,13 +862,13 @@ def build_rows() -> list[dict[str, str]]:
         comp = bio_ytd.get(comp_key) or {}
         rows.append(
             row(
-                "Biomarkers - biofluid inventory YTD",
+                "Biomarkers - James biospecimen inventory",
                 f"{comp_label} participants / aliquots",
                 f"{comp.get('participants', 0)} / {comp.get('aliquots', 0)}",
                 "Sum aliquot_count · unique uds_id in period",
                 bio_spec_file,
-                "Dashboard Biofluid Collection table (black)",
-                dashboard_color="black",
+                "October 9 James inventory. Not the dashboard Biofluid Collection table.",
+                dashboard_color="pink",
                 data_lineage=LINEAGE_LEGEND[1][1],
             )
         )
@@ -910,7 +994,9 @@ def build_rows() -> list[dict[str, str]]:
             str(deaths_ytd if deaths_ytd is not None else "?"),
             "Direct row count (date_of_death in window)",
             brs_file,
-            "Package reportingPeriodAdditional brs-dates",
+            "James MAP date_of_death count. Dashboard participant deaths are Xinhui's 7 with autopsy and 1 without.",
+            dashboard_color="pink",
+            data_lineage=LINEAGE_LEGEND[1][1],
         )
     )
     enrolled = rppr["neuropath"]["enrolledInAutopsyProgram"]
@@ -923,7 +1009,9 @@ def build_rows() -> list[dict[str, str]]:
             f"{enrolled}/{adrc_n} ({pct}%)",
             "Derived ratio (cumulative counts)",
             "rpprMetrics neuropath + Table 1 N",
-            "Green; RPPR enrolled / Table 1 cohort",
+            "Green. Old RPPR enrolled divided by old Table 1 N. Dashboard rate is 225 / 585 (38.5%).",
+            dashboard_color="green",
+            data_lineage=LINEAGE_LEGEND[2][1],
         )
     )
 
@@ -1007,8 +1095,8 @@ def build_rows() -> list[dict[str, str]]:
             f"{rec_completed} / {rec_scheduled}",
             "Past booked slots vs upcoming · as of window end date",
             "src/data/recSpeakerSeries.json",
-            f"Series {rec_label}; sync: npm run sync:rec-speakers",
-            dashboard_color="black",
+            f"Red on the dashboard. Series {rec_label} runs through May 14, 2027, so this is not a through-October-16 count.",
+            dashboard_color="red",
             data_lineage=LINEAGE_LEGEND[1][1],
         )
     )
@@ -1016,11 +1104,11 @@ def build_rows() -> list[dict[str, str]]:
         row(
             "REC - Zoom attendance",
             "Avg / total attendees (reported sessions)",
-            f"{att_sum.get('avgAttendees', '?')} / {att_sum.get('totalAttendees', '?')}",
-            "Sum headcounts · average over sessions with data",
+            f"{round(att_sum.get('totalAttendees', 0) / att_sum['sessionCount'], 1) if att_sum.get('sessionCount') else '?'} shown ({att_sum.get('totalAttendees', '?')} / {att_sum.get('sessionCount', '?')} = {att_sum.get('avgAttendees', '?')}) / {att_sum.get('totalAttendees', '?')}",
+            "Sum of reported headcounts. Card rounds the average to one decimal.",
             f"{att_csv} -> scripts/aggregate_rec_roster.py -> src/data/recMeetingAttendance.json",
-            "Reported by REC admin (Sahar Nikkhah Bahrami Oct 2026)",
-            dashboard_color="black",
+            "Pink. Last session with attendance is October 9, 2026. The October 16 session has no attendance row.",
+            dashboard_color="pink",
             data_lineage=LINEAGE_LEGEND[4][1],
         )
     )
@@ -1032,8 +1120,8 @@ def build_rows() -> list[dict[str, str]]:
                 str(sess.get("attendees")),
                 "Manual entry in meeting-attendance.csv",
                 att_csv,
-                f"Reported by {sess.get('reportedBy', 'REC admin')}",
-                dashboard_color="black",
+                f"Reported by {sess.get('reportedBy', 'REC admin')}. Pink. Attendance file stops October 9, 2026.",
+                dashboard_color="pink",
                 data_lineage=LINEAGE_LEGEND[4][1],
             )
         )
@@ -1297,8 +1385,9 @@ class ProvenancePdf:
                 self.pdf.epw,
                 4.5,
                 self.t(
-                    "Color column matches dashboard: BLACK = harmonized YTD / derived; "
-                    "GREEN = last RPPR workbook; RED = placeholder. "
+                    "Color column matches the dashboard. BLACK = counted through October 16. "
+                    "GREEN = last RPPR workbook. PINK = latest file that does not run through October 16. "
+                    "RED = not available. "
                     "All columns fit page width (Notes is last column)."
                 ),
             )

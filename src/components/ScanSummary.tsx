@@ -88,7 +88,7 @@ export default function ScanSummary({
       />
       <div className="border-t border-cpbh-mist pt-8">
         <ScanProgressBlock
-          title="CLARITi Progress"
+          title="CLARiTI Progress"
           data={claritiScans}
           periodLabel={periodLabel}
           sourceNote={sourceNote}

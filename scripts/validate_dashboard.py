@@ -41,17 +41,17 @@ def load_brs_data_core_table() -> dict:
 
 # UI constants — not from CSV row counts; listed in batch 6 only.
 PLACEHOLDER_UI = [
-    "ADRC YTD chart splits → rpprDataPackage.json newInitialEvaluationBreakdown",
-    "GeneScreen cumulative registry headline (green) → rpprMetrics.json until harmonized export",
-    "Table 1 demographics → table1Demographics.json (green · last RPPR; not James YTD)",
-    "Biofluid Collection → Abhay Sagare workbook Jan 1–Oct 31, 2026 (not the Oct 9 biospecimen inventory)",
-    "REC speaker series & attendee counts → red (recSpeakerSeries.json not in package)",
+    "ADRC YTD chart splits → rpprDataPackage.json newInitialEvaluationBreakdown (sum 40)",
+    "GeneScreen registry → geneScreenYtd.json, pink, file stops October 7, 2026 (739 Complete records). Old RPPR 668 is a different count.",
+    "Dashboard Table 1 → table1HarmonizedActiveSnapshot.json, black, N=585 as of October 16, 2026. table1Demographics.json N=573 is the old RPPR table.",
+    "Biofluid Collection black totals → Abhay Sagare workbook, January through September 2026. October stays pink.",
+    "REC completed/scheduled → red. Attendance → pink through October 9, 2026. The October 16 session has no attendance row.",
     "Clinical lab A1c/lipid/creatinine/BP → null red",
     "Brain Health 4 Me → null red",
-    "ORE Table E1/E2, cumulative autopsy enrollment, scan budget targets → 0 red",
-    "Imaging QC & IDA uploads → 0 red (not in package)",
-    "Grant plan chart targets → registryChartViews.ts + budgetTargets.ts (renewal goals)",
-    "RPPR PDF headline refs (668, 231, etc.) → rpprMetrics.json only; not shown on dashboard",
+    "ORE page → N/A for this period. Old RPPR event counts stay in rpprMetrics.json.",
+    "Imaging QC and IDA image IDs → jamesImagingQcLists.json and jamesIdaImageIds.json, black through October 16, 2026.",
+    "Grant plan chart targets → registryChartViews.ts + budgetTargets.ts (renewal goals, not on the current Table 1)",
+    "Old RPPR headline refs (668, 573, 231) stay in rpprMetrics.json as different counts.",
 ]
 
 RPPR_JSON_SOURCES = [
@@ -121,18 +121,31 @@ def package_ytd_paths(pkg: dict) -> list[tuple[str, Path]]:
         )
 
     imaging = ytd.get("imaging") or {}
-    img_root = PKG_DIR / "USC ADRC Integrated Imaging Availability"
+    james_img = (
+        ROOT
+        / "data"
+        / "JamesDataPacket-November-6"
+        / "USC ADRC Integrated Imaging Availability"
+    )
+    pkg_img = PKG_DIR / "USC ADRC Integrated Imaging Availability"
+
+    def imaging_file(fname: str) -> Path:
+        """v1.5.4 lives in the November 6 packet. Older copies stay under the package folder."""
+        if "v1.5.4" in fname and (james_img / fname).is_file():
+            return james_img / fname
+        return pkg_img / fname
+
     for key in ("longitudinal", "studySubjectLevel"):
         fname = (imaging.get("sourceFiles") or {}).get(key)
         if fname:
-            mapping.append((f"Imaging {key}", img_root / fname))
+            mapping.append((f"Imaging {key}", imaging_file(fname)))
 
     integrated = ytd.get("imagingIntegratedStudySummary") or {}
     if integrated.get("sourceFile"):
         mapping.append(
             (
                 "Imaging Study_Summary",
-                img_root / integrated["sourceFile"],
+                imaging_file(integrated["sourceFile"]),
             )
         )
 
@@ -282,6 +295,14 @@ def expected_from_json(
     abhay = json.loads(
         (SRC_DATA / "biomarkerCoreSampleProcessing2026.json").read_text(encoding="utf-8")
     )
+    # Dashboard black cards are January–September. October has no day, so it stays out.
+    abhay_locked = [
+        month
+        for month in abhay["months"]
+        if not str(month["month"]).startswith("October")
+    ]
+    abhay_plasma_samples = sum(month["samples"]["plasma"] for month in abhay_locked)
+    abhay_plasma_tubes = sum(month["tubes"]["plasma"] for month in abhay_locked)
 
     return {
         "reportingPeriod": ytd["label"],
@@ -306,8 +327,8 @@ def expected_from_json(
         "claritiScans.tauPet": clariti.get("participantsWithTauPet", 0),
         "biomarkers.ab40": ncrad.get("ab40"),
         "biomarkers.a1c": None,
-        "biofluidPlasma.participants": abhay["totals"]["samples"]["plasma"],
-        "biofluidPlasma.aliquots": abhay["totals"]["tubes"]["plasma"],
+        "biofluidPlasma.participants": abhay_plasma_samples,
+        "biofluidPlasma.aliquots": abhay_plasma_tubes,
         "neuropath.brsNewlyConsented": dc_new.get("participants"),
         "neuropath.autopsiesPerformed": dc_died_with.get("participants"),
         "neuropath.cohortDeaths": dc_deaths,

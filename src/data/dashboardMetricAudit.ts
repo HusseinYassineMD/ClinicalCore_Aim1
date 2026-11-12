@@ -53,23 +53,40 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Recruitment · ADRC",
     metric: "Participants with UDS visit · year to date",
-    value: "222",
+    value: "310",
     tier: "verified",
     source: "USC ADRC harmonized export · UDS_longitudinal_harmonized.csv · visit_date",
-    notes: siteReportingWindow.label,
+    notes: `${siteReportingWindow.label}. Last visit October 12, 2026. Zero visits after October 16. 40 initial + 247 in person + 23 remote.`,
   },
   {
     section: "Recruitment · ADRC",
-    metric: "Cumulative cohort (Table 1 · demographics only)",
+    metric: "Active with UDS",
+    value: "585",
+    tier: "verified",
+    source:
+      "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · ADRC_active_all by race · as of 2026-10-16 · received 2026-11-10",
+    notes: "Black. This is the Table 1 N. James's count of a UDS visit since 7/1/2025 is 543, a different count.",
+  },
+  {
+    section: "Recruitment · ADRC",
+    metric: "USC ADRC cumulative",
+    value: "2390",
+    tier: "verified",
+    source: "UDS_longitudinal_harmonized.csv · all participants",
+    notes: "Pink. September 9, 2005 through October 12, 2026. The file does not run through October 16.",
+  },
+  {
+    section: "Recruitment · ADRC",
+    metric: "Old RPPR Table 1 cohort",
     value: "573",
     tier: "verified",
-    source: "RPPR11382447 Clinical Core B2 (p.341) · table1Demographics.json",
-    notes: "Green on demographics table — not the YTD registry card headline.",
+    source: "RPPR11382447 Clinical Core B2 · table1Demographics.json",
+    notes: "Green. Not the dashboard Table 1. The September 17 snapshot (N=569) is also not this table.",
   },
   {
     section: "Recruitment · ADRC",
     metric: "Year to date · in-person / remote / initial",
-    value: "181 / 17 / 24",
+    value: "247 / 23 / 40",
     tier: "verified",
     source: "USC ADRC harmonized export · UDS_longitudinal_harmonized.csv · visit_date",
     notes: siteReportingWindow.label,
@@ -77,18 +94,18 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Recruitment · ADRC",
     metric: "Charts · year to date (ethnicity, APOE, NACC referral)",
-    value: "White 15 · Hispanic 6 · Asian 2 · MENA 1",
+    value: "White 24 · Asian 8 · Hispanic 7 · Middle Eastern or North African 1",
     tier: "verified",
     source:
       "rpprDataPackage.json · newInitialEvaluationBreakdown · subject + UDS + MAP APOE",
-    notes: "Referral = NACC Form A1 refersc (not GeneScreen/ORE/SPARK labels). APOE: 8 genotyped in MAP export, 16 not linked.",
+    notes: "These four bars sum to the 40 new evaluations. APOE: E3/E3 3, E3/E4 3, E3/E2 2, E4/E4 1, genotype not in the MAP export 31.",
   },
   {
     section: "Recruitment · ADRC",
     metric: "Charts · 5-yr plan · ethnicity",
     value: "192 / 242 / 36 / 65",
     tier: "verified",
-    source: "RPPR Table 1 · full clinical core (N=573)",
+    source: "Old RPPR Table 1 · N=573. Not rendered on the current metrics page.",
   },
   {
     section: "Recruitment · ADRC",
@@ -101,9 +118,10 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Recruitment · GeneScreen",
     metric: "Total members · M / F · APOE4",
-    value: "668 · 201 M / 467 F · 188 APOE4",
+    value: "739 · 220 M / 519 F · 229 APOE4",
     tier: "verified",
-    source: "RPPR ORE / GeneScreen narrative",
+    source: "USCGeneScreenRegistr-USCGeneScreenRegistr_DATA_LABELS_2026-10-07_0842.csv · Complete? records",
+    notes: "Pink. The file stops October 7, 2026. The old RPPR number was 668.",
   },
   {
     section: "Recruitment · GeneScreen",
@@ -111,15 +129,15 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     value: "55 (consent date)",
     tier: "verified",
     source: "USC GeneScreen REDCap · geneScreenYtd.json",
-    notes: `${siteReportingWindow.label} · EAC lock · Complete records · black on dashboard.`,
+    notes: `${siteReportingWindow.label} · pink. The REDCap file stops October 7, before October 16.`,
   },
   {
     section: "Recruitment · GeneScreen",
     metric: "Online enrollments · year to date",
-    value: "87 (membership timestamp)",
+    value: "88 (membership timestamp)",
     tier: "verified",
     source: "USC GeneScreen REDCap · geneScreenYtd.json",
-    notes: "Membership Timestamp in YTD window; black period activity.",
+    notes: "Pink. Membership timestamp in the window. The file stops October 7.",
   },
   {
     section: "Recruitment · GeneScreen",
@@ -127,7 +145,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     value: "n=55 · REDCap-derived",
     tier: "verified",
     source: "geneScreenYtd.json",
-    notes: "Headline registry totals (668) stay green; YTD charts black from export.",
+    notes: "Pink. Ethnicity 14 + 33 + 5 + 2 + 1 = 55. The old RPPR total of 668 is a different count.",
   },
   {
     section: "Recruitment · GeneScreen",
@@ -178,7 +196,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   // Imaging
   {
     section: "Imaging",
-    metric: "SCAN / CLARITi targets",
+    metric: "SCAN / CLARiTI targets",
     value: "24 / 36",
     tier: "verified",
     source: "RPPR · grant budget justification",
@@ -238,11 +256,11 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Biomarkers",
     metric: "Biofluid Collection · samples / tubes",
-    value: "Plasma 209 / 2,498 · Buffy coat 209 / 416 · Serum 32 / 721 · CSF 0 / 0",
+    value: "Plasma 203 / 2,427 · Buffy coat 203 / 404 · Serum 32 / 721 · CSF 0 / 0",
     tier: "verified",
     source:
       "data/reference/biomarker-core/Biomarker Core Sample Processing January-October 2026.xlsx · Abhay Sagare, USC ADRC Biomarker Core",
-    notes: "Black. January 1, 2026 – October 31, 2026. CSF is 0 / 0 because that workbook has no CSF rows.",
+    notes: "Black for January through September 2026. October is pink: plasma 6 samples and 71 tubes, buffy coat 6 and 12, serum 0 and 0. The full workbook is 209 / 2,498 plasma, and that is not the black total. CSF is 0 / 0 because the workbook has no CSF rows.",
   },
   {
     section: "Biomarkers",
@@ -328,10 +346,12 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   // Demographics
   {
     section: "Demographics · Table 1",
-    metric: "Full table (N=573)",
-    value: "All rows",
+    metric: "Full table (N=585)",
+    value: "All 60 cells",
     tier: "verified",
-    source: "Clinical Core RPPR workbook Table 1",
+    source:
+      "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · ADRC_active_all by race · as of 2026-10-16",
+    notes: "Black. Race 158+217+58+93+59=585. CDR 296+251+38=585. Male 212. Female on the chart is 585 minus 212 = 373. MoCA N=541. APOE N=474. APOE4 allele 176 (37.1%). The old RPPR table (N=573) is not this table.",
   },
 ];
 

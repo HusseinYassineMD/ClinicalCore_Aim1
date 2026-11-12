@@ -10,7 +10,7 @@
     "periodKind": "year_to_date",
     "packageReceivedAt": "2026-09-16",
     "supplementReceivedAt": "2026-10-09",
-    "note": "Year-to-date counts from row-level dates in the package CSVs (received 2026-09-16; BRS & biospecimen supplements 2026-10-09). The export is a snapshot \u2014 activity after delivery is not in these files.",
+    "note": "Year-to-date window is January 1, 2026 through October 16, 2026. UDS visits in this summary run through October 12, 2026. Imaging is Integrated Imaging v1.5.4 through October 16, 2026 (James Wang, November 6). NCRAD plasma assays are Integrated_Biomarkers_Long v1.1.2 (James Wang, November 5), collections January 6 through August 27, 2026. The October 9 MAP Active count (231) is a different count from the autopsy headline of 225.",
     "dataCoverage": {
       "packageReceivedAt": "2026-09-16",
       "udsLatestVisitDate": "2026-10-12",
@@ -290,7 +290,7 @@
     "imagingIntegratedStudySummary": {
       "packageVersion": "v1.5.4",
       "sourceFile": "USC_ADRC_Imaging_Availability_Study_Summary_v1.5.4.csv",
-      "note": "Study-level integrated availability from James Integrated Imaging v1.5.4. nacc_registry_verified_subjects = identity QC in the official NACC registry. Modality subject counts are package-wide (not calendar YTD). YTD SCAN/CLARITi participant progress is in imaging.scanStudy / claritiStudy.",
+      "note": "Study-level integrated availability from James Integrated Imaging v1.5.4. nacc_registry_verified_subjects = identity QC in the official NACC registry. Modality subject counts are package-wide (not calendar YTD). YTD SCAN/CLARiTI participant progress is in imaging.scanStudy / claritiStudy.",
       "studies": [
         {
           "study": "SCAN",
@@ -492,7 +492,7 @@
       }
     ]
   },
-  "note": "Integrated imaging availability v1.5.2 is included when CSVs are present under USC ADRC Integrated Imaging Availability. BRS IDs use 8-xxxx format \u2014 open CSVs via import, not double-click in Excel.",
+  "note": "Metrics-page imaging is Integrated Imaging v1.5.4 (James Wang, November 6), in data/JamesDataPacket-November-6. NCRAD assay counts are Integrated_Biomarkers_Long v1.1.2 (November 5). The autopsy headline on the Metrics page is Xinhui Wang's October 16 table (225), not the MAP Active count in this package. BRS IDs use 8-xxxx format. Open CSVs via import, not by double-clicking them in Excel.",
   "inventory": {
     "totalFiles": 37,
     "csvFiles": 29,
@@ -9147,7 +9147,7 @@
       ],
       "dashboardLinks": [
         "Imaging \u00b7 SCAN Progress",
-        "Imaging \u00b7 CLARITi Progress"
+        "Imaging · CLARiTI Progress"
       ]
     }
   ],

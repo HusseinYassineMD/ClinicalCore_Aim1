@@ -21,8 +21,10 @@ export default function RegistryDataPage() {
                 Registry Data Summaries
               </h1>
               <p className="text-white/80 text-sm">
-                ATN, BRS, and UDS · aggregated counts only · site period{" "}
-                {siteReportingWindow.label} · last indexed {data.lastUpdated}
+                ATN, BRS, and UDS · file indexes only · site period{" "}
+                {siteReportingWindow.label} · last indexed {data.lastUpdated}.
+                These counts are the indexed files. The October 16 metric
+                headlines are on the Metrics page.
               </p>
             </div>
             <div className="bg-white/10 backdrop-blur rounded-lg px-4 py-2 text-sm">
