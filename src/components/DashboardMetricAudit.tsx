@@ -50,15 +50,15 @@ export default function DashboardMetricAudit() {
             number yet.
           </li>
           <li>
-            <strong>Black</strong> on the dashboard = calendar year-to-date ·{" "}
+            <strong>Black</strong> = counted through October 16 ·{" "}
             <strong>Green</strong> = last RPPR period ·{" "}
-            <strong>Red</strong> = no data ·{" "}
-            <strong>Red</strong> = zero or not in the current export.
+            <strong>Pink</strong> = latest file that does not run through
+            October 16 · <strong>Red</strong> = not available.
           </li>
           <li>
-            <strong>Grant plan</strong> toggles show renewal targets—not RPPR
-            actuals. <strong>Registry Summaries</strong> is raw CSV detail, not
-            headline RPPR counts.
+            <strong>Grant plan</strong> rows are renewal targets.{" "}
+            <strong>Registry Summaries</strong> are file indexes, not the
+            October 16 headlines.
           </li>
         </ul>
       </div>

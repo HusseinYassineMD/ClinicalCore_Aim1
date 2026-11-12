@@ -119,8 +119,9 @@ export default function DataSourcesPage() {
           </h2>
           <p className="text-sm text-cpbh-navy/70 mb-4 leading-relaxed">
             Stored under <code className="text-xs">data/reference/</code> for
-            finance and GeneScreen ops. Clinical metric cards still use James
-            YTD + REDCap; these files support admin cross-checks.
+            finance and GeneScreen ops. The metric cards use the October 16
+            tables, the UDS year-to-date file, and REDCap. These files support
+            admin cross-checks.
           </p>
           <div className="space-y-6 text-sm">
             <div>
