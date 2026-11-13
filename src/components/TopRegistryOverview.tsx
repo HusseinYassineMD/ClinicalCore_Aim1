@@ -1395,6 +1395,58 @@ function chartsProvenanceForColumn(column: RegistryColumn): DataProvenance {
   return column.chartsProvenance ?? column.totalsProvenance ?? "unknown";
 }
 
+function UdsCountTile({
+  label,
+  definition,
+  source,
+  total,
+  valueClassName,
+  selected = false,
+  onClick,
+}: {
+  label: string;
+  definition: string;
+  source: string;
+  total: number;
+  valueClassName: string;
+  selected?: boolean;
+  onClick?: () => void;
+}) {
+  const className = `flex w-full items-start justify-between gap-3 rounded-xl border px-3 py-2.5 text-left shadow-sm ${
+    onClick
+      ? selected
+        ? "border-cpbh-navy bg-white ring-2 ring-cpbh-navy/20"
+        : "border-cpbh-mist bg-white hover:border-cpbh-navy/30"
+      : "border-dashed border-cpbh-navy/25 bg-cpbh-mist/40"
+  }`;
+  const body = (
+    <>
+      <span className="min-w-0">
+        <span className="block text-[11px] font-semibold uppercase tracking-wide leading-tight text-cpbh-navy">
+          {label}
+        </span>
+        <span className="mt-1 block text-[11px] leading-snug text-cpbh-navy/75">
+          {definition}
+        </span>
+        <span className="mt-1 block text-[10px] leading-snug text-cpbh-navy/50">
+          {source}
+        </span>
+      </span>
+      <span
+        className={`shrink-0 pt-0.5 text-3xl font-semibold tabular-nums leading-none ${valueClassName}`}
+      >
+        {total}
+      </span>
+    </>
+  );
+  if (!onClick) return <div className={className}>{body}</div>;
+  return (
+    <button type="button" onClick={onClick} className={className}>
+      {body}
+    </button>
+  );
+}
+
 function RegistryHeaderBlock({
   column,
   udsBoxes,
@@ -1424,70 +1476,51 @@ function RegistryHeaderBlock({
       }
     >
       <p className="text-sm font-medium text-cpbh-purple uppercase tracking-wide leading-snug px-1 line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
-        {showUdsBoxes ? "Participants with a UDS visit" : column.title}
+        {showUdsBoxes ? "UDS participants" : column.title}
       </p>
       {showUdsBoxes ? (
-        <div className="mt-2 grid w-full grid-cols-3 gap-2">
-          {udsBoxes.flatMap((box) => {
-            const selected = phase === box.id;
-            const button = (
-              <button
-                key={box.id}
-                type="button"
+        <div className="mt-2 flex w-full flex-col gap-1.5">
+          {udsBoxes.map((box) => (
+            <div key={box.id} className="flex flex-col gap-1.5">
+              <UdsCountTile
+                label={
+                  box.id === "grant"
+                    ? "Active with UDS"
+                    : "Any UDS visit this year"
+                }
+                definition={
+                  box.id === "grant"
+                    ? "Active ADRC participants with UDS data as of October 16, 2026."
+                    : `A UDS visit from January 1 through ${formatScopeDate(udsLatestVisitDate)}, including follow-ups.`
+                }
+                source={
+                  box.id === "grant"
+                    ? "Xinhui Wang · active UDS table · received Nov 10, 2026"
+                    : "James Wang · UDS visit file"
+                }
+                total={box.total}
+                valueClassName={metricValueClass(box.provenance, box.total)}
+                selected={phase === box.id}
                 onClick={() => onSelectPhase?.(box.id)}
-                className={`rounded-lg border bg-white px-2 py-2 text-center shadow-sm ${
-                  selected
-                    ? "border-cpbh-navy ring-2 ring-cpbh-navy/25"
-                    : "border-cpbh-mist hover:border-cpbh-navy/30"
-                }`}
-              >
-                <p className="text-[10px] font-medium uppercase tracking-wide text-cpbh-navy/70 leading-tight">
-                  {box.label}
-                </p>
-                <p className="text-[9px] text-cpbh-navy/50 leading-tight">
-                  {box.detail}
-                </p>
-                <p
-                  className={`mt-1 text-2xl font-semibold leading-none ${metricValueClass(box.provenance, box.total)}`}
-                >
-                  {box.total}
-                </p>
-              </button>
-            );
-            if (box.id !== "grant") return [button];
-            return [
-              button,
-              <div
-                key="minimal-contact"
-                className="rounded-lg border border-cpbh-mist bg-white px-2 py-2 text-center shadow-sm"
-              >
-                <p className="text-[10px] font-medium uppercase tracking-wide text-cpbh-navy/70 leading-tight">
-                  {minimalContact.label}
-                </p>
-                <p className="text-[9px] text-cpbh-navy/50 leading-tight">
-                  not in the {minimalContact.activeWithUdsCount}
-                </p>
-                <p className="mt-1 text-2xl font-semibold leading-none metric-value-ytd">
-                  {minimalContact.count}
-                </p>
-              </div>,
-            ];
-          })}
+              />
+              {box.id === "grant" ? (
+                <UdsCountTile
+                  label={minimalContact.label}
+                  definition={minimalContact.definition}
+                  source={minimalContact.sourceLine}
+                  total={minimalContact.count}
+                  valueClassName="metric-value-ytd"
+                />
+              ) : null}
+            </div>
+          ))}
         </div>
       ) : (
       <p className={`text-4xl md:text-5xl font-semibold mt-1 leading-none ${valueClass}`}>
         {totalsProvenance === "unknown" ? "TBD" : column.total}
       </p>
       )}
-      {showUdsBoxes ? (
-        <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
-          {sourceThroughText(
-            "James Wang · UDS_longitudinal_harmonized.csv",
-            formatScopeDate(udsLatestVisitDate),
-            `Active with UDS is Xinhui Wang, 585, as of October 16, 2026. Minimal contact is James Wang, ${minimalContact.count}, current status in ADRC_subject_current_harmonized.csv, received November 6, 2026. Those ${minimalContact.count} are not in the 585. Year to date is participants with a visit through ${formatScopeDate(udsLatestVisitDate)}.`,
-          )}
-        </p>
-      ) : column.headerNote ? (
+      {showUdsBoxes ? null : column.headerNote ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
           {column.headerNote}
         </p>
@@ -1705,7 +1738,7 @@ function RegistryAlignedDesktop({
               {RECRUITMENT_ROW_LABEL[col.id]}
             </h3>
             <div
-              className="grid items-stretch gap-3 xl:grid-cols-[minmax(220px,0.92fr)_minmax(320px,1.2fr)_minmax(0,3fr)]"
+              className="grid items-stretch gap-3 xl:grid-cols-[minmax(280px,1fr)_minmax(300px,1.05fr)_minmax(0,3fr)]"
               data-deck-slide={`recruitment-row-${col.id}`}
               data-deck-caption={`Recruitment · ${RECRUITMENT_ROW_LABEL[col.id]}`}
             >

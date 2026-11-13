@@ -2,6 +2,8 @@
   "source": "James Wang · ADRC_subject_current_harmonized.csv · der_status_adrc",
   "receivedDate": "2026-11-06",
   "label": "Minimal contact",
+  "definition": "Current ADRC status is Minimal contact. These participants are not in the 585 active participants.",
+  "sourceLine": "James Wang · ADRC subject file · received Nov 6, 2026",
   "count": 540,
   "activeWithUdsCount": 585,
   "overlapWithActive": 0,
