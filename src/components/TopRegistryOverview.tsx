@@ -1509,7 +1509,7 @@ function RegistryHeaderBlock({
                 }
                 source={
                   box.id === "grant"
-                    ? "Xinhui Wang · active UDS table · received Nov 10, 2026"
+                    ? "Xinhui Wang · active UDS table · received Nov 13, 2026"
                     : "James Wang · UDS visit file"
                 }
                 total={box.total}
@@ -1562,9 +1562,9 @@ function RegistryHeaderBlock({
       ) : column.id === "brs" ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
           {sourceThroughText(
-            "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · BRS Table",
+            "Xinhui Wang · RPPR tables to Aishwarya 2026-1113.xlsx · BRS Table",
             "October 16, 2026",
-            "Black. Current enrollment as of October 16, 2026. Received November 10, 2026.",
+            "Black. Current enrollment as of October 16, 2026. Received November 13, 2026.",
           )}
         </p>
       ) : null}

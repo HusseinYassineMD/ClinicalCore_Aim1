@@ -351,7 +351,7 @@ export const aim1MockData: Aim1DashboardData = {
         {
           title: "Person list (black · same 225)",
           lines: [
-            "race/ethnicity: Hispanic 39 · non-Hispanic White 143 · African American 10 · Asian 16 · Others 17",
+            "race/ethnicity: Hispanic 46 · non-Hispanic White 143 · African American 10 · Asian 16 · Others 10",
             "APOE4 carrier: Yes 71 · No 139 · no genotype 15. sex: Male 82 · Female 143.",
             "James MAP Active on November 6 is 231. That is a different count.",
           ],
@@ -406,7 +406,7 @@ export const aim1MockData: Aim1DashboardData = {
     demographics: {
       status: "ytd",
       source:
-        "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · ADRC_active_all by race · received November 10, 2026",
+        "Xinhui Wang · RPPR tables to Aishwarya 2026-1113.xlsx · ADRC_active_all by race · received November 13, 2026",
       bulletGroups: [
         {
           title: "Black · active ADRC participants as of October 16, 2026",
@@ -607,7 +607,7 @@ export const aim1MockData: Aim1DashboardData = {
         ],
         totalsProvenance: "ytd",
         chartsProvenance: "ytd",
-        headerNote: `Source: Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · BRS Table. Through: October 16, 2026. Black · ${brsDcEnrollmentN ?? "—"} UDS participants enrolled. Withdrawal ${brsDcWithdrawal?.participants ?? "—"}. Rate ${brsDcEnrollmentN ?? "—"} / ${table1HarmonizedActiveSnapshot.meta.participantCount} (${
+        headerNote: `Source: Xinhui Wang · RPPR tables to Aishwarya 2026-1113.xlsx · BRS Table. Through: October 16, 2026. Black · ${brsDcEnrollmentN ?? "—"} UDS participants enrolled. Withdrawal ${brsDcWithdrawal?.participants ?? "—"}. Rate ${brsDcEnrollmentN ?? "—"} / ${table1HarmonizedActiveSnapshot.meta.participantCount} (${
           brsDcEnrollmentN == null
             ? "—"
             : Math.round(
@@ -617,7 +617,7 @@ export const aim1MockData: Aim1DashboardData = {
               ) / 10
         }%).`,
         periodTargetNote:
-          "Source: Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · BRS Table. Through: October 16, 2026. Black · 5 new participants enrolled and 1 withdrawal.",
+          "Source: Xinhui Wang · RPPR tables to Aishwarya 2026-1113.xlsx · BRS Table. Through: October 16, 2026. Black · 5 new participants enrolled and 1 withdrawal.",
         chartSlots: [
           {
             title: "Race/ethnicity",
@@ -627,7 +627,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "ytd",
             n: BRS_ACTIVE_COHORT.activeRows,
             nCaption:
-              "Source: Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx · code book race_ethnicity. Through: October 16, 2026. Black · 1=Hispanic 39, 2=non-Hispanic White 143, 3=African American 10, 4=Asian 16, 5=Others 17. No code 99 Unknown.",
+              "Source: Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016) v2026-1113.xlsx · code book race_ethnicity. Through: October 16, 2026. Black · 1=Hispanic 46, 2=non-Hispanic White 143, 3=African American 10, 4=Asian 16, 5=Others 10. No code 99 Unknown.",
             items: BRS_ACTIVE_COHORT.hispanicLatino.map((row) => ({
               label: row.label,
               count: row.count,
@@ -642,7 +642,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "ytd",
             n: BRS_ACTIVE_COHORT.activeRows,
             nCaption:
-              "Source: Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx · code book APOE4. Through: October 16, 2026. Black · 1=Yes 71, 0=No 139. 15 rows are blank, and those rows also have no consolidated APOE genotype.",
+              "Source: Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016) v2026-1113.xlsx · code book APOE4. Through: October 16, 2026. Black · 1=Yes 71, 0=No 139. 15 rows are blank, and those rows also have no consolidated APOE genotype.",
             items: BRS_ACTIVE_APOE.map((row) => ({
               label: row.label,
               count: row.count,
@@ -657,7 +657,7 @@ export const aim1MockData: Aim1DashboardData = {
             chartProvenance: "ytd",
             n: brsDcEnrollmentN ?? undefined,
             nCaption:
-              "Source: Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx · code book sex. Through: October 16, 2026. Black · 1=Male 82, 2=Female 143. The BRS table F and M columns match this split.",
+              "Source: Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016) v2026-1113.xlsx · code book sex. Through: October 16, 2026. Black · 1=Male 82, 2=Female 143. The BRS table F and M columns match this split.",
             items: [
               {
                 label: "Male",

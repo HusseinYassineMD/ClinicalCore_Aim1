@@ -49,7 +49,7 @@ export default function DemographicsTableClient() {
           through={formatScopeDate(harmonized.meta.asOfDate)}
         >
           Black · active ADRC participants (UDS) as of October 16, 2026. Received
-          November 10, 2026. This replaces the September 17 snapshot (N=569).
+          November 13, 2026. Hispanic identification was corrected in this file. This replaces the November 10 table and the September 17 snapshot (N=569).
         </HeadingLead>
       </div>
 

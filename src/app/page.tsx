@@ -81,7 +81,7 @@ export default function DashboardPage() {
                     {sourceThroughText(
                       table1HarmonizedActiveSnapshot.meta.source,
                       formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate),
-                      "Black · active ADRC participants (UDS) as of October 16, 2026. Received November 10, 2026.",
+                      "Black · active ADRC participants (UDS) as of October 16, 2026. Received November 13, 2026.",
                     )}
                   </p>
                 </div>

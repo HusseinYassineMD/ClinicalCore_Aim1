@@ -1,21 +1,21 @@
 /**
  * Xinhui Wang person list, 225 unique UDS IDs, as of 2026-10-16.
- * MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx · sheet code book.
+ * MAP BRS UDS list (N=225, active+min.cont as of 2026-1016) v2026-1113.xlsx · sheet code book.
  * race_ethnicity: 1=Hispanic, 2=non-Hispanic White, 3=African American, 4=Asian, 5=Others, 99=Unknown.
  * sex: 1=Male, 2=Female.
  * APOE4: 1=Yes, 0=No. Blank rows also have no apoe_comb.
  */
 export const BRS_ACTIVE_COHORT = {
   exportFile:
-    "MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx",
+    "MAP BRS UDS list (N=225, active+min.cont as of 2026-1016) v2026-1113.xlsx",
   activeRows: 225,
   rpprHeadlineEnrolled: 225,
   hispanicLatino: [
-    { label: "Hispanic", count: 39 },
+    { label: "Hispanic", count: 46 },
     { label: "non-Hispanic White", count: 143 },
     { label: "African American", count: 10 },
     { label: "Asian", count: 16 },
-    { label: "Others", count: 17 },
+    { label: "Others", count: 10 },
   ],
   sex: [
     { label: "Male", count: 82 },

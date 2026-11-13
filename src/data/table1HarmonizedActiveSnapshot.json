@@ -1,14 +1,14 @@
 {
   "meta": {
-    "source": "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · sheet ADRC_active_all by race",
+    "source": "Xinhui Wang · RPPR tables to Aishwarya 2026-1113.xlsx · sheet ADRC_active_all by race",
     "asOfDate": "2026-10-16",
-    "receivedDate": "2026-11-10",
+    "receivedDate": "2026-11-13",
     "cohortDefinition": "Active ADRC participants (UDS data) as of October 16, 2026.",
     "participantCount": 585,
     "mocaN": 541,
     "apoeN": 474,
-    "workflowReference": "data/reference/xinhui-wang-2026-11-10/RPPR tables to Aishwarya 2026-1110.xlsx",
-    "note": "Received November 10, 2026. Replaces the September 17 harmonized snapshot (N=569) and is not the old RPPR workbook Table 1 (N=573)."
+    "workflowReference": "data/reference/xinhui-wang-2026-11-13/RPPR tables to Aishwarya 2026-1113.xlsx",
+    "note": "Received November 13, 2026. Hispanic identification was corrected in this file: Hispanic 180 and Other/unknown 37. Replaces the November 10 table and the September 17 harmonized snapshot (N=569). It is not the old RPPR workbook Table 1 (N=573)."
   },
   "overall": {
     "n": "585",
@@ -23,16 +23,16 @@
     "followUpMeanSD": "5 (4.4)"
   },
   "hispanic": {
-    "n": "158 (27.0%)",
-    "ageMeanSD": "69.5 (11.7)",
+    "n": "180 (30.8%)",
+    "ageMeanSD": "69.4 (11.4)",
     "eduMedianIQR": "14 [12, 16]",
-    "male": "59 (37.3%)",
-    "mocaMeanSD": "24.5 (5)",
-    "cdr0": "70 (44.3%)",
-    "cdr05": "76 (48.1%)",
-    "cdrGe1": "12 (7.6%)",
-    "apoeE4Percent": "37 (26.1%)",
-    "followUpMeanSD": "4.2 (3.3)"
+    "male": "65 (36.1%)",
+    "mocaMeanSD": "24.7 (4.9)",
+    "cdr0": "81 (45%)",
+    "cdr05": "86 (47.8%)",
+    "cdrGe1": "13 (7.2%)",
+    "apoeE4Percent": "43 (26.7%)",
+    "followUpMeanSD": "4.1 (3.2)"
   },
   "white": {
     "n": "217 (37.1%)",
@@ -71,15 +71,15 @@
     "followUpMeanSD": "3.3 (3.7)"
   },
   "otherUnknown": {
-    "n": "59 (10.1%)",
-    "ageMeanSD": "72.2 (10)",
-    "eduMedianIQR": "16 [14, 18]",
-    "male": "14 (23.7%)",
-    "mocaMeanSD": "25.7 (3.5)",
-    "cdr0": "31 (52.5%)",
-    "cdr05": "24 (40.7%)",
-    "cdrGe1": "4 (6.8%)",
-    "apoeE4Percent": "23 (45.1%)",
-    "followUpMeanSD": "4.2 (3.4)"
+    "n": "37 (6.3%)",
+    "ageMeanSD": "74.4 (9.8)",
+    "eduMedianIQR": "17 [15, 18]",
+    "male": "8 (21.6%)",
+    "mocaMeanSD": "25.3 (3.7)",
+    "cdr0": "20 (54.1%)",
+    "cdr05": "14 (37.8%)",
+    "cdrGe1": "3 (8.1%)",
+    "apoeE4Percent": "17 (53.1%)",
+    "followUpMeanSD": "4.5 (4.1)"
   }
 }

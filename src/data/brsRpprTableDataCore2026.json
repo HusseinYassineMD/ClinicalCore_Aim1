@@ -1,24 +1,24 @@
 {
   "meta": {
     "preparedBy": "Xinhui Wang · USC ADRC Data Core",
-    "emailDate": "2026-11-10",
-    "receivedDate": "2026-11-10",
+    "emailDate": "2026-11-13",
+    "receivedDate": "2026-11-13",
     "asOfDate": "2026-10-16",
     "title": "Table 1. Brain Research Study (BRS)",
     "windowLabel": "01/01/26 – 10/16/26",
     "mapBrsDataPullDate": "2026-10-16",
-    "sourceFile": "data/reference/xinhui-wang-2026-11-10/RPPR tables to Aishwarya 2026-1110.xlsx",
-    "personListFile": "data/reference/xinhui-wang-2026-11-10/MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx",
+    "sourceFile": "data/reference/xinhui-wang-2026-11-13/RPPR tables to Aishwarya 2026-1113.xlsx",
+    "personListFile": "data/reference/xinhui-wang-2026-11-13/MAP BRS UDS list (N=225, active+min.cont as of 2026-1016) v2026-1113.xlsx",
     "eacLock": {
       "directedBy": "Dr. Chui",
       "alignedWith": "EAC",
       "reportingWindowEnd": "2026-10-16",
       "dashboardYtdLabel": "1/1/2026 – 10/16/2026",
-      "note": "Xinhui Wang, email November 10, 2026. The BRS table is labeled 01/01/26 – 10/16/2026. Current enrollment is as of 10/16/2026."
+      "note": "Xinhui Wang, email November 13, 2026. The BRS table is labeled 01/01/26 – 10/16/2026. Current enrollment is as of 10/16/2026. Hispanic identification was corrected in this send."
     },
     "sources": [
-      "RPPR tables to Aishwarya 2026-1110.xlsx · sheet BRS Table · email November 10, 2026",
-      "MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx · person list for sex, race/ethnicity, and APOE"
+      "RPPR tables to Aishwarya 2026-1113.xlsx · sheet BRS Table · email November 13, 2026",
+      "MAP BRS UDS list (N=225, active+min.cont as of 2026-1016) v2026-1113.xlsx · person list for sex, race/ethnicity, and APOE"
     ],
     "percentDenominator": 225,
     "percentDenominatorLabel": "Current enrollment (N=225)",
@@ -34,7 +34,7 @@
   },
   "qcNotes": [
     "Person list has 225 unique UDS IDs. Sex matches the table: 143 female, 82 male.",
-    "Code book race_ethnicity: 1=Hispanic 39, 2=non-Hispanic White 143, 3=African American 10, 4=Asian 16, 5=Others 17. No code 99 Unknown.",
+    "Code book race_ethnicity: 1=Hispanic 46, 2=non-Hispanic White 143, 3=African American 10, 4=Asian 16, 5=Others 10. No code 99 Unknown. Seven people moved from Others to Hispanic versus the November 10 list. Sex and APOE4 are unchanged.",
     "Code book APOE4: 1=Yes 71, 0=No 139, blank 15. Those 15 rows also have no consolidated APOE genotype. Code book sex: 1=Male 82, 2=Female 143.",
     "James Wang, MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv, status Active is 231. That is a different count."
   ],

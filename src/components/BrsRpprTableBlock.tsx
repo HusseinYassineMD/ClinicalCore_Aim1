@@ -34,7 +34,7 @@ export default function BrsRpprTableBlock() {
           source={`${meta.preparedBy} · ${meta.sourceFile}`}
           through={formatScopeDate(meta.asOfDate)}
         >
-          Black · window {meta.windowLabel}. Received November 10, 2026. Current
+          Black · window {meta.windowLabel}. Received {formatScopeDate(meta.receivedDate)}. Current
           enrollment is as of October 16, 2026. James MAP Active 231 is a
           different count.
         </HeadingLead>

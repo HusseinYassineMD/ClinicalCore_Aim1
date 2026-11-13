@@ -613,9 +613,9 @@ def build_rows() -> list[dict[str, str]]:
         row(
             "Recruitment - BRS",
             "Race/ethnicity, sex, and APOE4 charts",
-            "Hispanic 39, non-Hispanic White 143, African American 10, Asian 16, Others 17; Male 82, Female 143; APOE4 Yes 71, No 139, no genotype 15",
+            "Hispanic 46, non-Hispanic White 143, African American 10, Asian 16, Others 10; Male 82, Female 143; APOE4 Yes 71, No 139, no genotype 15",
             "Person list codes, counted on the 225 active rows",
-            "data/reference/xinhui-wang-2026-11-10/MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx",
+            "data/reference/xinhui-wang-2026-11-13/MAP BRS UDS list (N=225, active+min.cont as of 2026-1016) v2026-1113.xlsx",
             "Black. Code book race_ethnicity, sex, and APOE4. These charts are the 225 enrolled participants.",
             dashboard_color="black",
             data_lineage=LINEAGE_LEGEND[1][1],

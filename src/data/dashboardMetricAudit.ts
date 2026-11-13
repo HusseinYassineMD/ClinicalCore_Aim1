@@ -64,7 +64,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     value: "585",
     tier: "verified",
     source:
-      "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · ADRC_active_all by race · as of 2026-10-16 · received 2026-11-10",
+      "Xinhui Wang · RPPR tables to Aishwarya 2026-1113.xlsx · ADRC_active_all by race · as of 2026-10-16 · received 2026-11-13",
     notes: "Black. This is the Table 1 N. James's count of a UDS visit since 7/1/2025 is 543, a different count. James's current statuses Annual in-person 221, telephone 15, and presumed active 349 also sum to 585, and those people are not the minimal-contact group.",
   },
   {
@@ -180,16 +180,16 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     value: "225 enrolled · 5 new",
     tier: "verified",
     source:
-      "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · BRS Table · as of 2026-10-16 · received 2026-11-10",
+      "Xinhui Wang · RPPR tables to Aishwarya 2026-1113.xlsx · BRS Table · as of 2026-10-16 · received 2026-11-13",
     notes: "James MAP Active 231 is a different count.",
   },
   {
     section: "Recruitment · BRS",
     metric: "Charts · race/ethnicity, sex, APOE4",
-    value: "sex Male 82 / Female 143 of 225 · race/ethnicity Hispanic 39, non-Hispanic White 143, African American 10, Asian 16, Others 17 · APOE4 Yes 71 / No 139 / no genotype 15",
+    value: "sex Male 82 / Female 143 of 225 · race/ethnicity Hispanic 46, non-Hispanic White 143, African American 10, Asian 16, Others 10 · APOE4 Yes 71 / No 139 / no genotype 15",
     tier: "verified",
     source:
-      "Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016).xlsx · sex, race_ethnicity, APOE4 · as of 2026-10-16",
+      "Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016) v2026-1113.xlsx · sex, race_ethnicity, APOE4 · as of 2026-10-16 · received 2026-11-13",
   },
   {
     section: "Recruitment · BRS",
@@ -322,7 +322,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     value: "New 5 · withdrawal 1 · current 225 · died w/ autopsy 7 · w/o 1",
     tier: "verified",
     source:
-      "brsRpprTableDataCore2026.json · Xinhui Wang · BRS Table · as of 2026-10-16 · received 2026-11-10",
+      "brsRpprTableDataCore2026.json · Xinhui Wang · BRS Table · as of 2026-10-16 · received 2026-11-13",
     notes: "Percent column uses N=225. Female 143, male 82. James MAP Active 231 is a different count.",
   },
   {
@@ -380,8 +380,8 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     value: "All 60 cells",
     tier: "verified",
     source:
-      "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · ADRC_active_all by race · as of 2026-10-16",
-    notes: "Black. Race 158+217+58+93+59=585. CDR 296+251+38=585. Male 212. Female on the chart is 585 minus 212 = 373. MoCA N is participants with a MoCA score: 541 of 585. APOE N is participants with an APOE genotype: 474 of 585. APOE4 allele is participants with at least one ε4 allele: 176 of 474 (37.1%). The old RPPR table (N=573) is not this table.",
+      "Xinhui Wang · RPPR tables to Aishwarya 2026-1113.xlsx · ADRC_active_all by race · as of 2026-10-16 · received 2026-11-13",
+    notes: "Black. Race 180+217+58+93+37=585. CDR 296+251+38=585. Male 212. Female on the chart is 585 minus 212 = 373. MoCA N is participants with a MoCA score: 541 of 585. APOE N is participants with an APOE genotype: 474 of 585. APOE4 allele is participants with at least one ε4 allele: 176 of 474 (37.1%). Hispanic identification was corrected on November 13, 2026. The old RPPR table (N=573) is not this table.",
   },
 ];
 

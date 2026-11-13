@@ -19,8 +19,8 @@ export default function DemographicsTableStickyNote() {
       </p>
       <ul className={`${STICKY_NOTE_BODY} list-disc pl-3 space-y-0.5`}>
         <li>
-          Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · N=
-          {harmonizedN} · received November 10, 2026
+          Xinhui Wang · RPPR tables to Aishwarya 2026-1113.xlsx · N=
+          {harmonizedN} · received November 13, 2026
         </li>
         <li>
           Registry card: {ytdParticipantsWithVisit} with visit in{" "}

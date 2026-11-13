@@ -106,7 +106,7 @@ export type UdsPeriodBox = {
 const udsThrough = formatScopeDate(udsLatestVisitDate);
 
 const ACTIVE_ADRC_SOURCE =
-  "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · sheet ADRC_active_all by race";
+  "Xinhui Wang · RPPR tables to Aishwarya 2026-1113.xlsx · sheet ADRC_active_all by race";
 
 /** Active ADRC participants (UDS data) as of October 16, 2026. Not the since-7/1/2025 visit count. */
 function activeAdrcColumn(column: RegistryColumn): RegistryColumn {

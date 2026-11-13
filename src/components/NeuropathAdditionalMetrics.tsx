@@ -50,7 +50,7 @@ export default function NeuropathAdditionalMetrics({
         through={formatScopeDate(brsRpprTableDataCore.meta.asOfDate)}
       >
         Black · Brain Research Study table, January 1 through October 16, 2026.
-        Received November 10, 2026. James MAP Active{" "}
+        Received November 13, 2026. James MAP Active{" "}
         {mapCmp?.activeStatusOne ?? "231"} is a different count.
       </HeadingLead>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
