@@ -158,7 +158,7 @@ function BreakdownCountList({
     <ul
       className={
         compact
-          ? "flex flex-col justify-center gap-1.5 py-0.5 pl-1"
+          ? "flex flex-col justify-start gap-1.5 py-0.5 pl-1"
           : "mt-1.5 space-y-1 rounded-lg bg-cpbh-mist/30 px-2.5 py-2 shrink-0"
       }
     >
@@ -196,7 +196,7 @@ function ChartSlot({
   tall?: boolean;
 }) {
   return (
-    <div className="rounded-xl border border-cpbh-mist/80 bg-white px-3 py-3 flex flex-col justify-center w-full h-full shadow-sm shadow-cpbh-navy/[0.03]">
+    <div className="rounded-xl border border-cpbh-mist/80 bg-white px-3 py-3 flex flex-col justify-start w-full h-full shadow-sm shadow-cpbh-navy/[0.03]">
       {children}
     </div>
   );
@@ -766,7 +766,7 @@ function PeriodGoalProgress({
       <p className="text-sm text-cpbh-navy/60 text-center leading-none">
         + year to date
       </p>
-      <div className="flex flex-col justify-center py-1">
+      <div className="flex flex-col justify-start py-1">
         <p className={`text-2xl font-semibold text-center leading-none ${valueClass}`}>
           {current}
           <span className="text-base font-normal opacity-50 ml-1">/ {target}</span>
@@ -1485,8 +1485,8 @@ function RegistryHeaderBlock({
     <div
       className={
         plain
-          ? "text-center flex h-full w-full flex-col items-center justify-center"
-          : "text-center rounded-2xl border-2 border-cpbh-purple/25 bg-cpbh-mist/30 px-4 py-3 shadow-sm flex flex-col items-center justify-center min-h-[7.5rem] h-full"
+          ? "text-center flex h-full w-full flex-col items-center justify-start"
+          : "text-center rounded-2xl border-2 border-cpbh-purple/25 bg-cpbh-mist/30 px-4 py-3 shadow-sm flex flex-col items-center justify-start min-h-[7.5rem] h-full"
       }
     >
       <p className="text-sm font-medium text-cpbh-purple uppercase tracking-wide leading-snug px-1 line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
@@ -1620,8 +1620,8 @@ function RegistryYtdBlock({
     <div
       className={
         plain
-          ? "flex h-full w-full flex-col justify-center"
-          : `rounded-xl bg-cpbh-mist/40 px-3 py-2 h-full flex flex-col justify-center ${YTD_ROW_MIN}`
+          ? "flex h-full w-full flex-col justify-start"
+          : `rounded-xl bg-cpbh-mist/40 px-3 py-2 h-full flex flex-col justify-start ${YTD_ROW_MIN}`
       }
     >
       {column.periodActivities ? (
@@ -1785,7 +1785,7 @@ function RegistryAlignedDesktop({
               data-deck-caption={`Recruitment · ${RECRUITMENT_ROW_LABEL[col.id]}`}
             >
               <div
-                className={`dashboard-card !p-4 border-t-4 ${columnAccentBorder(col)} flex h-full min-w-0 items-center`}
+                className={`dashboard-card !p-4 border-t-4 ${columnAccentBorder(col)} flex h-full min-w-0 items-start`}
               >
                 <RegistryHeaderBlock
                   column={col}
@@ -1799,7 +1799,7 @@ function RegistryAlignedDesktop({
                 />
               </div>
               <div
-                className={`dashboard-card !p-4 border-t-4 ${columnAccentBorder(col)} flex h-full min-w-0 items-center bg-cpbh-mist/25`}
+                className={`dashboard-card !p-4 border-t-4 ${columnAccentBorder(col)} flex h-full min-w-0 items-start bg-cpbh-mist/25`}
               >
                 <RegistryYtdBlock column={col} plain />
               </div>
