@@ -325,6 +325,16 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   },
   {
     section: "Neuropathology",
+    metric: "Enrolled over minimal contact",
+    value: "225 / 540 (41.7%)",
+    tier: "verified",
+    source:
+      "Xinhui Wang BRS current enrollment 225 ÷ James Wang minimal contact 540 · der_status_adrc · received 2026-11-06",
+    notes:
+      "The 540 are not in the 585. This is 225 enrolled divided by the minimal-contact count, not a count of minimal-contact people inside the BRS table.",
+  },
+  {
+    section: "Neuropathology",
     metric: "James MAP raw cross-check (EAC YTD window)",
     value: "4 consents · 5 autopsy dates · 8 deaths · status=1 n=231",
     tier: "verified",

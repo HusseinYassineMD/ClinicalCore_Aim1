@@ -3,6 +3,7 @@ import MetricCard from "./MetricCard";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 import { HeadingLead, sourceThroughText } from "@/components/HeadingLead";
 import brsRpprTableDataCore from "@/data/brsRpprTableDataCore2026.json";
+import minimalContact from "@/data/adrcMinimalContact.json";
 
 interface NeuropathAdditionalMetricsProps {
   data: NeuropathMetrics;
@@ -17,6 +18,15 @@ export default function NeuropathAdditionalMetrics({
   const enrollmentLabel = hasRate
     ? `${enrolled} / ${adrcTotal} (${percent}%)`
     : "—";
+  const minimalTotal = minimalContact.count;
+  const minimalPercent =
+    enrolled != null && minimalTotal > 0
+      ? Math.round((enrolled / minimalTotal) * 1000) / 10
+      : null;
+  const minimalLabel =
+    enrolled != null && minimalPercent != null
+      ? `${enrolled} / ${minimalTotal} (${minimalPercent}%)`
+      : "—";
 
   const deathsLabel =
     data.diedWithAutopsy != null && data.diedWithoutAutopsy != null
@@ -113,6 +123,17 @@ export default function NeuropathAdditionalMetrics({
                 )
               : undefined
           }
+        />
+        <MetricCard
+          label="Enrolled over minimal contact"
+          value={minimalLabel}
+          accent="navy"
+          provenance={minimalPercent != null ? "ytd" : "unknown"}
+          sublabel={sourceThroughText(
+            "Xinhui Wang · BRS enrollment ÷ James Wang · minimal contact",
+            formatScopeDate(brsRpprTableDataCore.meta.asOfDate),
+            `Black · ${enrolled ?? "—"} enrolled ÷ ${minimalTotal} minimal contact. The ${minimalTotal} are not in the ${adrcTotal ?? minimalContact.activeWithUdsCount}.`,
+          )}
         />
       </div>
     </div>
