@@ -335,13 +335,13 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   },
   {
     section: "Neuropathology",
-    metric: "Enrolled over minimal contact",
-    value: "225 / 540 (41.7%)",
+    metric: "Enrolled over active + minimal contact",
+    value: "225 / 1125 (20%)",
     tier: "verified",
     source:
-      "Xinhui Wang BRS current enrollment 225 ÷ James Wang minimal contact 540 · der_status_adrc · received 2026-11-06",
+      "Xinhui Wang BRS current enrollment 225 ÷ James Wang active statuses 585 plus minimal contact 540",
     notes:
-      "The 540 are not in the 585. This is 225 enrolled divided by the minimal-contact count, not a count of minimal-contact people inside the BRS table.",
+      "Denominator is 1,125. The 540 are not in the 585. This is 225 enrolled divided by that sum, not a count of those people inside the BRS table.",
   },
   {
     section: "Neuropathology",

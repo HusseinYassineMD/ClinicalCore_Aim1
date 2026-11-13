@@ -3,7 +3,7 @@ import MetricCard from "./MetricCard";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 import { HeadingLead, sourceThroughText } from "@/components/HeadingLead";
 import brsRpprTableDataCore from "@/data/brsRpprTableDataCore2026.json";
-import minimalContact from "@/data/adrcMinimalContact.json";
+import activePlusMinimal from "@/data/adrcActivePlusMinimal.json";
 
 interface NeuropathAdditionalMetricsProps {
   data: NeuropathMetrics;
@@ -18,14 +18,14 @@ export default function NeuropathAdditionalMetrics({
   const enrollmentLabel = hasRate
     ? `${enrolled} / ${adrcTotal} (${percent}%)`
     : "—";
-  const minimalTotal = minimalContact.count;
-  const minimalPercent =
-    enrolled != null && minimalTotal > 0
-      ? Math.round((enrolled / minimalTotal) * 1000) / 10
+  const combinedTotal = activePlusMinimal.count;
+  const combinedPercent =
+    enrolled != null && combinedTotal > 0
+      ? Math.round((enrolled / combinedTotal) * 1000) / 10
       : null;
-  const minimalLabel =
-    enrolled != null && minimalPercent != null
-      ? `${enrolled} / ${minimalTotal} (${minimalPercent}%)`
+  const combinedLabel =
+    enrolled != null && combinedPercent != null
+      ? `${enrolled} / ${combinedTotal} (${combinedPercent}%)`
       : "—";
 
   const deathsLabel =
@@ -125,14 +125,14 @@ export default function NeuropathAdditionalMetrics({
           }
         />
         <MetricCard
-          label="Enrolled over minimal contact"
-          value={minimalLabel}
+          label="Enrolled over active + minimal contact"
+          value={combinedLabel}
           accent="navy"
-          provenance={minimalPercent != null ? "ytd" : "unknown"}
+          provenance={combinedPercent != null ? "ytd" : "unknown"}
           sublabel={sourceThroughText(
-            "Xinhui Wang · BRS enrollment ÷ James Wang · minimal contact",
+            "Xinhui Wang · BRS enrollment ÷ James Wang · active plus minimal contact",
             formatScopeDate(brsRpprTableDataCore.meta.asOfDate),
-            `Black · ${enrolled ?? "—"} enrolled ÷ ${minimalTotal} minimal contact. The ${minimalTotal} are not in the ${adrcTotal ?? minimalContact.activeWithUdsCount}.`,
+            `Black · ${enrolled ?? "—"} enrolled ÷ ${combinedTotal} (${activePlusMinimal.activeWithUdsCount} active + ${activePlusMinimal.minimalContactCount} minimal contact).`,
           )}
         />
       </div>
