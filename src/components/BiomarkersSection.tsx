@@ -125,6 +125,9 @@ export default function BiomarkersSection({
                 />
               </div>
             </div>
+            <h3 className="font-display text-xl md:text-2xl font-semibold text-cpbh-navy text-center">
+              NCRAD
+            </h3>
             <HeadingLead
               className="text-cpbh-navy/60 text-sm text-center max-w-3xl mx-auto leading-relaxed"
               source={`James Wang · ${jamesPacket?.sourcePath ?? jamesPacket?.sourceFile ?? "Integrated_Biomarkers_Long_v1.1.2.csv"}`}
