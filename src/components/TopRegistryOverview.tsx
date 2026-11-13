@@ -42,10 +42,19 @@ import {
   type RecruitmentPhase,
   type UdsPeriodBox,
 } from "@/data/recruitmentPhases";
+import {
+  adrcYtdInitialN,
+  adrcYtdVisitApoeItems,
+  adrcYtdVisitCaption,
+  adrcYtdVisitEthnicityItems,
+  adrcYtdVisitN,
+  adrcYtdVisitReferralItems,
+} from "@/data/adrcYtdBreakdown";
 import { udsLatestVisitDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 import { sourceThroughText } from "@/components/HeadingLead";
 import recruitmentSpanCounts from "@/data/recruitmentSpanCounts.json";
+import minimalContact from "@/data/adrcMinimalContact.json";
 
 type ChartCountItem = {
   label: string;
@@ -560,20 +569,27 @@ function PeriodActivityCard({
   count,
   provenance,
   target,
+  definition,
+  denominator,
+  denominatorLabel,
   accent = "teal",
 }: {
   label: string;
   count: number;
   provenance: DataProvenance;
   target?: number;
+  definition?: string;
+  denominator?: number;
+  denominatorLabel?: string;
   accent?: "navy" | "purple" | "teal";
 }) {
   const valueClass = metricValueClass(provenance, count);
   const missing = provenance === "unknown";
-  const hasTarget = !missing && target != null && target > 0;
-  const pct = hasTarget
-    ? Math.min(Math.round((count / target) * 100), 100)
-    : 0;
+  const hasDenominator = !missing && denominator != null && denominator > 0;
+  const hasTarget = !missing && !hasDenominator && target != null && target > 0;
+  const share = hasDenominator ? denominator : hasTarget ? target : 0;
+  const pct =
+    share > 0 ? Math.min(Math.round((count / share) * 100), 100) : 0;
   const fillClass =
     accent === "navy"
       ? "bg-cpbh-navy"
@@ -585,20 +601,29 @@ function PeriodActivityCard({
     <div
       className={`flex h-full ${PERIOD_CARD_HEIGHT} flex-col rounded-lg border border-cpbh-mist bg-white px-2 py-2 text-center shadow-sm`}
     >
-      <p className="shrink-0 min-h-[2.25rem] text-[11px] text-cpbh-navy/60 leading-snug flex items-center justify-center">
+      <p className="shrink-0 text-[11px] text-cpbh-navy/60 leading-snug flex items-center justify-center">
         {label}
       </p>
+      {definition ? (
+        <p className="mt-0.5 shrink-0 px-0.5 text-[10px] leading-snug text-cpbh-navy/75">
+          {definition}
+        </p>
+      ) : (
+        <p className="shrink-0 min-h-[1.35rem]" aria-hidden />
+      )}
       <div className="mt-auto flex flex-col justify-end">
         <div
           className={`flex h-5 w-full items-baseline justify-center gap-0.5 whitespace-nowrap tabular-nums text-sm sm:text-base font-semibold leading-none ${valueClass}`}
         >
           <span>{missing ? "TBD" : count}</span>
-          {hasTarget ? (
+          {hasDenominator ? (
+            <span className="font-normal opacity-45">/ {denominator}</span>
+          ) : hasTarget ? (
             <span className="font-normal opacity-45">/ {target}</span>
           ) : null}
         </div>
         <div className="mt-1.5 h-2 rounded-full overflow-hidden mx-0.5 bg-cpbh-mist/90">
-          {hasTarget ? (
+          {hasDenominator || hasTarget ? (
             <div
               className={`h-full rounded-full transition-all ${fillClass}`}
               style={{ width: `${Math.max(pct, count > 0 ? 8 : 0)}%` }}
@@ -610,7 +635,11 @@ function PeriodActivityCard({
             />
           ) : null}
         </div>
-        {hasTarget ? (
+        {hasDenominator ? (
+          <p className="mt-0.5 text-[9px] sm:text-[10px] leading-snug text-cpbh-navy/55">
+            {denominatorLabel}
+          </p>
+        ) : hasTarget ? (
           <TargetProgressLabel
             pct={pct}
             valueClass={valueClass}
@@ -654,6 +683,9 @@ function ReportingPeriodPanel({
     label: string;
     count: number;
     periodTarget?: number;
+    definition?: string;
+    denominator?: number;
+    denominatorLabel?: string;
     provenance?: DataProvenance;
   }[];
   provenance: DataProvenance;
@@ -666,6 +698,9 @@ function ReportingPeriodPanel({
     count: item.count,
     provenance: item.provenance ?? provenance,
     target: item.periodTarget,
+    definition: item.definition,
+    denominator: item.denominator,
+    denominatorLabel: item.denominatorLabel,
     accent,
   });
 
@@ -701,7 +736,7 @@ function ReportingPeriodPanel({
       )}
       {footnote ? (
         <p
-          className="text-[10px] text-cpbh-navy/45 text-center leading-snug px-1 pt-0.5 line-clamp-2"
+          className="text-[10px] text-cpbh-navy/45 text-center leading-snug px-1 pt-0.5"
           title={footnote}
         >
           {footnote}
@@ -1239,14 +1274,121 @@ function columnAccentBorder(column: RegistryColumn): string {
       : "border-t-cpbh-teal";
 }
 
+type YtdChartCohort = "initial" | "visits";
+
+function adrcAllVisitChartSlots(): [
+  RegistryChartSlot,
+  RegistryChartSlot,
+  RegistryChartSlot,
+] {
+  const ytd = "ytd" as const;
+  const apoeItems = adrcYtdVisitApoeItems();
+  return [
+    {
+      title: "Ethnicity",
+      type: "bar",
+      provenance: ytd,
+      nProvenance: ytd,
+      chartProvenance: ytd,
+      n: adrcYtdVisitN,
+      nCaption: adrcYtdVisitCaption,
+      items: adrcYtdVisitEthnicityItems(),
+    },
+    {
+      title: "APOE genotype",
+      type: "pie",
+      provenance: ytd,
+      nProvenance: ytd,
+      chartProvenance: ytd,
+      n: adrcYtdVisitN,
+      nCaption: `${adrcYtdVisitCaption} Red is a genotype not in the MAP APOE export.`,
+      items: apoeItems,
+    },
+    {
+      title: "Referral source (NACC A1)",
+      type: "bar",
+      provenance: ytd,
+      nProvenance: ytd,
+      chartProvenance: ytd,
+      n: adrcYtdVisitN,
+      nCaption: `${adrcYtdVisitCaption} Not recorded on this visit means the referral field was blank.`,
+      items: adrcYtdVisitReferralItems(),
+    },
+  ];
+}
+
 function activeChartSlotsForColumn(
   column: RegistryColumn,
 ): [RegistryChartSlot, RegistryChartSlot, RegistryChartSlot] {
-  const chartsProvenance =
-    column.chartsProvenance ?? column.totalsProvenance ?? "unknown";
   return column.id === "adrc"
     ? adrcYearToDateChartSlots(column)
     : reportingPeriodChartSlots(column);
+}
+
+function chartSlotsForColumn(
+  column: RegistryColumn,
+  phase: RecruitmentPhase | undefined,
+  cohort: YtdChartCohort,
+): [RegistryChartSlot, RegistryChartSlot, RegistryChartSlot] {
+  if (column.id === "adrc" && phase === "ytd" && cohort === "visits") {
+    return adrcAllVisitChartSlots();
+  }
+  return activeChartSlotsForColumn(column);
+}
+
+function YtdCohortToggle({
+  value,
+  onChange,
+}: {
+  value: YtdChartCohort;
+  onChange: (value: YtdChartCohort) => void;
+}) {
+  const options: { id: YtdChartCohort; label: string; n: number }[] = [
+    {
+      id: "initial",
+      label: "New initial evaluations",
+      n: adrcYtdInitialN,
+    },
+    {
+      id: "visits",
+      label: "Any UDS visit",
+      n: adrcYtdVisitN,
+    },
+  ];
+
+  return (
+    <div className="mb-1">
+      <p className="mb-1.5 text-center text-[11px] leading-snug text-cpbh-navy/65">
+        n={adrcYtdInitialN} is a new initial evaluation. n={adrcYtdVisitN} is
+        every participant with a UDS visit this year, including follow-ups.
+        Choose one cohort.
+      </p>
+      <div className="flex justify-center gap-2">
+        {options.map((option) => {
+          const selected = value === option.id;
+          return (
+            <button
+              key={option.id}
+              type="button"
+              onClick={() => onChange(option.id)}
+              className={`rounded-lg border bg-white px-3 py-1.5 text-center shadow-sm ${
+                selected
+                  ? "border-cpbh-navy ring-2 ring-cpbh-navy/25"
+                  : "border-cpbh-mist hover:border-cpbh-navy/30"
+              }`}
+            >
+              <span className="block text-[10px] font-medium uppercase tracking-wide text-cpbh-navy/70">
+                {option.label}
+              </span>
+              <span className="block text-sm font-semibold tabular-nums text-cpbh-navy">
+                n={option.n}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 function chartsProvenanceForColumn(column: RegistryColumn): DataProvenance {
@@ -1285,10 +1427,10 @@ function RegistryHeaderBlock({
         {showUdsBoxes ? "Participants with a UDS visit" : column.title}
       </p>
       {showUdsBoxes ? (
-        <div className="mt-2 grid w-full grid-cols-2 gap-2">
-          {udsBoxes.map((box) => {
+        <div className="mt-2 grid w-full grid-cols-3 gap-2">
+          {udsBoxes.flatMap((box) => {
             const selected = phase === box.id;
-            return (
+            const button = (
               <button
                 key={box.id}
                 type="button"
@@ -1306,12 +1448,30 @@ function RegistryHeaderBlock({
                   {box.detail}
                 </p>
                 <p
-                  className={`mt-1 text-3xl font-semibold leading-none ${metricValueClass(box.provenance, box.total)}`}
+                  className={`mt-1 text-2xl font-semibold leading-none ${metricValueClass(box.provenance, box.total)}`}
                 >
                   {box.total}
                 </p>
               </button>
             );
+            if (box.id !== "grant") return [button];
+            return [
+              button,
+              <div
+                key="minimal-contact"
+                className="rounded-lg border border-cpbh-mist bg-white px-2 py-2 text-center shadow-sm"
+              >
+                <p className="text-[10px] font-medium uppercase tracking-wide text-cpbh-navy/70 leading-tight">
+                  {minimalContact.label}
+                </p>
+                <p className="text-[9px] text-cpbh-navy/50 leading-tight">
+                  not in the {minimalContact.activeWithUdsCount}
+                </p>
+                <p className="mt-1 text-2xl font-semibold leading-none metric-value-ytd">
+                  {minimalContact.count}
+                </p>
+              </div>,
+            ];
           })}
         </div>
       ) : (
@@ -1324,7 +1484,7 @@ function RegistryHeaderBlock({
           {sourceThroughText(
             "James Wang · UDS_longitudinal_harmonized.csv",
             formatScopeDate(udsLatestVisitDate),
-            "Year to date is black. Active with UDS is Xinhui Wang, active ADRC participants (UDS data) as of October 16, 2026, black. The outlined box matches the cards beside this one.",
+            `Active with UDS is Xinhui Wang, 585, as of October 16, 2026. Minimal contact is James Wang, ${minimalContact.count}, current status in ADRC_subject_current_harmonized.csv, received November 6, 2026. Those ${minimalContact.count} are not in the 585. Year to date is participants with a visit through ${formatScopeDate(udsLatestVisitDate)}.`,
           )}
         </p>
       ) : column.headerNote ? (
@@ -1451,14 +1611,19 @@ function RegistryColumnCard({
   udsBoxes,
   phase,
   onSelectPhase,
+  ytdCohort,
+  onSelectYtdCohort,
 }: {
   column: RegistryColumn;
   udsBoxes?: UdsPeriodBox[];
   phase?: RecruitmentPhase;
   onSelectPhase?: (phase: RecruitmentPhase) => void;
+  ytdCohort: YtdChartCohort;
+  onSelectYtdCohort: (cohort: YtdChartCohort) => void;
 }) {
   const chartsProvenance = chartsProvenanceForColumn(column);
-  const slots = activeChartSlotsForColumn(column);
+  const slots = chartSlotsForColumn(column, phase, ytdCohort);
+  const showYtdCohortToggle = column.id === "adrc" && phase === "ytd";
 
   return (
     <div
@@ -1471,6 +1636,9 @@ function RegistryColumnCard({
         onSelectPhase={onSelectPhase}
       />
       <RegistryYtdBlock column={column} />
+      {showYtdCohortToggle ? (
+        <YtdCohortToggle value={ytdCohort} onChange={onSelectYtdCohort} />
+      ) : null}
       <div className="flex flex-col gap-2.5 shrink-0 w-full min-w-0">
         {slots.map((slot, index) =>
           renderChartSlot(slot, index, column, chartsProvenance),
@@ -1505,17 +1673,22 @@ function RegistryAlignedDesktop({
   udsBoxes,
   phase,
   onSelectPhase,
+  ytdCohort,
+  onSelectYtdCohort,
 }: {
   columns: RegistryColumn[];
   udsBoxes?: UdsPeriodBox[];
   phase?: RecruitmentPhase;
   onSelectPhase?: (phase: RecruitmentPhase) => void;
+  ytdCohort: YtdChartCohort;
+  onSelectYtdCohort: (cohort: YtdChartCohort) => void;
 }) {
   return (
     <div className="hidden xl:flex xl:flex-col xl:gap-6 w-full mx-auto">
       {columns.map((col) => {
         const chartsProvenance = chartsProvenanceForColumn(col);
-        const slots = activeChartSlotsForColumn(col);
+        const slots = chartSlotsForColumn(col, phase, ytdCohort);
+        const showYtdCohortToggle = col.id === "adrc" && phase === "ytd";
         const rowAccent =
           col.id === "adrc"
             ? "bg-cpbh-navy"
@@ -1532,7 +1705,7 @@ function RegistryAlignedDesktop({
               {RECRUITMENT_ROW_LABEL[col.id]}
             </h3>
             <div
-              className="grid items-stretch gap-3 xl:grid-cols-[minmax(220px,0.92fr)_minmax(320px,1.2fr)_repeat(3,minmax(0,1fr))]"
+              className="grid items-stretch gap-3 xl:grid-cols-[minmax(220px,0.92fr)_minmax(320px,1.2fr)_minmax(0,3fr)]"
               data-deck-slide={`recruitment-row-${col.id}`}
               data-deck-caption={`Recruitment · ${RECRUITMENT_ROW_LABEL[col.id]}`}
             >
@@ -1552,14 +1725,24 @@ function RegistryAlignedDesktop({
               >
                 <RegistryYtdBlock column={col} plain />
               </div>
-              {slots.map((slot, index) => (
-                <div
-                  key={`${col.id}-chart-${index}`}
-                  className="flex h-full min-h-0 min-w-0 flex-col [&_.registry-chart-plot]:min-w-0"
-                >
-                  {renderChartSlot(slot, index, col, chartsProvenance)}
+              <div className="col-span-1 flex min-w-0 flex-col gap-2 xl:col-span-1">
+                {showYtdCohortToggle ? (
+                  <YtdCohortToggle
+                    value={ytdCohort}
+                    onChange={onSelectYtdCohort}
+                  />
+                ) : null}
+                <div className="grid min-w-0 flex-1 grid-cols-1 items-stretch gap-3 sm:grid-cols-3">
+                  {slots.map((slot, index) => (
+                    <div
+                      key={`${col.id}-chart-${index}`}
+                      className="flex h-full min-h-0 min-w-0 flex-col [&_.registry-chart-plot]:min-w-0"
+                    >
+                      {renderChartSlot(slot, index, col, chartsProvenance)}
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </section>
         );
@@ -1601,6 +1784,7 @@ export default function TopRegistryOverview({
   data,
 }: TopRegistryOverviewProps) {
   const [phase, setPhase] = useState<RecruitmentPhase>("ytd");
+  const [ytdCohort, setYtdCohort] = useState<YtdChartCohort>("initial");
   const columns = orderRecruitmentColumns(data.columns).map((column) =>
     columnForPhase(column, phase),
   );
@@ -1618,6 +1802,8 @@ export default function TopRegistryOverview({
         udsBoxes={udsBoxes}
         phase={phase}
         onSelectPhase={setPhase}
+        ytdCohort={ytdCohort}
+        onSelectYtdCohort={setYtdCohort}
       />
       <div className="grid grid-cols-1 gap-8 xl:hidden">
         {columns.map((col) => (
@@ -1627,6 +1813,8 @@ export default function TopRegistryOverview({
             udsBoxes={udsBoxes}
             phase={phase}
             onSelectPhase={setPhase}
+            ytdCohort={ytdCohort}
+            onSelectYtdCohort={setYtdCohort}
           />
         ))}
       </div>

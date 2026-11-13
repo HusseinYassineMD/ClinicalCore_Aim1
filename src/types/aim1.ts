@@ -53,6 +53,12 @@ export interface RegistryChartSlot {
 export interface PeriodActivityItem {
   label: string;
   count: number;
+  /** Plain-language definition shown under the label. */
+  definition?: string;
+  /** Denominator for this count, shown as count / denominator. */
+  denominator?: number;
+  /** What the denominator is, e.g. "of 585 active participants". */
+  denominatorLabel?: string;
   /** Budget / renewal target — shows mini thermometer on this card only */
   periodTarget?: number;
   provenance?: DataProvenance;

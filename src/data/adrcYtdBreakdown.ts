@@ -1,7 +1,9 @@
 import { packageYtd, siteReportingWindow } from "@/data/siteReporting";
+import visitCohort from "@/data/adrcYtdVisitCohortBreakdown.json";
 import type { DataProvenance } from "@/types/aim1";
 
 const breakdown = packageYtd?.udsClinical.newInitialEvaluationBreakdown;
+const visitBreakdown = visitCohort;
 
 export const APOE_NOT_IN_EXPORT_LABEL = "Genotype not in MAP APOE export";
 
@@ -11,7 +13,13 @@ export type AdrcBreakdownChartItem = {
   provenance: DataProvenance;
 };
 
-export const adrcYtdBreakdownCaption = `Source: James Wang · UDS_longitudinal_harmonized.csv. Through: October 12, 2026. YTD new initial evals · ${siteReportingWindow.label}`;
+export const adrcYtdInitialN =
+  packageYtd?.udsClinical.newInitialEvaluations ?? 40;
+export const adrcYtdVisitN = visitBreakdown.participantCount;
+
+export const adrcYtdBreakdownCaption = `Source: James Wang · UDS_longitudinal_harmonized.csv. Through: October 12, 2026. New initial evaluations only (packet I). n=${adrcYtdInitialN}. This is not the ${adrcYtdVisitN} participants with any UDS visit. ${siteReportingWindow.label}.`;
+
+export const adrcYtdVisitCaption = `Source: James Wang · UDS_longitudinal_harmonized.csv. Through: October 12, 2026. Every participant with a UDS visit in this window, including follow-ups. n=${adrcYtdVisitN}. This is not the ${adrcYtdInitialN} new initial evaluations. ${visitBreakdown.raceNote}`;
 
 function withYtd(rows: { label: string; count: number }[]): AdrcBreakdownChartItem[] {
   return rows.map((row) => ({ ...row, provenance: "ytd" as const }));
@@ -55,4 +63,26 @@ export function adrcYtdReferralChartProvenance(): DataProvenance {
 
 export function adrcYtdHasPackageBreakdown(): boolean {
   return adrcYtdEthnicityItems().length > 0;
+}
+
+function withVisit(rows: { label: string; count: number }[]): AdrcBreakdownChartItem[] {
+  return rows.map((row) => ({ ...row, provenance: "ytd" as const }));
+}
+
+export function adrcYtdVisitEthnicityItems(): AdrcBreakdownChartItem[] {
+  return withVisit(visitBreakdown.byRaceEthnicity);
+}
+
+export function adrcYtdVisitApoeItems(): AdrcBreakdownChartItem[] {
+  return visitBreakdown.byApoeGenotype.map((row) => ({
+    ...row,
+    provenance:
+      row.label === APOE_NOT_IN_EXPORT_LABEL
+        ? ("unknown" as const)
+        : ("ytd" as const),
+  }));
+}
+
+export function adrcYtdVisitReferralItems(): AdrcBreakdownChartItem[] {
+  return withVisit(visitBreakdown.byReferralSource);
 }

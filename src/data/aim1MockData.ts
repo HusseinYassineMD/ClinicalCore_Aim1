@@ -183,14 +183,14 @@ export const aim1MockData: Aim1DashboardData = {
         "v1.5.4 QC lists · CLARiTI_PET_QC_List · CLARiTI_MRI_QC_List · scan_mri_dashboard",
       ),
       realFrom:
-        "study_date on or before October 16, 2026. Amyloid 19 and tau 18 on the CLARiTI PET QC list. Structural MRI 38 sessions and 966 series on the two MRI QC lists. Later study dates are excluded.",
+        "Cumulative. Received November 6, 2026. Amyloid Apr 17–Oct 15, 2026. Tau Apr 27–Oct 13, 2026. Structural MRI Jan 4, 2021–Oct 16, 2026.",
       bulletGroups: [
         {
-          title: "James QC lists (black · through October 16, 2026)",
+          title: "James QC lists (cumulative · through October 16, 2026)",
           lines: [
-            "CLARiTI_PET_QC_Listi_1793921811152.csv · amyloid 19 · tau 18",
-            "CLARiTI_MRI_QC_Listi_1793921830826.csv and scan_mri_dashboard_usc_2026-11-05T23_16_11.059Z.csv · structural MRI 38 sessions · 966 series · field mri_qc_summary",
-            "scan_pet_dashboard has 2 tau rows marked Failed QC. No new-raw-PET variable.",
+            "Amyloid PET QC 19 · Apr 17, 2026 – Oct 15, 2026",
+            "Tau PET QC 18 · Apr 27, 2026 – Oct 13, 2026",
+            "Structural MRI 38 sessions · 966 series · Jan 4, 2021 – Oct 16, 2026",
           ],
         },
         {
@@ -208,13 +208,13 @@ export const aim1MockData: Aim1DashboardData = {
         "USC_ADRC_Integrated_Imaging_Availability_v1.5.4.csv · image_id",
       ),
       realFrom:
-        "Unique image_id values in idaSearch_11_05_2026.csv and idaSearch_9_10_2026_SCAN.csv with study_date on or before October 16, 2026. Later dates are excluded.",
+        "Cumulative. Received November 6, 2026. MR Jan 1, 2000–Oct 16, 2026. PET Oct 6, 2006–Aug 20, 2026.",
       bulletGroups: [
         {
-          title: "James IDA image IDs (black · through October 16, 2026)",
+          title: "James IDA image IDs (cumulative · through October 16, 2026)",
           lines: [
-            "MR 10,259 participants · 143,034 image IDs · PET 6,775 participants · 13,573 image IDs",
-            "idaSearch_9_10_2026_CLARiTI.csv has participants and no image_id, so it is not in this count",
+            "MR 10,259 participants · 143,034 image IDs · Jan 1, 2000 – Oct 16, 2026",
+            "PET 6,775 participants · 13,573 image IDs · Oct 6, 2006 – Aug 20, 2026",
           ],
         },
         {

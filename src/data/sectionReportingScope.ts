@@ -151,8 +151,8 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     bullets: [
       `SCAN, CLARiTI, and the study-wide table are black: Integrated Imaging v1.5.4 · filter window ${ytdLabel} · latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}.`,
       `Integrated study summary is black: v1.5.4, latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}.`,
-      `Imaging QC lists are black through October 16, 2026: CLARiTI PET QC list amyloid 19 and tau 18 · MRI QC lists 38 structural sessions and 966 series. Later study dates are excluded.`,
-      `IDA image IDs are black through October 16, 2026: image_id in idaSearch_11_05_2026.csv and idaSearch_9_10_2026_SCAN.csv. MR 10,259 participants and 143,034 image IDs. PET 6,775 participants and 13,573 image IDs.`,
+      `Imaging QC lists are cumulative, received November 6, 2026: amyloid Apr 17–Oct 15, 2026 · tau Apr 27–Oct 13, 2026 · structural MRI Jan 4, 2021–Oct 16, 2026.`,
+      `IDA image IDs are cumulative, received November 6, 2026: MR Jan 1, 2000–Oct 16, 2026 · PET Oct 6, 2006–Aug 20, 2026.`,
     ],
   },
 ];

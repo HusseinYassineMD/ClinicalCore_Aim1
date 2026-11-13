@@ -65,7 +65,17 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     tier: "verified",
     source:
       "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · ADRC_active_all by race · as of 2026-10-16 · received 2026-11-10",
-    notes: "Black. This is the Table 1 N. James's count of a UDS visit since 7/1/2025 is 543, a different count.",
+    notes: "Black. This is the Table 1 N. James's count of a UDS visit since 7/1/2025 is 543, a different count. James's current statuses Annual in-person 221, telephone 15, and presumed active 349 also sum to 585, and those people are not the minimal-contact group.",
+  },
+  {
+    section: "Recruitment · ADRC",
+    metric: "Minimal contact",
+    value: "540",
+    tier: "verified",
+    source:
+      "James Wang · ADRC_subject_current_harmonized.csv · der_status_adrc = Minimal contact · received 2026-11-06",
+    notes:
+      "Not in the 585. Overlap is 0. Last minimal-contact milestone is 2026-09-25. None are dated after 2026-10-16.",
   },
   {
     section: "Recruitment · ADRC",
@@ -240,7 +250,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     source:
       "v1.5.4 · CLARiTI_PET_QC_Listi_1793921811152.csv · CLARiTI_MRI_QC_Listi_1793921830826.csv · scan_mri_dashboard_usc_2026-11-05",
     notes:
-      "Old RPPR sentence is a different count: 114 amyloid, 75 tau, 917 structural MRI, 14 new raw PET datasets. No new-raw-PET variable.",
+      "Cumulative, received November 6, 2026. Amyloid Apr 17–Oct 15, 2026. Tau Apr 27–Oct 13, 2026. Structural MRI Jan 4, 2021–Oct 16, 2026.",
   },
   {
     section: "Imaging",
@@ -250,7 +260,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     source:
       "USC_ADRC_Integrated_Imaging_Availability_v1.5.4.csv · image_id · idaSearch_11_05_2026.csv and idaSearch_9_10_2026_SCAN.csv · study_date on or before 2026-10-16",
     notes:
-      "Old RPPR upload sentence is a different count: 2,489 MR participants, 2,618 MR scans, 1,073 PET participants, 1,068 PET scans.",
+      "Cumulative, received November 6, 2026. MR Jan 1, 2000–Oct 16, 2026. PET Oct 6, 2006–Aug 20, 2026.",
   },
   // Biomarkers
   {
@@ -351,7 +361,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     tier: "verified",
     source:
       "Xinhui Wang · RPPR tables to Aishwarya 2026-1110.xlsx · ADRC_active_all by race · as of 2026-10-16",
-    notes: "Black. Race 158+217+58+93+59=585. CDR 296+251+38=585. Male 212. Female on the chart is 585 minus 212 = 373. MoCA N=541. APOE N=474. APOE4 allele 176 (37.1%). The old RPPR table (N=573) is not this table.",
+    notes: "Black. Race 158+217+58+93+59=585. CDR 296+251+38=585. Male 212. Female on the chart is 585 minus 212 = 373. MoCA N is participants with a MoCA score: 541 of 585. APOE N is participants with an APOE genotype: 474 of 585. APOE4 allele is participants with at least one ε4 allele: 176 of 474 (37.1%). The old RPPR table (N=573) is not this table.",
   },
 ];
 

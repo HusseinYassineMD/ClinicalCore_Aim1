@@ -114,6 +114,8 @@ function activeAdrcColumn(column: RegistryColumn): RegistryColumn {
   const apoeCarriers = parseLeadingCount(
     table1HarmonizedActiveSnapshot.overall.apoeE4Percent,
   );
+  const mocaN = table1HarmonizedActiveSnapshot.meta.mocaN;
+  const apoeN = table1HarmonizedActiveSnapshot.meta.apoeN;
   const ytd = "ytd" as const;
   const caption = `Source: ${ACTIVE_ADRC_SOURCE}. Through: October 16, 2026. Black · active ADRC participants (UDS data).`;
   const race = [
@@ -133,21 +135,34 @@ function activeAdrcColumn(column: RegistryColumn): RegistryColumn {
     newThisPeriod: n,
     periodTarget: undefined,
     periodBanner: "Active ADRC participants (UDS)",
-    periodTargetNote: `Female on the sex chart is ${n} minus the male count on the sheet. James Wang, UDS visits since 7/1/2025, is ${SPAN.grant.adrc.total}. That is a different count.`,
+    periodTargetNote: `MoCA N is participants with a MoCA score: ${mocaN} of ${n} active participants. APOE N is participants with an APOE genotype: ${apoeN} of ${n}. APOE4 allele is participants with at least one ε4 allele: ${apoeCarriers} of ${apoeN} with a genotype.`,
     headerNote: caption,
     gender: undefined,
     periodActivities: [
       {
         label: "MoCA N",
-        count: table1HarmonizedActiveSnapshot.meta.mocaN,
+        definition: "Participants with a MoCA score",
+        count: mocaN,
+        denominator: n,
+        denominatorLabel: `of ${n} active participants`,
         provenance: ytd,
       },
       {
         label: "APOE N",
-        count: table1HarmonizedActiveSnapshot.meta.apoeN,
+        definition: "Participants with an APOE genotype",
+        count: apoeN,
+        denominator: n,
+        denominatorLabel: `of ${n} active participants`,
         provenance: ytd,
       },
-      { label: "APOE4 allele", count: apoeCarriers, provenance: ytd },
+      {
+        label: "APOE4 allele",
+        definition: "Participants with at least one ε4 allele",
+        count: apoeCarriers,
+        denominator: apoeN,
+        denominatorLabel: `of ${apoeN} with a genotype`,
+        provenance: ytd,
+      },
     ],
     chartSlots: [
       {

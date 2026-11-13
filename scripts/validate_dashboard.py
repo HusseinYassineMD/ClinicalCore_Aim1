@@ -557,6 +557,23 @@ def batch_cross_file(rppr: dict, t1: dict, pkg: dict) -> BatchResult:
     else:
         b.fail("ADRC YTD ethnicity breakdown sum", new_evals, eth_sum)
 
+    visit = load_json("src/data/adrcYtdVisitCohortBreakdown.json")
+    visit_n = ytd["udsClinical"]["uniqueParticipantsWithVisit"]
+    if visit.get("participantCount") != visit_n:
+        b.fail(
+            "ADRC any-visit cohort n",
+            visit_n,
+            visit.get("participantCount"),
+        )
+    else:
+        b.ok("ADRC any-visit cohort n", visit_n)
+    for key in ("byRaceEthnicity", "byApoeGenotype", "byReferralSource"):
+        total = sum(row.get("count", 0) for row in visit.get(key) or [])
+        if total == visit_n:
+            b.ok(f"ADRC any-visit {key} sums to n", total)
+        else:
+            b.fail(f"ADRC any-visit {key} sum", visit_n, total)
+
     return b
 
 

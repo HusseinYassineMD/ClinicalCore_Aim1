@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PKG = ROOT / "data" / "rppr-data-package"
 OUTPUT = ROOT / "src" / "data" / "rpprDataPackage.json"
 META_OUTPUT = ROOT / "src" / "data" / "rpprDataPackageMeta.json"
+VISIT_COHORT_OUTPUT = ROOT / "src" / "data" / "adrcYtdVisitCohortBreakdown.json"
 
 BRS_STATUS_LABELS = {
     "1": "Active / enrolled",
@@ -474,6 +475,59 @@ def build_new_initial_evaluation_breakdown(
     }
 
 
+SINGLE_RACE_LABELS = {
+    "White",
+    "Hispanic",
+    "Asian",
+    "Black",
+    "Middle Eastern or North African",
+}
+OTHER_RACE_LABEL = "Other or more than one race"
+BLANK_REFERRAL_LABEL = "Not recorded on this visit"
+
+
+def build_participant_with_visit_breakdown(
+    visits: list[dict[str, str]],
+    *,
+    subject_by_naccid: dict[str, dict[str, str]],
+    apoe_by_visit_ptid: dict[str, str],
+) -> dict:
+    """Ethnicity, APOE, and referral for every participant with a visit in the window.
+
+    Same joins as the new-initial breakdown. Single-category race summaries stay
+    as their own bars. Any other summary is Other or more than one race.
+    """
+    raw = build_new_initial_evaluation_breakdown(
+        visits,
+        subject_by_naccid=subject_by_naccid,
+        apoe_by_visit_ptid=apoe_by_visit_ptid,
+    )
+    race: Counter = Counter()
+    for row in raw["byRaceEthnicity"]:
+        label = row["label"] if row["label"] in SINGLE_RACE_LABELS else OTHER_RACE_LABEL
+        race[label] += row["count"]
+    referral: Counter = Counter()
+    for row in raw["byReferralSource"]:
+        label = BLANK_REFERRAL_LABEL if row["label"] == "refersc=blank" else row["label"]
+        referral[label] += row["count"]
+    count = sum(row["count"] for row in raw["byRaceEthnicity"])
+    return {
+        "participantCount": count,
+        "definition": (
+            "Every participant with a UDS visit in the year-to-date window, "
+            "including follow-up visits. Not the new initial evaluations only."
+        ),
+        "byRaceEthnicity": counter_to_chart_items(race),
+        "byApoeGenotype": raw["byApoeGenotype"],
+        "byReferralSource": counter_to_chart_items(referral),
+        "raceNote": (
+            "White, Hispanic, Asian, Black, and Middle Eastern or North African "
+            "are single-category summaries. Any other summary is Other or more than one race."
+        ),
+        "sources": raw["sources"],
+    }
+
+
 def collapse_race_ethnicity(label: str | None) -> str:
     text = (label or "").strip()
     if not text:
@@ -530,6 +584,11 @@ def build_reporting_period_summary(
     }
     new_initial_breakdown = build_new_initial_evaluation_breakdown(
         initial_visits,
+        subject_by_naccid=subject_by_naccid,
+        apoe_by_visit_ptid=apoe_by_visit_ptid,
+    )
+    visit_breakdown = build_participant_with_visit_breakdown(
+        period_visits,
         subject_by_naccid=subject_by_naccid,
         apoe_by_visit_ptid=apoe_by_visit_ptid,
     )
@@ -635,6 +694,7 @@ def build_reporting_period_summary(
                 "followUpRemote": "Non-initial visit records with modea1=2 or 3 (telephone/video)",
             },
             "newInitialEvaluationBreakdown": new_initial_breakdown,
+            "participantWithVisitBreakdown": visit_breakdown,
         },
         "biomarkers": {
             "sourceFile": "Integrated_Biomarkers_Long_v1.1.2.csv",

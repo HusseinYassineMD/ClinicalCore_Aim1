@@ -1,0 +1,104 @@
+{
+  "participantCount": 310,
+  "definition": "Every participant with a UDS visit in the year-to-date window, including follow-up visits. Not the new initial evaluations only.",
+  "byRaceEthnicity": [
+    {
+      "label": "White",
+      "count": 125
+    },
+    {
+      "label": "Hispanic",
+      "count": 69
+    },
+    {
+      "label": "Asian",
+      "count": 47
+    },
+    {
+      "label": "Black",
+      "count": 42
+    },
+    {
+      "label": "Other or more than one race",
+      "count": 22
+    },
+    {
+      "label": "Middle Eastern or North African",
+      "count": 5
+    }
+  ],
+  "byApoeGenotype": [
+    {
+      "label": "E3/E3",
+      "count": 124
+    },
+    {
+      "label": "E3/E4",
+      "count": 82
+    },
+    {
+      "label": "Genotype not in MAP APOE export",
+      "count": 62
+    },
+    {
+      "label": "E3/E2",
+      "count": 20
+    },
+    {
+      "label": "E4/E4",
+      "count": 14
+    },
+    {
+      "label": "E4/E2",
+      "count": 6
+    },
+    {
+      "label": "E2/E2",
+      "count": 2
+    }
+  ],
+  "byReferralSource": [
+    {
+      "label": "Prior ADRC participant",
+      "count": 81
+    },
+    {
+      "label": "ADRC clinician / staff",
+      "count": 79
+    },
+    {
+      "label": "Not recorded on this visit",
+      "count": 48
+    },
+    {
+      "label": "Unknown referral source",
+      "count": 31
+    },
+    {
+      "label": "Other referral source",
+      "count": 19
+    },
+    {
+      "label": "Self-referral",
+      "count": 18
+    },
+    {
+      "label": "Other research study staff",
+      "count": 13
+    },
+    {
+      "label": "Non-ADRC healthcare professional",
+      "count": 11
+    },
+    {
+      "label": "Non-professional contact",
+      "count": 10
+    }
+  ],
+  "raceNote": "White, Hispanic, Asian, Black, and Middle Eastern or North African are single-category summaries. Any other summary is Other or more than one race.",
+  "sources": {
+    "raceEthnicity": "ADRC_subject_current_harmonized.csv \u00b7 der_current_race_ethnicity_summary joined on naccid",
+    "apoeGenotype": "MAPDatabase-APOEGenotype_DATA_2026-09-16_1445.csv \u00b7 apoe_comb joined on visit ptid = uds_id",
+    "referralSource": "UDS_longitudinal_harmonized.csv \u00b7 refersc (NACC Form A1 principal referral source)"
+  }
+}

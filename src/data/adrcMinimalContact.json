@@ -1,0 +1,10 @@
+{
+  "source": "James Wang · ADRC_subject_current_harmonized.csv · der_status_adrc",
+  "receivedDate": "2026-11-06",
+  "label": "Minimal contact",
+  "count": 540,
+  "activeWithUdsCount": 585,
+  "overlapWithActive": 0,
+  "lastMilestoneDate": "2026-09-25",
+  "note": "Current status Minimal contact. These 540 people are not in the 585 active ADRC participants. No minimal-contact milestone date is after October 16, 2026."
+}
