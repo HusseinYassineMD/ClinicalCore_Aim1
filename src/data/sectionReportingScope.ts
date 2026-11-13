@@ -6,7 +6,6 @@ import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapsho
 import table1Demographics from "@/data/table1Demographics.json";
 import recMeetingAttendance from "@/data/recMeetingAttendance.json";
 import recRoster from "@/data/recRoster.json";
-import rpprMetrics from "@/data/rpprMetrics.json";
 import type { RpprDataPackage } from "@/types/dataPackage";
 import {
   biofluidRequestEarliestDate,
@@ -32,7 +31,6 @@ export type SectionScopeId =
   | "recruitment"
   | "demographics"
   | "neuropathology"
-  | "ore"
   | "biomarkers"
   | "rec"
   | "imaging";
@@ -97,19 +95,6 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     bullets: [
       `Enrollment 225 is black. Source is Xinhui Wang, BRS table, January 1 through October 16, 2026, received November 10, 2026. New enrolled 5, withdrawal 1, died with autopsy 7, died without autopsy 1. The person list is the same 225.`,
       `Neurobank requests are black. ${formatScopeDate(siteReportingWindow.startDate)} – ${formatScopeDate(siteReportingWindow.endDate)}. Requests ${formatScopeDate(neurobankRequestEarliestDate)} – ${formatScopeDate(neurobankRequestLatestDate)} · ${redcapSpecimenSharing.sources.neurobank} · pulled ${formatScopeDate(redcapSpecimenSharing.lastUpdated)}.`,
-    ],
-  },
-  {
-    id: "ore",
-    navLabel: "ORE",
-    bracket: bracket([
-      "green",
-      `RPPR ${rpprPeriod}`,
-      "calendar 2026 YTD not wired",
-    ]),
-    bullets: [
-      `Community events / attendees (green): rpprMetrics.json · ${rpprPeriod}.`,
-      `Black calendar YTD outreach counts: pending harmonized export (dashboard shows 0 / TBD).`,
     ],
   },
   {

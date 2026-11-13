@@ -48,7 +48,7 @@ PLACEHOLDER_UI = [
     "REC completed/scheduled → red. Attendance → pink through October 9, 2026. The October 16 session has no attendance row.",
     "Clinical lab A1c/lipid/creatinine/BP → null red",
     "Brain Health 4 Me → null red",
-    "ORE page → N/A for this period. Old RPPR event counts stay in rpprMetrics.json.",
+    "ORE heading is off the metrics page. Old RPPR event counts stay in rpprMetrics.json.",
     "Imaging QC and IDA image IDs → jamesImagingQcLists.json and jamesIdaImageIds.json, black through October 16, 2026.",
     "Grant plan chart targets → registryChartViews.ts + budgetTargets.ts (renewal goals, not on the current Table 1)",
     "Old RPPR headline refs (668, 573, 231) stay in rpprMetrics.json as different counts.",

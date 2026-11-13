@@ -4,7 +4,6 @@ import { METRIC_SOURCES } from "@/data/metricSources";
 import { formatInteger } from "@/lib/formatNumber";
 import { LAST_RPPR_SOURCE } from "@/data/dataProvenance";
 import OreCommunityOutreachActivitiesTable from "@/components/OreCommunityOutreachActivitiesTable";
-import SectionScopeBracket from "@/components/SectionScopeBracket";
 
 interface OreOutreachBlockProps {
   outreach: OreOutreachMetrics;
@@ -50,8 +49,7 @@ export default function OreOutreachBlock({
     <div className="space-y-6">
       <div>
         <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy">
-          <span className="block">Outreach, Recruitment, and Engagement</span>
-          <SectionScopeBracket sectionId="ore" className="block mt-2" />
+          Outreach, Recruitment, and Engagement
         </h2>
         <p className="text-cpbh-navy/60 text-sm mt-1">
           ORE Core · community outreach and GeneScreen

@@ -15,7 +15,6 @@ import SpecimenSharingSection from "@/components/SpecimenSharingSection";
 import DemographicsTableStickyNote from "@/components/DemographicsTableStickyNote";
 import DashboardContactFooter from "@/components/DashboardContactFooter";
 import { sourceThroughText } from "@/components/HeadingLead";
-import { lastRpprReportingPeriod } from "@/data/reportingPeriodLegend";
 import DataStatusStickyNote from "@/components/DataStatusStickyNote";
 import AutopsyEnrollmentConfirmationStickyNote from "@/components/AutopsyEnrollmentConfirmationStickyNote";
 import StickyNoteRail, {
@@ -186,20 +185,6 @@ export default function DashboardPage() {
               deckCaption="Neuropathology · tissue inquiries (neurobank YTD)"
             />
           </SectionWithNotes>
-        </section>
-
-        {/* 3. ORE */}
-        <section id="ore" className="scroll-mt-32 space-y-4">
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-cpbh-navy text-center">
-            Outreach, Recruitment, and Engagement
-          </h2>
-          <p className="text-center text-lg text-cpbh-navy/70">
-            {sourceThroughText(
-              "Last RPPR",
-              lastRpprReportingPeriod,
-              "N/A for this current period.",
-            )}
-          </p>
         </section>
 
         {/* 4. Biomarkers */}
