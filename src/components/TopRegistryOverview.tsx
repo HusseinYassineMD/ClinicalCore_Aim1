@@ -37,6 +37,7 @@ import {
   LEGACY_RED_CHART_CAPTION,
 } from "@/data/recruitmentChartConstants";
 import {
+  activePlusMinimalColumn,
   columnForPhase,
   minimalContactColumn,
   udsPeriodBoxes,
@@ -55,6 +56,7 @@ import { udsLatestVisitDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 import { sourceThroughText } from "@/components/HeadingLead";
 import recruitmentSpanCounts from "@/data/recruitmentSpanCounts.json";
+import activePlusMinimal from "@/data/adrcActivePlusMinimal.json";
 import minimalContact from "@/data/adrcMinimalContact.json";
 
 type ChartCountItem = {
@@ -1276,7 +1278,7 @@ function columnAccentBorder(column: RegistryColumn): string {
 }
 
 type YtdChartCohort = "initial" | "visits";
-type UdsFocus = RecruitmentPhase | "minimal";
+type UdsFocus = RecruitmentPhase | "minimal" | "combined";
 
 function adrcAllVisitChartSlots(): [
   RegistryChartSlot,
@@ -1333,7 +1335,7 @@ function chartSlotsForColumn(
   cohort: YtdChartCohort,
   focus?: UdsFocus,
 ): [RegistryChartSlot, RegistryChartSlot, RegistryChartSlot] {
-  if (column.id === "adrc" && focus === "minimal") {
+  if (column.id === "adrc" && (focus === "minimal" || focus === "combined")) {
     return yearToDateChartSlotsFromColumn(column);
   }
   if (column.id === "adrc" && phase === "ytd" && cohort === "visits") {
@@ -1460,6 +1462,7 @@ function RegistryHeaderBlock({
   udsFocus,
   onSelectPhase,
   onSelectMinimal,
+  onSelectCombined,
   plain = false,
 }: {
   column: RegistryColumn;
@@ -1468,6 +1471,7 @@ function RegistryHeaderBlock({
   udsFocus?: UdsFocus;
   onSelectPhase?: (phase: RecruitmentPhase) => void;
   onSelectMinimal?: () => void;
+  onSelectCombined?: () => void;
   plain?: boolean;
 }) {
   const totalsProvenance = countProvenanceForColumn(
@@ -1514,15 +1518,26 @@ function RegistryHeaderBlock({
                 onClick={() => onSelectPhase?.(box.id)}
               />
               {box.id === "grant" ? (
-                <UdsCountTile
-                  label={minimalContact.label}
-                  definition={minimalContact.definition}
-                  source={minimalContact.sourceLine}
-                  total={minimalContact.count}
-                  valueClassName="metric-value-ytd"
-                  selected={udsFocus === "minimal"}
-                  onClick={onSelectMinimal}
-                />
+                <>
+                  <UdsCountTile
+                    label={minimalContact.label}
+                    definition={minimalContact.definition}
+                    source={minimalContact.sourceLine}
+                    total={minimalContact.count}
+                    valueClassName="metric-value-ytd"
+                    selected={udsFocus === "minimal"}
+                    onClick={onSelectMinimal}
+                  />
+                  <UdsCountTile
+                    label={activePlusMinimal.label}
+                    definition={activePlusMinimal.definition}
+                    source={activePlusMinimal.sourceLine}
+                    total={activePlusMinimal.count}
+                    valueClassName="metric-value-ytd"
+                    selected={udsFocus === "combined"}
+                    onClick={onSelectCombined}
+                  />
+                </>
               ) : null}
             </div>
           ))}
@@ -1658,6 +1673,7 @@ function RegistryColumnCard({
   udsFocus,
   onSelectPhase,
   onSelectMinimal,
+  onSelectCombined,
   ytdCohort,
   onSelectYtdCohort,
 }: {
@@ -1667,6 +1683,7 @@ function RegistryColumnCard({
   udsFocus?: UdsFocus;
   onSelectPhase?: (phase: RecruitmentPhase) => void;
   onSelectMinimal?: () => void;
+  onSelectCombined?: () => void;
   ytdCohort: YtdChartCohort;
   onSelectYtdCohort: (cohort: YtdChartCohort) => void;
 }) {
@@ -1685,6 +1702,7 @@ function RegistryColumnCard({
         udsFocus={udsFocus}
         onSelectPhase={onSelectPhase}
         onSelectMinimal={onSelectMinimal}
+        onSelectCombined={onSelectCombined}
       />
       <RegistryYtdBlock column={column} />
       {showYtdCohortToggle ? (
@@ -1726,6 +1744,7 @@ function RegistryAlignedDesktop({
   udsFocus,
   onSelectPhase,
   onSelectMinimal,
+  onSelectCombined,
   ytdCohort,
   onSelectYtdCohort,
 }: {
@@ -1735,6 +1754,7 @@ function RegistryAlignedDesktop({
   udsFocus?: UdsFocus;
   onSelectPhase?: (phase: RecruitmentPhase) => void;
   onSelectMinimal?: () => void;
+  onSelectCombined?: () => void;
   ytdCohort: YtdChartCohort;
   onSelectYtdCohort: (cohort: YtdChartCohort) => void;
 }) {
@@ -1774,6 +1794,7 @@ function RegistryAlignedDesktop({
                   udsFocus={udsFocus}
                   onSelectPhase={onSelectPhase}
                   onSelectMinimal={onSelectMinimal}
+                  onSelectCombined={onSelectCombined}
                   plain
                 />
               </div>
@@ -1851,11 +1872,16 @@ export default function TopRegistryOverview({
     setUdsFocus("minimal");
     setPhase("ytd");
   };
+  const selectCombined = () => {
+    setUdsFocus("combined");
+    setPhase("ytd");
+  };
   const columns = orderRecruitmentColumns(data.columns).map((column) => {
     const phased = columnForPhase(column, phase);
-    return column.id === "adrc" && udsFocus === "minimal"
-      ? minimalContactColumn(phased)
-      : phased;
+    if (column.id !== "adrc") return phased;
+    if (udsFocus === "minimal") return minimalContactColumn(phased);
+    if (udsFocus === "combined") return activePlusMinimalColumn(phased);
+    return phased;
   });
   const ytdAdrc = data.columns.find((column) => column.id === "adrc");
   const udsBoxes =
@@ -1873,6 +1899,7 @@ export default function TopRegistryOverview({
         udsFocus={udsFocus}
         onSelectPhase={selectPhase}
         onSelectMinimal={selectMinimal}
+        onSelectCombined={selectCombined}
         ytdCohort={ytdCohort}
         onSelectYtdCohort={setYtdCohort}
       />
@@ -1886,6 +1913,7 @@ export default function TopRegistryOverview({
             udsFocus={udsFocus}
             onSelectPhase={selectPhase}
             onSelectMinimal={selectMinimal}
+            onSelectCombined={selectCombined}
             ytdCohort={ytdCohort}
             onSelectYtdCohort={setYtdCohort}
           />

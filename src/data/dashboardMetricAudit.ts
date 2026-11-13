@@ -79,6 +79,16 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   },
   {
     section: "Recruitment · ADRC",
+    metric: "Active with UDS + minimal contact",
+    value: "1125",
+    tier: "verified",
+    source:
+      "James Wang · ADRC_subject_current_harmonized.csv · active statuses 585 plus Minimal contact 540 · received 2026-11-06",
+    notes:
+      "Overlap is 0. Latest-visit MoCA total 910 of 1,125. MAP APOE 804 of 1,125. At least one ε4 279 of 804. Sex male 398, female 726, unknown 1. CDR 576 / 422 / 127. Race Hispanic 396, White 482, Black 98, Asian 138, Other/unknown 11.",
+  },
+  {
+    section: "Recruitment · ADRC",
     metric: "USC ADRC cumulative",
     value: "2390",
     tier: "verified",

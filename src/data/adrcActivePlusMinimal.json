@@ -1,0 +1,36 @@
+{
+  "source": "James Wang · ADRC_subject_current_harmonized.csv · der_status_adrc",
+  "receivedDate": "2026-11-06",
+  "label": "Active with UDS + minimal contact",
+  "definition": "585 active participants plus 540 minimal contact. No one is in both.",
+  "sourceLine": "James Wang · subject file · received Nov 6, 2026",
+  "count": 1125,
+  "activeWithUdsCount": 585,
+  "minimalContactCount": 540,
+  "overlap": 0,
+  "mocaN": 910,
+  "apoeN": 804,
+  "apoeE4": 279,
+  "male": 398,
+  "female": 726,
+  "unknownSex": 1,
+  "footnote": "This is 585 active statuses plus 540 minimal contact in James Wang's subject file. MoCA N is a MoCA total on the latest UDS visit: 910 of 1,125. APOE N is a genotype in the MAP APOE export: 804 of 1,125. APOE4 allele is at least one ε4 allele: 279 of 804 with a genotype.",
+  "raceNote": "Hispanic is anyone marked Hispanic or Latino, including people who also marked a race. White, Black, and Asian are people not marked Hispanic.",
+  "byRaceEthnicity": [
+    { "label": "Hispanic", "count": 396 },
+    { "label": "White", "count": 482 },
+    { "label": "Black", "count": 98 },
+    { "label": "Asian", "count": 138 },
+    { "label": "Other/unknown", "count": 11 }
+  ],
+  "bySex": [
+    { "label": "Male", "count": 398 },
+    { "label": "Female", "count": 726 },
+    { "label": "Unknown", "count": 1 }
+  ],
+  "byCdr": [
+    { "label": "CDR = 0", "count": 576 },
+    { "label": "CDR = 0.5", "count": 422 },
+    { "label": "CDR >= 1", "count": 127 }
+  ]
+}

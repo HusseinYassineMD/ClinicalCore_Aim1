@@ -591,6 +591,22 @@ def batch_cross_file(rppr: dict, t1: dict, pkg: dict) -> BatchResult:
     else:
         b.fail("Minimal contact MoCA bounds", minimal_n, minimal.get("mocaN"))
 
+    combined = load_json("src/data/adrcActivePlusMinimal.json")
+    combined_n = combined.get("count")
+    expected = (combined.get("activeWithUdsCount") or 0) + (
+        combined.get("minimalContactCount") or 0
+    )
+    if combined_n == expected and combined.get("overlap") == 0:
+        b.ok("Active plus minimal contact is the sum", combined_n)
+    else:
+        b.fail("Active plus minimal contact sum", expected, combined_n)
+    for key in ("byRaceEthnicity", "bySex", "byCdr"):
+        total = sum(row.get("count", 0) for row in combined.get(key) or [])
+        if total == combined_n:
+            b.ok(f"Active plus minimal {key} sums to n", total)
+        else:
+            b.fail(f"Active plus minimal {key} sum", combined_n, total)
+
     return b
 
 

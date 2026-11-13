@@ -1,4 +1,5 @@
 import spanCounts from "@/data/recruitmentSpanCounts.json";
+import activePlusMinimal from "@/data/adrcActivePlusMinimal.json";
 import minimalContact from "@/data/adrcMinimalContact.json";
 import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
 import { udsLatestVisitDate } from "@/data/siteReporting";
@@ -303,6 +304,89 @@ export function minimalContactColumn(column: RegistryColumn): RegistryColumn {
         n,
         nCaption: `${caption} CDR is the latest UDS visit.`,
         items: items(minimalContact.byCdr),
+      },
+    ],
+  };
+}
+
+/** Active statuses plus minimal contact. Same neighboring cards, for these 1,125 people. */
+export function activePlusMinimalColumn(column: RegistryColumn): RegistryColumn {
+  const n = activePlusMinimal.count;
+  const ytd = "ytd" as const;
+  const caption = `Source: ${activePlusMinimal.source}. Through: October 16, 2026. ${activePlusMinimal.activeWithUdsCount} active statuses plus ${activePlusMinimal.minimalContactCount} minimal contact. Overlap is 0. ${activePlusMinimal.raceNote}`;
+  const items = (
+    rows: { label: string; count: number }[],
+  ): RegistryChartSlot["items"] =>
+    rows.map((row) => ({ label: row.label, count: row.count, provenance: ytd }));
+
+  return {
+    ...column,
+    title: activePlusMinimal.label,
+    total: n,
+    totalsProvenance: ytd,
+    chartsProvenance: ytd,
+    newThisPeriod: n,
+    periodTarget: undefined,
+    periodBanner: "Active + minimal contact",
+    periodTargetNote: activePlusMinimal.footnote,
+    headerNote: caption,
+    gender: undefined,
+    periodActivities: [
+      {
+        label: "MoCA N",
+        definition: "Latest UDS visit has a MoCA total",
+        count: activePlusMinimal.mocaN,
+        denominator: n,
+        denominatorLabel: `of ${n} active plus minimal contact`,
+        provenance: ytd,
+      },
+      {
+        label: "APOE N",
+        definition: "Participants with an APOE genotype",
+        count: activePlusMinimal.apoeN,
+        denominator: n,
+        denominatorLabel: `of ${n} active plus minimal contact`,
+        provenance: ytd,
+      },
+      {
+        label: "APOE4 allele",
+        definition: "Participants with at least one ε4 allele",
+        count: activePlusMinimal.apoeE4,
+        denominator: activePlusMinimal.apoeN,
+        denominatorLabel: `of ${activePlusMinimal.apoeN} with a genotype`,
+        provenance: ytd,
+      },
+    ],
+    chartSlots: [
+      {
+        title: "Race/ethnicity",
+        type: "bar",
+        provenance: ytd,
+        nProvenance: ytd,
+        chartProvenance: ytd,
+        n,
+        nCaption: caption,
+        items: items(activePlusMinimal.byRaceEthnicity),
+      },
+      {
+        title: "Sex",
+        type: "bar",
+        provenance: ytd,
+        nProvenance: ytd,
+        chartProvenance: ytd,
+        n,
+        nCaption: `${caption} Male ${activePlusMinimal.male}, female ${activePlusMinimal.female}, unknown ${activePlusMinimal.unknownSex}.`,
+        items: items(activePlusMinimal.bySex),
+      },
+      {
+        title: "CDR global",
+        type: "bar",
+        provenance: ytd,
+        nProvenance: ytd,
+        chartProvenance: ytd,
+        n,
+        nCaption: `${caption} CDR is the latest UDS visit.`,
+        items: items(activePlusMinimal.byCdr),
       },
     ],
   };
