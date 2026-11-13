@@ -574,6 +574,23 @@ def batch_cross_file(rppr: dict, t1: dict, pkg: dict) -> BatchResult:
         else:
             b.fail(f"ADRC any-visit {key} sum", visit_n, total)
 
+    minimal = load_json("src/data/adrcMinimalContact.json")
+    minimal_n = minimal.get("count")
+    for key in ("byRaceEthnicity", "bySex", "byCdr"):
+        total = sum(row.get("count", 0) for row in minimal.get(key) or [])
+        if total == minimal_n:
+            b.ok(f"Minimal contact {key} sums to n", total)
+        else:
+            b.fail(f"Minimal contact {key} sum", minimal_n, total)
+    if minimal.get("apoeE4", 0) <= minimal.get("apoeN", 0) <= minimal_n:
+        b.ok("Minimal contact APOE is within the cohort", minimal.get("apoeN"))
+    else:
+        b.fail("Minimal contact APOE bounds", minimal_n, minimal.get("apoeN"))
+    if minimal.get("mocaN", 0) <= minimal_n:
+        b.ok("Minimal contact MoCA is within the cohort", minimal.get("mocaN"))
+    else:
+        b.fail("Minimal contact MoCA bounds", minimal_n, minimal.get("mocaN"))
+
     return b
 
 

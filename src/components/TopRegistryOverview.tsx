@@ -38,6 +38,7 @@ import {
 } from "@/data/recruitmentChartConstants";
 import {
   columnForPhase,
+  minimalContactColumn,
   udsPeriodBoxes,
   type RecruitmentPhase,
   type UdsPeriodBox,
@@ -1275,6 +1276,7 @@ function columnAccentBorder(column: RegistryColumn): string {
 }
 
 type YtdChartCohort = "initial" | "visits";
+type UdsFocus = RecruitmentPhase | "minimal";
 
 function adrcAllVisitChartSlots(): [
   RegistryChartSlot,
@@ -1329,7 +1331,11 @@ function chartSlotsForColumn(
   column: RegistryColumn,
   phase: RecruitmentPhase | undefined,
   cohort: YtdChartCohort,
+  focus?: UdsFocus,
 ): [RegistryChartSlot, RegistryChartSlot, RegistryChartSlot] {
+  if (column.id === "adrc" && focus === "minimal") {
+    return yearToDateChartSlotsFromColumn(column);
+  }
   if (column.id === "adrc" && phase === "ytd" && cohort === "visits") {
     return adrcAllVisitChartSlots();
   }
@@ -1451,13 +1457,17 @@ function RegistryHeaderBlock({
   column,
   udsBoxes,
   phase,
+  udsFocus,
   onSelectPhase,
+  onSelectMinimal,
   plain = false,
 }: {
   column: RegistryColumn;
   udsBoxes?: UdsPeriodBox[];
   phase?: RecruitmentPhase;
+  udsFocus?: UdsFocus;
   onSelectPhase?: (phase: RecruitmentPhase) => void;
+  onSelectMinimal?: () => void;
   plain?: boolean;
 }) {
   const totalsProvenance = countProvenanceForColumn(
@@ -1500,7 +1510,7 @@ function RegistryHeaderBlock({
                 }
                 total={box.total}
                 valueClassName={metricValueClass(box.provenance, box.total)}
-                selected={phase === box.id}
+                selected={(udsFocus ?? phase) === box.id}
                 onClick={() => onSelectPhase?.(box.id)}
               />
               {box.id === "grant" ? (
@@ -1510,6 +1520,8 @@ function RegistryHeaderBlock({
                   source={minimalContact.sourceLine}
                   total={minimalContact.count}
                   valueClassName="metric-value-ytd"
+                  selected={udsFocus === "minimal"}
+                  onClick={onSelectMinimal}
                 />
               ) : null}
             </div>
@@ -1643,20 +1655,24 @@ function RegistryColumnCard({
   column,
   udsBoxes,
   phase,
+  udsFocus,
   onSelectPhase,
+  onSelectMinimal,
   ytdCohort,
   onSelectYtdCohort,
 }: {
   column: RegistryColumn;
   udsBoxes?: UdsPeriodBox[];
   phase?: RecruitmentPhase;
+  udsFocus?: UdsFocus;
   onSelectPhase?: (phase: RecruitmentPhase) => void;
+  onSelectMinimal?: () => void;
   ytdCohort: YtdChartCohort;
   onSelectYtdCohort: (cohort: YtdChartCohort) => void;
 }) {
   const chartsProvenance = chartsProvenanceForColumn(column);
-  const slots = chartSlotsForColumn(column, phase, ytdCohort);
-  const showYtdCohortToggle = column.id === "adrc" && phase === "ytd";
+  const slots = chartSlotsForColumn(column, phase, ytdCohort, udsFocus);
+  const showYtdCohortToggle = column.id === "adrc" && udsFocus === "ytd";
 
   return (
     <div
@@ -1666,7 +1682,9 @@ function RegistryColumnCard({
         column={column}
         udsBoxes={udsBoxes}
         phase={phase}
+        udsFocus={udsFocus}
         onSelectPhase={onSelectPhase}
+        onSelectMinimal={onSelectMinimal}
       />
       <RegistryYtdBlock column={column} />
       {showYtdCohortToggle ? (
@@ -1705,14 +1723,18 @@ function RegistryAlignedDesktop({
   columns,
   udsBoxes,
   phase,
+  udsFocus,
   onSelectPhase,
+  onSelectMinimal,
   ytdCohort,
   onSelectYtdCohort,
 }: {
   columns: RegistryColumn[];
   udsBoxes?: UdsPeriodBox[];
   phase?: RecruitmentPhase;
+  udsFocus?: UdsFocus;
   onSelectPhase?: (phase: RecruitmentPhase) => void;
+  onSelectMinimal?: () => void;
   ytdCohort: YtdChartCohort;
   onSelectYtdCohort: (cohort: YtdChartCohort) => void;
 }) {
@@ -1720,8 +1742,8 @@ function RegistryAlignedDesktop({
     <div className="hidden xl:flex xl:flex-col xl:gap-6 w-full mx-auto">
       {columns.map((col) => {
         const chartsProvenance = chartsProvenanceForColumn(col);
-        const slots = chartSlotsForColumn(col, phase, ytdCohort);
-        const showYtdCohortToggle = col.id === "adrc" && phase === "ytd";
+        const slots = chartSlotsForColumn(col, phase, ytdCohort, udsFocus);
+        const showYtdCohortToggle = col.id === "adrc" && udsFocus === "ytd";
         const rowAccent =
           col.id === "adrc"
             ? "bg-cpbh-navy"
@@ -1749,7 +1771,9 @@ function RegistryAlignedDesktop({
                   column={col}
                   udsBoxes={udsBoxes}
                   phase={phase}
+                  udsFocus={udsFocus}
                   onSelectPhase={onSelectPhase}
+                  onSelectMinimal={onSelectMinimal}
                   plain
                 />
               </div>
@@ -1817,10 +1841,22 @@ export default function TopRegistryOverview({
   data,
 }: TopRegistryOverviewProps) {
   const [phase, setPhase] = useState<RecruitmentPhase>("ytd");
+  const [udsFocus, setUdsFocus] = useState<UdsFocus>("ytd");
   const [ytdCohort, setYtdCohort] = useState<YtdChartCohort>("initial");
-  const columns = orderRecruitmentColumns(data.columns).map((column) =>
-    columnForPhase(column, phase),
-  );
+  const selectPhase = (next: RecruitmentPhase) => {
+    setUdsFocus(next);
+    setPhase(next);
+  };
+  const selectMinimal = () => {
+    setUdsFocus("minimal");
+    setPhase("ytd");
+  };
+  const columns = orderRecruitmentColumns(data.columns).map((column) => {
+    const phased = columnForPhase(column, phase);
+    return column.id === "adrc" && udsFocus === "minimal"
+      ? minimalContactColumn(phased)
+      : phased;
+  });
   const ytdAdrc = data.columns.find((column) => column.id === "adrc");
   const udsBoxes =
     phase === "cumulative" || !ytdAdrc
@@ -1834,7 +1870,9 @@ export default function TopRegistryOverview({
         columns={columns}
         udsBoxes={udsBoxes}
         phase={phase}
-        onSelectPhase={setPhase}
+        udsFocus={udsFocus}
+        onSelectPhase={selectPhase}
+        onSelectMinimal={selectMinimal}
         ytdCohort={ytdCohort}
         onSelectYtdCohort={setYtdCohort}
       />
@@ -1845,7 +1883,9 @@ export default function TopRegistryOverview({
             column={col}
             udsBoxes={udsBoxes}
             phase={phase}
-            onSelectPhase={setPhase}
+            udsFocus={udsFocus}
+            onSelectPhase={selectPhase}
+            onSelectMinimal={selectMinimal}
             ytdCohort={ytdCohort}
             onSelectYtdCohort={setYtdCohort}
           />

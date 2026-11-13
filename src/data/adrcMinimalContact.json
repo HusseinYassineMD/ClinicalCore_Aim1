@@ -8,5 +8,28 @@
   "activeWithUdsCount": 585,
   "overlapWithActive": 0,
   "lastMilestoneDate": "2026-09-25",
+  "mocaN": 365,
+  "apoeN": 433,
+  "apoeE4": 146,
+  "male": 187,
+  "female": 353,
+  "footnote": "MoCA N is a MoCA total on the latest UDS visit: 365 of 540. APOE N is a genotype in the MAP APOE export: 433 of 540. APOE4 allele is at least one ε4 allele: 146 of 433 with a genotype. These 540 people are not in the 585.",
+  "raceNote": "Hispanic is anyone marked Hispanic or Latino, including people who also marked a race. White, Black, and Asian are people not marked Hispanic.",
+  "byRaceEthnicity": [
+    { "label": "Hispanic", "count": 216 },
+    { "label": "White", "count": 257 },
+    { "label": "Black", "count": 23 },
+    { "label": "Asian", "count": 41 },
+    { "label": "Other/unknown", "count": 3 }
+  ],
+  "bySex": [
+    { "label": "Male", "count": 187 },
+    { "label": "Female", "count": 353 }
+  ],
+  "byCdr": [
+    { "label": "CDR = 0", "count": 280 },
+    { "label": "CDR = 0.5", "count": 171 },
+    { "label": "CDR >= 1", "count": 89 }
+  ],
   "note": "Current status Minimal contact. These 540 people are not in the 585 active ADRC participants. No minimal-contact milestone date is after October 16, 2026."
 }

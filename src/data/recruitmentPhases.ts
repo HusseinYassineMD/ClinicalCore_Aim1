@@ -1,4 +1,5 @@
 import spanCounts from "@/data/recruitmentSpanCounts.json";
+import minimalContact from "@/data/adrcMinimalContact.json";
 import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
 import { udsLatestVisitDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
@@ -219,6 +220,89 @@ function activeAdrcColumn(column: RegistryColumn): RegistryColumn {
             provenance: ytd,
           },
         ],
+      },
+    ],
+  };
+}
+
+/** Minimal contact is a separate status. Same neighboring cards as Active with UDS, for these 540 people only. */
+export function minimalContactColumn(column: RegistryColumn): RegistryColumn {
+  const n = minimalContact.count;
+  const ytd = "ytd" as const;
+  const caption = `Source: ${minimalContact.source}. Through: October 16, 2026. These ${n} people are not in the ${minimalContact.activeWithUdsCount}. ${minimalContact.raceNote}`;
+  const items = (
+    rows: { label: string; count: number }[],
+  ): RegistryChartSlot["items"] =>
+    rows.map((row) => ({ label: row.label, count: row.count, provenance: ytd }));
+
+  return {
+    ...column,
+    title: "Minimal contact",
+    total: n,
+    totalsProvenance: ytd,
+    chartsProvenance: ytd,
+    newThisPeriod: n,
+    periodTarget: undefined,
+    periodBanner: "Minimal contact",
+    periodTargetNote: minimalContact.footnote,
+    headerNote: caption,
+    gender: undefined,
+    periodActivities: [
+      {
+        label: "MoCA N",
+        definition: "Latest UDS visit has a MoCA total",
+        count: minimalContact.mocaN,
+        denominator: n,
+        denominatorLabel: `of ${n} minimal-contact participants`,
+        provenance: ytd,
+      },
+      {
+        label: "APOE N",
+        definition: "Participants with an APOE genotype",
+        count: minimalContact.apoeN,
+        denominator: n,
+        denominatorLabel: `of ${n} minimal-contact participants`,
+        provenance: ytd,
+      },
+      {
+        label: "APOE4 allele",
+        definition: "Participants with at least one ε4 allele",
+        count: minimalContact.apoeE4,
+        denominator: minimalContact.apoeN,
+        denominatorLabel: `of ${minimalContact.apoeN} with a genotype`,
+        provenance: ytd,
+      },
+    ],
+    chartSlots: [
+      {
+        title: "Race/ethnicity",
+        type: "bar",
+        provenance: ytd,
+        nProvenance: ytd,
+        chartProvenance: ytd,
+        n,
+        nCaption: caption,
+        items: items(minimalContact.byRaceEthnicity),
+      },
+      {
+        title: "Sex",
+        type: "bar",
+        provenance: ytd,
+        nProvenance: ytd,
+        chartProvenance: ytd,
+        n,
+        nCaption: `${caption} Male ${minimalContact.male} and female ${minimalContact.female} are the current sex on the subject file.`,
+        items: items(minimalContact.bySex),
+      },
+      {
+        title: "CDR global",
+        type: "bar",
+        provenance: ytd,
+        nProvenance: ytd,
+        chartProvenance: ytd,
+        n,
+        nCaption: `${caption} CDR is the latest UDS visit.`,
+        items: items(minimalContact.byCdr),
       },
     ],
   };

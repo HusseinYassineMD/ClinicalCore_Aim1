@@ -75,7 +75,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     source:
       "James Wang · ADRC_subject_current_harmonized.csv · der_status_adrc = Minimal contact · received 2026-11-06",
     notes:
-      "Not in the 585. Overlap is 0. Last minimal-contact milestone is 2026-09-25. None are dated after 2026-10-16.",
+      "Not in the 585. Overlap is 0. Last minimal-contact milestone is 2026-09-25. None are dated after 2026-10-16. Latest-visit MoCA total 365 of 540. MAP APOE genotype 433 of 540. At least one ε4 allele 146 of 433. Sex 187 male and 353 female. CDR 280 / 171 / 89. Race with Hispanic first: Hispanic 216, White 257, Black 23, Asian 41, Other/unknown 3.",
   },
   {
     section: "Recruitment · ADRC",
