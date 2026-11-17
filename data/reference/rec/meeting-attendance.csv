@@ -1,8 +1,8 @@
-session_date,attendees,reported_by,reported_at
-2026-09-18,48,Sahar Nikkhah Bahrami,2026-10-12
-2026-09-25,51,Sahar Nikkhah Bahrami,2026-10-12
-2026-10-02,38,Sahar Nikkhah Bahrami,2026-10-12
-2026-10-09,28,Sahar Nikkhah Bahrami,2026-10-12
-2026-10-23,35,Sahar Nikkhah Bahrami,2026-11-16
-2026-10-30,33,Sahar Nikkhah Bahrami,2026-11-16
-2026-11-06,32,Sahar Nikkhah Bahrami,2026-11-16
+session_date,attendees,reported_by,reported_at,topic,zoom_meeting_id,start_time,end_time,duration_minutes,total_participant_minutes,source_file
+2026-09-18,48,Sahar Nikkhah Bahrami,2026-10-12,,,,,,
+2026-09-25,51,Sahar Nikkhah Bahrami,2026-10-12,,,,,,
+2026-10-02,38,Sahar Nikkhah Bahrami,2026-10-12,,,,,,
+2026-10-09,28,Sahar Nikkhah Bahrami,2026-11-16,ADRC REC Meeting,910 0558 6739,12:29,14:01,92,1176,meetinglistdetails_2026_10_09_2026_11_08.csv
+2026-10-23,35,Sahar Nikkhah Bahrami,2026-11-16,ADRC REC Meeting,910 0558 6739,12:40,13:58,78,1431,meetinglistdetails_2026_10_09_2026_11_08.csv
+2026-10-30,33,Sahar Nikkhah Bahrami,2026-11-16,ADRC REC Meeting,910 0558 6739,12:32,14:00,88,1423,meetinglistdetails_2026_10_09_2026_11_08.csv
+2026-11-06,32,Sahar Nikkhah Bahrami,2026-11-16,ADRC REC Meeting,910 0558 6739,12:44,14:00,77,1407,meetinglistdetails_2026_10_09_2026_11_08.csv

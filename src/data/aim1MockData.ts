@@ -12,6 +12,7 @@ import { latestTimestamp } from "@/lib/formatLastUpdated";
 import { getRecAttendanceTotals } from "@/lib/recAttendanceMetrics";
 import { getRecSessionCounts } from "@/lib/recSpeakerMetrics";
 import recMeetingAttendance from "@/data/recMeetingAttendance.json";
+import recSpeakerSeries from "@/data/recSpeakerSeries.json";
 import rpprDataPackageMeta from "@/data/rpprDataPackageMeta.json";
 import rpprDataPackage from "@/data/rpprDataPackage.json";
 import biomarkerCoreSampleProcessing2026 from "@/data/biomarkerCoreSampleProcessing2026.json";
@@ -891,6 +892,21 @@ export const aim1MockData: Aim1DashboardData = {
     const attendance = getRecAttendanceTotals(
       new Date(`${lastAttendanceDate}T12:00:00`),
     );
+    const speakerByDate = new Map<string, { name: string; title: string }>();
+    for (const year of Object.values(
+      (recSpeakerSeries.years ?? {}) as Record<
+        string,
+        { entries?: { date?: string; name?: string; title?: string }[] }
+      >,
+    )) {
+      for (const entry of year.entries ?? []) {
+        if (!entry.date || !entry.name) continue;
+        speakerByDate.set(entry.date, {
+          name: entry.name,
+          title: entry.title ?? "",
+        });
+      }
+    }
     return {
       completed: sessions.completed,
       scheduled: sessions.scheduled,
@@ -899,11 +915,23 @@ export const aim1MockData: Aim1DashboardData = {
       avgAttendees: attendance.avgAttendees,
       totalAttendees: attendance.totalAttendees,
       attendanceSessionCount: attendance.sessionCount,
-      attendanceSessions: attendance.sessions.map((s) => ({
-        sessionDate: s.sessionDate,
-        attendees: s.attendees,
-        reportedBy: s.reportedBy,
-      })),
+      attendanceSessions: attendance.sessions.map((s) => {
+        const speaker = speakerByDate.get(s.sessionDate);
+        return {
+          sessionDate: s.sessionDate,
+          attendees: s.attendees,
+          reportedBy: s.reportedBy,
+          topic: s.topic ?? null,
+          zoomMeetingId: s.zoomMeetingId ?? null,
+          startTime: s.startTime ?? null,
+          endTime: s.endTime ?? null,
+          durationMinutes: s.durationMinutes ?? null,
+          totalParticipantMinutes: s.totalParticipantMinutes ?? null,
+          sourceFile: s.sourceFile ?? null,
+          speakerName: speaker?.name ?? null,
+          talkTitle: speaker?.title || null,
+        };
+      }),
       attendanceThroughDate: lastAttendanceDate,
     };
   })(),

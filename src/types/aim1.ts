@@ -307,6 +307,15 @@ export interface RecMeetingAttendanceRow {
   sessionDate: string;
   attendees: number;
   reportedBy?: string | null;
+  topic?: string | null;
+  zoomMeetingId?: string | null;
+  startTime?: string | null;
+  endTime?: string | null;
+  durationMinutes?: number | null;
+  totalParticipantMinutes?: number | null;
+  sourceFile?: string | null;
+  speakerName?: string | null;
+  talkTitle?: string | null;
 }
 
 export interface RecMetrics {

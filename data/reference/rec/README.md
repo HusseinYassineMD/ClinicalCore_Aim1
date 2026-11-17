@@ -19,4 +19,4 @@ npm run sync:rec
 
 Add rows at the bottom; keep the header row. Use `yes` / `no` for boolean columns.
 
-For attendance, use ISO dates (`YYYY-MM-DD`) and integer headcounts from the Zoom `Participants` field on the ADRC REC Meeting rows.
+For attendance, use ISO dates (`YYYY-MM-DD`) and integer headcounts from the Zoom `Participants` field on the ADRC REC Meeting rows. Optional Zoom detail columns: `topic`, `zoom_meeting_id`, `start_time`, `end_time`, `duration_minutes`, `total_participant_minutes`, `source_file`.

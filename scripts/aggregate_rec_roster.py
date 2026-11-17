@@ -95,6 +95,16 @@ def aggregate_faculty(rows: list[dict[str, str]]) -> dict:
     }
 
 
+def optional_int(raw: str) -> int | None:
+    value = (raw or "").strip()
+    if not value:
+        return None
+    try:
+        return int(value)
+    except ValueError as exc:
+        raise ValueError(f"Invalid integer {raw!r}") from exc
+
+
 def aggregate_attendance(rows: list[dict[str, str]]) -> dict:
     sessions = []
     for r in rows:
@@ -112,17 +122,28 @@ def aggregate_attendance(rows: list[dict[str, str]]) -> dict:
                 "attendees": attendees,
                 "reportedBy": r.get("reported_by") or None,
                 "reportedAt": r.get("reported_at") or None,
+                "topic": r.get("topic") or None,
+                "zoomMeetingId": r.get("zoom_meeting_id") or None,
+                "startTime": r.get("start_time") or None,
+                "endTime": r.get("end_time") or None,
+                "durationMinutes": optional_int(r.get("duration_minutes", "")),
+                "totalParticipantMinutes": optional_int(
+                    r.get("total_participant_minutes", "")
+                ),
+                "sourceFile": r.get("source_file") or None,
             }
         )
     sessions.sort(key=lambda s: s["sessionDate"])
     total = sum(s["attendees"] for s in sessions)
     count = len(sessions)
+    zoom_sessions = [s for s in sessions if s.get("sourceFile")]
     return {
         "sessions": sessions,
         "summary": {
             "sessionCount": count,
             "totalAttendees": total,
             "avgAttendees": round(total / count, 2) if count else 0,
+            "zoomReportSessionCount": len(zoom_sessions),
         },
     }
 
@@ -178,8 +199,15 @@ def main() -> None:
         "meta": {
             "sourceRoot": "data/reference/rec/",
             "sourceCsv": str(ATTENDANCE.relative_to(ROOT)),
+            "zoomReportCsv": "data/reference/rec/meetinglistdetails_2026_10_09_2026_11_08.csv",
+            "reportedBy": "Sahar Nikkhah Bahrami",
+            "reportReceivedDate": "2026-11-16",
             "syncedAt": payload["meta"]["syncedAt"],
             "maintenance": "Edit meeting-attendance.csv then run: npm run sync:rec",
+            "note": (
+                "Zoom Participants counts from ADRC REC Meeting rows. "
+                "The October 16 session is not in Sahar’s Oct 9–Nov 8 Zoom export."
+            ),
         },
         **aggregate_attendance(attendance_rows),
     }

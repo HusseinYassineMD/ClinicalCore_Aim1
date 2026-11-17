@@ -5,6 +5,13 @@ export interface RecAttendanceSession {
   attendees: number;
   reportedBy: string | null;
   reportedAt: string | null;
+  topic?: string | null;
+  zoomMeetingId?: string | null;
+  startTime?: string | null;
+  endTime?: string | null;
+  durationMinutes?: number | null;
+  totalParticipantMinutes?: number | null;
+  sourceFile?: string | null;
 }
 
 export interface RecAttendanceTotals {

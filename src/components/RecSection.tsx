@@ -15,6 +15,9 @@ export default function RecSection({ data, roster }: RecSectionProps) {
     data.attendanceThroughDate ??
     data.attendanceSessions.at(-1)?.sessionDate ??
     null;
+  const zoomSessionCount = data.attendanceSessions.filter(
+    (row) => row.sourceFile,
+  ).length;
 
   return (
     <section className="space-y-8">
@@ -58,12 +61,12 @@ export default function RecSection({ data, roster }: RecSectionProps) {
               label="Avg No. Attendees"
               value={data.avgAttendees}
               sublabel={sourceThroughText(
-                "data/reference/rec/meeting-attendance.csv · Sahar Nikkhah Bahrami Zoom report",
+                "Sahar Nikkhah Bahrami · Zoom ADRC REC Meeting report",
                 attendanceThrough
                   ? formatScopeDate(attendanceThrough)
                   : "—",
                 data.attendanceSessionCount
-                  ? `${data.attendanceSessionCount} sessions with Zoom attendance. The October 16 session is not in this Zoom report.`
+                  ? `${data.attendanceSessionCount} sessions with attendance · ${zoomSessionCount} from the Oct 9–Nov 8 Zoom export. The October 16 session is not in that report.`
                   : undefined,
               )}
               accent="navy"
@@ -78,10 +81,16 @@ export default function RecSection({ data, roster }: RecSectionProps) {
           </div>
           {data.attendanceSessions.length > 0 ? (
             <div className="mt-4 overflow-x-auto">
-              <table className="w-full text-sm text-left">
+              <table className="w-full text-sm text-left min-w-[52rem]">
                 <thead>
                   <tr className="text-xs uppercase tracking-wide text-cpbh-navy/50 border-b border-cpbh-mist">
-                    <th className="py-2 pr-4 font-semibold">Session date</th>
+                    <th className="py-2 pr-3 font-semibold">Session date</th>
+                    <th className="py-2 pr-3 font-semibold">Speaker</th>
+                    <th className="py-2 pr-3 font-semibold">Topic / Zoom</th>
+                    <th className="py-2 pr-3 font-semibold">Time</th>
+                    <th className="py-2 pr-3 text-right font-semibold tabular-nums">
+                      Duration
+                    </th>
                     <th className="py-2 text-right font-semibold tabular-nums">
                       Zoom attendance
                     </th>
@@ -91,12 +100,49 @@ export default function RecSection({ data, roster }: RecSectionProps) {
                   {data.attendanceSessions.map((row) => (
                     <tr
                       key={row.sessionDate}
-                      className="border-b border-cpbh-mist/70 last:border-0"
+                      className="border-b border-cpbh-mist/70 last:border-0 align-top"
                     >
-                      <td className="py-2 pr-4 text-cpbh-navy/80">
+                      <td className="py-2.5 pr-3 text-cpbh-navy/80 whitespace-nowrap">
                         {formatScopeDate(row.sessionDate)}
                       </td>
-                      <td className="py-2 text-right tabular-nums font-medium text-cpbh-navy">
+                      <td className="py-2.5 pr-3 text-cpbh-navy/80">
+                        <div className="font-medium text-cpbh-navy">
+                          {row.speakerName ?? "—"}
+                        </div>
+                        {row.talkTitle ? (
+                          <div className="text-xs text-cpbh-navy/55 mt-0.5 leading-snug max-w-xs">
+                            {row.talkTitle}
+                          </div>
+                        ) : null}
+                      </td>
+                      <td className="py-2.5 pr-3 text-cpbh-navy/80">
+                        <div>{row.topic ?? "—"}</div>
+                        {row.zoomMeetingId ? (
+                          <div className="text-xs text-cpbh-navy/55 mt-0.5 font-mono">
+                            ID {row.zoomMeetingId}
+                          </div>
+                        ) : null}
+                        {row.sourceFile ? (
+                          <div className="text-[10px] text-cpbh-navy/45 mt-0.5">
+                            Sahar Zoom export
+                          </div>
+                        ) : (
+                          <div className="text-[10px] text-cpbh-navy/45 mt-0.5">
+                            Prior REC admin report
+                          </div>
+                        )}
+                      </td>
+                      <td className="py-2.5 pr-3 text-cpbh-navy/80 whitespace-nowrap tabular-nums">
+                        {row.startTime && row.endTime
+                          ? `${row.startTime}–${row.endTime}`
+                          : "—"}
+                      </td>
+                      <td className="py-2.5 pr-3 text-right tabular-nums text-cpbh-navy/80">
+                        {row.durationMinutes != null
+                          ? `${row.durationMinutes} min`
+                          : "—"}
+                      </td>
+                      <td className="py-2.5 text-right tabular-nums font-medium text-cpbh-navy">
                         {row.attendees}
                       </td>
                     </tr>
@@ -107,9 +153,13 @@ export default function RecSection({ data, roster }: RecSectionProps) {
           ) : null}
           <p className="text-xs text-cpbh-navy/45 mt-4 border-t border-cpbh-mist pt-3">
             Schedule from ADRC REC Speaker Series ·{" "}
-            <span className="font-mono">{data.seriesLabel}</span> · sync via{" "}
-            <span className="font-mono">npm run sync:rec</span> (includes roster
-            CSVs)
+            <span className="font-mono">{data.seriesLabel}</span>. Zoom
+            attendance from Sahar Nikkhah Bahrami’s meeting list (
+            <span className="font-mono">
+              meetinglistdetails_2026_10_09_2026_11_08.csv
+            </span>
+            ), Participants field on ADRC REC Meeting rows. Sync via{" "}
+            <span className="font-mono">npm run sync:rec</span>.
           </p>
         </div>
       </div>

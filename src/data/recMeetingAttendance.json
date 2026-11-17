@@ -2,56 +2,110 @@
   "meta": {
     "sourceRoot": "data/reference/rec/",
     "sourceCsv": "data/reference/rec/meeting-attendance.csv",
-    "syncedAt": "2026-11-17T20:46:40Z",
-    "maintenance": "Edit meeting-attendance.csv then run: npm run sync:rec"
+    "zoomReportCsv": "data/reference/rec/meetinglistdetails_2026_10_09_2026_11_08.csv",
+    "reportedBy": "Sahar Nikkhah Bahrami",
+    "reportReceivedDate": "2026-11-16",
+    "syncedAt": "2026-11-17T20:51:19Z",
+    "maintenance": "Edit meeting-attendance.csv then run: npm run sync:rec",
+    "note": "Zoom Participants counts from ADRC REC Meeting rows. The October 16 session is not in Sahar\u2019s Oct 9\u2013Nov 8 Zoom export."
   },
   "sessions": [
     {
       "sessionDate": "2026-09-18",
       "attendees": 48,
       "reportedBy": "Sahar Nikkhah Bahrami",
-      "reportedAt": "2026-10-12"
+      "reportedAt": "2026-10-12",
+      "topic": null,
+      "zoomMeetingId": null,
+      "startTime": null,
+      "endTime": null,
+      "durationMinutes": null,
+      "totalParticipantMinutes": null,
+      "sourceFile": null
     },
     {
       "sessionDate": "2026-09-25",
       "attendees": 51,
       "reportedBy": "Sahar Nikkhah Bahrami",
-      "reportedAt": "2026-10-12"
+      "reportedAt": "2026-10-12",
+      "topic": null,
+      "zoomMeetingId": null,
+      "startTime": null,
+      "endTime": null,
+      "durationMinutes": null,
+      "totalParticipantMinutes": null,
+      "sourceFile": null
     },
     {
       "sessionDate": "2026-10-02",
       "attendees": 38,
       "reportedBy": "Sahar Nikkhah Bahrami",
-      "reportedAt": "2026-10-12"
+      "reportedAt": "2026-10-12",
+      "topic": null,
+      "zoomMeetingId": null,
+      "startTime": null,
+      "endTime": null,
+      "durationMinutes": null,
+      "totalParticipantMinutes": null,
+      "sourceFile": null
     },
     {
       "sessionDate": "2026-10-09",
       "attendees": 28,
       "reportedBy": "Sahar Nikkhah Bahrami",
-      "reportedAt": "2026-10-12"
+      "reportedAt": "2026-11-16",
+      "topic": "ADRC REC Meeting",
+      "zoomMeetingId": "910 0558 6739",
+      "startTime": "12:29",
+      "endTime": "14:01",
+      "durationMinutes": 92,
+      "totalParticipantMinutes": 1176,
+      "sourceFile": "meetinglistdetails_2026_10_09_2026_11_08.csv"
     },
     {
       "sessionDate": "2026-10-23",
       "attendees": 35,
       "reportedBy": "Sahar Nikkhah Bahrami",
-      "reportedAt": "2026-11-16"
+      "reportedAt": "2026-11-16",
+      "topic": "ADRC REC Meeting",
+      "zoomMeetingId": "910 0558 6739",
+      "startTime": "12:40",
+      "endTime": "13:58",
+      "durationMinutes": 78,
+      "totalParticipantMinutes": 1431,
+      "sourceFile": "meetinglistdetails_2026_10_09_2026_11_08.csv"
     },
     {
       "sessionDate": "2026-10-30",
       "attendees": 33,
       "reportedBy": "Sahar Nikkhah Bahrami",
-      "reportedAt": "2026-11-16"
+      "reportedAt": "2026-11-16",
+      "topic": "ADRC REC Meeting",
+      "zoomMeetingId": "910 0558 6739",
+      "startTime": "12:32",
+      "endTime": "14:00",
+      "durationMinutes": 88,
+      "totalParticipantMinutes": 1423,
+      "sourceFile": "meetinglistdetails_2026_10_09_2026_11_08.csv"
     },
     {
       "sessionDate": "2026-11-06",
       "attendees": 32,
       "reportedBy": "Sahar Nikkhah Bahrami",
-      "reportedAt": "2026-11-16"
+      "reportedAt": "2026-11-16",
+      "topic": "ADRC REC Meeting",
+      "zoomMeetingId": "910 0558 6739",
+      "startTime": "12:44",
+      "endTime": "14:00",
+      "durationMinutes": 77,
+      "totalParticipantMinutes": 1407,
+      "sourceFile": "meetinglistdetails_2026_10_09_2026_11_08.csv"
     }
   ],
   "summary": {
     "sessionCount": 7,
     "totalAttendees": 265,
-    "avgAttendees": 37.86
+    "avgAttendees": 37.86,
+    "zoomReportSessionCount": 4
   }
 }
