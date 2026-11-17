@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "personListFile": "data/reference/xinhui-wang-2026-11-13/MAP BRS UDS list (N=225, active+min.cont as of 2026-1016) v2026-1113.xlsx",
+    "subjectFile": "data/JamesDataPacket-November-6/USC ADRC UDS Harmonized/ADRC_subject_current_harmonized.csv",
+    "asOfDate": "2026-10-16",
+    "receivedDate": "2026-11-13",
+    "definition": "Xinhui Wang person list N=225 is labeled active+min.cont. Minimal contact is der_status_adrc = Minimal contact on ADRC_subject_current_harmonized.csv (James Nov 6). Excluding minimal contact is everyone else on that list.",
+    "syncedAt": "2026-11-17T22:00:16Z",
+    "statusBreakdown": {
+      "Minimal contact": 110,
+      "Annual in-person UDS follow-up": 87,
+      "Discontinued": 1,
+      "Annual UDS follow-up by telephone": 11,
+      "Presumed active - no Milestones record; UDS within 24 months": 15,
+      "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved": 1
+    }
+  },
+  "allEnrollment": {
+    "n": 225,
+    "male": 82,
+    "female": 143,
+    "byRaceEthnicity": [
+      {
+        "label": "Hispanic",
+        "count": 46
+      },
+      {
+        "label": "non-Hispanic White",
+        "count": 143
+      },
+      {
+        "label": "African American",
+        "count": 10
+      },
+      {
+        "label": "Asian",
+        "count": 16
+      },
+      {
+        "label": "Others",
+        "count": 10
+      }
+    ],
+    "bySex": [
+      {
+        "label": "Male",
+        "count": 82
+      },
+      {
+        "label": "Female",
+        "count": 143
+      }
+    ],
+    "byApoe4": [
+      {
+        "label": "Yes",
+        "count": 71
+      },
+      {
+        "label": "No",
+        "count": 139
+      },
+      {
+        "label": "No genotype",
+        "count": 15
+      }
+    ],
+    "label": "Current enrollment",
+    "definition": "Xinhui Wang BRS person list \u00b7 active + minimal contact \u00b7 N=225"
+  },
+  "excludingMinimalContact": {
+    "n": 115,
+    "male": 48,
+    "female": 67,
+    "byRaceEthnicity": [
+      {
+        "label": "Hispanic",
+        "count": 14
+      },
+      {
+        "label": "non-Hispanic White",
+        "count": 79
+      },
+      {
+        "label": "African American",
+        "count": 6
+      },
+      {
+        "label": "Asian",
+        "count": 9
+      },
+      {
+        "label": "Others",
+        "count": 7
+      }
+    ],
+    "bySex": [
+      {
+        "label": "Male",
+        "count": 48
+      },
+      {
+        "label": "Female",
+        "count": 67
+      }
+    ],
+    "byApoe4": [
+      {
+        "label": "Yes",
+        "count": 36
+      },
+      {
+        "label": "No",
+        "count": 77
+      },
+      {
+        "label": "No genotype",
+        "count": 2
+      }
+    ],
+    "label": "Excluding minimal contact",
+    "definition": "BRS person-list rows whose current ADRC status is not Minimal contact. N=115 of 225."
+  },
+  "minimalContactOnly": {
+    "n": 110,
+    "male": 34,
+    "female": 76,
+    "byRaceEthnicity": [
+      {
+        "label": "Hispanic",
+        "count": 32
+      },
+      {
+        "label": "non-Hispanic White",
+        "count": 64
+      },
+      {
+        "label": "African American",
+        "count": 4
+      },
+      {
+        "label": "Asian",
+        "count": 7
+      },
+      {
+        "label": "Others",
+        "count": 3
+      }
+    ],
+    "bySex": [
+      {
+        "label": "Male",
+        "count": 34
+      },
+      {
+        "label": "Female",
+        "count": 76
+      }
+    ],
+    "byApoe4": [
+      {
+        "label": "Yes",
+        "count": 35
+      },
+      {
+        "label": "No",
+        "count": 62
+      },
+      {
+        "label": "No genotype",
+        "count": 13
+      }
+    ],
+    "label": "Minimal contact only",
+    "definition": "BRS person-list rows with der_status_adrc = Minimal contact. N=110 of 225."
+  }
+}

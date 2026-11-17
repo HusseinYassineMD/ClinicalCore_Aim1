@@ -33,7 +33,7 @@
     "deathsWithoutAutopsy": "Participant died without autopsy in 01/01/26 – 10/16/2026, from the same table."
   },
   "qcNotes": [
-    "Person list has 225 unique UDS IDs. Sex matches the table: 143 female, 82 male.",
+    "Person list has 225 unique UDS IDs. Sex matches the table: 143 female, 82 male. Filename says active+min.cont. Cross-check to James ADRC subject status: Minimal contact 110, excluding minimal contact 115.",
     "Code book race_ethnicity: 1=Hispanic 46, 2=non-Hispanic White 143, 3=African American 10, 4=Asian 16, 5=Others 10. No code 99 Unknown. Seven people moved from Others to Hispanic versus the November 10 list. Sex and APOE4 are unchanged.",
     "Code book APOE4: 1=Yes 71, 0=No 139, blank 15. Those 15 rows also have no consolidated APOE genotype. Code book sex: 1=Male 82, 2=Female 143.",
     "James Wang, MAPDatabase-BRSCohort_DATA_LABELS_2026-11-06_1248.csv, status Active is 231. That is a different count."

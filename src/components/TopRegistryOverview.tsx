@@ -38,12 +38,14 @@ import {
 } from "@/data/recruitmentChartConstants";
 import {
   activePlusMinimalColumn,
+  brsExcludingMinimalColumn,
   columnForPhase,
   minimalContactColumn,
   udsPeriodBoxes,
   type RecruitmentPhase,
   type UdsPeriodBox,
 } from "@/data/recruitmentPhases";
+import brsEnrollmentCohorts from "@/data/brsEnrollmentCohorts.json";
 import {
   adrcYtdInitialN,
   adrcYtdVisitApoeItems,
@@ -1314,6 +1316,7 @@ function columnAccentBorder(column: RegistryColumn): string {
 
 type YtdChartCohort = "initial" | "visits";
 type UdsFocus = RecruitmentPhase | "minimal" | "combined";
+type BrsFocus = "all" | "excludingMinimal";
 
 function adrcAllVisitChartSlots(): [
   RegistryChartSlot,
@@ -1498,6 +1501,8 @@ function RegistryHeaderBlock({
   onSelectPhase,
   onSelectMinimal,
   onSelectCombined,
+  brsFocus = "all",
+  onSelectBrsFocus,
   plain = false,
 }: {
   column: RegistryColumn;
@@ -1507,6 +1512,8 @@ function RegistryHeaderBlock({
   onSelectPhase?: (phase: RecruitmentPhase) => void;
   onSelectMinimal?: () => void;
   onSelectCombined?: () => void;
+  brsFocus?: BrsFocus;
+  onSelectBrsFocus?: (focus: BrsFocus) => void;
   plain?: boolean;
 }) {
   const totalsProvenance = countProvenanceForColumn(
@@ -1515,6 +1522,9 @@ function RegistryHeaderBlock({
   );
   const valueClass = metricValueClass(totalsProvenance, column.total);
   const showUdsBoxes = column.id === "adrc" && udsBoxes && udsBoxes.length > 0;
+  const showBrsBoxes = column.id === "brs" && onSelectBrsFocus != null;
+  const brsAllN = brsEnrollmentCohorts.allEnrollment.n;
+  const brsExcludingN = brsEnrollmentCohorts.excludingMinimalContact.n;
 
   return (
     <div
@@ -1525,9 +1535,34 @@ function RegistryHeaderBlock({
       }
     >
       <p className="text-sm font-medium text-cpbh-purple uppercase tracking-wide leading-snug px-1 line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
-        {showUdsBoxes ? "UDS participants" : column.title}
+        {showUdsBoxes
+          ? "UDS participants"
+          : showBrsBoxes
+            ? "Autopsy program enrollment"
+            : column.title}
       </p>
-      {showUdsBoxes ? (
+      {showBrsBoxes ? (
+        <div className="mt-2 flex w-full flex-col gap-1.5">
+          <UdsCountTile
+            label="Current enrollment"
+            definition="Xinhui Wang BRS person list labeled active + minimal contact. N=225 as of October 16, 2026."
+            source="Xinhui Wang · MAP BRS UDS list · received Nov 13, 2026"
+            total={brsAllN}
+            valueClassName={metricValueClass("ytd", brsAllN)}
+            selected={brsFocus === "all"}
+            onClick={() => onSelectBrsFocus("all")}
+          />
+          <UdsCountTile
+            label="Excluding minimal contact"
+            definition={`Same 225-person list, dropping der_status_adrc = Minimal contact on James’s ADRC subject file. N=${brsExcludingN} of 225.`}
+            source="Xinhui person list ∩ James ADRC subject status · as of Oct 16, 2026"
+            total={brsExcludingN}
+            valueClassName={metricValueClass("ytd", brsExcludingN)}
+            selected={brsFocus === "excludingMinimal"}
+            onClick={() => onSelectBrsFocus("excludingMinimal")}
+          />
+        </div>
+      ) : showUdsBoxes ? (
         <div className="mt-2 flex w-full flex-col gap-1.5">
           {udsBoxes.map((box) => (
             <div key={box.id} className="flex flex-col gap-1.5">
@@ -1582,7 +1617,7 @@ function RegistryHeaderBlock({
         {totalsProvenance === "unknown" ? "TBD" : column.total}
       </p>
       )}
-      {showUdsBoxes ? null : column.headerNote ? (
+      {showUdsBoxes || showBrsBoxes ? null : column.headerNote ? (
         <p className="text-[10px] text-cpbh-navy/55 mt-1 leading-tight px-1">
           {column.headerNote}
         </p>
@@ -1724,6 +1759,8 @@ function RegistryColumnCard({
   onSelectPhase,
   onSelectMinimal,
   onSelectCombined,
+  brsFocus,
+  onSelectBrsFocus,
   ytdCohort,
   onSelectYtdCohort,
 }: {
@@ -1734,6 +1771,8 @@ function RegistryColumnCard({
   onSelectPhase?: (phase: RecruitmentPhase) => void;
   onSelectMinimal?: () => void;
   onSelectCombined?: () => void;
+  brsFocus?: BrsFocus;
+  onSelectBrsFocus?: (focus: BrsFocus) => void;
   ytdCohort: YtdChartCohort;
   onSelectYtdCohort: (cohort: YtdChartCohort) => void;
 }) {
@@ -1753,6 +1792,8 @@ function RegistryColumnCard({
         onSelectPhase={onSelectPhase}
         onSelectMinimal={onSelectMinimal}
         onSelectCombined={onSelectCombined}
+        brsFocus={brsFocus}
+        onSelectBrsFocus={onSelectBrsFocus}
       />
       <RegistryYtdBlock column={column} />
       {showYtdCohortToggle ? (
@@ -1795,6 +1836,8 @@ function RegistryAlignedDesktop({
   onSelectPhase,
   onSelectMinimal,
   onSelectCombined,
+  brsFocus,
+  onSelectBrsFocus,
   ytdCohort,
   onSelectYtdCohort,
 }: {
@@ -1805,6 +1848,8 @@ function RegistryAlignedDesktop({
   onSelectPhase?: (phase: RecruitmentPhase) => void;
   onSelectMinimal?: () => void;
   onSelectCombined?: () => void;
+  brsFocus?: BrsFocus;
+  onSelectBrsFocus?: (focus: BrsFocus) => void;
   ytdCohort: YtdChartCohort;
   onSelectYtdCohort: (cohort: YtdChartCohort) => void;
 }) {
@@ -1845,6 +1890,8 @@ function RegistryAlignedDesktop({
                   onSelectPhase={onSelectPhase}
                   onSelectMinimal={onSelectMinimal}
                   onSelectCombined={onSelectCombined}
+                  brsFocus={brsFocus}
+                  onSelectBrsFocus={onSelectBrsFocus}
                   plain
                 />
               </div>
@@ -1913,6 +1960,7 @@ export default function TopRegistryOverview({
 }: TopRegistryOverviewProps) {
   const [phase, setPhase] = useState<RecruitmentPhase>("ytd");
   const [udsFocus, setUdsFocus] = useState<UdsFocus>("ytd");
+  const [brsFocus, setBrsFocus] = useState<BrsFocus>("all");
   const [ytdCohort, setYtdCohort] = useState<YtdChartCohort>("initial");
   const selectPhase = (next: RecruitmentPhase) => {
     setUdsFocus(next);
@@ -1928,6 +1976,12 @@ export default function TopRegistryOverview({
   };
   const columns = orderRecruitmentColumns(data.columns).map((column) => {
     const phased = columnForPhase(column, phase);
+    if (column.id === "brs") {
+      if (brsFocus === "excludingMinimal") {
+        return brsExcludingMinimalColumn(phased);
+      }
+      return phased;
+    }
     if (column.id !== "adrc") return phased;
     if (udsFocus === "minimal") return minimalContactColumn(phased);
     if (udsFocus === "combined") return activePlusMinimalColumn(phased);
@@ -1950,6 +2004,8 @@ export default function TopRegistryOverview({
         onSelectPhase={selectPhase}
         onSelectMinimal={selectMinimal}
         onSelectCombined={selectCombined}
+        brsFocus={brsFocus}
+        onSelectBrsFocus={setBrsFocus}
         ytdCohort={ytdCohort}
         onSelectYtdCohort={setYtdCohort}
       />
@@ -1964,6 +2020,8 @@ export default function TopRegistryOverview({
             onSelectPhase={selectPhase}
             onSelectMinimal={selectMinimal}
             onSelectCombined={selectCombined}
+            brsFocus={brsFocus}
+            onSelectBrsFocus={setBrsFocus}
             ytdCohort={ytdCohort}
             onSelectYtdCohort={setYtdCohort}
           />

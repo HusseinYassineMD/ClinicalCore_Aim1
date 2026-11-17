@@ -182,7 +182,18 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     tier: "verified",
     source:
       "Xinhui Wang · RPPR tables to Aishwarya 2026-1113.xlsx · BRS Table · as of 2026-10-16 · received 2026-11-13",
-    notes: "James MAP Active 231 is a different count.",
+    notes:
+      "Person list is labeled active+min.cont. James MAP Active 231 is a different count.",
+  },
+  {
+    section: "Recruitment · BRS",
+    metric: "Excluding minimal contact (person list ∩ ADRC status)",
+    value:
+      "115 · Male 48 / Female 67 · Hispanic 14 · NH White 79 · AA 6 · Asian 9 · Others 7 · APOE4 Yes 36 / No 77 / no genotype 2",
+    tier: "verified",
+    source:
+      "MAP BRS UDS list N=225 ∩ ADRC_subject_current_harmonized.der_status_adrc ≠ Minimal contact · James Nov 6",
+    notes: "110 of the 225 are Minimal contact. 115 + 110 = 225.",
   },
   {
     section: "Recruitment · BRS",

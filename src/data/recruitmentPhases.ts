@@ -1,6 +1,7 @@
 import spanCounts from "@/data/recruitmentSpanCounts.json";
 import activePlusMinimal from "@/data/adrcActivePlusMinimal.json";
 import minimalContact from "@/data/adrcMinimalContact.json";
+import brsEnrollmentCohorts from "@/data/brsEnrollmentCohorts.json";
 import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
 import { udsLatestVisitDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
@@ -387,6 +388,68 @@ export function activePlusMinimalColumn(column: RegistryColumn): RegistryColumn 
         n,
         nCaption: `${caption} CDR is the latest UDS visit.`,
         items: items(activePlusMinimal.byCdr),
+      },
+    ],
+  };
+}
+
+/**
+ * BRS person-list rows whose ADRC status is not Minimal contact.
+ * Xinhui N=225 list is labeled active+min.cont; this is the excluding-minimal subset.
+ */
+export function brsExcludingMinimalColumn(
+  column: RegistryColumn,
+): RegistryColumn {
+  const cohort = brsEnrollmentCohorts.excludingMinimalContact;
+  const n = cohort.n;
+  const ytd = "ytd" as const;
+  const caption = `Source: Xinhui Wang · MAP BRS UDS list (N=225, active+min.cont as of 2026-1016) v2026-1113.xlsx, excluding der_status_adrc = Minimal contact on James’s ADRC subject file. Through: October 16, 2026. Black · N=${n} of 225.`;
+  const items = (
+    rows: { label: string; count: number }[],
+  ): RegistryChartSlot["items"] =>
+    rows.map((row) => ({ label: row.label, count: row.count, provenance: ytd }));
+
+  return {
+    ...column,
+    title: "UDS participants enrolled · excluding minimal contact",
+    total: n,
+    totalsProvenance: ytd,
+    chartsProvenance: ytd,
+    headerNote: caption,
+    gender: {
+      male: cohort.male,
+      female: cohort.female,
+    },
+    chartSlots: [
+      {
+        title: "Race/ethnicity",
+        type: "bar",
+        provenance: ytd,
+        nProvenance: ytd,
+        chartProvenance: ytd,
+        n,
+        nCaption: `${caption} Code book race_ethnicity on the person list.`,
+        items: items(cohort.byRaceEthnicity),
+      },
+      {
+        title: "APOE4 carrier",
+        type: "pie",
+        provenance: ytd,
+        nProvenance: ytd,
+        chartProvenance: ytd,
+        n,
+        nCaption: `${caption} Code book APOE4 on the person list.`,
+        items: items(cohort.byApoe4),
+      },
+      {
+        title: "Sex",
+        type: "bar",
+        provenance: ytd,
+        nProvenance: ytd,
+        chartProvenance: ytd,
+        n,
+        nCaption: `${caption} Code book sex on the person list · Male ${cohort.male}, Female ${cohort.female}.`,
+        items: items(cohort.bySex),
       },
     ],
   };

@@ -16,6 +16,7 @@
     "sync:rec": "python3 scripts/aggregate_rec_roster.py",
     "sync:rec-speakers": "python3 scripts/aggregate_rec_speaker_series.py",
     "sync:adrc-spanish-uds": "python3 scripts/compute_adrc_ytd_spanish_uds.py",
+    "sync:brs-cohorts": ".venv-pdf/bin/python scripts/compute_brs_excluding_minimal.py",
     "sync:table1": "python3 scripts/aggregate_table1_demographics.py",
     "sync:registry": "python3 scripts/aggregate_registry_data.py",
     "sync:package": "python3 scripts/aggregate_specimen_sharing.py && python3 scripts/aggregate_table1_demographics.py && python3 scripts/aggregate_rppr_data_package.py && npm run sync:registry",
