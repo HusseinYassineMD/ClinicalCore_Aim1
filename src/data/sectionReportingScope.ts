@@ -134,11 +134,11 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
       `studies through ${formatScopeDate(imagingCov.imagingLatestStudyDate)}`,
     ]),
     bullets: [
-      `USC Scan and CLARiTI progress cards are red gaps pending Liz Zhou’s USC scan participant ranking and Diana’s externally hosted file. Placeholder modality counts may still show from Integrated Imaging v1.5.4 (${ytdLabel} · latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}) until those sources arrive.`,
-      `Study-wide availability, QC lists, and IDA image IDs stay below on Imaging and are also listed under Quality test pending for later review.`,
-      `Integrated study summary: v1.5.4, latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}.`,
-      `Imaging QC lists are cumulative, received November 6, 2026: amyloid Apr 17–Oct 15, 2026 · tau Apr 27–Oct 13, 2026 · structural MRI Jan 4, 2021–Oct 16, 2026.`,
-      `IDA image IDs are cumulative, received November 6, 2026: MR Jan 1, 2000–Oct 16, 2026 · PET Oct 6, 2006–Aug 20, 2026.`,
+      `USC Scan and CLARiTI progress counts are red gaps pending Diana’s externally hosted file. Targets are black: SCAN 24 · CLARiTI 36. Placeholder modality counts may still show from Integrated Imaging v1.5.4 (${ytdLabel} · latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}).`,
+      `Study-wide availability, QC lists, and IDA image IDs are only on Quality test pending (removed from the main Metrics Imaging page).`,
+      `Integrated study summary (Quality test pending): v1.5.4 YTD · SCAN 17/16/1/2 · CLARiTI 21/11/19/18 · USC ADRC 42/42/0/0.`,
+      `Imaging QC lists (Quality test pending) are cumulative, received November 6, 2026: amyloid 19 · tau 18 · structural MRI 38 sessions / 966 series.`,
+      `IDA image IDs (Quality test pending) are cumulative, received November 6, 2026: MR 10,259 participants / 143,034 IDs · PET 6,775 / 13,573.`,
     ],
   },
 ];

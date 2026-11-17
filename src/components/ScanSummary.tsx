@@ -36,11 +36,11 @@ function ScanProgressBlock({
         <h3 className="font-display text-2xl md:text-3xl font-semibold metric-value-unknown">
           {title}
         </h3>
-        <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200/80 rounded-lg px-4 py-2 text-sm shrink-0">
-          <span className="text-red-600/80">Target:</span>
+        <div className="inline-flex items-center gap-2 bg-cpbh-mist/60 border border-cpbh-mist rounded-lg px-4 py-2 text-sm shrink-0">
+          <span className="text-cpbh-navy/60">Target:</span>
           <span
             className={`font-semibold ${metricValueClass(
-              data.targetProvenance ?? provenance,
+              data.targetProvenance ?? "ytd",
               data.target,
             )}`}
           >
@@ -49,13 +49,17 @@ function ScanProgressBlock({
         </div>
       </div>
 
-      <div className="text-center space-y-1 mb-6 max-w-3xl mx-auto">
-        {gapNotes.map((note) => (
-          <p key={note} className="text-sm metric-value-unknown leading-snug">
-            {note}
-          </p>
-        ))}
-      </div>
+      {gapNotes.length > 0 ? (
+        <div className="text-center space-y-1 mb-6 max-w-3xl mx-auto">
+          {gapNotes.map((note) => (
+            <p key={note} className="text-sm metric-value-unknown leading-snug">
+              {note}
+            </p>
+          ))}
+        </div>
+      ) : (
+        <div className="mb-6" />
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {modalities.map((mod) => (
@@ -88,7 +92,6 @@ export default function ScanSummary({
         title="USC Scan Progress"
         data={scans}
         gapNotes={[
-          "Red gap · source: USC scan participant ranking from Liz Zhou (pending).",
           "Red gap · source: externally hosted file from Diana (pending).",
         ]}
       />
@@ -97,7 +100,7 @@ export default function ScanSummary({
           title="CLARiTI Progress"
           data={claritiScans}
           gapNotes={[
-            "Red gap · same pending sources as USC Scan (Liz Zhou ranking · Diana externally hosted).",
+            "Red gap · source: externally hosted file from Diana (pending).",
           ]}
         />
       </div>

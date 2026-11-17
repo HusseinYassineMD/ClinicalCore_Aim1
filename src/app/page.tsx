@@ -245,11 +245,13 @@ export default function DashboardPage() {
         <ImagingSection
           claritiScans={data.claritiScans}
           scans={data.scans}
-          imagingYtdIntegratedStudySummary={data.imagingYtdIntegratedStudySummary}
-          imagingYtdMeta={data.imagingYtdMeta}
-          imagingQc={data.imagingQc}
-          idaImagingUpload={data.idaImagingUpload}
           sectionDataStatus={data.sectionDataStatus}
+          periodLabel={data.imagingYtdMeta?.periodLabel}
+          sourceNote={
+            data.imagingYtdMeta
+              ? `${data.imagingYtdMeta.packageVersion} · last study ${data.imagingYtdMeta.latestStudyDate ?? "—"}`
+              : undefined
+          }
         />
         </div>
       </main>

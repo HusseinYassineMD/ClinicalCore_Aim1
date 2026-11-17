@@ -173,10 +173,10 @@ export const aim1MockData: Aim1DashboardData = {
     imagingScanProgress: {
       status: "unknown",
       realFrom:
-        "Red gap · USC Scan participant ranking from Liz Zhou (pending) · externally hosted file from Diana (pending).",
+        "Red gap · externally hosted file from Diana (pending). SCAN target 24 and CLARiTI target 36 are black budget targets.",
       mockFrom: ytdImaging
-        ? `Placeholder modality counts currently shown from ${DATA_CORE.imagingProduct} ${ytdImaging.packageVersion} until Liz / Diana sources arrive · do not treat as final`
-        : `Modality counts pending Liz Zhou ranking and Diana externally hosted file`,
+        ? `Placeholder modality counts currently shown from ${DATA_CORE.imagingProduct} ${ytdImaging.packageVersion} until Diana’s externally hosted file arrives · do not treat as final`
+        : `Modality counts pending Diana externally hosted file`,
     },
     imagingQc: {
       status: "ytd",
@@ -735,18 +735,18 @@ export const aim1MockData: Aim1DashboardData = {
   },
 
   scans: {
-    target: 0,
-    targetProvenance: "unknown",
+    target: 24,
+    targetProvenance: "ytd",
     mri: ytdImaging?.scanStudy.participantsWithMri ?? 0,
     amyloidPet: ytdImaging?.scanStudy.participantsWithAmyloidPet ?? 0,
     tauPet: ytdImaging?.scanStudy.participantsWithTauPet ?? 0,
-    // Red until Liz Zhou USC scan ranking and Diana externally hosted file land.
+    // Progress counts stay red until Diana’s externally hosted file lands.
     provenance: "unknown",
   },
 
   claritiScans: {
-    target: 0,
-    targetProvenance: "unknown",
+    target: 36,
+    targetProvenance: "ytd",
     mri: ytdImaging?.claritiStudy.participantsWithMri ?? 0,
     amyloidPet: ytdImaging?.claritiStudy.participantsWithAmyloidPet ?? 0,
     tauPet: ytdImaging?.claritiStudy.participantsWithTauPet ?? 0,

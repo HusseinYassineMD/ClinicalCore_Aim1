@@ -229,17 +229,17 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Imaging",
     metric: "USC Scan / CLARiTI targets",
-    value: "0 / 0 (red gap)",
-    tier: "tbd",
-    source: "Pending Liz Zhou USC scan participant ranking · Diana externally hosted file",
+    value: "24 / 36 (black)",
+    tier: "verified",
+    source: "RPPR · grant budget justification",
   },
   {
     section: "Imaging",
     metric: "USC Scan · MRI / Amyloid PET / Tau PET participants",
     value: "16 / 1 / 2 (red · placeholder)",
     tier: "tbd",
-    source: "Red gap · Liz Zhou USC scan participant ranking (pending)",
-    notes: "Placeholder counts from Integrated Imaging until Liz / Diana sources arrive.",
+    source: "Red gap · Diana externally hosted file (pending)",
+    notes: "Placeholder counts from Integrated Imaging until Diana’s file arrives.",
   },
   {
     section: "Imaging",
@@ -254,8 +254,9 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     metric: "USC Scan / CLARiTI cards (red gap)",
     value: "USC Scan 16/1/2 · CLARiTI 11/19/18",
     tier: "tbd",
-    source: "Shown in red until Liz Zhou ranking and Diana externally hosted file",
-    notes: "Quality test pending also lists study-wide availability, QCs, and IDA uploads.",
+    source: "Shown in red until Diana externally hosted file",
+    notes:
+      "Study-wide availability, QCs, and IDA uploads are on Quality test pending only (not main Metrics Imaging).",
   },
   {
     section: "Imaging",

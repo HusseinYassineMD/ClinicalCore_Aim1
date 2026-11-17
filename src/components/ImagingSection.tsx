@@ -1,41 +1,26 @@
 "use client";
 
-import type {
-  ClaritiScans,
-  ScanData,
-  ImagingQcMetrics,
-  IntegratedImagingStudySummary,
-  ImagingYtdMeta,
-  IdaImagingUploadMetrics,
-  SectionDataStatus,
-} from "@/types/aim1";
+import type { ClaritiScans, ScanData, SectionDataStatus } from "@/types/aim1";
 import ScanSummary from "./ScanSummary";
-import IntegratedImagingSummaryBlock from "./IntegratedImagingSummaryBlock";
-import ImagingQcBlock from "./ImagingQcBlock";
-import IdaUploadBlock from "./IdaUploadBlock";
 import DataStatusStickyNote from "./DataStatusStickyNote";
-import IdaUploadConfirmationStickyNote from "./IdaUploadConfirmationStickyNote";
 import StickyNoteRail, { SectionWithNotes } from "./StickyNoteRail";
 import SectionScopeBracket from "@/components/SectionScopeBracket";
+import Link from "next/link";
 
 interface ImagingSectionProps {
   claritiScans: ClaritiScans;
   scans: ScanData;
-  imagingYtdIntegratedStudySummary?: IntegratedImagingStudySummary;
-  imagingYtdMeta?: ImagingYtdMeta;
-  imagingQc: ImagingQcMetrics;
-  idaImagingUpload: IdaImagingUploadMetrics;
   sectionDataStatus: SectionDataStatus;
+  periodLabel?: string;
+  sourceNote?: string;
 }
 
 export default function ImagingSection({
   claritiScans,
   scans,
-  imagingYtdIntegratedStudySummary,
-  imagingYtdMeta,
-  imagingQc,
-  idaImagingUpload,
   sectionDataStatus,
+  periodLabel,
+  sourceNote,
 }: ImagingSectionProps) {
   return (
     <section className="space-y-6">
@@ -54,72 +39,30 @@ export default function ImagingSection({
               heading="USC Scan Progress"
               {...sectionDataStatus.imagingScanProgress}
             />
-            <DataStatusStickyNote
-              heading="Integrated imaging"
-              {...sectionDataStatus.imagingQc}
-            />
-          </StickyNoteRail>
-        }
-      >
-        <div className="space-y-6">
-          <div
-            data-deck-slide="imaging-scan-summary"
-            data-deck-caption="Imaging · USC Scan & CLARiTI progress (red gap)"
-          >
-            <ScanSummary
-              scans={scans}
-              claritiScans={claritiScans}
-              periodLabel={imagingYtdMeta?.periodLabel}
-              sourceNote={
-                imagingYtdMeta
-                  ? `${imagingYtdMeta.packageVersion} · last study ${imagingYtdMeta.latestStudyDate ?? "—"}`
-                  : undefined
-              }
-            />
-          </div>
-          {imagingYtdIntegratedStudySummary ? (
-            <div
-              id="imaging-study-wide"
-              className="scroll-mt-32"
-              data-deck-slide="imaging-integrated-summary"
-              data-deck-caption="Imaging · study-wide YTD availability"
-            >
-              <IntegratedImagingSummaryBlock
-                ytdStudySummary={imagingYtdIntegratedStudySummary}
-                ytdMeta={imagingYtdMeta}
-              />
-            </div>
-          ) : null}
-          <div
-            id="imaging-qc"
-            className="scroll-mt-32"
-            data-deck-slide="imaging-qc"
-            data-deck-caption="Imaging · QC metrics"
-          >
-            <ImagingQcBlock data={imagingQc} />
-          </div>
-        </div>
-      </SectionWithNotes>
-
-      <SectionWithNotes
-        notes={
-          <StickyNoteRail>
-            <DataStatusStickyNote
-              heading="IDA Uploads"
-              {...sectionDataStatus.idaImagingUpload}
-            />
-            <IdaUploadConfirmationStickyNote />
           </StickyNoteRail>
         }
       >
         <div
-          id="imaging-ida-uploads"
-          className="scroll-mt-32"
-          data-deck-slide="imaging-ida-uploads"
-          data-deck-caption="Imaging · IDA upload status"
+          data-deck-slide="imaging-scan-summary"
+          data-deck-caption="Imaging · USC Scan & CLARiTI progress (red gap)"
         >
-          <IdaUploadBlock data={idaImagingUpload} />
+          <ScanSummary
+            scans={scans}
+            claritiScans={claritiScans}
+            periodLabel={periodLabel}
+            sourceNote={sourceNote}
+          />
         </div>
+        <p className="mt-4 text-center text-sm text-cpbh-navy/60">
+          Study-wide availability, Imaging QC lists, and IDA image IDs are on{" "}
+          <Link
+            href="/quality-test-pending"
+            className="font-medium text-cpbh-sky hover:text-cpbh-navy underline-offset-2 hover:underline"
+          >
+            Quality test pending
+          </Link>{" "}
+          for board review.
+        </p>
       </SectionWithNotes>
     </section>
   );

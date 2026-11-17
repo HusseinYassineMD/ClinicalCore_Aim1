@@ -52,8 +52,9 @@ PLACEHOLDER_UI = [
     "Clinical lab A1c/lipid/creatinine/BP → null red",
     "Brain Health 4 Me → null red",
     "ORE heading is off the metrics page. Old RPPR event counts stay in rpprMetrics.json.",
-    "USC Scan / CLARiTI progress → red gap pending Liz Zhou ranking and Diana externally hosted file. Study-wide availability, QC, and IDA stay on Imaging and under Quality test pending.",
-    "Imaging QC and IDA image IDs → jamesImagingQcLists.json and jamesIdaImageIds.json, black through October 16, 2026.",
+    "USC Scan / CLARiTI progress → red gap pending Diana externally hosted file. Targets black: SCAN 24 · CLARiTI 36. Progress placeholders 16/1/2 and 11/19/18.",
+    "Study-wide availability, Imaging QC, and IDA image IDs → Quality test pending only (removed from main Metrics Imaging).",
+    "Imaging QC and IDA image IDs → jamesImagingQcLists.json and jamesIdaImageIds.json, black through October 16, 2026 · QC 19/18/38/966 · IDA MR 10259/143034 · PET 6775/13573.",
     "Grant plan chart targets → registryChartViews.ts + budgetTargets.ts (renewal goals, not on the current Table 1)",
     "Old RPPR headline refs (668, 573, 231) stay in rpprMetrics.json as different counts.",
 ]
