@@ -134,8 +134,9 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
       `studies through ${formatScopeDate(imagingCov.imagingLatestStudyDate)}`,
     ]),
     bullets: [
-      `SCAN, CLARiTI, and the study-wide table are black: Integrated Imaging v1.5.4 · filter window ${ytdLabel} · latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}.`,
-      `Integrated study summary is black: v1.5.4, latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}.`,
+      `USC Scan and CLARiTI progress cards are red gaps pending Liz Zhou’s USC scan participant ranking and Diana’s externally hosted file. Placeholder modality counts may still show from Integrated Imaging v1.5.4 (${ytdLabel} · latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}) until those sources arrive.`,
+      `Study-wide availability, QC lists, and IDA image IDs stay below on Imaging and are also listed under Quality test pending for later review.`,
+      `Integrated study summary: v1.5.4, latest study_date ${formatScopeDate(imagingCov.imagingLatestStudyDate)}.`,
       `Imaging QC lists are cumulative, received November 6, 2026: amyloid Apr 17–Oct 15, 2026 · tau Apr 27–Oct 13, 2026 · structural MRI Jan 4, 2021–Oct 16, 2026.`,
       `IDA image IDs are cumulative, received November 6, 2026: MR Jan 1, 2000–Oct 16, 2026 · PET Oct 6, 2006–Aug 20, 2026.`,
     ],

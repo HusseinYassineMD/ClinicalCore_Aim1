@@ -170,13 +170,12 @@ export const aim1MockData: Aim1DashboardData = {
       source: `${LAST_RPPR_SOURCE} · ORE Table E1/E2`,
     },
     imagingScanProgress: {
-      status: "mixed",
-      realFrom: ytdImaging
-        ? `MRI / Amyloid PET / Tau PET participants ${ytdWindowPhrase()} · ${DATA_CORE.imagingProduct} ${ytdImaging.packageVersion} · ${ytdImaging.identityFilter ?? "nacc_registry_verified"} only · SCAN & CLARiTI separate (do not sum)`
-        : "SCAN target (24) and CLARiTI target (36) · RPPR budget",
+      status: "unknown",
+      realFrom:
+        "Red gap · USC Scan participant ranking from Liz Zhou (pending) · externally hosted file from Diana (pending).",
       mockFrom: ytdImaging
-        ? "Targets (24 / 36) · RPPR budget"
-        : `Modality counts pending ${DATA_CORE.imagingProduct} export`,
+        ? `Placeholder modality counts currently shown from ${DATA_CORE.imagingProduct} ${ytdImaging.packageVersion} until Liz / Diana sources arrive · do not treat as final`
+        : `Modality counts pending Liz Zhou ranking and Diana externally hosted file`,
     },
     imagingQc: {
       status: "ytd",
@@ -734,7 +733,8 @@ export const aim1MockData: Aim1DashboardData = {
     mri: ytdImaging?.scanStudy.participantsWithMri ?? 0,
     amyloidPet: ytdImaging?.scanStudy.participantsWithAmyloidPet ?? 0,
     tauPet: ytdImaging?.scanStudy.participantsWithTauPet ?? 0,
-    provenance: ytdImaging ? "ytd" : "unknown",
+    // Red until Liz Zhou USC scan ranking and Diana externally hosted file land.
+    provenance: "unknown",
   },
 
   claritiScans: {
@@ -743,7 +743,7 @@ export const aim1MockData: Aim1DashboardData = {
     mri: ytdImaging?.claritiStudy.participantsWithMri ?? 0,
     amyloidPet: ytdImaging?.claritiStudy.participantsWithAmyloidPet ?? 0,
     tauPet: ytdImaging?.claritiStudy.participantsWithTauPet ?? 0,
-    provenance: ytdImaging ? "ytd" : "unknown",
+    provenance: "unknown",
   },
 
   ...(ytdImagingStudyRollup

@@ -9,6 +9,7 @@ const TABS = [
   { href: "/data-package", label: "Data Package" },
   { href: "/data-sources", label: "Checks & sources" },
   { href: "/registry-data", label: "Registry Summaries" },
+  { href: "/quality-test-pending", label: "Quality test pending" },
 ] as const;
 
 export default function DashboardNav() {

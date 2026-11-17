@@ -51,7 +51,7 @@ export default function ImagingSection({
         notes={
           <StickyNoteRail>
             <DataStatusStickyNote
-              heading="Scan Progress"
+              heading="USC Scan Progress"
               {...sectionDataStatus.imagingScanProgress}
             />
             <DataStatusStickyNote
@@ -64,7 +64,7 @@ export default function ImagingSection({
         <div className="space-y-6">
           <div
             data-deck-slide="imaging-scan-summary"
-            data-deck-caption="Imaging · SCAN & CLARiTI scan progress (YTD)"
+            data-deck-caption="Imaging · USC Scan & CLARiTI progress (red gap)"
           >
             <ScanSummary
               scans={scans}
@@ -79,6 +79,8 @@ export default function ImagingSection({
           </div>
           {imagingYtdIntegratedStudySummary ? (
             <div
+              id="imaging-study-wide"
+              className="scroll-mt-32"
               data-deck-slide="imaging-integrated-summary"
               data-deck-caption="Imaging · study-wide YTD availability"
             >
@@ -89,6 +91,8 @@ export default function ImagingSection({
             </div>
           ) : null}
           <div
+            id="imaging-qc"
+            className="scroll-mt-32"
             data-deck-slide="imaging-qc"
             data-deck-caption="Imaging · QC metrics"
           >
@@ -109,6 +113,8 @@ export default function ImagingSection({
         }
       >
         <div
+          id="imaging-ida-uploads"
+          className="scroll-mt-32"
           data-deck-slide="imaging-ida-uploads"
           data-deck-caption="Imaging · IDA upload status"
         >
