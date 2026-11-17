@@ -11,6 +11,11 @@ interface RecSectionProps {
 }
 
 export default function RecSection({ data, roster }: RecSectionProps) {
+  const attendanceThrough =
+    data.attendanceThroughDate ??
+    data.attendanceSessions.at(-1)?.sessionDate ??
+    null;
+
   return (
     <section className="space-y-8">
       <div className="text-center">
@@ -24,7 +29,9 @@ export default function RecSection({ data, roster }: RecSectionProps) {
         <p className="text-cpbh-navy/60 text-sm mt-1">
           {sourceThroughText(
             "REC database · recSpeakerSeries.json and data/reference/rec",
-            "speaker schedule May 14, 2027 · attendance October 9, 2026",
+            attendanceThrough
+              ? `speaker schedule May 14, 2027 · attendance ${formatScopeDate(attendanceThrough)}`
+              : "speaker schedule May 14, 2027",
             "Research Education Component · speaker series, scholars, faculty, and training programs.",
           )}
         </p>
@@ -51,10 +58,12 @@ export default function RecSection({ data, roster }: RecSectionProps) {
               label="Avg No. Attendees"
               value={data.avgAttendees}
               sublabel={sourceThroughText(
-                "data/reference/rec/meeting-attendance.csv",
-                "October 9, 2026",
+                "data/reference/rec/meeting-attendance.csv · Sahar Nikkhah Bahrami Zoom report",
+                attendanceThrough
+                  ? formatScopeDate(attendanceThrough)
+                  : "—",
                 data.attendanceSessionCount
-                  ? `${data.attendanceSessionCount} sessions with attendance reported. The October 16 session is not in this file.`
+                  ? `${data.attendanceSessionCount} sessions with Zoom attendance. The October 16 session is not in this Zoom report.`
                   : undefined,
               )}
               accent="navy"

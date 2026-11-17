@@ -1107,7 +1107,7 @@ def build_rows() -> list[dict[str, str]]:
             f"{round(att_sum.get('totalAttendees', 0) / att_sum['sessionCount'], 1) if att_sum.get('sessionCount') else '?'} shown ({att_sum.get('totalAttendees', '?')} / {att_sum.get('sessionCount', '?')} = {att_sum.get('avgAttendees', '?')}) / {att_sum.get('totalAttendees', '?')}",
             "Sum of reported headcounts. Card rounds the average to one decimal.",
             f"{att_csv} -> scripts/aggregate_rec_roster.py -> src/data/recMeetingAttendance.json",
-            "Pink. Last session with attendance is October 9, 2026. The October 16 session has no attendance row.",
+            "Pink. Last session with attendance is November 6, 2026 (Sahar Zoom report). The October 16 session has no attendance row.",
             dashboard_color="pink",
             data_lineage=LINEAGE_LEGEND[4][1],
         )
@@ -1120,7 +1120,7 @@ def build_rows() -> list[dict[str, str]]:
                 str(sess.get("attendees")),
                 "Manual entry in meeting-attendance.csv",
                 att_csv,
-                f"Reported by {sess.get('reportedBy', 'REC admin')}. Pink. Attendance file stops October 9, 2026.",
+                f"Reported by {sess.get('reportedBy', 'REC admin')}. Pink. Attendance file runs through November 6, 2026.",
                 dashboard_color="pink",
                 data_lineage=LINEAGE_LEGEND[4][1],
             )

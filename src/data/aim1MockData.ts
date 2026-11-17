@@ -11,6 +11,7 @@ import { DASHBOARD_LAST_PUBLISHED } from "@/data/dashboardBuildStamp";
 import { latestTimestamp } from "@/lib/formatLastUpdated";
 import { getRecAttendanceTotals } from "@/lib/recAttendanceMetrics";
 import { getRecSessionCounts } from "@/lib/recSpeakerMetrics";
+import recMeetingAttendance from "@/data/recMeetingAttendance.json";
 import rpprDataPackageMeta from "@/data/rpprDataPackageMeta.json";
 import rpprDataPackage from "@/data/rpprDataPackage.json";
 import biomarkerCoreSampleProcessing2026 from "@/data/biomarkerCoreSampleProcessing2026.json";
@@ -398,7 +399,7 @@ export const aim1MockData: Aim1DashboardData = {
           title: "Speaker series",
           lines: [
             "Completed/scheduled from recSpeakerSeries.json",
-            "Zoom attendance from meeting-attendance.csv (REC admin report)",
+            "Zoom attendance from meeting-attendance.csv · Sahar Nikkhah Bahrami Zoom report through November 6, 2026",
           ],
         },
       ],
@@ -880,7 +881,16 @@ export const aim1MockData: Aim1DashboardData = {
       ? new Date(`${siteReportingWindow.endDate}T12:00:00`)
       : new Date("2026-10-16T12:00:00");
     const sessions = getRecSessionCounts(recAsOf);
-    const attendance = getRecAttendanceTotals(recAsOf);
+    // Pink Zoom attendance uses Sahar's latest report, not the EAC October 16 lock.
+    const lastAttendanceDate =
+      [...(recMeetingAttendance.sessions ?? [])]
+        .map((s) => s.sessionDate)
+        .filter(Boolean)
+        .sort()
+        .at(-1) ?? siteReportingWindow.endDate;
+    const attendance = getRecAttendanceTotals(
+      new Date(`${lastAttendanceDate}T12:00:00`),
+    );
     return {
       completed: sessions.completed,
       scheduled: sessions.scheduled,
@@ -894,6 +904,7 @@ export const aim1MockData: Aim1DashboardData = {
         attendees: s.attendees,
         reportedBy: s.reportedBy,
       })),
+      attendanceThroughDate: lastAttendanceDate,
     };
   })(),
 

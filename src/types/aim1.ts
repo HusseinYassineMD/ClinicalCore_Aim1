@@ -318,6 +318,8 @@ export interface RecMetrics {
   totalAttendees: number;
   attendanceSessionCount: number;
   attendanceSessions: RecMeetingAttendanceRow[];
+  /** Latest Zoom attendance session date in meeting-attendance.csv */
+  attendanceThroughDate?: string;
 }
 
 export interface RecScholarTraineeRow {
