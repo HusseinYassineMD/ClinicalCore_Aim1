@@ -55,6 +55,7 @@ import {
 } from "@/data/recruitmentChartConstants";
 import brsRpprTableDataCore from "@/data/brsRpprTableDataCore2026.json";
 import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
+import adrcYtdSpanishUds from "@/data/adrcYtdSpanishUds.json";
 import recRosterJson from "@/data/recRoster.json";
 import type { RecRosterData } from "@/types/aim1";
 
@@ -529,14 +530,20 @@ export const aim1MockData: Aim1DashboardData = {
           {
             label: "In-person follow-ups",
             count: ytdUds.followUpInPerson,
+            spanishCount:
+              adrcYtdSpanishUds.spanishPrimaryLanguage.followUpInPerson,
           },
           {
             label: "Remote follow-ups",
             count: ytdUds.followUpRemote,
+            spanishCount:
+              adrcYtdSpanishUds.spanishPrimaryLanguage.followUpRemote,
           },
           {
             label: "Initial",
             count: ytdUds.newInitialEvaluations,
+            spanishCount:
+              adrcYtdSpanishUds.spanishPrimaryLanguage.newInitialEvaluations,
             periodTarget: BUDGET_TARGETS.adrcNewEvalsPerYear,
           },
         ],

@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "sourceLongitudinal": "data/JamesDataPacket-November-6/USC ADRC UDS Harmonized/UDS_longitudinal_harmonized.csv",
+    "sourceSubjects": "data/JamesDataPacket-November-6/USC ADRC UDS Harmonized/ADRC_subject_current_harmonized.csv",
+    "periodLabel": "1/1/2026 \u2013 10/16/2026",
+    "startDate": "2026-01-01",
+    "endDate": "2026-10-16",
+    "definition": "Spanish-enrolled = primary language Spanish for diversity classification: ADRC_subject_current_harmonized.der_latest_primary_language = Spanish, else visit predomlan/primlang = 2 or der_primary_language = Spanish. Same visit rules as the UDS year-to-date cards (packet / modea1).",
+    "syncedAt": "2026-11-17T21:55:38Z"
+  },
+  "all": {
+    "newInitialEvaluations": 40,
+    "followUpInPerson": 247,
+    "followUpRemote": 23
+  },
+  "spanishPrimaryLanguage": {
+    "newInitialEvaluations": 3,
+    "followUpInPerson": 35,
+    "followUpRemote": 3
+  }
+}

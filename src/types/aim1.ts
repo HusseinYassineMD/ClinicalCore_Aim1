@@ -53,6 +53,11 @@ export interface RegistryChartSlot {
 export interface PeriodActivityItem {
   label: string;
   count: number;
+  /**
+   * Optional Spanish primary-language subset for the same visit rule.
+   * Used by the ADRC “enrolled in Spanish” toggle on year-to-date cards.
+   */
+  spanishCount?: number;
   /** Plain-language definition shown under the label. */
   definition?: string;
   /** Denominator for this count, shown as count / denominator. */

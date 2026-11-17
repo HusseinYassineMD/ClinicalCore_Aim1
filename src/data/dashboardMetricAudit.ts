@@ -105,11 +105,12 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   },
   {
     section: "Recruitment · ADRC",
-    metric: "Year to date · in-person / remote / initial",
-    value: "247 / 23 / 40",
+    metric: "Year to date · in-person / remote / initial (Spanish primary toggle)",
+    value: "247 / 23 / 40 · Spanish primary 35 / 3 / 3",
     tier: "verified",
-    source: "USC ADRC harmonized export · UDS_longitudinal_harmonized.csv · visit_date",
-    notes: siteReportingWindow.label,
+    source:
+      "UDS_longitudinal_harmonized.csv · visit_date · Spanish = der_latest_primary_language (subject) / predomlan|primlang=2",
+    notes: `${siteReportingWindow.label}. Toggle under the three cards filters to Spanish primary language for diversity classification.`,
   },
   {
     section: "Recruitment · ADRC",

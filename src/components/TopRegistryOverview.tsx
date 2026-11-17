@@ -681,10 +681,14 @@ function ReportingPeriodPanel({
   footnote,
   banner = "+ year to date",
   accent = "teal",
+  spanishEnrolled = false,
+  onSpanishEnrolledChange,
+  spanishNote,
 }: {
   items: {
     label: string;
     count: number;
+    spanishCount?: number;
     periodTarget?: number;
     definition?: string;
     denominator?: number;
@@ -695,12 +699,23 @@ function ReportingPeriodPanel({
   footnote?: string;
   banner?: string;
   accent?: "navy" | "purple" | "teal";
+  spanishEnrolled?: boolean;
+  onSpanishEnrolledChange?: (value: boolean) => void;
+  spanishNote?: string;
 }) {
+  const showSpanishToggle =
+    onSpanishEnrolledChange != null &&
+    items.some((item) => item.spanishCount != null);
+
   const cardProps = (item: (typeof items)[number]) => ({
     label: item.label,
-    count: item.count,
+    count:
+      spanishEnrolled && item.spanishCount != null
+        ? item.spanishCount
+        : item.count,
     provenance: item.provenance ?? provenance,
-    target: item.periodTarget,
+    // Budget target stays on the full cohort, not the Spanish subset.
+    target: spanishEnrolled ? undefined : item.periodTarget,
     definition: item.definition,
     denominator: item.denominator,
     denominatorLabel: item.denominatorLabel,
@@ -737,6 +752,26 @@ function ReportingPeriodPanel({
           ))}
         </div>
       )}
+      {showSpanishToggle ? (
+        <div className="flex flex-col items-center gap-1 pt-1">
+          <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-cpbh-mist bg-white px-3 py-1.5 text-xs text-cpbh-navy shadow-sm">
+            <input
+              type="checkbox"
+              className="h-3.5 w-3.5 rounded border-cpbh-navy/40 text-cpbh-navy focus:ring-cpbh-navy/30"
+              checked={spanishEnrolled}
+              onChange={(event) =>
+                onSpanishEnrolledChange?.(event.target.checked)
+              }
+            />
+            <span className="font-medium">People who enrolled in Spanish</span>
+          </label>
+          {spanishEnrolled && spanishNote ? (
+            <p className="max-w-md text-center text-[10px] leading-snug text-cpbh-navy/55 px-1">
+              {spanishNote}
+            </p>
+          ) : null}
+        </div>
+      ) : null}
       {footnote ? (
         <p
           className="text-[10px] text-cpbh-navy/45 text-center leading-snug px-1 pt-0.5"
@@ -1616,6 +1651,12 @@ function RegistryYtdBlock({
   column: RegistryColumn;
   plain?: boolean;
 }) {
+  const [spanishEnrolled, setSpanishEnrolled] = useState(false);
+  const hasSpanishSubset = Boolean(
+    column.id === "adrc" &&
+      column.periodActivities?.some((item) => item.spanishCount != null),
+  );
+
   return (
     <div
       className={
@@ -1642,6 +1683,15 @@ function RegistryYtdBlock({
               : column.id === "genescreen"
                 ? "purple"
                 : "teal"
+          }
+          spanishEnrolled={hasSpanishSubset ? spanishEnrolled : false}
+          onSpanishEnrolledChange={
+            hasSpanishSubset ? setSpanishEnrolled : undefined
+          }
+          spanishNote={
+            hasSpanishSubset
+              ? "Primary language Spanish (der_latest_primary_language) · diversity classification · same visit rules as these cards."
+              : undefined
           }
         />
       ) : column.periodTarget != null ? (
