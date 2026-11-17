@@ -1,5 +1,8 @@
 import type { ScanData } from "@/types/aim1";
 import { metricValueClass } from "@/lib/metricValueClass";
+import { formatScopeDate } from "@/lib/formatScopeDate";
+import { HeadingLead } from "@/components/HeadingLead";
+import uscScanProgress from "@/data/uscScanProgress.json";
 
 interface ScanSummaryProps {
   scans: ScanData;
@@ -18,10 +21,16 @@ function ScanProgressBlock({
   title,
   data,
   gapNotes,
+  source,
+  through,
+  definition,
 }: {
   title: string;
   data: ScanData;
-  gapNotes: string[];
+  gapNotes?: string[];
+  source?: string;
+  through?: string;
+  definition?: string;
 }) {
   const provenance = data.provenance ?? "unknown";
   const isGap = provenance === "unknown";
@@ -54,7 +63,15 @@ function ScanProgressBlock({
         </div>
       </div>
 
-      {gapNotes.length > 0 ? (
+      {source && through ? (
+        <HeadingLead
+          className="text-cpbh-navy/65 text-sm mb-6 max-w-3xl mx-auto leading-snug text-center"
+          source={source}
+          through={through}
+        >
+          {definition}
+        </HeadingLead>
+      ) : gapNotes && gapNotes.length > 0 ? (
         <div className="text-center space-y-1 mb-6 max-w-3xl mx-auto">
           {gapNotes.map((note) => (
             <p
@@ -109,11 +126,11 @@ export default function ScanSummary({
       }`}
     >
       <ScanProgressBlock
-        title="USC Scan Progress"
+        title="USC SCAN Progress"
         data={scans}
-        gapNotes={[
-          "Source: USC SCAN Participant Tracking REDCap (Saza) · Complete baseline scans in the YTD window (scan date, or clinical date from notes).",
-        ]}
+        source={`Saza · USC SCAN Participant Tracking REDCap · ${uscScanProgress.sourceFile} · received ${formatScopeDate(uscScanProgress.receivedDate)}`}
+        through={`${uscScanProgress.reportingPeriodLabel} · Complete baseline scans only`}
+        definition="Counts participants with Baseline MRI / Amyloid PET / Tau PET Scan Status = Complete and an effective scan date in this window (Baseline scan date, or clinical/outside-Keck date from notes when the date field is blank)."
       />
       <div className="border-t border-red-100 pt-8">
         <ScanProgressBlock

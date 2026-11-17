@@ -235,13 +235,13 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   },
   {
     section: "Imaging",
-    metric: "USC Scan · MRI / Amyloid PET / Tau PET participants",
+    metric: "USC SCAN · MRI / Amyloid PET / Tau PET participants",
     value: "9 / 9 / 9 (black)",
     tier: "verified",
     source:
-      "USC SCAN Participant Tracking REDCap · Saza · USCSCANParticipantTr_DATA_LABELS_2026-11-17_1414.csv",
+      "USC SCAN Participant Tracking REDCap · Saza · USCSCANParticipantTr_DATA_LABELS_2026-11-17_1414.csv · received 2026-11-17",
     notes:
-      "Complete baseline status with effective scan date in 1/1/2026–10/16/2026 (date field or clinical date from notes). Enrolled 18; consent in window 13.",
+      "Through 1/1/2026 – 10/16/2026. Complete baseline status with effective scan date in window (date field or clinical date from notes). Enrolled 18; consent in window 13.",
   },
   {
     section: "Imaging",
@@ -254,9 +254,9 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Imaging",
     metric: "USC Scan / CLARiTI cards",
-    value: "USC Scan 9/9/9 (black) · CLARiTI 11/19/18 (red)",
+    value: "USC SCAN 9/9/9 (black) · CLARiTI 11/19/18 (red)",
     tier: "verified",
-    source: "USC Scan REDCap verified · CLARiTI still red gap",
+    source: "USC SCAN REDCap verified · CLARiTI still red gap",
     notes:
       "Study-wide availability, QCs, and IDA uploads are on Quality test pending only (not main Metrics Imaging).",
   },

@@ -52,7 +52,7 @@ PLACEHOLDER_UI = [
     "Clinical lab A1c/lipid/creatinine/BP → null red",
     "Brain Health 4 Me → null red",
     "ORE heading is off the metrics page. Old RPPR event counts stay in rpprMetrics.json.",
-    "USC Scan Progress → uscScanProgress.json from Saza REDCap (Complete baseline in YTD window): MRI 9 · Amyloid 9 · Tau 9 · target 24 black. CLARiTI still red gap pending Diana / CLARiTI REDCap (placeholder 11/19/18 · target 36 black).",
+    "USC SCAN Progress → uscScanProgress.json from Saza REDCap file USCSCANParticipantTr_DATA_LABELS_2026-11-17_1414.csv · through 1/1/2026 – 10/16/2026 · Complete baseline MRI 9 · Amyloid 9 · Tau 9 · target 24 black. CLARiTI still red gap pending Diana / CLARiTI REDCap (placeholder 11/19/18 · target 36 black).",
     "Study-wide availability, Imaging QC, and IDA image IDs → Quality test pending only (removed from main Metrics Imaging).",
     "Imaging QC and IDA image IDs → jamesImagingQcLists.json and jamesIdaImageIds.json, black through October 16, 2026 · QC 19/18/38/966 · IDA MR 10259/143034 · PET 6775/13573.",
     "Grant plan chart targets → registryChartViews.ts + budgetTargets.ts (renewal goals, not on the current Table 1)",

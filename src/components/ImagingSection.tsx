@@ -36,7 +36,7 @@ export default function ImagingSection({
         notes={
           <StickyNoteRail>
             <DataStatusStickyNote
-              heading="USC Scan Progress"
+              heading="USC SCAN Progress"
               {...sectionDataStatus.imagingScanProgress}
             />
           </StickyNoteRail>
@@ -44,7 +44,7 @@ export default function ImagingSection({
       >
         <div
           data-deck-slide="imaging-scan-summary"
-          data-deck-caption="Imaging · USC Scan (REDCap) & CLARiTI progress"
+          data-deck-caption="Imaging · USC SCAN (REDCap) & CLARiTI progress"
         >
           <ScanSummary
             scans={scans}

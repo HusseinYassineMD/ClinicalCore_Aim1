@@ -134,7 +134,7 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
       `studies through ${formatScopeDate(imagingCov.imagingLatestStudyDate)}`,
     ]),
     bullets: [
-      `USC Scan Progress is black from Saza’s USC SCAN Participant Tracking REDCap (Complete baseline MRI / Amyloid PET / Tau PET in ${ytdLabel}). Target 24 black. CLARiTI progress remains a red gap pending Diana’s file / CLARiTI REDCap (target 36 black).`,
+      `USC SCAN Progress is black from Saza’s USCSCANParticipantTr_DATA_LABELS_2026-11-17_1414.csv (Complete baseline MRI / Amyloid PET / Tau PET with effective scan date in ${ytdLabel}). Target 24 black. CLARiTI progress remains a red gap pending Diana’s file / CLARiTI REDCap (target 36 black).`,
       `Study-wide availability, QC lists, and IDA image IDs are only on Quality test pending (removed from the main Metrics Imaging page).`,
       `Integrated study summary (Quality test pending): v1.5.4 YTD · SCAN 17/16/1/2 · CLARiTI 21/11/19/18 · USC ADRC 42/42/0/0.`,
       `Imaging QC lists (Quality test pending) are cumulative, received November 6, 2026: amyloid 19 · tau 18 · structural MRI 38 sessions / 966 series.`,
