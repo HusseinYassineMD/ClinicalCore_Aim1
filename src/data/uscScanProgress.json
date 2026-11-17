@@ -4,7 +4,7 @@
   "startDate": "2026-01-01",
   "endDate": "2026-10-16",
   "sourceFile": "USCSCANParticipantTr_DATA_LABELS_2026-11-17_1414.csv",
-  "sourceLabel": "USC SCAN Participant Tracking REDCap \u00b7 Saza export",
+  "sourceLabel": "USC SCAN Participant Tracking REDCap",
   "receivedDate": "2026-11-17",
   "definition": "Unique enrolled Baseline rows with Baseline <modality> Scan Status = Complete and an effective scan date in the dashboard YTD window. Effective date is the Baseline <modality> Scan Date when present; otherwise a date recovered from Baseline <modality> Notes (clinical / outside-Keck completions).",
   "enrolledParticipants": 18,

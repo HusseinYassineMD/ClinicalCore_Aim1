@@ -239,7 +239,7 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
     value: "9 / 9 / 9 (black)",
     tier: "verified",
     source:
-      "USC SCAN Participant Tracking REDCap · Saza · USCSCANParticipantTr_DATA_LABELS_2026-11-17_1414.csv · received 2026-11-17",
+      "USC SCAN Participant Tracking REDCap · USCSCANParticipantTr_DATA_LABELS_2026-11-17_1414.csv · received 2026-11-17",
     notes:
       "Through 1/1/2026 – 10/16/2026. Complete baseline status with effective scan date in window (date field or clinical date from notes). Enrolled 18; consent in window 13.",
   },

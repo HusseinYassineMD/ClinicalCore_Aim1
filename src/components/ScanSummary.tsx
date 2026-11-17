@@ -128,7 +128,7 @@ export default function ScanSummary({
       <ScanProgressBlock
         title="USC SCAN Progress"
         data={scans}
-        source={`Saza · USC SCAN Participant Tracking REDCap · ${uscScanProgress.sourceFile} · received ${formatScopeDate(uscScanProgress.receivedDate)}`}
+        source={`USC SCAN Participant Tracking REDCap · ${uscScanProgress.sourceFile} · received ${formatScopeDate(uscScanProgress.receivedDate)}`}
         through={`${uscScanProgress.reportingPeriodLabel} · Complete baseline scans only`}
         definition="Counts participants with Baseline MRI / Amyloid PET / Tau PET Scan Status = Complete and an effective scan date in this window (Baseline scan date, or clinical/outside-Keck date from notes when the date field is blank)."
       />

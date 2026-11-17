@@ -174,7 +174,7 @@ export const aim1MockData: Aim1DashboardData = {
     imagingScanProgress: {
       status: "ytd",
       source: `${uscScanProgress.sourceLabel} · ${uscScanProgress.sourceFile} · ${uscScanProgress.reportingPeriodLabel}`,
-      realFrom: `USC SCAN Complete baseline scans ${uscScanProgress.reportingPeriodLabel}: MRI ${uscScanProgress.mri} · Amyloid PET ${uscScanProgress.amyloidPet} · Tau PET ${uscScanProgress.tauPet} · ${uscScanProgress.sourceFile} (Saza, received ${uscScanProgress.receivedDate}). Enrolled ${uscScanProgress.enrolledParticipants} (consent in window ${uscScanProgress.consentedInWindow}). Target 24 black. CLARiTI remains a red gap.`,
+      realFrom: `USC SCAN Complete baseline scans ${uscScanProgress.reportingPeriodLabel}: MRI ${uscScanProgress.mri} · Amyloid PET ${uscScanProgress.amyloidPet} · Tau PET ${uscScanProgress.tauPet} · ${uscScanProgress.sourceFile} (received ${uscScanProgress.receivedDate}). Enrolled ${uscScanProgress.enrolledParticipants} (consent in window ${uscScanProgress.consentedInWindow}). Target 24 black. CLARiTI remains a red gap.`,
       mockFrom:
         "CLARiTI modality counts still placeholder from Integrated Imaging until a CLARiTI REDCap / Diana file arrives",
     },

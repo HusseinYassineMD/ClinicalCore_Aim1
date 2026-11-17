@@ -233,7 +233,7 @@ def main() -> None:
         "startDate": start.isoformat(),
         "endDate": end.isoformat(),
         "sourceFile": source.name,
-        "sourceLabel": "USC SCAN Participant Tracking REDCap · Saza export",
+        "sourceLabel": "USC SCAN Participant Tracking REDCap",
         "receivedDate": "2026-11-17",
         "definition": (
             "Unique enrolled Baseline rows with Baseline <modality> Scan Status = Complete "
