@@ -45,7 +45,7 @@ PLACEHOLDER_UI = [
     "GeneScreen registry → geneScreenYtd.json, pink, file stops October 7, 2026 (739 Complete records). Old RPPR 668 is a different count.",
     "Dashboard Table 1 → table1HarmonizedActiveSnapshot.json, black, N=585 as of October 16, 2026. table1Demographics.json N=573 is the old RPPR table.",
     "Biofluid Collection black totals → Abhay Sagare workbook, January through September 2026. October stays pink.",
-    "REC completed/scheduled → red. Attendance → pink through November 6, 2026 (Sahar Zoom report). The October 16 session has no attendance row.",
+    "REC completed/scheduled → red, counted through November 6, 2026 (same through-date as Zoom attendance). Attendance → pink through November 6, 2026 (Sahar Zoom report). The October 16 session has no attendance row.",
     "Clinical lab A1c/lipid/creatinine/BP → null red",
     "Brain Health 4 Me → null red",
     "ORE heading is off the metrics page. Old RPPR event counts stay in rpprMetrics.json.",

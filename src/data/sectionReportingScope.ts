@@ -117,11 +117,11 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     bracket: bracket([
       "roster tables",
       `sync ${formatScopeDate(recRoster.meta.syncedAt.slice(0, 10))}`,
-      `speaker schedule as of ${formatScopeDate(siteReportingWindow.endDate)}`,
+      `speaker schedule as of ${formatScopeDate(recMeetingAttendance.sessions.at(-1)?.sessionDate ?? siteReportingWindow.endDate)}`,
     ]),
     bullets: [
       `Scholars / faculty / programs: data/reference/rec CSVs · last sync ${recRoster.meta.syncedAt.replace("T", " ").replace("Z", " UTC")}.`,
-      `Speaker series completed/scheduled: recSpeakerSeries.json · counts through dashboard end ${formatScopeDate(siteReportingWindow.endDate)}.`,
+      `Speaker series completed/scheduled: recSpeakerSeries.json · counts through the latest Zoom attendance date ${formatScopeDate(recMeetingAttendance.sessions.at(-1)?.sessionDate ?? siteReportingWindow.endDate)}.`,
       `Zoom attendance is pink: meeting-attendance.csv from Sahar Nikkhah Bahrami’s Zoom report through ${formatScopeDate(recMeetingAttendance.sessions.at(-1)?.sessionDate ?? siteReportingWindow.endDate)} · ${recMeetingAttendance.summary.sessionCount} sessions · avg ${recMeetingAttendance.summary.avgAttendees} · total ${recMeetingAttendance.summary.totalAttendees}. The October 16 session is not in that report.`,
     ],
   },

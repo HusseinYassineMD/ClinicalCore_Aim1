@@ -51,7 +51,9 @@ export default function RecSection({ data, roster }: RecSectionProps) {
               value={`${data.completed} / ${data.scheduled}`}
               sublabel={sourceThroughText(
                 "REC_Database/REC_SpeakerSeries/data/speakers.json",
-                "May 14, 2027",
+                attendanceThrough
+                  ? formatScopeDate(attendanceThrough)
+                  : "May 14, 2027",
                 `Friday sessions · as of ${data.asOfDate}`,
               )}
               accent="teal"
@@ -75,24 +77,28 @@ export default function RecSection({ data, roster }: RecSectionProps) {
             <MetricCard
               label="Total No. Attendees"
               value={data.totalAttendees}
+              sublabel={sourceThroughText(
+                "Sahar Nikkhah Bahrami · Zoom ADRC REC Meeting report",
+                attendanceThrough
+                  ? formatScopeDate(attendanceThrough)
+                  : "—",
+                data.attendanceSessionCount
+                  ? `${data.totalAttendees} attendees across ${data.attendanceSessionCount} sessions`
+                  : undefined,
+              )}
               accent="sky"
               provenance="span"
             />
           </div>
           {data.attendanceSessions.length > 0 ? (
             <div className="mt-4 overflow-x-auto">
-              <table className="w-full text-sm text-left min-w-[52rem]">
+              <table className="w-full text-sm text-left">
                 <thead>
                   <tr className="text-xs uppercase tracking-wide text-cpbh-navy/50 border-b border-cpbh-mist">
-                    <th className="py-2 pr-3 font-semibold">Session date</th>
-                    <th className="py-2 pr-3 font-semibold">Speaker</th>
-                    <th className="py-2 pr-3 font-semibold">Topic / Zoom</th>
-                    <th className="py-2 pr-3 font-semibold">Time</th>
-                    <th className="py-2 pr-3 text-right font-semibold tabular-nums">
-                      Duration
-                    </th>
+                    <th className="py-2 pr-4 font-semibold">Name</th>
+                    <th className="py-2 pr-4 font-semibold">Session date</th>
                     <th className="py-2 text-right font-semibold tabular-nums">
-                      Zoom attendance
+                      Attendees
                     </th>
                   </tr>
                 </thead>
@@ -100,47 +106,13 @@ export default function RecSection({ data, roster }: RecSectionProps) {
                   {data.attendanceSessions.map((row) => (
                     <tr
                       key={row.sessionDate}
-                      className="border-b border-cpbh-mist/70 last:border-0 align-top"
+                      className="border-b border-cpbh-mist/70 last:border-0"
                     >
-                      <td className="py-2.5 pr-3 text-cpbh-navy/80 whitespace-nowrap">
+                      <td className="py-2.5 pr-4 font-medium text-cpbh-navy">
+                        {row.speakerName ?? "—"}
+                      </td>
+                      <td className="py-2.5 pr-4 text-cpbh-navy/80 whitespace-nowrap">
                         {formatScopeDate(row.sessionDate)}
-                      </td>
-                      <td className="py-2.5 pr-3 text-cpbh-navy/80">
-                        <div className="font-medium text-cpbh-navy">
-                          {row.speakerName ?? "—"}
-                        </div>
-                        {row.talkTitle ? (
-                          <div className="text-xs text-cpbh-navy/55 mt-0.5 leading-snug max-w-xs">
-                            {row.talkTitle}
-                          </div>
-                        ) : null}
-                      </td>
-                      <td className="py-2.5 pr-3 text-cpbh-navy/80">
-                        <div>{row.topic ?? "—"}</div>
-                        {row.zoomMeetingId ? (
-                          <div className="text-xs text-cpbh-navy/55 mt-0.5 font-mono">
-                            ID {row.zoomMeetingId}
-                          </div>
-                        ) : null}
-                        {row.sourceFile ? (
-                          <div className="text-[10px] text-cpbh-navy/45 mt-0.5">
-                            Sahar Zoom export
-                          </div>
-                        ) : (
-                          <div className="text-[10px] text-cpbh-navy/45 mt-0.5">
-                            Prior REC admin report
-                          </div>
-                        )}
-                      </td>
-                      <td className="py-2.5 pr-3 text-cpbh-navy/80 whitespace-nowrap tabular-nums">
-                        {row.startTime && row.endTime
-                          ? `${row.startTime}–${row.endTime}`
-                          : "—"}
-                      </td>
-                      <td className="py-2.5 pr-3 text-right tabular-nums text-cpbh-navy/80">
-                        {row.durationMinutes != null
-                          ? `${row.durationMinutes} min`
-                          : "—"}
                       </td>
                       <td className="py-2.5 text-right tabular-nums font-medium text-cpbh-navy">
                         {row.attendees}

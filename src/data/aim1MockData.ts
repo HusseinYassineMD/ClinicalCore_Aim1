@@ -878,10 +878,6 @@ export const aim1MockData: Aim1DashboardData = {
   specimenSharingReportingPeriodLabel: siteReportingWindow.label,
 
   rec: (() => {
-    const recAsOf = siteReportingWindow.endDate
-      ? new Date(`${siteReportingWindow.endDate}T12:00:00`)
-      : new Date("2026-10-16T12:00:00");
-    const sessions = getRecSessionCounts(recAsOf);
     // Pink Zoom attendance uses Sahar's latest report, not the EAC October 16 lock.
     const lastAttendanceDate =
       [...(recMeetingAttendance.sessions ?? [])]
@@ -889,6 +885,11 @@ export const aim1MockData: Aim1DashboardData = {
         .filter(Boolean)
         .sort()
         .at(-1) ?? siteReportingWindow.endDate;
+    // Completed/scheduled tracks the same through-date as attendance (session on
+    // that day counts as completed: pass the next calendar day into the helper).
+    const sessionCountAsOf = new Date(`${lastAttendanceDate}T12:00:00`);
+    sessionCountAsOf.setDate(sessionCountAsOf.getDate() + 1);
+    const sessions = getRecSessionCounts(sessionCountAsOf);
     const attendance = getRecAttendanceTotals(
       new Date(`${lastAttendanceDate}T12:00:00`),
     );
@@ -907,11 +908,19 @@ export const aim1MockData: Aim1DashboardData = {
         });
       }
     }
+    const attendanceAsOfLabel = new Date(
+      `${lastAttendanceDate}T12:00:00`,
+    ).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "America/Los_Angeles",
+    });
     return {
       completed: sessions.completed,
       scheduled: sessions.scheduled,
       seriesLabel: sessions.seriesLabel,
-      asOfDate: sessions.asOfDate,
+      asOfDate: attendanceAsOfLabel,
       avgAttendees: attendance.avgAttendees,
       totalAttendees: attendance.totalAttendees,
       attendanceSessionCount: attendance.sessionCount,
