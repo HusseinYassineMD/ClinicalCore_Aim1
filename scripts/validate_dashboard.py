@@ -44,6 +44,7 @@ PLACEHOLDER_UI = [
     "ADRC YTD chart splits → rpprDataPackage.json newInitialEvaluationBreakdown (sum 40)",
     "ADRC Spanish primary toggle → adrcYtdSpanishUds.json · in-person 35 / remote 3 / initial 3 (der_latest_primary_language = Spanish).",
     "BRS enrollment tiles → 225 active+min.cont; excluding minimal contact 115 (110 minimal) from person list ∩ der_status_adrc.",
+    "Neuropath rates excluding minimal → 115/585 (19.7%) and 115/1125 (10.2%).",
     "GeneScreen registry → geneScreenYtd.json, pink, file stops October 7, 2026 (739 Complete records). Old RPPR 668 is a different count.",
     "Dashboard Table 1 → table1HarmonizedActiveSnapshot.json, black, N=585 as of October 16, 2026. table1Demographics.json N=573 is the old RPPR table.",
     "Biofluid Collection black totals → Abhay Sagare workbook, January through September 2026. October stays pink.",

@@ -4,6 +4,7 @@ import { formatScopeDate } from "@/lib/formatScopeDate";
 import { HeadingLead, sourceThroughText } from "@/components/HeadingLead";
 import brsRpprTableDataCore from "@/data/brsRpprTableDataCore2026.json";
 import activePlusMinimal from "@/data/adrcActivePlusMinimal.json";
+import brsEnrollmentCohorts from "@/data/brsEnrollmentCohorts.json";
 
 interface NeuropathAdditionalMetricsProps {
   data: NeuropathMetrics;
@@ -26,6 +27,25 @@ export default function NeuropathAdditionalMetrics({
   const combinedLabel =
     enrolled != null && combinedPercent != null
       ? `${enrolled} / ${combinedTotal} (${combinedPercent}%)`
+      : "—";
+
+  // 225 person list includes minimal contact; 115 excludes der_status_adrc = Minimal contact.
+  const excludingMinimal = brsEnrollmentCohorts.excludingMinimalContact.n;
+  const excludingOverActivePercent =
+    adrcTotal != null && adrcTotal > 0
+      ? Math.round((excludingMinimal / adrcTotal) * 1000) / 10
+      : null;
+  const excludingOverActiveLabel =
+    adrcTotal != null && excludingOverActivePercent != null
+      ? `${excludingMinimal} / ${adrcTotal} (${excludingOverActivePercent}%)`
+      : "—";
+  const excludingOverCombinedPercent =
+    combinedTotal > 0
+      ? Math.round((excludingMinimal / combinedTotal) * 1000) / 10
+      : null;
+  const excludingOverCombinedLabel =
+    excludingOverCombinedPercent != null
+      ? `${excludingMinimal} / ${combinedTotal} (${excludingOverCombinedPercent}%)`
       : "—";
 
   const deathsLabel =
@@ -133,6 +153,28 @@ export default function NeuropathAdditionalMetrics({
             "Xinhui Wang · BRS enrollment ÷ James Wang · active plus minimal contact",
             formatScopeDate(brsRpprTableDataCore.meta.asOfDate),
             `Black · ${enrolled ?? "—"} enrolled ÷ ${combinedTotal} (${activePlusMinimal.activeWithUdsCount} active + ${activePlusMinimal.minimalContactCount} minimal contact).`,
+          )}
+        />
+        <MetricCard
+          label="Excluding minimal · over active ADRC"
+          value={excludingOverActiveLabel}
+          accent="teal"
+          provenance={excludingOverActivePercent != null ? "ytd" : "unknown"}
+          sublabel={sourceThroughText(
+            "Xinhui BRS person list excluding Minimal contact ÷ ADRC active table",
+            formatScopeDate(brsRpprTableDataCore.meta.asOfDate),
+            `Black · ${excludingMinimal} of 225 (not Minimal contact on James ADRC status) ÷ ${adrcTotal ?? "—"} active ADRC.`,
+          )}
+        />
+        <MetricCard
+          label="Excluding minimal · over active + minimal contact"
+          value={excludingOverCombinedLabel}
+          accent="navy"
+          provenance={excludingOverCombinedPercent != null ? "ytd" : "unknown"}
+          sublabel={sourceThroughText(
+            "Xinhui BRS person list excluding Minimal contact ÷ active plus minimal contact",
+            formatScopeDate(brsRpprTableDataCore.meta.asOfDate),
+            `Black · ${excludingMinimal} of 225 ÷ ${combinedTotal} (${activePlusMinimal.activeWithUdsCount} active + ${activePlusMinimal.minimalContactCount} minimal contact).`,
           )}
         />
       </div>

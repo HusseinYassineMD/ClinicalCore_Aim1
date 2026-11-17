@@ -356,6 +356,15 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
       "Denominator is 1,125. The 540 are not in the 585. This is 225 enrolled divided by that sum, not a count of those people inside the BRS table.",
   },
   {
+    section: "Neuropathology · BRS RPPR",
+    metric: "Excluding minimal contact · over active / over active+minimal",
+    value: "115 / 585 (19.7%) · 115 / 1125 (10.2%)",
+    tier: "verified",
+    source:
+      "brsEnrollmentCohorts.json · 115 = 225 person list minus 110 Minimal contact on ADRC_subject_current_harmonized",
+    notes: "Same denominators as the 225 rate cards; numerator excludes minimal contact.",
+  },
+  {
     section: "Neuropathology",
     metric: "James MAP raw cross-check (EAC YTD window)",
     value: "4 consents · 5 autopsy dates · 8 deaths · status=1 n=231",
