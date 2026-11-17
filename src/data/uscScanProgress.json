@@ -1,0 +1,449 @@
+{
+  "lastUpdated": "2026-11-17",
+  "reportingPeriodLabel": "1/1/2026 \u2013 10/16/2026",
+  "startDate": "2026-01-01",
+  "endDate": "2026-10-16",
+  "sourceFile": "USCSCANParticipantTr_DATA_LABELS_2026-11-17_1414.csv",
+  "sourceLabel": "USC SCAN Participant Tracking REDCap \u00b7 Saza export",
+  "receivedDate": "2026-11-17",
+  "definition": "Unique enrolled Baseline rows with Baseline <modality> Scan Status = Complete and an effective scan date in the dashboard YTD window. Effective date is the Baseline <modality> Scan Date when present; otherwise a date recovered from Baseline <modality> Notes (clinical / outside-Keck completions).",
+  "enrolledParticipants": 18,
+  "consentedInWindow": 13,
+  "mri": 9,
+  "amyloidPet": 9,
+  "tauPet": 9,
+  "modalities": {
+    "mri": {
+      "label": "MRI",
+      "participantsCompleteInWindow": 9,
+      "completeStatusTotal": 10,
+      "counted": [
+        {
+          "udsId": "1101458",
+          "status": "Complete",
+          "scanDate": "2026-06-19",
+          "noteDate": null,
+          "effectiveDate": "2026-06-19",
+          "dateSource": "scan_date",
+          "notes": "PPGII Year 5 MRI Scan"
+        },
+        {
+          "udsId": "1101737",
+          "status": "Complete",
+          "scanDate": "2026-10-16",
+          "noteDate": null,
+          "effectiveDate": "2026-10-16",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1102051",
+          "status": "Complete",
+          "scanDate": "2026-10-16",
+          "noteDate": null,
+          "effectiveDate": "2026-10-16",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1102101",
+          "status": "Complete",
+          "scanDate": "2026-02-25",
+          "noteDate": null,
+          "effectiveDate": "2026-02-25",
+          "dateSource": "scan_date",
+          "notes": "PPGII Year 5 scan"
+        },
+        {
+          "udsId": "1102187",
+          "status": "Complete",
+          "scanDate": "2026-08-06",
+          "noteDate": null,
+          "effectiveDate": "2026-08-06",
+          "dateSource": "scan_date",
+          "notes": "PPGII 3T MRI scan completed on 8/06/2026."
+        },
+        {
+          "udsId": "1103333",
+          "status": "Complete",
+          "scanDate": "2026-09-01",
+          "noteDate": null,
+          "effectiveDate": "2026-09-01",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1103343",
+          "status": "Complete",
+          "scanDate": "2026-08-11",
+          "noteDate": null,
+          "effectiveDate": "2026-08-11",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1103354",
+          "status": "Complete",
+          "scanDate": "2026-10-13",
+          "noteDate": null,
+          "effectiveDate": "2026-10-13",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1103357",
+          "status": "Complete",
+          "scanDate": "2026-05-04",
+          "noteDate": null,
+          "effectiveDate": "2026-05-04",
+          "dateSource": "scan_date",
+          "notes": "Clinical Brain MRI scan at Keck"
+        }
+      ],
+      "excluded": [
+        {
+          "udsId": "1103358",
+          "status": "Complete",
+          "scanDate": null,
+          "noteDate": null,
+          "effectiveDate": null,
+          "dateSource": null,
+          "notes": "completed clinical MRI",
+          "excludeReason": "missing_date"
+        }
+      ]
+    },
+    "amyloidPet": {
+      "label": "Amyloid PET",
+      "participantsCompleteInWindow": 9,
+      "completeStatusTotal": 12,
+      "counted": [
+        {
+          "udsId": "1101458",
+          "status": "Complete",
+          "scanDate": "2026-08-21",
+          "noteDate": null,
+          "effectiveDate": "2026-08-21",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1102101",
+          "status": "Complete",
+          "scanDate": "2026-09-04",
+          "noteDate": null,
+          "effectiveDate": "2026-09-04",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1102187",
+          "status": "Complete",
+          "scanDate": "2026-10-07",
+          "noteDate": null,
+          "effectiveDate": "2026-10-07",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1103211",
+          "status": "Complete",
+          "scanDate": "2026-07-01",
+          "noteDate": null,
+          "effectiveDate": "2026-07-01",
+          "dateSource": "scan_date",
+          "notes": "completed clinical Amyloid PET"
+        },
+        {
+          "udsId": "1103343",
+          "status": "Complete",
+          "scanDate": null,
+          "noteDate": "2026-04-16",
+          "effectiveDate": "2026-04-16",
+          "dateSource": "notes",
+          "notes": "Completed Clinical Amyloid PET Scan at Keck on 04/16/2026."
+        },
+        {
+          "udsId": "1103354",
+          "status": "Complete",
+          "scanDate": null,
+          "noteDate": "2026-01-12",
+          "effectiveDate": "2026-01-12",
+          "dateSource": "notes",
+          "notes": "Clinical Amyloid PET Scan outside of Keck completed on 1/12/2026."
+        },
+        {
+          "udsId": "1103357",
+          "status": "Complete",
+          "scanDate": "2026-10-16",
+          "noteDate": null,
+          "effectiveDate": "2026-10-16",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1103365",
+          "status": "Complete",
+          "scanDate": null,
+          "noteDate": "2026-05-01",
+          "effectiveDate": "2026-05-01",
+          "dateSource": "notes",
+          "notes": "Clinical Amyloid PET scan outside of Keck completed in May 2026."
+        },
+        {
+          "udsId": "1103366",
+          "status": "Complete",
+          "scanDate": null,
+          "noteDate": "2026-08-21",
+          "effectiveDate": "2026-08-21",
+          "dateSource": "notes",
+          "notes": "Completed clinical Amyloid PET at Keck on 08/21/2026"
+        }
+      ],
+      "excluded": [
+        {
+          "udsId": "1101737",
+          "status": "Complete",
+          "scanDate": "2026-10-30",
+          "noteDate": null,
+          "effectiveDate": "2026-10-30",
+          "dateSource": "scan_date",
+          "notes": null,
+          "excludeReason": "after_window"
+        },
+        {
+          "udsId": "1102051",
+          "status": "Complete",
+          "scanDate": "2026-11-13",
+          "noteDate": null,
+          "effectiveDate": "2026-11-13",
+          "dateSource": "scan_date",
+          "notes": null,
+          "excludeReason": "after_window"
+        },
+        {
+          "udsId": "1103358",
+          "status": "Complete",
+          "scanDate": null,
+          "noteDate": null,
+          "effectiveDate": null,
+          "dateSource": null,
+          "notes": "completed clinical Amyloid PET",
+          "excludeReason": "missing_date"
+        }
+      ]
+    },
+    "tauPet": {
+      "label": "Tau PET",
+      "participantsCompleteInWindow": 9,
+      "completeStatusTotal": 12,
+      "counted": [
+        {
+          "udsId": "1101458",
+          "status": "Complete",
+          "scanDate": "2026-09-03",
+          "noteDate": null,
+          "effectiveDate": "2026-09-03",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1102089",
+          "status": "Complete",
+          "scanDate": "2026-08-13",
+          "noteDate": null,
+          "effectiveDate": "2026-08-13",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1102101",
+          "status": "Complete",
+          "scanDate": "2026-08-24",
+          "noteDate": null,
+          "effectiveDate": "2026-08-24",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1103314",
+          "status": "Complete",
+          "scanDate": "2026-08-19",
+          "noteDate": null,
+          "effectiveDate": "2026-08-19",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1103333",
+          "status": "Complete",
+          "scanDate": "2026-09-01",
+          "noteDate": null,
+          "effectiveDate": "2026-09-01",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1103343",
+          "status": "Complete",
+          "scanDate": "2026-08-11",
+          "noteDate": null,
+          "effectiveDate": "2026-08-11",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1103354",
+          "status": "Complete",
+          "scanDate": "2026-09-22",
+          "noteDate": null,
+          "effectiveDate": "2026-09-22",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1103357",
+          "status": "Complete",
+          "scanDate": "2026-10-13",
+          "noteDate": null,
+          "effectiveDate": "2026-10-13",
+          "dateSource": "scan_date",
+          "notes": null
+        },
+        {
+          "udsId": "1103358",
+          "status": "Complete",
+          "scanDate": "2026-10-07",
+          "noteDate": null,
+          "effectiveDate": "2026-10-07",
+          "dateSource": "scan_date",
+          "notes": null
+        }
+      ],
+      "excluded": [
+        {
+          "udsId": "1101737",
+          "status": "Complete",
+          "scanDate": "2026-11-13",
+          "noteDate": null,
+          "effectiveDate": "2026-11-13",
+          "dateSource": "scan_date",
+          "notes": null,
+          "excludeReason": "after_window"
+        },
+        {
+          "udsId": "1102051",
+          "status": "Complete",
+          "scanDate": "2026-10-30",
+          "noteDate": null,
+          "effectiveDate": "2026-10-30",
+          "dateSource": "scan_date",
+          "notes": null,
+          "excludeReason": "after_window"
+        },
+        {
+          "udsId": "1102187",
+          "status": "Complete",
+          "scanDate": "2026-11-12",
+          "noteDate": null,
+          "effectiveDate": "2026-11-12",
+          "dateSource": "scan_date",
+          "notes": null,
+          "excludeReason": "after_window"
+        }
+      ]
+    }
+  },
+  "enrolled": [
+    {
+      "udsId": "1101458",
+      "consentDate": "2026-06-29",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1101737",
+      "consentDate": "2026-08-17",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1102007",
+      "consentDate": "2026-11-02",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1102051",
+      "consentDate": "2026-08-17",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1102089",
+      "consentDate": "2026-04-08",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1102101",
+      "consentDate": "2026-08-24",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1102187",
+      "consentDate": "2026-09-17",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1102856",
+      "consentDate": "2026-04-06",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1102912",
+      "consentDate": "2026-10-26",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1103211",
+      "consentDate": "2026-11-02",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1103314",
+      "consentDate": "2026-03-16",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1103333",
+      "consentDate": "2026-04-27",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1103343",
+      "consentDate": "2026-06-15",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1103354",
+      "consentDate": "2026-08-17",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1103357",
+      "consentDate": "2026-09-15",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1103358",
+      "consentDate": "2026-10-07",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1103365",
+      "consentDate": "2026-11-10",
+      "enrollmentStatus": "Enrolled"
+    },
+    {
+      "udsId": "1103366",
+      "consentDate": "2026-11-16",
+      "enrollmentStatus": "Enrolled"
+    }
+  ]
+}

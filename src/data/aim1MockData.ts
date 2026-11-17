@@ -56,6 +56,7 @@ import {
 import brsRpprTableDataCore from "@/data/brsRpprTableDataCore2026.json";
 import table1HarmonizedActiveSnapshot from "@/data/table1HarmonizedActiveSnapshot.json";
 import adrcYtdSpanishUds from "@/data/adrcYtdSpanishUds.json";
+import uscScanProgress from "@/data/uscScanProgress.json";
 import recRosterJson from "@/data/recRoster.json";
 import type { RecRosterData } from "@/types/aim1";
 
@@ -171,12 +172,11 @@ export const aim1MockData: Aim1DashboardData = {
       source: `${LAST_RPPR_SOURCE} · ORE Table E1/E2`,
     },
     imagingScanProgress: {
-      status: "unknown",
-      realFrom:
-        "Red gap · externally hosted file from Diana (pending). SCAN target 24 and CLARiTI target 36 are black budget targets.",
-      mockFrom: ytdImaging
-        ? `Placeholder modality counts currently shown from ${DATA_CORE.imagingProduct} ${ytdImaging.packageVersion} until Diana’s externally hosted file arrives · do not treat as final`
-        : `Modality counts pending Diana externally hosted file`,
+      status: "ytd",
+      source: `${uscScanProgress.sourceLabel} · ${uscScanProgress.sourceFile} · ${uscScanProgress.reportingPeriodLabel}`,
+      realFrom: `USC Scan Complete baseline scans in window: MRI ${uscScanProgress.mri} · Amyloid PET ${uscScanProgress.amyloidPet} · Tau PET ${uscScanProgress.tauPet}. Enrolled ${uscScanProgress.enrolledParticipants} (consent in window ${uscScanProgress.consentedInWindow}). Target 24 black. CLARiTI remains a red gap.`,
+      mockFrom:
+        "CLARiTI modality counts still placeholder from Integrated Imaging until a CLARiTI REDCap / Diana file arrives",
     },
     imagingQc: {
       status: "ytd",
@@ -737,11 +737,10 @@ export const aim1MockData: Aim1DashboardData = {
   scans: {
     target: 24,
     targetProvenance: "ytd",
-    mri: ytdImaging?.scanStudy.participantsWithMri ?? 0,
-    amyloidPet: ytdImaging?.scanStudy.participantsWithAmyloidPet ?? 0,
-    tauPet: ytdImaging?.scanStudy.participantsWithTauPet ?? 0,
-    // Progress counts stay red until Diana’s externally hosted file lands.
-    provenance: "unknown",
+    mri: uscScanProgress.mri,
+    amyloidPet: uscScanProgress.amyloidPet,
+    tauPet: uscScanProgress.tauPet,
+    provenance: "ytd",
   },
 
   claritiScans: {
@@ -750,6 +749,7 @@ export const aim1MockData: Aim1DashboardData = {
     mri: ytdImaging?.claritiStudy.participantsWithMri ?? 0,
     amyloidPet: ytdImaging?.claritiStudy.participantsWithAmyloidPet ?? 0,
     tauPet: ytdImaging?.claritiStudy.participantsWithTauPet ?? 0,
+    // CLARiTI progress stays red until a CLARiTI REDCap / Diana file lands.
     provenance: "unknown",
   },
 

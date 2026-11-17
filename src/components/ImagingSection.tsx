@@ -44,7 +44,7 @@ export default function ImagingSection({
       >
         <div
           data-deck-slide="imaging-scan-summary"
-          data-deck-caption="Imaging · USC Scan & CLARiTI progress (red gap)"
+          data-deck-caption="Imaging · USC Scan (REDCap) & CLARiTI progress"
         >
           <ScanSummary
             scans={scans}

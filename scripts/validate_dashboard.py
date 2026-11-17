@@ -52,7 +52,7 @@ PLACEHOLDER_UI = [
     "Clinical lab A1c/lipid/creatinine/BP → null red",
     "Brain Health 4 Me → null red",
     "ORE heading is off the metrics page. Old RPPR event counts stay in rpprMetrics.json.",
-    "USC Scan / CLARiTI progress → red gap pending Diana externally hosted file. Targets black: SCAN 24 · CLARiTI 36. Progress placeholders 16/1/2 and 11/19/18.",
+    "USC Scan Progress → uscScanProgress.json from Saza REDCap (Complete baseline in YTD window): MRI 9 · Amyloid 9 · Tau 9 · target 24 black. CLARiTI still red gap pending Diana / CLARiTI REDCap (placeholder 11/19/18 · target 36 black).",
     "Study-wide availability, Imaging QC, and IDA image IDs → Quality test pending only (removed from main Metrics Imaging).",
     "Imaging QC and IDA image IDs → jamesImagingQcLists.json and jamesIdaImageIds.json, black through October 16, 2026 · QC 19/18/38/966 · IDA MR 10259/143034 · PET 6775/13573.",
     "Grant plan chart targets → registryChartViews.ts + budgetTargets.ts (renewal goals, not on the current Table 1)",
@@ -279,8 +279,10 @@ def expected_from_json(
     bio = ytd["biomarkers"]
     brs = ytd["brsAutopsy"]
     imaging = ytd.get("imaging") or {}
-    scan = imaging.get("scanStudy") or {}
     clariti = imaging.get("claritiStudy") or {}
+    usc_scan = json.loads(
+        (SRC_DATA / "uscScanProgress.json").read_text(encoding="utf-8")
+    )
 
     deaths = None
     for domain in pkg.get("reportingPeriodAdditional", {}).get("domains") or []:
@@ -323,9 +325,9 @@ def expected_from_json(
         "clinicalAssessments.followUpRemote": uds["followUpRemote"],
         "clinicalAssessments.initialAssessments": uds["newInitialEvaluations"],
         "scans.target": 24,
-        "scans.mri": scan.get("participantsWithMri", 0),
-        "scans.amyloidPet": scan.get("participantsWithAmyloidPet", 0),
-        "scans.tauPet": scan.get("participantsWithTauPet", 0),
+        "scans.mri": usc_scan.get("mri", 0),
+        "scans.amyloidPet": usc_scan.get("amyloidPet", 0),
+        "scans.tauPet": usc_scan.get("tauPet", 0),
         "claritiScans.target": 36,
         "claritiScans.mri": clariti.get("participantsWithMri", 0),
         "claritiScans.amyloidPet": clariti.get("participantsWithAmyloidPet", 0),

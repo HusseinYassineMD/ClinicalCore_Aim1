@@ -236,25 +236,27 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   {
     section: "Imaging",
     metric: "USC Scan · MRI / Amyloid PET / Tau PET participants",
-    value: "16 / 1 / 2 (red · placeholder)",
-    tier: "tbd",
-    source: "Red gap · Diana externally hosted file (pending)",
-    notes: "Placeholder counts from Integrated Imaging until Diana’s file arrives.",
+    value: "9 / 9 / 9 (black)",
+    tier: "verified",
+    source:
+      "USC SCAN Participant Tracking REDCap · Saza · USCSCANParticipantTr_DATA_LABELS_2026-11-17_1414.csv",
+    notes:
+      "Complete baseline status with effective scan date in 1/1/2026–10/16/2026 (date field or clinical date from notes). Enrolled 18; consent in window 13.",
   },
   {
     section: "Imaging",
     metric: "CLARiTI · MRI / Amyloid PET / Tau PET participants",
     value: "11 / 19 / 18 (red · placeholder)",
     tier: "tbd",
-    source: "Red gap · Diana externally hosted file (pending)",
-    notes: "Do not sum USC Scan and CLARiTI. Same red-gap treatment as USC Scan.",
+    source: "Red gap · Diana externally hosted file / CLARiTI REDCap (pending)",
+    notes: "Do not sum USC Scan and CLARiTI. Placeholder from Integrated Imaging.",
   },
   {
     section: "Imaging",
-    metric: "USC Scan / CLARiTI cards (red gap)",
-    value: "USC Scan 16/1/2 · CLARiTI 11/19/18",
-    tier: "tbd",
-    source: "Shown in red until Diana externally hosted file",
+    metric: "USC Scan / CLARiTI cards",
+    value: "USC Scan 9/9/9 (black) · CLARiTI 11/19/18 (red)",
+    tier: "verified",
+    source: "USC Scan REDCap verified · CLARiTI still red gap",
     notes:
       "Study-wide availability, QCs, and IDA uploads are on Quality test pending only (not main Metrics Imaging).",
   },
