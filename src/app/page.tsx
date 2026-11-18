@@ -7,6 +7,7 @@ import {
 import TopRegistryOverview from "@/components/TopRegistryOverview";
 import DemographicsTableClient from "@/components/DemographicsTableClient";
 import InclusionEnrollmentBlock from "@/components/InclusionEnrollmentBlock";
+import GeneScreenInclusionEnrollmentBlock from "@/components/GeneScreenInclusionEnrollmentBlock";
 import AdminTableA7Biomarkers from "@/components/AdminTableA7Biomarkers";
 import BiomarkersSection from "@/components/BiomarkersSection";
 import ImagingSection from "@/components/ImagingSection";
@@ -99,6 +100,7 @@ export default function DashboardPage() {
                 <DemographicsTableClient />
               </DemographicsChartsHost>
               <InclusionEnrollmentBlock />
+              <GeneScreenInclusionEnrollmentBlock />
             </SectionWithNotes>
           </div>
 

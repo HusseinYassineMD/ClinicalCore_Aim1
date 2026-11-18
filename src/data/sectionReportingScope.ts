@@ -65,6 +65,7 @@ export const SECTION_REPORTING_SCOPES: SectionReportingScope[] = [
     bullets: [
       `Table 1 and the charts under it are black: Xinhui Wang, active ADRC participants (UDS) N=${table1HarmonizedActiveSnapshot.meta.participantCount} · as of ${formatScopeDate(table1HarmonizedActiveSnapshot.meta.asOfDate)}. Received November 13, 2026. Hispanic 180, White 217, Black 58, Asian 93, Other/unknown 37.`,
       `NIH Inclusion Enrollment Report 555816 (Clinical Core UDS, not BRS): ethnicity-first tables from Dr. Chui FINAL PDF 3/22/2026. Cumulative Actual active excluding minimal contact as of 12/31/2025 N=260 (green). Planned N=645 (pink). BRS excluding minimal is a different count (115).`,
+      `GeneScreen Inclusion Enrollment (ethnicity first) from REDCap Ethnicity/Race NACC/NIH names: Complete? N=739 through October 7, 2026 (pink) · consent YTD N=55 in ${ytdLabel} (pink; export stops before October 16). No live REDCap API — CSV export only.`,
       `Recruitment UDS counts are black through ${formatScopeDate(cov.udsLatestVisitDate)}, the last visit in James’s file. Autopsy enrollment is 225, black, from Xinhui Wang as of October 16, 2026.`,
       `Old RPPR Table 1 workbook period, if cited: ${rpprTable1Period}. Those old RPPR numbers stay green.`,
     ],

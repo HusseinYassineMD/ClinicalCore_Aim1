@@ -399,6 +399,25 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   },
   // Demographics
   {
+    section: "Demographics · GeneScreen Inclusion Enrollment",
+    metric: "GeneScreen Complete? ethnicity-first table",
+    value: "739 (pink)",
+    tier: "verified",
+    source:
+      "USCGeneScreenRegistr-USCGeneScreenRegistr_DATA_LABELS_2026-10-07_0842.csv · Ethnicity/Race + Sex",
+    notes:
+      "NACC/NIH category names from REDCap. Hispanic or Latino = ethnicity; remaining tokens = race. No live REDCap API. Export stops October 7, 2026.",
+  },
+  {
+    section: "Demographics · GeneScreen Inclusion Enrollment",
+    metric: "GeneScreen consent YTD ethnicity-first table",
+    value: "55 (pink)",
+    tier: "verified",
+    source:
+      "Same GeneScreen REDCap export · Consent Date in 1/1/2026–10/16/2026",
+    notes: "Subset of Complete? with consent in the dashboard YTD window; file still stops October 7.",
+  },
+  {
     section: "Demographics · Inclusion Enrollment",
     metric: "Report 555816 Cumulative Actual (UDS active excl. minimal contact)",
     value: "260 (green)",
