@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "reportId": "555816",
+    "title": "Inclusion Enrollment Report 555816",
+    "program": "Clinical Core · UDS (not BRS / autopsy)",
+    "sourceFile": "Inclusion Enrollment Report.3.22.26_DrChuiFINAL.pdf",
+    "sourcePath": "data/reference/inclusion-enrollment/Inclusion Enrollment Report.3.22.26_DrChuiFINAL.pdf",
+    "preparedLabel": "Dr. Chui FINAL · 3/22/2026",
+    "receivedDate": "2026-11-17",
+    "identificationNote": "Table B is labeled Cumulative Actual active (excluding minimal contact) as of 12/31/2025 (N=260). That is Clinical Core / UDS active enrollment, not the BRS autopsy program (BRS excluding minimal contact is 115 as of 10/16/2026).",
+    "layoutNote": "Dashboard shows ethnicity first (Not Hispanic or Latino · Hispanic or Latino · Unknown/Not Reported Ethnicity), then race × sex within each ethnicity. Matches NIH Inclusion Enrollment categories, including Unknown.",
+    "validationNote": "Cell arithmetic checked against the PDF (Planned grand total 645; Cumulative Actual grand total 260). Current James active-excluding-minimal statuses sum to 604 as of the Nov 6 packet and do not reproduce the 12/31/2025 freeze — treat Actual as a year-end prior snapshot from this FINAL PDF."
+  },
+  "raceCategories": [
+    "American Indian/Alaska Native",
+    "Asian",
+    "Native Hawaiian or Other Pacific Islander",
+    "Black or African American",
+    "White",
+    "More than One Race",
+    "Unknown or Not Reported"
+  ],
+  "ethnicityCategories": [
+    "Not Hispanic or Latino",
+    "Hispanic or Latino",
+    "Unknown/Not Reported Ethnicity"
+  ],
+  "sexCategories": ["Female", "Male", "Unknown/Not Reported"],
+  "planned": {
+    "label": "Table A: Planned",
+    "asOfDate": null,
+    "provenance": "span",
+    "total": 645,
+    "cells": {
+      "American Indian/Alaska Native": {
+        "Not Hispanic or Latino": { "Female": 1, "Male": 0, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 1, "Male": 1, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 }
+      },
+      "Asian": {
+        "Not Hispanic or Latino": { "Female": 50, "Male": 29, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 2, "Male": 0, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 }
+      },
+      "Native Hawaiian or Other Pacific Islander": {
+        "Not Hispanic or Latino": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 }
+      },
+      "Black or African American": {
+        "Not Hispanic or Latino": { "Female": 30, "Male": 11, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 1, "Male": 0, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 1, "Male": 0, "Unknown/Not Reported": 0 }
+      },
+      "White": {
+        "Not Hispanic or Latino": { "Female": 148, "Male": 105, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 68, "Male": 34, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 }
+      },
+      "More than One Race": {
+        "Not Hispanic or Latino": { "Female": 29, "Male": 10, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 27, "Male": 15, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 }
+      },
+      "Unknown or Not Reported": {
+        "Not Hispanic or Latino": { "Female": 2, "Male": 0, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 48, "Male": 31, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 1, "Unknown/Not Reported": 0 }
+      }
+    }
+  },
+  "cumulativeActual": {
+    "label": "Table B: Cumulative Actual · active (excluding minimal contact)",
+    "asOfDate": "2025-12-31",
+    "provenance": "prior",
+    "total": 260,
+    "cells": {
+      "American Indian/Alaska Native": {
+        "Not Hispanic or Latino": { "Female": 1, "Male": 0, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 1, "Male": 0, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 }
+      },
+      "Asian": {
+        "Not Hispanic or Latino": { "Female": 12, "Male": 12, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 1, "Male": 0, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 }
+      },
+      "Native Hawaiian or Other Pacific Islander": {
+        "Not Hispanic or Latino": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 }
+      },
+      "Black or African American": {
+        "Not Hispanic or Latino": { "Female": 12, "Male": 8, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 }
+      },
+      "White": {
+        "Not Hispanic or Latino": { "Female": 52, "Male": 60, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 37, "Male": 39, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 }
+      },
+      "More than One Race": {
+        "Not Hispanic or Latino": { "Female": 6, "Male": 3, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 8, "Male": 8, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 }
+      },
+      "Unknown or Not Reported": {
+        "Not Hispanic or Latino": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 },
+        "Hispanic or Latino": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 },
+        "Unknown/Not Reported Ethnicity": { "Female": 0, "Male": 0, "Unknown/Not Reported": 0 }
+      }
+    }
+  }
+}

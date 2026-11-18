@@ -399,6 +399,24 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   },
   // Demographics
   {
+    section: "Demographics · Inclusion Enrollment",
+    metric: "Report 555816 Cumulative Actual (UDS active excl. minimal contact)",
+    value: "260 (green)",
+    tier: "verified",
+    source:
+      "Inclusion Enrollment Report.3.22.26_DrChuiFINAL.pdf · Table B · as of 2025-12-31",
+    notes:
+      "Clinical Core UDS, not BRS. Ethnicity-first on dashboard. Cell arithmetic checked. Cannot re-derive from current Nov 6 James active statuses (604).",
+  },
+  {
+    section: "Demographics · Inclusion Enrollment",
+    metric: "Report 555816 Planned",
+    value: "645 (pink)",
+    tier: "verified",
+    source: "Inclusion Enrollment Report.3.22.26_DrChuiFINAL.pdf · Table A",
+    notes: "Grant planned inclusion targets, including Unknown ethnicity/race rows.",
+  },
+  {
     section: "Demographics · Table 1",
     metric: "Full table (N=585)",
     value: "All 60 cells",

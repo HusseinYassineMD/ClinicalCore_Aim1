@@ -47,6 +47,7 @@ PLACEHOLDER_UI = [
     "Neuropath rates excluding minimal → 115/585 (19.7%) and 115/1125 (10.2%).",
     "GeneScreen registry → geneScreenYtd.json, pink, file stops October 7, 2026 (739 Complete records). Old RPPR 668 is a different count.",
     "Dashboard Table 1 → table1HarmonizedActiveSnapshot.json, black, N=585 as of October 16, 2026. table1Demographics.json N=573 is the old RPPR table.",
+    "Inclusion Enrollment Report 555816 → Clinical Core UDS (not BRS): Cumulative Actual 260 as of 12/31/2025 (green) · Planned 645 (pink) · ethnicity-first from Dr. Chui FINAL PDF.",
     "Biofluid Collection black totals → Abhay Sagare workbook, January through September 2026. October stays pink.",
     "REC completed/scheduled → red, counted through November 6, 2026 (same through-date as Zoom attendance). Attendance → pink through November 6, 2026 (Sahar Zoom report). The October 16 session has no attendance row.",
     "Clinical lab A1c/lipid/creatinine/BP → null red",
