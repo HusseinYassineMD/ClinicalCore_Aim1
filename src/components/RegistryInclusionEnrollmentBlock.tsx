@@ -1,5 +1,4 @@
 import reportJson from "@/data/registryInclusionEnrollment.json";
-import { formatScopeDate } from "@/lib/formatScopeDate";
 import { metricValueClass } from "@/lib/metricValueClass";
 import { HeadingLead } from "@/components/HeadingLead";
 import type { DataProvenance } from "@/types/aim1";
@@ -46,11 +45,9 @@ const report = reportJson as {
     raceCategories: RaceKey[];
     ethnicityCategories: EthnicityKey[];
   };
-  udsActiveExcludingMinimal: CohortTable;
-  geneScreenComplete: CohortTable;
-  geneScreenConsentYtd: CohortTable;
-  brsAllEnrollment: CohortTable;
-  brsExcludingMinimal: CohortTable;
+  udsYtd: CohortTable;
+  geneScreenYtd: CohortTable;
+  brsAutopsy: CohortTable;
 };
 
 function cellTotal(sex: SexCounts): number {
@@ -79,10 +76,7 @@ function grandTotal(table: CohortTable): number {
   );
 }
 
-function sexColumnTotal(
-  table: CohortTable,
-  sexKey: keyof SexCounts,
-): number {
+function sexColumnTotal(table: CohortTable, sexKey: keyof SexCounts): number {
   return report.meta.raceCategories.reduce((sum, race) => {
     return (
       sum +
@@ -216,7 +210,7 @@ function CohortSection({ table }: { table: CohortTable }) {
           {table.label}
         </h4>
         <p className="text-sm text-cpbh-navy/60 mt-1">
-          Through {formatScopeDate(table.asOfDate)} · N ={" "}
+          {report.meta.reportingPeriodLabel} · N ={" "}
           <span className={metricValueClass(table.provenance, table.total)}>
             {table.total}
           </span>
@@ -237,20 +231,13 @@ function CohortSection({ table }: { table: CohortTable }) {
 }
 
 export default function RegistryInclusionEnrollmentBlock() {
-  const {
-    meta,
-    udsActiveExcludingMinimal,
-    geneScreenComplete,
-    geneScreenConsentYtd,
-    brsAllEnrollment,
-    brsExcludingMinimal,
-  } = report;
+  const { meta, udsYtd, geneScreenYtd, brsAutopsy } = report;
 
   return (
     <div
       className="dashboard-card overflow-hidden p-0 mt-6"
       data-deck-slide="registry-inclusion-enrollment"
-      data-deck-caption="Registries · Inclusion Enrollment ethnicity-first (UDS / GeneScreen / BRS)"
+      data-deck-caption="Registries · Inclusion Enrollment YTD (UDS / GeneScreen / BRS)"
     >
       <div className="px-6 pt-6 pb-4 border-b border-cpbh-mist text-center">
         <h3 className="font-display text-xl font-semibold text-cpbh-navy">
@@ -258,7 +245,7 @@ export default function RegistryInclusionEnrollmentBlock() {
         </h3>
         <HeadingLead
           className="text-cpbh-navy/60 text-sm mt-1 leading-snug"
-          source="Our UDS, GeneScreen, and BRS sources (not the Dr. Chui PDF verbatim)"
+          source="UDS, GeneScreen, and BRS only"
           through={meta.reportingPeriodLabel}
         >
           {meta.layoutNote}
@@ -266,14 +253,12 @@ export default function RegistryInclusionEnrollmentBlock() {
       </div>
 
       <div className="px-4 sm:px-6 py-5 space-y-10">
-        <CohortSection table={udsActiveExcludingMinimal} />
-        <div className="border-t border-cpbh-mist pt-8 space-y-10">
-          <CohortSection table={geneScreenComplete} />
-          <CohortSection table={geneScreenConsentYtd} />
+        <CohortSection table={udsYtd} />
+        <div className="border-t border-cpbh-mist pt-8">
+          <CohortSection table={geneScreenYtd} />
         </div>
-        <div className="border-t border-cpbh-mist pt-8 space-y-10">
-          <CohortSection table={brsAllEnrollment} />
-          <CohortSection table={brsExcludingMinimal} />
+        <div className="border-t border-cpbh-mist pt-8">
+          <CohortSection table={brsAutopsy} />
         </div>
       </div>
     </div>

@@ -47,8 +47,8 @@ PLACEHOLDER_UI = [
     "Neuropath rates excluding minimal → 115/585 (19.7%) and 115/1125 (10.2%).",
     "GeneScreen registry → geneScreenYtd.json, pink, file stops October 7, 2026 (739 Complete records). Old RPPR 668 is a different count.",
     "Dashboard Table 1 → table1HarmonizedActiveSnapshot.json, black, N=585 as of October 16, 2026. table1Demographics.json N=573 is the old RPPR table.",
-    "Registry Inclusion Enrollment → registryInclusionEnrollment.json (ethnicity-first from our sources, not Dr. Chui PDF): UDS active excl. Minimal 604 pink · GeneScreen Complete 739 / consent YTD 55 pink · BRS 225 / excl. Minimal 115 black YTD.",
-    "Registry Inclusion Enrollment arithmetic → GS Complete 739 = NH 397 + H 324 + Unk eth 18; BRS Hispanic 46 matches Xinhui codebook; excl. Minimal 115.",
+    "Registry Inclusion Enrollment → registryInclusionEnrollment.json YTD 1/1/2026–10/16/2026 only: UDS visits 310 black · GeneScreen consents 55 pink · BRS autopsy 225 black.",
+    "Registry Inclusion Enrollment arithmetic → three tables only; BRS Hispanic 46 matches Xinhui codebook.",
     "Biofluid Collection black totals → Abhay Sagare workbook, January through September 2026. October stays pink.",
     "REC completed/scheduled → red, counted through November 6, 2026 (same through-date as Zoom attendance). Attendance → pink through November 6, 2026 (Sahar Zoom report). The October 16 session has no attendance row.",
     "Clinical lab A1c/lipid/creatinine/BP → null red",
@@ -617,12 +617,18 @@ def batch_cross_file(rppr: dict, t1: dict, pkg: dict) -> BatchResult:
             b.fail(f"Active plus minimal {key} sum", combined_n, total)
 
     incl = load_json("src/data/registryInclusionEnrollment.json")
+    if set(incl.keys()) - {"meta"} != {"udsYtd", "geneScreenYtd", "brsAutopsy"}:
+        b.fail(
+            "Registry inclusion cohort keys",
+            {"udsYtd", "geneScreenYtd", "brsAutopsy"},
+            set(incl.keys()) - {"meta"},
+        )
+    else:
+        b.ok("Registry inclusion has exactly three cohorts")
     expected_incl = {
-        "udsActiveExcludingMinimal": 604,
-        "geneScreenComplete": 739,
-        "geneScreenConsentYtd": 55,
-        "brsAllEnrollment": 225,
-        "brsExcludingMinimal": 115,
+        "udsYtd": 310,
+        "geneScreenYtd": 55,
+        "brsAutopsy": 225,
     }
     for key, n in expected_incl.items():
         actual = (incl.get(key) or {}).get("total")
@@ -630,16 +636,17 @@ def batch_cross_file(rppr: dict, t1: dict, pkg: dict) -> BatchResult:
             b.ok(f"Registry inclusion {key}", n)
         else:
             b.fail(f"Registry inclusion {key}", n, actual)
-    gs_eth = (incl.get("geneScreenComplete") or {}).get("ethnicityTotals") or {}
-    if (
-        gs_eth.get("Not Hispanic or Latino") == 397
-        and gs_eth.get("Hispanic or Latino") == 324
-        and gs_eth.get("Unknown/Not Reported Ethnicity") == 18
-    ):
-        b.ok("GeneScreen Complete ethnicity split", "397+324+18")
+    if incl.get("meta", {}).get("startDate") == "2026-01-01" and incl.get(
+        "meta", {}
+    ).get("endDate") == "2026-10-16":
+        b.ok("Registry inclusion window", "2026-01-01–2026-10-16")
     else:
-        b.fail("GeneScreen Complete ethnicity split", "397/324/18", gs_eth)
-    brs_hisp = ((incl.get("brsAllEnrollment") or {}).get("ethnicityTotals") or {}).get(
+        b.fail(
+            "Registry inclusion window",
+            "2026-01-01–2026-10-16",
+            f"{incl.get('meta', {}).get('startDate')}–{incl.get('meta', {}).get('endDate')}",
+        )
+    brs_hisp = ((incl.get("brsAutopsy") or {}).get("ethnicityTotals") or {}).get(
         "Hispanic or Latino"
     )
     if brs_hisp == 46:

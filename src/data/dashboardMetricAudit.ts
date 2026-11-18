@@ -400,50 +400,30 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   // Demographics
   {
     section: "Demographics · Registry Inclusion Enrollment",
-    metric: "UDS active excluding Minimal contact (ethnicity-first)",
-    value: "604 (pink)",
+    metric: "UDS YTD participants with a visit (ethnicity-first)",
+    value: "310 (black)",
     tier: "verified",
     source:
-      "James ADRC_subject_current_harmonized · der_status_adrc active excl. Minimal contact · der_current_re_hispanic_latino + der_current_race_ethnicity_summary",
-    notes:
-      "NIH-style ethnicity-first layout from our UDS source. Not the Dr. Chui PDF (that was a different as-of N=260).",
+      "UDS_longitudinal_harmonized.csv visit_date in 1/1/2026–10/16/2026 · race/ethnicity/sex from ADRC_subject_current_harmonized",
+    notes: "Same YTD participant count as recruitment UDS N=310.",
   },
   {
     section: "Demographics · Registry Inclusion Enrollment",
-    metric: "GeneScreen Complete? ethnicity-first table",
-    value: "739 (pink)",
-    tier: "verified",
-    source:
-      "USCGeneScreenRegistr-USCGeneScreenRegistr_DATA_LABELS_2026-10-07_0842.csv · Ethnicity/Race + Sex",
-    notes:
-      "NACC/NIH category names from REDCap. Hispanic or Latino = ethnicity; remaining tokens = race. No live REDCap API. Export stops October 7, 2026.",
-  },
-  {
-    section: "Demographics · Registry Inclusion Enrollment",
-    metric: "GeneScreen consent YTD ethnicity-first table",
+    metric: "GeneScreen YTD new consents (ethnicity-first)",
     value: "55 (pink)",
     tier: "verified",
     source:
-      "Same GeneScreen REDCap export · Consent Date in 1/1/2026–10/16/2026",
-    notes: "Subset of Complete? with consent in the dashboard YTD window; file still stops October 7.",
+      "USCGeneScreenRegistr REDCap · Consent Date in 1/1/2026–10/16/2026 · Ethnicity/Race + Sex",
+    notes: "Export stops October 7, 2026. No cumulative Complete? table on the page.",
   },
   {
     section: "Demographics · Registry Inclusion Enrollment",
-    metric: "BRS autopsy enrollment N=225 (ethnicity-first)",
+    metric: "BRS autopsy enrollment (ethnicity-first)",
     value: "225 (black)",
     tier: "verified",
     source:
-      "Xinhui MAP BRS UDS list N=225 × James ADRC_subject_current_harmonized race/ethnicity",
-    notes: "All active+min.cont autopsy enrollment; Hispanic 46 matches Xinhui codebook.",
-  },
-  {
-    section: "Demographics · Registry Inclusion Enrollment",
-    metric: "BRS excluding Minimal contact (ethnicity-first)",
-    value: "115 (black)",
-    tier: "verified",
-    source:
-      "Same BRS list ∩ James der_status_adrc excluding Minimal contact",
-    notes: "110 of 225 are Minimal contact; 115 remain.",
+      "Xinhui MAP BRS UDS list N=225 as of 2026-10-16 × James race/ethnicity",
+    notes: "One BRS table only; Hispanic 46 matches Xinhui codebook.",
   },
   {
     section: "Demographics · Table 1",

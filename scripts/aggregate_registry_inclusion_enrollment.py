@@ -1,24 +1,29 @@
 #!/usr/bin/env python3
-"""Ethnicity-first NIH Inclusion-style tables from our live registry sources.
+"""Ethnicity-first NIH Inclusion-style tables for the EAC YTD window only.
 
-Cohorts (not the Dr. Chui PDF verbatim):
-  1. UDS — James ADRC subject statuses that are active excluding Minimal contact
-  2. GeneScreen — Complete? members from the GeneScreen REDCap export
-  3. BRS autopsy — Xinhui BRS person list N=225 joined to James race/ethnicity;
-     also the excluding-minimal-contact subset
+Exactly three cohorts (1/1/2026 – 10/16/2026):
+  1. UDS — unique participants with a UDS visit in the window
+  2. GeneScreen — Complete? members with Consent Date in the window
+  3. BRS autopsy — Xinhui person list as of 10/16/2026 (N=225)
 """
 
 from __future__ import annotations
 
 import csv
 import json
-from collections import Counter, defaultdict
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parent.parent
+UDS_LONG_PATH = (
+    ROOT
+    / "data"
+    / "rppr-data-package"
+    / "USC ADRC UDS Harmonized"
+    / "UDS_longitudinal_harmonized.csv"
+)
 SUBJECT_PATH = (
     ROOT
     / "data"
@@ -36,13 +41,6 @@ BRS_LIST = (
 )
 PKG_PATH = ROOT / "src/data/rpprDataPackage.json"
 OUTPUT = ROOT / "src/data/registryInclusionEnrollment.json"
-
-ACTIVE_EXCL_MINIMAL = {
-    "Annual in-person UDS follow-up",
-    "Annual UDS follow-up by telephone",
-    "Presumed active - no Milestones record; UDS within 24 months",
-    "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved",
-}
 
 RACE_ORDER = [
     "American Indian/Alaska Native",
@@ -256,8 +254,8 @@ def ethnicity_totals(cells: dict) -> dict[str, int]:
     }
 
 
-def read_subjects() -> list[dict[str, str]]:
-    with SUBJECT_PATH.open(newline="", encoding="utf-8-sig") as handle:
+def read_csv(path: Path) -> list[dict[str, str]]:
+    with path.open(newline="", encoding="utf-8-sig") as handle:
         return list(csv.DictReader(handle))
 
 
@@ -272,6 +270,15 @@ def subject_indexes(rows: list[dict[str, str]]) -> dict[str, dict[str, str]]:
             stripped = value.lstrip("0") or "0"
             by[stripped] = row
     return by
+
+
+def visit_participant_id(row: dict[str, str]) -> str:
+    return (
+        (row.get("naccid") or "").strip()
+        or (row.get("adcid") or "").strip()
+        or (row.get("ptid") or "").strip()
+        or (row.get("uds_id") or "").strip()
+    )
 
 
 def latest_genescreen_csv() -> Path:
@@ -293,80 +300,83 @@ def read_brs_list() -> list[dict]:
             {
                 "uds_id": str(uds_id).strip(),
                 "sex": ws.cell(r, 3).value,
-                "race_ethnicity": ws.cell(r, 4).value,
             }
         )
     return rows
 
 
+def lookup_subject(
+    by_id: dict[str, dict[str, str]], key: str
+) -> dict[str, str] | None:
+    if not key:
+        return None
+    return by_id.get(key) or by_id.get(key.lstrip("0") or "0")
+
+
 def main() -> None:
     start, end, label = load_window()
-    subjects = read_subjects()
+    subjects = read_csv(SUBJECT_PATH)
     by_id = subject_indexes(subjects)
 
-    # 1) UDS active excluding minimal contact (James statuses)
-    uds_rows = [
-        classify_james(row)
-        for row in subjects
-        if (row.get("der_status_adrc") or "").strip() in ACTIVE_EXCL_MINIMAL
-    ]
+    # 1) UDS — unique participants with a visit in the YTD window
+    uds_long = read_csv(UDS_LONG_PATH)
+    ytd_ids: set[str] = set()
+    for row in uds_long:
+        ts = parse_timestamp(row.get("visit_date") or row.get("visitdate"))
+        if ts is None or not (start <= ts.date() <= end):
+            continue
+        pid = visit_participant_id(row)
+        if pid:
+            ytd_ids.add(pid)
+
+    uds_rows: list[tuple[str, str, str]] = []
+    uds_missing = 0
+    for pid in sorted(ytd_ids):
+        subject = lookup_subject(by_id, pid)
+        if subject is None:
+            uds_missing += 1
+            continue
+        uds_rows.append(classify_james(subject))
     uds_table = build_cells(uds_rows)
 
-    # 2) GeneScreen Complete + consent YTD
+    # 2) GeneScreen — Consent Date in the YTD window
     gs_path = latest_genescreen_csv()
-    with gs_path.open(newline="", encoding="utf-8-sig") as handle:
-        gs_all = list(csv.DictReader(handle))
-    gs_complete = [
-        row for row in gs_all if (row.get("Complete?") or "").strip() == "Complete"
-    ]
+    gs_all = read_csv(gs_path)
     gs_ytd = [
         row
-        for row in gs_complete
-        if (ts := parse_timestamp(row.get("Consent Date"))) is not None
+        for row in gs_all
+        if (row.get("Complete?") or "").strip() == "Complete"
+        and (ts := parse_timestamp(row.get("Consent Date"))) is not None
         and start <= ts.date() <= end
     ]
-    gs_complete_table = build_cells([classify_genescreen(row) for row in gs_complete])
-    gs_ytd_table = build_cells([classify_genescreen(row) for row in gs_ytd])
+    gs_table = build_cells([classify_genescreen(row) for row in gs_ytd])
 
-    # 3) BRS all 225 + excluding minimal
+    # 3) BRS autopsy — enrollment as of window end (Xinhui N=225 list)
     brs_list = read_brs_list()
-    brs_classified: list[tuple[str, str, str]] = []
-    brs_excl: list[tuple[str, str, str]] = []
-    missing = 0
-    status_counts: Counter[str] = Counter()
+    brs_rows: list[tuple[str, str, str]] = []
+    brs_missing = 0
     for person in brs_list:
-        subject = by_id.get(person["uds_id"]) or by_id.get(
-            person["uds_id"].lstrip("0") or "0"
-        )
+        subject = lookup_subject(by_id, person["uds_id"])
         if subject is None:
-            missing += 1
+            brs_missing += 1
             continue
-        sex = sex_from_brs_code(person["sex"])
-        classified = classify_james(subject, sex_override=sex)
-        brs_classified.append(classified)
-        status = (subject.get("der_status_adrc") or "").strip() or "(blank)"
-        status_counts[status] += 1
-        if status != "Minimal contact":
-            brs_excl.append(classified)
+        brs_rows.append(
+            classify_james(subject, sex_override=sex_from_brs_code(person["sex"]))
+        )
+    brs_table = build_cells(brs_rows)
 
-    brs_all_table = build_cells(brs_classified)
-    brs_excl_table = build_cells(brs_excl)
-
-    assert uds_table["total"] == len(uds_rows)
-    assert gs_complete_table["total"] == len(gs_complete)
-    assert gs_ytd_table["total"] == len(gs_ytd)
-    assert brs_all_table["total"] == len(brs_classified)
-    assert brs_excl_table["total"] == len(brs_excl)
-    assert missing == 0
+    assert uds_table["total"] == len(uds_rows) == 310
+    assert gs_table["total"] == len(gs_ytd) == 55
+    assert brs_table["total"] == len(brs_rows) == 225
+    assert uds_missing == 0
+    assert brs_missing == 0
 
     payload = {
         "meta": {
             "title": "Registry Inclusion Enrollment (ethnicity first)",
             "layoutNote": (
-                "Inspired by NIH Inclusion Enrollment layout: ethnicity first "
-                "(Not Hispanic or Latino / Hispanic or Latino / Unknown), then race × sex. "
-                "Built from our current UDS, GeneScreen, and BRS sources — not the Dr. Chui "
-                "Inclusion Enrollment Report PDF verbatim."
+                "NIH-style ethnicity-first layout for the dashboard reporting window only: "
+                "UDS visits, GeneScreen consents, and BRS autopsy enrollment."
             ),
             "reportingPeriodLabel": label,
             "startDate": start.isoformat(),
@@ -376,88 +386,55 @@ def main() -> None:
             "ethnicityCategories": ETHNICITY_ORDER,
             "sexCategories": SEX_ORDER,
         },
-        "udsActiveExcludingMinimal": {
-            "label": "UDS · active excluding minimal contact",
+        "udsYtd": {
+            "label": "UDS · participants with a visit",
             "program": "Clinical Core · UDS",
-            "asOfDate": "2026-11-06",
-            "provenance": "span",
+            "asOfDate": end.isoformat(),
+            "provenance": "ytd",
             "source": (
-                "James Wang · ADRC_subject_current_harmonized.csv · der_status_adrc in "
-                "annual in-person / telephone / presumed active / status review "
-                "(excludes Minimal contact, Discontinued, Deceased)"
+                "James Wang · UDS_longitudinal_harmonized.csv visit_date in window · "
+                "race/ethnicity/sex from ADRC_subject_current_harmonized"
             ),
             "definition": (
-                "Current James ADRC statuses that are active and not Minimal contact. "
-                "This is not the Xinhui Table 1 freeze N=585 and not the Dec 31, 2025 "
-                "Inclusion Enrollment PDF."
+                f"Unique participants with a UDS visit in {label}."
             ),
             "ethnicityTotals": ethnicity_totals(uds_table["cells"]),
             **uds_table,
         },
-        "geneScreenComplete": {
-            "label": "GeneScreen · Complete? members",
-            "program": "GeneScreen registry",
-            "asOfDate": "2026-10-07",
-            "provenance": "span",
-            "source": f"USC GeneScreen REDCap · {gs_path.name}",
-            "definition": (
-                "All Complete? records. Ethnicity/Race multi-select uses NACC/NIH category "
-                "names; Hispanic or Latino is ethnicity, remaining tokens are race."
-            ),
-            "ethnicityTotals": ethnicity_totals(gs_complete_table["cells"]),
-            **gs_complete_table,
-        },
-        "geneScreenConsentYtd": {
-            "label": f"GeneScreen · consent date in {label}",
+        "geneScreenYtd": {
+            "label": "GeneScreen · new consents",
             "program": "GeneScreen registry",
             "asOfDate": end.isoformat(),
             "provenance": "span",
             "source": f"USC GeneScreen REDCap · {gs_path.name} · Consent Date",
             "definition": (
-                "Complete? members with Consent Date in the dashboard YTD window. "
-                "Export stops October 7, 2026 (before the October 16 EAC lock)."
+                f"Complete? members with Consent Date in {label}. "
+                "Export stops October 7, 2026."
             ),
-            "ethnicityTotals": ethnicity_totals(gs_ytd_table["cells"]),
-            **gs_ytd_table,
+            "ethnicityTotals": ethnicity_totals(gs_table["cells"]),
+            **gs_table,
         },
-        "brsAllEnrollment": {
-            "label": "BRS autopsy · current enrollment (active + minimal contact)",
+        "brsAutopsy": {
+            "label": "BRS autopsy · enrollment",
             "program": "Brain Research Study (autopsy)",
-            "asOfDate": "2026-10-16",
+            "asOfDate": end.isoformat(),
             "provenance": "ytd",
             "source": (
                 "Xinhui Wang · MAP BRS UDS list N=225 as of 2026-10-16 · sex from person list · "
-                "race/ethnicity from James ADRC_subject_current_harmonized join on uds_id/ptid"
+                "race/ethnicity from James ADRC_subject_current_harmonized"
             ),
             "definition": (
-                "All 225 BRS person-list participants. NIH race/ethnicity from James; "
-                "sex from Xinhui person list."
+                f"BRS autopsy enrollment as of {end.isoformat()} (active + minimal contact)."
             ),
-            "statusBreakdown": dict(status_counts),
-            "ethnicityTotals": ethnicity_totals(brs_all_table["cells"]),
-            **brs_all_table,
-        },
-        "brsExcludingMinimal": {
-            "label": "BRS autopsy · excluding minimal contact",
-            "program": "Brain Research Study (autopsy)",
-            "asOfDate": "2026-10-16",
-            "provenance": "ytd",
-            "source": (
-                "Same BRS N=225 list ∩ James der_status_adrc ≠ Minimal contact"
-            ),
-            "definition": (
-                "BRS person-list participants whose current ADRC status is not Minimal contact."
-            ),
-            "ethnicityTotals": ethnicity_totals(brs_excl_table["cells"]),
-            **brs_excl_table,
+            "ethnicityTotals": ethnicity_totals(brs_table["cells"]),
+            **brs_table,
         },
     }
 
     OUTPUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(
         f"Wrote {OUTPUT.relative_to(ROOT)} · "
-        f"UDS {uds_table['total']} · GS {gs_complete_table['total']}/{gs_ytd_table['total']} · "
-        f"BRS {brs_all_table['total']}/{brs_excl_table['total']}"
+        f"UDS {uds_table['total']} · GS {gs_table['total']} · BRS {brs_table['total']}"
     )
 
 
