@@ -47,9 +47,8 @@ PLACEHOLDER_UI = [
     "Neuropath rates excluding minimal → 115/585 (19.7%) and 115/1125 (10.2%).",
     "GeneScreen registry → geneScreenYtd.json, pink, file stops October 7, 2026 (739 Complete records). Old RPPR 668 is a different count.",
     "Dashboard Table 1 → table1HarmonizedActiveSnapshot.json, black, N=585 as of October 16, 2026. table1Demographics.json N=573 is the old RPPR table.",
-    "Inclusion Enrollment Report 555816 → Clinical Core UDS (not BRS): Cumulative Actual 260 as of 12/31/2025 (green) · Planned 645 (pink) · ethnicity-first from Dr. Chui FINAL PDF.",
-    "GeneScreen Inclusion Enrollment → geneScreenInclusionEnrollment.json from REDCap Ethnicity/Race NACC names: Complete 739 · consent YTD 55 · pink · no live REDCap API.",
-    "GeneScreen Inclusion Enrollment arithmetic → Complete 739 = NH 397 + H 324 + Unk eth 18; consent YTD 55.",
+    "Registry Inclusion Enrollment → registryInclusionEnrollment.json (ethnicity-first from our sources, not Dr. Chui PDF): UDS active excl. Minimal 604 pink · GeneScreen Complete 739 / consent YTD 55 pink · BRS 225 / excl. Minimal 115 black YTD.",
+    "Registry Inclusion Enrollment arithmetic → GS Complete 739 = NH 397 + H 324 + Unk eth 18; BRS Hispanic 46 matches Xinhui codebook; excl. Minimal 115.",
     "Biofluid Collection black totals → Abhay Sagare workbook, January through September 2026. October stays pink.",
     "REC completed/scheduled → red, counted through November 6, 2026 (same through-date as Zoom attendance). Attendance → pink through November 6, 2026 (Sahar Zoom report). The October 16 session has no attendance row.",
     "Clinical lab A1c/lipid/creatinine/BP → null red",
@@ -616,6 +615,37 @@ def batch_cross_file(rppr: dict, t1: dict, pkg: dict) -> BatchResult:
             b.ok(f"Active plus minimal {key} sums to n", total)
         else:
             b.fail(f"Active plus minimal {key} sum", combined_n, total)
+
+    incl = load_json("src/data/registryInclusionEnrollment.json")
+    expected_incl = {
+        "udsActiveExcludingMinimal": 604,
+        "geneScreenComplete": 739,
+        "geneScreenConsentYtd": 55,
+        "brsAllEnrollment": 225,
+        "brsExcludingMinimal": 115,
+    }
+    for key, n in expected_incl.items():
+        actual = (incl.get(key) or {}).get("total")
+        if actual == n:
+            b.ok(f"Registry inclusion {key}", n)
+        else:
+            b.fail(f"Registry inclusion {key}", n, actual)
+    gs_eth = (incl.get("geneScreenComplete") or {}).get("ethnicityTotals") or {}
+    if (
+        gs_eth.get("Not Hispanic or Latino") == 397
+        and gs_eth.get("Hispanic or Latino") == 324
+        and gs_eth.get("Unknown/Not Reported Ethnicity") == 18
+    ):
+        b.ok("GeneScreen Complete ethnicity split", "397+324+18")
+    else:
+        b.fail("GeneScreen Complete ethnicity split", "397/324/18", gs_eth)
+    brs_hisp = ((incl.get("brsAllEnrollment") or {}).get("ethnicityTotals") or {}).get(
+        "Hispanic or Latino"
+    )
+    if brs_hisp == 46:
+        b.ok("BRS Hispanic matches Xinhui codebook", 46)
+    else:
+        b.fail("BRS Hispanic", 46, brs_hisp)
 
     return b
 

@@ -1,0 +1,712 @@
+{
+  "meta": {
+    "title": "Registry Inclusion Enrollment (ethnicity first)",
+    "layoutNote": "Inspired by NIH Inclusion Enrollment layout: ethnicity first (Not Hispanic or Latino / Hispanic or Latino / Unknown), then race \u00d7 sex. Built from our current UDS, GeneScreen, and BRS sources \u2014 not the Dr. Chui Inclusion Enrollment Report PDF verbatim.",
+    "reportingPeriodLabel": "1/1/2026 \u2013 10/16/2026",
+    "startDate": "2026-01-01",
+    "endDate": "2026-10-16",
+    "lastUpdated": "2026-11-18",
+    "raceCategories": [
+      "American Indian/Alaska Native",
+      "Asian",
+      "Native Hawaiian or Other Pacific Islander",
+      "Black or African American",
+      "White",
+      "More than One Race",
+      "Unknown or Not Reported"
+    ],
+    "ethnicityCategories": [
+      "Not Hispanic or Latino",
+      "Hispanic or Latino",
+      "Unknown/Not Reported Ethnicity"
+    ],
+    "sexCategories": [
+      "Female",
+      "Male",
+      "Unknown/Not Reported"
+    ]
+  },
+  "udsActiveExcludingMinimal": {
+    "label": "UDS \u00b7 active excluding minimal contact",
+    "program": "Clinical Core \u00b7 UDS",
+    "asOfDate": "2026-11-06",
+    "provenance": "span",
+    "source": "James Wang \u00b7 ADRC_subject_current_harmonized.csv \u00b7 der_status_adrc in annual in-person / telephone / presumed active / status review (excludes Minimal contact, Discontinued, Deceased)",
+    "definition": "Current James ADRC statuses that are active and not Minimal contact. This is not the Xinhui Table 1 freeze N=585 and not the Dec 31, 2025 Inclusion Enrollment PDF.",
+    "ethnicityTotals": {
+      "Not Hispanic or Latino": 411,
+      "Hispanic or Latino": 193,
+      "Unknown/Not Reported Ethnicity": 0
+    },
+    "total": 604,
+    "cells": {
+      "American Indian/Alaska Native": {
+        "Not Hispanic or Latino": {
+          "Female": 1,
+          "Male": 1,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Asian": {
+        "Not Hispanic or Latino": {
+          "Female": 59,
+          "Male": 34,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Native Hawaiian or Other Pacific Islander": {
+        "Not Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Black or African American": {
+        "Not Hispanic or Latino": {
+          "Female": 45,
+          "Male": 18,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 1,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "White": {
+        "Not Hispanic or Latino": {
+          "Female": 133,
+          "Male": 92,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 13,
+          "Male": 7,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "More than One Race": {
+        "Not Hispanic or Latino": {
+          "Female": 21,
+          "Male": 5,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 26,
+          "Male": 7,
+          "Unknown/Not Reported": 1
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Unknown or Not Reported": {
+        "Not Hispanic or Latino": {
+          "Female": 1,
+          "Male": 1,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 85,
+          "Male": 53,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      }
+    }
+  },
+  "geneScreenComplete": {
+    "label": "GeneScreen \u00b7 Complete? members",
+    "program": "GeneScreen registry",
+    "asOfDate": "2026-10-07",
+    "provenance": "span",
+    "source": "USC GeneScreen REDCap \u00b7 USCGeneScreenRegistr-USCGeneScreenRegistr_DATA_LABELS_2026-10-07_0842.csv",
+    "definition": "All Complete? records. Ethnicity/Race multi-select uses NACC/NIH category names; Hispanic or Latino is ethnicity, remaining tokens are race.",
+    "ethnicityTotals": {
+      "Not Hispanic or Latino": 397,
+      "Hispanic or Latino": 324,
+      "Unknown/Not Reported Ethnicity": 18
+    },
+    "total": 739,
+    "cells": {
+      "American Indian/Alaska Native": {
+        "Not Hispanic or Latino": {
+          "Female": 0,
+          "Male": 1,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Asian": {
+        "Not Hispanic or Latino": {
+          "Female": 41,
+          "Male": 14,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 1,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Native Hawaiian or Other Pacific Islander": {
+        "Not Hispanic or Latino": {
+          "Female": 1,
+          "Male": 2,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 2,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Black or African American": {
+        "Not Hispanic or Latino": {
+          "Female": 25,
+          "Male": 7,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "White": {
+        "Not Hispanic or Latino": {
+          "Female": 207,
+          "Male": 73,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 19,
+          "Male": 12,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "More than One Race": {
+        "Not Hispanic or Latino": {
+          "Female": 20,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 4,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Unknown or Not Reported": {
+        "Not Hispanic or Latino": {
+          "Female": 4,
+          "Male": 2,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 182,
+          "Male": 104,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 14,
+          "Male": 4,
+          "Unknown/Not Reported": 0
+        }
+      }
+    }
+  },
+  "geneScreenConsentYtd": {
+    "label": "GeneScreen \u00b7 consent date in 1/1/2026 \u2013 10/16/2026",
+    "program": "GeneScreen registry",
+    "asOfDate": "2026-10-16",
+    "provenance": "span",
+    "source": "USC GeneScreen REDCap \u00b7 USCGeneScreenRegistr-USCGeneScreenRegistr_DATA_LABELS_2026-10-07_0842.csv \u00b7 Consent Date",
+    "definition": "Complete? members with Consent Date in the dashboard YTD window. Export stops October 7, 2026 (before the October 16 EAC lock).",
+    "ethnicityTotals": {
+      "Not Hispanic or Latino": 41,
+      "Hispanic or Latino": 14,
+      "Unknown/Not Reported Ethnicity": 0
+    },
+    "total": 55,
+    "cells": {
+      "American Indian/Alaska Native": {
+        "Not Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Asian": {
+        "Not Hispanic or Latino": {
+          "Female": 2,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Native Hawaiian or Other Pacific Islander": {
+        "Not Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Black or African American": {
+        "Not Hispanic or Latino": {
+          "Female": 2,
+          "Male": 3,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "White": {
+        "Not Hispanic or Latino": {
+          "Female": 24,
+          "Male": 9,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 1,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "More than One Race": {
+        "Not Hispanic or Latino": {
+          "Female": 1,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Unknown or Not Reported": {
+        "Not Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 8,
+          "Male": 5,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      }
+    }
+  },
+  "brsAllEnrollment": {
+    "label": "BRS autopsy \u00b7 current enrollment (active + minimal contact)",
+    "program": "Brain Research Study (autopsy)",
+    "asOfDate": "2026-10-16",
+    "provenance": "ytd",
+    "source": "Xinhui Wang \u00b7 MAP BRS UDS list N=225 as of 2026-10-16 \u00b7 sex from person list \u00b7 race/ethnicity from James ADRC_subject_current_harmonized join on uds_id/ptid",
+    "definition": "All 225 BRS person-list participants. NIH race/ethnicity from James; sex from Xinhui person list.",
+    "statusBreakdown": {
+      "Minimal contact": 110,
+      "Annual in-person UDS follow-up": 87,
+      "Discontinued": 1,
+      "Annual UDS follow-up by telephone": 11,
+      "Presumed active - no Milestones record; UDS within 24 months": 15,
+      "Status review - no Milestones record; last UDS more than 24 months ago or visit date unresolved": 1
+    },
+    "ethnicityTotals": {
+      "Not Hispanic or Latino": 179,
+      "Hispanic or Latino": 46,
+      "Unknown/Not Reported Ethnicity": 0
+    },
+    "total": 225,
+    "cells": {
+      "American Indian/Alaska Native": {
+        "Not Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Asian": {
+        "Not Hispanic or Latino": {
+          "Female": 12,
+          "Male": 4,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 1,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Native Hawaiian or Other Pacific Islander": {
+        "Not Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Black or African American": {
+        "Not Hispanic or Latino": {
+          "Female": 9,
+          "Male": 3,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 1,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "White": {
+        "Not Hispanic or Latino": {
+          "Female": 91,
+          "Male": 55,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 15,
+          "Male": 7,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "More than One Race": {
+        "Not Hispanic or Latino": {
+          "Female": 2,
+          "Male": 3,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 4,
+          "Male": 3,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Unknown or Not Reported": {
+        "Not Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 8,
+          "Male": 7,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      }
+    }
+  },
+  "brsExcludingMinimal": {
+    "label": "BRS autopsy \u00b7 excluding minimal contact",
+    "program": "Brain Research Study (autopsy)",
+    "asOfDate": "2026-10-16",
+    "provenance": "ytd",
+    "source": "Same BRS N=225 list \u2229 James der_status_adrc \u2260 Minimal contact",
+    "definition": "BRS person-list participants whose current ADRC status is not Minimal contact.",
+    "ethnicityTotals": {
+      "Not Hispanic or Latino": 101,
+      "Hispanic or Latino": 14,
+      "Unknown/Not Reported Ethnicity": 0
+    },
+    "total": 115,
+    "cells": {
+      "American Indian/Alaska Native": {
+        "Not Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Asian": {
+        "Not Hispanic or Latino": {
+          "Female": 7,
+          "Male": 2,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Native Hawaiian or Other Pacific Islander": {
+        "Not Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Black or African American": {
+        "Not Hispanic or Latino": {
+          "Female": 5,
+          "Male": 3,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "White": {
+        "Not Hispanic or Latino": {
+          "Female": 49,
+          "Male": 33,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 0,
+          "Male": 1,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "More than One Race": {
+        "Not Hispanic or Latino": {
+          "Female": 0,
+          "Male": 2,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 1,
+          "Male": 1,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      },
+      "Unknown or Not Reported": {
+        "Not Hispanic or Latino": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        },
+        "Hispanic or Latino": {
+          "Female": 5,
+          "Male": 6,
+          "Unknown/Not Reported": 0
+        },
+        "Unknown/Not Reported Ethnicity": {
+          "Female": 0,
+          "Male": 0,
+          "Unknown/Not Reported": 0
+        }
+      }
+    }
+  }
+}

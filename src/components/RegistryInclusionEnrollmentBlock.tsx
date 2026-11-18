@@ -1,4 +1,4 @@
-import reportJson from "@/data/geneScreenInclusionEnrollment.json";
+import reportJson from "@/data/registryInclusionEnrollment.json";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 import { metricValueClass } from "@/lib/metricValueClass";
 import { HeadingLead } from "@/components/HeadingLead";
@@ -26,29 +26,31 @@ type RaceKey =
 
 type Cells = Record<RaceKey, Record<EthnicityKey, SexCounts>>;
 
-type TableBlock = {
+type CohortTable = {
   label: string;
+  program: string;
   asOfDate: string;
   provenance: DataProvenance;
+  source: string;
   definition: string;
   total: number;
   cells: Cells;
+  ethnicityTotals: Record<EthnicityKey, number>;
 };
 
 const report = reportJson as {
   meta: {
-    program: string;
     title: string;
-    sourceFile: string;
-    sourcePath: string;
-    naccNamingNote: string;
-    accessNote: string;
+    layoutNote: string;
     reportingPeriodLabel: string;
+    raceCategories: RaceKey[];
+    ethnicityCategories: EthnicityKey[];
   };
-  raceCategories: RaceKey[];
-  ethnicityCategories: EthnicityKey[];
-  cumulativeComplete: TableBlock;
-  consentYtd: TableBlock;
+  udsActiveExcludingMinimal: CohortTable;
+  geneScreenComplete: CohortTable;
+  geneScreenConsentYtd: CohortTable;
+  brsAllEnrollment: CohortTable;
+  brsExcludingMinimal: CohortTable;
 };
 
 function cellTotal(sex: SexCounts): number {
@@ -56,45 +58,42 @@ function cellTotal(sex: SexCounts): number {
 }
 
 function getSex(
-  table: TableBlock,
+  table: CohortTable,
   race: RaceKey,
   ethnicity: EthnicityKey,
 ): SexCounts {
   return table.cells[race][ethnicity];
 }
 
-function ethnicityTotal(table: TableBlock, ethnicity: EthnicityKey): number {
-  return report.raceCategories.reduce(
+function ethnicityTotal(table: CohortTable, ethnicity: EthnicityKey): number {
+  return report.meta.raceCategories.reduce(
     (sum, race) => sum + cellTotal(getSex(table, race, ethnicity)),
     0,
   );
 }
 
-function grandTotal(table: TableBlock): number {
-  return report.ethnicityCategories.reduce(
+function grandTotal(table: CohortTable): number {
+  return report.meta.ethnicityCategories.reduce(
     (sum, ethnicity) => sum + ethnicityTotal(table, ethnicity),
     0,
   );
 }
 
 function sexColumnTotal(
-  table: TableBlock,
-  ethnicities: EthnicityKey[],
+  table: CohortTable,
   sexKey: keyof SexCounts,
 ): number {
-  return report.raceCategories.reduce((sum, race) => {
+  return report.meta.raceCategories.reduce((sum, race) => {
     return (
       sum +
-      ethnicities.reduce((inner, ethnicity) => {
+      report.meta.ethnicityCategories.reduce((inner, ethnicity) => {
         return inner + getSex(table, race, ethnicity)[sexKey];
       }, 0)
     );
   }, 0);
 }
 
-function EthnicityFirstTable({ table }: { table: TableBlock }) {
-  const ethnicities = report.ethnicityCategories;
-  const races = report.raceCategories;
+function EthnicityFirstTable({ table }: { table: CohortTable }) {
   const valueClass = metricValueClass(table.provenance, table.total);
 
   return (
@@ -114,14 +113,13 @@ function EthnicityFirstTable({ table }: { table: TableBlock }) {
           </tr>
         </thead>
         <tbody>
-          {ethnicities.map((ethnicity) => {
+          {report.meta.ethnicityCategories.map((ethnicity) => {
             const ethN = ethnicityTotal(table, ethnicity);
             return (
               <EthnicitySection
                 key={ethnicity}
                 ethnicity={ethnicity}
                 ethN={ethN}
-                races={races}
                 table={table}
                 valueClass={valueClass}
               />
@@ -134,17 +132,17 @@ function EthnicityFirstTable({ table }: { table: TableBlock }) {
             <td
               className={`px-3 py-2.5 text-right tabular-nums border-t border-cpbh-mist ${valueClass}`}
             >
-              {sexColumnTotal(table, ethnicities, "Female")}
+              {sexColumnTotal(table, "Female")}
             </td>
             <td
               className={`px-3 py-2.5 text-right tabular-nums border-t border-cpbh-mist ${valueClass}`}
             >
-              {sexColumnTotal(table, ethnicities, "Male")}
+              {sexColumnTotal(table, "Male")}
             </td>
             <td
               className={`px-3 py-2.5 text-right tabular-nums border-t border-cpbh-mist ${valueClass}`}
             >
-              {sexColumnTotal(table, ethnicities, "Unknown/Not Reported")}
+              {sexColumnTotal(table, "Unknown/Not Reported")}
             </td>
             <td
               className={`px-3 py-2.5 text-right tabular-nums border-t border-cpbh-mist ${valueClass}`}
@@ -161,14 +159,12 @@ function EthnicityFirstTable({ table }: { table: TableBlock }) {
 function EthnicitySection({
   ethnicity,
   ethN,
-  races,
   table,
   valueClass,
 }: {
   ethnicity: EthnicityKey;
   ethN: number;
-  races: RaceKey[];
-  table: TableBlock;
+  table: CohortTable;
   valueClass: string;
 }) {
   return (
@@ -184,7 +180,7 @@ function EthnicitySection({
           </span>
         </td>
       </tr>
-      {races.map((race) => {
+      {report.meta.raceCategories.map((race) => {
         const sex = getSex(table, race, ethnicity);
         return (
           <tr key={`${ethnicity}-${race}`} className="border-b border-cpbh-mist/70">
@@ -208,12 +204,15 @@ function EthnicitySection({
   );
 }
 
-function TableSection({ table }: { table: TableBlock }) {
+function CohortSection({ table }: { table: CohortTable }) {
   const ok = grandTotal(table) === table.total;
   return (
-    <div>
-      <div className="mb-3 text-center">
-        <h4 className="font-display text-lg font-semibold text-cpbh-navy">
+    <div className="space-y-3">
+      <div className="text-center">
+        <p className="text-xs font-medium uppercase tracking-wide text-cpbh-navy/55">
+          {table.program}
+        </p>
+        <h4 className="font-display text-lg font-semibold text-cpbh-navy mt-1">
           {table.label}
         </h4>
         <p className="text-sm text-cpbh-navy/60 mt-1">
@@ -228,51 +227,54 @@ function TableSection({ table }: { table: TableBlock }) {
         <p className="text-xs text-cpbh-navy/55 mt-1 max-w-3xl mx-auto leading-relaxed">
           {table.definition}
         </p>
+        <p className="text-[11px] text-cpbh-navy/45 mt-1 max-w-3xl mx-auto leading-relaxed">
+          Source: {table.source}
+        </p>
       </div>
       <EthnicityFirstTable table={table} />
     </div>
   );
 }
 
-export default function GeneScreenInclusionEnrollmentBlock() {
-  const { meta, cumulativeComplete, consentYtd } = report;
+export default function RegistryInclusionEnrollmentBlock() {
+  const {
+    meta,
+    udsActiveExcludingMinimal,
+    geneScreenComplete,
+    geneScreenConsentYtd,
+    brsAllEnrollment,
+    brsExcludingMinimal,
+  } = report;
 
   return (
     <div
       className="dashboard-card overflow-hidden p-0 mt-6"
-      data-deck-slide="genescreen-inclusion-enrollment"
-      data-deck-caption="GeneScreen · Inclusion Enrollment (ethnicity first)"
+      data-deck-slide="registry-inclusion-enrollment"
+      data-deck-caption="Registries · Inclusion Enrollment ethnicity-first (UDS / GeneScreen / BRS)"
     >
       <div className="px-6 pt-6 pb-4 border-b border-cpbh-mist text-center">
-        <p className="text-xs font-medium uppercase tracking-wide text-cpbh-navy/55 mb-1">
-          {meta.program}
-        </p>
         <h3 className="font-display text-xl font-semibold text-cpbh-navy">
           {meta.title}
         </h3>
         <HeadingLead
           className="text-cpbh-navy/60 text-sm mt-1 leading-snug"
-          source={`USC GeneScreen REDCap · ${meta.sourceFile}`}
-          through={formatScopeDate(cumulativeComplete.asOfDate)}
+          source="Our UDS, GeneScreen, and BRS sources (not the Dr. Chui PDF verbatim)"
+          through={meta.reportingPeriodLabel}
         >
-          Pink · export stops October 7, 2026 (before the October 16 EAC lock).
-          Ethnicity first using NACC/NIH category names from the REDCap
-          Ethnicity/Race field, then race × sex.
+          {meta.layoutNote}
         </HeadingLead>
-        <p className="text-cpbh-navy/55 text-xs mt-2 leading-relaxed max-w-3xl mx-auto">
-          {meta.naccNamingNote}
-        </p>
       </div>
 
-      <div className="px-4 sm:px-6 py-5 space-y-8">
-        <TableSection table={cumulativeComplete} />
-        <div className="border-t border-cpbh-mist pt-6">
-          <TableSection table={consentYtd} />
+      <div className="px-4 sm:px-6 py-5 space-y-10">
+        <CohortSection table={udsActiveExcludingMinimal} />
+        <div className="border-t border-cpbh-mist pt-8 space-y-10">
+          <CohortSection table={geneScreenComplete} />
+          <CohortSection table={geneScreenConsentYtd} />
         </div>
-        <p className="text-xs text-cpbh-navy/50 leading-relaxed border-t border-cpbh-mist pt-4">
-          {meta.accessNote} Window label {meta.reportingPeriodLabel}. File:{" "}
-          <code className="text-[11px]">{meta.sourcePath}</code>.
-        </p>
+        <div className="border-t border-cpbh-mist pt-8 space-y-10">
+          <CohortSection table={brsAllEnrollment} />
+          <CohortSection table={brsExcludingMinimal} />
+        </div>
       </div>
     </div>
   );
