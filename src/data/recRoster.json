@@ -7,7 +7,7 @@
       "trainingPrograms": "data/reference/rec/training-programs.csv",
       "meetingAttendance": "data/reference/rec/meeting-attendance.csv"
     },
-    "syncedAt": "2026-11-17T20:51:19Z",
+    "syncedAt": "2026-11-23T18:04:23Z",
     "maintenance": "Edit CSV files under data/reference/rec/ then run: npm run sync:rec"
   },
   "scholarsTrainees": {

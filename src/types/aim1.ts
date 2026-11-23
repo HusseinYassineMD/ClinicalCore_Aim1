@@ -310,7 +310,8 @@ export interface SpecimenSharingByPeriod {
 
 export interface RecMeetingAttendanceRow {
   sessionDate: string;
-  attendees: number;
+  /** Null when the session is on the schedule but Zoom headcount is not yet reported. */
+  attendees: number | null;
   reportedBy?: string | null;
   topic?: string | null;
   zoomMeetingId?: string | null;
@@ -334,6 +335,8 @@ export interface RecMetrics {
   attendanceSessions: RecMeetingAttendanceRow[];
   /** Latest Zoom attendance session date in meeting-attendance.csv */
   attendanceThroughDate?: string;
+  /** Calendar reporting window start (usually Jan 1). */
+  windowStartDate?: string;
 }
 
 export interface RecScholarTraineeRow {

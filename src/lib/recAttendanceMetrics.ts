@@ -28,17 +28,22 @@ function parseDay(value: string): Date | null {
   return Number.isNaN(d.getTime()) ? null : d;
 }
 
-/** Zoom attendance for completed REC speaker-series sessions through referenceDate. */
+/** Zoom attendance for completed REC speaker-series sessions in [windowStart, referenceDate]. */
 export function getRecAttendanceTotals(
   referenceDate: Date = new Date(),
+  windowStartIso: string = "2026-01-01",
 ): RecAttendanceTotals {
   const ref = parseDay(referenceDate.toISOString().slice(0, 10)) ?? referenceDate;
   const refMs = ref.getTime();
+  const start = parseDay(windowStartIso);
+  const startMs = start?.getTime() ?? 0;
 
   const sessions = (recMeetingAttendance.sessions as RecAttendanceSession[])
     .filter((row) => {
       const day = parseDay(row.sessionDate);
-      return day != null && day.getTime() <= refMs;
+      if (day == null) return false;
+      const ms = day.getTime();
+      return ms >= startMs && ms <= refMs;
     })
     .sort((a, b) => a.sessionDate.localeCompare(b.sessionDate));
 

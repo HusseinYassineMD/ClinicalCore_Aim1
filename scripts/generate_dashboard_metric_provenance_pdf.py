@@ -80,29 +80,33 @@ def harmonized_csv_path(filename: str) -> str:
     return f"data/rppr-data-package/{filename}"
 
 
-def rec_session_counts(as_of_iso: str) -> tuple[int, int, str]:
-    """Match src/lib/recSpeakerMetrics.ts completed/scheduled logic."""
+def rec_session_counts(
+    as_of_iso: str, window_start_iso: str = "2026-01-01"
+) -> tuple[int, int, str]:
+    """Match src/lib/recSpeakerMetrics.ts calendar-YTD completed/scheduled logic."""
     from datetime import datetime
 
     data = json.loads((ROOT / "src/data/recSpeakerSeries.json").read_text(encoding="utf-8"))
-    ref = datetime.strptime(as_of_iso[:10], "%Y-%m-%d")
     years = data.get("years") or {}
-    year_key = (
-        "2026-2027"
-        if "2026-2027" in years
-        else sorted(years.keys(), reverse=True)[0]
-    )
-    block = years[year_key]
     ref_day = datetime.strptime(as_of_iso[:10], "%Y-%m-%d").date()
+    window_start = datetime.strptime(window_start_iso[:10], "%Y-%m-%d").date()
+    entries = []
+    for block in years.values():
+        for entry in block.get("entries") or []:
+            day = datetime.strptime(entry["date"][:10], "%Y-%m-%d").date()
+            if day >= window_start:
+                entries.append((day, entry))
+    entries.sort(key=lambda row: row[0])
     completed = scheduled = 0
-    for entry in block.get("entries") or []:
-        day = datetime.strptime(entry["date"][:10], "%Y-%m-%d").date()
+    for day, entry in entries:
         if day < ref_day:
             if entry.get("status") != "Open" and entry.get("name") != "Open slot":
                 completed += 1
         else:
             scheduled += 1
-    return completed, scheduled, block.get("label") or year_key
+    last = entries[-1][0].isoformat() if entries else window_start_iso
+    label = f"Calendar YTD from {window_start_iso} · schedule through {last}"
+    return completed, scheduled, label
 
 PDF_FILL = {
     "black": (230, 230, 230),

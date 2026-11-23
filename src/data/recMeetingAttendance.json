@@ -5,7 +5,7 @@
     "zoomReportCsv": "data/reference/rec/meetinglistdetails_2026_10_09_2026_11_08.csv",
     "reportedBy": "Sahar Nikkhah Bahrami",
     "reportReceivedDate": "2026-11-16",
-    "syncedAt": "2026-11-17T20:51:19Z",
+    "syncedAt": "2026-11-23T18:04:23Z",
     "maintenance": "Edit meeting-attendance.csv then run: npm run sync:rec",
     "note": "Zoom Participants counts from ADRC REC Meeting rows. The October 16 session is not in Sahar\u2019s Oct 9\u2013Nov 8 Zoom export."
   },

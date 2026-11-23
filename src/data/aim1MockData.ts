@@ -12,7 +12,6 @@ import { latestTimestamp } from "@/lib/formatLastUpdated";
 import { getRecAttendanceTotals } from "@/lib/recAttendanceMetrics";
 import { getRecSessionCounts } from "@/lib/recSpeakerMetrics";
 import recMeetingAttendance from "@/data/recMeetingAttendance.json";
-import recSpeakerSeries from "@/data/recSpeakerSeries.json";
 import rpprDataPackageMeta from "@/data/rpprDataPackageMeta.json";
 import rpprDataPackage from "@/data/rpprDataPackage.json";
 import biomarkerCoreSampleProcessing2026 from "@/data/biomarkerCoreSampleProcessing2026.json";
@@ -399,8 +398,8 @@ export const aim1MockData: Aim1DashboardData = {
         {
           title: "Speaker series",
           lines: [
-            "Completed/scheduled from recSpeakerSeries.json",
-            "Zoom attendance from meeting-attendance.csv · Sahar Nikkhah Bahrami Zoom report through November 6, 2026",
+            "Completed/scheduled from recSpeakerSeries.json · calendar YTD from January 1, 2026 (spring + fall)",
+            "Zoom attendance from meeting-attendance.csv · Sahar Nikkhah Bahrami Zoom report through November 6, 2026 (fall only so far)",
           ],
         },
       ],
@@ -886,6 +885,8 @@ export const aim1MockData: Aim1DashboardData = {
 
   rec: (() => {
     // Pink Zoom attendance uses Sahar's latest report, not the EAC October 16 lock.
+    // Schedule counts use calendar YTD (Jan 1+) so spring 2026 is included with fall.
+    const windowStart = siteReportingWindow.startDate;
     const lastAttendanceDate =
       [...(recMeetingAttendance.sessions ?? [])]
         .map((s) => s.sessionDate)
@@ -896,25 +897,22 @@ export const aim1MockData: Aim1DashboardData = {
     // that day counts as completed: pass the next calendar day into the helper).
     const sessionCountAsOf = new Date(`${lastAttendanceDate}T12:00:00`);
     sessionCountAsOf.setDate(sessionCountAsOf.getDate() + 1);
-    const sessions = getRecSessionCounts(sessionCountAsOf);
+    const sessions = getRecSessionCounts(sessionCountAsOf, windowStart);
     const attendance = getRecAttendanceTotals(
       new Date(`${lastAttendanceDate}T12:00:00`),
+      windowStart,
     );
-    const speakerByDate = new Map<string, { name: string; title: string }>();
-    for (const year of Object.values(
-      (recSpeakerSeries.years ?? {}) as Record<
-        string,
-        { entries?: { date?: string; name?: string; title?: string }[] }
-      >,
-    )) {
-      for (const entry of year.entries ?? []) {
-        if (!entry.date || !entry.name) continue;
-        speakerByDate.set(entry.date, {
-          name: entry.name,
-          title: entry.title ?? "",
-        });
-      }
-    }
+    const attendanceByDate = new Map(
+      attendance.sessions.map((s) => [s.sessionDate, s] as const),
+    );
+    // Table: every completed schedule session from Jan 1 through attendance date,
+    // with Zoom headcount when Sahar has reported it (spring rows show — until then).
+    const completedScheduleRows = sessions.entries.filter((entry) => {
+      const day = entry.date;
+      if (day < windowStart || day > lastAttendanceDate) return false;
+      if (entry.status === "Open" || entry.name === "Open slot") return false;
+      return true;
+    });
     const attendanceAsOfLabel = new Date(
       `${lastAttendanceDate}T12:00:00`,
     ).toLocaleDateString("en-US", {
@@ -931,24 +929,25 @@ export const aim1MockData: Aim1DashboardData = {
       avgAttendees: attendance.avgAttendees,
       totalAttendees: attendance.totalAttendees,
       attendanceSessionCount: attendance.sessionCount,
-      attendanceSessions: attendance.sessions.map((s) => {
-        const speaker = speakerByDate.get(s.sessionDate);
+      attendanceSessions: completedScheduleRows.map((entry) => {
+        const zoom = attendanceByDate.get(entry.date);
         return {
-          sessionDate: s.sessionDate,
-          attendees: s.attendees,
-          reportedBy: s.reportedBy,
-          topic: s.topic ?? null,
-          zoomMeetingId: s.zoomMeetingId ?? null,
-          startTime: s.startTime ?? null,
-          endTime: s.endTime ?? null,
-          durationMinutes: s.durationMinutes ?? null,
-          totalParticipantMinutes: s.totalParticipantMinutes ?? null,
-          sourceFile: s.sourceFile ?? null,
-          speakerName: speaker?.name ?? null,
-          talkTitle: speaker?.title || null,
+          sessionDate: entry.date,
+          attendees: zoom?.attendees ?? null,
+          reportedBy: zoom?.reportedBy ?? null,
+          topic: zoom?.topic ?? null,
+          zoomMeetingId: zoom?.zoomMeetingId ?? null,
+          startTime: zoom?.startTime ?? null,
+          endTime: zoom?.endTime ?? null,
+          durationMinutes: zoom?.durationMinutes ?? null,
+          totalParticipantMinutes: zoom?.totalParticipantMinutes ?? null,
+          sourceFile: zoom?.sourceFile ?? null,
+          speakerName: entry.name ?? null,
+          talkTitle: entry.title || null,
         };
       }),
       attendanceThroughDate: lastAttendanceDate,
+      windowStartDate: windowStart,
     };
   })(),
 

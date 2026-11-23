@@ -21,6 +21,9 @@ export interface RecSessionCounts {
   academicYear: string;
   seriesLabel: string;
   asOfDate: string;
+  windowStartDate: string;
+  /** All schedule entries in the window (across academic years), sorted by date. */
+  entries: RecSpeakerEntry[];
 }
 
 function startOfDay(date: Date): Date {
@@ -43,38 +46,43 @@ function formatAsOfDate(date: Date): string {
   });
 }
 
-function pickAcademicYear(
-  years: Record<string, RecSpeakerYear>,
-  today: Date,
-): string {
-  const todayMs = startOfDay(today).getTime();
-  const keys = Object.keys(years).sort((a, b) => b.localeCompare(a));
-
-  for (const year of keys) {
-    const dates = years[year].entries
-      .map((entry) => parseEntryDate(entry.date))
-      .filter((entry): entry is Date => entry != null);
-    if (!dates.length) continue;
-
-    const min = Math.min(...dates.map((d) => d.getTime()));
-    const max = Math.max(...dates.map((d) => d.getTime()));
-    if (todayMs >= min && todayMs <= max) {
-      return year;
-    }
-  }
-
-  return keys[0] ?? "";
+function formatIsoDay(date: Date): string {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
 }
 
-/** Match REC Speaker Series dashboard: past booked vs all upcoming slots. */
+function allEntries(
+  years: Record<string, RecSpeakerYear>,
+): RecSpeakerEntry[] {
+  const rows: RecSpeakerEntry[] = [];
+  for (const block of Object.values(years)) {
+    for (const entry of block.entries ?? []) {
+      if (entry?.date) rows.push(entry);
+    }
+  }
+  return rows.sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/**
+ * Calendar reporting window (default: site YTD from Jan 1) across academic-year
+ * blocks — so spring sessions in 2025–2026 are included with fall 2026–2027.
+ */
 export function getRecSessionCounts(
   referenceDate: Date = new Date(),
+  windowStartIso: string = "2026-01-01",
 ): RecSessionCounts {
   const years = recSpeakerSeries.years as Record<string, RecSpeakerYear>;
-  const academicYear = pickAcademicYear(years, referenceDate);
-  const block = years[academicYear];
-  const entries = block?.entries ?? [];
   const today = startOfDay(referenceDate);
+  const windowStart =
+    parseEntryDate(windowStartIso) ?? parseEntryDate("2026-01-01")!;
+  const windowStartDate = formatIsoDay(windowStart);
+
+  const entries = allEntries(years).filter((entry) => {
+    const date = parseEntryDate(entry.date);
+    return date != null && date >= windowStart;
+  });
 
   let completed = 0;
   let scheduled = 0;
@@ -93,11 +101,18 @@ export function getRecSessionCounts(
     scheduled += 1;
   }
 
+  const lastDate = entries.at(-1)?.date;
+  const seriesLabel = lastDate
+    ? `Calendar YTD from ${windowStartDate} · schedule through ${lastDate}`
+    : `Calendar YTD from ${windowStartDate}`;
+
   return {
     completed,
     scheduled,
-    academicYear,
-    seriesLabel: block?.label ?? academicYear,
+    academicYear: "calendar-ytd",
+    seriesLabel,
     asOfDate: formatAsOfDate(referenceDate),
+    windowStartDate,
+    entries,
   };
 }

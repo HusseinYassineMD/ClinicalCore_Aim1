@@ -15,8 +15,12 @@ export default function RecSection({ data, roster }: RecSectionProps) {
     data.attendanceThroughDate ??
     data.attendanceSessions.at(-1)?.sessionDate ??
     null;
+  const windowStart = data.windowStartDate ?? "2026-01-01";
   const zoomSessionCount = data.attendanceSessions.filter(
-    (row) => row.sourceFile,
+    (row) => row.sourceFile || (row.attendees != null && row.reportedBy),
+  ).length;
+  const scheduleOnlyCount = data.attendanceSessions.filter(
+    (row) => row.attendees == null,
   ).length;
 
   return (
@@ -33,8 +37,8 @@ export default function RecSection({ data, roster }: RecSectionProps) {
           {sourceThroughText(
             "REC database · recSpeakerSeries.json and data/reference/rec",
             attendanceThrough
-              ? `speaker schedule May 14, 2027 · attendance ${formatScopeDate(attendanceThrough)}`
-              : "speaker schedule May 14, 2027",
+              ? `schedule from ${formatScopeDate(windowStart)} · attendance through ${formatScopeDate(attendanceThrough)}`
+              : `schedule from ${formatScopeDate(windowStart)}`,
             "Research Education Component · speaker series, scholars, faculty, and training programs.",
           )}
         </p>
@@ -53,8 +57,8 @@ export default function RecSection({ data, roster }: RecSectionProps) {
                 "REC_Database/REC_SpeakerSeries/data/speakers.json",
                 attendanceThrough
                   ? formatScopeDate(attendanceThrough)
-                  : "May 14, 2027",
-                `Friday sessions · as of ${data.asOfDate}`,
+                  : formatScopeDate(windowStart),
+                `Calendar YTD from ${formatScopeDate(windowStart)} · Friday sessions · as of ${data.asOfDate}`,
               )}
               accent="teal"
               provenance="unknown"
@@ -68,7 +72,7 @@ export default function RecSection({ data, roster }: RecSectionProps) {
                   ? formatScopeDate(attendanceThrough)
                   : "—",
                 data.attendanceSessionCount
-                  ? `${data.attendanceSessionCount} sessions with attendance · ${zoomSessionCount} from the Oct 9–Nov 8 Zoom export. The October 16 session is not in that report.`
+                  ? `${data.attendanceSessionCount} sessions with Zoom attendance · ${zoomSessionCount} with report detail. Spring sessions are on the schedule; Zoom headcounts for Jan–June are not in this file yet.`
                   : undefined,
               )}
               accent="navy"
@@ -83,7 +87,7 @@ export default function RecSection({ data, roster }: RecSectionProps) {
                   ? formatScopeDate(attendanceThrough)
                   : "—",
                 data.attendanceSessionCount
-                  ? `${data.totalAttendees} attendees across ${data.attendanceSessionCount} sessions`
+                  ? `${data.totalAttendees} attendees across ${data.attendanceSessionCount} Zoom-reported sessions`
                   : undefined,
               )}
               accent="sky"
@@ -115,7 +119,7 @@ export default function RecSection({ data, roster }: RecSectionProps) {
                         {formatScopeDate(row.sessionDate)}
                       </td>
                       <td className="py-2.5 text-right tabular-nums font-medium text-cpbh-navy">
-                        {row.attendees}
+                        {row.attendees != null ? row.attendees : "—"}
                       </td>
                     </tr>
                   ))}
@@ -125,8 +129,11 @@ export default function RecSection({ data, roster }: RecSectionProps) {
           ) : null}
           <p className="text-xs text-cpbh-navy/45 mt-4 border-t border-cpbh-mist pt-3">
             Schedule from ADRC REC Speaker Series ·{" "}
-            <span className="font-mono">{data.seriesLabel}</span>. Zoom
-            attendance from Sahar Nikkhah Bahrami’s meeting list (
+            <span className="font-mono">{data.seriesLabel}</span>
+            {scheduleOnlyCount > 0
+              ? ` · ${scheduleOnlyCount} completed sessions awaiting Zoom headcount`
+              : ""}
+            . Zoom attendance from Sahar Nikkhah Bahrami’s meeting list (
             <span className="font-mono">
               meetinglistdetails_2026_10_09_2026_11_08.csv
             </span>
