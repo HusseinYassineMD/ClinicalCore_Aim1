@@ -45,7 +45,7 @@ PLACEHOLDER_UI = [
     "ADRC Spanish primary toggle → adrcYtdSpanishUds.json · in-person 35 / remote 3 / initial 3 (der_latest_primary_language = Spanish).",
     "BRS enrollment tiles → 225 active+min.cont; excluding minimal contact 115 (110 minimal) from person list ∩ der_status_adrc.",
     "Neuropath rates excluding minimal → 115/585 (19.7%) and 115/1125 (10.2%).",
-    "GeneScreen registry → geneScreenYtd.json, pink, file stops October 7, 2026 (739 Complete records). Old RPPR 668 is a different count.",
+    "GeneScreen registry → geneScreenYtd.json, pink, file stops October 7, 2026 (739 Complete records). Chart toggle: new members n=55 vs all Complete n=739. Old RPPR 668 is a different count.",
     "Dashboard Table 1 → table1HarmonizedActiveSnapshot.json, black, N=585 as of October 16, 2026. table1Demographics.json N=573 is the old RPPR table.",
     "Registry Inclusion Enrollment → registryInclusionEnrollment.json YTD 1/1/2026–10/16/2026 only: UDS visits 310 black · GeneScreen consents 55 pink · BRS autopsy 225 black.",
     "Registry Inclusion Enrollment arithmetic → three tables only; BRS Hispanic 46 matches Xinhui codebook.",

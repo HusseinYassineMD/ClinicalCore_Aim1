@@ -53,6 +53,52 @@
     "males": 220,
     "females": 519,
     "apoe4Carriers": 229,
+    "ethnicity": [
+      {
+        "label": "Hispanic",
+        "count": 324
+      },
+      {
+        "label": "White",
+        "count": 285
+      },
+      {
+        "label": "Black",
+        "count": 39
+      },
+      {
+        "label": "Asian",
+        "count": 56
+      },
+      {
+        "label": "Other",
+        "count": 17
+      },
+      {
+        "label": "Unknown",
+        "count": 18
+      }
+    ],
+    "gender": [
+      {
+        "label": "Male",
+        "count": 220
+      },
+      {
+        "label": "Female",
+        "count": 519
+      }
+    ],
+    "apoe4": [
+      {
+        "label": "APOE4 carrier",
+        "count": 229
+      },
+      {
+        "label": "Non-carrier",
+        "count": 510
+      }
+    ],
     "note": "All Complete? records in source CSV (cumulative REDCap export, not RPPR 668)."
   }
 }

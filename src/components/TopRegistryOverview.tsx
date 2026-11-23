@@ -54,6 +54,14 @@ import {
   adrcYtdVisitN,
   adrcYtdVisitReferralItems,
 } from "@/data/adrcYtdBreakdown";
+import {
+  geneScreenAllCompleteApoeItems,
+  geneScreenAllCompleteCaption,
+  geneScreenAllCompleteEthnicityItems,
+  geneScreenAllCompleteGenderItems,
+  geneScreenAllCompleteN,
+  geneScreenNewMembersN,
+} from "@/data/geneScreenBreakdown";
 import { udsLatestVisitDate } from "@/data/siteReporting";
 import { formatScopeDate } from "@/lib/formatScopeDate";
 import { sourceThroughText } from "@/components/HeadingLead";
@@ -1315,6 +1323,7 @@ function columnAccentBorder(column: RegistryColumn): string {
 }
 
 type YtdChartCohort = "initial" | "visits";
+type GeneScreenChartCohort = "newMembers" | "allComplete";
 type UdsFocus = RecruitmentPhase | "minimal" | "combined";
 type BrsFocus = "all" | "excludingMinimal";
 
@@ -1359,6 +1368,46 @@ function adrcAllVisitChartSlots(): [
   ];
 }
 
+function geneScreenAllCompleteChartSlots(): [
+  RegistryChartSlot,
+  RegistryChartSlot,
+  RegistryChartSlot,
+] {
+  const span = "span" as const;
+  return [
+    {
+      title: "Ethnicity",
+      type: "bar",
+      provenance: span,
+      nProvenance: span,
+      chartProvenance: span,
+      n: geneScreenAllCompleteN,
+      nCaption: geneScreenAllCompleteCaption,
+      items: geneScreenAllCompleteEthnicityItems(),
+    },
+    {
+      title: "APOE4",
+      type: "pie",
+      provenance: span,
+      nProvenance: span,
+      chartProvenance: span,
+      n: geneScreenAllCompleteN,
+      nCaption: geneScreenAllCompleteCaption,
+      items: geneScreenAllCompleteApoeItems(),
+    },
+    {
+      title: "Gender",
+      type: "bar",
+      provenance: span,
+      nProvenance: span,
+      chartProvenance: span,
+      n: geneScreenAllCompleteN,
+      nCaption: geneScreenAllCompleteCaption,
+      items: geneScreenAllCompleteGenderItems(),
+    },
+  ];
+}
+
 function activeChartSlotsForColumn(
   column: RegistryColumn,
 ): [RegistryChartSlot, RegistryChartSlot, RegistryChartSlot] {
@@ -1372,7 +1421,11 @@ function chartSlotsForColumn(
   phase: RecruitmentPhase | undefined,
   cohort: YtdChartCohort,
   focus?: UdsFocus,
+  geneScreenCohort: GeneScreenChartCohort = "newMembers",
 ): [RegistryChartSlot, RegistryChartSlot, RegistryChartSlot] {
+  if (column.id === "genescreen" && geneScreenCohort === "allComplete") {
+    return geneScreenAllCompleteChartSlots();
+  }
   if (column.id === "adrc" && (focus === "minimal" || focus === "combined")) {
     return yearToDateChartSlotsFromColumn(column);
   }
@@ -1421,6 +1474,61 @@ function YtdCohortToggle({
                 selected
                   ? "border-cpbh-navy ring-2 ring-cpbh-navy/25"
                   : "border-cpbh-mist hover:border-cpbh-navy/30"
+              }`}
+            >
+              <span className="block text-[10px] font-medium uppercase tracking-wide text-cpbh-navy/70">
+                {option.label}
+              </span>
+              <span className="block text-sm font-semibold tabular-nums text-cpbh-navy">
+                n={option.n}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function GeneScreenCohortToggle({
+  value,
+  onChange,
+}: {
+  value: GeneScreenChartCohort;
+  onChange: (value: GeneScreenChartCohort) => void;
+}) {
+  const options: { id: GeneScreenChartCohort; label: string; n: number }[] = [
+    {
+      id: "newMembers",
+      label: "New members",
+      n: geneScreenNewMembersN,
+    },
+    {
+      id: "allComplete",
+      label: "All complete members",
+      n: geneScreenAllCompleteN,
+    },
+  ];
+
+  return (
+    <div className="mb-1">
+      <p className="mb-1.5 text-center text-[11px] leading-snug text-cpbh-navy/65">
+        n={geneScreenNewMembersN} is a new member by Consent Date this year.
+        n={geneScreenAllCompleteN} is every Complete? record in the GeneScreen
+        REDCap export. Choose one cohort.
+      </p>
+      <div className="flex justify-center gap-2">
+        {options.map((option) => {
+          const selected = value === option.id;
+          return (
+            <button
+              key={option.id}
+              type="button"
+              onClick={() => onChange(option.id)}
+              className={`rounded-lg border bg-white px-3 py-1.5 text-center shadow-sm ${
+                selected
+                  ? "border-cpbh-purple ring-2 ring-cpbh-purple/25"
+                  : "border-cpbh-mist hover:border-cpbh-purple/30"
               }`}
             >
               <span className="block text-[10px] font-medium uppercase tracking-wide text-cpbh-navy/70">
@@ -1763,6 +1871,8 @@ function RegistryColumnCard({
   onSelectBrsFocus,
   ytdCohort,
   onSelectYtdCohort,
+  geneScreenCohort,
+  onSelectGeneScreenCohort,
 }: {
   column: RegistryColumn;
   udsBoxes?: UdsPeriodBox[];
@@ -1775,10 +1885,19 @@ function RegistryColumnCard({
   onSelectBrsFocus?: (focus: BrsFocus) => void;
   ytdCohort: YtdChartCohort;
   onSelectYtdCohort: (cohort: YtdChartCohort) => void;
+  geneScreenCohort: GeneScreenChartCohort;
+  onSelectGeneScreenCohort: (cohort: GeneScreenChartCohort) => void;
 }) {
   const chartsProvenance = chartsProvenanceForColumn(column);
-  const slots = chartSlotsForColumn(column, phase, ytdCohort, udsFocus);
+  const slots = chartSlotsForColumn(
+    column,
+    phase,
+    ytdCohort,
+    udsFocus,
+    geneScreenCohort,
+  );
   const showYtdCohortToggle = column.id === "adrc" && udsFocus === "ytd";
+  const showGeneScreenCohortToggle = column.id === "genescreen";
 
   return (
     <div
@@ -1798,6 +1917,12 @@ function RegistryColumnCard({
       <RegistryYtdBlock column={column} />
       {showYtdCohortToggle ? (
         <YtdCohortToggle value={ytdCohort} onChange={onSelectYtdCohort} />
+      ) : null}
+      {showGeneScreenCohortToggle ? (
+        <GeneScreenCohortToggle
+          value={geneScreenCohort}
+          onChange={onSelectGeneScreenCohort}
+        />
       ) : null}
       <div className="flex flex-col gap-2.5 shrink-0 w-full min-w-0">
         {slots.map((slot, index) =>
@@ -1840,6 +1965,8 @@ function RegistryAlignedDesktop({
   onSelectBrsFocus,
   ytdCohort,
   onSelectYtdCohort,
+  geneScreenCohort,
+  onSelectGeneScreenCohort,
 }: {
   columns: RegistryColumn[];
   udsBoxes?: UdsPeriodBox[];
@@ -1852,13 +1979,22 @@ function RegistryAlignedDesktop({
   onSelectBrsFocus?: (focus: BrsFocus) => void;
   ytdCohort: YtdChartCohort;
   onSelectYtdCohort: (cohort: YtdChartCohort) => void;
+  geneScreenCohort: GeneScreenChartCohort;
+  onSelectGeneScreenCohort: (cohort: GeneScreenChartCohort) => void;
 }) {
   return (
     <div className="hidden xl:flex xl:flex-col xl:gap-6 w-full mx-auto">
       {columns.map((col) => {
         const chartsProvenance = chartsProvenanceForColumn(col);
-        const slots = chartSlotsForColumn(col, phase, ytdCohort, udsFocus);
+        const slots = chartSlotsForColumn(
+          col,
+          phase,
+          ytdCohort,
+          udsFocus,
+          geneScreenCohort,
+        );
         const showYtdCohortToggle = col.id === "adrc" && udsFocus === "ytd";
+        const showGeneScreenCohortToggle = col.id === "genescreen";
         const rowAccent =
           col.id === "adrc"
             ? "bg-cpbh-navy"
@@ -1905,6 +2041,12 @@ function RegistryAlignedDesktop({
                   <YtdCohortToggle
                     value={ytdCohort}
                     onChange={onSelectYtdCohort}
+                  />
+                ) : null}
+                {showGeneScreenCohortToggle ? (
+                  <GeneScreenCohortToggle
+                    value={geneScreenCohort}
+                    onChange={onSelectGeneScreenCohort}
                   />
                 ) : null}
                 <div className="grid min-w-0 flex-1 grid-cols-1 items-stretch gap-3 sm:grid-cols-3">
@@ -1962,6 +2104,8 @@ export default function TopRegistryOverview({
   const [udsFocus, setUdsFocus] = useState<UdsFocus>("ytd");
   const [brsFocus, setBrsFocus] = useState<BrsFocus>("all");
   const [ytdCohort, setYtdCohort] = useState<YtdChartCohort>("initial");
+  const [geneScreenCohort, setGeneScreenCohort] =
+    useState<GeneScreenChartCohort>("newMembers");
   const selectPhase = (next: RecruitmentPhase) => {
     setUdsFocus(next);
     setPhase(next);
@@ -2008,6 +2152,8 @@ export default function TopRegistryOverview({
         onSelectBrsFocus={setBrsFocus}
         ytdCohort={ytdCohort}
         onSelectYtdCohort={setYtdCohort}
+        geneScreenCohort={geneScreenCohort}
+        onSelectGeneScreenCohort={setGeneScreenCohort}
       />
       <div className="grid grid-cols-1 gap-8 xl:hidden">
         {columns.map((col) => (
@@ -2024,6 +2170,8 @@ export default function TopRegistryOverview({
             onSelectBrsFocus={setBrsFocus}
             ytdCohort={ytdCohort}
             onSelectYtdCohort={setYtdCohort}
+            geneScreenCohort={geneScreenCohort}
+            onSelectGeneScreenCohort={setGeneScreenCohort}
           />
         ))}
       </div>

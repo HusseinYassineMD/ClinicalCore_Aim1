@@ -162,11 +162,12 @@ export const DASHBOARD_METRIC_AUDIT: MetricAuditRow[] = [
   },
   {
     section: "Recruitment · GeneScreen",
-    metric: "Charts · year to date (ethnicity, APOE, gender)",
-    value: "n=55 · REDCap-derived",
+    metric: "Charts · cohort toggle (ethnicity, APOE, gender)",
+    value: "n=55 new members · n=739 all Complete",
     tier: "verified",
     source: "geneScreenYtd.json",
-    notes: "Pink. Ethnicity 14 + 33 + 5 + 2 + 1 = 55. The old RPPR total of 668 is a different count.",
+    notes:
+      "Pink. Toggle above the charts. New members: ethnicity 14+33+5+2+1=55. All Complete: ethnicity 324+285+39+56+17+18 Unknown=739. Old RPPR 668 is a different count.",
   },
   {
     section: "Recruitment · GeneScreen",

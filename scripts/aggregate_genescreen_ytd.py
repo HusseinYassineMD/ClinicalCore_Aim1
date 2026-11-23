@@ -90,10 +90,12 @@ def main() -> None:
     carriers = sum(1 for r in consent_ytd if apoe4_carrier(r.get("Genotype", "")))
     non_carriers = len(consent_ytd) - carriers
 
+    eth_all = Counter(ethnicity_bucket(r.get("Ethnicity/Race", "")) for r in rows)
     sex_all = Counter(
         (r.get("Sex ") or r.get("Sex") or "").strip() or "Unknown" for r in rows
     )
     apoe4_all = sum(1 for r in rows if apoe4_carrier(r.get("Genotype", "")))
+    eth_order = ["Hispanic", "White", "Black", "Asian", "Other", "Unknown"]
 
     payload = {
         "lastUpdated": datetime.now().strftime("%Y-%m-%d"),
@@ -103,10 +105,7 @@ def main() -> None:
         "sourceFile": source.name,
         "newMembersByConsentDate": len(consent_ytd),
         "onlineEnrollmentsByMembershipTimestamp": len(membership_ytd),
-        "ethnicity": chart_rows(
-            eth,
-            ["Hispanic", "White", "Black", "Asian", "Other"],
-        ),
+        "ethnicity": chart_rows(eth, eth_order),
         "gender": chart_rows(sex, ["Male", "Female"]),
         "apoe4": [
             {"label": "APOE4 carrier", "count": carriers},
@@ -117,6 +116,12 @@ def main() -> None:
             "males": sex_all.get("Male", 0),
             "females": sex_all.get("Female", 0),
             "apoe4Carriers": apoe4_all,
+            "ethnicity": chart_rows(eth_all, eth_order),
+            "gender": chart_rows(sex_all, ["Male", "Female"]),
+            "apoe4": [
+                {"label": "APOE4 carrier", "count": apoe4_all},
+                {"label": "Non-carrier", "count": len(rows) - apoe4_all},
+            ],
             "note": "All Complete? records in source CSV (cumulative REDCap export, not RPPR 668).",
         },
     }
